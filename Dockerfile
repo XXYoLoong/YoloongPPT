@@ -1,15 +1,12 @@
-FROM node:22-bookworm-slim
+FROM debian:bookworm-slim
 
-ENV PYTHONDONTWRITEBYTECODE=1 \
-    PYTHONUNBUFFERED=1
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
+        bash \
         ca-certificates \
         git \
-        python3 \
-        python3-pip \
-        python3-venv \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace

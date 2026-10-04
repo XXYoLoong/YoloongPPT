@@ -11,7 +11,7 @@ AI PPT 生成系统项目。当前仓库包含 V0.3 需求基线和隔离开发�
 
 ## Docker 隔离开发环境
 
-需要 Docker Desktop 和 Docker Compose。容器提供 Python 与 Node.js 开发运行时；源码目录挂载到容器供编辑，语言依赖保存在项目专属 Docker 卷中。
+需要 Docker Desktop 和 Docker Compose。当前容器只提供通用命令行工作区（Debian、Bash、Git）；源码目录挂载到容器供编辑。项目语言和运行时尚未选定，后续依据需求与架构决策添加，不能把某个基础镜像中偶然出现的版本当作项目要求。
 
 Windows PowerShell 管理命令：
 
@@ -21,8 +21,8 @@ Windows PowerShell 管理命令：
 4. 查看日志：pwsh -NoProfile -File .\scripts\project.ps1 logs
 5. 停止：pwsh -NoProfile -File .\scripts\project.ps1 stop
 
-容器启动后会进入 /workspace。当前只有项目需求材料，因此该容器是隔离开发工作区，不是产品应用服务。应用入口、端口和生产启动命令应在架构确定及相应服务实现后补充。
+容器启动后会进入 /workspace。当前只有项目需求材料，因此该容器是隔离开发工作区，不是产品应用服务。应用入口、端口、运行时和生产启动命令应在架构确定及相应服务实现后补充。
 
 ## Git 工作约定
 
-默认开发分支为 yoloongdevlop，远端为 origin。每个项目变更都要写入 ailog/，提交到该分支并推送到 origin/yoloongdevlop。具体约定见 AGENTS.md。
+默认开发分支为 yoloongdevlop，远端为 origin。每个项目变更都要在 ailog/ 和 development-log/ 各创建一份同名中文摘要日志，再提交到该分支并推送到 origin/yoloongdevlop。具体约定见 AGENTS.md。
