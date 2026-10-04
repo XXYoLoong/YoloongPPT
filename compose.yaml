@@ -1,0 +1,21 @@
+name: yoloongppt
+
+services:
+  workspace:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    init: true
+    working_dir: /workspace
+    volumes:
+      - .:/workspace
+      - python-venv:/workspace/.venv
+      - node-modules:/workspace/node_modules
+    stdin_open: true
+    tty: true
+
+volumes:
+  python-venv:
+    name: yoloongppt-python-venv
+  node-modules:
+    name: yoloongppt-node-modules
