@@ -51,6 +51,15 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核验：三个 JSON 文件解析成功；三组 fixture 均满足手工结构约束，硬冲突示例指出字段、硬约束引用、不同取值及阻断处理结果；soft 降级含理由；默认值标识为系统来源。当前环境无 JSON Schema 标准验证器，未进行标准 Schema 或运行时测试。
 - 证据：`contracts/constraint-set.schema.json`、`contracts/constraint-set.catalog.json`、`contracts/constraint-set.fixtures.json`；Excel“需求主表”`N4:P4`、“可执行任务”`L4:M4`、“数据对象”`I5:J5`。
 
+### TASK-GOV-004
+
+- Requirement ID：GOV-004；P0；无前置任务。
+- 状态：进行中。已建立 `FallbackRecord[]` 契约草案；`reason_code` 精确复用矩阵“错误Fallback”表中的 32 个 Error Code，另以 `fallback_category` 描述扁平化、字体替换、图表转图像、模板替换、数据裁剪和页数偏差等实际动作。
+- 当前边界：原因码表达触发原因，fallback 动作单独记录；目录按实际根因提示可用的既有代码，不能一概套码。需求矩阵“数据对象”表未单列 FallbackRecord，故不改动 49 项对象覆盖计数。Trace 与最终报告的正式引用格式、记录器及安全脱敏实现均待架构/运行时确定。
+- 静态核验：3 个 JSON 文件解析成功；契约枚举与矩阵 ERR-001–ERR-032 的 32/32 Error Code 对齐；六种 GOV-004 示例动作均有 fixture，记录含 reason_code、前后行为、影响、user_visible、trace_ref 和 report_ref。当前未找到 `jsonschema`/AJV 标准验证器；上述为静态 fixture 检查，不是实际 fallback 执行结果。
+- 进度边界：TASK-GOV-004 进行中；VERIFY-GOV-004 仍未开始。故意触发实际 fallback 并在最终报告中定位，需待应用执行链与 trace/report 落地后验证。
+- 证据：`contracts/fallback-record.schema.json`、`contracts/fallback-record.catalog.json`、`contracts/fallback-record.fixtures.json`；Excel“需求主表”`N5:P5`、“可执行任务”`L5:M5`。
+
 ## 约束
 
 - 默认开发分支为 `yoloongdevlop`，每项项目配置或实现工作按项目规则提交并推送到 `origin/yoloongdevlop`。

@@ -1,0 +1,102 @@
+{
+  "contract_status": "draft",
+  "requirement_id": "GOV-004",
+  "fixtures": [
+    {
+      "fixture_id": "GOV-004-FLATTEN-001",
+      "record": {
+        "fallback_id": "FB-EX-001",
+        "task_id": "TASK-GOV-004",
+        "reason_code": "OFFICE_API_UNSUPPORTED",
+        "fallback_category": "object_flattening",
+        "trigger_summary": "当次能力快照显示目标 host 不支持所需原生对象操作。",
+        "requested_behavior": "保留该对象为可编辑 PowerPoint 原生对象。",
+        "applied_behavior": "以渲染图像替代对象并将能力状态标记为 Partial。",
+        "impact_summary": "替代对象不再具备原生对象级编辑能力，需在报告中显式标注。",
+        "user_visible": true,
+        "trace_ref": "example:trace/FB-EX-001",
+        "report_ref": "example:report/fallbacks/FB-EX-001"
+      }
+    },
+    {
+      "fixture_id": "GOV-004-FONT-001",
+      "record": {
+        "fallback_id": "FB-EX-002",
+        "task_id": "TASK-GOV-004",
+        "reason_code": "FONT_MISSING",
+        "fallback_category": "font_substitution",
+        "trigger_summary": "请求字体在当次能力快照中不可用。",
+        "requested_behavior": "使用用户指定字体。",
+        "applied_behavior": "按待定义 FontPolicy 使用已配置的替代字体。",
+        "impact_summary": "可能影响换行与视觉一致性；替代字体及渲染差异须报告。",
+        "user_visible": true,
+        "trace_ref": "example:trace/FB-EX-002",
+        "report_ref": "example:report/fallbacks/FB-EX-002"
+      }
+    },
+    {
+      "fixture_id": "GOV-004-CHART-001",
+      "record": {
+        "fallback_id": "FB-EX-003",
+        "task_id": "TASK-GOV-004",
+        "reason_code": "OFFICE_API_UNSUPPORTED",
+        "fallback_category": "chart_to_image",
+        "trigger_summary": "当次 backend/host 不支持需求所需的原生图表写入能力。",
+        "requested_behavior": "输出可编辑原生图表。",
+        "applied_behavior": "将图表绘制结果嵌入为图像。",
+        "impact_summary": "图表数据与外观不可按原生图表方式编辑。",
+        "user_visible": true,
+        "trace_ref": "example:trace/FB-EX-003",
+        "report_ref": "example:report/fallbacks/FB-EX-003"
+      }
+    },
+    {
+      "fixture_id": "GOV-004-TEMPLATE-001",
+      "record": {
+        "fallback_id": "FB-EX-004",
+        "task_id": "TASK-GOV-004",
+        "reason_code": "LAYOUT_NOT_FOUND",
+        "fallback_category": "template_replacement",
+        "trigger_summary": "当前模板中找不到能容纳内容的适用 layout；用户已明确允许采用替代模板。",
+        "requested_behavior": "优先使用指定模板和品牌锁定区域；替换前需获得用户确认。",
+        "applied_behavior": "经用户确认后使用替代模板，并记录新旧模板引用。",
+        "impact_summary": "模板与品牌呈现可能变化；记录偏离范围并在最终报告可定位。",
+        "user_visible": true,
+        "trace_ref": "example:trace/FB-EX-004",
+        "report_ref": "example:report/fallbacks/FB-EX-004"
+      }
+    },
+    {
+      "fixture_id": "GOV-004-TRUNCATION-001",
+      "record": {
+        "fallback_id": "FB-EX-005",
+        "task_id": "TASK-GOV-004",
+        "reason_code": "MODEL_CONTEXT_LIMIT",
+        "fallback_category": "data_truncation",
+        "trigger_summary": "材料超过当次处理上下文限制，发生了非预期裁剪。",
+        "requested_behavior": "保留全部输入内容和来源锚点。",
+        "applied_behavior": "部分内容未进入后续节点；本记录示例要求失败或阻断，不把裁剪视作成功。",
+        "impact_summary": "记录缺失来源范围与数量；未获用户确认前不得宣称结果完整。",
+        "user_visible": true,
+        "trace_ref": "example:trace/FB-EX-005",
+        "report_ref": "example:report/fallbacks/FB-EX-005"
+      }
+    },
+    {
+      "fixture_id": "GOV-004-PAGE-001",
+      "record": {
+        "fallback_id": "FB-EX-006",
+        "task_id": "TASK-GOV-004",
+        "reason_code": "LAYOUT_CAPACITY",
+        "fallback_category": "page_count_deviation",
+        "trigger_summary": "页面容量不足，拆页后超过用户目标页数。",
+        "requested_behavior": "生成 10 页。",
+        "applied_behavior": "通过拆页输出 11 页以避免仅缩小字号到不可读。",
+        "impact_summary": "页数目标偏差 +1，需在最终报告明确展示并由后续策略处理。",
+        "user_visible": true,
+        "trace_ref": "example:trace/FB-EX-006",
+        "report_ref": "example:report/fallbacks/FB-EX-006"
+      }
+    }
+  ]
+}
