@@ -60,6 +60,14 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 进度边界：TASK-GOV-004 进行中；VERIFY-GOV-004 仍未开始。故意触发实际 fallback 并在最终报告中定位，需待应用执行链与 trace/report 落地后验证。
 - 证据：`contracts/fallback-record.schema.json`、`contracts/fallback-record.catalog.json`、`contracts/fallback-record.fixtures.json`；Excel“需求主表”`N5:P5`、“可执行任务”`L5:M5`。
 
+### TASK-GOV-005
+
+- Requirement ID：GOV-005；P0；无前置任务。
+- 状态：进行中。建立 `CapabilityStatus` Draft 2020-12 契约草案，并逐项登记 Excel“PowerPoint对象矩阵”的 PPT-001–030 × PP-01–09 共 270 个状态。根据当前矩阵与 PoC 证据，270 项均保留为 `Untested`；30 行已关联状态证据，9 条后端版本栏明确记录“未冻结（PoC未执行）”。这些是未测试记录，不代表后端能力结论。
+- 当前边界：九条 PowerPoint 路线均未执行 PoC，具体 package/tag/API set/Office build 版本未冻结。`SYS-007` Capability Registry 尚未开始，基线也未枚举系统级非 PPT 原子能力或具体运行时 Adapter 实例；catalog 明确登记这两类范围缺口。`VERIFY-GOV-005` 仍未开始，尚无实际能力测试证据。
+- 静态核验：Draft 2020-12 元模式、30 项能力、9 个后端版本状态、270 条状态记录和 fixture 校验通过；每项记录均匹配矩阵中的状态、版本栏和证据位置。未运行后端 PoC。
+- 证据：`contracts/capability-status.schema.json`、`contracts/capability-status.catalog.json`、`contracts/capability-status.fixtures.json`；Excel“PowerPoint对象矩阵”`P2:P31`、“PowerPoint后端”`I2:J10`、“需求主表”`N6:P6`、“可执行任务”`L7:M7`。
+
 ### TASK-GOV-006
 
 - Requirement ID：GOV-006；P0；无前置任务。

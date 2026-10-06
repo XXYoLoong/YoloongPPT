@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CapabilityStatus（GOV-005 草案）",
+  "description": "为能力状态固定五种受控取值，并要求每条状态带版本引用和证据。Untested 可以引用明确的 not_frozen 版本上下文，但不能伪装成已验证能力；其他状态必须绑定已冻结版本。",
+  "oneOf": [
+    { "$ref": "#/$defs/catalog" },
+    { "$ref": "#/$defs/statusRecord" }
+  ],
+  "$defs": {
+    "evidenceRef": {
+      "type": "object",
+      "required": ["source", "location", "observed"],
+      "properties": {
+        "source": { "type": "string", "minLength": 1 },
+        "location": { "type": "string", "minLength": 1 },
+        "observed": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "statusRecord": {
+      "type": "object",
+      "required": ["capability_id", "backend_id", "status", "version_ref", "version_state", "evidence_refs", "assessment_note"],
+      "properties": {
+        "capability_id": { "type": "string", "pattern": "^PPT-[0-9]{3}$" },
+        "backend_id": { "type": "string", "pattern": "^PP-0[1-9]$" },
+        "status": { "type": "string", "enum": ["Native", "Partial", "Fallback", "Unsupported", "Untested"] },
+        "version_ref": { "type": "string", "pattern": "^PP-0[1-9]$" },
+        "version_state": { "type": "string", "enum": ["pinned", "not_frozen"] },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidenceRef" },
+          "minItems": 2,
+          "uniqueItems": true
+        },
+        "assessment_note": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "enum": ["Native", "Partial", "Fallback", "Unsupported"] } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": { "version_state": { "const": "pinned" } },
+            "required": ["version_state"]
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "backendVersion": {
+      "type": "object",
+      "required": ["backend_id", "version_state", "version_value", "evidence_refs"],
+      "properties": {
+        "backend_id": { "type": "string", "pattern": "^PP-0[1-9]$" },
+        "version_state": { "type": "string", "enum": ["pinned", "not_frozen"] },
+        "version_value": { "type": ["string", "null"] },
+        "version_kind": { "type": "string", "enum": ["commit", "tag", "package", "api_set", "office_build", "other"] },
+        "unresolved_reason": { "type": "string", "minLength": 1 },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/evidenceRef" },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "version_state": { "const": "not_frozen" } },
+            "required": ["version_state"]
+          },
+          "then": {
+            "properties": { "version_value": { "type": "null" } },
+            "required": ["unresolved_reason"],
+            "not": { "required": ["version_kind"] }
+          }
+        },
+        {
+          "if": {
+            "properties": { "version_state": { "const": "pinned" } },
+            "required": ["version_state"]
+          },
+          "then": {
+            "properties": { "version_value": { "type": "string", "minLength": 1 } },
+            "required": ["version_kind"],
+            "not": { "required": ["unresolved_reason"] }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "capabilityRecord": {
+      "type": "object",
+      "required": ["capability_id", "capability_domain", "matrix_row", "backend_statuses"],
+      "properties": {
+        "capability_id": { "type": "string", "pattern": "^PPT-[0-9]{3}$" },
+        "capability_domain": { "type": "string", "minLength": 1 },
+        "matrix_row": { "type": "integer", "minimum": 2, "maximum": 31 },
+        "backend_statuses": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/statusRecord" },
+          "minItems": 9,
+          "maxItems": 9,
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "catalog": {
+      "type": "object",
+      "required": ["document_type", "contract_status", "requirement_id", "assessment_context", "status_values", "backend_versions", "capabilities", "inventory_gaps"],
+      "properties": {
+        "document_type": { "const": "capability_status_catalog" },
+        "contract_status": { "const": "draft" },
+        "requirement_id": { "const": "GOV-005" },
+        "assessment_context": {
+          "type": "object",
+          "required": ["repository_revision", "revision_scope", "matrix_source"],
+          "properties": {
+            "repository_revision": { "type": "string", "minLength": 7 },
+            "revision_scope": { "type": "string", "const": "能力状态审计所依据的仓库快照；不是产品或后端版本。" },
+            "matrix_source": { "type": "string", "const": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx" }
+          },
+          "additionalProperties": false
+        },
+        "status_values": {
+          "type": "array",
+          "const": ["Native", "Partial", "Fallback", "Unsupported", "Untested"]
+        },
+        "backend_versions": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/backendVersion" },
+          "minItems": 9,
+          "maxItems": 9,
+          "uniqueItems": true
+        },
+        "capabilities": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/capabilityRecord" },
+          "minItems": 30,
+          "maxItems": 30,
+          "uniqueItems": true
+        },
+        "inventory_gaps": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["kind", "status", "evidence_refs", "reason"],
+            "properties": {
+              "kind": { "type": "string", "enum": ["non_ppt_atomic_capabilities", "runtime_adapter_instances"] },
+              "status": { "const": "not_enumerated" },
+              "evidence_refs": {
+                "type": "array",
+                "items": { "$ref": "#/$defs/evidenceRef" },
+                "minItems": 1
+              },
+              "reason": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          },
+          "minItems": 2,
+          "maxItems": 2
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

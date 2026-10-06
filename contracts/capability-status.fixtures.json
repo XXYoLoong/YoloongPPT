@@ -1,0 +1,68 @@
+{
+  "requirement_id": "GOV-005",
+  "contract_status": "draft",
+  "fixtures": [
+    {
+      "fixture_id": "GOV-005-UNTESTED-WITH-VERSION-CONTEXT-001",
+      "expected_schema_valid": true,
+      "document": {
+        "capability_id": "PPT-001",
+        "backend_id": "PP-01",
+        "status": "Untested",
+        "version_ref": "PP-01",
+        "version_state": "not_frozen",
+        "evidence_refs": [
+          {
+            "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+            "location": "PowerPoint对象矩阵!E2",
+            "observed": "Untested"
+          },
+          {
+            "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+            "location": "PowerPoint后端!I2",
+            "observed": "未执行"
+          },
+          {
+            "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+            "location": "PowerPoint后端!J2",
+            "observed": "未冻结（PoC未执行）"
+          }
+        ],
+        "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+      }
+    },
+    {
+      "fixture_id": "GOV-005-FALLBACK-REQUIRES-FROZEN-VERSION-001",
+      "expected_schema_valid": false,
+      "document": {
+        "capability_id": "PPT-001",
+        "backend_id": "PP-01",
+        "status": "Fallback",
+        "version_ref": "PP-01",
+        "version_state": "not_frozen",
+        "evidence_refs": [
+          {
+            "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+            "location": "PowerPoint对象矩阵!E2",
+            "observed": "Untested"
+          },
+          {
+            "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+            "location": "PowerPoint后端!I2",
+            "observed": "未执行"
+          },
+          {
+            "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+            "location": "PowerPoint后端!J2",
+            "observed": "未冻结（PoC未执行）"
+          }
+        ],
+        "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+      }
+    }
+  ],
+  "limits": [
+    "fixture 只验证 CapabilityStatus 结构和版本约束，不是后端 PoC。",
+    "实际能力结论必须引用真实版本与可复现测试/源码证据。"
+  ]
+}
