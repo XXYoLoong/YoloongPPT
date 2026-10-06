@@ -60,6 +60,15 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 进度边界：TASK-GOV-004 进行中；VERIFY-GOV-004 仍未开始。故意触发实际 fallback 并在最终报告中定位，需待应用执行链与 trace/report 落地后验证。
 - 证据：`contracts/fallback-record.schema.json`、`contracts/fallback-record.catalog.json`、`contracts/fallback-record.fixtures.json`；Excel“需求主表”`N5:P5`、“可执行任务”`L5:M5`。
 
+### TASK-RES-P01-01
+
+- Requirement ID：RES-P01-01；P0；无前置任务。
+- 状态：进行中。已检出 PPT Master `main` 分支快照 `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d`；上游 `v6.6.0` tag 为另一提交 `a50758ac29ec027e85966db33e2ae80031446756`。研究只记录上游要求，不据此选择 YoloongPPT 的运行时。
+- 静态证据：上游 Getting Started 声明 Python 3.10+；根 `requirements.txt` 包含 skill 依赖，版本为下限约束，未发现项目级锁文件；根许可证为 MIT，PDF 转换的可选 PyMuPDF 依赖为 AGPL-3.0。运行链路是 Agent Host 对话请求生成并导出可编辑 PPTX，不是单条 CLI 示例。
+- 环境阻塞：本机 Docker CLI `27.4.0` 可执行，但服务端 `docker version` 超时；对当前 `desktop-linux` 端点及官方 Windows 默认命名管道的只读 API 探测均未响应。Docker Desktop 日志记录 C: 空间不足导致 VM 日志写入失败；清理本任务自建临时克隆后仍无法连通。未启动/重置共享 Docker 引擎，也未在宿主机安装上游依赖。
+- 验收边界：源码固定及静态元数据已记录；官方最小流程未运行，未生成 PPTX。`TASK-RES-P01-01` 保持进行中；`VERIFY-RES-P01-01` 与依赖它的 `TASK-RES-P01-02` 保持未开始。待 Docker API 可用后，在隔离容器复现并记录实际镜像摘要、依赖和生成物。
+- 证据：`research/P01/README.md`；Excel“需求主表”`N12:O12`、“可执行任务”`L14:M15`、“开源项目研究对象”第 2 行。
+
 ## 约束
 
 - 默认开发分支为 `yoloongdevlop`，每项项目配置或实现工作按项目规则提交并推送到 `origin/yoloongdevlop`。
