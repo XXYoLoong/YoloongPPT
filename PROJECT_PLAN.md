@@ -31,10 +31,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 ### TASK-GOV-001
 
 - Requirement ID：GOV-001；P0；无前置任务。
-- 状态：进行中。已核验需求主表有 308 个唯一需求 ID，可执行任务表有 453 条唯一任务记录，任务引用均能映射到需求主表。
-- 当前差异：Excel 独有 `RES-031`、`RES-032`、`RES-033`。对 DOCX 正文、表格及压缩包内全部 XML 的检查均未找到这三个 ID。Excel 中对应内容分别涉及五项目横向比较、复用与许可决策、测试资产来源登记。
-- 完成条件：明确两份基线对这三条需求的对齐方式，随后重跑 ID 与任务引用核验并将证据写回 Excel。对齐前不擅自添加、删除或重述需求。
-- 证据：Excel“可执行任务”表 `L2:M2`；本计划即该任务的差异记录。
+- 状态：已完成。将 Excel“需求主表”中的 `RES-031`、`RES-032`、`RES-033` 按原规则、输入、约束、交付、验收、依赖、优先级与任务 ID 补入 DOCX 第 3.6 节；没有增加或改写需求范围。
+- 验证：DOCX 与 Excel 的 308 个 Requirement ID 全部可定位；453 个 Task ID 唯一且均引用现有需求；DOCX 原有 13 张表和原段落顺序保留。Excel 回填完成状态和证据路径。
+- 证据：Excel“需求主表”`N2:P2`、“可执行任务”`L2:M2`；本文件第 3.6 节；`ailog/` 与 `development-log/` 本次同名任务日志。
+
+### TASK-GOV-002
+
+- Requirement ID：GOV-002；P0；DEC-001；S02。
+- 状态：进行中。已建立语言/运行时无关的 TaskRoute schema 与八模式契约目录草案；每种模式都列有输入、流程、输出、独立保护策略和验收场景。另列 8 个常规路由场景与 1 个边界冲突场景。
+- 当前边界：Excel 的“数据对象”表列出 `RawTaskRequest`、`TaskSpec.route` 和 `RuntimeCapabilitySnapshot`，但未单列 `TaskRoute` 的正式字段定义。因此 `contracts/task-route.schema.json` 中的路由结果/trace 字段仍是待评审草案。运行时路由、候选生成算法、冲突优先级、与 `TaskSpec.route` 的正式版本关系及 P01–P05 实现映射尚未完成；不能据此宣称系统已支持八种模式。
+- 静态核验：目录含 8 个唯一模式，每个均有 input/flow/output/acceptance_case 与独立 protection_policy_id；决策场景含 8 个常规样例及 1 个边界冲突样例；schema 与目录可解析为 JSON。当前执行环境没有 `jsonschema` 包，未运行 JSON Schema 标准验证器，也未运行路由器测试。
+- 证据：`contracts/task-route.schema.json`、`contracts/task-route.catalog.json`；Excel“需求主表”`N3:P3`、“可执行任务”`L3:M3`、“决策链”`M2`、“0-1全链路”`G4:I4`。
 
 ## 约束
 

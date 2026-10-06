@@ -1,0 +1,174 @@
+{
+  "contract_status": "draft",
+  "requirement_ids": ["GOV-002", "GOV-003", "GOV-007"],
+  "decision_id": "DEC-001",
+  "lifecycle_refs": ["S00", "S01", "S02", "S03"],
+  "schema": "contracts/task-route.schema.json",
+  "input_basis": [
+    "RawTaskRequest: raw_text, attachments, requested_mode, requested_outputs",
+    "RuntimeCapabilitySnapshot: os, office_version, powerpoint_state, api_sets, adapters, models, fonts, renderers, tools"
+  ],
+  "route_output": {
+    "object_name": "TaskRoute",
+    "required_behavior": [
+      "八种模式使用稳定且互不混淆的 mode 值。",
+      "每次路由记录 routing_reason。",
+      "每种模式标明对应的 protection_policy_id；歧义或冲突时不静默选路。",
+      "DEC-001 trace 保留候选模式和选择依据；冲突时说明冲突。"
+    ],
+    "integration_note": "基线中的 TaskSpec.route 会承载路由结果；当前数据对象表未单列 TaskRoute schema，故本文件仅为待评审草案。"
+  },
+  "modes": [
+    {
+      "mode": "create_from_scratch",
+      "name_zh": "从零新建",
+      "input": "用户的新建指令与输出要求；没有被要求作为内容来源的既有材料、参考风格或模板。",
+      "flow": ["S00 接收指令与附件", "S01 读取当次运行能力", "S02 区分从零新建与其他模式", "S03 校验实际提供的输入", "进入公共内容与生成链路"],
+      "output": "TaskRoute.mode=create_from_scratch，记录依据，并只使用用户明确提供或许可生成的内容来源。",
+      "protection_policy_id": "protect_scratch_scope",
+      "protection_policy": "不得虚构既有材料、模板或已执行的来源分析；保留用户明确的约束。",
+      "acceptance_case": "用户要求仅依据一句主题说明制作演示文稿，路由为从零新建，理由指出没有材料/模板依赖。"
+    },
+    {
+      "mode": "create_from_materials",
+      "name_zh": "从材料生成",
+      "input": "用户指令及作为内容依据的文档、表格、图片或其他来源材料。",
+      "flow": ["S00 接收指令与材料", "S01 读取当次运行能力", "S02 区分内容来源与风格/模板输入", "S03 校验材料", "后续解析并保留来源证据，再进入公共生成链路"],
+      "output": "TaskRoute.mode=create_from_materials，记录材料作为内容来源的依据。",
+      "protection_policy_id": "preserve_material_facts_and_sources",
+      "protection_policy": "保留材料中的事实、数字和来源定位；缺失或低置信信息不得静默补造。",
+      "acceptance_case": "以含标题、表格、图片和引用的 DOCX 生成 PPT，识别为从材料生成；验收沿用 AC-002 的来源与结构保留要求。"
+    },
+    {
+      "mode": "create_from_reference_style",
+      "name_zh": "参考风格生成",
+      "input": "新的演示内容，加上只用于风格参考的图片或演示材料。",
+      "flow": ["S00 接收新内容和风格参考", "S01 读取当次运行能力", "S02 将风格参考与内容来源分开", "S03 校验输入", "提取可复用风格特征后进入公共生成链路"],
+      "output": "TaskRoute.mode=create_from_reference_style，明确哪些输入仅作为风格参考。",
+      "protection_policy_id": "isolate_reference_style_from_content",
+      "protection_policy": "只提取风格/构图规律；新内容独立生成，不依赖整页截图作为成品页面。",
+      "acceptance_case": "输入一张风格参考图和独立的新内容，路由为参考风格生成；满足 AC-007 的内容独立与无整页截图依赖要求。"
+    },
+    {
+      "mode": "fill_template",
+      "name_zh": "模板填充",
+      "input": "用户提供或指定的 PPT 模板及待填充内容。",
+      "flow": ["S00 接收模板与内容", "S01 读取当次运行能力", "S02 区分模板填充与风格参考", "S03 校验模板", "解析模板结构/锁定元素并进入公共生成链路"],
+      "output": "TaskRoute.mode=fill_template，标明所用模板及填充任务范围。",
+      "protection_policy_id": "preserve_template_structure_and_locks",
+      "protection_policy": "保留模板结构、品牌标识和锁定元素；填入内容保持可编辑。",
+      "acceptance_case": "以真实企业 master/layout/logo/footer 填入内容，路由为模板填充；验收沿用 AC-006。"
+    },
+    {
+      "mode": "modify_existing_deck",
+      "name_zh": "已有 PPT 修改",
+      "input": "现有演示文稿及用户明确提出的内容、对象或页面修改指令。",
+      "flow": ["S00 接收现有 PPT 和修改指令", "S01 读取当次运行能力", "S02 识别已有演示文稿的定点修改", "S03 校验文件与修改范围", "进入已有 PPT 检查、修改与 QA 链路"],
+      "output": "TaskRoute.mode=modify_existing_deck，记录待修改页面/对象范围。",
+      "protection_policy_id": "limit_edits_to_requested_targets",
+      "protection_policy": "只修改请求目标；未修改页面和对象应保持，且修改对象保持可编辑。",
+      "acceptance_case": "只改现有 deck 的两页文案，其他页面/对象保持；对应 AC-008。"
+    },
+    {
+      "mode": "reconstruct_from_image",
+      "name_zh": "截图/图片还原",
+      "input": "用户要求重建的截图或页面图片及补充说明。",
+      "flow": ["S00 接收截图和说明", "S01 读取当次运行能力", "S02 区分视觉还原与风格参考", "S03 校验图片", "提取可观察文本/几何并进入重建与可编辑性检查"],
+      "output": "TaskRoute.mode=reconstruct_from_image，保留原图引用和不确定项。",
+      "protection_policy_id": "preserve_image_evidence_and_uncertainty",
+      "protection_policy": "将还原结果与原图证据区分；记录几何误差与无法确认内容，优先保留可编辑原生对象。",
+      "acceptance_case": "将一页截图还原为 PPTX，文字/形状/图片尽量原生化，几何误差可测且结果可编辑；对应 AC-011。"
+    },
+    {
+      "mode": "beautify_existing_deck",
+      "name_zh": "Beautify/重排",
+      "input": "内容已存在的 PPT 及视觉整理、版式优化或重排要求。",
+      "flow": ["S00 接收现有 PPT 与视觉整理要求", "S01 读取当次运行能力", "S02 区分视觉重排与内容编辑", "S03 校验文件和锁定范围", "进入布局调整与事实/对象 QA 链路"],
+      "output": "TaskRoute.mode=beautify_existing_deck，记录允许调整的视觉范围。",
+      "protection_policy_id": "preserve_facts_data_and_locked_objects",
+      "protection_policy": "事实与数据不变；锁定对象不动；任何内容改变不得伪装成纯视觉重排。",
+      "acceptance_case": "对内容正确但排版较差的 PPT 做视觉改善，事实/数据不变且锁定对象不动；对应 AC-010。"
+    },
+    {
+      "mode": "create_or_replace_single_slide",
+      "name_zh": "单页生成/替换",
+      "input": "用户要求新增单页或替换某一现有页，并提供明确插入位置/目标页与内容。",
+      "flow": ["S00 接收单页任务和目标位置", "S01 读取当次运行能力", "S02 区分单页创建/替换与整套生成/修改", "S03 校验目标文件与范围", "仅进入目标单页的生成或替换及周边一致性检查"],
+      "output": "TaskRoute.mode=create_or_replace_single_slide，记录新增/替换动作及目标页。",
+      "protection_policy_id": "limit_change_to_one_slide",
+      "protection_policy": "变更范围限于一页；其他页面不变。目标页或动作不明确时先请求澄清，不静默替换。",
+      "acceptance_case": "用户明确要求替换第 4 页时仅替换第 4 页并保持其他页；如果未说明新增还是替换/目标页，则拒绝静默选路并请求澄清。"
+    }
+  ],
+  "decision_cases": [
+    {
+      "case_id": "DEC-001-NORMAL-01",
+      "kind": "normal",
+      "request": "仅依据主题和页数要求，从零制作一套演示文稿。",
+      "expected_mode": "create_from_scratch",
+      "expected_policy": "protect_scratch_scope"
+    },
+    {
+      "case_id": "DEC-001-NORMAL-02",
+      "kind": "normal",
+      "request": "根据用户提供的研究报告制作演示文稿，并保留关键数字及来源。",
+      "expected_mode": "create_from_materials",
+      "expected_policy": "preserve_material_facts_and_sources"
+    },
+    {
+      "case_id": "DEC-001-NORMAL-03",
+      "kind": "normal",
+      "request": "用新的内容参考所给图片的风格生成演示文稿。",
+      "expected_mode": "create_from_reference_style",
+      "expected_policy": "isolate_reference_style_from_content"
+    },
+    {
+      "case_id": "DEC-001-NORMAL-04",
+      "kind": "normal",
+      "request": "把提供的内容放入企业 PowerPoint 模板。",
+      "expected_mode": "fill_template",
+      "expected_policy": "preserve_template_structure_and_locks"
+    },
+    {
+      "case_id": "DEC-001-NORMAL-05",
+      "kind": "normal",
+      "request": "修改现有 PPT 的指定两页文案，其他内容保持原样。",
+      "expected_mode": "modify_existing_deck",
+      "expected_policy": "limit_edits_to_requested_targets"
+    },
+    {
+      "case_id": "DEC-001-NORMAL-06",
+      "kind": "normal",
+      "request": "按提供的一页截图重建一页尽量可编辑的 PowerPoint。",
+      "expected_mode": "reconstruct_from_image",
+      "expected_policy": "preserve_image_evidence_and_uncertainty"
+    },
+    {
+      "case_id": "DEC-001-NORMAL-07",
+      "kind": "normal",
+      "request": "整理现有 PPT 的布局，但不改事实、数据或锁定对象。",
+      "expected_mode": "beautify_existing_deck",
+      "expected_policy": "preserve_facts_data_and_locked_objects"
+    },
+    {
+      "case_id": "DEC-001-NORMAL-08",
+      "kind": "normal",
+      "request": "将现有演示文稿第 4 页替换为给定的新内容，其余页面不变。",
+      "expected_mode": "create_or_replace_single_slide",
+      "expected_policy": "limit_change_to_one_slide"
+    },
+    {
+      "case_id": "DEC-001-BOUNDARY-01",
+      "kind": "boundary_conflict",
+      "request": "用户同时要求沿用现有 PPT 模板并做完整视觉重排，但没有说明哪些品牌/对象允许改变。",
+      "expected_mode": null,
+      "expected_route_status": "needs_clarification",
+      "acceptance": "不得静默选择模板填充或 beautify；记录两种候选模式、冲突和澄清原因，不分配保护策略，且不得执行修改。"
+    }
+  ],
+  "limits": [
+    "本目录和 schema 是契约草案及静态接受场景，不表示已经实现运行时路由。",
+    "DEC-001 的候选生成算法、冲突优先级、各模式完整后续节点、TaskRoute 正式字段和与 TaskSpec.route 的版本化关系仍待需求/架构评审。",
+    "S01 能力探测只记录运行时观测；不得据此决定产品语言、架构或依赖版本。"
+  ]
+}
