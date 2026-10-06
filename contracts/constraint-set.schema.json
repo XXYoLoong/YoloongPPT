@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ConstraintSet（GOV-003 草案）",
+  "description": "语言与运行时无关的约束集合草案。正式字段结构及硬约束冲突处理机制需在后续需求评审与运行时实现中确认。",
+  "type": "object",
+  "required": ["hard", "soft", "defaults", "conflicts"],
+  "properties": {
+    "hard": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/hardConstraint" }
+    },
+    "soft": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/softPreference" }
+    },
+    "defaults": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/defaultValue" }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/hardConflict" }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": ["kind", "reference"],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": ["user_instruction", "template_requirement", "system_default"]
+        },
+        "reference": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "constraintBase": {
+      "type": "object",
+      "required": ["constraint_id", "field", "value", "source"],
+      "properties": {
+        "constraint_id": { "type": "string", "minLength": 1 },
+        "field": { "type": "string", "minLength": 1 },
+        "value": {},
+        "source": { "$ref": "#/$defs/source" }
+      },
+      "additionalProperties": false
+    },
+    "hardConstraint": {
+      "allOf": [
+        { "$ref": "#/$defs/constraintBase" },
+        {
+          "properties": {
+            "source": {
+              "properties": {
+                "kind": { "enum": ["user_instruction", "template_requirement"] }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "softPreference": {
+      "type": "object",
+      "required": ["constraint_id", "field", "value", "source", "disposition"],
+      "properties": {
+        "constraint_id": { "type": "string", "minLength": 1 },
+        "field": { "type": "string", "minLength": 1 },
+        "value": {},
+        "source": {
+          "allOf": [
+            { "$ref": "#/$defs/source" },
+            { "properties": { "kind": { "const": "user_instruction" } } }
+          ]
+        },
+        "disposition": { "type": "string", "enum": ["applied", "degraded", "overridden"] },
+        "applied_value": {},
+        "handling_reason": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "disposition": { "enum": ["degraded", "overridden"] } }, "required": ["disposition"] },
+          "then": { "required": ["handling_reason"] }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "defaultValue": {
+      "type": "object",
+      "required": ["constraint_id", "field", "value", "source", "used"],
+      "properties": {
+        "constraint_id": { "type": "string", "minLength": 1 },
+        "field": { "type": "string", "minLength": 1 },
+        "value": {},
+        "source": {
+          "allOf": [
+            { "$ref": "#/$defs/source" },
+            { "properties": { "kind": { "const": "system_default" } } }
+          ]
+        },
+        "used": { "type": "boolean" },
+        "handling_reason": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "hardConflict": {
+      "type": "object",
+      "required": ["conflict_id", "field", "hard_constraint_refs", "values", "handling", "resolution_result"],
+      "properties": {
+        "conflict_id": { "type": "string", "minLength": 1 },
+        "field": { "type": "string", "minLength": 1 },
+        "hard_constraint_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 2,
+          "uniqueItems": true
+        },
+        "values": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["constraint_id", "value"],
+            "properties": {
+              "constraint_id": { "type": "string", "minLength": 1 },
+              "value": {}
+            },
+            "additionalProperties": false
+          },
+          "minItems": 2
+        },
+        "handling": { "type": "string", "const": "reported_blocking" },
+        "resolution_result": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

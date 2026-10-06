@@ -1,0 +1,142 @@
+{
+  "contract_status": "draft",
+  "requirement_id": "GOV-003",
+  "fixtures": [
+    {
+      "fixture_id": "GOV-003-HARD-CONFLICT-001",
+      "input_constraints": {
+        "hard": [
+          {
+            "constraint_id": "CST-USER-001",
+            "field": "aspect_ratio",
+            "value": "16:9",
+            "source": { "kind": "user_instruction", "reference": "request.aspect_ratio" }
+          },
+          {
+            "constraint_id": "CST-TEMPLATE-001",
+            "field": "aspect_ratio",
+            "value": "4:3",
+            "source": { "kind": "template_requirement", "reference": "template.master.aspect_ratio" }
+          }
+        ],
+        "soft": [],
+        "defaults": [],
+        "conflicts": []
+      },
+      "expected_result": {
+        "hard": [
+          {
+            "constraint_id": "CST-USER-001",
+            "field": "aspect_ratio",
+            "value": "16:9",
+            "source": { "kind": "user_instruction", "reference": "request.aspect_ratio" }
+          },
+          {
+            "constraint_id": "CST-TEMPLATE-001",
+            "field": "aspect_ratio",
+            "value": "4:3",
+            "source": { "kind": "template_requirement", "reference": "template.master.aspect_ratio" }
+          }
+        ],
+        "soft": [],
+        "defaults": [],
+        "conflicts": [
+          {
+            "conflict_id": "CONFLICT-001",
+            "field": "aspect_ratio",
+            "hard_constraint_refs": ["CST-USER-001", "CST-TEMPLATE-001"],
+            "values": [
+              { "constraint_id": "CST-USER-001", "value": "16:9" },
+              { "constraint_id": "CST-TEMPLATE-001", "value": "4:3" }
+            ],
+            "handling": "reported_blocking",
+            "resolution_result": "硬约束冲突已报告，等待用户选择；当前没有生效宽高比。"
+          }
+        ]
+      },
+      "verification": "预期结果示例；无运行时冲突检测器执行结果。"
+    },
+    {
+      "fixture_id": "GOV-003-SOFT-DEGRADE-001",
+      "input_constraints": {
+        "hard": [
+          {
+            "constraint_id": "CST-USER-002",
+            "field": "required_content",
+            "value": "保留全部已提供章节",
+            "source": { "kind": "user_instruction", "reference": "request.required_content" }
+          }
+        ],
+        "soft": [
+          {
+            "constraint_id": "CST-USER-003",
+            "field": "page_target",
+            "value": 8,
+            "source": { "kind": "user_instruction", "reference": "request.page_target_preference" },
+            "disposition": "degraded",
+            "applied_value": 10,
+            "handling_reason": "保留全部明确要求的章节需要更多页面；页数偏差需向用户显示并可调整。"
+          }
+        ],
+        "defaults": [],
+        "conflicts": []
+      },
+      "expected_result": {
+        "hard": [
+          {
+            "constraint_id": "CST-USER-002",
+            "field": "required_content",
+            "value": "保留全部已提供章节",
+            "source": { "kind": "user_instruction", "reference": "request.required_content" }
+          }
+        ],
+        "soft": [
+          {
+            "constraint_id": "CST-USER-003",
+            "field": "page_target",
+            "value": 8,
+            "source": { "kind": "user_instruction", "reference": "request.page_target_preference" },
+            "disposition": "degraded",
+            "applied_value": 10,
+            "handling_reason": "保留全部明确要求的章节需要更多页面；页数偏差需向用户显示并可调整。"
+          }
+        ],
+        "defaults": [],
+        "conflicts": []
+      },
+      "verification": "预期结果示例；无运行时偏好降级逻辑执行结果。"
+    },
+    {
+      "fixture_id": "GOV-003-DEFAULT-001",
+      "input_constraints": {
+        "hard": [],
+        "soft": [],
+        "defaults": [
+          {
+            "constraint_id": "CST-DEFAULT-001",
+            "field": "aspect_ratio",
+            "value": "example-default-value-not-selected",
+            "source": { "kind": "system_default", "reference": "pending-product-default-definition" },
+            "used": true
+          }
+        ],
+        "conflicts": []
+      },
+      "expected_result": {
+        "hard": [],
+        "soft": [],
+        "defaults": [
+          {
+            "constraint_id": "CST-DEFAULT-001",
+            "field": "aspect_ratio",
+            "value": "example-default-value-not-selected",
+            "source": { "kind": "system_default", "reference": "pending-product-default-definition" },
+            "used": true
+          }
+        ],
+        "conflicts": []
+      },
+      "verification": "预期结果示例；默认值本身仍待产品决策确定。"
+    }
+  ]
+}

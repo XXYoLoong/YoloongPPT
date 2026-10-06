@@ -43,6 +43,14 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核验：目录含 8 个唯一模式，每个均有 input/flow/output/acceptance_case 与独立 protection_policy_id；决策场景含 8 个常规样例及 1 个边界冲突样例；schema 与目录可解析为 JSON。当前执行环境没有 `jsonschema` 包，未运行 JSON Schema 标准验证器，也未运行路由器测试。
 - 证据：`contracts/task-route.schema.json`、`contracts/task-route.catalog.json`；Excel“需求主表”`N3:P3`、“可执行任务”`L3:M3`、“决策链”`M2`、“0-1全链路”`G4:I4`。
 
+### TASK-GOV-003
+
+- Requirement ID：GOV-003；P0；无前置任务。
+- 状态：进行中。已建立 `ConstraintSet` 的语言/运行时无关契约草案，顶层字段严格对应数据对象基线 `hard`、`soft`、`defaults`、`conflicts`；并定义约束来源、偏好降级说明与硬约束冲突报告结构。
+- 当前边界：字段子结构与标识格式尚未由基线定义，均标为草案。合同 fixture 覆盖两个互斥硬约束、soft preference 降级、默认值来源三种场景，但只是预期结果；冲突检测、用户澄清和偏好降级的运行时行为尚无实现。
+- 静态核验：三个 JSON 文件解析成功；三组 fixture 均满足手工结构约束，硬冲突示例指出字段、硬约束引用、不同取值及阻断处理结果；soft 降级含理由；默认值标识为系统来源。当前环境无 JSON Schema 标准验证器，未进行标准 Schema 或运行时测试。
+- 证据：`contracts/constraint-set.schema.json`、`contracts/constraint-set.catalog.json`、`contracts/constraint-set.fixtures.json`；Excel“需求主表”`N4:P4`、“可执行任务”`L4:M4`、“数据对象”`I5:J5`。
+
 ## 约束
 
 - 默认开发分支为 `yoloongdevlop`，每项项目配置或实现工作按项目规则提交并推送到 `origin/yoloongdevlop`。
