@@ -60,6 +60,14 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 进度边界：TASK-GOV-004 进行中；VERIFY-GOV-004 仍未开始。故意触发实际 fallback 并在最终报告中定位，需待应用执行链与 trace/report 落地后验证。
 - 证据：`contracts/fallback-record.schema.json`、`contracts/fallback-record.catalog.json`、`contracts/fallback-record.fixtures.json`；Excel“需求主表”`N5:P5`、“可执行任务”`L5:M5`。
 
+### TASK-GOV-006
+
+- Requirement ID：GOV-006；P0；无前置任务。
+- 状态：进行中。建立语言/运行时无关的 ConfigSchema 草案，登记 GOV-006 明确列出的 20 类参数，并把 NFR-005 的分项 timeout、NFR-006 的重试限制与 NFR-007 的并发/Office 约束列为可追溯项。
+- 当前边界：基线未指定各参数的 JSON 类型、默认值、取值范围或来源优先级。DEC-004 要决定优先级或保留 unresolved，且 TASK-DEC-004 依赖 RES-031；因此 catalog 明确记录待决策，不设置产品默认值。产品架构和运行时尚未选定，应用 trace 也未实现；pending fixture 只验证草案结构，不满足运行时有效配置快照验收。
+- 静态核验：Draft 2020-12 元模式校验通过；ConfigSchema catalog 的 20 个参数项和 pending trace fixture 均通过 schema 实例校验；仅用于结构校验的 synthetic effective snapshot 正例通过，缺少值来源、未解参数或未解来源策略的负例均被拒绝。未运行应用配置加载或 trace 集成测试。
+- 证据：`contracts/config-schema.schema.json`、`contracts/config-schema.catalog.json`、`contracts/config-schema.fixtures.json`；Excel“需求主表”`N7:P7`、“可执行任务”`L9:M9`。
+
 ### TASK-RES-P01-01
 
 - Requirement ID：RES-P01-01；P0；无前置任务。

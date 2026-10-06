@@ -1,0 +1,323 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ConfigSchema（GOV-006 草案）",
+  "description": "运行时无关的配置定义与 trace 快照结构草案。需求基线未确定具体类型、默认值、范围和来源优先级；DEC-004 仍待处理。草案状态不是产品配置已完成或运行 trace 已落地的证明。",
+  "oneOf": [
+    { "$ref": "#/$defs/configDefinition" },
+    { "$ref": "#/$defs/effectiveConfigSnapshot" }
+  ],
+  "$defs": {
+    "sourcePriorityPolicy": {
+      "type": "object",
+      "required": ["status", "decision_id", "task_id"],
+      "properties": {
+        "status": { "type": "string", "enum": ["unresolved", "defined"] },
+        "decision_id": { "const": "DEC-004" },
+        "task_id": { "const": "TASK-DEC-004" },
+        "precedence_order": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "unresolved_reason": { "type": "string", "minLength": 1 }
+      },
+      "oneOf": [
+        {
+          "properties": { "status": { "const": "unresolved" } },
+          "required": ["unresolved_reason"],
+          "not": { "required": ["precedence_order"] }
+        },
+        {
+          "properties": { "status": { "const": "defined" } },
+          "required": ["precedence_order"],
+          "not": { "required": ["unresolved_reason"] }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "typeDefinition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["status", "unresolved_reason"],
+          "properties": {
+            "status": { "const": "unresolved" },
+            "unresolved_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["status", "json_type"],
+          "properties": {
+            "status": { "const": "defined" },
+            "json_type": { "type": "string", "enum": ["integer", "number", "string", "boolean", "array", "object"] }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "defaultDefinition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["status", "unresolved_reason"],
+          "properties": {
+            "status": { "const": "unresolved" },
+            "unresolved_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["status", "value", "source_ref"],
+          "properties": {
+            "status": { "const": "defined" },
+            "value": {},
+            "source_ref": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "rangeDefinition": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["status", "unresolved_reason"],
+          "properties": {
+            "status": { "const": "unresolved" },
+            "unresolved_reason": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": ["status", "rule"],
+          "properties": {
+            "status": { "const": "defined" },
+            "rule": { "type": "object" }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "parameterDefinition": {
+      "type": "object",
+      "required": ["scope", "requirement_refs", "type_definition", "default_definition", "range_definition", "source_priority_policy_ref"],
+      "properties": {
+        "scope": { "type": "string", "minLength": 1 },
+        "requirement_refs": {
+          "type": "array",
+          "items": { "type": "string", "pattern": "^(GOV-006|NFR-005|NFR-006|NFR-007)$" },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "type_definition": { "$ref": "#/$defs/typeDefinition" },
+        "default_definition": { "$ref": "#/$defs/defaultDefinition" },
+        "range_definition": { "$ref": "#/$defs/rangeDefinition" },
+        "source_priority_policy_ref": { "const": "DEC-004" }
+      },
+      "additionalProperties": false
+    },
+    "configDefinition": {
+      "type": "object",
+      "required": ["document_type", "contract_status", "requirement_id", "source_priority_policy", "parameters", "operational_invariants"],
+      "properties": {
+        "document_type": { "const": "config_schema" },
+        "contract_status": { "const": "draft" },
+        "requirement_id": { "const": "GOV-006" },
+        "source_priority_policy": { "$ref": "#/$defs/sourcePriorityPolicy" },
+        "parameters": {
+          "type": "object",
+          "required": [
+            "page_count", "aspect_ratio", "language", "model", "image_model",
+            "timeout.model", "timeout.network", "timeout.subprocess", "timeout.powerpoint_com_mcp", "timeout.render",
+            "retry.max_retries", "retry.backoff", "retry.retryable_errors",
+            "concurrency.task", "concurrency.page", "concurrency.provider", "concurrency.backend",
+            "maximum_file_size", "font_fallback", "qa_thresholds"
+          ],
+          "properties": {
+            "page_count": { "$ref": "#/$defs/parameterDefinition" },
+            "aspect_ratio": { "$ref": "#/$defs/parameterDefinition" },
+            "language": { "$ref": "#/$defs/parameterDefinition" },
+            "model": { "$ref": "#/$defs/parameterDefinition" },
+            "image_model": { "$ref": "#/$defs/parameterDefinition" },
+            "timeout.model": { "$ref": "#/$defs/parameterDefinition" },
+            "timeout.network": { "$ref": "#/$defs/parameterDefinition" },
+            "timeout.subprocess": { "$ref": "#/$defs/parameterDefinition" },
+            "timeout.powerpoint_com_mcp": { "$ref": "#/$defs/parameterDefinition" },
+            "timeout.render": { "$ref": "#/$defs/parameterDefinition" },
+            "retry.max_retries": { "$ref": "#/$defs/parameterDefinition" },
+            "retry.backoff": { "$ref": "#/$defs/parameterDefinition" },
+            "retry.retryable_errors": { "$ref": "#/$defs/parameterDefinition" },
+            "concurrency.task": { "$ref": "#/$defs/parameterDefinition" },
+            "concurrency.page": { "$ref": "#/$defs/parameterDefinition" },
+            "concurrency.provider": { "$ref": "#/$defs/parameterDefinition" },
+            "concurrency.backend": { "$ref": "#/$defs/parameterDefinition" },
+            "maximum_file_size": { "$ref": "#/$defs/parameterDefinition" },
+            "font_fallback": { "$ref": "#/$defs/parameterDefinition" },
+            "qa_thresholds": { "$ref": "#/$defs/parameterDefinition" }
+          },
+          "additionalProperties": false
+        },
+        "operational_invariants": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["requirement_id", "statement"],
+            "properties": {
+              "requirement_id": { "type": "string", "enum": ["NFR-006", "NFR-007"] },
+              "statement": { "type": "string", "minLength": 1 }
+            },
+            "additionalProperties": false
+          },
+          "minItems": 2
+        }
+      },
+      "additionalProperties": false
+    },
+    "sourceReference": {
+      "type": "object",
+      "required": ["kind", "reference"],
+      "properties": {
+        "kind": { "type": "string", "minLength": 1 },
+        "reference": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "candidate": {
+      "type": "object",
+      "required": ["value", "source"],
+      "properties": {
+        "value": {},
+        "source": { "$ref": "#/$defs/sourceReference" }
+      },
+      "additionalProperties": false
+    },
+    "snapshotParameter": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": ["resolution", "candidates", "resolution_note"],
+          "properties": {
+            "resolution": { "const": "unresolved" },
+            "candidates": { "type": "array", "items": { "$ref": "#/$defs/candidate" } },
+            "resolution_note": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        },
+        {
+          "$ref": "#/$defs/effectiveSnapshotParameter"
+        },
+        {
+          "type": "object",
+          "required": ["resolution", "candidates", "conflict_note"],
+          "properties": {
+            "resolution": { "const": "conflict" },
+            "candidates": { "type": "array", "items": { "$ref": "#/$defs/candidate" }, "minItems": 2 },
+            "conflict_note": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "effectiveSnapshotParameter": {
+      "type": "object",
+      "required": ["resolution", "effective_value", "selected_source"],
+      "properties": {
+        "resolution": { "const": "effective" },
+        "effective_value": {},
+        "selected_source": { "$ref": "#/$defs/sourceReference" }
+      },
+      "additionalProperties": false
+    },
+    "effectiveConfigSnapshot": {
+      "type": "object",
+      "required": ["document_type", "contract_status", "requirement_id", "schema_ref", "snapshot_status", "source_priority_policy", "parameters"],
+      "properties": {
+        "document_type": { "const": "effective_config_snapshot" },
+        "contract_status": { "const": "draft" },
+        "requirement_id": { "const": "GOV-006" },
+        "schema_ref": { "const": "contracts/config-schema.schema.json" },
+        "snapshot_status": { "type": "string", "enum": ["pending", "effective"] },
+        "source_priority_policy": { "$ref": "#/$defs/sourcePriorityPolicy" },
+        "parameters": {
+          "type": "object",
+          "required": [
+            "page_count", "aspect_ratio", "language", "model", "image_model",
+            "timeout.model", "timeout.network", "timeout.subprocess", "timeout.powerpoint_com_mcp", "timeout.render",
+            "retry.max_retries", "retry.backoff", "retry.retryable_errors",
+            "concurrency.task", "concurrency.page", "concurrency.provider", "concurrency.backend",
+            "maximum_file_size", "font_fallback", "qa_thresholds"
+          ],
+          "properties": {
+            "page_count": { "$ref": "#/$defs/snapshotParameter" },
+            "aspect_ratio": { "$ref": "#/$defs/snapshotParameter" },
+            "language": { "$ref": "#/$defs/snapshotParameter" },
+            "model": { "$ref": "#/$defs/snapshotParameter" },
+            "image_model": { "$ref": "#/$defs/snapshotParameter" },
+            "timeout.model": { "$ref": "#/$defs/snapshotParameter" },
+            "timeout.network": { "$ref": "#/$defs/snapshotParameter" },
+            "timeout.subprocess": { "$ref": "#/$defs/snapshotParameter" },
+            "timeout.powerpoint_com_mcp": { "$ref": "#/$defs/snapshotParameter" },
+            "timeout.render": { "$ref": "#/$defs/snapshotParameter" },
+            "retry.max_retries": { "$ref": "#/$defs/snapshotParameter" },
+            "retry.backoff": { "$ref": "#/$defs/snapshotParameter" },
+            "retry.retryable_errors": { "$ref": "#/$defs/snapshotParameter" },
+            "concurrency.task": { "$ref": "#/$defs/snapshotParameter" },
+            "concurrency.page": { "$ref": "#/$defs/snapshotParameter" },
+            "concurrency.provider": { "$ref": "#/$defs/snapshotParameter" },
+            "concurrency.backend": { "$ref": "#/$defs/snapshotParameter" },
+            "maximum_file_size": { "$ref": "#/$defs/snapshotParameter" },
+            "font_fallback": { "$ref": "#/$defs/snapshotParameter" },
+            "qa_thresholds": { "$ref": "#/$defs/snapshotParameter" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "snapshot_status": { "const": "effective" } },
+            "required": ["snapshot_status"]
+          },
+          "then": {
+            "properties": {
+              "source_priority_policy": {
+                "properties": { "status": { "const": "defined" } },
+                "required": ["status"]
+              },
+              "parameters": {
+                "properties": {
+                  "page_count": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "aspect_ratio": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "language": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "model": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "image_model": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "timeout.model": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "timeout.network": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "timeout.subprocess": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "timeout.powerpoint_com_mcp": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "timeout.render": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "retry.max_retries": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "retry.backoff": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "retry.retryable_errors": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "concurrency.task": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "concurrency.page": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "concurrency.provider": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "concurrency.backend": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "maximum_file_size": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "font_fallback": { "$ref": "#/$defs/effectiveSnapshotParameter" },
+                  "qa_thresholds": { "$ref": "#/$defs/effectiveSnapshotParameter" }
+                }
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

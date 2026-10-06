@@ -1,0 +1,50 @@
+{
+  "requirement_id": "GOV-006",
+  "contract_status": "draft",
+  "fixtures": [
+    {
+      "fixture_id": "GOV-006-TRACE-PENDING-001",
+      "purpose": "在没有真实运行时输入或已批准来源优先级时，trace 结构保留全部配置项为 unresolved，不伪造有效值或产品默认值。",
+      "expected_schema_valid": true,
+      "document": {
+        "document_type": "effective_config_snapshot",
+        "contract_status": "draft",
+        "requirement_id": "GOV-006",
+        "schema_ref": "contracts/config-schema.schema.json",
+        "snapshot_status": "pending",
+        "source_priority_policy": {
+          "status": "unresolved",
+          "decision_id": "DEC-004",
+          "task_id": "TASK-DEC-004",
+          "unresolved_reason": "此 fixture 只验证草案结构，不代表来源优先级已决策。"
+        },
+        "parameters": {
+          "page_count": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "aspect_ratio": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "language": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "model": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "image_model": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "timeout.model": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "timeout.network": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "timeout.subprocess": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "timeout.powerpoint_com_mcp": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "timeout.render": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "retry.max_retries": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "retry.backoff": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "retry.retryable_errors": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "concurrency.task": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "concurrency.page": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "concurrency.provider": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "concurrency.backend": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "maximum_file_size": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "font_fallback": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" },
+          "qa_thresholds": { "resolution": "unresolved", "candidates": [], "resolution_note": "fixture 未提供运行输入。" }
+        }
+      }
+    }
+  ],
+  "limits": [
+    "fixture 是结构预期，不是应用运行结果。",
+    "应用运行时必须在决策与架构完成后记录真实有效配置快照；pending fixture 不能替代该验收。"
+  ]
+}
