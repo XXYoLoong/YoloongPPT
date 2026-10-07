@@ -1,0 +1,41 @@
+{
+  "document_type": "asset_inventory_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-012",
+  "fixtures": [
+    {
+      "fixture_id": "IN-012-NORMAL-001",
+      "kind": "normal",
+      "input": { "record_type": "asset_inventory_input", "source_id": "source_11111111-1111-4111-8111-111111111111", "targets": [{ "target_id": "target-root", "kind": "local_directory", "locator": "workspace-upload://assets-root", "requested_asset_kind": null, "display_name": "synthetic-demo-assets" }], "scan_policy": { "include_hidden": false, "follow_links": "never", "max_depth": 8, "compute_sha256": true } },
+      "expected_result": {
+        "record_type": "asset_inventory_result", "source_id": "source_11111111-1111-4111-8111-111111111111", "status": "indexed",
+        "inventory": { "model_type": "AssetInventory", "source_id": "source_11111111-1111-4111-8111-111111111111", "root_label": "synthetic-demo-assets", "scan_policy": { "include_hidden": false, "follow_links": "never", "max_depth": 8, "compute_sha256": true }, "issues": [], "assets": [
+          { "asset_id": "asset_11111111-1111-4111-8111-111111111111", "source_id": "source_11111111-1111-4111-8111-111111111111", "source_target_id": "target-root", "origin_kind": "local_file", "relative_path": "templates/quarterly.pptx", "locator": "templates/quarterly.pptx", "locator_redaction": "not_required", "display_name": "quarterly.pptx", "extension": "pptx", "declared_kind": "template", "detected_kind": "template", "detected_media_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation", "size_bytes": 102400, "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "last_modified_utc": null, "scan_status": "indexed", "metadata": [] },
+          { "asset_id": "asset_22222222-2222-4222-8222-222222222222", "source_id": "source_11111111-1111-4111-8111-111111111111", "source_target_id": "target-root", "origin_kind": "local_file", "relative_path": "brand/logo.svg", "locator": "brand/logo.svg", "locator_redaction": "not_required", "display_name": "logo.svg", "extension": "svg", "declared_kind": "logo", "detected_kind": "svg", "detected_media_type": "image/svg+xml", "size_bytes": 4096, "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb", "last_modified_utc": null, "scan_status": "indexed", "metadata": [] },
+          { "asset_id": "asset_33333333-3333-4333-8333-333333333333", "source_id": "source_11111111-1111-4111-8111-111111111111", "source_target_id": "target-root", "origin_kind": "local_file", "relative_path": "media/intro.mp4", "locator": "media/intro.mp4", "locator_redaction": "not_required", "display_name": "intro.mp4", "extension": "mp4", "declared_kind": "video", "detected_kind": "video", "detected_media_type": "video/mp4", "size_bytes": 5120000, "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "last_modified_utc": null, "scan_status": "indexed", "metadata": [] },
+          { "asset_id": "asset_44444444-4444-4444-8444-444444444444", "source_id": "source_11111111-1111-4111-8111-111111111111", "source_target_id": "target-root", "origin_kind": "local_file", "relative_path": "fonts/brand.woff2", "locator": "fonts/brand.woff2", "locator_redaction": "not_required", "display_name": "brand.woff2", "extension": "woff2", "declared_kind": "font", "detected_kind": "font", "detected_media_type": "font/woff2", "size_bytes": 16384, "sha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd", "last_modified_utc": null, "scan_status": "indexed", "metadata": [] }
+        ] },
+        "coverage": [{ "feature": "locations", "status": "complete", "reason": null }, { "feature": "kind_classification", "status": "complete", "reason": null }, { "feature": "media_type", "status": "complete", "reason": null }, { "feature": "size", "status": "complete", "reason": null }, { "feature": "hashes", "status": "complete", "reason": null }, { "feature": "metadata", "status": "not_present", "reason": null }, { "feature": "remote_sources", "status": "not_present", "reason": null }, { "feature": "link_policy", "status": "complete", "reason": null }], "errors": []
+      },
+      "verification_note": "所有文件和哈希均为合成占位；未扫描真实目录或读取这些路径。"
+    },
+    {
+      "fixture_id": "IN-012-BOUNDARY-PATH-001",
+      "kind": "boundary",
+      "input": { "record_type": "asset_inventory_input", "source_id": "source_55555555-5555-4555-8555-555555555555", "targets": [{ "target_id": "target-escape", "kind": "local_file", "locator": "../outside/example.pdf", "requested_asset_kind": null, "display_name": "example.pdf" }], "scan_policy": { "include_hidden": false, "follow_links": "never", "max_depth": 1, "compute_sha256": false } },
+      "expected_result": { "record_type": "asset_inventory_result", "source_id": "source_55555555-5555-4555-8555-555555555555", "status": "failed", "inventory": null, "coverage": [{ "feature": "locations", "status": "failed", "reason": "路径规范化后越出调用方允许的 root。" }], "errors": [{ "code": "ASSET_PATH_UNSAFE", "message": "目标路径不在允许的 root 内。", "source_target_id": "target-escape", "asset_id": null, "recoverable": false }] },
+      "verification_note": "fixture 只描述拒绝边界，不访问或读取目标。"
+    },
+    {
+      "fixture_id": "IN-012-BOUNDARY-REMOTE-001",
+      "kind": "boundary",
+      "input": { "record_type": "asset_inventory_input", "source_id": "source_66666666-6666-4666-8666-666666666666", "targets": [{ "target_id": "target-remote", "kind": "remote_uri", "locator": "https://example.invalid/assets/logo.svg?token=REDACTED", "requested_asset_kind": "svg", "display_name": "logo.svg" }], "scan_policy": { "include_hidden": false, "follow_links": "never", "max_depth": null, "compute_sha256": true } },
+      "expected_result": { "record_type": "asset_inventory_result", "source_id": "source_66666666-6666-4666-8666-666666666666", "status": "partial", "inventory": { "model_type": "AssetInventory", "source_id": "source_66666666-6666-4666-8666-666666666666", "root_label": null, "scan_policy": { "include_hidden": false, "follow_links": "never", "max_depth": null, "compute_sha256": true }, "assets": [{ "asset_id": "asset_77777777-7777-4777-8777-777777777777", "source_id": "source_66666666-6666-4666-8666-666666666666", "source_target_id": "target-remote", "origin_kind": "remote_uri", "relative_path": null, "locator": "https://example.invalid/assets/logo.svg", "locator_redaction": "redacted", "display_name": "logo.svg", "extension": "svg", "declared_kind": "svg", "detected_kind": "unknown", "detected_media_type": null, "size_bytes": null, "sha256": null, "last_modified_utc": null, "scan_status": "remote_not_fetched", "metadata": [] }], "issues": [{ "code": "REMOTE_ASSET_NOT_FETCHED", "message": "远程 URI 仅登记，未执行网络抓取。", "source_target_id": "target-remote", "asset_id": "asset_77777777-7777-4777-8777-777777777777", "recoverable": true }] }, "coverage": [{ "feature": "locations", "status": "partial", "reason": "远程定位符经脱敏保留。" }, { "feature": "kind_classification", "status": "partial", "reason": "未抓取内容，类型仅有调用方声明。" }, { "feature": "media_type", "status": "unsupported", "reason": "远程内容未下载，未检测媒体类型。" }, { "feature": "size", "status": "unsupported", "reason": "远程内容未下载，体积未知。" }, { "feature": "hashes", "status": "unsupported", "reason": "远程内容未下载，未计算哈希。" }, { "feature": "metadata", "status": "not_present", "reason": null }, { "feature": "remote_sources", "status": "partial", "reason": "仅登记引用，未发起网络请求。" }, { "feature": "link_policy", "status": "complete", "reason": null }], "errors": [] },
+      "verification_note": "保留脱敏 locator 和 remote_not_fetched；未执行网络访问。"
+    }
+  ],
+  "limits": [
+    "全部路径、Asset ID、体积和 SHA-256 都是合成预期数据，不对应真实用户资产。",
+    "schema/catalog/fixtures 不实现文件系统扫描、权限校验、hash 或网络安全策略。"
+  ]
+}

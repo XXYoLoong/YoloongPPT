@@ -245,6 +245,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：任务表已列 ImageEvidence 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-011/TASK-IN-011，不增删需求、任务或数据对象行。
 - 证据：contracts/image-evidence.schema.json、contracts/image-evidence.catalog.json、contracts/image-evidence.fixtures.json；Excel“需求主表”N50:P50、“可执行任务”L78:M78。
 
+### TASK-IN-012
+
+- Requirement ID：IN-012；P0；无前置任务。
+- 状态：进行中。已建立 AssetInventory Draft 2020-12 契约、目录和正常/边界预期 fixture，覆盖图片、SVG、视频、字体及模板的 Asset ID、相对路径、声明/检测类型、media type、体积/hash 与扫描状态。
+- 目录边界：本任务只登记资产，不代替媒体内容解析。默认不跟随符号链接/Windows reparse point；本地路径必须限制在批准 root 内。绝对开发机路径不进入清单证据。
+- 远程与敏感定位符：远程 URI 默认只登记，不联网抓取；未获取内容时 size/hash/MIME 保持 unknown，URL 凭据和敏感 query 必须移除或 redacted。部分扫描失败保留已成功条目并附 issue，不静默跳过。
+- 静态核验：schema/catalog/fixtures JSON 可解析，21 个 schema 内部引用及 2 个外部文件引用可定位；3 个 fixture 对齐 source/target/asset，正常案例有 4 种资产类别；边界分别表达 ASSET_PATH_UNSAFE 和 remote_not_fetched/REMOTE_ASSET_NOT_FETCHED，未发起网络请求。
+- 验收边界：全部路径、体积、Asset ID 和 hash 均为合成数据；未运行目录遍历、文件签名识别、哈希、链接防护或远程 adapter。因此 TASK-IN-012 保持进行中，AC-001–AC-030 均未执行；扫描实现和依赖尚未选定。
+- 基线对齐：任务表已列 AssetInventory 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-012/TASK-IN-012，不增删需求、任务或数据对象行。
+- 证据：contracts/asset-inventory.schema.json、contracts/asset-inventory.catalog.json、contracts/asset-inventory.fixtures.json；Excel“需求主表”N51:P51、“可执行任务”L79:M79。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
