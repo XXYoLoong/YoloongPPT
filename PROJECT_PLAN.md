@@ -350,7 +350,7 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 来源对照：PPT Master 固定提交 `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d` 有原生 master/layout roster、继承关系、placeholder 与 `showMasterSp` 解析规则；Presenton 固定提交 `35bf44290f821323e003da854f78ffcb0e918167` 的 `RawSlideLayouts` 保留来源元素/位置/尺寸等，但依赖预览和后续语义认证；ai-agent-ppt 固定提交 `c3605ebc487fc6c7d4f4139761e46d7021cd656c` 的 `LayoutLoader` 消费抽象 JSON layout，不等同于原生 PPTX layout parser。均为源码静态 review，未运行上游程序。
 - 真实 PPTX：只读盘点 python-pptx 固定提交 `278b47b1dedd5b46ee84c286e77cdfb0bf4594be` 的 `default.pptx`，SHA-256 `e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34`；确认 1 master、11 layouts、1 theme、0 slide parts；fixture覆盖直接几何与省略 type/index/visibility 属性。layout 几何未声明时保留为 direct `not_present`，对应 master geometry 解析记为 unresolved；没有推断成零尺寸或最终继承结果。
 - 可见性边界：OOXML 原属性保留为 `showMasterSp`。PPT Master 源码把省略属性按 true 解释只记录为该适配器源码规则，不是 YoloongPPT 产品默认；产品级规范化保持 pending。没有 slide parts，不报告具体页面的有效继承可见性。
-- 数据对象对齐：在既有 LayoutTemplate 数据对象行登记 Schema 草案版本，不新增/删除需求、任务或数据对象。字段 layout_id、page_types、slots、constraints、capacity、backend_support 均保留；Slot 项结构由 layout-slot.schema.json 定义，TPL-006 LayoutApplicability 已接入 page_types，TPL-007 容量和后端能力仍待后续。
+- 数据对象对齐：在既有 LayoutTemplate 数据对象行登记 Schema 草案版本，不新增/删除需求、任务或数据对象。字段 layout_id、page_types、slots、constraints、capacity、backend_support 均保留；Slot 项结构由 layout-slot.schema.json 定义，TPL-006 LayoutApplicability 和 TPL-007 CapacityRules 已接入；容量实测、产品 parser/runtime 与后端能力仍待验证。
 - 静态核验：Schema、catalog、fixtures JSON 解析；本地 Schema 引用及样例结构、11 layout roster、master 关系、直接几何和原始属性状态静态核对。未运行 JSON Schema 标准 validator、YoloongPPT parser、PPT Master/Presenton/ai-agent-ppt 程序、Office 渲染或 AC-001–AC-030。
 - 证据：`contracts/layout-template.schema.json`、`contracts/layout-template.catalog.json`、`contracts/layout-template.fixtures.json`；Excel“需求主表”`N112:O112`、“可执行任务”`L180:M180`、“数据对象”`D29/J29`；`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
 
@@ -361,7 +361,7 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - LayoutTemplate 集成：`contracts/layout-template.schema.json` 的 `slots.items` 现在引用 `contracts/layout-slot.schema.json`；现有 LayoutTemplate fixtures 保持 pending，因为尚未运行产品 parser 将整个 layout placeholder roster 转成 LayoutSlot。
 - 来源对照：PPT Master 固定 commit `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d`（MIT）可静态观察 placeholder role 映射、直接几何及部分文本样式；Presenton 固定 commit `35bf44290f821323e003da854f78ffcb0e918167`（Apache-2.0）记录 raw positions/sizes/styles，并通过模型分析语义区、可重复区域与容量；ai-agent-ppt 固定 commit `c3605ebc487fc6c7d4f4139761e46d7021cd656c`（MIT）提供抽象 `LayoutNode.slot/style`，不等同原生 PPTX layout parser。三者的抽象差异和字段覆盖见 `contracts/layout-slot.catalog.json`。
 - 真实 PPTX 样例：python-pptx 固定 commit `278b47b1dedd5b46ee84c286e77cdfb0bf4594be` 的 `default.pptx`，SHA-256 `e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34`；layout1 的 `ctrTitle` placeholder 有直接 EMU bounds。样例只有 1 master、11 layouts、0 slide parts，因此 required/repeatable/capacity/style inheritance/overflow 保持 unknown。
-- 数据对象对齐：只更新既有“数据对象”`LayoutSlot` 行并说明 `LayoutTemplate.slots` 集成，不新增或删除矩阵行。容量测量及产品规则仍由 TPL-007 完成。
+- 数据对象对齐：只更新既有“数据对象”`LayoutSlot` 行并说明 `LayoutTemplate.slots` 集成，不新增或删除矩阵行。`LayoutSlot.capacity` 现引用 TPL-007 `CapacityRules`；容量阈值和产品测量仍待验证。
 - 静态验证范围：JSON 解析、本地 `$ref` 和 fixture 状态/边界检查；不表示标准 JSON Schema validator、YoloongPPT parser/runtime、源应用执行、Office 渲染或 AC-001–AC-030 已通过。
 - 证据：`contracts/layout-slot.schema.json`、`contracts/layout-slot.catalog.json`、`contracts/layout-slot.fixtures.json`、`contracts/layout-template.schema.json`、`contracts/layout-template.fixtures.json`；Excel“需求主表”`N113:P113`、“可执行任务”`L181:M181`、“数据对象”`D30/J30`；`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
 
@@ -383,10 +383,21 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - Taxonomy：以 PDR DEC-017 与矩阵“0-1全链路”S16 为基线，覆盖封面、章节、概览、图文、数据、流程、时间线、对比、表格、KPI、SWOT、总结；基线使用“等”，契约保留有证据的 extension，不声明这 12 项是封闭全集。
 - 来源对照：PPT Master 提供 OOXML raw layout type/name/placeholders，但无统一 SlideType 映射；Presenton 的 RawSlideLayout/SlideLayout 提供描述、元素和语义组件，未找到 PDR 对应的固定页面类型字段；ai-agent-ppt 提供 title/comparison/timeline/chart/image-text 等抽象 JSON layout，映射只登记候选。原始类型、语义候选和产品验证状态分开存储。
 - 真实 PPTX：复用既有 python-pptx default.pptx 固定样例和 LayoutTemplate fixtures。Title Slide/raw type=title 与 ctrTitle/subTitle 只形成封面 candidate；Title and Content/raw type=obj 因语义可能对应概览、数据、表格、流程等而记 unknown。样例无 slide parts，未验证页面适配。样例文件 SHA-256 为 e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34；上游 python-pptx 源码 commit 与 LayoutTemplate fixture 地址见 contracts/layout-template.fixtures.json。
-- 约束：关系缺失或 unknown 不能当作不适用；只有有证据的 incompatible 才能排除。当前 slot/placeholder 观察不自动成为硬性内容要求；字符数、行数、最小字号等容量约束交给 TPL-007。DEC-030 可查询本关系后继续容量、素材与 backend 检查；本任务不实施候选打分。
-- 数据对象对齐：LayoutApplicability 嵌入既有 LayoutTemplate.page_types，以 layout_id + SlideType 组合识别，不新增需求、任务、数据对象行或独立 GOV-007 ID。更新既有 LayoutTemplate schema/catalog/fixtures 以移除 TPL-006 deferral；TPL-007 capacity 和产品 parser/runtime 验证仍待后续。
+- 约束：关系缺失或 unknown 不能当作不适用；只有有证据的 incompatible 才能排除。当前 slot/placeholder 观察不自动成为硬性内容要求；字符数、行数、最小字号等容量约束由 TPL-007 CapacityRules 记录。DEC-030 可查询本关系后继续容量、素材与 backend 检查；本任务不实施候选打分。
+- 数据对象对齐：LayoutApplicability 嵌入既有 LayoutTemplate.page_types，以 layout_id + SlideType 组合识别，不新增需求、任务、数据对象行或独立 GOV-007 ID。更新既有 LayoutTemplate schema/catalog/fixtures 以移除 TPL-006 deferral；TPL-007 的容量实测和产品 parser/runtime 验证仍待后续。
 - 静态核验：JSON 解析、本地及跨文件 Schema 引用、taxonomy 全覆盖、两条真实样例映射状态、父子 layout_id 一致性与 verified 必须有运行证据的边界检查。当前没有 Draft 2020-12 标准 validator；不宣称标准实例验证或产品 parser、上游程序、Office 渲染、AC-001–AC-030 已通过。
 - 证据：contracts/layout-applicability.schema.json、layout-applicability.catalog.json、layout-applicability.fixtures.json、contracts/layout-template.schema.json/catalog.json/fixtures.json；Excel“需求主表”N115:P115、“可执行任务”L183:M183、“数据对象”D29:J29；PDR DEC-017、DEC-030 与矩阵 S16。
+
+### TASK-TPL-007
+
+- Requirement ID：TPL-007；P0；矩阵未列前置任务。
+- 状态：进行中。建立语言/运行时无关的 Draft 2020-12 `CapacityRules` 契约，作为既有 `LayoutTemplate.capacity` 与 `LayoutSlot.capacity` 的内嵌记录；按 layout/slot 分别标识，不新增数据对象行。
+- 维度：显式覆盖字符数、行数、列表项数、图片数、表格数、图表数和最小字号，并允许有证据的扩展维度。每个维度记录状态、单位、比较方向、限值、依据、证据和原因；未知或未评估时限值为空。未把 slot 数量相加为 layout 容量，也未把几何或 placeholder 数量转成安全字符数。
+- 来源对照：固定 PPT Master 源码能读取占位符几何和部分文本样式，但无通用容量规则；固定 Presenton 源码将安全文本长度/增长约束与模型分析和预览认证关联，本任务未执行该流程；固定 ai-agent-ppt 抽象 LayoutNode 未发现容量字段。源版本和上游许可证记录在 catalog，源码只做静态 review。
+- 真实 PPTX：复用 python-pptx 固定 commit `278b47b1dedd5b46ee84c286e77cdfb0bf4594be` 的 `default.pptx`，SHA-256 `e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34`；样例有 1 master、11 layouts、0 slide parts。Title placeholder 的 EMU 几何不足以给出字符数或最小字号；样例模板资产自身许可证继续标记 unknown。
+- 容量边界：目前真实 PPTX 与上游来源都没有被 YoloongPPT parser 和目标渲染器装载真实内容并测量；fixtures 中七个基线维度均为 unknown，不定义默认上限。要记录实测值，需保留分析器/运行时、版本、渲染器、版本、字体环境和重现证据。该契约不实现自动排版、溢出策略或 DEC-030 打分。
+- 静态核验：Schema/catalog/fixtures 及布局/槽位集成 JSON 可解析，本地引用、scope ID 和 unknown 限值/原因边界静态核对。未运行标准 JSON Schema validator、容量测量器、YoloongPPT parser/runtime、Office 渲染或 AC-001–AC-030。
+- 证据：`contracts/capacity-rules.schema.json`、`contracts/capacity-rules.catalog.json`、`contracts/capacity-rules.fixtures.json`、`contracts/layout-template.schema.json/catalog.json/fixtures.json`、`contracts/layout-slot.schema.json/catalog.json/fixtures.json`；Excel“需求主表”`N116:P116`、“可执行任务”`L184:M184`、“数据对象”`D29:J30`；PDR 段落 139、`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
 
 ### TASK-CNT-001
 

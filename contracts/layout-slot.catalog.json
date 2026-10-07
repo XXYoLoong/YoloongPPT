@@ -25,7 +25,7 @@
     ],
     "canonical_object_registered": true,
     "evidence": "沿用既有 LayoutSlot 数据对象行，不新增或删除需求、任务或对象；通过状态与原因表达来源未提供的值。",
-    "integration": "LayoutTemplate.slots 使用本契约校验每个元素；空的 pending collection 仍允许表示尚未完成产品解析。"
+    "integration": "LayoutTemplate.slots 使用本契约校验每个元素；capacity 使用 TASK-TPL-007 的 CapacityRules，scope.kind=slot；空的 pending collection 仍允许表示尚未完成产品解析。"
   },
   "field_rules": [
     { "field": "slot_id", "representation": "使用稳定 slot UUIDv4；来源 shapeId 或语义 slot 名只用于 source_ref/原始值，不代替项目槽位身份。" },
@@ -34,7 +34,7 @@
     { "field": "content_types", "representation": "用开放字符串集合表达来源可支持的内容类别；未证实时保留空集合和 unknown。" },
     { "field": "required", "representation": "仅保存来源明确声明的布尔值；占位符存在本身不推导为必填。" },
     { "field": "repeatable", "representation": "仅保存来源明确声明的布尔值；多个占位符本身不推导为可重复。" },
-    { "field": "capacity", "representation": "保留有单位和证据的维度限制；未评估时为 unknown。容量计算和产品规则仍属 TPL-007。" },
+    { "field": "capacity", "representation": "引用 contracts/capacity-rules.schema.json；按字符、行、列表项、图片、表格、图表、最小字号和可追溯扩展维度分别记录状态、单位、限值、比较方向与证据；未验证的值为空并说明原因。" },
     { "field": "style", "representation": "保留来源原生属性名和值，并区分直接、继承、部分和未知。" },
     { "field": "overflow_policy", "representation": "保留来源策略原文；没有显式策略时为 unknown，不预设 shrink、clip 或 reject。" }
   ],
@@ -138,6 +138,6 @@
     "Source code was reviewed but the three source applications were not executed against the real PPTX sample.",
     "The real sample has no slide parts, so it does not establish slide-level requiredness, repeated content, capacity or overflow behavior.",
     "No YoloongPPT slot parser/runtime or Office rendering is implemented by this contract task.",
-    "Capacity behavior and evaluation remain tracked under TPL-007."
+    "TASK-TPL-007 CapacityRules contract is defined and integrated, but the current source fixtures contain no measured capacity thresholds or minimum font sizes; runtime measurement and evaluation remain open."
   ]
 }

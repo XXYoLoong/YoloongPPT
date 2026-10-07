@@ -1,0 +1,112 @@
+{
+  "requirement_id": "TPL-007",
+  "task_id": "TASK-TPL-007",
+  "title": "容量模型",
+  "status": "进行中",
+  "deliverable": "CapacityRules",
+  "contract_file": "contracts/capacity-rules.schema.json",
+  "fixture_file": "contracts/capacity-rules.fixtures.json",
+  "matrix_trace": {
+    "requirement_row": "需求主表!A116:P116",
+    "task_row": "可执行任务!A184:N184",
+    "data_object_rows": ["数据对象!A29:J29", "数据对象!A30:J30"]
+  },
+  "data_object_alignment": {
+    "canonical_object_registered": false,
+    "embedded_in": ["LayoutTemplate.capacity", "LayoutSlot.capacity"],
+    "evidence": "CapacityRules 是 TASK-TPL-007 输出契约，作为 LayoutTemplate/Slot 的内嵌容量字段；矩阵没有独立 CapacityRules 数据对象行，不新增或删除基线行。"
+  },
+  "dimensions": [
+    { "id": "character_count", "meaning": "可接受字符数上限", "unit": "characters", "comparison": "maximum" },
+    { "id": "line_count", "meaning": "可接受行数上限", "unit": "lines", "comparison": "maximum" },
+    { "id": "list_item_count", "meaning": "可接受列表项数上限", "unit": "items", "comparison": "maximum" },
+    { "id": "image_count", "meaning": "可接受图片数上限", "unit": "images", "comparison": "maximum" },
+    { "id": "table_count", "meaning": "可接受表格数上限", "unit": "tables", "comparison": "maximum" },
+    { "id": "chart_count", "meaning": "可接受图表数上限", "unit": "charts", "comparison": "maximum" },
+    { "id": "minimum_font_size", "meaning": "允许的最小字号", "unit": "pt", "comparison": "minimum" }
+  ],
+  "dimension_extensions": {
+    "pattern": "^x-[a-z][a-z0-9_]*$",
+    "rule": "用扩展维度记录需求中的其他容量，例如表格行列、图表系列、图片面积；必须给出明确单位、限值证据和原因，不把示例扩展当作已选产品规则。"
+  },
+  "value_rules": {
+    "defined": "只用于有来源明示值或带可复现渲染/运行环境的测量值；保留比较方向、单位、basis、证据。",
+    "partial": "部分维度已有证据限值，其余维度仍显式 unknown、not_assessed、unsupported 或 not_applicable；不得把空缺计为零或无限容量。",
+    "unknown": "已做来源核对但不能确定限值；limit/comparison/basis 为空，reason 和 evidence_refs 非空。",
+    "not_assessed": "尚未对该维度做容量评估；limit/comparison/basis 为空并说明原因。",
+    "not_applicable": "只有来源证据明确说明维度不适用时使用；不得等同未观察或未知。"
+  },
+  "scope_rules": [
+    "容量记录按 LayoutTemplate 或 LayoutSlot 分别关联；layout 总容量不能由 slot 数值相加推导，除非另有明确规则及证据。",
+    "字符容量需要同时记录计数方法；几何、占位符存在、源应用 schema 的 required 键均不足以单独给出安全字符数或最小字号。",
+    "测量值须关联分析器、版本、渲染器、版本、字体环境和可重现证据。源代码静态观察不能标为 rendered_measurement 或 runtime_verified。"
+  ],
+  "source_crosswalks": [
+    {
+      "source_id": "P01_PPT_MASTER",
+      "source": "PPT Master",
+      "repository": "https://github.com/hugohe3/ppt-master",
+      "revision": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "license": "MIT",
+      "evidence_ref": "P01_LAYOUT_MANIFEST",
+      "additional_evidence_refs": ["P01_PLACEHOLDER_MANIFEST"],
+      "paths": [
+        "skills/ppt-master/scripts/template_import/manifest.py",
+        "skills/ppt-master/scripts/pptx_to_svg/converter.py",
+        "skills/ppt-master/scripts/pptx_to_svg/ooxml_loader.py"
+      ],
+      "capacity_observation": "源码可提取占位符直接几何和部分文本样式；没有通用 slot 容量契约或安全字符/最小字号规则。",
+      "execution_status": "source_review_only"
+    },
+    {
+      "source_id": "P03_PRESENTON",
+      "source": "Presenton",
+      "repository": "https://github.com/presenton/presenton",
+      "revision": "35bf44290f821323e003da854f78ffcb0e918167",
+      "license": "Apache-2.0",
+      "evidence_ref": "P03_RAW_LAYOUTS",
+      "paths": [
+        "docs/template-v2.md",
+        "servers/fastapi/api/v1/ppt/endpoints/template.py",
+        "servers/fastapi/templates/v2/schema.py"
+      ],
+      "capacity_observation": "模板模型分析可计算安全文本长度与增长约束，但这些结果依赖模型分析和预览认证；本任务未运行该流程，也未从中取用任何数值。",
+      "execution_status": "source_review_only"
+    },
+    {
+      "source_id": "P04_AI_AGENT_PPT",
+      "source": "ai-agent-ppt",
+      "repository": "https://github.com/peterfei/ai-agent-ppt",
+      "revision": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "license": "MIT",
+      "evidence_ref": "P04_ABSTRACT_LAYOUT_JSON",
+      "paths": ["src/core/engine/layout-loader.ts", "src/layouts/title.layout.json"],
+      "capacity_observation": "抽象 LayoutNode 有语义 slot/style，但未发现容量字段、显式边界或 overflow policy。",
+      "execution_status": "source_review_only"
+    }
+  ],
+  "real_pptx_sample": {
+    "source": "python-pptx default template",
+    "repository": "https://github.com/scanny/python-pptx",
+    "revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+    "source_file": "src/pptx/templates/default.pptx",
+    "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
+    "counts": { "masters": 1, "layouts": 11, "slide_parts": 0 },
+    "observed": "layout/placeholder 结构和部分直接 EMU 几何；没有 slide 内容、容量限值或最小字号测量。",
+    "template_asset_license": "unknown; repository MIT license does not establish the template asset's own license",
+    "evidence_ref": "PYTHON_PPTX_DEFAULT_SAMPLE"
+  },
+  "integrations": [
+    "contracts/layout-template.schema.json 的 capacity 引用本契约，scope.kind 必须为 layout。",
+    "contracts/layout-slot.schema.json 的 capacity 引用本契约，scope.kind 必须为 slot。",
+    "当前 fixtures 记录 unknown 的真实边界；没有定义产品阈值或模板默认值。"
+  ],
+  "coverage": "固定版本的 PPT Master、Presenton、ai-agent-ppt 源码静态 crosswalk 与固定哈希真实 PPTX 结构样例；未执行上游程序、产品 parser、渲染或容量测量。",
+  "limitations": [
+    "PPTX 样例包含 1 个 master、11 个 layout 和 0 个 slide parts；不能据此得出内容容量。",
+    "几何宽高和直接/继承样式没有经目标渲染器、字体环境和真实内容用例验证，不能换算为安全字符数或最小字号。",
+    "未选定 YoloongPPT 运行时、PPTX backend、渲染器、字体集或容量评估方法。",
+    "上游项目根许可证与 PPTX 样例资产自身的许可分开；样例资产许可保持 unknown。",
+    "容量契约不实现内容裁剪、溢出处理、字号缩小、slot 自动分配或 DEC-030 候选打分。"
+  ]
+}

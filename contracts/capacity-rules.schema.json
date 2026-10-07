@@ -1,0 +1,265 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CapacityRules 契约（TASK-TPL-007 草案）",
+  "description": "语言与运行时无关的版式/槽位容量记录。只有来源明确声明或可复现的测量结果才可填写限值；未知值必须为空并说明原因。此文件不表示 YoloongPPT 已实现测量器、渲染器或运行时。",
+  "type": "object",
+  "required": [
+    "spec_type",
+    "contract_status",
+    "requirement_id",
+    "task_id",
+    "scope",
+    "status",
+    "dimensions",
+    "evidence_refs",
+    "assessment",
+    "limitations"
+  ],
+  "properties": {
+    "spec_type": { "const": "CapacityRules" },
+    "contract_status": { "const": "draft" },
+    "requirement_id": { "const": "TPL-007" },
+    "task_id": { "const": "TASK-TPL-007" },
+    "scope": { "$ref": "#/$defs/scope" },
+    "status": {
+      "enum": ["defined", "partial", "unknown", "not_assessed", "not_applicable"]
+    },
+    "dimensions": { "$ref": "#/$defs/dimensions" },
+    "evidence_refs": { "$ref": "#/$defs/evidence_refs", "minItems": 1 },
+    "assessment": { "$ref": "#/$defs/assessment" },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "evidence_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "scope": {
+      "type": "object",
+      "required": ["kind", "layout_id", "slot_id"],
+      "properties": {
+        "kind": { "enum": ["layout", "slot"] },
+        "layout_id": {
+          "oneOf": [
+            { "$ref": "object-id.schema.json#/$defs/layout_id" },
+            { "type": "null" }
+          ]
+        },
+        "slot_id": {
+          "oneOf": [
+            { "$ref": "object-id.schema.json#/$defs/slot_id" },
+            { "type": "null" }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "kind": { "const": "layout" } },
+            "required": ["kind"]
+          },
+          "then": {
+            "properties": {
+              "layout_id": { "$ref": "object-id.schema.json#/$defs/layout_id" },
+              "slot_id": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "kind": { "const": "slot" } },
+            "required": ["kind"]
+          },
+          "then": {
+            "properties": {
+              "slot_id": { "$ref": "object-id.schema.json#/$defs/slot_id" }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "dimension_rule": {
+      "type": "object",
+      "required": [
+        "status",
+        "limit",
+        "unit",
+        "comparison",
+        "basis",
+        "evidence_refs",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": ["defined", "unknown", "not_assessed", "unsupported", "not_applicable"]
+        },
+        "limit": { "type": ["number", "null"], "minimum": 0 },
+        "unit": { "type": "string", "minLength": 1 },
+        "comparison": { "enum": ["maximum", "minimum", null] },
+        "basis": {
+          "enum": ["source_declared", "rendered_measurement", "runtime_verified", null]
+        },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "const": "defined" } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "limit": { "type": "number", "minimum": 0 },
+              "comparison": { "enum": ["maximum", "minimum"] },
+              "basis": { "enum": ["source_declared", "rendered_measurement", "runtime_verified"] },
+              "evidence_refs": { "minItems": 1 },
+              "reason": { "const": null }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": { "enum": ["unknown", "unsupported", "not_applicable"] }
+            },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "limit": { "const": null },
+              "comparison": { "const": null },
+              "basis": { "const": null },
+              "evidence_refs": { "minItems": 1 },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "status": { "const": "not_assessed" } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "limit": { "const": null },
+              "comparison": { "const": null },
+              "basis": { "const": null },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "dimensions": {
+      "type": "object",
+      "required": [
+        "character_count",
+        "line_count",
+        "list_item_count",
+        "image_count",
+        "table_count",
+        "chart_count",
+        "minimum_font_size"
+      ],
+      "properties": {
+        "character_count": { "$ref": "#/$defs/dimension_rule" },
+        "line_count": { "$ref": "#/$defs/dimension_rule" },
+        "list_item_count": { "$ref": "#/$defs/dimension_rule" },
+        "image_count": { "$ref": "#/$defs/dimension_rule" },
+        "table_count": { "$ref": "#/$defs/dimension_rule" },
+        "chart_count": { "$ref": "#/$defs/dimension_rule" },
+        "minimum_font_size": { "$ref": "#/$defs/dimension_rule" }
+      },
+      "patternProperties": {
+        "^x-[a-z][a-z0-9_]*$": { "$ref": "#/$defs/dimension_rule" }
+      },
+      "additionalProperties": false
+    },
+    "assessment": {
+      "type": "object",
+      "required": [
+        "status",
+        "method",
+        "tool_id",
+        "tool_version",
+        "renderer_id",
+        "renderer_version",
+        "font_environment_ref",
+        "evidence_refs",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": ["not_assessed", "source_review_only", "measured", "runtime_verified"]
+        },
+        "method": { "type": ["string", "null"] },
+        "tool_id": { "type": ["string", "null"] },
+        "tool_version": { "type": ["string", "null"] },
+        "renderer_id": { "type": ["string", "null"] },
+        "renderer_version": { "type": ["string", "null"] },
+        "font_environment_ref": { "type": ["string", "null"] },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": { "status": { "const": "not_assessed" } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "method": { "const": null },
+              "tool_id": { "const": null },
+              "tool_version": { "const": null },
+              "renderer_id": { "const": null },
+              "renderer_version": { "const": null },
+              "font_environment_ref": { "const": null },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "status": { "const": "source_review_only" } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "method": { "type": "string", "minLength": 1 },
+              "evidence_refs": { "minItems": 1 },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": { "status": { "enum": ["measured", "runtime_verified"] } },
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "method": { "type": "string", "minLength": 1 },
+              "tool_id": { "type": "string", "minLength": 1 },
+              "tool_version": { "type": "string", "minLength": 1 },
+              "renderer_id": { "type": "string", "minLength": 1 },
+              "renderer_version": { "type": "string", "minLength": 1 },
+              "font_environment_ref": { "type": "string", "minLength": 1 },
+              "evidence_refs": { "minItems": 1 },
+              "reason": { "const": null }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

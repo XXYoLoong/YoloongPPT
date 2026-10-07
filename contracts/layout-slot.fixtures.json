@@ -25,7 +25,10 @@
           "status": "mapped",
           "value": "title",
           "source_value": "ctrTitle",
-          "evidence_refs": ["P01_PLACEHOLDER_MANIFEST", "PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "evidence_refs": [
+            "P01_PLACEHOLDER_MANIFEST",
+            "PYTHON_PPTX_DEFAULT_SAMPLE"
+          ],
           "reason": null
         },
         "bounds": {
@@ -36,51 +39,183 @@
           "y": 2130425,
           "width": 7772400,
           "height": 1470025,
-          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "evidence_refs": [
+            "PYTHON_PPTX_DEFAULT_SAMPLE"
+          ],
           "reason": null
         },
         "content_types": {
           "status": "unknown",
           "values": [],
           "source_values": [],
-          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "evidence_refs": [
+            "PYTHON_PPTX_DEFAULT_SAMPLE"
+          ],
           "reason": "样例只提供 layout placeholder 定义，没有 slide parts 或应用层绑定信息；未从 ctrTitle 推断通用可接受内容类型。"
         },
         "required": {
           "status": "unknown",
           "value": null,
           "source_value": null,
-          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "evidence_refs": [
+            "PYTHON_PPTX_DEFAULT_SAMPLE"
+          ],
           "reason": "placeholder 存在不等于每张使用该版式的幻灯片都必须填充此槽位。"
         },
         "repeatable": {
           "status": "unknown",
           "value": null,
           "source_value": null,
-          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "evidence_refs": [
+            "PYTHON_PPTX_DEFAULT_SAMPLE"
+          ],
           "reason": "layout placeholder 未声明可重复语义，且样例没有 slide parts 可用于观察重复实例。"
         },
         "capacity": {
+          "spec_type": "CapacityRules",
+          "contract_status": "draft",
+          "requirement_id": "TPL-007",
+          "task_id": "TASK-TPL-007",
+          "scope": {
+            "kind": "slot",
+            "layout_id": "layout_76bd87e4-fdd8-42a8-9f19-cb6b8ce35350",
+            "slot_id": "slot_550e8400-e29b-41d4-a716-446655440000"
+          },
           "status": "unknown",
-          "items": [],
-          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
-          "reason": "样例不包含文本容量测量；容量规则由 TPL-007 继续定义。"
+          "dimensions": {
+            "character_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "characters",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P01_PLACEHOLDER_MANIFEST",
+                "PYTHON_PPTX_DEFAULT_SAMPLE"
+              ],
+              "reason": "来源没有声明可接受字符上限；样例没有 slide 内容，也没有通过目标渲染器测量。"
+            },
+            "line_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "lines",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P01_PLACEHOLDER_MANIFEST",
+                "PYTHON_PPTX_DEFAULT_SAMPLE"
+              ],
+              "reason": "来源没有声明可接受行数上限；布局几何不足以证明实际换行结果。"
+            },
+            "list_item_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "items",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P01_PLACEHOLDER_MANIFEST",
+                "PYTHON_PPTX_DEFAULT_SAMPLE"
+              ],
+              "reason": "来源没有声明可接受列表项数；placeholder 存在不等于列表容量。"
+            },
+            "image_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "images",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P01_PLACEHOLDER_MANIFEST",
+                "PYTHON_PPTX_DEFAULT_SAMPLE"
+              ],
+              "reason": "来源没有声明该版式/槽位的安全图片数量上限。"
+            },
+            "table_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "tables",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P01_PLACEHOLDER_MANIFEST",
+                "PYTHON_PPTX_DEFAULT_SAMPLE"
+              ],
+              "reason": "来源没有声明该版式/槽位的安全表格数量上限或表格内容尺寸。"
+            },
+            "chart_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "charts",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P01_PLACEHOLDER_MANIFEST",
+                "PYTHON_PPTX_DEFAULT_SAMPLE"
+              ],
+              "reason": "来源没有声明该版式/槽位的安全图表数量上限或图表内容尺寸。"
+            },
+            "minimum_font_size": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "pt",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P01_PLACEHOLDER_MANIFEST",
+                "PYTHON_PPTX_DEFAULT_SAMPLE"
+              ],
+              "reason": "没有通过目标渲染器、字体环境和内容用例验证最小可读字号。"
+            }
+          },
+          "evidence_refs": [
+            "P01_PLACEHOLDER_MANIFEST",
+            "PYTHON_PPTX_DEFAULT_SAMPLE"
+          ],
+          "assessment": {
+            "status": "source_review_only",
+            "method": "固定版本源码静态复核及真实 PPTX ZIP/XML 盘点；没有在上游或产品运行时内加载真实内容并进行渲染测量。",
+            "tool_id": null,
+            "tool_version": null,
+            "renderer_id": null,
+            "renderer_version": null,
+            "font_environment_ref": null,
+            "evidence_refs": [
+              "P01_PLACEHOLDER_MANIFEST",
+              "PYTHON_PPTX_DEFAULT_SAMPLE"
+            ],
+            "reason": "TPL-007 CapacityRules 已接入 LayoutSlot；来源 fixture 只用于状态/溯源，不提供容量数值。"
+          },
+          "limitations": [
+            "没有真实 slide 内容用例，不能得出字符、行、列表、图片、表格、图表容量或最小字号。",
+            "没有选定 YoloongPPT parser、PowerPoint backend、renderer 或字体环境。",
+            "没有从几何、占位符数量或静态源码观察推导产品容量限值。"
+          ]
         },
         "style": {
           "status": "unknown",
           "properties": {},
-          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "evidence_refs": [
+            "PYTHON_PPTX_DEFAULT_SAMPLE"
+          ],
           "reason": "此 fixture 只记录 layout 的直接几何；未执行 master 样式继承解析。"
         },
         "overflow_policy": {
           "status": "unknown",
           "value": null,
           "source_value": null,
-          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "evidence_refs": [
+            "PYTHON_PPTX_DEFAULT_SAMPLE"
+          ],
           "reason": "PPTX layout placeholder 不提供本契约所需的通用溢出策略声明。"
         },
-        "evidence_refs": ["P01_PLACEHOLDER_MANIFEST", "PYTHON_PPTX_DEFAULT_SAMPLE"],
-        "limitations": ["真实样例有 1 个 master、11 个 layouts 和 0 个 slide parts；未知字段保持未知。"]
+        "evidence_refs": [
+          "P01_PLACEHOLDER_MANIFEST",
+          "PYTHON_PPTX_DEFAULT_SAMPLE"
+        ],
+        "limitations": [
+          "真实样例有 1 个 master、11 个 layouts 和 0 个 slide parts；未知字段保持未知。"
+        ]
       }
     },
     {
@@ -98,7 +233,9 @@
           "status": "declared",
           "value": "title",
           "source_value": "title",
-          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "evidence_refs": [
+            "P04_ABSTRACT_LAYOUT_JSON"
+          ],
           "reason": null
         },
         "bounds": {
@@ -109,35 +246,149 @@
           "y": null,
           "width": null,
           "height": null,
-          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "evidence_refs": [
+            "P04_ABSTRACT_LAYOUT_JSON"
+          ],
           "reason": "LayoutNode.title 声明文本样式，但没有 x/y/width/height 边界字段。"
         },
         "content_types": {
           "status": "unknown",
           "values": [],
           "source_values": [],
-          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "evidence_refs": [
+            "P04_ABSTRACT_LAYOUT_JSON"
+          ],
           "reason": "tagName h1 描述渲染节点；该来源没有声明槽位允许绑定的内容类型集合。"
         },
         "required": {
           "status": "unknown",
           "value": null,
           "source_value": null,
-          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "evidence_refs": [
+            "P04_ABSTRACT_LAYOUT_JSON"
+          ],
           "reason": "LayoutNode schema 没有槽位 required 字段。"
         },
         "repeatable": {
           "status": "unknown",
           "value": null,
           "source_value": null,
-          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "evidence_refs": [
+            "P04_ABSTRACT_LAYOUT_JSON"
+          ],
           "reason": "LayoutNode schema 没有槽位 repeatable 字段。"
         },
         "capacity": {
+          "spec_type": "CapacityRules",
+          "contract_status": "draft",
+          "requirement_id": "TPL-007",
+          "task_id": "TASK-TPL-007",
+          "scope": {
+            "kind": "slot",
+            "layout_id": null,
+            "slot_id": "slot_6ba7b810-9dad-41d1-80b4-00c04fd430c8"
+          },
           "status": "unknown",
-          "items": [],
-          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
-          "reason": "LayoutNode schema 没有容量字段。"
+          "dimensions": {
+            "character_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "characters",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P04_ABSTRACT_LAYOUT_JSON"
+              ],
+              "reason": "来源没有声明可接受字符上限；样例没有 slide 内容，也没有通过目标渲染器测量。"
+            },
+            "line_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "lines",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P04_ABSTRACT_LAYOUT_JSON"
+              ],
+              "reason": "来源没有声明可接受行数上限；布局几何不足以证明实际换行结果。"
+            },
+            "list_item_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "items",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P04_ABSTRACT_LAYOUT_JSON"
+              ],
+              "reason": "来源没有声明可接受列表项数；placeholder 存在不等于列表容量。"
+            },
+            "image_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "images",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P04_ABSTRACT_LAYOUT_JSON"
+              ],
+              "reason": "来源没有声明该版式/槽位的安全图片数量上限。"
+            },
+            "table_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "tables",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P04_ABSTRACT_LAYOUT_JSON"
+              ],
+              "reason": "来源没有声明该版式/槽位的安全表格数量上限或表格内容尺寸。"
+            },
+            "chart_count": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "charts",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P04_ABSTRACT_LAYOUT_JSON"
+              ],
+              "reason": "来源没有声明该版式/槽位的安全图表数量上限或图表内容尺寸。"
+            },
+            "minimum_font_size": {
+              "status": "unknown",
+              "limit": null,
+              "unit": "pt",
+              "comparison": null,
+              "basis": null,
+              "evidence_refs": [
+                "P04_ABSTRACT_LAYOUT_JSON"
+              ],
+              "reason": "没有通过目标渲染器、字体环境和内容用例验证最小可读字号。"
+            }
+          },
+          "evidence_refs": [
+            "P04_ABSTRACT_LAYOUT_JSON"
+          ],
+          "assessment": {
+            "status": "source_review_only",
+            "method": "固定版本源码静态复核及真实 PPTX ZIP/XML 盘点；没有在上游或产品运行时内加载真实内容并进行渲染测量。",
+            "tool_id": null,
+            "tool_version": null,
+            "renderer_id": null,
+            "renderer_version": null,
+            "font_environment_ref": null,
+            "evidence_refs": [
+              "P04_ABSTRACT_LAYOUT_JSON"
+            ],
+            "reason": "TPL-007 CapacityRules 已接入 LayoutSlot；来源 fixture 只用于状态/溯源，不提供容量数值。"
+          },
+          "limitations": [
+            "没有真实 slide 内容用例，不能得出字符、行、列表、图片、表格、图表容量或最小字号。",
+            "没有选定 YoloongPPT parser、PowerPoint backend、renderer 或字体环境。",
+            "没有从几何、占位符数量或静态源码观察推导产品容量限值。"
+          ]
         },
         "style": {
           "status": "partial",
@@ -148,18 +399,26 @@
             "textAlign": "center",
             "marginBottom": "16px"
           },
-          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "evidence_refs": [
+            "P04_ABSTRACT_LAYOUT_JSON"
+          ],
           "reason": "仅保留该节点直接声明的字符串样式；变量解析结果和最终渲染效果未执行验证。"
         },
         "overflow_policy": {
           "status": "unknown",
           "value": null,
           "source_value": null,
-          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "evidence_refs": [
+            "P04_ABSTRACT_LAYOUT_JSON"
+          ],
           "reason": "LayoutNode schema 没有溢出策略字段。"
         },
-        "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
-        "limitations": ["这是抽象语义 JSON layout，不是原生 PPTX layout parser 的输出。"]
+        "evidence_refs": [
+          "P04_ABSTRACT_LAYOUT_JSON"
+        ],
+        "limitations": [
+          "这是抽象语义 JSON layout，不是原生 PPTX layout parser 的输出。"
+        ]
       }
     }
   ],
@@ -167,21 +426,31 @@
     {
       "case_id": "overflow_policy_missing",
       "base_fixture_id": "real_pptx_title_placeholder",
-      "mutation": { "operation": "remove", "path": "/overflow_policy" },
+      "mutation": {
+        "operation": "remove",
+        "path": "/overflow_policy"
+      },
       "expected_valid": false,
       "expected_violation": "root required field overflow_policy is missing"
     },
     {
       "case_id": "direct_bounds_incomplete",
       "base_fixture_id": "real_pptx_title_placeholder",
-      "mutation": { "operation": "remove", "path": "/bounds/height" },
+      "mutation": {
+        "operation": "remove",
+        "path": "/bounds/height"
+      },
       "expected_valid": false,
       "expected_violation": "bounds.height is required for direct geometry"
     },
     {
       "case_id": "unknown_bounds_retains_coordinate",
       "base_fixture_id": "real_pptx_title_placeholder",
-      "mutation": { "operation": "set", "path": "/bounds/status", "value": "unknown" },
+      "mutation": {
+        "operation": "set",
+        "path": "/bounds/status",
+        "value": "unknown"
+      },
       "expected_valid": false,
       "expected_violation": "unknown bounds require null coordinates and unit"
     }

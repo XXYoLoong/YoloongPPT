@@ -20,7 +20,7 @@
     "content_types": { "$ref": "#/$defs/content_types" },
     "required": { "$ref": "#/$defs/boolean_field" },
     "repeatable": { "$ref": "#/$defs/boolean_field" },
-    "capacity": { "$ref": "#/$defs/capacity" },
+    "capacity": { "$ref": "capacity-rules.schema.json" },
     "style": { "$ref": "#/$defs/style" },
     "overflow_policy": { "$ref": "#/$defs/overflow_policy" },
     "evidence_refs": { "$ref": "#/$defs/evidence_refs", "minItems": 1 },
@@ -132,44 +132,6 @@
         {
           "if": { "properties": { "status": { "const": "unknown" } }, "required": ["status"] },
           "then": { "properties": { "value": { "const": null }, "source_value": { "const": null }, "reason": { "type": "string", "minLength": 1 } } }
-        }
-      ],
-      "additionalProperties": false
-    },
-    "capacity": {
-      "type": "object",
-      "required": ["status", "items", "evidence_refs", "reason"],
-      "properties": {
-        "status": { "enum": ["defined", "unbounded", "unknown", "not_applicable"] },
-        "items": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "required": ["dimension", "limit", "unit", "evidence_refs"],
-            "properties": {
-              "dimension": { "type": "string", "minLength": 1 },
-              "limit": { "type": "number", "minimum": 0 },
-              "unit": { "type": "string", "minLength": 1 },
-              "evidence_refs": { "$ref": "#/$defs/evidence_refs", "minItems": 1 }
-            },
-            "additionalProperties": false
-          }
-        },
-        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
-        "reason": { "type": ["string", "null"] }
-      },
-      "allOf": [
-        {
-          "if": { "properties": { "status": { "const": "defined" } }, "required": ["status"] },
-          "then": { "properties": { "items": { "minItems": 1 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
-        },
-        {
-          "if": { "properties": { "status": { "const": "unbounded" } }, "required": ["status"] },
-          "then": { "properties": { "items": { "maxItems": 0 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
-        },
-        {
-          "if": { "properties": { "status": { "enum": ["unknown", "not_applicable"] } }, "required": ["status"] },
-          "then": { "properties": { "items": { "maxItems": 0 }, "reason": { "type": "string", "minLength": 1 } } }
         }
       ],
       "additionalProperties": false

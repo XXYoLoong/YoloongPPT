@@ -23,7 +23,7 @@
     "page_types": { "$ref": "#/$defs/page_types" },
     "slots": { "$ref": "#/$defs/slot_collection" },
     "constraints": { "$ref": "#/$defs/deferred_collection" },
-    "capacity": { "$ref": "#/$defs/deferred_value" },
+    "capacity": { "$ref": "capacity-rules.schema.json" },
     "backend_support": { "$ref": "#/$defs/backend_support" },
     "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
     "limitations": { "type": "array", "items": { "type": "string", "minLength": 1 } }
@@ -264,16 +264,6 @@
       "properties": {
         "status": { "enum": ["pending", "not_assessed", "defined"] },
         "items": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
-        "reason": { "type": ["string", "null"] }
-      },
-      "additionalProperties": false
-    },
-    "deferred_value": {
-      "type": "object",
-      "required": ["status", "value", "reason"],
-      "properties": {
-        "status": { "enum": ["pending", "not_assessed", "defined"] },
-        "value": { "type": ["object", "null"], "additionalProperties": true },
         "reason": { "type": ["string", "null"] }
       },
       "additionalProperties": false
