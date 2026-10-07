@@ -144,6 +144,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：refs、锁、许可证、上游运行声明和关键入口已静态核对；官方最小流程未运行，`ProjectBaseline` 尚未通过，`TASK-RES-P04-01` 保持进行中。待 Engine 恢复后在隔离容器复现并记录配置前置条件、日志和 PPTX。
 - 证据：`research/P04/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N27:P27`、“可执行任务”`L44:M44`、“开源项目研究对象”第 5 行。官方 [README](https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/README.md) 固定到 P04-MAIN commit。
 
+### TASK-RES-P05-01
+
+- Requirement ID：RES-P05-01；P0；无前置任务。PDR 中的 RES-P05-02 至 RES-P05-05 是独立后续任务。
+- 状态：进行中。上游 `main` 与 annotated tag `v0.8.0` 均固定到 commit `5ae0670747885c464aa8063329a902d80a251877`；tag object 为 `923300ac557b0c09ec73f4a1f681233be2940452`，研究 clone 在仓库外 `F:\YoloongPPT-Research\P05`。
+- 上游运行声明：README 为 Python 3.10+、Node.js 18+；`pyproject.toml` 要求 Python `>=3.10`，npm `package.json` 要求 Node `>=18`；上游 Dockerfile 使用 `python:3.12-slim` 和 NodeSource 20.x。YoloongPPT 仍未选择语言/运行时，Python 3.11.2 不是本项目要求。
+- 锁与许可证：有 npm lockfileVersion 3；Python `requirements.txt` 只有下限约束，无完整 Python 锁。根 LICENSE/package.json 声明 AGPL v3，pyproject/package-lock 元数据声明 Apache-2.0，且上游包版本 0.7.8/0.8.0 不一致；许可证标为未评估，不静默裁定。
+- 环境阻塞：`scripts/project.ps1 start` 和 Docker Desktop/WSL 恢复尝试后，`desktop-linux` Engine pipe 仍不存在，项目容器未启动。没有在宿主机安装依赖；官方 Quick Start、测试、构建和 PPTX 生成均未执行。
+- 验收边界：源码 refs、锁文件摘要、上游运行声明与许可差异已静态记录；`ProjectBaseline` 仍未通过，`TASK-RES-P05-01` 保持进行中，`VERIFY-RES-P05-01` 保持未开始；P05-02 至 P05-05 与 AC-001–AC-030 状态未因此改变。
+- 证据：`research/P05/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N32:P32`、“可执行任务”`L54:M55`、“开源项目研究对象”第 6 行。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
