@@ -124,6 +124,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：源码 refs、锁文件元数据、运行条件和上游主许可证已做静态核对；因官方最小流程未复现，`ProjectBaseline` 验收仍未完成，`TASK-RES-P02-01` 保持进行中。后续在隔离容器执行官方最小流程并记录环境/日志/生成物。
 - 证据：`research/P02/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N17:P17`、“可执行任务”`L24:M24`、“开源项目研究对象”第 3 行。当前 P02 官网 [README](https://github.com/icip-cas/PPTAgent/blob/833cda553b343be0e486a93b0b57cac962cdd566/README.md) 固定到 main commit。
 
+### TASK-RES-P03-01
+
+- Requirement ID：RES-P03-01；P0；无前置任务。
+- 状态：进行中。官方 `refs/heads/main` 于 2026-10-07 指向 `35bf44290f821323e003da854f78ffcb0e918167`，与 GOV-010 的 `P03-MAIN` pinned commit 一致。仓库外研究 clone `F:\YoloongPPT-Research\P03` 使用该 detached commit 和 sparse checkout。
+- 锁与许可：记录根、Electron、Next.js 的三个 npm v3 lock 和 FastAPI `uv.lock` version 1/revision 3；FastAPI 上游声明 `>=3.11,<3.12`，uv lock 约束为 `==3.11.*`，不推导补丁版本或产品运行时。根许可证 Apache-2.0，另有第三方归属 `NOTICE`；尚未完成依赖逐项许可审计。
+- 上游流程：固定文档描述 Standard（固定 layout、outline review、模板）和 Smart（adaptive layout、流式进入编辑器）；Web UI / MCP 模式开关不等于 REST API 授权。上游 README 还描述多用户工作区，此功能属于 GOV-009 排除边界，不扩大本项目范围。
+- 环境阻塞：`docker version` 仍无法连接当前 `desktop-linux` Engine pipe；未启动容器、安装依赖、运行最小流程或生成 PPTX。
+- 验收边界：源码快照、锁文件、运行条件、许可证与核心模式文档已静态核对；`ProjectBaseline` 官方最小流程尚未复现，`TASK-RES-P03-01` 保持进行中。待 Docker 恢复后在隔离容器复现并记录环境、日志和产物。
+- 证据：`research/P03/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N22:P22`、“可执行任务”`L34:M34`、“开源项目研究对象”第 4 行。官方 [README](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/README.md) 与[生成模式说明](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/docs/presentation-generation-modes.md)固定到同一 commit。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
