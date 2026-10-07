@@ -367,6 +367,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：更新既有 CNT-008/TASK-CNT-008 及 DeckThesis 数据对象状态/证据，不新增/删除需求、任务、对象或错误码；DEC-009 保持未开始。
 - 证据：contracts/deck-thesis.schema.json、contracts/deck-thesis.catalog.json、contracts/deck-thesis.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N63:P63、“可执行任务”L91:M91、“数据对象”I12:J12。
 
+### TASK-CNT-009
+
+- Requirement ID：CNT-009；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 ContentGraph Draft 2020-12 契约、目录和三个正常/边界 fixture，覆盖同周期指标并列、未决冲突关系及缺失事实过滤。
+- 图结构边界：按基线输出 nodes、edges(type)、evidence_refs；node_id 仅为图内局部引用，节点/边都必须有 evidence_id 或 assumption_id 支撑。顶层 evidence_refs 是图内证据引用的按序去重汇总。
+- 关系边界：type 使用开放字符串；端点字段不自动表示方向，关系标签承担语义。并列不作因果；未决 8%/9% 值全部保留，不选胜者；missing renewal_date 不生成节点或值，继续引用 ERR-009。
+- 静态核对：schema/catalog/fixtures JSON 可解析，schema 引用与目录文件引用可定位；3 个 fixture 对应 acceptance case，节点端点、引用汇总、数值证据、未决冲突和缺失事实引用静态一致。未运行 JSON Schema 实例验证器、关系抽取器、图语义校验器、运行时或 AC-001–AC-030。
+- 基线对齐：更新既有 CNT-009/TASK-CNT-009 与 ContentGraph 对象状态/证据，不新增/删除需求、任务、对象或错误码。
+- 证据：contracts/content-graph.schema.json、contracts/content-graph.catalog.json、contracts/content-graph.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N64:P64、“可执行任务”L92:M92、“数据对象”I13:J13。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

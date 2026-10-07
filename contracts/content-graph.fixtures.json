@@ -1,0 +1,141 @@
+{
+  "document_type": "content_graph_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-009",
+  "task_id": "TASK-CNT-009",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-009-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {}
+      },
+      "expected_output": {
+        "nodes": [
+          {
+            "node_id": "n-arr",
+            "text": "FY2025 ARR: US$2.4 million",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "node_id": "n-growth",
+            "text": "FY2025 revenue growth: 8% year over year",
+            "evidence_refs": [
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": []
+          }
+        ],
+        "edges": [
+          {
+            "from_node_id": "n-arr",
+            "to_node_id": "n-growth",
+            "type": "parallel",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": []
+          }
+        ],
+        "evidence_refs": [
+          "evidence_15111111-1111-4111-8111-111111111111",
+          "evidence_16111111-1111-4111-8111-111111111111"
+        ]
+      },
+      "expected_action": "record_supported_parallel_metrics"
+    },
+    {
+      "fixture_id": "CNT-009-CONFLICT-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "presentation_context": {}
+      },
+      "expected_output": {
+        "nodes": [
+          {
+            "node_id": "n-growth-a",
+            "text": "8% year over year",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "node_id": "n-growth-b",
+            "text": "9% year over year",
+            "evidence_refs": [
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": []
+          }
+        ],
+        "edges": [
+          {
+            "from_node_id": "n-growth-a",
+            "to_node_id": "n-growth-b",
+            "type": "conflicts_with",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": []
+          }
+        ],
+        "evidence_refs": [
+          "evidence_33333333-3333-4333-8333-333333333333",
+          "evidence_34333333-3333-4333-8333-333333333333"
+        ]
+      },
+      "expected_conflict_ref": {
+        "fixture_id": "CNT-003-BOUNDARY-001",
+        "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+        "resolution_status": "unresolved",
+        "error_id": "ERR-008",
+        "reason_code": "SOURCE_CONFLICT"
+      },
+      "expected_action": "preserve_both_conflicting_claims"
+    },
+    {
+      "fixture_id": "CNT-009-MISSING-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "focus_fact_id": "renewal_date",
+        "presentation_context": {}
+      },
+      "expected_output": {
+        "nodes": [
+          {
+            "node_id": "n-planned-margin",
+            "text": "12% user-supplied planning assumption",
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ]
+          }
+        ],
+        "edges": [],
+        "evidence_refs": []
+      },
+      "expected_missing_fact_ref": {
+        "fact_id": "renewal_date",
+        "error_id": "ERR-009",
+        "reason_code": "MISSING_FACT"
+      },
+      "expected_action": "omit_missing_fact_from_graph"
+    }
+  ],
+  "limits": [
+    "normal fixture 的 parallel 关系只表达两个 FY2025 指标同期间并列展示；不是因果或数值推导。",
+    "冲突 fixture 将 8% 与 9% 原值保留为独立节点并建立 conflicts_with 边；不选择赢家，也不替代 CNT-003/EvidenceConflict。",
+    "缺失 fixture 只保留已有 12% Assumption 节点；missing renewal_date 没有节点、值或边，ERR-009 仍在上游。",
+    "fixtures 是合成预期；不代表关系抽取、因果识别、图遍历或 PresentationContext 对齐运行时已实现。"
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "document_type": "content_graph_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-009",
+  "task_id": "TASK-CNT-009",
+  "data_object": "ContentGraph",
+  "schema": "contracts/content-graph.schema.json",
+  "fixtures": "contracts/content-graph.fixtures.json",
+  "deliverable": "ContentGraph",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "PDR para 402 列出并列、比较、因果、流程、时间、层级、分类、证据、问题-方案等关系。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第 64 行、任务第 92 行、数据对象第 13 行与 S10 定义 ContentGraph 的 nodes、edges(type)、evidence_refs。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "节点/关系中的 evidence_id 与 assumption_id 使用 GOV-007 既有格式；node_id 仅为单图局部引用。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "复用有数值、未决冲突、显式假设和缺失事实的 CNT-001 上游案例。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "复用 CNT-003 未决冲突原值与 ERR-008，不从冲突中选 winner。"
+    }
+  ],
+  "field_rules": [
+    "ContentGraph 按基线字段输出 nodes、edges 和 evidence_refs；节点含本图局部 node_id、内容和证据/假设引用，边含端点、本次关系标签和证据/假设引用。",
+    "node_id 仅在单个图内唯一，不创建新的跨任务持久 ID，也不替代 claim_id、evidence_id 或 assumption_id。边端点必须引用本图已有节点；语义校验器需检查唯一 ID 与端点存在性。",
+    "关系 type 保持开放字符串。并列、比较、因果、流程、时间、层级、分类、证据、问题-方案是 PDR 示例；本任务不封闭枚举，也不声称所有关系类型已验证。",
+    "每个 node/edge 必须有一个或多个 evidence_refs 或 assumption_refs；evidence_refs 顶层是节点/边 evidence 引用按首次出现顺序去重后的汇总。关系不能仅因两个事实同时出现而被断言。",
+    "方向由关系标签的语义确定；节点端点字段自身不意味着因果、先后或层级。因果边必须有明确来源/假设支撑，不从相关、同周期或共现推断因果。",
+    "未决冲突可保留为多个有来源节点及 conflict relation，但不得选 winner；missing fact 不生成图节点或值，继续沿用 CNT-001/ERR-009。假设节点必须引用已有 assumption_id。",
+    "完整关系 taxonomy、抽取器、节点规范化、图合并/去重与 DEC 接口尚未由基线细化；本契约是运行时无关草案。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-009-NORMAL-001",
+      "fixture_id": "CNT-009-NORMAL-001",
+      "purpose": "同一期间的 ARR 与增长率作为并列指标展示。",
+      "acceptance": "两个节点保留原值和 evidence_id；parallel 边引用二者来源，不将关系表达成因果。"
+    },
+    {
+      "case_id": "CNT-009-CONFLICT-001",
+      "fixture_id": "CNT-009-CONFLICT-001",
+      "purpose": "两个相互冲突的增长率。",
+      "acceptance": "8% 与 9% 原值都在图中，建立 conflicts_with 边并引用两条证据；保持 DEC-004 未决，不选 winner。"
+    },
+    {
+      "case_id": "CNT-009-MISSING-001",
+      "fixture_id": "CNT-009-MISSING-001",
+      "purpose": "关键续约日期缺失，另有明确 12% 假设。",
+      "acceptance": "只可输出已有假设节点；缺失日期不进入图，仍引用 ERR-009/MISSING_FACT。"
+    }
+  ],
+  "limits": [
+    "本次只核对三类合成图结构，不验证全部 PDR 示例关系类型。",
+    "未运行 JSON Schema 实例验证器、关系抽取器、图端点/闭环语义校验、运行时或 AC-001–AC-030。",
+    "矩阵数据对象仅列 nodes、edges(type)、evidence_refs；完整字段及实现细节仍待评审。"
+  ]
+}
