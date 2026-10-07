@@ -234,6 +234,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：任务表已列 StructuredEvidence 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-010/TASK-IN-010，不增删需求、任务或数据对象行。
 - 证据：contracts/structured-evidence.schema.json、contracts/structured-evidence.catalog.json、contracts/structured-evidence.fixtures.json；Excel“需求主表”N49:P49、“可执行任务”L77:M77。
 
+### TASK-IN-011
+
+- Requirement ID：IN-011；P0；无前置任务。
+- 状态：进行中。已建立 ImageEvidence Draft 2020-12 契约、目录及正常/边界预期 fixture，覆盖原始/显示尺寸、格式、视觉元素候选、OCR 文本、主色比例、布局区域和 bbox 来源锚点。
+- 用途与判断边界：content_source、style_reference、image_to_pptx 或 unassigned 必须由调用方声明；解析层不从图像外观推断业务用途。视觉标签、OCR 和布局都是带 confidence 的候选，不是确定事实；模型 ID/版本未选定时保持 null。
+- 坐标边界：bbox 显式声明 raw/display pixel 或 normalized_0_to_1 空间；原始尺寸和方向不被静默改写。边界案例保留 IMAGE_DECODE_FAILED 和 IMAGE_UNSUPPORTED_FORMAT；后者是未选型实现的预期 partial 状态，不代表项目已验证 SVG 不支持。
+- 静态核验：schema/catalog/fixtures JSON 可解析，31 个 schema 内部引用及 2 个外部文件引用可定位；3 个 fixture 的输入/结果 source、asset 与 usage 对齐；正常案例包含 2 个视觉候选、2 个 OCR 区域、3 个色值和 2 个布局区域，bbox 均位于 1280×720 合成源图范围内。
+- 验收边界：正常 fixture 未绑定真实图像，所有尺寸/检测框/置信度均为合成占位；未运行解码器、OCR、视觉模型、色彩抽取或布局分析。因此 TASK-IN-011 保持进行中，AC-001–AC-030 均未执行；图像依赖、模型、版本和许可未选定。
+- 基线对齐：任务表已列 ImageEvidence 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-011/TASK-IN-011，不增删需求、任务或数据对象行。
+- 证据：contracts/image-evidence.schema.json、contracts/image-evidence.catalog.json、contracts/image-evidence.fixtures.json；Excel“需求主表”N50:P50、“可执行任务”L78:M78。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

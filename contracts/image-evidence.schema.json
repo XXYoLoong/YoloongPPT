@@ -1,0 +1,193 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ImageEvidence 契约（IN-011 草案）",
+  "description": "结构化保留图像尺寸、视觉元素候选、OCR 文本、颜色与布局区域，并保留原图坐标和输入用途。",
+  "oneOf": [
+    { "$ref": "#/$defs/image_input" },
+    { "$ref": "#/$defs/image_result" }
+  ],
+  "$defs": {
+    "asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+    "source_id": { "$ref": "object-id.schema.json#/$defs/source_id" },
+    "bbox": {
+      "type": "object",
+      "required": ["x", "y", "width", "height", "coordinate_space"],
+      "properties": {
+        "x": { "type": "number", "minimum": 0 },
+        "y": { "type": "number", "minimum": 0 },
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 },
+        "coordinate_space": { "type": "string", "enum": ["raw_source_pixels_top_left", "display_pixels_top_left", "normalized_0_to_1"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "coordinate_space": { "const": "normalized_0_to_1" } }, "required": ["coordinate_space"] },
+          "then": { "properties": { "x": { "maximum": 1 }, "y": { "maximum": 1 }, "width": { "maximum": 1 }, "height": { "maximum": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "source_anchor": {
+      "type": "object",
+      "required": ["source_asset_id", "element_id", "bbox"],
+      "properties": {
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "element_id": { "type": ["string", "null"] },
+        "bbox": { "oneOf": [{ "$ref": "#/$defs/bbox" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "image_metadata": {
+      "type": "object",
+      "required": ["declared_media_type", "detected_format", "detected_media_type", "raw_width_px", "raw_height_px", "display_width_px", "display_height_px", "exif_orientation", "color_model", "has_alpha"],
+      "properties": {
+        "declared_media_type": { "type": ["string", "null"] },
+        "detected_format": { "type": "string", "enum": ["png", "jpeg", "gif", "webp", "tiff", "bmp", "svg", "unknown"] },
+        "detected_media_type": { "type": ["string", "null"] },
+        "raw_width_px": { "type": ["integer", "null"], "minimum": 1 },
+        "raw_height_px": { "type": ["integer", "null"], "minimum": 1 },
+        "display_width_px": { "type": ["integer", "null"], "minimum": 1 },
+        "display_height_px": { "type": ["integer", "null"], "minimum": 1 },
+        "exif_orientation": { "type": ["integer", "null"], "minimum": 1, "maximum": 8 },
+        "color_model": { "type": ["string", "null"] },
+        "has_alpha": { "type": ["boolean", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "visual_element": {
+      "type": "object",
+      "required": ["element_id", "kind", "label", "confidence", "bbox", "source_anchor"],
+      "properties": {
+        "element_id": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "enum": ["text_region", "shape", "icon", "logo", "photo", "chart", "table", "diagram", "person", "unknown"] },
+        "label": { "type": ["string", "null"] },
+        "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "bbox": { "oneOf": [{ "$ref": "#/$defs/bbox" }, { "type": "null" }] },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "text_region": {
+      "type": "object",
+      "required": ["text_id", "text", "language", "confidence", "bbox", "source_anchor"],
+      "properties": {
+        "text_id": { "type": "string", "minLength": 1 },
+        "text": { "type": "string" },
+        "language": { "type": ["string", "null"] },
+        "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "bbox": { "oneOf": [{ "$ref": "#/$defs/bbox" }, { "type": "null" }] },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "palette_color": {
+      "type": "object",
+      "required": ["color_hex", "area_ratio", "source_anchor"],
+      "properties": {
+        "color_hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$" },
+        "area_ratio": { "type": "number", "minimum": 0, "maximum": 1 },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "layout_region": {
+      "type": "object",
+      "required": ["region_id", "kind", "bbox", "confidence", "contained_element_ids", "source_anchor"],
+      "properties": {
+        "region_id": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "enum": ["header", "title", "body", "sidebar", "footer", "column", "background", "other", "unknown"] },
+        "bbox": { "$ref": "#/$defs/bbox" },
+        "confidence": { "type": ["number", "null"], "minimum": 0, "maximum": 1 },
+        "contained_element_ids": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "image_source": {
+      "type": "object",
+      "required": ["source_id", "source_asset_id", "raw_asset_refs", "sha256", "usage"],
+      "properties": {
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+        "usage": { "type": "string", "enum": ["content_source", "style_reference", "image_to_pptx", "unassigned"] }
+      },
+      "additionalProperties": false
+    },
+    "image_evidence": {
+      "type": "object",
+      "required": ["model_type", "source", "metadata", "visual_elements", "text_regions", "palette", "layout_regions", "analysis_method", "model_id", "model_version"],
+      "properties": {
+        "model_type": { "type": "string", "const": "ImageEvidence" },
+        "source": { "$ref": "#/$defs/image_source" },
+        "metadata": { "$ref": "#/$defs/image_metadata" },
+        "visual_elements": { "type": "array", "items": { "$ref": "#/$defs/visual_element" } },
+        "text_regions": { "type": "array", "items": { "$ref": "#/$defs/text_region" } },
+        "palette": { "type": "array", "items": { "$ref": "#/$defs/palette_color" } },
+        "layout_regions": { "type": "array", "items": { "$ref": "#/$defs/layout_region" } },
+        "analysis_method": { "type": ["string", "null"] },
+        "model_id": { "type": ["string", "null"] },
+        "model_version": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "coverage_item": {
+      "type": "object",
+      "required": ["feature", "status", "reason"],
+      "properties": {
+        "feature": { "type": "string", "enum": ["dimensions", "visual_elements", "text", "palette", "layout"] },
+        "status": { "type": "string", "enum": ["complete", "partial", "not_present", "unsupported", "failed"] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "enum": ["complete", "not_present"] } }, "required": ["status"] }, "then": { "properties": { "reason": { "type": "null" } } } },
+        { "if": { "properties": { "status": { "enum": ["partial", "unsupported", "failed"] } }, "required": ["status"] }, "then": { "properties": { "reason": { "type": "string", "minLength": 1 } } } }
+      ],
+      "additionalProperties": false
+    },
+    "parse_error": {
+      "type": "object",
+      "required": ["code", "message", "source_anchor"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "message": { "type": "string", "minLength": 1 },
+        "source_anchor": { "oneOf": [{ "$ref": "#/$defs/source_anchor" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "image_input": {
+      "type": "object",
+      "required": ["record_type", "source_id", "source_asset_id", "raw_asset_refs", "usage", "declared_media_type"],
+      "properties": {
+        "record_type": { "type": "string", "const": "image_parse_input" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "usage": { "type": "string", "enum": ["content_source", "style_reference", "image_to_pptx", "unassigned"] },
+        "declared_media_type": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "image_result": {
+      "type": "object",
+      "required": ["record_type", "source_id", "source_asset_id", "raw_asset_refs", "usage", "status", "evidence", "coverage", "errors"],
+      "properties": {
+        "record_type": { "type": "string", "const": "image_parse_result" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "usage": { "type": "string", "enum": ["content_source", "style_reference", "image_to_pptx", "unassigned"] },
+        "status": { "type": "string", "enum": ["parsed", "partial", "failed"] },
+        "evidence": { "oneOf": [{ "$ref": "#/$defs/image_evidence" }, { "type": "null" }] },
+        "coverage": { "type": "array", "items": { "$ref": "#/$defs/coverage_item" } },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/parse_error" } }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "enum": ["parsed", "partial"] } }, "required": ["status"] }, "then": { "properties": { "evidence": { "$ref": "#/$defs/image_evidence" } } } },
+        { "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] }, "then": { "properties": { "evidence": { "type": "null" }, "errors": { "minItems": 1 } } } }
+      ],
+      "additionalProperties": false
+    }
+  }
+}
