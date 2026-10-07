@@ -37,7 +37,9 @@ File.Copy(fixturePath, outputPath, overwrite: true);
 AddSlideAndText(outputPath, "PP-04 Open XML SDK PoC", "Reused source slide layout and theme.");
 var outputInventory = InspectPresentation(outputPath);
 var preservation = CompareMasterLayoutThemeParts(fixturePath, outputPath);
+var semanticPreservation = CompareMasterLayoutThemePartsSemantically(fixturePath, outputPath);
 var validation = Validate(outputPath);
+var existingShapeMutation = RunExistingShapeMutation(fixturePath, artifacts);
 
 var invalidPath = Path.Combine(artifacts, "invalid-truncated.pptx");
 var fixtureBytes = File.ReadAllBytes(fixturePath);
@@ -84,11 +86,14 @@ var report = new
         output_inventory = outputInventory,
         master_layout_theme_parts_byte_identical = preservation.all_equal,
         changed_preservation_parts = preservation.differences,
+        master_layout_theme_parts_semantically_equal = semanticPreservation.all_equal,
+        semantically_changed_preservation_parts = semanticPreservation.differences,
         text_written = "PP-04 Open XML SDK PoC",
         placeholder_types_written = new[] { "title", "body" },
         text_runs_written = 2,
         reused_layout_ref = outputInventory.FirstSlideLayoutRef
     },
+    existing_deck_mutation = existingShapeMutation,
     unknown_part_preservation = unknownPartTest,
     validation = new
     {
@@ -110,16 +115,21 @@ var report = new
         add_slide_and_text = "partial",
         reuse_master_layout_theme = outputInventory.MasterCount == inputInventory.MasterCount && outputInventory.LayoutCount == inputInventory.LayoutCount && outputInventory.ThemeCount == inputInventory.ThemeCount && outputInventory.FirstSlideLayoutRef is not null ? "partial" : "failed",
         master_layout_theme_part_bytes_identical = preservation.all_equal,
+        master_layout_theme_parts_semantically_equal = semanticPreservation.all_equal,
+        existing_shape_text_read_update = existingShapeMutation.Status,
+        shape_geometry_emu_round_trip = existingShapeMutation.GeometryPreserved,
+        autoshape_rectangle_fill_stroke = existingShapeMutation.Status,
         unknown_part_preservation = unknownPartTest.Status,
         image_table_chart_notes_comments_transitions_animations = "untested",
-        rendering = "untested",
-        emu_geometry = "not exercised"
+        rendering = "untested"
     },
     limitations = new[]
     {
         "This is a candidate-backend PoC, not a YoloongPPT product runtime or architecture decision.",
         "The generated slide is structurally validated but not rendered by PowerPoint or LibreOffice.",
-        "Two slide layout XML part hashes changed during SDK serialization; semantic equality was not separately tested, so exact template layout round-trip preservation is not claimed.",
+        "Two slide layout XML part hashes changed during SDK serialization; the selected master/layout/theme parts were XML-structure-equivalent after normalizing namespace declarations, attribute order, and insignificant formatting whitespace.",
+        "The editable-shape case mutates a shape created earlier in this PoC; editing a pre-populated third-party slide was not exercised.",
+        "Only a rectangle with fixed fill/stroke and explicit EMU geometry was exercised; other AutoShape types, adjustments, and rotation remain untested.",
         "Image/table/chart/notes/comments/transition/animation authoring and mutation were not exercised."
     }
 };
@@ -134,8 +144,11 @@ Console.WriteLine(JsonSerializer.Serialize(new
     input_inventory = inputInventory,
     output_inventory = outputInventory,
     master_layout_theme_parts_byte_identical = preservation.all_equal,
+    master_layout_theme_parts_semantically_equal = semanticPreservation.all_equal,
+    existing_shape_mutation = existingShapeMutation.Status,
     unknown_part_preservation = unknownPartTest.Status,
     validation_error_count = validation.ErrorCount,
+    mutation_validation_error_count = existingShapeMutation.ValidatorErrorCount,
     failure_case = invalidInput.Status,
     report_path = reportPath
 }, new JsonSerializerOptions { WriteIndented = true, PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower }));
@@ -233,6 +246,187 @@ static (bool all_equal, string[] differences) CompareMasterLayoutThemeParts(stri
     var names = before.Keys.Union(after.Keys, StringComparer.Ordinal).OrderBy(name => name, StringComparer.Ordinal);
     var differences = names.Where(name => !before.TryGetValue(name, out var oldHash) || !after.TryGetValue(name, out var newHash) || !oldHash.Equals(newHash, StringComparison.OrdinalIgnoreCase)).ToArray();
     return (differences.Length == 0 && before.Count > 0, differences);
+}
+
+static (bool all_equal, string[] differences) CompareMasterLayoutThemePartsSemantically(string source, string output)
+{
+    var before = CanonicalSelectedParts(source);
+    var after = CanonicalSelectedParts(output);
+    var names = before.Keys.Union(after.Keys, StringComparer.Ordinal).OrderBy(name => name, StringComparer.Ordinal);
+    var differences = names.Where(name => !before.TryGetValue(name, out var oldValue) || !after.TryGetValue(name, out var newValue) || !oldValue.Equals(newValue, StringComparison.Ordinal)).ToArray();
+    return (differences.Length == 0 && before.Count > 0, differences);
+}
+
+static Dictionary<string, string> CanonicalSelectedParts(string path)
+{
+    using var file = File.OpenRead(path);
+    using var archive = new ZipArchive(file, ZipArchiveMode.Read);
+    var selected = archive.Entries.Where(entry =>
+        entry.FullName.StartsWith("ppt/slideMasters/", StringComparison.Ordinal) ||
+        entry.FullName.StartsWith("ppt/slideLayouts/", StringComparison.Ordinal) ||
+        entry.FullName.StartsWith("ppt/theme/", StringComparison.Ordinal));
+    return selected.ToDictionary(entry => entry.FullName, entry => CanonicalizeXmlEntry(entry), StringComparer.Ordinal);
+}
+
+static string CanonicalizeXmlEntry(ZipArchiveEntry entry)
+{
+    using var stream = entry.Open();
+    var document = XDocument.Load(stream, LoadOptions.None);
+    var root = document.Root ?? throw new InvalidDataException($"XML part {entry.FullName} has no root element.");
+    var builder = new StringBuilder();
+    AppendCanonicalElement(builder, root);
+    return builder.ToString();
+}
+
+static void AppendCanonicalElement(StringBuilder builder, XElement element)
+{
+    builder.Append('<').Append(ExpandedName(element.Name));
+    foreach (var attribute in element.Attributes()
+                 .Where(attribute => !attribute.IsNamespaceDeclaration)
+                 .OrderBy(attribute => attribute.Name.NamespaceName, StringComparer.Ordinal)
+                 .ThenBy(attribute => attribute.Name.LocalName, StringComparer.Ordinal))
+    {
+        builder.Append(' ').Append(ExpandedName(attribute.Name)).Append('=')
+            .Append(JsonSerializer.Serialize(attribute.Value));
+    }
+
+    builder.Append('>');
+    foreach (var node in element.Nodes())
+    {
+        if (node is XElement child)
+        {
+            AppendCanonicalElement(builder, child);
+        }
+        else if (node is XText text)
+        {
+            builder.Append("T").Append(JsonSerializer.Serialize(text.Value));
+        }
+    }
+
+    builder.Append("</").Append(ExpandedName(element.Name)).Append('>');
+}
+
+static string ExpandedName(XName name) => $"{{{name.NamespaceName}}}{name.LocalName}";
+
+static ShapeMutationResult RunExistingShapeMutation(string fixture, string artifactDirectory)
+{
+    const string shapeName = "YoloongPPT Editable Probe";
+    const string beforeText = "Existing shape before edit";
+    const string afterText = "Existing shape after edit";
+    const long expectedX = 914400L;
+    const long expectedY = 457200L;
+    const long expectedCx = 3657600L;
+    const long expectedCy = 1828800L;
+    var output = Path.Combine(artifactDirectory, "existing-shape-mutation.pptx");
+    File.Copy(fixture, output, overwrite: true);
+    AddSlideAndText(output, "Existing deck mutation", "The next shape is modified after the first save.");
+    AddEditableProbeShape(output, shapeName, beforeText, expectedX, expectedY, expectedCx, expectedCy);
+
+    var before = ReadShapeSnapshot(output, shapeName);
+    UpdateShapeText(output, shapeName, afterText);
+    var after = ReadShapeSnapshot(output, shapeName);
+    var validation = Validate(output);
+    var geometryPreserved = before.ShapeId == after.ShapeId &&
+        before.Name == after.Name &&
+        before.X == after.X && before.Y == after.Y &&
+        before.Cx == after.Cx && before.Cy == after.Cy &&
+        before.PresetGeometry == after.PresetGeometry &&
+        before.FillColor == after.FillColor &&
+        before.OutlineColor == after.OutlineColor &&
+        after.X == expectedX && after.Y == expectedY &&
+        after.Cx == expectedCx && after.Cy == expectedCy &&
+        after.PresetGeometry == "rect" &&
+        after.FillColor == "4472C4" &&
+        after.OutlineColor == "1F1F1F";
+    var textUpdated = before.Text == beforeText && after.Text == afterText;
+    var status = geometryPreserved && textUpdated && validation.ErrorCount == 0 ? "passed" : "failed";
+
+    return new ShapeMutationResult(
+        status,
+        "The probe shape is created and saved by this PoC, then the deck is reopened and the same shape's text is changed; this is not a foreign populated template test.",
+        "fixtures/python-pptx-default.pptx",
+        "artifacts/existing-shape-mutation.pptx",
+        Sha256File(output),
+        shapeName,
+        before,
+        after,
+        geometryPreserved,
+        textUpdated,
+        validation.ErrorCount,
+        validation.Errors);
+}
+
+static void AddEditableProbeShape(string path, string name, string text, long x, long y, long cx, long cy)
+{
+    using var document = PresentationDocument.Open(path, isEditable: true);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the existing-shape mutation case.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from the mutation part.");
+    var shapeTree = slide.CommonSlideData?.ShapeTree
+        ?? throw new InvalidDataException("ShapeTree is missing from the mutation slide.");
+    shapeTree.Append(new P.Shape(
+        new P.NonVisualShapeProperties(
+            new P.NonVisualDrawingProperties { Id = 4U, Name = name },
+            new P.NonVisualShapeDrawingProperties(),
+            new P.ApplicationNonVisualDrawingProperties()),
+        new P.ShapeProperties(
+            new A.Transform2D(
+                new A.Offset { X = x, Y = y },
+                new A.Extents { Cx = cx, Cy = cy }),
+            new A.PresetGeometry(new A.AdjustValueList()) { Preset = A.ShapeTypeValues.Rectangle },
+            new A.SolidFill(new A.RgbColorModelHex { Val = "4472C4" }),
+            new A.Outline(new A.SolidFill(new A.RgbColorModelHex { Val = "1F1F1F" }))),
+        new P.TextBody(
+            new A.BodyProperties(),
+            new A.ListStyle(),
+            new A.Paragraph(
+                new A.Run(new A.RunProperties(), new A.Text(text)),
+                new A.EndParagraphRunProperties()))));
+    slide.Save();
+}
+
+static ShapeSnapshot ReadShapeSnapshot(string path, string name)
+{
+    using var document = PresentationDocument.Open(path, isEditable: false);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the existing-shape mutation case.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from the mutation part.");
+    var shape = slide.CommonSlideData?.ShapeTree?.Elements<P.Shape>()
+        .SingleOrDefault(candidate => candidate.NonVisualShapeProperties?.NonVisualDrawingProperties?.Name?.Value == name)
+        ?? throw new InvalidDataException($"Shape {name} was not found.");
+    var transform = shape.ShapeProperties?.GetFirstChild<A.Transform2D>();
+    var presetGeometry = shape.ShapeProperties?.GetFirstChild<A.PresetGeometry>();
+    var geometry = presetGeometry?.GetAttribute("prst", string.Empty).Value;
+    var fillColor = shape.ShapeProperties?.GetFirstChild<A.SolidFill>()?.GetFirstChild<A.RgbColorModelHex>()?.Val?.Value;
+    var outlineColor = shape.ShapeProperties?.GetFirstChild<A.Outline>()?.GetFirstChild<A.SolidFill>()
+        ?.GetFirstChild<A.RgbColorModelHex>()?.Val?.Value;
+    var text = string.Concat(shape.TextBody?.Descendants<A.Text>().Select(run => run.Text) ?? []);
+    return new ShapeSnapshot(
+        shape.NonVisualShapeProperties?.NonVisualDrawingProperties?.Id?.Value,
+        shape.NonVisualShapeProperties?.NonVisualDrawingProperties?.Name?.Value,
+        transform?.Offset?.X?.Value,
+        transform?.Offset?.Y?.Value,
+        transform?.Extents?.Cx?.Value,
+        transform?.Extents?.Cy?.Value,
+        geometry,
+        fillColor,
+        outlineColor,
+        text);
+}
+
+static void UpdateShapeText(string path, string name, string text)
+{
+    using var document = PresentationDocument.Open(path, isEditable: true);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the existing-shape mutation case.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from the mutation part.");
+    var shape = slide.CommonSlideData?.ShapeTree?.Elements<P.Shape>()
+        .SingleOrDefault(candidate => candidate.NonVisualShapeProperties?.NonVisualDrawingProperties?.Name?.Value == name)
+        ?? throw new InvalidDataException($"Shape {name} was not found.");
+    var textElement = shape.TextBody?.Descendants<A.Text>().FirstOrDefault()
+        ?? throw new InvalidDataException($"Shape {name} contains no editable text run.");
+    textElement.Text = text;
+    slide.Save();
 }
 
 static Dictionary<string, string> HashSelectedParts(string path)
@@ -379,6 +573,32 @@ internal sealed record PresentationInventory(
     Dictionary<string, int> PartCounts);
 
 internal sealed record ValidationResult(int ErrorCount, string[] Errors);
+
+internal sealed record ShapeSnapshot(
+    uint? ShapeId,
+    string? Name,
+    long? X,
+    long? Y,
+    long? Cx,
+    long? Cy,
+    string? PresetGeometry,
+    string? FillColor,
+    string? OutlineColor,
+    string Text);
+
+internal sealed record ShapeMutationResult(
+    string Status,
+    string TestScope,
+    string InputFile,
+    string OutputFile,
+    string OutputSha256,
+    string ShapeName,
+    ShapeSnapshot Before,
+    ShapeSnapshot After,
+    bool GeometryPreserved,
+    bool TextUpdated,
+    int ValidatorErrorCount,
+    string[] ValidatorErrors);
 
 internal sealed record InvalidInputResult(string Status, string? ExceptionType, string? Message);
 

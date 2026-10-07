@@ -39,7 +39,7 @@
   "normal_case": {
     "status": "passed",
     "output_file": "artifacts/pp04-output.pptx",
-    "output_sha256": "24919667c35a6564c5fe19cb6258a8da81fe542d7d68a34cfc17f97138e34e30",
+    "output_sha256": "117974be5a7685c71ad9763d79996fd448e9d0d99b10251e7ace8cc6f634a1f8",
     "output_inventory": {
       "master_count": 1,
       "layout_count": 11,
@@ -58,6 +58,8 @@
       "ppt/slideLayouts/slideLayout1.xml",
       "ppt/slideLayouts/slideLayout11.xml"
     ],
+    "master_layout_theme_parts_semantically_equal": true,
+    "semantically_changed_preservation_parts": [],
     "text_written": "PP-04 Open XML SDK PoC",
     "placeholder_types_written": [
       "title",
@@ -65,6 +67,42 @@
     ],
     "text_runs_written": 2,
     "reused_layout_ref": "/ppt/slideLayouts/slideLayout1.xml"
+  },
+  "existing_deck_mutation": {
+    "status": "passed",
+    "test_scope": "The probe shape is created and saved by this PoC, then the deck is reopened and the same shape\u0027s text is changed; this is not a foreign populated template test.",
+    "input_file": "fixtures/python-pptx-default.pptx",
+    "output_file": "artifacts/existing-shape-mutation.pptx",
+    "output_sha256": "06cd2b57754de849d43bfa9f7e883eee7ac6d924273aab9c57f882680e1163bd",
+    "shape_name": "YoloongPPT Editable Probe",
+    "before": {
+      "shape_id": 4,
+      "name": "YoloongPPT Editable Probe",
+      "x": 914400,
+      "y": 457200,
+      "cx": 3657600,
+      "cy": 1828800,
+      "preset_geometry": "rect",
+      "fill_color": "4472C4",
+      "outline_color": "1F1F1F",
+      "text": "Existing shape before edit"
+    },
+    "after": {
+      "shape_id": 4,
+      "name": "YoloongPPT Editable Probe",
+      "x": 914400,
+      "y": 457200,
+      "cx": 3657600,
+      "cy": 1828800,
+      "preset_geometry": "rect",
+      "fill_color": "4472C4",
+      "outline_color": "1F1F1F",
+      "text": "Existing shape after edit"
+    },
+    "geometry_preserved": true,
+    "text_updated": true,
+    "validator_error_count": 0,
+    "validator_errors": []
   },
   "unknown_part_preservation": {
     "status": "passed",
@@ -97,15 +135,20 @@
     "add_slide_and_text": "partial",
     "reuse_master_layout_theme": "partial",
     "master_layout_theme_part_bytes_identical": false,
+    "master_layout_theme_parts_semantically_equal": true,
+    "existing_shape_text_read_update": "passed",
+    "shape_geometry_emu_round_trip": true,
+    "autoshape_rectangle_fill_stroke": "passed",
     "unknown_part_preservation": "passed",
     "image_table_chart_notes_comments_transitions_animations": "untested",
-    "rendering": "untested",
-    "emu_geometry": "not exercised"
+    "rendering": "untested"
   },
   "limitations": [
     "This is a candidate-backend PoC, not a YoloongPPT product runtime or architecture decision.",
     "The generated slide is structurally validated but not rendered by PowerPoint or LibreOffice.",
-    "Two slide layout XML part hashes changed during SDK serialization; semantic equality was not separately tested, so exact template layout round-trip preservation is not claimed.",
+    "Two slide layout XML part hashes changed during SDK serialization; the selected master/layout/theme parts were XML-structure-equivalent after normalizing namespace declarations, attribute order, and insignificant formatting whitespace.",
+    "The editable-shape case mutates a shape created earlier in this PoC; editing a pre-populated third-party slide was not exercised.",
+    "Only a rectangle with fixed fill/stroke and explicit EMU geometry was exercised; other AutoShape types, adjustments, and rotation remain untested.",
     "Image/table/chart/notes/comments/transition/animation authoring and mutation were not exercised."
   ]
 }

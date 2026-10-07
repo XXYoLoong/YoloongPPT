@@ -3,7 +3,7 @@
   "contract_status": "draft",
   "requirement_id": "GOV-005",
   "assessment_context": {
-    "repository_revision": "0c116bcd9b6d423a669a829ffa37a5939ab658f6",
+    "repository_revision": "d8012d7ad5b733d2d4b076d2de9edb847655e304",
     "revision_scope": "能力状态审计所依据的仓库快照；不是产品或后端版本。",
     "matrix_source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
   },
@@ -344,11 +344,26 @@
             {
               "source": "research/poc/PP-04/artifacts/report.json",
               "location": "/normal_case/output_sha256",
-              "observed": "24919667c35a6564c5fe19cb6258a8da81fe542d7d68a34cfc17f97138e34e30"
+              "observed": "117974be5a7685c71ad9763d79996fd448e9d0d99b10251e7ace8cc6f634a1f8"
             },
             {
               "source": "research/poc/PP-04/artifacts/report.json",
               "location": "/validation/output_error_count",
+              "observed": "0"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/status",
+              "observed": "passed"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/output_sha256",
+              "observed": "06cd2b57754de849d43bfa9f7e883eee7ac6d924273aab9c57f882680e1163bd"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/validator_error_count",
               "observed": "0"
             }
           ],
@@ -1096,6 +1111,21 @@
               "source": "research/poc/PP-04/artifacts/report.json",
               "location": "/normal_case/changed_preservation_parts",
               "observed": "ppt/slideLayouts/slideLayout1.xml, ppt/slideLayouts/slideLayout11.xml"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/output_inventory/master_count",
+              "observed": "1"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/master_layout_theme_parts_semantically_equal",
+              "observed": "true"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/master_layout_theme_parts_byte_identical",
+              "observed": "false"
             }
           ],
           "assessment_note": "PPT-004：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
@@ -1348,6 +1378,16 @@
               "source": "research/poc/PP-04/artifacts/report.json",
               "location": "/normal_case/changed_preservation_parts",
               "observed": "ppt/slideLayouts/slideLayout1.xml, ppt/slideLayouts/slideLayout11.xml"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/output_inventory/layout_count",
+              "observed": "11"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/master_layout_theme_parts_semantically_equal",
+              "observed": "true"
             }
           ],
           "assessment_note": "PPT-005：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
@@ -1600,6 +1640,16 @@
               "source": "research/poc/PP-04/artifacts/report.json",
               "location": "/normal_case/changed_preservation_parts",
               "observed": "ppt/slideLayouts/slideLayout1.xml, ppt/slideLayouts/slideLayout11.xml"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/output_inventory/theme_count",
+              "observed": "1"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/master_layout_theme_parts_semantically_equal",
+              "observed": "true"
             }
           ],
           "assessment_note": "PPT-006：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
@@ -1847,6 +1897,11 @@
               "source": "research/poc/PP-04/artifacts/report.json",
               "location": "/normal_case/placeholder_types_written",
               "observed": "title, body"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/text_updated",
+              "observed": "true"
             }
           ],
           "assessment_note": "PPT-007：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
@@ -2094,6 +2149,21 @@
               "source": "research/poc/PP-04/artifacts/report.json",
               "location": "/normal_case/text_written",
               "observed": "PP-04 Open XML SDK PoC"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/status",
+              "observed": "passed"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/before/text",
+              "observed": "Existing shape before edit"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/after/text",
+              "observed": "Existing shape after edit"
             }
           ],
           "assessment_note": "PPT-008：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
@@ -2341,6 +2411,11 @@
               "source": "research/poc/PP-04/artifacts/report.json",
               "location": "/normal_case/text_runs_written",
               "observed": "2"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/text_updated",
+              "observed": "true"
             }
           ],
           "assessment_note": "PPT-009：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
@@ -2807,7 +2882,7 @@
         {
           "capability_id": "PPT-011",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
           "version_state": "pinned",
           "evidence_refs": [
@@ -2825,9 +2900,59 @@
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
               "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/status",
+              "observed": "passed"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/shape_name",
+              "observed": "YoloongPPT Editable Probe"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/after/preset_geometry",
+              "observed": "rect"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/after/fill_color",
+              "observed": "4472C4"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/after/outline_color",
+              "observed": "1F1F1F"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/geometry_preserved",
+              "observed": "true"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/after/x",
+              "observed": "914400"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/after/y",
+              "observed": "457200"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/after/cx",
+              "observed": "3657600"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/existing_deck_mutation/after/cy",
+              "observed": "1828800"
             }
           ],
-          "assessment_note": "PPT-011：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
+          "assessment_note": "PPT-011：仅对本 PoC 创建并重开修改矩形、固定 fill/stroke 与 EMU 几何进行 Partial 评估；其他 AutoShape、adjustment、rotation 与第三方既有对象未测。候选实验依赖已固定，产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-011",
