@@ -1,0 +1,52 @@
+{
+  "document_type": "imported_deck_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-006",
+  "task_id": "TASK-IN-006",
+  "schema": "contracts/imported-deck.schema.json",
+  "fixtures": "contracts/imported-deck.fixtures.json",
+  "deliverable": "ImportedDeckModel",
+  "references": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.drawing.extents?view=openxml-3.0.1",
+      "supports": "DrawingML extents define an object's bounding box; coordinate values are preserved in EMU."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.presentation.slidesize.cx?view=openxml-3.0.1",
+      "supports": "Presentation slide dimensions use EMU coordinates."
+    }
+  ],
+  "field_rules": [
+    "ImportedDeckModel 按演示文稿顺序保留 slide 与元素次序；标题/正文需来自显式占位符或可追溯的解析依据，不能仅凭文本内容猜测。",
+    "文本、表格、图表、图片、演讲者备注分别结构化；表格保留行列/合并跨度，图表保留系列、类别、值及原始部件/数据范围引用，图片引用从源包提取出的 AssetRecord ID。",
+    "几何使用源包中的 DrawingML x/y/cx/cy EMU 值，并明确记录 slide 或 group_local 坐标空间、旋转和翻转；组变换不能安全归一化时将 geometry 标为 unsupported 并给原因，不能伪造 slide 坐标。",
+    "source_anchor 记录 OOXML package part、slide index、shape ID、relationship ID、组路径及表格行列；ID 是源文件局部锚点，不能当成跨文件稳定业务 ID。",
+    "母版、版式与主题保留源部件引用、继承关系、占位符和已提取的主题色/字体 token；不把导入源自动认定为生成模板。",
+    "source_usage.content/reference 必须由用户或调用方提供；未提供时明确标记 unassigned/pending。解析器不得替业务层判定来源用途。",
+    "每项 coverage 对 slides、titles_body、tables、charts、images、notes、masters_layouts、themes、geometry 显式报告 complete/partial/not_present/unsupported/failed；非完整状态必须说明原因。",
+    "未知或未支持的 shape/部件必须保留源锚点并报告 coverage/结构化错误；不得静默丢弃或用截图替代结构化内容。",
+    "source_asset_id 必须属于 raw_asset_refs；结果必须按原顺序逐项回传 raw_asset_refs，解析结果与输入引用一致性由运行时校验。",
+    "无效 ZIP/OOXML 或不可读源返回 failed、evidence=null 和稳定错误码；可继续解析但存在未支持特征时返回 partial，并保留其余结构。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "IN-006-NORMAL-001",
+      "fixture_id": "IN-006-NORMAL-001",
+      "purpose": "验证一份正常导入源含标题/正文、表格、图表、图片、notes、母版/版式/主题和几何定位。",
+      "acceptance": "模型保留 slide/shape 次序、行列/系列数据、Asset ID、notes、主题关系与 OOXML package part/shape 锚点；content/reference 角色显式来源于调用方。"
+    },
+    {
+      "case_id": "IN-006-BOUNDARY-001",
+      "fixture_id": "IN-006-BOUNDARY-001",
+      "purpose": "验证损坏 ZIP/OOXML 的 PPTX 输入。",
+      "acceptance": "结果为 failed，evidence=null，errors 含 PPTX_INVALID_PACKAGE，并逐项保留输入原始 Asset ID。"
+    }
+  ],
+  "limits": [
+    "契约和 fixtures 为语言/运行时无关草案；OOXML 解析库、Office/LibreOffice 版本、依赖版本和许可证均未选定。",
+    "正常 fixture 是合成预期结构，不是从真实 PPTX 解析的证据；当前没有 PPTX parser、实际几何转换、图表数据读取或 Office 渲染验证。",
+    "坐标保留源 OOXML EMU 值并标出坐标空间；组变换、继承样式和复杂 DrawingML 的视觉归一化仍需真实文件及实现验证。",
+    "ImportedDeckModel 是 TASK-IN-006 交付名，但“数据对象”工作表未单列该对象；本任务追溯到既有 Requirement/Task，不新增需求、任务或数据对象行。",
+    "该模型保存导入结构/来源证据，不宣称可完整重建原始演示文稿的编辑体验、动画媒体或视觉外观；未支持内容必须显式报告。"
+  ]
+}

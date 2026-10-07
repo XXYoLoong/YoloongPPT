@@ -190,6 +190,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：fixtures 仅为预期结构，无真实 PDF parser 或页框变换结果；`TASK-IN-004` 保持进行中，表格/图片提取和坐标精度未验收；AC-001–AC-030 均未执行。
 - 证据：`contracts/pdf-evidence.schema.json`、`contracts/pdf-evidence.catalog.json`、`contracts/pdf-evidence.fixtures.json`；Excel“需求主表”`N43:P43`、“可执行任务”`L71:M71`。
 
+### TASK-IN-006
+
+- Requirement ID：IN-006；P0；无前置任务。
+- 状态：进行中。已建立 ImportedDeckModel Draft 2020-12 契约、目录及正常/边界预期 fixture，覆盖 slide/title/body、table、chart、image、notes、master/layout/theme、几何及 OOXML package-part 锚点。
+- 输入边界：source 用途仅接受 user/caller 的 content 或 reference 标记；未声明时保留 unassigned，解析层不推断业务用途。模型将导入源与模板资产区分，模板解析单列在 IN-007。
+- 几何/保真边界：保留源 DrawingML x/y/cx/cy EMU 值，并明确 slide/group_local 坐标空间、旋转和翻转；不能可靠解析时标为 unsupported 并说明原因。未知对象保留源锚点并由 coverage/error 说明，不静默丢弃。
+- 静态核验：schema/catalog/fixtures JSON 可解析且引用可定位；正常 fixture 有 5 个 slide 元素，覆盖 title/body/table/chart/image；含 4 个带行列来源锚点的表格单元格、3 个图表类别/值、图片与嵌入工作簿 Asset ID、演讲者备注及 master/layout/theme 关系；边界 fixture 返回 PPTX_INVALID_PACKAGE 并保留输入资产引用。
+- 验收边界：fixture 是合成预期结构，未运行真实 PPTX parser、组变换/几何解析、图表读取或 Office 渲染，因此 TASK-IN-006 保持进行中；AC-001–AC-030 均未执行。产品运行时和依赖未选定。
+- 基线对齐：任务表已列 ImportedDeckModel 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-006/TASK-IN-006，不增删需求、任务或数据对象行。
+- 证据：contracts/imported-deck.schema.json、contracts/imported-deck.catalog.json、contracts/imported-deck.fixtures.json；Excel“需求主表”N45:P45、“可执行任务”L73:M73。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
