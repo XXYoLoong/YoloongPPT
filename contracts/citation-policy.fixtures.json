@@ -1,0 +1,515 @@
+{
+  "document_type": "citation_policy_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-010",
+  "task_id": "TASK-CNT-010",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-010-MODE-HIDDEN-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {
+          "citation_mode": "hidden"
+        }
+      },
+      "expected_output": {
+        "status": "configured",
+        "selected_mode": "hidden",
+        "rendering": {
+          "surface": "none",
+          "visible_on_slide": false,
+          "layout_rule": "omit_visual_citations_keep_machine_trace",
+          "backlink_rule": "machine_evidence_ref_to_source_anchor",
+          "overflow_action": "report_unrenderable"
+        },
+        "citations": [
+          {
+            "entry_key": "arr-growth",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "display_label": null,
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_15111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              },
+              {
+                "evidence_id": "evidence_16111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              }
+            ]
+          },
+          {
+            "entry_key": "annual-report",
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "display_label": "2025 Annual Report",
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_20222222-2222-4222-8222-222222222222",
+                "source_id": "source_22222222-2222-4222-8222-222222222222"
+              }
+            ]
+          }
+        ],
+        "evidence_refs": [
+          "evidence_15111111-1111-4111-8111-111111111111",
+          "evidence_16111111-1111-4111-8111-111111111111",
+          "evidence_20222222-2222-4222-8222-222222222222"
+        ],
+        "assumption_refs": [],
+        "conflict_refs": [],
+        "missing_fact_refs": []
+      },
+      "expected_action": "apply_explicit_citation_mode"
+    },
+    {
+      "fixture_id": "CNT-010-MODE-NOTES-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {
+          "citation_mode": "notes"
+        }
+      },
+      "expected_output": {
+        "status": "configured",
+        "selected_mode": "notes",
+        "rendering": {
+          "surface": "speaker_notes",
+          "visible_on_slide": false,
+          "layout_rule": "reference_list_in_speaker_notes",
+          "backlink_rule": "notes_entry_to_source_anchor",
+          "overflow_action": "report_unrenderable"
+        },
+        "citations": [
+          {
+            "entry_key": "arr-growth",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "display_label": null,
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_15111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              },
+              {
+                "evidence_id": "evidence_16111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              }
+            ]
+          },
+          {
+            "entry_key": "annual-report",
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "display_label": "2025 Annual Report",
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_20222222-2222-4222-8222-222222222222",
+                "source_id": "source_22222222-2222-4222-8222-222222222222"
+              }
+            ]
+          }
+        ],
+        "evidence_refs": [
+          "evidence_15111111-1111-4111-8111-111111111111",
+          "evidence_16111111-1111-4111-8111-111111111111",
+          "evidence_20222222-2222-4222-8222-222222222222"
+        ],
+        "assumption_refs": [],
+        "conflict_refs": [],
+        "missing_fact_refs": []
+      },
+      "expected_action": "apply_explicit_citation_mode"
+    },
+    {
+      "fixture_id": "CNT-010-MODE-FOOTNOTE-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {
+          "citation_mode": "footnote"
+        }
+      },
+      "expected_output": {
+        "status": "configured",
+        "selected_mode": "footnote",
+        "rendering": {
+          "surface": "slide_footnote",
+          "visible_on_slide": true,
+          "layout_rule": "compact_footnote_markers_with_reserved_area",
+          "backlink_rule": "footnote_marker_to_source_anchor",
+          "overflow_action": "report_unrenderable"
+        },
+        "citations": [
+          {
+            "entry_key": "arr-growth",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "display_label": null,
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_15111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              },
+              {
+                "evidence_id": "evidence_16111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              }
+            ]
+          },
+          {
+            "entry_key": "annual-report",
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "display_label": "2025 Annual Report",
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_20222222-2222-4222-8222-222222222222",
+                "source_id": "source_22222222-2222-4222-8222-222222222222"
+              }
+            ]
+          }
+        ],
+        "evidence_refs": [
+          "evidence_15111111-1111-4111-8111-111111111111",
+          "evidence_16111111-1111-4111-8111-111111111111",
+          "evidence_20222222-2222-4222-8222-222222222222"
+        ],
+        "assumption_refs": [],
+        "conflict_refs": [],
+        "missing_fact_refs": []
+      },
+      "expected_action": "apply_explicit_citation_mode"
+    },
+    {
+      "fixture_id": "CNT-010-MODE-APPENDIX-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {
+          "citation_mode": "appendix"
+        }
+      },
+      "expected_output": {
+        "status": "configured",
+        "selected_mode": "appendix",
+        "rendering": {
+          "surface": "appendix",
+          "visible_on_slide": true,
+          "layout_rule": "appendix_entries_with_content_markers",
+          "backlink_rule": "appendix_entry_to_source_anchor",
+          "overflow_action": "report_unrenderable"
+        },
+        "citations": [
+          {
+            "entry_key": "arr-growth",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "display_label": null,
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_15111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              },
+              {
+                "evidence_id": "evidence_16111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              }
+            ]
+          },
+          {
+            "entry_key": "annual-report",
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "display_label": "2025 Annual Report",
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_20222222-2222-4222-8222-222222222222",
+                "source_id": "source_22222222-2222-4222-8222-222222222222"
+              }
+            ]
+          }
+        ],
+        "evidence_refs": [
+          "evidence_15111111-1111-4111-8111-111111111111",
+          "evidence_16111111-1111-4111-8111-111111111111",
+          "evidence_20222222-2222-4222-8222-222222222222"
+        ],
+        "assumption_refs": [],
+        "conflict_refs": [],
+        "missing_fact_refs": []
+      },
+      "expected_action": "apply_explicit_citation_mode"
+    },
+    {
+      "fixture_id": "CNT-010-MODE-INLINE-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {
+          "citation_mode": "inline"
+        }
+      },
+      "expected_output": {
+        "status": "configured",
+        "selected_mode": "inline",
+        "rendering": {
+          "surface": "inline",
+          "visible_on_slide": true,
+          "layout_rule": "source_label_adjacent_to_claim",
+          "backlink_rule": "inline_label_to_source_anchor",
+          "overflow_action": "report_unrenderable"
+        },
+        "citations": [
+          {
+            "entry_key": "arr-growth",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "display_label": null,
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_15111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              },
+              {
+                "evidence_id": "evidence_16111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              }
+            ]
+          },
+          {
+            "entry_key": "annual-report",
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "display_label": "2025 Annual Report",
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_20222222-2222-4222-8222-222222222222",
+                "source_id": "source_22222222-2222-4222-8222-222222222222"
+              }
+            ]
+          }
+        ],
+        "evidence_refs": [
+          "evidence_15111111-1111-4111-8111-111111111111",
+          "evidence_16111111-1111-4111-8111-111111111111",
+          "evidence_20222222-2222-4222-8222-222222222222"
+        ],
+        "assumption_refs": [],
+        "conflict_refs": [],
+        "missing_fact_refs": []
+      },
+      "expected_action": "apply_explicit_citation_mode"
+    },
+    {
+      "fixture_id": "CNT-010-CONFLICT-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "presentation_context": {
+          "citation_mode": "footnote"
+        }
+      },
+      "expected_output": {
+        "status": "configured",
+        "selected_mode": "footnote",
+        "rendering": {
+          "surface": "slide_footnote",
+          "visible_on_slide": true,
+          "layout_rule": "compact_footnote_markers_with_reserved_area",
+          "backlink_rule": "footnote_marker_to_source_anchor",
+          "overflow_action": "report_unrenderable"
+        },
+        "citations": [
+          {
+            "entry_key": "growth-8",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "display_label": null,
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_33333333-3333-4333-8333-333333333333",
+                "source_id": "source_33333333-3333-4333-8333-333333333333"
+              }
+            ]
+          },
+          {
+            "entry_key": "growth-9",
+            "evidence_refs": [
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "display_label": null,
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_34333333-3333-4333-8333-333333333333",
+                "source_id": "source_44444444-4444-4444-8444-444444444444"
+              }
+            ]
+          }
+        ],
+        "evidence_refs": [
+          "evidence_33333333-3333-4333-8333-333333333333",
+          "evidence_34333333-3333-4333-8333-333333333333"
+        ],
+        "assumption_refs": [],
+        "conflict_refs": [
+          {
+            "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+            "resolution_status": "unresolved",
+            "error_id": "ERR-008",
+            "reason_code": "SOURCE_CONFLICT",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ]
+          }
+        ],
+        "missing_fact_refs": []
+      },
+      "expected_action": "preserve_both_conflict_citations"
+    },
+    {
+      "fixture_id": "CNT-010-MISSING-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "focus_fact_id": "renewal_date",
+        "presentation_context": {
+          "citation_mode": "notes"
+        }
+      },
+      "expected_output": {
+        "status": "configured",
+        "selected_mode": "notes",
+        "rendering": {
+          "surface": "speaker_notes",
+          "visible_on_slide": false,
+          "layout_rule": "reference_list_in_speaker_notes",
+          "backlink_rule": "notes_entry_to_source_anchor",
+          "overflow_action": "report_unrenderable"
+        },
+        "citations": [
+          {
+            "entry_key": "planned-margin",
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ],
+            "display_label": "12% user-supplied planning assumption",
+            "source_backlinks": []
+          }
+        ],
+        "evidence_refs": [],
+        "assumption_refs": [
+          "assumption_35333333-3333-4333-8333-333333333333"
+        ],
+        "conflict_refs": [],
+        "missing_fact_refs": [
+          {
+            "fact_id": "renewal_date",
+            "error_id": "ERR-009",
+            "reason_code": "MISSING_FACT"
+          }
+        ]
+      },
+      "expected_action": "omit_missing_fact_preserve_err009"
+    },
+    {
+      "fixture_id": "CNT-010-UNSET-MODE-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {}
+      },
+      "expected_output": {
+        "status": "mode_unresolved",
+        "selected_mode": null,
+        "rendering": null,
+        "citations": [
+          {
+            "entry_key": "arr-growth",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "display_label": null,
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_15111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              },
+              {
+                "evidence_id": "evidence_16111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              }
+            ]
+          },
+          {
+            "entry_key": "annual-report",
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "display_label": "2025 Annual Report",
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_20222222-2222-4222-8222-222222222222",
+                "source_id": "source_22222222-2222-4222-8222-222222222222"
+              }
+            ]
+          }
+        ],
+        "evidence_refs": [
+          "evidence_15111111-1111-4111-8111-111111111111",
+          "evidence_16111111-1111-4111-8111-111111111111",
+          "evidence_20222222-2222-4222-8222-222222222222"
+        ],
+        "assumption_refs": [],
+        "conflict_refs": [],
+        "missing_fact_refs": []
+      },
+      "expected_action": "leave_mode_unresolved_without_default"
+    }
+  ],
+  "limits": [
+    "Normal fixture 使用 CNT-001-NORMAL-001 的 ARR、增长率和 annual-report 引用原值；证据回链仅复用既有 evidence_id/source_id，SourceAnchor 由 SourceEvidence 按 evidence_id 解析。",
+    "hidden 只隐藏视觉引用，不删除 CitationPolicy 中的 evidence/assumption refs 与 source backlinks。",
+    "冲突 fixture 保留 8%/9% 两条引用并带 unresolved ERR-008；不选择或合并冲突值。",
+    "缺失 fixture 只展示现有 12% assumption，renewal_date 不产生 citation；继续沿用 ERR-009/MISSING_FACT。",
+    "布局规则仅描述模式语义，不固定字号、坐标或容量；准确排版依赖尚未选择的 deck 版式和渲染架构。",
+    "未提供 citation_mode 时不默认 hidden、inline 或其他模式；保持 mode_unresolved，并保留可用追溯。"
+  ]
+}

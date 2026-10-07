@@ -1,0 +1,567 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "CitationPolicy 契约（CNT-010 草案）",
+  "description": "依显式 PresentationContext 选择来源展示模式；所有模式保留 evidence/assumption 追溯，且不静默切换模式。",
+  "type": "object",
+  "required": [
+    "status",
+    "selected_mode",
+    "rendering",
+    "citations",
+    "evidence_refs",
+    "assumption_refs",
+    "conflict_refs",
+    "missing_fact_refs"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "configured",
+        "mode_unresolved"
+      ]
+    },
+    "selected_mode": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "enum": [
+        "hidden",
+        "notes",
+        "footnote",
+        "appendix",
+        "inline",
+        null
+      ]
+    },
+    "rendering": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/rendering"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "citations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/citation_entry"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "object-id.schema.json#/$defs/evidence_id"
+      },
+      "uniqueItems": true,
+      "description": "所有 citation.evidence_refs 按首次出现顺序去重后的汇总。"
+    },
+    "assumption_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "object-id.schema.json#/$defs/assumption_id"
+      },
+      "uniqueItems": true,
+      "description": "所有 citation.assumption_refs 按首次出现顺序去重后的汇总。"
+    },
+    "conflict_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/conflict_ref"
+      }
+    },
+    "missing_fact_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/missing_fact_ref"
+      }
+    }
+  },
+  "$defs": {
+    "rendering": {
+      "type": "object",
+      "required": [
+        "surface",
+        "visible_on_slide",
+        "layout_rule",
+        "backlink_rule",
+        "overflow_action"
+      ],
+      "properties": {
+        "surface": {
+          "type": "string",
+          "enum": [
+            "none",
+            "speaker_notes",
+            "slide_footnote",
+            "appendix",
+            "inline"
+          ]
+        },
+        "visible_on_slide": {
+          "type": "boolean"
+        },
+        "layout_rule": {
+          "type": "string",
+          "enum": [
+            "omit_visual_citations_keep_machine_trace",
+            "reference_list_in_speaker_notes",
+            "compact_footnote_markers_with_reserved_area",
+            "appendix_entries_with_content_markers",
+            "source_label_adjacent_to_claim"
+          ]
+        },
+        "backlink_rule": {
+          "type": "string",
+          "enum": [
+            "machine_evidence_ref_to_source_anchor",
+            "notes_entry_to_source_anchor",
+            "footnote_marker_to_source_anchor",
+            "appendix_entry_to_source_anchor",
+            "inline_label_to_source_anchor"
+          ]
+        },
+        "overflow_action": {
+          "type": "string",
+          "const": "report_unrenderable"
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_backlink": {
+      "type": "object",
+      "required": [
+        "evidence_id",
+        "source_id"
+      ],
+      "properties": {
+        "evidence_id": {
+          "$ref": "object-id.schema.json#/$defs/evidence_id"
+        },
+        "source_id": {
+          "$ref": "object-id.schema.json#/$defs/source_id"
+        }
+      },
+      "additionalProperties": false
+    },
+    "citation_entry": {
+      "type": "object",
+      "required": [
+        "entry_key",
+        "evidence_refs",
+        "assumption_refs",
+        "display_label",
+        "source_backlinks"
+      ],
+      "properties": {
+        "entry_key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "仅在当前 CitationPolicy 内使用的局部键。"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          },
+          "uniqueItems": true
+        },
+        "assumption_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          },
+          "uniqueItems": true
+        },
+        "display_label": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "description": "只复用来源/假设中已有标签；无标签时为 null。"
+        },
+        "source_backlinks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_backlink"
+          },
+          "uniqueItems": true
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "evidence_refs": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "assumption_refs": {
+              "minItems": 1
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "conflict_ref": {
+      "type": "object",
+      "required": [
+        "conflict_id",
+        "resolution_status",
+        "error_id",
+        "reason_code",
+        "evidence_refs"
+      ],
+      "properties": {
+        "conflict_id": {
+          "$ref": "object-id.schema.json#/$defs/object_id"
+        },
+        "resolution_status": {
+          "const": "unresolved"
+        },
+        "error_id": {
+          "const": "ERR-008"
+        },
+        "reason_code": {
+          "const": "SOURCE_CONFLICT"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          },
+          "minItems": 2,
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "missing_fact_ref": {
+      "type": "object",
+      "required": [
+        "fact_id",
+        "error_id",
+        "reason_code"
+      ],
+      "properties": {
+        "fact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error_id": {
+          "const": "ERR-009"
+        },
+        "reason_code": {
+          "const": "MISSING_FACT"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "configured"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "selected_mode": {
+            "enum": [
+              "hidden",
+              "notes",
+              "footnote",
+              "appendix",
+              "inline"
+            ]
+          },
+          "rendering": {
+            "$ref": "#/$defs/rendering"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "mode_unresolved"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "properties": {
+          "selected_mode": {
+            "type": "null"
+          },
+          "rendering": {
+            "type": "null"
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "selected_mode": {
+            "const": "hidden"
+          }
+        },
+        "required": [
+          "selected_mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "configured"
+          },
+          "rendering": {
+            "properties": {
+              "surface": {
+                "const": "none"
+              },
+              "visible_on_slide": {
+                "const": false
+              },
+              "layout_rule": {
+                "const": "omit_visual_citations_keep_machine_trace"
+              },
+              "backlink_rule": {
+                "const": "machine_evidence_ref_to_source_anchor"
+              },
+              "overflow_action": {
+                "const": "report_unrenderable"
+              }
+            },
+            "required": [
+              "surface",
+              "visible_on_slide",
+              "layout_rule",
+              "backlink_rule",
+              "overflow_action"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "selected_mode": {
+            "const": "notes"
+          }
+        },
+        "required": [
+          "selected_mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "configured"
+          },
+          "rendering": {
+            "properties": {
+              "surface": {
+                "const": "speaker_notes"
+              },
+              "visible_on_slide": {
+                "const": false
+              },
+              "layout_rule": {
+                "const": "reference_list_in_speaker_notes"
+              },
+              "backlink_rule": {
+                "const": "notes_entry_to_source_anchor"
+              },
+              "overflow_action": {
+                "const": "report_unrenderable"
+              }
+            },
+            "required": [
+              "surface",
+              "visible_on_slide",
+              "layout_rule",
+              "backlink_rule",
+              "overflow_action"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "selected_mode": {
+            "const": "footnote"
+          }
+        },
+        "required": [
+          "selected_mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "configured"
+          },
+          "rendering": {
+            "properties": {
+              "surface": {
+                "const": "slide_footnote"
+              },
+              "visible_on_slide": {
+                "const": true
+              },
+              "layout_rule": {
+                "const": "compact_footnote_markers_with_reserved_area"
+              },
+              "backlink_rule": {
+                "const": "footnote_marker_to_source_anchor"
+              },
+              "overflow_action": {
+                "const": "report_unrenderable"
+              }
+            },
+            "required": [
+              "surface",
+              "visible_on_slide",
+              "layout_rule",
+              "backlink_rule",
+              "overflow_action"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "selected_mode": {
+            "const": "appendix"
+          }
+        },
+        "required": [
+          "selected_mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "configured"
+          },
+          "rendering": {
+            "properties": {
+              "surface": {
+                "const": "appendix"
+              },
+              "visible_on_slide": {
+                "const": true
+              },
+              "layout_rule": {
+                "const": "appendix_entries_with_content_markers"
+              },
+              "backlink_rule": {
+                "const": "appendix_entry_to_source_anchor"
+              },
+              "overflow_action": {
+                "const": "report_unrenderable"
+              }
+            },
+            "required": [
+              "surface",
+              "visible_on_slide",
+              "layout_rule",
+              "backlink_rule",
+              "overflow_action"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "selected_mode": {
+            "const": "inline"
+          }
+        },
+        "required": [
+          "selected_mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "configured"
+          },
+          "rendering": {
+            "properties": {
+              "surface": {
+                "const": "inline"
+              },
+              "visible_on_slide": {
+                "const": true
+              },
+              "layout_rule": {
+                "const": "source_label_adjacent_to_claim"
+              },
+              "backlink_rule": {
+                "const": "inline_label_to_source_anchor"
+              },
+              "overflow_action": {
+                "const": "report_unrenderable"
+              }
+            },
+            "required": [
+              "surface",
+              "visible_on_slide",
+              "layout_rule",
+              "backlink_rule",
+              "overflow_action"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "selected_mode": {
+            "type": "null"
+          }
+        },
+        "required": [
+          "selected_mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "mode_unresolved"
+          },
+          "rendering": {
+            "type": "null"
+          }
+        }
+      }
+    }
+  ]
+}

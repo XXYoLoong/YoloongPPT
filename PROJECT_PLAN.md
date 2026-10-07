@@ -377,6 +377,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：更新既有 CNT-009/TASK-CNT-009 与 ContentGraph 对象状态/证据，不新增/删除需求、任务、对象或错误码。
 - 证据：contracts/content-graph.schema.json、contracts/content-graph.catalog.json、contracts/content-graph.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N64:P64、“可执行任务”L92:M92、“数据对象”I13:J13。
 
+### TASK-CNT-010
+
+- Requirement ID：CNT-010；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 CitationPolicy Draft 2020-12 契约、目录及 8 个 fixture：五种显式来源展示模式、未选模式、未决数值冲突与缺失事实。
+- 展示边界：hidden 只隐藏视觉引用，仍保留 evidence/assumption 追溯；notes、footnote、appendix、inline 分别定义展示表面及回链规则。模式只能来自显式 PresentationContext，未提供时不设默认。
+- 回链边界：复用既有 evidence_id→source_id 映射解析 SourceEvidence/SourceAnchor；不复制 locator、不编造 URL/title，partial/unavailable 原样保留。布局为语义约束；不固定字号/坐标/容量，超出能力时报告 unrenderable，不静默换模式。
+- 数据边界：8%/9% 均保留并引用 ERR-008；缺失 renewal_date 不生成引用，显式 12% 假设仍用 assumption_id 回链且缺失沿用 ERR-009。DEC-021 的展示位置选择未实现，仍依赖 RES-031。
+- 静态核对：schema/catalog/fixtures JSON 可解析，五个 profile 映射、8 个 fixture/验收场景、来源回链、引用汇总、冲突与缺失边界一致；未运行 JSON Schema 实例验证器、运行时或 AC-001–AC-030。
+- 基线对齐：更新既有 CNT-010/TASK-CNT-010 状态和证据；CitationPolicy 未列入数据对象表，不新增/删除任何矩阵行。
+- 证据：contracts/citation-policy.schema.json、contracts/citation-policy.catalog.json、contracts/citation-policy.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N65:P65、“可执行任务”L93:M93。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
