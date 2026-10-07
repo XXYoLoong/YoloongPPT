@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LayoutSlot 契约（TASK-TPL-004 草案）",
+  "description": "语言与运行时无关的版式槽位记录。字段值必须保留来源证据；无法从来源确认的语义以 unknown 和原因表示，不得静默推定。此文件不表示 YoloongPPT 已实现槽位解析器。",
+  "type": "object",
+  "required": [
+    "spec_type", "contract_status", "requirement_id", "task_id", "slot_id", "source_ref",
+    "role", "bounds", "content_types", "required", "repeatable", "capacity", "style",
+    "overflow_policy", "evidence_refs", "limitations"
+  ],
+  "properties": {
+    "spec_type": { "const": "LayoutSlot" },
+    "contract_status": { "const": "draft" },
+    "requirement_id": { "const": "TPL-004" },
+    "task_id": { "const": "TASK-TPL-004" },
+    "slot_id": { "$ref": "object-id.schema.json#/$defs/slot_id" },
+    "source_ref": { "type": "string", "minLength": 1 },
+    "role": { "$ref": "#/$defs/semantic_field" },
+    "bounds": { "$ref": "#/$defs/bounds" },
+    "content_types": { "$ref": "#/$defs/content_types" },
+    "required": { "$ref": "#/$defs/boolean_field" },
+    "repeatable": { "$ref": "#/$defs/boolean_field" },
+    "capacity": { "$ref": "#/$defs/capacity" },
+    "style": { "$ref": "#/$defs/style" },
+    "overflow_policy": { "$ref": "#/$defs/overflow_policy" },
+    "evidence_refs": { "$ref": "#/$defs/evidence_refs", "minItems": 1 },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "evidence_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "semantic_field": {
+      "type": "object",
+      "required": ["status", "value", "source_value", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["declared", "mapped", "unknown"] },
+        "value": { "type": ["string", "null"] },
+        "source_value": { "type": ["string", "null"] },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["declared", "mapped"] } }, "required": ["status"] },
+          "then": { "properties": { "value": { "type": "string", "minLength": 1 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "mapped" } }, "required": ["status"] },
+          "then": { "properties": { "source_value": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "unknown" } }, "required": ["status"] },
+          "then": { "properties": { "value": { "const": null }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "bounds": {
+      "type": "object",
+      "required": ["status", "unit", "coordinate_space", "x", "y", "width", "height", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["direct", "inherited", "unknown", "not_applicable"] },
+        "unit": { "enum": ["EMU", "px", "percent", "source_defined", null] },
+        "coordinate_space": { "enum": ["slide", "layout", "parent", "source_defined", "unknown"] },
+        "x": { "type": ["number", "null"] },
+        "y": { "type": ["number", "null"] },
+        "width": { "type": ["number", "null"], "minimum": 0 },
+        "height": { "type": ["number", "null"], "minimum": 0 },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["direct", "inherited"] } }, "required": ["status"] },
+          "then": { "properties": { "unit": { "type": "string" }, "x": { "type": "number" }, "y": { "type": "number" }, "width": { "type": "number", "minimum": 0 }, "height": { "type": "number", "minimum": 0 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["unknown", "not_applicable"] } }, "required": ["status"] },
+          "then": { "properties": { "unit": { "const": null }, "x": { "const": null }, "y": { "const": null }, "width": { "const": null }, "height": { "const": null }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "content_types": {
+      "type": "object",
+      "required": ["status", "values", "source_values", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["declared", "mapped", "unknown"] },
+        "values": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "source_values": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["declared", "mapped"] } }, "required": ["status"] },
+          "then": { "properties": { "values": { "minItems": 1 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "mapped" } }, "required": ["status"] },
+          "then": { "properties": { "source_values": { "minItems": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "unknown" } }, "required": ["status"] },
+          "then": { "properties": { "values": { "maxItems": 0 }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "boolean_field": {
+      "type": "object",
+      "required": ["status", "value", "source_value", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["declared", "unknown"] },
+        "value": { "type": ["boolean", "null"] },
+        "source_value": { "type": ["boolean", "null"] },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "declared" } }, "required": ["status"] },
+          "then": { "properties": { "value": { "type": "boolean" }, "source_value": { "type": "boolean" }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "unknown" } }, "required": ["status"] },
+          "then": { "properties": { "value": { "const": null }, "source_value": { "const": null }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "capacity": {
+      "type": "object",
+      "required": ["status", "items", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["defined", "unbounded", "unknown", "not_applicable"] },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["dimension", "limit", "unit", "evidence_refs"],
+            "properties": {
+              "dimension": { "type": "string", "minLength": 1 },
+              "limit": { "type": "number", "minimum": 0 },
+              "unit": { "type": "string", "minLength": 1 },
+              "evidence_refs": { "$ref": "#/$defs/evidence_refs", "minItems": 1 }
+            },
+            "additionalProperties": false
+          }
+        },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "defined" } }, "required": ["status"] },
+          "then": { "properties": { "items": { "minItems": 1 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "unbounded" } }, "required": ["status"] },
+          "then": { "properties": { "items": { "maxItems": 0 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["unknown", "not_applicable"] } }, "required": ["status"] },
+          "then": { "properties": { "items": { "maxItems": 0 }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "style": {
+      "type": "object",
+      "required": ["status", "properties", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["declared", "inherited", "partial", "unknown", "not_applicable"] },
+        "properties": { "type": "object", "additionalProperties": true },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["declared", "inherited"] } }, "required": ["status"] },
+          "then": { "properties": { "properties": { "minProperties": 1 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "partial" } }, "required": ["status"] },
+          "then": { "properties": { "properties": { "minProperties": 1 }, "evidence_refs": { "minItems": 1 }, "reason": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["unknown", "not_applicable"] } }, "required": ["status"] },
+          "then": { "properties": { "properties": { "maxProperties": 0 }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "overflow_policy": {
+      "type": "object",
+      "required": ["status", "value", "source_value", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["declared", "unknown", "not_applicable"] },
+        "value": { "type": ["string", "null"] },
+        "source_value": { "type": ["string", "null"] },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "declared" } }, "required": ["status"] },
+          "then": { "properties": { "value": { "type": "string", "minLength": 1 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["unknown", "not_applicable"] } }, "required": ["status"] },
+          "then": { "properties": { "value": { "const": null }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

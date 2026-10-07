@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "LayoutTemplate 契约（TPL-003 草案）",
-  "description": "记录单个 PPTX layout 部件的原始身份、占位符声明、直接几何和到 master 的继承关系。需求中的 showMasterShapes 对应 OOXML layout/@showMasterSp 原始属性；契约草案不表示 YoloongPPT 已实现 parser。",
+  "title": "LayoutTemplate 契约（TPL-003 草案；slots 由 TPL-004 定义）",
+  "description": "记录单个 PPTX layout 部件的原始身份、占位符声明、直接几何和到 master 的继承关系；slots 使用强类型 LayoutSlot 项。需求中的 showMasterShapes 对应 OOXML layout/@showMasterSp 原始属性；契约草案不表示 YoloongPPT 已实现 parser。",
   "type": "object",
   "required": [
     "spec_type", "contract_status", "requirement_id", "task_id", "layout_id",
@@ -21,7 +21,7 @@
     "placeholders": { "$ref": "#/$defs/placeholders" },
     "master_shape_visibility": { "$ref": "#/$defs/master_shape_visibility" },
     "page_types": { "$ref": "#/$defs/page_types" },
-    "slots": { "$ref": "#/$defs/deferred_collection" },
+    "slots": { "$ref": "#/$defs/slot_collection" },
     "constraints": { "$ref": "#/$defs/deferred_collection" },
     "capacity": { "$ref": "#/$defs/deferred_value" },
     "backend_support": { "$ref": "#/$defs/backend_support" },
@@ -218,6 +218,30 @@
         "items": { "type": "array", "items": { "type": "string", "minLength": 1 } },
         "reason": { "type": ["string", "null"] }
       },
+      "additionalProperties": false
+    },
+    "slot_collection": {
+      "type": "object",
+      "required": ["status", "items", "reason"],
+      "properties": {
+        "status": { "enum": ["pending", "partial", "defined"] },
+        "items": { "type": "array", "items": { "$ref": "layout-slot.schema.json" } },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "pending" } }, "required": ["status"] },
+          "then": { "properties": { "items": { "maxItems": 0 }, "reason": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "partial" } }, "required": ["status"] },
+          "then": { "properties": { "items": { "minItems": 1 }, "reason": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "defined" } }, "required": ["status"] },
+          "then": { "properties": { "reason": { "const": null } } }
+        }
+      ],
       "additionalProperties": false
     },
     "deferred_collection": {

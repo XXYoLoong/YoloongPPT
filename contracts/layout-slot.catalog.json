@@ -1,0 +1,143 @@
+{
+  "requirement_id": "TPL-004",
+  "task_id": "TASK-TPL-004",
+  "title": "Placeholder/Slot 模型",
+  "status": "进行中",
+  "deliverable": "LayoutSlot",
+  "contract_file": "contracts/layout-slot.schema.json",
+  "fixture_file": "contracts/layout-slot.fixtures.json",
+  "matrix_trace": {
+    "requirement_row": "需求主表!A113:P113",
+    "task_row": "可执行任务!A181:N181",
+    "data_object_row": "数据对象!A30:J30"
+  },
+  "data_object_alignment": {
+    "baseline_fields": [
+      "slot_id",
+      "role",
+      "bounds",
+      "content_types",
+      "required",
+      "repeatable",
+      "capacity",
+      "style",
+      "overflow_policy"
+    ],
+    "canonical_object_registered": true,
+    "evidence": "沿用既有 LayoutSlot 数据对象行，不新增或删除需求、任务或对象；通过状态与原因表达来源未提供的值。",
+    "integration": "LayoutTemplate.slots 使用本契约校验每个元素；空的 pending collection 仍允许表示尚未完成产品解析。"
+  },
+  "field_rules": [
+    { "field": "slot_id", "representation": "使用稳定 slot UUIDv4；来源 shapeId 或语义 slot 名只用于 source_ref/原始值，不代替项目槽位身份。" },
+    { "field": "role", "representation": "来源声明、明确映射或 unknown；保存原值、规范值和证据引用。" },
+    { "field": "bounds", "representation": "直接/继承几何须同时保存坐标空间、单位和完整边界；未知时坐标必须为空并说明原因。" },
+    { "field": "content_types", "representation": "用开放字符串集合表达来源可支持的内容类别；未证实时保留空集合和 unknown。" },
+    { "field": "required", "representation": "仅保存来源明确声明的布尔值；占位符存在本身不推导为必填。" },
+    { "field": "repeatable", "representation": "仅保存来源明确声明的布尔值；多个占位符本身不推导为可重复。" },
+    { "field": "capacity", "representation": "保留有单位和证据的维度限制；未评估时为 unknown。容量计算和产品规则仍属 TPL-007。" },
+    { "field": "style", "representation": "保留来源原生属性名和值，并区分直接、继承、部分和未知。" },
+    { "field": "overflow_policy", "representation": "保留来源策略原文；没有显式策略时为 unknown，不预设 shrink、clip 或 reject。" }
+  ],
+  "value_status_rules": {
+    "unknown": "value 为空、reason 非空；不得以默认值填充。",
+    "mapped": "保留 source_value、映射 value 和证据；不覆盖来源原值。",
+    "partial": "只承诺记录的来源部分，须写明未覆盖边界。"
+  },
+  "source_crosswalks": [
+    {
+      "source_id": "P01_PPT_MASTER",
+      "source": "PPT Master",
+      "repository": "https://github.com/hugohe3/ppt-master",
+      "revision": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "license": "MIT",
+      "paths": [
+        "skills/ppt-master/scripts/template_import/manifest.py",
+        "skills/ppt-master/scripts/pptx_to_svg/converter.py",
+        "skills/ppt-master/scripts/pptx_to_svg/ooxml_loader.py"
+      ],
+      "field_coverage": {
+        "slot_id": "partial: source shapeId is an adapter locator, not a stable cross-run product slot identity; the contract keeps it in source_ref and assigns slot_id separately.",
+        "role": "partial: manifest maps OOXML placeholder type to semanticRole; mapping is adapter-specific.",
+        "bounds": "partial: parse_xfrm_record extracts direct geometry and converts EMU to pixels; inherited master geometry is a separate resolution concern. LayoutSlot retains an explicit unit so source-unit conversion is not implicit.",
+        "content_types": "unknown: the placeholder export does not define a general allowed-content set.",
+        "required": "unknown: no slot-level required flag in the reviewed placeholder record.",
+        "repeatable": "unknown: no slot-level repeatability flag in the reviewed placeholder record.",
+        "capacity": "unknown: no generic capacity contract in the reviewed placeholder record.",
+        "style": "partial: direct placeholder text style can be extracted; effective inherited style is not established by this field alone.",
+        "overflow_policy": "unknown: no slot overflow policy in the reviewed placeholder record."
+      },
+      "execution_status": "source_review_only"
+    },
+    {
+      "source_id": "P03_PRESENTON",
+      "source": "Presenton",
+      "repository": "https://github.com/presenton/presenton",
+      "revision": "35bf44290f821323e003da854f78ffcb0e918167",
+      "license": "Apache-2.0",
+      "paths": [
+        "docs/template-v2.md",
+        "servers/fastapi/api/v1/ppt/endpoints/template.py",
+        "servers/fastapi/templates/v2/schema.py"
+      ],
+      "field_coverage": {
+        "slot_id": "unknown: the reviewed template flow does not establish a stable cross-run slot UUID; LayoutSlot identity is separate from raw element identity.",
+        "role": "partial: semantic components are model-certified from source elements and previews.",
+        "bounds": "observed in RawSlideLayouts as source positions and sizes.",
+        "content_types": "partial: template component schemas constrain submitted content, but are not a universal slot content vocabulary.",
+        "required": "unknown: JSON schema required keys do not establish whether a visual slot is required on every slide.",
+        "repeatable": "partial: a model pass identifies flexible or repeated regions; this is a certified semantic result, not a raw PPTX field.",
+        "capacity": "partial: a model pass calculates safe text length and growth constraints; those results depend on analysis and preview.",
+        "style": "observed in RawSlideLayouts as source styles.",
+        "overflow_policy": "unknown: the reviewed template flow does not specify a generic slot overflow policy."
+      },
+      "execution_status": "source_review_only"
+    },
+    {
+      "source_id": "P04_AI_AGENT_PPT",
+      "source": "ai-agent-ppt",
+      "repository": "https://github.com/peterfei/ai-agent-ppt",
+      "revision": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "license": "MIT",
+      "paths": [
+        "src/core/engine/layout-loader.ts",
+        "src/layouts/title.layout.json"
+      ],
+      "field_coverage": {
+        "slot_id": "unknown: LayoutNode.slot is a semantic name, not a stable record UUID; LayoutSlot identity is separate.",
+        "role": "partial: LayoutNode.slot provides a semantic name for nodes that declare one.",
+        "bounds": "unknown: the reviewed title node has style but no explicit x/y/width/height bounds.",
+        "content_types": "unknown: tagName describes a rendered node, not a declared set of allowed content types.",
+        "required": "unknown: no slot requiredness field in LayoutNode.",
+        "repeatable": "unknown: no slot repeatability field in LayoutNode.",
+        "capacity": "unknown: no capacity field in LayoutNode.",
+        "style": "observed as a string-valued style map on LayoutNode.",
+        "overflow_policy": "unknown: no overflow policy field in LayoutNode."
+      },
+      "execution_status": "source_review_only"
+    }
+  ],
+  "real_pptx_sample": {
+    "source": "python-pptx default template",
+    "repository": "https://github.com/scanny/python-pptx",
+    "revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+    "source_file": "src/pptx/templates/default.pptx",
+    "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
+    "counts": { "masters": 1, "layouts": 11, "slide_parts": 0 },
+    "fixture_id": "real_pptx_title_placeholder",
+    "observed": {
+      "layout_part": "ppt/slideLayouts/slideLayout1.xml",
+      "shape_id": "2",
+      "placeholder_type": "ctrTitle",
+      "bounds_emu": { "x": 685800, "y": 2130425, "width": 7772400, "height": 1470025 }
+    },
+    "not_observed": ["required", "repeatable", "capacity", "overflow_policy", "effective inherited style", "slide-level content behavior"]
+  },
+  "coverage": "Static source crosswalk across PPT Master, Presenton and ai-agent-ppt, plus typed fixture based on the pinned real PPTX layout sample.",
+  "limits": [
+    "The three repositories expose different abstraction layers; shared field names do not imply equivalent runtime behavior.",
+    "Source code was reviewed but the three source applications were not executed against the real PPTX sample.",
+    "The real sample has no slide parts, so it does not establish slide-level requiredness, repeated content, capacity or overflow behavior.",
+    "No YoloongPPT slot parser/runtime or Office rendering is implemented by this contract task.",
+    "Capacity behavior and evaluation remain tracked under TPL-007."
+  ]
+}

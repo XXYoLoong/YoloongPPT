@@ -346,13 +346,24 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 ### TASK-TPL-003
 
 - Requirement ID：TPL-003；P0；矩阵标记无前置任务。
-- 状态：进行中。建立 `LayoutTemplate` Draft 2020-12 契约草案、来源 crosswalk 与真实 PPTX fixture，记录 layout name/type、原始属性、placeholder type/index、直接 EMU 几何、layout→master 关系及 master-shape 可见性解释状态。
+- 状态：进行中。建立 `LayoutTemplate` Draft 2020-12 契约草案、来源 crosswalk 与真实 PPTX fixture，记录 layout name/type、原始属性、placeholder type/index、直接 EMU 几何、layout→master 关系及 master-shape 可见性解释状态；`slots` 集合现引用 TPL-004 的强类型 `LayoutSlot` 项。
 - 来源对照：PPT Master 固定提交 `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d` 有原生 master/layout roster、继承关系、placeholder 与 `showMasterSp` 解析规则；Presenton 固定提交 `35bf44290f821323e003da854f78ffcb0e918167` 的 `RawSlideLayouts` 保留来源元素/位置/尺寸等，但依赖预览和后续语义认证；ai-agent-ppt 固定提交 `c3605ebc487fc6c7d4f4139761e46d7021cd656c` 的 `LayoutLoader` 消费抽象 JSON layout，不等同于原生 PPTX layout parser。均为源码静态 review，未运行上游程序。
 - 真实 PPTX：只读盘点 python-pptx 固定提交 `278b47b1dedd5b46ee84c286e77cdfb0bf4594be` 的 `default.pptx`，SHA-256 `e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34`；确认 1 master、11 layouts、1 theme、0 slide parts；fixture覆盖直接几何与省略 type/index/visibility 属性。layout 几何未声明时保留为 direct `not_present`，对应 master geometry 解析记为 unresolved；没有推断成零尺寸或最终继承结果。
 - 可见性边界：OOXML 原属性保留为 `showMasterSp`。PPT Master 源码把省略属性按 true 解释只记录为该适配器源码规则，不是 YoloongPPT 产品默认；产品级规范化保持 pending。没有 slide parts，不报告具体页面的有效继承可见性。
-- 数据对象对齐：在既有 `LayoutTemplate` 数据对象行登记 Schema 草案版本，不新增/删除需求、任务或数据对象。字段 `layout_id, page_types, slots, constraints, capacity, backend_support` 均保留；其中 Slot 结构交给 TPL-004、语义页型映射交给 TPL-006、容量交给 TPL-007，后端能力待选型/PoC。
+- 数据对象对齐：在既有 `LayoutTemplate` 数据对象行登记 Schema 草案版本，不新增/删除需求、任务或数据对象。字段 `layout_id, page_types, slots, constraints, capacity, backend_support` 均保留；Slot 项结构由 `contracts/layout-slot.schema.json` 定义，语义页型映射交给 TPL-006、容量交给 TPL-007，后端能力待选型/PoC。
 - 静态核验：Schema、catalog、fixtures JSON 解析；本地 Schema 引用及样例结构、11 layout roster、master 关系、直接几何和原始属性状态静态核对。未运行 JSON Schema 标准 validator、YoloongPPT parser、PPT Master/Presenton/ai-agent-ppt 程序、Office 渲染或 AC-001–AC-030。
 - 证据：`contracts/layout-template.schema.json`、`contracts/layout-template.catalog.json`、`contracts/layout-template.fixtures.json`；Excel“需求主表”`N112:O112`、“可执行任务”`L180:M180`、“数据对象”`D29/J29`；`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
+
+### TASK-TPL-004
+
+- Requirement ID：TPL-004；P0；矩阵未列前置任务。
+- 状态：进行中。为既有 `LayoutSlot` 数据对象建立 Draft 2020-12 契约，覆盖 `slot_id, role, bounds, content_types, required, repeatable, capacity, style, overflow_policy`；值可按来源声明、明确映射或 unknown 表达，未知字段必须保留空值和原因，不静默推断。
+- LayoutTemplate 集成：`contracts/layout-template.schema.json` 的 `slots.items` 现在引用 `contracts/layout-slot.schema.json`；现有 LayoutTemplate fixtures 保持 pending，因为尚未运行产品 parser 将整个 layout placeholder roster 转成 LayoutSlot。
+- 来源对照：PPT Master 固定 commit `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d`（MIT）可静态观察 placeholder role 映射、直接几何及部分文本样式；Presenton 固定 commit `35bf44290f821323e003da854f78ffcb0e918167`（Apache-2.0）记录 raw positions/sizes/styles，并通过模型分析语义区、可重复区域与容量；ai-agent-ppt 固定 commit `c3605ebc487fc6c7d4f4139761e46d7021cd656c`（MIT）提供抽象 `LayoutNode.slot/style`，不等同原生 PPTX layout parser。三者的抽象差异和字段覆盖见 `contracts/layout-slot.catalog.json`。
+- 真实 PPTX 样例：python-pptx 固定 commit `278b47b1dedd5b46ee84c286e77cdfb0bf4594be` 的 `default.pptx`，SHA-256 `e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34`；layout1 的 `ctrTitle` placeholder 有直接 EMU bounds。样例只有 1 master、11 layouts、0 slide parts，因此 required/repeatable/capacity/style inheritance/overflow 保持 unknown。
+- 数据对象对齐：只更新既有“数据对象”`LayoutSlot` 行并说明 `LayoutTemplate.slots` 集成，不新增或删除矩阵行。容量测量及产品规则仍由 TPL-007 完成。
+- 静态验证范围：JSON 解析、本地 `$ref` 和 fixture 状态/边界检查；不表示标准 JSON Schema validator、YoloongPPT parser/runtime、源应用执行、Office 渲染或 AC-001–AC-030 已通过。
+- 证据：`contracts/layout-slot.schema.json`、`contracts/layout-slot.catalog.json`、`contracts/layout-slot.fixtures.json`、`contracts/layout-template.schema.json`、`contracts/layout-template.fixtures.json`；Excel“需求主表”`N113:P113`、“可执行任务”`L181:M181`、“数据对象”`D30/J30`；`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
 
 ### TASK-CNT-001
 

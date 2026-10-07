@@ -23,10 +23,9 @@
     "canonical_object_registered": true,
     "evidence": "仅在既有 LayoutTemplate 行登记 Draft 2020-12 Schema 草案；不新增/删除任何需求、任务或数据对象行。",
     "deferred": [
-      "TPL-004 LayoutSlot 定义",
       "TPL-006 SlideType 与 LayoutTemplate 适用关系",
       "TPL-007 容量规则",
-      "产品 parser/runtime 集成",
+      "产品 parser/runtime 集成及 placeholder→LayoutSlot 映射",
       "后端能力实测"
     ]
   },
@@ -36,10 +35,11 @@
     "P04": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
     "real_pptx": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be"
   },
-  "coverage": "静态源码 crosswalk + 真实 PPTX ZIP/XML 结构样例；非产品 parser 验收",
+  "coverage": "静态源码 crosswalk + 真实 PPTX ZIP/XML 结构样例；slots 由 contracts/layout-slot.schema.json 强类型约束；非产品 parser 验收",
   "limits": [
     "showMasterSp 原始属性与 P01 适配器的默认解释分开；不将 P01 默认推定为产品规则。",
     "Layout 几何省略不等于无几何；缺少 slide parts 时不声称有效继承值。",
-    "本契约不定义 TPL-004 slots、TPL-006 page-type mapping 或 TPL-007 capacity。"
+    "本契约定义 slots 集合与 LayoutSlot 项的结构关联；真实 placeholder→LayoutSlot 映射由 parser/runtime 集成继续验证。",
+    "TPL-006 page-type mapping 与 TPL-007 capacity 仍待后续任务。"
   ]
 }

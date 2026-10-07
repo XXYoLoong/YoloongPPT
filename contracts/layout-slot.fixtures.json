@@ -1,0 +1,193 @@
+{
+  "requirement_id": "TPL-004",
+  "task_id": "TASK-TPL-004",
+  "schema": "contracts/layout-slot.schema.json",
+  "fixture_status": "partial",
+  "source_crosswalk_ids": [
+    "P01_PPT_MASTER",
+    "P03_PRESENTON",
+    "P04_AI_AGENT_PPT",
+    "PYTHON_PPTX_DEFAULT_SAMPLE"
+  ],
+  "fixtures": [
+    {
+      "case_id": "real_pptx_title_placeholder",
+      "kind": "normal_and_unknown_source_fields",
+      "expected_valid": true,
+      "instance": {
+        "spec_type": "LayoutSlot",
+        "contract_status": "draft",
+        "requirement_id": "TPL-004",
+        "task_id": "TASK-TPL-004",
+        "slot_id": "slot_550e8400-e29b-41d4-a716-446655440000",
+        "source_ref": "ppt/slideLayouts/slideLayout1.xml#shape-id=2",
+        "role": {
+          "status": "mapped",
+          "value": "title",
+          "source_value": "ctrTitle",
+          "evidence_refs": ["P01_PLACEHOLDER_MANIFEST", "PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": null
+        },
+        "bounds": {
+          "status": "direct",
+          "unit": "EMU",
+          "coordinate_space": "slide",
+          "x": 685800,
+          "y": 2130425,
+          "width": 7772400,
+          "height": 1470025,
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": null
+        },
+        "content_types": {
+          "status": "unknown",
+          "values": [],
+          "source_values": [],
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": "样例只提供 layout placeholder 定义，没有 slide parts 或应用层绑定信息；未从 ctrTitle 推断通用可接受内容类型。"
+        },
+        "required": {
+          "status": "unknown",
+          "value": null,
+          "source_value": null,
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": "placeholder 存在不等于每张使用该版式的幻灯片都必须填充此槽位。"
+        },
+        "repeatable": {
+          "status": "unknown",
+          "value": null,
+          "source_value": null,
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": "layout placeholder 未声明可重复语义，且样例没有 slide parts 可用于观察重复实例。"
+        },
+        "capacity": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": "样例不包含文本容量测量；容量规则由 TPL-007 继续定义。"
+        },
+        "style": {
+          "status": "unknown",
+          "properties": {},
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": "此 fixture 只记录 layout 的直接几何；未执行 master 样式继承解析。"
+        },
+        "overflow_policy": {
+          "status": "unknown",
+          "value": null,
+          "source_value": null,
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": "PPTX layout placeholder 不提供本契约所需的通用溢出策略声明。"
+        },
+        "evidence_refs": ["P01_PLACEHOLDER_MANIFEST", "PYTHON_PPTX_DEFAULT_SAMPLE"],
+        "limitations": ["真实样例有 1 个 master、11 个 layouts 和 0 个 slide parts；未知字段保持未知。"]
+      }
+    },
+    {
+      "case_id": "ai_agent_ppt_semantic_title_slot",
+      "kind": "normal_partial_source_fields",
+      "expected_valid": true,
+      "instance": {
+        "spec_type": "LayoutSlot",
+        "contract_status": "draft",
+        "requirement_id": "TPL-004",
+        "task_id": "TASK-TPL-004",
+        "slot_id": "slot_6ba7b810-9dad-41d1-80b4-00c04fd430c8",
+        "source_ref": "src/layouts/title.layout.json#/root/children/0",
+        "role": {
+          "status": "declared",
+          "value": "title",
+          "source_value": "title",
+          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "reason": null
+        },
+        "bounds": {
+          "status": "unknown",
+          "unit": null,
+          "coordinate_space": "unknown",
+          "x": null,
+          "y": null,
+          "width": null,
+          "height": null,
+          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "reason": "LayoutNode.title 声明文本样式，但没有 x/y/width/height 边界字段。"
+        },
+        "content_types": {
+          "status": "unknown",
+          "values": [],
+          "source_values": [],
+          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "reason": "tagName h1 描述渲染节点；该来源没有声明槽位允许绑定的内容类型集合。"
+        },
+        "required": {
+          "status": "unknown",
+          "value": null,
+          "source_value": null,
+          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "reason": "LayoutNode schema 没有槽位 required 字段。"
+        },
+        "repeatable": {
+          "status": "unknown",
+          "value": null,
+          "source_value": null,
+          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "reason": "LayoutNode schema 没有槽位 repeatable 字段。"
+        },
+        "capacity": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "reason": "LayoutNode schema 没有容量字段。"
+        },
+        "style": {
+          "status": "partial",
+          "properties": {
+            "fontSize": "44pt",
+            "fontWeight": "bold",
+            "color": "{{colors.primary}}",
+            "textAlign": "center",
+            "marginBottom": "16px"
+          },
+          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "reason": "仅保留该节点直接声明的字符串样式；变量解析结果和最终渲染效果未执行验证。"
+        },
+        "overflow_policy": {
+          "status": "unknown",
+          "value": null,
+          "source_value": null,
+          "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+          "reason": "LayoutNode schema 没有溢出策略字段。"
+        },
+        "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON"],
+        "limitations": ["这是抽象语义 JSON layout，不是原生 PPTX layout parser 的输出。"]
+      }
+    }
+  ],
+  "invalid_cases": [
+    {
+      "case_id": "overflow_policy_missing",
+      "base_fixture_id": "real_pptx_title_placeholder",
+      "mutation": { "operation": "remove", "path": "/overflow_policy" },
+      "expected_valid": false,
+      "expected_violation": "root required field overflow_policy is missing"
+    },
+    {
+      "case_id": "direct_bounds_incomplete",
+      "base_fixture_id": "real_pptx_title_placeholder",
+      "mutation": { "operation": "remove", "path": "/bounds/height" },
+      "expected_valid": false,
+      "expected_violation": "bounds.height is required for direct geometry"
+    },
+    {
+      "case_id": "unknown_bounds_retains_coordinate",
+      "base_fixture_id": "real_pptx_title_placeholder",
+      "mutation": { "operation": "set", "path": "/bounds/status", "value": "unknown" },
+      "expected_valid": false,
+      "expected_violation": "unknown bounds require null coordinates and unit"
+    }
+  ],
+  "limitations": [
+    "Fixtures validate the proposed record shape and evidence-state rules; they do not prove a YoloongPPT parser or source application runtime.",
+    "PPT Master, Presenton, ai-agent-ppt and native PPTX expose different source abstractions; mappings remain explicit and source-specific."
+  ]
+}
