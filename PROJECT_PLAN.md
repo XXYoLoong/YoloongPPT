@@ -134,6 +134,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：源码快照、锁文件、运行条件、许可证与核心模式文档已静态核对；`ProjectBaseline` 官方最小流程尚未复现，`TASK-RES-P03-01` 保持进行中。待 Docker 恢复后在隔离容器复现并记录环境、日志和产物。
 - 证据：`research/P03/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N22:P22`、“可执行任务”`L34:M34`、“开源项目研究对象”第 4 行。官方 [README](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/README.md) 与[生成模式说明](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/docs/presentation-generation-modes.md)固定到同一 commit。
 
+### TASK-RES-P04-01
+
+- Requirement ID：RES-P04-01；P0；无前置任务。PDR 同时列出后续 `RES-P04-02` 完整调用链和 `RES-P04-03` 决策节点任务，本条不替代它们。
+- 状态：进行中。官方 `refs/heads/main` 于 2026-10-07 指向 `c3605ebc487fc6c7d4f4139761e46d7021cd656c`，与 GOV-010 的 `P04-MAIN` pinned commit 一致；研究 clone 位于仓库外 `F:\YoloongPPT-Research\P04` 并保持干净。
+- 锁与许可：npm `package-lock.json` 为 lockfileVersion 2，根包版本 0.1.0；上游 `package.json` 声明 Node `>=18.0.0`，无补丁版本 pin 或上游容器文件。根许可证为 MIT。以上仅为候选上游元数据，不是产品运行时决策。
+- 静态入口观察：CLI 入口加载配置并创建 Provider 后，才分发 HTML、图片、主题/文档路径；Provider registry 仅实际注册 DeepSeek、GLM，其他命名是预留。HTML 分支经 `PureLayout`/`PPTAdapter` 输出到 PptxGenJS，但 CLI 仍要求配置；P04-02/03 的全链路与决策分析仍未开始。
+- 环境阻塞：执行 `scripts/project.ps1 start` 失败，当前 Docker Engine pipe 不存在。未在主机安装 Node、未执行 npm 安装/构建/测试、未生成 PPTX。
+- 验收边界：refs、锁、许可证、上游运行声明和关键入口已静态核对；官方最小流程未运行，`ProjectBaseline` 尚未通过，`TASK-RES-P04-01` 保持进行中。待 Engine 恢复后在隔离容器复现并记录配置前置条件、日志和 PPTX。
+- 证据：`research/P04/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N27:P27`、“可执行任务”`L44:M44`、“开源项目研究对象”第 5 行。官方 [README](https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/README.md) 固定到 P04-MAIN commit。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
