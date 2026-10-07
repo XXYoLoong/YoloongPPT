@@ -1,0 +1,218 @@
+{
+  "document_type": "assumption_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-004",
+  "task_id": "TASK-CNT-004",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-004-INFERABLE-001",
+      "kind": "normal",
+      "classification": "inferable",
+      "input": {
+        "required_fact_id": "combined_cost",
+        "source_evidence": [
+          {
+            "evidence_id": "evidence_66666666-6666-4666-8666-666666666666",
+            "source_id": "source_66666666-6666-4666-8666-666666666666",
+            "claim_id": "claim-component-a",
+            "fact_id": "component_a",
+            "raw_text": "10 USD",
+            "numeric_value": "10",
+            "unit": "USD",
+            "source_anchor": {
+              "source_id": "source_66666666-6666-4666-8666-666666666666",
+              "asset_id": null,
+              "native_locator": "text:char/0-6",
+              "locator": {
+                "kind": "text_span",
+                "segment_index": 0,
+                "start_char": 0,
+                "end_char": 6,
+                "offset_unit": "unicode_code_points"
+              },
+              "locator_status": "located",
+              "reason": null
+            }
+          },
+          {
+            "evidence_id": "evidence_67666666-6666-4666-8666-666666666666",
+            "source_id": "source_67666666-6666-4666-8666-666666666666",
+            "claim_id": "claim-component-b",
+            "fact_id": "component_b",
+            "raw_text": "15 USD",
+            "numeric_value": "15",
+            "unit": "USD",
+            "source_anchor": {
+              "source_id": "source_67666666-6666-4666-8666-666666666666",
+              "asset_id": null,
+              "native_locator": "text:char/0-6",
+              "locator": {
+                "kind": "text_span",
+                "segment_index": 0,
+                "start_char": 0,
+                "end_char": 6,
+                "offset_unit": "unicode_code_points"
+              },
+              "locator_status": "located",
+              "reason": null
+            }
+          }
+        ],
+        "presentation_context": {
+          "explicit_inference_rule": {
+            "rule_id": "sum-listed-same-currency-components",
+            "operation": "sum",
+            "source_fact_ids": [
+              "component_a",
+              "component_b"
+            ],
+            "target_fact_id": "combined_cost",
+            "unit": "USD"
+          },
+          "permitted_inference_rule_ids": [
+            "sum-listed-same-currency-components"
+          ]
+        }
+      },
+      "expected_output": [],
+      "expected_inference_result": {
+        "numeric_value": "25",
+        "unit": "USD",
+        "evidence_ids": [
+          "evidence_66666666-6666-4666-8666-666666666666",
+          "evidence_67666666-6666-4666-8666-666666666666"
+        ]
+      },
+      "expected_action": "continue_with_evidence_trace"
+    },
+    {
+      "fixture_id": "CNT-004-ASSUMPTION-001",
+      "kind": "normal",
+      "classification": "requires_assumption",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "fact_id": "planned_margin",
+        "assumption_candidates": [
+          {
+            "assumption_id": "assumption_35333333-3333-4333-8333-333333333333",
+            "text": "12% user-supplied planning assumption",
+            "reason": "用户输入将该值明确标注为 user-supplied planning assumption；不作为来源证据事实。",
+            "confidence": null,
+            "user_visible": null
+          }
+        ],
+        "presentation_context": {
+          "allowed_transformations": []
+        }
+      },
+      "expected_output": [
+        {
+          "assumption_id": "assumption_35333333-3333-4333-8333-333333333333",
+          "text": "12% user-supplied planning assumption",
+          "reason": "用户输入将该值明确标注为 user-supplied planning assumption；不作为来源证据事实。",
+          "confidence": null,
+          "user_visible": null
+        }
+      ],
+      "expected_fact_constraint_ref": {
+        "fact_id": "planned_margin",
+        "assumption_ref": "assumption_35333333-3333-4333-8333-333333333333"
+      },
+      "expected_action": "record_assumption"
+    },
+    {
+      "fixture_id": "CNT-004-VISIBILITY-001",
+      "kind": "boundary",
+      "classification": "requires_assumption",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "fact_id": "planned_margin",
+        "assumption_candidates": [
+          {
+            "assumption_id": "assumption_35333333-3333-4333-8333-333333333333",
+            "text": "12% user-supplied planning assumption",
+            "reason": "用户输入将该值明确标注为 user-supplied planning assumption；不作为来源证据事实。",
+            "confidence": null,
+            "user_visible": true
+          }
+        ],
+        "presentation_context": {
+          "assumption_user_visibility": true
+        }
+      },
+      "expected_output": [
+        {
+          "assumption_id": "assumption_35333333-3333-4333-8333-333333333333",
+          "text": "12% user-supplied planning assumption",
+          "reason": "用户输入将该值明确标注为 user-supplied planning assumption；不作为来源证据事实。",
+          "confidence": null,
+          "user_visible": true
+        }
+      ],
+      "expected_action": "record_explicit_visibility"
+    },
+    {
+      "fixture_id": "CNT-004-MISSING-ASK-001",
+      "kind": "boundary",
+      "classification": "must_ask_or_fail",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "fact_id": "renewal_date",
+        "missing_action": "ask",
+        "presentation_context": {
+          "missing_information_action": "ask"
+        }
+      },
+      "expected_output": [],
+      "expected_error_ref": {
+        "error_id": "ERR-009",
+        "reason_code": "MISSING_FACT",
+        "fact_id": "renewal_date"
+      },
+      "expected_action": "ask"
+    },
+    {
+      "fixture_id": "CNT-004-MISSING-FAIL-001",
+      "kind": "boundary",
+      "classification": "must_ask_or_fail",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "fact_id": "renewal_date",
+        "missing_action": "fail",
+        "presentation_context": {
+          "missing_information_action": "fail"
+        }
+      },
+      "expected_output": [],
+      "expected_error_ref": {
+        "error_id": "ERR-009",
+        "reason_code": "MISSING_FACT",
+        "fact_id": "renewal_date"
+      },
+      "expected_action": "fail"
+    },
+    {
+      "fixture_id": "CNT-004-CONFLICT-001",
+      "kind": "boundary",
+      "classification": "conflicted_source",
+      "input": {
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "fact_id": "revenue_growth"
+      },
+      "expected_output": [],
+      "expected_conflict_ref": {
+        "fixture_id": "CNT-003-BOUNDARY-001",
+        "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+        "resolution_status": "unresolved",
+        "error_id": "ERR-008",
+        "reason_code": "SOURCE_CONFLICT"
+      },
+      "expected_action": "preserve_unresolved_conflict"
+    }
+  ],
+  "limits": [
+    "假设记录复用 CNT-001 边界 fixture 中的 assumption_id；reason 为本 fixture 明确提供的输入，confidence/user_visible 未给出时保留 null。",
+    "inferable 求和案例使用合成证据与显式调用方规则，只用于说明可推断分支不会创建假设，不表示全局推断算法已实现。",
+    "ask/fail 两个 fixture 的动作来自显式 PresentationContext，不定义产品默认动作。"
+  ]
+}

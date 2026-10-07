@@ -316,6 +316,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：更新既有“数据对象”EvidenceConflict 行状态与备注；不新增/删除需求、任务、数据对象或错误码。Schema 版本仍为“待定义”，草案未获批准。
 - 证据：contracts/evidence-conflict.schema.json、contracts/evidence-conflict.catalog.json、contracts/evidence-conflict.fixtures.json；contracts/source-bundle.schema.json/catalog.json/fixtures.json、contracts/fact-constraint-set.schema.json/fixtures.json；Excel“需求主表”N58:P58、“可执行任务”L86:M86、“数据对象”I8:J8。
 
+### TASK-CNT-004
+
+- Requirement ID：CNT-004；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 Assumption[] Draft 2020-12 契约、目录和六个正常/边界预期 fixture，分别覆盖显式可推断规则、需记录假设、显式可见性、缺失时 ask/fail，以及数字/来源冲突边界。
+- 假设边界：保留 assumption_id 与原文；reason 必须有明确来源；confidence 与 user_visible 未提供时为 null，不规定置信度量表或显示默认。可推断分支要求有证据及显式允许的确定性规则。
+- 冲突与缺失：未解决来源冲突继续引用 CNT-003 EvidenceConflict/ERR-008，不生成单一事实值；缺失事实按显式上下文 ask/fail 引用 ERR-009，不构造值。DEC-004、DEC-005 和 ERR-009 仍未开始，本任务不替代全局策略决策。
+- 静态核对：schema/catalog/fixtures JSON 可解析，schema 的 2 个引用和目录的 6 个 JSON 文件引用可定位；6 个 fixture 的假设身份/FactConstraintSet 引用、显式推导、未决来源冲突、缺失 ask/fail 对齐。未运行 JSON Schema 实例验证器、分类器、生成器、冲突/询问/失败运行时或 AC-001–AC-030。
+- 基线对齐：更新既有 CNT-004、TASK-CNT-004 和 Assumption 数据对象状态/证据，不新增或删除需求、任务、对象或错误码；DEC-005 保持未开始。
+- 证据：contracts/assumption.schema.json、contracts/assumption.catalog.json、contracts/assumption.fixtures.json、contracts/evidence-conflict.fixtures.json、contracts/fact-constraint-set.fixtures.json、PROJECT_PLAN.md；Excel“需求主表”N59:P59、“可执行任务”L87:M87、“数据对象”I10:J10。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
