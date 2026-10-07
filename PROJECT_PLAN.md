@@ -356,6 +356,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：更新既有 CNT-007/TASK-CNT-007 状态和证据；LanguageStyleSpec 无独立数据对象行，不新增/删除基线行，PresentationContext 对象仍未开始。
 - 证据：contracts/language-style-spec.schema.json、contracts/language-style-spec.catalog.json、contracts/language-style-spec.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N62:P62、“可执行任务”L90:M90。
 
+### TASK-CNT-008
+
+- Requirement ID：CNT-008；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 DeckThesis Draft 2020-12 契约、目录和三个正常/边界 fixture，覆盖支持数字、未决增长率冲突、显式假设与缺失续约日期。
+- 输出边界：main_takeaway 为单一论点；至少一个 supporting_point，逐项引用 evidence_id 或 assumption_id；顶层 evidence_refs 是支持点证据引用的去重汇总。假设必须明确表述为假设，不得变成来源事实。
+- 事实保护：正常样例保留 ARR/增长率原值和期间；未决 8%/9% 冲突不选胜者，改用独立的显式 12% 假设作为样例论点；缺失 renewal_date 不构造值并继续引用 ERR-009。
+- DEC-009 边界：DEC-009 才负责选择/生成整套演示核心 takeaway，且矩阵依赖 RES-031；本任务只给输出形状与追溯约束，DEC-009/TASK-DEC-009/VERIFY-DEC-009 保持未开始。
+- 静态核对：schema/catalog/fixtures JSON 可解析，schema 引用与目录 JSON 文件引用可定位；3 个 fixture 对应 acceptance case，支持证据/假设 ID、顶层汇总、冲突和缺失事实引用静态一致。未运行 JSON Schema 实例验证器、DEC-009、语义蕴含检查器、运行时或 AC-001–AC-030。
+- 基线对齐：更新既有 CNT-008/TASK-CNT-008 及 DeckThesis 数据对象状态/证据，不新增/删除需求、任务、对象或错误码；DEC-009 保持未开始。
+- 证据：contracts/deck-thesis.schema.json、contracts/deck-thesis.catalog.json、contracts/deck-thesis.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N63:P63、“可执行任务”L91:M91、“数据对象”I12:J12。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

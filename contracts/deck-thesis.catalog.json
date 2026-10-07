@@ -1,0 +1,66 @@
+{
+  "document_type": "deck_thesis_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-008",
+  "task_id": "TASK-CNT-008",
+  "data_object": "DeckThesis",
+  "schema": "contracts/deck-thesis.schema.json",
+  "fixtures": "contracts/deck-thesis.fixtures.json",
+  "deliverable": "DeckThesis",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "PDR para 401：每套 deck 必须有一句可验证的 DeckThesis 和 supporting points。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第 63 行、任务第 91 行和数据对象第 12 行列明 main_takeaway、supporting_points、evidence_refs 及数字/冲突/缺失验收。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "所有来源与假设引用复用既有 evidence_id/assumption_id。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "提供支持数字、未决数值冲突、显式 margin 假设与缺失续约日期的静态事实边界案例。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "冲突 fixture 复用 CNT-003 未解决的 revenue_growth EvidenceConflict 与 ERR-008。"
+    }
+  ],
+  "field_rules": [
+    "main_takeaway 是整套 deck 的单一核心论点；必须至少有一个 supporting_point。一个 point 是可核验支撑陈述，并直接关联 evidence_refs 或 assumption_refs。",
+    "每个 supporting_point 至少引用一条现有 evidence_id 或 assumption_id；顶层 evidence_refs 必须准确汇总其支持点使用的全部 evidence_id，按首次出现顺序去重。",
+    "明确标注为 assumption 的内容通过现有 assumption_id 引用；不得将规划假设写成 SourceEvidence 支持的事实。",
+    "论点文字和支持点必须保留来源数字、单位、时期和限定，不拼接冲突值、不静默选来源；未解决冲突沿用 EvidenceConflict/ERR-008。",
+    "缺失事实不生成值；该事实只可由 ERR-009/MISSING_FACT 保持缺失。如果它并非核心论点必要输入，可使用其他明确证据/假设形成论点，但不能暗示缺失值已知。",
+    "DEC-009 负责选择/生成整套演示核心 takeaway 与可解释判断；本 CNT-008 草案定义 DeckThesis 输出形状与追溯约束，不实现或替代 DEC-009，也不越过其 RES-031 前置项。",
+    "DeckThesis 数据对象基线字段名 main_takeaway、supporting_points、evidence_refs 得以保留；supporting point 引用细节与 assumption_refs 是满足来源/假设追溯的草案扩展，尚待对象评审。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-008-NORMAL-001",
+      "fixture_id": "CNT-008-NORMAL-001",
+      "purpose": "由受支持的 ARR 与增长数字表达一条论点和两个支持点。",
+      "acceptance": "保持 US$2.4 million、8%、FY2025 和 year-over-year 原值，两个支持点分别引用各自 evidence_id；顶层 refs 为去重汇总。"
+    },
+    {
+      "case_id": "CNT-008-CONFLICT-001",
+      "fixture_id": "CNT-008-CONFLICT-001",
+      "purpose": "增长率 8%/9% 冲突未解决，但存在独立显式的 12% 规划假设。",
+      "acceptance": "论点明确指出 12% 是假设，并引用现有 assumption_id；不得从冲突中选定增长率，保留 ERR-008。"
+    },
+    {
+      "case_id": "CNT-008-MISSING-001",
+      "fixture_id": "CNT-008-MISSING-001",
+      "purpose": "续约日期缺失，但有独立显式的 12% 规划假设可支持有限论点。",
+      "acceptance": "论点仅依赖明确假设，不补写续约日期；缺失事实继续关联 ERR-009/MISSING_FACT。"
+    }
+  ],
+  "limits": [
+    "未运行 DEC-009 的候选生成、评分/选择、trace 或主题适配；TASK-DEC-009 仍因 RES-031 前置保持未开始。",
+    "未运行 JSON Schema 实例验证器、语义蕴含检查器、运行时、PPT 生成或 AC-001–AC-030。",
+    "主论点必须恰为一句的自然语言检测规则、point 粒度与 EvidenceGraph 的接口尚待 DEC-009/架构定义。"
+  ]
+}

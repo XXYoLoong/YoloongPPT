@@ -1,0 +1,81 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DeckThesis 契约（CNT-008 草案）",
+  "description": "保存一条可由支持点和来源/显式假设回溯的演示核心论点；不在本任务中定义 DEC-009 的候选生成与选择机制。",
+  "type": "object",
+  "required": [
+    "main_takeaway",
+    "supporting_points",
+    "evidence_refs"
+  ],
+  "properties": {
+    "main_takeaway": {
+      "type": "string",
+      "minLength": 1,
+      "description": "整套 deck 的单一核心论点；其可验证性由 supporting_points 及其引用支撑。"
+    },
+    "supporting_points": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/supporting_point"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "object-id.schema.json#/$defs/evidence_id"
+      },
+      "uniqueItems": true,
+      "description": "supporting_points.evidence_refs 的去重汇总；复用既有 evidence_id。"
+    }
+  },
+  "$defs": {
+    "supporting_point": {
+      "type": "object",
+      "required": [
+        "text",
+        "evidence_refs",
+        "assumption_refs"
+      ],
+      "properties": {
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          },
+          "uniqueItems": true
+        },
+        "assumption_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          },
+          "uniqueItems": true
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "evidence_refs": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "assumption_refs": {
+              "minItems": 1
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

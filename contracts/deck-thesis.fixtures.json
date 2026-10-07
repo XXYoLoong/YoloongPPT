@@ -1,0 +1,104 @@
+{
+  "document_type": "deck_thesis_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-008",
+  "task_id": "TASK-CNT-008",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-008-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {}
+      },
+      "expected_output": {
+        "main_takeaway": "FY2025 ARR reached US$2.4 million while revenue grew 8% year over year.",
+        "supporting_points": [
+          {
+            "text": "FY2025 ARR was US$2.4 million.",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "text": "FY2025 year-over-year revenue growth was 8%.",
+            "evidence_refs": [
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": []
+          }
+        ],
+        "evidence_refs": [
+          "evidence_15111111-1111-4111-8111-111111111111",
+          "evidence_16111111-1111-4111-8111-111111111111"
+        ]
+      },
+      "expected_action": "use_supported_numeric_claims"
+    },
+    {
+      "fixture_id": "CNT-008-CONFLICT-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "presentation_context": {}
+      },
+      "expected_output": {
+        "main_takeaway": "计划毛利率为 12%，并明确作为规划假设。",
+        "supporting_points": [
+          {
+            "text": "用户明确提供 12% 作为规划假设，而非来源事实。",
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ]
+          }
+        ],
+        "evidence_refs": []
+      },
+      "expected_conflict_ref": {
+        "fixture_id": "CNT-003-BOUNDARY-001",
+        "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+        "resolution_status": "unresolved",
+        "error_id": "ERR-008",
+        "reason_code": "SOURCE_CONFLICT"
+      },
+      "expected_action": "avoid_unresolved_numeric_conflict"
+    },
+    {
+      "fixture_id": "CNT-008-MISSING-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "focus_fact_id": "renewal_date",
+        "presentation_context": {}
+      },
+      "expected_output": {
+        "main_takeaway": "计划毛利率为 12%，并明确作为规划假设。",
+        "supporting_points": [
+          {
+            "text": "用户明确提供 12% 作为规划假设，而非来源事实。",
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ]
+          }
+        ],
+        "evidence_refs": []
+      },
+      "expected_missing_fact_ref": {
+        "fact_id": "renewal_date",
+        "error_id": "ERR-009",
+        "reason_code": "MISSING_FACT"
+      },
+      "expected_action": "do_not_infer_missing_fact"
+    }
+  ],
+  "limits": [
+    "数字样例只使用 CNT-001 支持的 ARR 与增长率原值；冲突样例不选择 8% 或 9%，而以已有 12% 假设作为示例支撑；缺失续约日期不构造或提及其值。",
+    "fixtures 是静态预期，不表示 DEC-009 已能生成/选择 DeckThesis 或确认论点的业务意义。",
+    "全局 takeaway 是否最适合主题、受众和结构由 DEC-009 决定；DEC-009/TASK-DEC-009 仍未开始并依赖 RES-031。",
+    "JSON Schema 不能证明主论点由支持点充分蕴含，也不能证明所有来源事实语义准确；运行时语义检查尚未实现。"
+  ]
+}
