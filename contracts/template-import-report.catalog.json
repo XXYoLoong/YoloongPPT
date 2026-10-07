@@ -1,0 +1,80 @@
+{
+  "requirement_id": "TPL-009",
+  "task_id": "TASK-TPL-009",
+  "title": "模板导入验证",
+  "status": "进行中",
+  "deliverable": "TemplateImportReport",
+  "schema_file": "contracts/template-import-report.schema.json",
+  "fixture_file": "contracts/template-import-report.fixtures.json",
+  "data_object_alignment": {
+    "canonical_data_object_registered": false,
+    "evidence": "矩阵“数据对象”表没有 TemplateImportReport 独立行；本契约只实现 TASK-TPL-009 的任务级报告输出，不新增或改动需求、任务或数据对象行。"
+  },
+  "acceptance": "需在实际导入/重建后提供至少一页和 master/layout/theme 保留的结构及渲染证据。来源静态审阅和输入包盘点不能代替该验收。",
+  "report_rules": [
+    "输入 inventory 分开记录 masters、layouts、themes、slides 的状态、数量、OOXML part 引用覆盖度和证据；已观察数量不代表完整枚举 part。",
+    "至少一页的重建记录必须同时链接输出 slide、来源/输出 layout、输出 master 与 theme；缺少任一链接不能报告完整重建。",
+    "master/layout/theme 分别报告 source part 是否被保留、重建等价或未验证；不能把语义截图或布局 JSON 等同于原生部件保留。",
+    "package_roundtrip 与 page_render 分别如实报告。result_status=complete 必须有至少一页、三类组件的保留证据及包结构往返通过；page_render 是独立观测项，不额外扩大 TPL-009 完成门槛。",
+    "验证环境只保存可观察的容器镜像摘要和实际运行环境；未运行时为空，不选择产品语言或运行时。",
+    "失败、partial、not_run 都保留原因与 evidence_refs；静态 source_review 或输入 inventory 不升格为产品运行通过。"
+  ],
+  "source_crosswalks": [
+    {
+      "source_id": "P01_PPT_MASTER",
+      "revision": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "license": "MIT",
+      "paths": [
+        { "path": "skills/ppt-master/scripts/template_import/manifest.py", "sha256": "0714605787cb090a72cc87ec0b5275be724f4b9fdc71f6c3f35e2712ea3526d3" },
+        { "path": "skills/ppt-master/scripts/pptx_to_svg/converter.py", "sha256": "cdd395ca58daab9407cf1ae5c7c0ce55cf53ed53ae8a50c7891514b765468548" }
+      ],
+      "finding": "manifest.py 盘点资源、页面尺寸、主题色/字体和 slide/layout/master 背景继承，并明确不把任意 PPTX shape 转成 SVG template。当前证据支持输入分析，不证明输出 PPTX 保留原 master/layout/theme 或完成页面重建。",
+      "validation_status": "source_review_only"
+    },
+    {
+      "source_id": "P03_PRESENTON",
+      "revision": "35bf44290f821323e003da854f78ffcb0e918167",
+      "license": "Apache-2.0",
+      "paths": [
+        { "path": "docs/template-v2.md", "sha256": "ac536bac766662a06ff222e40c7233ac58f9122d226433e4156ece6c409518fb" },
+        { "path": "servers/fastapi/api/v1/ppt/endpoints/template.py", "sha256": "2b4113f5006ceab3ae47df39a4f2dde991cbfaf64be70a31179b98a67eb381aa" },
+        { "path": "servers/fastapi/templates/v2/schema.py", "sha256": "2e48d5a3baece24dcbf2fd4a2fa819a275c6f53cbdccd946b4151b741dd05b14" }
+      ],
+      "finding": "Template V2 流程把源 PPTX、逐页预览和字体映射转换为 RawSlideLayouts，经模型语义认证、theme 派生和 layout hydration 后导出生成 deck。当前静态证据没有证明导出包逐部件保留源 master/layout/theme。",
+      "validation_status": "source_review_only"
+    },
+    {
+      "source_id": "P04_AI_AGENT_PPT",
+      "revision": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "license": "MIT",
+      "paths": [
+        { "path": "src/core/engine/layout-loader.ts", "sha256": "df6b416f53f12a38dee14eef029cd4038c56e5cacd7451edb399e5ecff59d74d" },
+        { "path": "src/layouts/title.layout.json", "sha256": "ccb7ac806cacb07e0c6b1070b230656cc88b66aed56a87706fffca05ce17170a" },
+        { "path": "src/core/engine/ppt-adapter.ts", "sha256": "d703956c1c1f2faac6c7e9d9e16645a7bd042f7428a126ec0afe24f372da62a4" }
+      ],
+      "finding": "固定代码读取抽象 LayoutNode JSON 并把其内容映射到生成元素；已审阅的 title layout 不是原生 PPTX master/layout 导入证据。PPTX master/layout/theme 保留状态仍未知。",
+      "validation_status": "source_review_only"
+    },
+    {
+      "source_id": "PYTHON_PPTX_DEFAULT_SAMPLE",
+      "revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+      "path": "src/pptx/templates/default.pptx",
+      "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4977b7bea83a8f34",
+      "finding": "只读包盘点确认 1 master、11 layouts、1 theme、0 slide parts。可证明输入模板结构存在；不能证明重建页或输出 master/layout/theme 保留。",
+      "validation_status": "package_inventory_only"
+    }
+  ],
+  "current_execution": {
+    "status": "not_run",
+    "attempted_command": "scripts/project.ps1 start",
+    "observed_error": "Docker Engine desktop-linux pipe 不存在；com.docker.service 无法由当前会话打开并启动。",
+    "container_started": false,
+    "runtime_selected": false
+  },
+  "limitations": [
+    "没有 YoloongPPT 模板导入/重建运行时，产品架构、语言及依赖版本仍未选定。",
+    "Docker Desktop 进程已启动，但 Engine pipe 未建立；项目 Compose 容器没有启动。当前 C: 可用空间约 285 MiB 是环境观测，不据此认定唯一根因。",
+    "固定真实样例没有 slide parts；需要在项目容器可用后，使用可追溯输入模板生成至少一页，再比较输出 package part 和渲染结果。",
+    "本契约、来源 crosswalk 与静态 inventory fixture 不是实际重建或 Office/LibreOffice 验收。"
+  ]
+}

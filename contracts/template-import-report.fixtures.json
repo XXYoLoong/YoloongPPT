@@ -1,0 +1,55 @@
+{
+  "requirement_id": "TPL-009",
+  "task_id": "TASK-TPL-009",
+  "schema": "contracts/template-import-report.schema.json",
+  "fixture_status": "partial",
+  "source_crosswalk_ids": ["P01_PPT_MASTER", "P03_PRESENTON", "P04_AI_AGENT_PPT", "PYTHON_PPTX_DEFAULT_SAMPLE"],
+  "fixtures": [
+    {
+      "case_id": "real_pptx_inventory_rebuild_not_run",
+      "kind": "real_source_package_inventory_with_unverified_reconstruction",
+      "expected_valid": true,
+      "instance": {
+        "report_type": "TemplateImportReport",
+        "contract_status": "draft",
+        "requirement_id": "TPL-009",
+        "task_id": "TASK-TPL-009",
+        "result_status": "partial",
+        "source": {
+          "source_id": "PYTHON_PPTX_DEFAULT_SAMPLE",
+          "source_revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+          "source_path": "src/pptx/templates/default.pptx",
+          "source_sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4977b7bea83a8f34"
+        },
+        "inventory": {
+          "masters": { "status": "observed", "count": 1, "part_refs": ["ppt/slideMasters/slideMaster1.xml"], "part_ref_coverage": "partial", "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"], "reason": null },
+          "layouts": { "status": "observed", "count": 11, "part_refs": ["ppt/slideLayouts/slideLayout1.xml"], "part_ref_coverage": "partial", "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"], "reason": null },
+          "themes": { "status": "observed", "count": 1, "part_refs": ["ppt/theme/theme1.xml"], "part_ref_coverage": "complete", "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"], "reason": null },
+          "slides": { "status": "not_present", "count": 0, "part_refs": [], "part_ref_coverage": "not_applicable", "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"], "reason": "固定 default.pptx 样例没有 slide parts。" }
+        },
+        "reconstruction": {
+          "status": "not_run",
+          "output_file_ref": null,
+          "output_sha256": null,
+          "pages": [],
+          "reason": "本轮没有启动项目 Docker 容器或模板导入/重建运行时；不能声称已重建页面。"
+        },
+        "preservation": {
+          "master": { "status": "not_run", "source_part_refs": ["ppt/slideMasters/slideMaster1.xml"], "output_part_refs": [], "hash_comparison": "not_run", "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"], "reason": "没有重建输出包可供比较。" },
+          "layout": { "status": "not_run", "source_part_refs": ["ppt/slideLayouts/slideLayout1.xml"], "output_part_refs": [], "hash_comparison": "not_run", "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"], "reason": "没有重建输出包可供比较。" },
+          "theme": { "status": "not_run", "source_part_refs": ["ppt/theme/theme1.xml"], "output_part_refs": [], "hash_comparison": "not_run", "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"], "reason": "没有重建输出包可供比较。" }
+        },
+        "verification": {
+          "method": "package_inventory",
+          "package_roundtrip": "not_run",
+          "page_render": "not_run",
+          "environment": { "execution_location": "unknown", "container_image_digest": null, "runtime_observation": null },
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": "仅复用已记录的输入包静态盘点；运行环境、重建往返和页面渲染均未验证。"
+        },
+        "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE", "PDR_TPL_009", "MATRIX_TPL_009"],
+        "limitations": ["这是输入结构记录，不是页面重建结果。", "P01/P03/P04 目前只做固定版本源码静态对照。"]
+      }
+    }
+  ]
+}

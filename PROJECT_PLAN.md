@@ -410,6 +410,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核验：三个契约 JSON 均解析成功；5 个 fixture 的 Requirement/Task ID、S24 六角色、四类必需来源覆盖、证据引用及 mapped/declared 与 unknown/unmapped 状态约束一致。此为静态一致性检查；未运行 Draft 2020-12 标准 Schema validator、上游应用、YoloongPPT parser/runtime、Office 渲染或 AC-001–AC-030。
 - 证据：`contracts/template-field-map.schema.json`、`contracts/template-field-map.catalog.json`、`contracts/template-field-map.fixtures.json`；Excel“需求主表”`N117:P117`、“可执行任务”`L185:M185`、“0-1全链路”`A26:D26`；`contracts/layout-slot.catalog.json`、`contracts/layout-slot.fixtures.json`、`contracts/layout-template.fixtures.json`、`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
 
+### TASK-TPL-009
+
+- Requirement ID：TPL-009；P0；矩阵未列前置任务。
+- 状态：进行中。建立任务级 `TemplateImportReport` 契约，独立记录输入包 master/layout/theme/slide inventory、输出重建页、部件保留状态、包结构往返与页面渲染结果。报告 `complete` 必须有至少一个输出页、master/layout/theme 三类结构证据及 package roundtrip 通过；page render 单独报告，不作为 TPL-009 额外完成门槛。
+- 来源对照：PPT Master 固定 `manifest.py` 盘点资源、主题和继承关系，但明确不把任意 PPTX shape 转成 SVG template；Presenton 固定 Template V2 流程依赖源 PPTX、逐页预览和模型认证，再进行 layout hydration 与导出，当前未证实输出逐部件保留源 master/layout/theme；ai-agent-ppt 使用抽象 LayoutNode JSON，不能据此证明原生 PPTX 模板导入保留；python-pptx 固定 default.pptx 真实样例有 1 master、11 layouts、1 theme、0 slide parts。
+- 数据对象对齐：矩阵“数据对象”表没有 `TemplateImportReport` 独立行，仅按 TASK-TPL-009 输出任务级报告；不新增、删除或改动需求、任务、数据对象行。
+- 执行边界：尝试启动 Docker Desktop 后 `docker info` 和 `scripts/project.ps1 start` 仍无法连接 `desktop-linux` Engine pipe；`com.docker.service` 当前会话无法打开/启动，项目容器没有启动。C: 可用空间观测约 285 MiB，不据此断言唯一根因。未安装或选择任何产品语言/运行时。
+- 当前证据：已有输入包静态 inventory，但 sample 无 slide parts，故无法据此重建页面。契约 fixture 把 package inventory 标为局部证据，将 reconstruction、master/layout/theme output comparison、round-trip、render 全部保持 not_run；TPL-009 未通过验收。
+- 静态核验：三个 JSON 文件解析、TPL-009/TASK-TPL-009 追溯 ID、四个来源 crosswalk ID、真实样例 inventory（1 master/11 layouts/1 theme/0 slides）、fixture 未夸大重建/保留/round-trip/render 状态及 8 个固定源码文件 SHA-256 均核对通过。该检查不是 Draft 2020-12 实例验证或实际模板导入验证。
+- 证据：`contracts/template-import-report.schema.json`、`contracts/template-import-report.catalog.json`、`contracts/template-import-report.fixtures.json`；Excel“需求主表”`N118:P118`、“可执行任务”`L186:M186`；PDR 段落 141；`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`；`contracts/template-source-record.catalog.json`、`contracts/layout-template.catalog.json`。
+
 ### TASK-CNT-001
 
 - Requirement ID：CNT-001；P0；矩阵中无前置任务。
