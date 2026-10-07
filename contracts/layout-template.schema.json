@@ -214,10 +214,24 @@
       "type": "object",
       "required": ["status", "items", "reason"],
       "properties": {
-        "status": { "enum": ["pending", "not_assessed", "resolved"] },
-        "items": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "status": { "enum": ["pending", "not_assessed", "partial", "defined"] },
+        "items": { "type": "array", "items": { "$ref": "layout-applicability.schema.json" } },
         "reason": { "type": ["string", "null"] }
       },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["pending", "not_assessed"] } }, "required": ["status"] },
+          "then": { "properties": { "items": { "maxItems": 0 }, "reason": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "partial" } }, "required": ["status"] },
+          "then": { "properties": { "items": { "minItems": 1 }, "reason": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "defined" } }, "required": ["status"] },
+          "then": { "properties": { "items": { "minItems": 1 }, "reason": { "const": null } } }
+        }
+      ],
       "additionalProperties": false
     },
     "slot_collection": {

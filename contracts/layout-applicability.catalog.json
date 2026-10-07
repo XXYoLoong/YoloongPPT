@@ -1,0 +1,151 @@
+{
+  "document_type": "layout_applicability_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "TPL-006",
+  "task_id": "TASK-TPL-006",
+  "schema": "contracts/layout-applicability.schema.json",
+  "fixtures": "contracts/layout-applicability.fixtures.json",
+  "deliverable": "LayoutApplicability",
+  "integration": {
+    "parent_contract": "contracts/layout-template.schema.json",
+    "parent_path": "LayoutTemplate.page_types.items",
+    "data_object_row": "数据对象!A29:J29",
+    "standalone_data_object_added": false,
+    "relation_key": ["layout_id", "slide_type.type_id", "slide_type.label_if_extension"],
+    "reason": "LayoutApplicability 是 LayoutTemplate 与 SlideType 间的关系记录，嵌入既有 LayoutTemplate.page_types，不新增基线数据对象行或独立运行时 ID。"
+  },
+  "taxonomy": [
+    { "type_id": "cover", "label": "封面", "source_ref": "PDR DEC-017; 0-1全链路 S16" },
+    { "type_id": "section", "label": "章节", "source_ref": "PDR DEC-017; 0-1全链路 S16" },
+    { "type_id": "overview", "label": "概览", "source_ref": "PDR DEC-017; 0-1全链路 S16" },
+    { "type_id": "image_text", "label": "图文", "source_ref": "PDR DEC-017; 0-1全链路 S16" },
+    { "type_id": "data", "label": "数据", "source_ref": "PDR DEC-017; 0-1全链路 S16" },
+    { "type_id": "process", "label": "流程", "source_ref": "PDR DEC-017; 0-1全链路 S16" },
+    { "type_id": "timeline", "label": "时间线", "source_ref": "PDR DEC-017; 0-1全链路 S16" },
+    { "type_id": "comparison", "label": "对比", "source_ref": "PDR DEC-017; 0-1全链路 S16" },
+    { "type_id": "table", "label": "表格", "source_ref": "0-1全链路 S16" },
+    { "type_id": "kpi", "label": "KPI", "source_ref": "PDR DEC-017; 0-1全链路 S16" },
+    { "type_id": "swot", "label": "SWOT", "source_ref": "PDR DEC-017; 0-1全链路 S16" },
+    { "type_id": "summary", "label": "总结", "source_ref": "PDR DEC-017; 0-1全链路 S16" }
+  ],
+  "source_crosswalks": [
+    {
+      "source_id": "P01-PPT-Master",
+      "repository": "PPT Master",
+      "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "execution_status": "source_review_only",
+      "source_refs": [
+        "research/P01/README.md",
+        "skills/ppt-master/scripts/template_import/manifest.py#summarize_part_record",
+        "skills/ppt-master/scripts/template_import/manifest.py#extract_placeholders",
+        "contracts/layout-template.fixtures.json#real_pptx_sample.layout_roster"
+      ],
+      "observations": [
+        "固定源码读取 native layout type、display name、placeholder role/index 和几何等原始信息；没有将 OOXML type 统一映射成 PDR SlideType 的规则。",
+        "真实样例的 title/Title Slide 与 ctrTitle、subTitle placeholder 可支持封面候选；名称和 type 是证据，不等于页面生成与视觉验收。"
+      ],
+      "candidate_crosswalk": [
+        { "raw_type": "title", "raw_name": "Title Slide", "slide_type": "cover", "status": "candidate" },
+        { "raw_type": "secHead", "raw_name": "Section Header", "slide_type": "section", "status": "candidate" },
+        { "raw_type": "twoTxTwoObj", "raw_name": "Comparison", "slide_type": "comparison", "status": "candidate" },
+        { "raw_type": "picTx", "raw_name": "Picture with Caption", "slide_type": "image_text", "status": "candidate" },
+        { "raw_type": "obj", "raw_name": "Title and Content", "slide_type": "overview", "status": "unknown" }
+      ]
+    },
+    {
+      "source_id": "P03-Presenton",
+      "repository": "Presenton",
+      "commit": "35bf44290f821323e003da854f78ffcb0e918167",
+      "execution_status": "source_review_only",
+      "source_refs": [
+        "research/P03/README.md",
+        "docs/template-v2.md#raw-layouts-and-certification",
+        "servers/fastapi/templates/v2/models/layouts.py#RawSlideLayout",
+        "servers/fastapi/templates/v2/models/layouts.py#SlideLayout"
+      ],
+      "observations": [
+        "RawSlideLayout 暴露 id、description、elements；语义 SlideLayout 暴露 id、description、components。源码以语义组件、编辑属性、柔性区域和容量分析认证布局。",
+        "本次核对未发现与 PDR SlideType 等价的标准类型字段或固定映射表；应保留 source description/elements，不把 Presenton component kind 当成页面类型。"
+      ],
+      "candidate_crosswalk": [],
+      "field_coverage": "source_layout_semantics_without_canonical_slide_type"
+    },
+    {
+      "source_id": "P04-ai-agent-ppt",
+      "repository": "ai-agent-ppt",
+      "commit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "execution_status": "source_review_only",
+      "source_refs": [
+        "research/P04/README.md",
+        "src/core/engine/layout-loader.ts#LayoutDefinition",
+        "src/layouts/title.layout.json",
+        "src/layouts/comparison.layout.json",
+        "src/layouts/timeline.layout.json",
+        "src/layouts/chart.layout.json",
+        "src/layouts/image-text.layout.json"
+      ],
+      "observations": [
+        "LayoutLoader 读取抽象 JSON layout 名称、description、root、slots；它不解析 native PPTX slideLayout type。",
+        "文件名与 description 能提供候选语义；候选只用于 crosswalk 草案，未通过 YoloongPPT 生成/渲染或页面分类验证。"
+      ],
+      "candidate_crosswalk": [
+        { "raw_name": "title", "description": "Full-screen centered title slide", "slide_type": "cover", "status": "candidate" },
+        { "raw_name": "comparison", "description": "Two-column comparison layout", "slide_type": "comparison", "status": "candidate" },
+        { "raw_name": "timeline", "description": "Timeline layout for chronological events", "slide_type": "timeline", "status": "candidate" },
+        { "raw_name": "chart", "description": "Chart slide with title and description area", "slide_type": "data", "status": "candidate" },
+        { "raw_name": "image-text", "description": "Image on left, text content on right", "slide_type": "image_text", "status": "candidate" }
+      ],
+      "non_mappings": [
+        { "raw_name": "bullet", "reason": "标题加项目符号列表不足以区别概览、流程、数据、表格等多种 PDR 页面类型。" },
+        { "raw_name": "image", "reason": "全屏背景图加标题不是 PDR 中已定义的独立页面类型；保留为来源特征或经证据支持的扩展类型。" },
+        { "raw_name": "code", "reason": "PDR 未列出 code 页面类型；不得静默并入概览或图文。" }
+      ]
+    },
+    {
+      "source_id": "REAL-PPTX-TPL001",
+      "repository": "python-pptx default.pptx sample",
+      "execution_status": "sample_part_inspection_only",
+      "source_refs": [
+        "C:/Users/Ni/AppData/Local/Temp/yoloongppt-tpl001-python-pptx-default.pptx",
+        "contracts/layout-template.fixtures.json#real_pptx_sample",
+        "ppt/slideLayouts/slideLayout1.xml",
+        "ppt/slideLayouts/slideLayout2.xml"
+      ],
+      "file_sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
+      "observations": [
+        "样例含 1 master、11 layouts、0 slide parts；没有实际页面用例来验证适用性或不适用性。",
+        "Title Slide 的 raw type=title，placeholder roles 包括 ctrTitle、subTitle、dt、ftr、sldNum；可建立封面 candidate。",
+        "Title and Content 的 raw type=obj，有 title placeholder 和一个 type 被省略的 placeholder；语义类型仍可能是概览、数据、流程、表格等，记录 overview 为 unknown，缺失不等同于不适用。"
+      ],
+      "candidate_crosswalk": [
+        { "raw_type": "title", "raw_name": "Title Slide", "slide_type": "cover", "status": "candidate" },
+        { "raw_type": "secHead", "raw_name": "Section Header", "slide_type": "section", "status": "candidate" },
+        { "raw_type": "twoTxTwoObj", "raw_name": "Comparison", "slide_type": "comparison", "status": "candidate" },
+        { "raw_type": "picTx", "raw_name": "Picture with Caption", "slide_type": "image_text", "status": "candidate" },
+        { "raw_type": "obj", "raw_name": "Title and Content", "slide_type": "overview", "status": "unknown" }
+      ]
+    }
+  ],
+  "status_semantics": {
+    "candidate": "可进入后续规则/容量/后端检查；只是有证据的适用候选，不是产品已验证或最终选择。",
+    "verified": "需要可复现的 YoloongPPT 产品验证证据；静态名称匹配不能设为 verified。",
+    "incompatible": "只有来源或产品验证证据明确证明不适用时才可使用。",
+    "unknown": "证据不足；不得当成 incompatible，也不得用默认 page type 替代。",
+    "partial_collection": "仅覆盖明确列出的关系；缺失关系保持 unknown，只有显式 incompatible 才能排除。",
+    "defined_collection": "基线 SlideType 和已登记 extension type 都有显式关系状态；unknown 仍表示未决，不能作排除结论。"
+  },
+  "field_rules": [
+    "SlideType 基线值来自 PDR DEC-017 与 0-1全链路 S16；S16 额外明确表格。两处均使用“等”，因此通过 extension + label + evidence_ref 保持开放词汇，不把当前示例误写成完整封闭 taxonomy。",
+    "原始 layout type/name 与规范 SlideType 分字段保存；候选映射需保留理由、source_ref、约束和 verification 状态。",
+    "page_types 为 partial 时，未列出的关系一律 unknown；不适用必须逐项使用 incompatible 并提供证据。",
+    "候选映射不分配 DEC-030 分数、不替代决策轨迹；DEC-030 可查询该关系后继续执行内容槽位、TPL-007 容量、素材比例与 backend 约束。",
+    "TPL-006 不定义字符/行/字号等容量数值；这些由 TPL-007 负责。当前 observed placeholder/slot 仅表示来源存在的结构信号，不自动成为硬性内容要求。",
+    "LayoutApplicability 以既有 layout_id 与 SlideType 组合标识并嵌入 LayoutTemplate.page_types；不新增独立数据对象行或 GOV-007 运行时 ID 类型。"
+  ],
+  "limitations": [
+    "契约、crosswalk 和 fixture 是 Draft 2020-12 草案；没有运行 YoloongPPT parser/runtime 或 LayoutCandidates 决策引擎。",
+    "PPT Master、Presenton、ai-agent-ppt 只做固定 commit 源码静态核对，没有执行上游程序。",
+    "真实 PPTX 样例没有 slide parts；候选关系尚未经过页面内容、渲染、容量、素材或用户目标验证。",
+    "当前环境无 Draft 2020-12 标准 validator；使用 JSON 解析、本地引用和契约特定结构检查时须明确报告其范围。"
+  ]
+}

@@ -1,0 +1,234 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LayoutApplicability 契约（TASK-TPL-006 草案）",
+  "description": "描述一个既有 LayoutTemplate.layout_id 与一个基线 SlideType 之间的适用关系、已观察限制和验证状态。此关系嵌入 LayoutTemplate.page_types；没有关系记录或 unknown 不表示不适用。",
+  "type": "object",
+  "required": [
+    "spec_type",
+    "contract_status",
+    "requirement_id",
+    "task_id",
+    "layout_id",
+    "slide_type",
+    "source_layout_type",
+    "applicability_status",
+    "reason",
+    "constraints",
+    "verification",
+    "evidence_refs",
+    "limitations"
+  ],
+  "properties": {
+    "spec_type": { "const": "LayoutApplicability" },
+    "contract_status": { "const": "draft" },
+    "requirement_id": { "const": "TPL-006" },
+    "task_id": { "const": "TASK-TPL-006" },
+    "layout_id": { "$ref": "object-id.schema.json#/$defs/layout_id" },
+    "slide_type": { "$ref": "#/$defs/slide_type" },
+    "source_layout_type": { "$ref": "#/$defs/source_layout_type" },
+    "applicability_status": {
+      "enum": ["candidate", "verified", "incompatible", "unknown"]
+    },
+    "reason": { "type": ["string", "null"] },
+    "constraints": { "$ref": "#/$defs/constraint_collection" },
+    "verification": { "$ref": "#/$defs/verification" },
+    "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "applicability_status": { "enum": ["candidate", "incompatible", "unknown"] } }, "required": ["applicability_status"] },
+      "then": { "properties": { "reason": { "type": "string", "minLength": 1 } } }
+    },
+    {
+      "if": { "properties": { "applicability_status": { "const": "verified" } }, "required": ["applicability_status"] },
+      "then": {
+        "properties": {
+          "reason": { "const": null },
+          "verification": {
+            "properties": {
+              "status": { "const": "passed" },
+              "evidence_refs": { "minItems": 1 },
+              "reason": { "const": null }
+            }
+          }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "slide_type": {
+      "type": "object",
+      "required": ["type_id", "label", "taxonomy_status", "taxonomy_ref", "reason"],
+      "properties": {
+        "type_id": {
+          "enum": [
+            "cover",
+            "section",
+            "overview",
+            "image_text",
+            "data",
+            "process",
+            "timeline",
+            "comparison",
+            "table",
+            "kpi",
+            "swot",
+            "summary",
+            "extension"
+          ]
+        },
+        "label": { "type": "string", "minLength": 1 },
+        "taxonomy_status": { "enum": ["baseline", "extension"] },
+        "taxonomy_ref": { "type": "string", "minLength": 1 },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "taxonomy_status": { "const": "baseline" } }, "required": ["taxonomy_status"] },
+          "then": {
+            "properties": {
+              "type_id": { "not": { "const": "extension" } },
+              "reason": { "const": null }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "taxonomy_status": { "const": "extension" } }, "required": ["taxonomy_status"] },
+          "then": {
+            "properties": {
+              "type_id": { "const": "extension" },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "source_layout_type": {
+      "type": "object",
+      "required": ["source_model", "raw_value", "source_name", "source_ref"],
+      "properties": {
+        "source_model": {
+          "enum": ["native_ooxml", "semantic_layout", "abstract_layout", "other", "unknown"]
+        },
+        "raw_value": { "type": ["string", "null"] },
+        "source_name": { "type": ["string", "null"] },
+        "source_ref": { "type": "string", "minLength": 1 }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "source_model": { "const": "unknown" } }, "required": ["source_model"] },
+          "then": { "properties": { "raw_value": { "const": null }, "source_name": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "source_model": { "not": { "const": "unknown" } } }, "required": ["source_model"] },
+          "then": { "properties": { "raw_value": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "constraint_item": {
+      "type": "object",
+      "required": ["constraint_type", "operator", "value", "status", "source_ref", "reason"],
+      "properties": {
+        "constraint_type": {
+          "enum": [
+            "placeholder_role",
+            "slot_role",
+            "content_role",
+            "asset_kind",
+            "orientation",
+            "capacity",
+            "backend_support",
+            "other"
+          ]
+        },
+        "operator": {
+          "enum": ["provides", "requires", "excludes", "equals", "at_least", "at_most", "unknown"]
+        },
+        "value": { "type": ["string", "null"] },
+        "status": { "enum": ["observed", "mapped", "inferred", "unknown"] },
+        "source_ref": { "type": "string", "minLength": 1 },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "observed" } }, "required": ["status"] },
+          "then": { "properties": { "value": { "type": "string", "minLength": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["mapped", "inferred"] } }, "required": ["status"] },
+          "then": { "properties": { "value": { "type": "string", "minLength": 1 }, "reason": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "unknown" } }, "required": ["status"] },
+          "then": { "properties": { "value": { "const": null }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "constraint_collection": {
+      "type": "object",
+      "required": ["status", "items", "reason"],
+      "properties": {
+        "status": { "enum": ["defined", "partial", "unknown", "not_assessed"] },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/constraint_item" } },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "defined" } }, "required": ["status"] },
+          "then": { "properties": { "items": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "partial" } }, "required": ["status"] },
+          "then": { "properties": { "items": { "minItems": 1 }, "reason": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["unknown", "not_assessed"] } }, "required": ["status"] },
+          "then": { "properties": { "items": { "maxItems": 0 }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "verification": {
+      "type": "object",
+      "required": ["status", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["not_run", "passed", "failed"] },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "not_run" } }, "required": ["status"] },
+          "then": { "properties": { "evidence_refs": { "maxItems": 0 }, "reason": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "passed" } }, "required": ["status"] },
+          "then": { "properties": { "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] },
+          "then": { "properties": { "evidence_refs": { "minItems": 1 }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

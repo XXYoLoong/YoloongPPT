@@ -1,0 +1,147 @@
+{
+  "requirement_id": "TPL-006",
+  "task_id": "TASK-TPL-006",
+  "schema": "contracts/layout-applicability.schema.json",
+  "fixture_status": "partial",
+  "source_crosswalk_ids": [
+    "P01-PPT-Master",
+    "P03-Presenton",
+    "P04-ai-agent-ppt",
+    "REAL-PPTX-TPL001"
+  ],
+  "fixtures": [
+    {
+      "case_id": "real-title-layout-cover-candidate",
+      "expected_valid": true,
+      "parent_fixture_ref": "contracts/layout-template.fixtures.json#real-title-layout-direct-geometry",
+      "instance": {
+        "spec_type": "LayoutApplicability",
+        "contract_status": "draft",
+        "requirement_id": "TPL-006",
+        "task_id": "TASK-TPL-006",
+        "layout_id": "layout_76bd87e4-fdd8-42a8-9f19-cb6b8ce35350",
+        "slide_type": {
+          "type_id": "cover",
+          "label": "封面",
+          "taxonomy_status": "baseline",
+          "taxonomy_ref": "PDR DEC-017; 0-1全链路 S16",
+          "reason": null
+        },
+        "source_layout_type": {
+          "source_model": "native_ooxml",
+          "raw_value": "title",
+          "source_name": "Title Slide",
+          "source_ref": "ppt/slideLayouts/slideLayout1.xml"
+        },
+        "applicability_status": "candidate",
+        "reason": "OOXML title 类型、Title Slide 名称和 ctrTitle/subTitle placeholders 支持封面候选；没有 slide parts 或 YoloongPPT 产品验证，不能标成 verified。",
+        "constraints": {
+          "status": "partial",
+          "items": [
+            {
+              "constraint_type": "placeholder_role",
+              "operator": "provides",
+              "value": "ctrTitle",
+              "status": "observed",
+              "source_ref": "ppt/slideLayouts/slideLayout1.xml#shape-id=2",
+              "reason": null
+            },
+            {
+              "constraint_type": "placeholder_role",
+              "operator": "provides",
+              "value": "subTitle",
+              "status": "observed",
+              "source_ref": "ppt/slideLayouts/slideLayout1.xml#shape-id=3",
+              "reason": null
+            }
+          ],
+          "reason": "只确认占位符角色存在；未测量内容容量、最小字号、素材条件或最终视觉结果，容量留给 TPL-007。"
+        },
+        "verification": {
+          "status": "not_run",
+          "evidence_refs": [],
+          "reason": "仅完成固定样例的 OOXML 静态检查；没有运行产品解析、生成或渲染。"
+        },
+        "evidence_refs": [
+          "PDR#DEC-017",
+          "矩阵#0-1全链路!S16",
+          "contracts/layout-template.fixtures.json#real-title-layout-direct-geometry",
+          "ppt/slideLayouts/slideLayout1.xml"
+        ],
+        "limitations": [
+          "candidate 不代表最终适用结论或生产候选排序。",
+          "真实样例无 slides，无法验证实际内容适配。"
+        ]
+      }
+    },
+    {
+      "case_id": "real-title-content-layout-overview-unknown",
+      "expected_valid": true,
+      "parent_fixture_ref": "contracts/layout-template.fixtures.json#real-content-layout-omitted-placeholder-type",
+      "instance": {
+        "spec_type": "LayoutApplicability",
+        "contract_status": "draft",
+        "requirement_id": "TPL-006",
+        "task_id": "TASK-TPL-006",
+        "layout_id": "layout_0f87c942-0497-42f0-a4c8-7633d7df3ed1",
+        "slide_type": {
+          "type_id": "overview",
+          "label": "概览",
+          "taxonomy_status": "baseline",
+          "taxonomy_ref": "PDR DEC-017; 0-1全链路 S16",
+          "reason": null
+        },
+        "source_layout_type": {
+          "source_model": "native_ooxml",
+          "raw_value": "obj",
+          "source_name": "Title and Content",
+          "source_ref": "ppt/slideLayouts/slideLayout2.xml"
+        },
+        "applicability_status": "unknown",
+        "reason": "obj 与 Title and Content 仅表明通用标题/内容结构，无法区分概览、数据、表格、流程等 PDR 类型；样例没有实际 slides。",
+        "constraints": {
+          "status": "partial",
+          "items": [
+            {
+              "constraint_type": "placeholder_role",
+              "operator": "provides",
+              "value": "title",
+              "status": "observed",
+              "source_ref": "ppt/slideLayouts/slideLayout2.xml#shape-id=2",
+              "reason": null
+            }
+          ],
+          "reason": "一个 body placeholder 的 OOXML type 被省略；语义类型和容量未确定。"
+        },
+        "verification": {
+          "status": "not_run",
+          "evidence_refs": [],
+          "reason": "没有页面样例或产品解析/渲染验证。"
+        },
+        "evidence_refs": [
+          "PDR#DEC-017",
+          "矩阵#0-1全链路!S16",
+          "contracts/layout-template.fixtures.json#real-content-layout-omitted-placeholder-type",
+          "ppt/slideLayouts/slideLayout2.xml"
+        ],
+        "limitations": [
+          "unknown 不表示 incompatible；不得从通用布局名称静默推断 overview。",
+          "没有记录的其他 SlideType 关系仍保持 unknown。"
+        ]
+      }
+    }
+  ],
+  "invalid_cases": [
+    {
+      "case_id": "verified_requires_product_verification",
+      "base_fixture_id": "real-title-layout-cover-candidate",
+      "mutation": {
+        "path": "/applicability_status",
+        "operation": "replace",
+        "value": "verified"
+      },
+      "expected_rejected": true,
+      "reason": "verified 需要 verification.status=passed 且具有可复现产品验证证据；静态源码或原始样例名称不足。"
+    }
+  ]
+}

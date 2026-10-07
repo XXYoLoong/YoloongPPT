@@ -350,7 +350,7 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 来源对照：PPT Master 固定提交 `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d` 有原生 master/layout roster、继承关系、placeholder 与 `showMasterSp` 解析规则；Presenton 固定提交 `35bf44290f821323e003da854f78ffcb0e918167` 的 `RawSlideLayouts` 保留来源元素/位置/尺寸等，但依赖预览和后续语义认证；ai-agent-ppt 固定提交 `c3605ebc487fc6c7d4f4139761e46d7021cd656c` 的 `LayoutLoader` 消费抽象 JSON layout，不等同于原生 PPTX layout parser。均为源码静态 review，未运行上游程序。
 - 真实 PPTX：只读盘点 python-pptx 固定提交 `278b47b1dedd5b46ee84c286e77cdfb0bf4594be` 的 `default.pptx`，SHA-256 `e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34`；确认 1 master、11 layouts、1 theme、0 slide parts；fixture覆盖直接几何与省略 type/index/visibility 属性。layout 几何未声明时保留为 direct `not_present`，对应 master geometry 解析记为 unresolved；没有推断成零尺寸或最终继承结果。
 - 可见性边界：OOXML 原属性保留为 `showMasterSp`。PPT Master 源码把省略属性按 true 解释只记录为该适配器源码规则，不是 YoloongPPT 产品默认；产品级规范化保持 pending。没有 slide parts，不报告具体页面的有效继承可见性。
-- 数据对象对齐：在既有 `LayoutTemplate` 数据对象行登记 Schema 草案版本，不新增/删除需求、任务或数据对象。字段 `layout_id, page_types, slots, constraints, capacity, backend_support` 均保留；Slot 项结构由 `contracts/layout-slot.schema.json` 定义，语义页型映射交给 TPL-006、容量交给 TPL-007，后端能力待选型/PoC。
+- 数据对象对齐：在既有 LayoutTemplate 数据对象行登记 Schema 草案版本，不新增/删除需求、任务或数据对象。字段 layout_id、page_types、slots、constraints、capacity、backend_support 均保留；Slot 项结构由 layout-slot.schema.json 定义，TPL-006 LayoutApplicability 已接入 page_types，TPL-007 容量和后端能力仍待后续。
 - 静态核验：Schema、catalog、fixtures JSON 解析；本地 Schema 引用及样例结构、11 layout roster、master 关系、直接几何和原始属性状态静态核对。未运行 JSON Schema 标准 validator、YoloongPPT parser、PPT Master/Presenton/ai-agent-ppt 程序、Office 渲染或 AC-001–AC-030。
 - 证据：`contracts/layout-template.schema.json`、`contracts/layout-template.catalog.json`、`contracts/layout-template.fixtures.json`；Excel“需求主表”`N112:O112`、“可执行任务”`L180:M180`、“数据对象”`D29/J29`；`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
 
@@ -375,6 +375,18 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 数据对象对齐：只更新既有“数据对象”DesignTokens 行；不新增或删除需求、任务或数据对象。契约尚未定义独立 token-set ID；若后续将其确定为独立持久化实体，须先按 GOV-007 记录 ID 映射。
 - 静态核验：检查 Schema/catalog/fixture JSON、Schema 本地引用及每个分类的 unknown/partial 不变量；当前工作区没有 Draft 2020-12 标准 validator，因此不宣称标准 Schema 实例验证通过。没有运行 YoloongPPT parser/runtime、三种上游程序、Office 渲染、真实图表/图片案例或 AC-001–AC-030。
 - 证据：contracts/design-tokens.schema.json、contracts/design-tokens.catalog.json、contracts/design-tokens.fixtures.json；Excel“需求主表”N114:P114、“可执行任务”L182:M182、“数据对象”D31/J31；research/P01/README.md、research/P03/README.md、research/P04/README.md。
+
+### TASK-TPL-006
+
+- Requirement ID：TPL-006；P0；矩阵未列前置任务。
+- 状态：进行中。为 PDR/矩阵中的 SlideType 与既有 LayoutTemplate 建立 LayoutApplicability Draft 2020-12 关系契约，接入 LayoutTemplate.page_types，保留 candidate/verified/incompatible/unknown、来源 layout type、限制、证据和验证状态。
+- Taxonomy：以 PDR DEC-017 与矩阵“0-1全链路”S16 为基线，覆盖封面、章节、概览、图文、数据、流程、时间线、对比、表格、KPI、SWOT、总结；基线使用“等”，契约保留有证据的 extension，不声明这 12 项是封闭全集。
+- 来源对照：PPT Master 提供 OOXML raw layout type/name/placeholders，但无统一 SlideType 映射；Presenton 的 RawSlideLayout/SlideLayout 提供描述、元素和语义组件，未找到 PDR 对应的固定页面类型字段；ai-agent-ppt 提供 title/comparison/timeline/chart/image-text 等抽象 JSON layout，映射只登记候选。原始类型、语义候选和产品验证状态分开存储。
+- 真实 PPTX：复用既有 python-pptx default.pptx 固定样例和 LayoutTemplate fixtures。Title Slide/raw type=title 与 ctrTitle/subTitle 只形成封面 candidate；Title and Content/raw type=obj 因语义可能对应概览、数据、表格、流程等而记 unknown。样例无 slide parts，未验证页面适配。样例文件 SHA-256 为 e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34；上游 python-pptx 源码 commit 与 LayoutTemplate fixture 地址见 contracts/layout-template.fixtures.json。
+- 约束：关系缺失或 unknown 不能当作不适用；只有有证据的 incompatible 才能排除。当前 slot/placeholder 观察不自动成为硬性内容要求；字符数、行数、最小字号等容量约束交给 TPL-007。DEC-030 可查询本关系后继续容量、素材与 backend 检查；本任务不实施候选打分。
+- 数据对象对齐：LayoutApplicability 嵌入既有 LayoutTemplate.page_types，以 layout_id + SlideType 组合识别，不新增需求、任务、数据对象行或独立 GOV-007 ID。更新既有 LayoutTemplate schema/catalog/fixtures 以移除 TPL-006 deferral；TPL-007 capacity 和产品 parser/runtime 验证仍待后续。
+- 静态核验：JSON 解析、本地及跨文件 Schema 引用、taxonomy 全覆盖、两条真实样例映射状态、父子 layout_id 一致性与 verified 必须有运行证据的边界检查。当前没有 Draft 2020-12 标准 validator；不宣称标准实例验证或产品 parser、上游程序、Office 渲染、AC-001–AC-030 已通过。
+- 证据：contracts/layout-applicability.schema.json、layout-applicability.catalog.json、layout-applicability.fixtures.json、contracts/layout-template.schema.json/catalog.json/fixtures.json；Excel“需求主表”N115:P115、“可执行任务”L183:M183、“数据对象”D29:J29；PDR DEC-017、DEC-030 与矩阵 S16。
 
 ### TASK-CNT-001
 
