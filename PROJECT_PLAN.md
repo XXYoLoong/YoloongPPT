@@ -409,6 +409,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核验：schema/catalog/fixtures JSON 可解析，7 个 schema 引用与目录文件引用可定位；6 个 fixture 对应 6 个 acceptance case，来源/假设 ID、冲突/缺失边界、占位符显式路径和阻断行为静态一致。未运行 JSON Schema 实例验证器、模型/语义运行时或 AC-001–AC-030。
 - 证据：contracts/hallucination-guard.schema.json、contracts/hallucination-guard.catalog.json、contracts/hallucination-guard.fixtures.json；Excel“需求主表”N67:P67、“可执行任务”L95:M95。
 
+### TASK-CNT-013
+
+- Requirement ID：CNT-013；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 NotesSpec Draft 2020-12 契约、目录及 3 个静态 fixture，覆盖详细解释/来源/演讲稿路由、未决数字冲突及缺失事实/显式假设。
+- 页面与备注：将 required_details 逐项映射到 slide 或 speaker_notes；讲稿/来源/解释保留现有 evidence_id、assumption_id 和局部内容键，页面 concise 不设未定义的固定字数阈值。
+- 边界：冲突保留 8%/9% 和 ERR-008，不选择 winner；缺失 renewal_date 保留 ERR-009 和显式 placeholder，12% 假设沿用原 assumption_id。notes 引用模式来自 fixture 中显式 PresentationContext，不设产品默认。
+- 基线对齐：SlideContentSpec 已列 notes、citation_refs；NotesSpec 未列为独立数据对象，不新增/删除矩阵行。PPT-023 notes master/layout/OOXML round-trip 能力仍为 Untested；AC-017 和 AC-001–AC-030 未执行。
+- 静态核验：schema/catalog/fixtures JSON 可解析，12 个 schema 引用及目录文件引用可定位；3 个 fixture 对应 3 个 acceptance case，9 个 required_detail 对齐 9 条转移轨迹和 8 个 notes block；来源/假设 ID、数字、冲突/缺失边界及页面文本短于草稿静态一致。未运行 JSON Schema 实例验证器、notes runtime、PPT-023 backend PoC 或 AC-017/AC-001–AC-030。
+- 证据：contracts/notes-spec.schema.json、contracts/notes-spec.catalog.json、contracts/notes-spec.fixtures.json；Excel“需求主表”N68:P68、“可执行任务”L96:M96。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
