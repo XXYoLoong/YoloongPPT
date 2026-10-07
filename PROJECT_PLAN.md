@@ -399,6 +399,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：更新既有 CNT-011/TASK-CNT-011 状态和证据；ContentRewriteTrace 未列在数据对象表，不新增/删除矩阵行。
 - 证据：contracts/content-rewrite-trace.schema.json、contracts/content-rewrite-trace.catalog.json、contracts/content-rewrite-trace.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N66:P66、“可执行任务”L94:M94。
 
+### TASK-CNT-012
+
+- Requirement ID：CNT-012；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 HallucinationGuardResult Draft 2020-12 契约、目录及 6 个静态 fixture，覆盖有来源事实、无依据数字/客户名/引用/调研结论、保留与擅选冲突、显式 placeholder 和臆造缺失值。
+- 追溯边界：事实断言必须回链既有 evidence_id 或 assumption_id；PresentationContext 只能约束表示方式，不能单独证明事实。placeholder 必须显式并指向缺失事实与 ERR-009。
+- 冲突边界：同时保留 8%/9% 和 ERR-008 可通过本草案 guard；只选一个值时阻断。DEC-004 仍未决，本任务不执行冲突决策。
+- 基线对齐：只更新既有 CNT-012/TASK-CNT-012 状态和证据；HallucinationGuardResult 未列在数据对象表，不新增或删除矩阵行。PresentationContext 全局 Schema、模型输出语义检测器、引用真实性校验及运行时未实现。
+- 静态核验：schema/catalog/fixtures JSON 可解析，7 个 schema 引用与目录文件引用可定位；6 个 fixture 对应 6 个 acceptance case，来源/假设 ID、冲突/缺失边界、占位符显式路径和阻断行为静态一致。未运行 JSON Schema 实例验证器、模型/语义运行时或 AC-001–AC-030。
+- 证据：contracts/hallucination-guard.schema.json、contracts/hallucination-guard.catalog.json、contracts/hallucination-guard.fixtures.json；Excel“需求主表”N67:P67、“可执行任务”L95:M95。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

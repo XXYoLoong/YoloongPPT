@@ -1,0 +1,336 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HallucinationGuardResult 契约（CNT-012 草案）",
+  "description": "核验候选事实陈述是否由 SourceEvidence 或显式 Assumption 支持；缺失值只允许明确占位符，未决冲突不可挑选单值。",
+  "type": "object",
+  "required": [
+    "status",
+    "candidate_text",
+    "findings"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "pass",
+        "blocked"
+      ],
+      "description": "pass 表示所有事实均有追溯或采用显式占位符，且冲突未被擅自解决；blocked 表示含无依据事实、缺失值或擅选冲突值。"
+    },
+    "candidate_text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "findings": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    }
+  },
+  "$defs": {
+    "conflict_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "conflict_id",
+        "error_id",
+        "reason_code",
+        "evidence_refs"
+      ],
+      "properties": {
+        "kind": {
+          "const": "unresolved_conflict"
+        },
+        "conflict_id": {
+          "$ref": "object-id.schema.json#/$defs/object_id"
+        },
+        "error_id": {
+          "const": "ERR-008"
+        },
+        "reason_code": {
+          "const": "SOURCE_CONFLICT"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "missing_fact_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "fact_id",
+        "error_id",
+        "reason_code"
+      ],
+      "properties": {
+        "kind": {
+          "const": "missing_fact"
+        },
+        "fact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error_id": {
+          "const": "ERR-009"
+        },
+        "reason_code": {
+          "const": "MISSING_FACT"
+        }
+      },
+      "additionalProperties": false
+    },
+    "finding": {
+      "type": "object",
+      "required": [
+        "assertion_key",
+        "claim_type",
+        "text",
+        "disposition",
+        "evidence_refs",
+        "assumption_refs",
+        "conflict_refs",
+        "missing_fact_refs",
+        "context_refs",
+        "placeholder_token",
+        "reason"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "assertion_key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "仅在当前结果内使用的断言键，不是全局实体 ID。"
+        },
+        "claim_type": {
+          "type": "string",
+          "enum": [
+            "number",
+            "person",
+            "customer_name",
+            "citation_source",
+            "research_conclusion",
+            "other_fact"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "explicit_placeholder",
+            "conflict_preserved",
+            "conflict_winner_selected",
+            "unsupported",
+            "invented_missing_value"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        },
+        "assumption_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          }
+        },
+        "conflict_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/conflict_ref"
+          }
+        },
+        "missing_fact_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/missing_fact_ref"
+          }
+        },
+        "context_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^/"
+          }
+        },
+        "placeholder_token": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^\\{\\{[a-z][a-z0-9_]*\\}\\}$"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "supported"
+              }
+            },
+            "required": [
+              "disposition"
+            ]
+          },
+          "then": {
+            "anyOf": [
+              {
+                "properties": {
+                  "evidence_refs": {
+                    "minItems": 1
+                  }
+                }
+              },
+              {
+                "properties": {
+                  "assumption_refs": {
+                    "minItems": 1
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "explicit_placeholder"
+              }
+            },
+            "required": [
+              "disposition"
+            ]
+          },
+          "then": {
+            "properties": {
+              "missing_fact_refs": {
+                "minItems": 1
+              },
+              "context_refs": {
+                "minItems": 1
+              },
+              "placeholder_token": {
+                "type": "string",
+                "pattern": "^\\{\\{[a-z][a-z0-9_]*\\}\\}$"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "enum": [
+                  "conflict_preserved",
+                  "conflict_winner_selected"
+                ]
+              }
+            },
+            "required": [
+              "disposition"
+            ]
+          },
+          "then": {
+            "properties": {
+              "conflict_refs": {
+                "minItems": 1
+              },
+              "evidence_refs": {
+                "minItems": 2
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "unsupported"
+              }
+            },
+            "required": [
+              "disposition"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence_refs": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "assumption_refs": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "conflict_refs": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "missing_fact_refs": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "disposition": {
+                "const": "invented_missing_value"
+              }
+            },
+            "required": [
+              "disposition"
+            ]
+          },
+          "then": {
+            "properties": {
+              "missing_fact_refs": {
+                "minItems": 1
+              },
+              "evidence_refs": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "assumption_refs": {
+                "type": "array",
+                "maxItems": 0
+              },
+              "conflict_refs": {
+                "type": "array",
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}
