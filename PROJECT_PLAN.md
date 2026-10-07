@@ -135,6 +135,14 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 环境边界：实验容器中的 Python 版本仅为当时观察值；不代表 YoloongPPT 选型。没有更改项目 Docker 应用配置，也未选择产品语言、运行时或依赖。
 - 证据：`research/P01/call_graph.md`、`research/P01/source_index.json`、`research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-02.json`、`research/P01/projects/p01_hello_world_20261007/validation/workflow.log`、`research/P01/projects/p01_hello_world_20261007/exports/p01-hello-world.pptx`；Excel“需求主表”`N13:P13`、“可执行任务”`L16:M17`。
 
+### TASK-RES-P01-03
+
+- Requirement ID：RES-P01-03；P0；依赖 RES-P01-02。
+- 状态：`TASK-RES-P01-03`、`VERIFY-RES-P01-03` 与 Requirement `RES-P01-03` 均已完成。针对固定 PPT Master commit 提取影响页面结构/视觉的上游决策，并按输入、候选、机制、输出、fallback、源码位置形成 24 节点 ProjectDecisionMap。
+- DEC 对照：覆盖 DEC-001–DEC-040 全部 40 个 ID。crosswalk 表示来源机制相近，不表示 DEC 等价、YoloongPPT 已实现或产品验收通过。Quick/Default 分流、两阶段 Agent/用户确认、flat/structured SVG 契约、Executor 直接 SVG 落笔为 PPT Master 特有机制。
+- 主要边界：多数审美、内容及版式选择是 Prompt 引导的 Agent/LLM 判断；上游未定义确定性评分器时保留未定义。Quick smoke 仅观察最终输出，不能还原隐式推理；Default 仅静态追踪。
+- 静态核验：JSON 解析；24 节点均含所需字段；源码文件及行范围有效；40/40 DEC ID 均有关联节点。验证样例复核 Quick 正常输出、Quick/Default 路由边界和只读挂载初始化失败 `OSError errno=30`；失败为 P01-01 已留证，未重复触发。
+- 证据：`research/P01/decision_map.md`、`research/P01/project_decision_map.json`、`research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-03.json`；Excel“需求主表”`N14:P14`、“可执行任务”`L18:M19`。
 ### TASK-RES-P02-01
 
 - Requirement ID：RES-P02-01；P0；无前置任务。

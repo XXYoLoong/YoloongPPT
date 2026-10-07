@@ -1,0 +1,71 @@
+{
+  "verification_id": "VERIFY-RES-P01-03",
+  "requirement_id": "RES-P01-03",
+  "task_id": "TASK-RES-P01-03",
+  "upstream_commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+  "verdict": "已完成",
+  "method": "固定源码逐节点抽取 + DEC crosswalk 完整性检查 + 既有 Quick trace 对照",
+  "decision_map_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e",
+  "acceptance": "每个上游页面结构/视觉决策节点均记录输入、候选、机制、输出、fallback 和源码位置；可映射到统一 DEC 或标记项目特有。",
+  "structural_checks": {
+    "unified_dec_ids_mapped": 40,
+    "source_files_and_line_ranges_valid": true,
+    "decision_nodes": 24,
+    "required_fields_present": true,
+    "project_specific_nodes": [
+      "P01-DEC-01",
+      "P01-DEC-07",
+      "P01-DEC-17",
+      "P01-DEC-18",
+      "P01-DEC-19",
+      "P01-DEC-20",
+      "P01-DEC-21",
+      "P01-DEC-23",
+      "P01-DEC-24"
+    ],
+    "unified_dec_ids_total": 40
+  },
+  "cases": [
+    {
+      "id": "NORMAL-QUICK-01",
+      "scenario": "常规来源到 Quick PPTX 输出",
+      "result": "通过；三页 SVG 输出、最终质量门 3/3 且 0 warnings/errors、PPTX Postflight passed；产物和 PowerPoint 16.0 逐页 QA 已归档",
+      "evidence": [
+        "research/P01/projects/p01_hello_world_20261007/validation/workflow.log",
+        "research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json",
+        "research/P01/projects/p01_hello_world_20261007/exports/p01-hello-world.pptx"
+      ]
+    },
+    {
+      "id": "BOUNDARY-QUICK-01",
+      "scenario": "Quick 跳过 Default planner 与 template confirmation",
+      "result": "通过；固定路由规则明确 quick profile 不加载 Strategist/Confirm UI/spec/lock；现有运行轨迹观察 profile=quick 并按该路径导出。内部推理未被保存",
+      "evidence": [
+        "research/P01/decision_map.md",
+        "research/P01/project_decision_map.json",
+        "research/P01/projects/p01_hello_world_20261007/validation/workflow.log"
+      ]
+    },
+    {
+      "id": "FAIL-READONLY-01",
+      "scenario": "项目默认路径落在只读源码挂载",
+      "result": "预期失败，OSError errno=30（EROFS）已记录；改为显式可写挂载后初始化成功。该失败来自 P01-01 实测并留存，本次未重复触发",
+      "error": {
+        "errno": 30,
+        "type": "OSError",
+        "meaning": "EROFS / read-only file system"
+      },
+      "evidence": [
+        "ailog/复现PPTMaster最小生成流程_20261007-182450.md",
+        "development-log/复现PPTMaster最小生成流程_20261007-182450.md",
+        "research/P01/README.md"
+      ]
+    }
+  ],
+  "limits": [
+    "Agent/LLM 的隐藏推理/评分不是仓库可观察的 trace；除非上游指定，候选评分算法保持未定义。",
+    "Quick 实测仅验证已选路径和产物，不代表所有 24 个节点均在运行时触发；Default 仅源码追踪。",
+    "P01-04 和 P01-05 继续保持独立任务，未扩写其验收范围。"
+  ],
+  "checked_at": "2026-10-07T18:50:52 -04:00"
+}

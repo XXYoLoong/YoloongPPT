@@ -54,7 +54,7 @@ git -C ppt-master rev-parse HEAD
 | 官方 Quick 最小流程 | 已完成 | `projects/p01_hello_world_20261007/`、最终 PPTX 与 Postflight 报告 |
 | `VERIFY-RES-P01-01` 正常/边界/失败证据 | 已完成 | `projects/p01_hello_world_20261007/validation/verify-res-p01-01.json`、`validation/native-render/slide-01.png` 至 `slide-03.png`；PowerPoint 16.0 只读打开及视觉复核通过 |
 
-因此 `TASK-RES-P01-01`、`VERIFY-RES-P01-01` 与 `RES-P01-01` 均已完成。`TASK-RES-P01-02` 与 `VERIFY-RES-P01-02` 已按矩阵完成；下一项依赖任务是 `TASK-RES-P01-03`。
+因此 `TASK-RES-P01-01`、`VERIFY-RES-P01-01` 与 `RES-P01-01` 均已完成。`TASK-RES-P01-02`、`VERIFY-RES-P01-02`、`TASK-RES-P01-03`、`VERIFY-RES-P01-03` 均已按矩阵完成；当前下一项为 `TASK-RES-P01-04`。
 
 ## RES-P01-02：调用链与源码索引
 
@@ -62,8 +62,14 @@ git -C ppt-master rev-parse HEAD
 - [call_graph.md](call_graph.md) 描述 Default、Quick 两条路径、条件节点、revision 和外部边界；[source_index.json](source_index.json) 为 12 个节点、13 条边记录上游文件、函数/Prompt/Schema 和固定源码行。所有本地文件及引用行经脚本检查存在。
 - `validation/verify-res-p01-02.json` 记录正常 Quick 生成、Quick/Default 路由边界，以及只读默认写入路径 `OSError errno=30` 的失败证据。其正常运行轨迹复用 `workflow.log`、PPTX、Postflight、ZIP/读取检查和 PowerPoint 16.0 渲染证据。
 - 运行与静态研究边界：Quick 有实际运行记录；Default 仅追踪源码，没有声称 Default 已运行。LLM/Agent Host 调度与本机/第三方 Office 渲染标为外部黑盒。环境中的 Python 版本仍只是实验观察，不代表 YoloongPPT 的语言、运行时或依赖选型；项目 Docker 配置未变。
-- 后续任务严格按矩阵依赖继续：`TASK-RES-P01-03`（决策节点）是当前下一项；`RES-P01-04`、`RES-P01-05` 未在本次扩展。
+- 后续任务严格按矩阵依赖继续：`TASK-RES-P01-03`（决策节点）已完成；当前下一项是 `TASK-RES-P01-04`（模板/版式/中间表示），`TASK-RES-P01-05` 仍未开始。
 
+## RES-P01-03：页面结构与视觉决策节点
+
+- `TASK-RES-P01-03`、`VERIFY-RES-P01-03` 与 Requirement `RES-P01-03` 已完成。依据固定源码整理 24 个上游决策节点，逐项记录输入、候选、机制、输出、fallback、源码位置和统一 DEC 映射。
+- [decision_map.md](decision_map.md) 为人读摘要；[project_decision_map.json](project_decision_map.json) 为结构化 ProjectDecisionMap，映射 DEC-001–DEC-040 共 40 个节点，并将 PPT Master 特有的 Quick/Default、两阶段确认、flat/structured 和 SVG 主笔责任单独标记。
+- 这些 crosswalk 是源码研究，不表示产品决策已实现或已验收。Agent/LLM 隐藏推理没有确定性评分器或完整 trace 时保留为外部黑盒；Quick 烟测只证明已选路径产物，不证明全部决策节点运行。
+- `validation/verify-res-p01-03.json` 记录正常 Quick、路由边界、只读写入失败样例和限定范围；默认路径失败为 `OSError errno=30`，此前已有实测日志，本次未重复触发。
 ## 来源
 
 - [PPT Master 固定源码快照](https://github.com/hugohe3/ppt-master/tree/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d)
