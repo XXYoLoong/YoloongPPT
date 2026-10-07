@@ -41,6 +41,7 @@ var semanticPreservation = CompareMasterLayoutThemePartsSemantically(fixturePath
 var validation = Validate(outputPath);
 var existingShapeMutation = RunExistingShapeMutation(fixturePath, artifacts);
 var imageRoundTrip = RunImageRoundTrip(fixturePath, artifacts);
+var tableRoundTrip = RunTableRoundTrip(fixturePath, artifacts);
 
 var invalidPath = Path.Combine(artifacts, "invalid-truncated.pptx");
 var fixtureBytes = File.ReadAllBytes(fixturePath);
@@ -97,6 +98,7 @@ var report = new
     },
     existing_deck_mutation = existingShapeMutation,
     image_round_trip = imageRoundTrip,
+    table_round_trip = tableRoundTrip,
     unknown_part_preservation = unknownPartTest,
     validation = new
     {
@@ -123,8 +125,9 @@ var report = new
         shape_geometry_emu_round_trip = existingShapeMutation.GeometryPreserved,
         autoshape_rectangle_fill_stroke = existingShapeMutation.Status,
         embedded_image_add_replace_read = imageRoundTrip.Status,
+        table_cell_text_read_update = tableRoundTrip.Status,
         unknown_part_preservation = unknownPartTest.Status,
-        table_chart_notes_comments_transitions_animations_media = "untested",
+        chart_notes_comments_transitions_animations_media = "untested",
         rendering = "untested"
     },
     limitations = new[]
@@ -135,7 +138,8 @@ var report = new
         "The editable-shape case mutates a shape created earlier in this PoC; editing a pre-populated third-party slide was not exercised.",
         "Only a rectangle with fixed fill/stroke and explicit EMU geometry was exercised; other AutoShape types, adjustments, and rotation remain untested.",
         "The image case adds and replaces an embedded 1x1 PNG, then reopens and verifies its relationship, binary hash, alt text, and EMU bounds. Crop, contain/cover, rotation, transparency, compression, linked images, rendering, and broader image compatibility remain untested.",
-        "Table/chart/notes/comments/transition/animation/media authoring and mutation were not exercised."
+        "The table case creates and updates text in one 2x2 table created by this PoC; cell formatting, merges, row/column editing, rendering, and third-party table mutation remain untested.",
+        "Chart/notes/comments/transition/animation/media authoring and mutation were not exercised."
     }
 };
 
@@ -152,6 +156,7 @@ Console.WriteLine(JsonSerializer.Serialize(new
     master_layout_theme_parts_semantically_equal = semanticPreservation.all_equal,
     existing_shape_mutation = existingShapeMutation.Status,
     image_round_trip = imageRoundTrip.Status,
+    table_round_trip = tableRoundTrip.Status,
     unknown_part_preservation = unknownPartTest.Status,
     validation_error_count = validation.ErrorCount,
     mutation_validation_error_count = existingShapeMutation.ValidatorErrorCount,
@@ -567,6 +572,162 @@ static ImageSnapshot ReadImageSnapshot(string path, string name)
 
 static string Sha256Bytes(byte[] bytes) => Convert.ToHexString(SHA256.HashData(bytes)).ToLowerInvariant();
 
+static TableRoundTripResult RunTableRoundTrip(string fixture, string artifactDirectory)
+{
+    const string tableName = "YoloongPPT Editable Table Probe";
+    const long expectedX = 457200L;
+    const long expectedY = 914400L;
+    const long expectedCx = 4572000L;
+    const long expectedCy = 1828800L;
+    const string updatedCellText = "ReadUpdatePassed";
+    var expectedCellsBefore = new[]
+    {
+        new[] { "Header", "Status" },
+        new[] { "PPT-016", "Pending" }
+    };
+    var output = Path.Combine(artifactDirectory, "table-roundtrip.pptx");
+    File.Copy(fixture, output, overwrite: true);
+    AddSlideAndText(output, "Table round trip", "The 2x2 table cell text is updated after the first save.");
+    AddEditableProbeTable(output, tableName, expectedCellsBefore, expectedX, expectedY, expectedCx, expectedCy);
+
+    var before = ReadTableSnapshot(output, tableName);
+    UpdateTableCellText(output, tableName, rowIndex: 1, columnIndex: 1, updatedCellText);
+    var after = ReadTableSnapshot(output, tableName);
+    var validation = Validate(output);
+    var identityAndGeometryPreserved = before.ShapeId == after.ShapeId && before.Name == after.Name &&
+        before.X == after.X && before.Y == after.Y && before.Cx == after.Cx && before.Cy == after.Cy &&
+        after.X == expectedX && after.Y == expectedY && after.Cx == expectedCx && after.Cy == expectedCy;
+    var tableDimensionsPreserved = before.RowCount == 2 && before.ColumnCount == 2 &&
+        after.RowCount == before.RowCount && after.ColumnCount == before.ColumnCount;
+    var textUpdated = before.Cells.SelectMany(cells => cells).SequenceEqual(expectedCellsBefore.SelectMany(cells => cells)) &&
+        after.Cells.Length == 2 && after.Cells.All(row => row.Length == 2) &&
+        after.Cells[0].SequenceEqual(expectedCellsBefore[0]) &&
+        after.Cells[1][0] == expectedCellsBefore[1][0] &&
+        after.Cells[1][1] == updatedCellText;
+    var status = identityAndGeometryPreserved && tableDimensionsPreserved && textUpdated && validation.ErrorCount == 0
+        ? "passed"
+        : "failed";
+
+    return new TableRoundTripResult(
+        status,
+        "This PoC creates a 2x2 table, saves and reopens the deck, updates one cell's text, then reads it back; table formatting and editing a third-party table are outside this case.",
+        "fixtures/python-pptx-default.pptx",
+        "artifacts/table-roundtrip.pptx",
+        Sha256File(output),
+        tableName,
+        before,
+        after,
+        identityAndGeometryPreserved,
+        tableDimensionsPreserved,
+        textUpdated,
+        validation.ErrorCount,
+        validation.Errors);
+}
+
+static void AddEditableProbeTable(string path, string name, string[][] cells, long x, long y, long cx, long cy)
+{
+    using var document = PresentationDocument.Open(path, isEditable: true);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the table round-trip case.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from the table test part.");
+    var shapeTree = slide.CommonSlideData?.ShapeTree
+        ?? throw new InvalidDataException("ShapeTree is missing from the table test slide.");
+    if (cells.Length == 0 || cells.Any(row => row.Length != cells[0].Length) || cells[0].Length == 0)
+    {
+        throw new ArgumentException("The probe table must be a non-empty rectangular matrix.", nameof(cells));
+    }
+
+    var columnWidth = cx / cells[0].Length;
+    var rowHeight = cy / cells.Length;
+    var table = new A.Table(new A.TableProperties());
+    var tableGrid = new A.TableGrid();
+    for (var columnIndex = 0; columnIndex < cells[0].Length; columnIndex++)
+    {
+        tableGrid.AppendChild(new A.GridColumn { Width = columnWidth });
+    }
+    table.AppendChild(tableGrid);
+    foreach (var cellTexts in cells)
+    {
+        var tableRow = new A.TableRow { Height = rowHeight };
+        foreach (var cellText in cellTexts)
+        {
+            tableRow.AppendChild(MakeTableCell(cellText));
+        }
+        table.AppendChild(tableRow);
+    }
+    shapeTree.Append(new P.GraphicFrame(
+        new P.NonVisualGraphicFrameProperties(
+            new P.NonVisualDrawingProperties { Id = 4U, Name = name },
+            new P.NonVisualGraphicFrameDrawingProperties(),
+            new P.ApplicationNonVisualDrawingProperties()),
+        new P.Transform(
+            new A.Offset { X = x, Y = y },
+            new A.Extents { Cx = cx, Cy = cy }),
+        new A.Graphic(
+            new A.GraphicData(table)
+            {
+                Uri = "http://schemas.openxmlformats.org/drawingml/2006/table"
+            })));
+    slide.Save();
+}
+
+static A.TableCell MakeTableCell(string text) => new(
+    new A.TextBody(
+        new A.BodyProperties(),
+        new A.ListStyle(),
+        new A.Paragraph(
+            new A.Run(new A.RunProperties(), new A.Text(text)),
+            new A.EndParagraphRunProperties())),
+    new A.TableCellProperties());
+
+static TableSnapshot ReadTableSnapshot(string path, string name)
+{
+    using var document = PresentationDocument.Open(path, isEditable: false);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the table snapshot case.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from the table snapshot part.");
+    var frame = slide.CommonSlideData?.ShapeTree?.Elements<P.GraphicFrame>()
+        .SingleOrDefault(candidate => candidate.NonVisualGraphicFrameProperties?.NonVisualDrawingProperties?.Name?.Value == name)
+        ?? throw new InvalidDataException($"Table graphic frame {name} was not found.");
+    var table = frame.Graphic?.GraphicData?.GetFirstChild<A.Table>()
+        ?? throw new InvalidDataException($"Table graphic frame {name} does not contain an a:tbl table.");
+    var rows = table.Elements<A.TableRow>()
+        .Select(row => row.Elements<A.TableCell>()
+            .Select(cell => string.Concat(cell.TextBody?.Descendants<A.Text>().Select(text => text.Text) ?? []))
+            .ToArray())
+        .ToArray();
+    var columns = table.TableGrid?.Elements<A.GridColumn>().Count() ?? 0;
+    var transform = frame.Transform;
+    return new TableSnapshot(
+        frame.NonVisualGraphicFrameProperties?.NonVisualDrawingProperties?.Id?.Value,
+        frame.NonVisualGraphicFrameProperties?.NonVisualDrawingProperties?.Name?.Value,
+        transform?.Offset?.X?.Value,
+        transform?.Offset?.Y?.Value,
+        transform?.Extents?.Cx?.Value,
+        transform?.Extents?.Cy?.Value,
+        rows.Length,
+        columns,
+        rows);
+}
+
+static void UpdateTableCellText(string path, string name, int rowIndex, int columnIndex, string text)
+{
+    using var document = PresentationDocument.Open(path, isEditable: true);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the table update case.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from the table update part.");
+    var frame = slide.CommonSlideData?.ShapeTree?.Elements<P.GraphicFrame>()
+        .SingleOrDefault(candidate => candidate.NonVisualGraphicFrameProperties?.NonVisualDrawingProperties?.Name?.Value == name)
+        ?? throw new InvalidDataException($"Table graphic frame {name} was not found.");
+    var table = frame.Graphic?.GraphicData?.GetFirstChild<A.Table>()
+        ?? throw new InvalidDataException($"Table graphic frame {name} does not contain an a:tbl table.");
+    var cell = table.Elements<A.TableRow>().ElementAt(rowIndex).Elements<A.TableCell>().ElementAt(columnIndex);
+    var textElement = cell.TextBody?.Descendants<A.Text>().FirstOrDefault()
+        ?? throw new InvalidDataException($"Table cell ({rowIndex},{columnIndex}) has no editable text run.");
+    textElement.Text = text;
+    slide.Save();
+}
+
 static Dictionary<string, string> HashSelectedParts(string path)
 {
     using var file = File.OpenRead(path);
@@ -765,6 +926,32 @@ internal sealed record ImageRoundTripResult(
     bool BoundsPreserved,
     bool IdentityPreserved,
     bool ImageReplaced,
+    int ValidatorErrorCount,
+    string[] ValidatorErrors);
+
+internal sealed record TableSnapshot(
+    uint? ShapeId,
+    string? Name,
+    long? X,
+    long? Y,
+    long? Cx,
+    long? Cy,
+    int RowCount,
+    int ColumnCount,
+    string[][] Cells);
+
+internal sealed record TableRoundTripResult(
+    string Status,
+    string TestScope,
+    string InputFile,
+    string OutputFile,
+    string OutputSha256,
+    string TableName,
+    TableSnapshot Before,
+    TableSnapshot After,
+    bool IdentityAndGeometryPreserved,
+    bool TableDimensionsPreserved,
+    bool TextUpdated,
     int ValidatorErrorCount,
     string[] ValidatorErrors);
 

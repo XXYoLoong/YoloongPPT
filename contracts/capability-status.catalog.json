@@ -3,7 +3,7 @@
   "contract_status": "draft",
   "requirement_id": "GOV-005",
   "assessment_context": {
-    "repository_revision": "d8012d7ad5b733d2d4b076d2de9edb847655e304",
+    "repository_revision": "084c52d6a0013696cc46d2e41e51cfb26eb14031",
     "revision_scope": "能力状态审计所依据的仓库快照；不是产品或后端版本。",
     "matrix_source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
   },
@@ -4147,14 +4147,14 @@
         {
           "capability_id": "PPT-016",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
           "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H17",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4165,9 +4165,14 @@
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
               "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "table_round_trip",
+              "observed": "passed：新建 2×2 表格，保存重开后读取/更新单元格文本；ID/name、行列数和 EMU bounds 保持；Office 2019 OpenXmlValidator 0 错误。表格样式、合并、分页、渲染和第三方既有表格仍未测试。"
             }
           ],
-          "assessment_note": "PPT-016：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
+          "assessment_note": "PPT-016：仅验证本 PoC 新建的 2×2 表格保存/重开/读取/更新单元格文本；shape ID/name、EMU 坐标和行列数保持，Office 2019 OpenXmlValidator 0 错误，因此标记 Partial。合并、样式、行列编辑、表头、分页、渲染及第三方既有表格读改保存未测试；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-016",
