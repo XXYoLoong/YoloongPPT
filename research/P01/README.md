@@ -82,6 +82,16 @@ git -C ppt-master rev-parse HEAD
 - 核验：固定源码 commit 校验、7/86/53/320 计数、索引声明数量、86/86 roster 映射、86/86 viewBox、320/320 有效 bounds 均通过。首次解析因 report_core 多出 Master 列未映射 13 行；按源码实际两种表结构修正后重跑通过。详见 [verify-res-p01-04.json](validation/verify-res-p01-04.json)。
 - 这是上游源码研究结果，不表示 YoloongPPT 已实现 PPT Master 资产或选择其架构；项目语言/运行时仍未选定，compose.yaml 未改动。下一项按矩阵依赖为 `TASK-RES-P01-05`。
 
+## RES-P01-05：PPT 写入、渲染、QA、修订与既有 PPT 编辑边界
+
+- `RES-P01-05`、`TASK-RES-P01-05`、`VERIFY-RES-P01-05` 依赖的 `RES-P01-02` 已满足。本项建立 [ProjectCapabilityMap](project_capability_map.json)，按需求矩阵的 `PPT-001`–`PPT-030` 逐项记录 Native/Partial/Fallback/Unsupported 状态、固定源码证据、Quick smoke 观察范围和明确限制。
+- 分类是对固定 PPT Master commit `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d` 的源码研究归一化，不是上游自带状态，也不是 YoloongPPT 已实现状态。各能力均带有源码锚点；测试源码只代表待执行的候选用例。
+- QA/Revision 分别记录 SVG 导出前质量门、PPTX 离线 package 检查、浏览器 SVG 视觉预览、外部 PowerPoint 最终渲染、read-back，以及 SVG 页面修订、既有 PPTX round-trip 和 opaque proxy 边界。
+- 既有 PPT 编辑边界：只编辑已确认 plan 中页面；未改页可 passthrough；Master/Layout 继承对象与 source proxy 不可编辑；不支持 round-trip 中改 slide size 或新增 Master/Layout；SmartArt、复杂效果、media/OLE 按 atomic proxy 保留；notes、motion 是按输出页挂接的 overlay。
+- 正常证据复用 P01-01 三页 Quick smoke：PPTX/ZIP/读取检查通过，每页分别有 7/16/7 个可编辑 shapes、4/9/4 个文本 shapes；图片、图表、notes、transition、timing 均为 0。Microsoft PowerPoint 16.0 主机只读渲染三页并视觉复核通过。该证据不覆盖 P01-05 的 charts/tables/media/motion 或 round-trip。
+- 边界测试源码已定位，包括继承对象/代理拒绝编辑、custom show 处理和 round-trip quality receipt；本项未执行这些用例。Docker Engine 检查无响应，Docker Desktop 报告 C 盘日志空间不足，当前会话无法打开 `com.docker.service`；因此失败用例的实际运行被阻塞，`TASK-RES-P01-05` 与 `VERIFY-RES-P01-05` 保持进行中，详见 [verify-res-p01-05.json](validation/verify-res-p01-05.json)。
+- 本项不修改 `compose.yaml`，不选择 YoloongPPT 产品语言、运行时或依赖版本。
+
 ## 来源
 
 - [PPT Master 固定源码快照](https://github.com/hugohe3/ppt-master/tree/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d)

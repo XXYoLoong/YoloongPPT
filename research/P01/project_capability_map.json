@@ -1,0 +1,457 @@
+{
+  "artifact_type": "ProjectCapabilityMap",
+  "schema_version": "1.0",
+  "requirement_id": "RES-P01-05",
+  "task_ids": [
+    "TASK-RES-P01-05",
+    "VERIFY-RES-P01-05"
+  ],
+  "source": {
+    "repository": "hugohe3/ppt-master",
+    "branch": "main",
+    "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+    "path_in_research_clone": "skills/ppt-master",
+    "clone_is_read_only": true
+  },
+  "classification": {
+    "status_values": [
+      "Native",
+      "Partial",
+      "Fallback",
+      "Unsupported"
+    ],
+    "status_meaning": "本图把需求基线状态词归一化用于描述固定 PPT Master 源码路径；不是上游自带的状态字段，也不是 YoloongPPT 产品实现状态。Native 表示证据范围内有直接原生对象写入；Partial 表示存在直接路径但覆盖不完整；Fallback 表示只保留为代理、预览或静态表示；Unsupported 表示在本次固定快照审阅范围内没有可用读写路径或源码明确拒绝。",
+    "evidence_rule": "每项把直接支持、边界和证据分开记录。现有测试源码仅表示可复现测试候选；除另有实际运行报告外，不代表该测试已执行。"
+  },
+  "source_evidence_anchors": [
+    {
+      "id": "SRC-GENERATE",
+      "path": "skills/ppt-master/workflows/generate-pptx.md",
+      "lines": "11-18,220-263",
+      "claim": "Generate 路由从输入、规划、SVG authoring、live preview、Quality Check 到 PPTX 导出；flat/structured 是显式结构路线。"
+    },
+    {
+      "id": "SRC-EDIT",
+      "path": "skills/ppt-master/workflows/edit-native-pptx.md",
+      "lines": "107-129,145-169,173-175",
+      "claim": "既有 PPTX round-trip 的原位编辑、identity、导出计数、二次修订、交付检查和明确支持/不支持边界。"
+    },
+    {
+      "id": "SRC-STRUCTURE",
+      "path": "skills/ppt-master/references/pptx-structure-interface.md",
+      "lines": "11-24,26-71,73-83",
+      "claim": "flat/structured Master、Layout、placeholder、slot 和层级写入条件，以及模板输入边界。"
+    },
+    {
+      "id": "SRC-SHAPE-WALKER",
+      "path": "skills/ppt-master/scripts/pptx_to_svg/shape_walker.py",
+      "lines": "1-10,30-68",
+      "claim": "读取 shape、picture、connector、group；table/chart/SmartArt 等 graphicFrame 对 v1 作为 opaque placeholder。"
+    },
+    {
+      "id": "SRC-DRAWINGML-SHAPES",
+      "path": "skills/ppt-master/scripts/svg_to_pptx/drawingml/elements.py",
+      "lines": "1267,1470,1631,1798,1886,1963,2996-3027,3148,4920,5078",
+      "claim": "SVG 基本形状、线/路径、文本、图片和椭圆的 DrawingML 转换入口；文本 run 带语言/RTL 和可映射格式。"
+    },
+    {
+      "id": "SRC-PLACEHOLDERS",
+      "path": "skills/ppt-master/scripts/svg_to_pptx/drawingml/converter.py",
+      "lines": "595-641,853-904",
+      "claim": "导入的 placeholder 身份和部分本地属性可验证并恢复；仅支持标记及校验通过的载体。"
+    },
+    {
+      "id": "SRC-TABLE",
+      "path": "skills/ppt-master/scripts/svg_to_pptx/native_objects/table.py",
+      "lines": "332,353,463,477,1684-1688,1780-1815,1835-1927",
+      "claim": "显式 JSON 标记生成原生 table；只映射受支持的 payload/style，未知字段和 border side 会失败关闭。"
+    },
+    {
+      "id": "SRC-CHART",
+      "path": "skills/ppt-master/scripts/pptx_ooxml/edit_safety.py",
+      "lines": "57-155",
+      "claim": "图表编辑有显式安全预检；ChartEx、部分 plot/data model、scatter、bubble、多 plot 等情形被拒绝或要求受限数据结构。"
+    },
+    {
+      "id": "SRC-NATIVE-OBJECTS",
+      "path": "skills/ppt-master/scripts/svg_to_pptx/native_objects/__init__.py",
+      "lines": "517-535,706",
+      "claim": "原生对象 marker/payload 验证和导出入口；未知替换类型失败。"
+    },
+    {
+      "id": "SRC-FORMULA",
+      "path": "skills/ppt-master/scripts/svg_to_pptx/native_objects/formula.py",
+      "lines": "115-152,199-230",
+      "claim": "支持范围内的 LaTeX 编译为 OMML 并输出可编辑公式；不支持的 LaTeX 抛出明确错误，未发现通用 image fallback。"
+    },
+    {
+      "id": "SRC-HYPERLINKS",
+      "path": "skills/ppt-master/workflows/edit-native-pptx.md",
+      "lines": "120,161",
+      "claim": "同 deck slide jump 会按输出页重映射；链接目标被省略时导出失败；交付后执行 package check 与 read-back。"
+    },
+    {
+      "id": "SRC-HYPERLINK-TESTS",
+      "path": "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py",
+      "lines": "213-327",
+      "claim": "源码中有继承 jump、shape/text hyperlink 映射、目标省略、替换链接和跨页 adopt 的测试用例；本任务未执行。"
+    },
+    {
+      "id": "SRC-NOTES",
+      "path": "skills/ppt-master/workflows/edit-native-pptx.md",
+      "lines": "133-141,161-168,175",
+      "claim": "Notes、narration 和 motion 以输出页为键叠加；复制页无新 notes 文件时继承源 notes；修改/删除限制及交付 read-back。"
+    },
+    {
+      "id": "SRC-MOTION",
+      "path": "skills/ppt-master/references/animations.md",
+      "lines": "41-49,80-92,167-169,189-199,234-244",
+      "claim": "动画与 transition 通过明确 sidecar/效果表写入并验证；未知效果、选项或时长 fail-closed；Slide Zoom 和 3D 不支持。"
+    },
+    {
+      "id": "SRC-PROXIES",
+      "path": "skills/ppt-master/workflows/edit-native-pptx.md",
+      "lines": "115-120,175",
+      "claim": "SmartArt、复杂效果、嵌入媒体按 atomic proxy 保留；source proxy 不可编辑；不支持改 slide size 或新增 Master/Layout 结构。"
+    },
+    {
+      "id": "SRC-PROXY-TESTS",
+      "path": "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py",
+      "lines": "341-395,646-681",
+      "claim": "源码含继承 shape 删除/编辑失败、proxy ancestor 变更拒绝、SmartArt 和 OLE/未知 graphicFrame proxy 测试；本任务未执行。"
+    },
+    {
+      "id": "SRC-DELIVERY-CHECK",
+      "path": "skills/ppt-master/scripts/pptx_delivery_check.py",
+      "lines": "64,1008-1013,1064-1084,1155-1162",
+      "claim": "只读交付检查器输出版本化报告，检查自定义 show、theme/font 和包级交付风险。"
+    },
+    {
+      "id": "SRC-SVG-QA",
+      "path": "skills/ppt-master/scripts/docs/svg-pipeline.md",
+      "lines": "1045-1051,1156-1170,1356-1358",
+      "claim": "SVG 视觉检查使用浏览器/Playwright 导出页面 PNG；SVG quality checker 在 finalize/export 前验证，转换器对不支持元素失败关闭。"
+    },
+    {
+      "id": "SRC-EDIT-QA",
+      "path": "skills/ppt-master/scripts/tests/test_edit_native_batch_c.py",
+      "lines": "122-170",
+      "claim": "源码包含 round-trip quality receipt 和语义文本 contract 测试；本任务未执行。"
+    },
+    {
+      "id": "SRC-P01-01-SMOKE",
+      "path": "research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json",
+      "lines": "JSON report",
+      "claim": "已执行的既有三页 Quick smoke：PPTX/ZIP/读取检查通过，40 个可编辑形状、17 个文本形状，图片/图表/notes/transitions/timing 均为 0；PowerPoint 16.0 主机只读渲染与视觉复核通过。"
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "PPT-001",
+      "domain": "演示文稿生命周期",
+      "status": "Partial",
+      "assessment": "可从 SVG 路线创建并导出 PPTX，也可导入既有 PPTX 进入 round-trip；没有证据覆盖 create/open/save-as/close/copy/merge 和完整文档属性操作集。",
+      "smoke_observation": "已实际生成、保存并重新打开一个三页 PPTX；copy/merge 和文档属性未覆盖。",
+      "evidence": ["SRC-GENERATE", "SRC-EDIT", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-002",
+      "domain": "Slide 管理",
+      "status": "Partial",
+      "assessment": "生成路由可输出多页；Edit Native 支持按 plan 选择、重排、重复或省略源页。未覆盖完整的隐藏/选择/读写 slide name/layout/master API。",
+      "smoke_observation": "三页输出已实际观察；未对既有源页执行增删/移动/隐藏。",
+      "evidence": ["SRC-EDIT", "SRC-SHAPE-WALKER", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-003",
+      "domain": "Sections/Custom Show",
+      "status": "Partial",
+      "assessment": "交付 checker 检查 custom show 引用完整性，page plan 会重置 custom-show 选择；未发现任意创建/修改 sections 和 custom slide shows 的通用编辑路径。",
+      "smoke_observation": "Quick smoke 未含 sections 或 custom show。",
+      "evidence": ["SRC-DELIVERY-CHECK", "SRC-PROXY-TESTS"]
+    },
+    {
+      "id": "PPT-004",
+      "domain": "Slide Master",
+      "status": "Partial",
+      "assessment": "structured 生成可显式声明并编译 Master，flat 路线生成项目自有 Master；既有 PPT 编辑路径禁止修改继承 Master 形状或新增 Master/Layout 结构。",
+      "smoke_observation": "Quick smoke 未验证 Master 创建、继承效果或读改写。",
+      "evidence": ["SRC-STRUCTURE", "SRC-EDIT"]
+    },
+    {
+      "id": "PPT-005",
+      "domain": "Slide Layout",
+      "status": "Partial",
+      "assessment": "structured 路线可声明 Layout、占位符和 slot；既有 PPT round-trip 保留结构，但不能在该路径新增 Master/Layout 结构。",
+      "smoke_observation": "Quick smoke 未验证 Layout 变体或继承行为。",
+      "evidence": ["SRC-STRUCTURE", "SRC-EDIT"]
+    },
+    {
+      "id": "PPT-006",
+      "domain": "Theme",
+      "status": "Partial",
+      "assessment": "转换和检查路径读取 theme 字体/颜色映射；未找到覆盖 theme fonts/colors/effects/color map 的完整应用、替换和保留策略接口。",
+      "smoke_observation": "Quick smoke 未做 Theme 对照或替换。",
+      "evidence": ["SRC-DRAWINGML-SHAPES", "SRC-DELIVERY-CHECK"]
+    },
+    {
+      "id": "PPT-007",
+      "domain": "Placeholder",
+      "status": "Partial",
+      "assessment": "structured 模式支持 title/body/date/footer/slide-number/picture/chart/table/object 等明确载体；round-trip 只恢复通过身份与 payload 校验的源 placeholder。",
+      "smoke_observation": "Quick smoke 未验证 PowerPoint placeholder 类型、idx 或继承。",
+      "evidence": ["SRC-STRUCTURE", "SRC-PLACEHOLDERS"]
+    },
+    {
+      "id": "PPT-008",
+      "domain": "文本框",
+      "status": "Partial",
+      "assessment": "SVG text 转为 DrawingML text shape，且支持导入文本的受限 round-trip；TextFrame 的 autofit、margin、vertical anchor 等并非全面无损 API。",
+      "smoke_observation": "实际导出并重开了文本 shape；没有逐项覆盖全部 TextFrame 属性。",
+      "evidence": ["SRC-DRAWINGML-SHAPES", "SRC-EDIT", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-009",
+      "domain": "字符/段落",
+      "status": "Partial",
+      "assessment": "支持 SVG 文本转换和部分 run/paragraph 格式；未证明 tabs、全部 numbering、spacing 与复杂段落语义均可 round-trip。",
+      "smoke_observation": "实际检查了文本内容及 editable text shapes；没有系统覆盖样式属性矩阵。",
+      "evidence": ["SRC-DRAWINGML-SHAPES", "SRC-EDIT-QA", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-010",
+      "domain": "语言与文字方向",
+      "status": "Partial",
+      "assessment": "输出文本 run 可写语言标记并识别 RTL；缺失字体替代、混合字体和 vertical text 的完整行为没有端到端证据。",
+      "smoke_observation": "Quick smoke 未覆盖 CJK/RTL/vertical text 或缺失字体。",
+      "evidence": ["SRC-DRAWINGML-SHAPES", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-011",
+      "domain": "AutoShape",
+      "status": "Partial",
+      "assessment": "矩形、圆/椭圆、线、path、多边形等 SVG 几何可转为 DrawingML；不代表所有 preset、adjustment 和 3D 属性均可写。",
+      "smoke_observation": "Quick smoke 实际输出并检查了每页 7/16/7 个可编辑 shape；未覆盖全部 AutoShape 类型。",
+      "evidence": ["SRC-DRAWINGML-SHAPES", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-012",
+      "domain": "Line/Connector/Freeform",
+      "status": "Partial",
+      "assessment": "SVG line/path/polyline/polygon 可写；导入器能识别 connector。未发现 PowerPoint connector 连接点、自动 reroute 的完整写入路径。",
+      "smoke_observation": "Quick smoke 未验证 connector、自由曲线 round-trip 或 reroute。",
+      "evidence": ["SRC-DRAWINGML-SHAPES", "SRC-SHAPE-WALKER"]
+    },
+    {
+      "id": "PPT-013",
+      "domain": "Group/Z-order",
+      "status": "Partial",
+      "assessment": "SVG group 与顺序参与 shape 生成和动画锚点；完整 group/ungroup、selection lock 和父子身份修改没有覆盖。",
+      "smoke_observation": "Quick smoke 未验证 group/ungroup 或 z-order round-trip。",
+      "evidence": ["SRC-SHAPE-WALKER", "SRC-DRAWINGML-SHAPES", "SRC-MOTION"]
+    },
+    {
+      "id": "PPT-014",
+      "domain": "图片",
+      "status": "Partial",
+      "assessment": "SVG image 可嵌入输出；Edit Native 可替换既有图片并保留 frame。裁切、压缩、外链策略、透明度等全套行为未由本 smoke 覆盖。",
+      "smoke_observation": "Quick smoke 的 picture 数量为 0。",
+      "evidence": ["SRC-DRAWINGML-SHAPES", "SRC-EDIT", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-015",
+      "domain": "SVG/Icon",
+      "status": "Partial",
+      "assessment": "SVG 是生成路线的页面源并可转换为可编辑 DrawingML 子集；转换器对无法支持的视觉元素 fail-closed，未证明任意 SVG 功能和 bitmap fallback 全覆盖。",
+      "smoke_observation": "Quick smoke 观察到 SVG 页面导出为可编辑 shapes；未独立验证 icon 重着色或位图 fallback。",
+      "evidence": ["SRC-GENERATE", "SRC-DRAWINGML-SHAPES", "SRC-SVG-QA", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-016",
+      "domain": "Table",
+      "status": "Partial",
+      "assessment": "显式 native-data marker 可生成原生 table；导入到 SVG 的 unsupported-table 可能变成烘焙网格上的定位文本，编辑后不再是 a:tbl。",
+      "smoke_observation": "Quick smoke 没有 table。",
+      "evidence": ["SRC-TABLE", "SRC-EDIT", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-017",
+      "domain": "Chart",
+      "status": "Partial",
+      "assessment": "显式 native-data marker 支持受限 chart 写入/修改；ChartEx、多 plot、scatter/bubble 及不匹配数据模型等会被拒绝。",
+      "smoke_observation": "Quick smoke 的 chart part 数量为 0。",
+      "evidence": ["SRC-NATIVE-OBJECTS", "SRC-CHART", "SRC-EDIT", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-018",
+      "domain": "Equation",
+      "status": "Partial",
+      "assessment": "受支持的 LaTeX 可编译为原生 OMML shape；不支持语法报错关闭，未发现通用无损 MathML 导入或图片 fallback。",
+      "smoke_observation": "Quick smoke 未含公式。",
+      "evidence": ["SRC-FORMULA", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-019",
+      "domain": "SmartArt",
+      "status": "Fallback",
+      "assessment": "既有 graphicFrame/SmartArt 以 opaque atomic proxy 保留；不能在该路径编辑其节点结构，能否另行创建需独立验证。",
+      "smoke_observation": "Quick smoke 未含 SmartArt。",
+      "evidence": ["SRC-SHAPE-WALKER", "SRC-PROXIES", "SRC-PROXY-TESTS"]
+    },
+    {
+      "id": "PPT-020",
+      "domain": "Audio/Video/GIF",
+      "status": "Fallback",
+      "assessment": "既有嵌入媒体在 Edit Native 中按 atomic proxy 保留；未证实该路径可新建/编辑媒体关系、poster 或播放选项。",
+      "smoke_observation": "Quick smoke 未含 media。",
+      "evidence": ["SRC-EDIT", "SRC-PROXIES", "SRC-SHAPE-WALKER"]
+    },
+    {
+      "id": "PPT-021",
+      "domain": "OLE/Embedded Object",
+      "status": "Fallback",
+      "assessment": "OLE 和未知 graphicFrame 在导入后作为 proxy 保留；无执行嵌入内容或编辑 OLE payload 的路径。",
+      "smoke_observation": "Quick smoke 未含 OLE/embedded object。",
+      "evidence": ["SRC-SHAPE-WALKER", "SRC-PROXIES", "SRC-PROXY-TESTS"]
+    },
+    {
+      "id": "PPT-022",
+      "domain": "Hyperlink/Action",
+      "status": "Partial",
+      "assessment": "shape/text hyperlink 和同 deck slide jump 可写/映射；省略目标会失败关闭。邮件、文件、action button、tooltip 等全类型未验证。",
+      "smoke_observation": "Quick smoke 未含 hyperlink。",
+      "evidence": ["SRC-HYPERLINKS", "SRC-HYPERLINK-TESTS"]
+    },
+    {
+      "id": "PPT-023",
+      "domain": "Speaker Notes",
+      "status": "Partial",
+      "assessment": "支持导入/写入 notes overlays 并绑定输出页；复制页默认继承 source notes，不能在没有单独 notes 文件时删除其继承 notes。",
+      "smoke_observation": "Quick smoke 的 notes part 数量为 0。",
+      "evidence": ["SRC-NOTES", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-024",
+      "domain": "Comments",
+      "status": "Unsupported",
+      "assessment": "审阅的 Generate/Edit Native 读写链没有定位 classic/modern PowerPoint comments 的 CRUD 路径或作者/位置回链；不把文档解析容错当成 PPT comments 支持。",
+      "smoke_observation": "Quick smoke 未含 comments。",
+      "evidence": ["SRC-EDIT", "SRC-DELIVERY-CHECK", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-025",
+      "domain": "Headers/Footers/日期/页码",
+      "status": "Partial",
+      "assessment": "structured placeholder 支持 footer/date/slide-number 载体，导入也保留 placeholder 身份；完整 master/layout/slide 继承覆盖策略未验证。",
+      "smoke_observation": "Quick smoke 输出了可见页码文本，但未验证 PowerPoint header/footer/date fields 或继承。",
+      "evidence": ["SRC-STRUCTURE", "SRC-PLACEHOLDERS", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-026",
+      "domain": "Transitions",
+      "status": "Partial",
+      "assessment": "Edit Native 保留源 transition 并允许 sidecar/CLI 修改有限效果、duration 和 advance；未知效果/选项/时长失败关闭。",
+      "smoke_observation": "Quick smoke 的 transition 数量为 0。",
+      "evidence": ["SRC-MOTION", "SRC-EDIT", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-027",
+      "domain": "Animations",
+      "status": "Partial",
+      "assessment": "支持以 SVG 顶层 group 和 sidecar 表达部分 entrance/effect/trigger/Morph；导出读取回验，缺失 anchor 或未知组合失败关闭。",
+      "smoke_observation": "Quick smoke 的 timing 数量为 0。",
+      "evidence": ["SRC-MOTION", "SRC-EDIT", "SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "PPT-028",
+      "domain": "Effects",
+      "status": "Partial",
+      "assessment": "SVG 子集可转成 DrawingML；complex effects 在既有 PPT 编辑路径作为 atomic proxy 保留且不可编辑，3D 等明确失败关闭。",
+      "smoke_observation": "Quick smoke 未覆盖渐变、阴影、反射或 3D。",
+      "evidence": ["SRC-PROXIES", "SRC-DRAWINGML-SHAPES", "SRC-MOTION"]
+    },
+    {
+      "id": "PPT-029",
+      "domain": "Accessibility",
+      "status": "Partial",
+      "assessment": "可输出语言标记，placeholder/table 结构有部分语义载体；本次未定位覆盖 alt text、reading order、contrast 和完整 table semantics 的 QA/写入链。",
+      "smoke_observation": "Quick smoke 未执行 accessibility audit，也未检查 alt text。",
+      "evidence": ["SRC-STRUCTURE", "SRC-DRAWINGML-SHAPES", "SRC-SVG-QA"]
+    },
+    {
+      "id": "PPT-030",
+      "domain": "Object identity/metadata",
+      "status": "Partial",
+      "assessment": "Edit Native 要求保留未改对象的 data-pptx-* 身份；修改对象可保留 shape id，且导出 receipt 记录页面处理类型；未证明 tags/custom XML/extension data 全集 round-trip。",
+      "smoke_observation": "Quick smoke 仅检查了输出 shape 数量和文本；未比较源/目标对象身份。",
+      "evidence": ["SRC-EDIT", "SRC-EDIT-QA", "SRC-P01-01-SMOKE"]
+    }
+  ],
+  "quality_assurance": [
+    {
+      "id": "QA-SVG",
+      "status": "Native",
+      "scope": "导出前 SVG 结构、文本容量/边界和页面质量检查；round-trip checker 可将错误写入 quality_gate 并让导出 fail-closed。",
+      "evidence": ["SRC-SVG-QA", "SRC-EDIT"]
+    },
+    {
+      "id": "QA-PPTX-STRUCTURE",
+      "status": "Native",
+      "scope": "离线只读检查 PPTX package、relationships、slides、theme/font 和 custom show 问题；不代表视觉或语义正确。",
+      "evidence": ["SRC-DELIVERY-CHECK", "SRC-EDIT"]
+    },
+    {
+      "id": "QA-SVG-VISUAL",
+      "status": "Native",
+      "scope": "live preview/Playwright 可渲染 SVG 页面用于视觉检查；不等同于最终 PPTX 在目标 Office 上的渲染。",
+      "evidence": ["SRC-GENERATE", "SRC-SVG-QA"]
+    },
+    {
+      "id": "QA-PPTX-VISUAL",
+      "status": "Fallback",
+      "scope": "固定路线未内置可确认的最终 PPTX renderer；P01-01 的最终 PowerPoint 16.0 渲染为单独主机 QA，不能视为产品运行时或 Docker 渲染能力。",
+      "evidence": ["SRC-P01-01-SMOKE"]
+    },
+    {
+      "id": "QA-READBACK",
+      "status": "Partial",
+      "scope": "交付后重新读回文本/notes/slide count 和 receipt 对照 plan；未证明语义事实、可编辑性和视觉质量可由单一 checker 完整判定。",
+      "evidence": ["SRC-EDIT", "SRC-EDIT-QA"]
+    }
+  ],
+  "revision": [
+    {
+      "id": "REV-GENERATE",
+      "status": "Native",
+      "scope": "以完整 SVG 页为设计源做定向修订，重新经过 SVG QA 和 PPTX 导出；不自动保证内容事实或设计意图正确。",
+      "evidence": ["SRC-GENERATE", "SRC-SVG-QA"]
+    },
+    {
+      "id": "REV-EXISTING-PPTX",
+      "status": "Partial",
+      "scope": "可导入既有 PPTX 并对 plan 中的页面做原位文本/paint/image/table/chart 编辑，保留未改页；第二轮从交付 deck 重新导入。",
+      "evidence": ["SRC-EDIT"]
+    },
+    {
+      "id": "REV-OPAQUE-PROXY",
+      "status": "Fallback",
+      "scope": "SmartArt、复杂效果、嵌入媒体和 OLE 等源对象保留为 atomic proxy；只能保留或删除，不能在该 route 修改 proxy 内容。",
+      "evidence": ["SRC-PROXIES", "SRC-PROXY-TESTS"]
+    }
+  ],
+  "existing_pptx_editing_boundaries": [
+    "Edit Native 只编辑确认 plan 中的页面；源页通过 passthrough/cloned_passthrough/patched/rebuilt receipt 说明处理方式。",
+    "支持原页选择、重排、重复、省略；可原位改 text/paint/image 和受限的 native table/chart 数据。",
+    "新元素使用 canonical compact SVG；新建 native chart/table 必须带显式 marker 和开关。",
+    "继承自 Master/Layout 的对象不能编辑或删除；source proxy 不能编辑；不支持改 slide size 或在 round-trip 中新增 Master/Layout 结构。",
+    "SmartArt、复杂效果和嵌入 media 作为 atomic proxy 保留；notes/narration/transitions/animations 是按输出页挂接的 overlays。",
+    "复制页没有独立 notes 文件时继承 source notes；删除复制页继承 notes 需要给该页提供单独文件。",
+    "最终导出必须运行 PPTX delivery checker 和 source-to-Markdown read-back；文本容量错误会阻止导出。"
+  ],
+  "runtime_and_product_boundary": {
+    "yoloongppt_implementation_status": "未选型/未实现",
+    "product_language_runtime_dependency_selection": "未决",
+    "project_compose_modified": false,
+    "note": "本图仅为固定 PPT Master 源码研究；未把研究容器中的工具版本登记为 YoloongPPT 产品要求。"
+  }
+}

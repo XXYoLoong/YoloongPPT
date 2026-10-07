@@ -155,6 +155,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 项目边界：本项只研究上游源码；未选 YoloongPPT 语言/运行时，没有改 compose.yaml。Chart 33 项、Table 6 种及 12,027 个图标向量分别记录为页面级可视化或资源库，不误列为模板类型。
 - 证据：research/P01/project_template_map.json、research/P01/tools/build_project_template_map.mjs、research/P01/validation/verify-res-p01-04.json、research/P01/README.md；Excel“需求主表”N15:P15、“可执行任务”L20:M21。
 
+### TASK-RES-P01-05
+
+- Requirement ID：RES-P01-05；P0；依赖 RES-P01-02（已完成）。
+- 状态：进行中。已建立 `research/P01/project_capability_map.json`，逐项整理 PowerPoint 对象矩阵 PPT-001–PPT-030 的固定源码能力状态，并单列 QA、Revision、最终 PPTX 渲染和既有 PPTX 编辑边界。Native/Partial/Fallback/Unsupported 是对上游代码路径的研究归类，不代表 YoloongPPT 产品状态。
+- 写入与对象边界：Generate 以 SVG 为页面完整设计源并转为 DrawingML；flat/structured 路线显式决定 Master/Layout/placeholder 结构。已有 PPT round-trip 只编辑确认 plan 页，保留未改页，支持受限的 text/paint/image/table/chart 变更；继承 Master/Layout 对象和 source proxy 不能编辑，不能在该 route 改 slide size 或新增 Master/Layout。SmartArt、复杂效果、嵌入媒体/OLE 按 atomic proxy 保留。
+- QA/Revision：区分 SVG pre-export quality gate、PPTX 离线 package/delivery checker、SVG 浏览器视觉预览、外部 Office 最终渲染、交付 read-back、SVG 重导出修订与既有 PPTX round-trip。Map 为 30 项对象、5 项 QA、3 项 Revision 均保留来源锚点和覆盖范围。
+- 正常证据：复用既有 `verify-res-p01-01.json`，其中三页 Quick PPTX、ZIP/读取检查及 PowerPoint 16.0 主机只读渲染通过；每页分别有 7/16/7 个可编辑 shapes、4/9/4 个文本 shapes，未含图片、chart、notes、transition 或 timing。该 smoke 不被扩大解释为完整对象能力验证。
+- 边界/失败验证：已静态定位 `test_edit_native_batch_b.py`、`test_edit_native_batch_c.py` 等候选测试和源码 fail-closed 条件，但未运行。本次 `docker version` / `docker desktop status` 等 Engine 检查无响应；Docker Desktop 报告 C 盘日志写入失败（磁盘空间不足），当前会话不能打开 `com.docker.service`。未在主机运行 PPT Master 测试；`VERIFY-RES-P01-05` 保持进行中，待 Docker Engine 可用后在容器内执行。
+- 项目边界：未改 `compose.yaml`，未选择产品语言/运行时/依赖；外部 PowerPoint 渲染只作为 P01-01 的 QA 证据，不是产品依赖。
+- 证据：`research/P01/project_capability_map.json`、`research/P01/validation/verify-res-p01-05.json`、`research/P01/README.md`；Excel“需求主表”`N16:P16`、“可执行任务”`L22:M23`、“开源项目研究对象”第 2 行。
+
 ### TASK-RES-P02-01
 
 - Requirement ID：RES-P02-01；P0；无前置任务。

@@ -1,0 +1,100 @@
+{
+  "requirement_id": "RES-P01-05",
+  "task_ids": [
+    "TASK-RES-P01-05",
+    "VERIFY-RES-P01-05"
+  ],
+  "artifact": "research/P01/project_capability_map.json",
+  "source_commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+  "verification_state": "in_progress_blocked_by_docker_engine",
+  "normal_case": {
+    "state": "passed_reused_prior_evidence",
+    "evidence": "research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json",
+    "actual_result": {
+      "pptx_open": "passed",
+      "zip_integrity": "passed",
+      "slides": 3,
+      "editable_shapes_by_slide": [
+        7,
+        16,
+        7
+      ],
+      "editable_text_shapes_by_slide": [
+        4,
+        9,
+        4
+      ],
+      "pictures": 0,
+      "charts": 0,
+      "notes": 0,
+      "transitions": 0,
+      "timing": 0,
+      "pptx_sha256": "c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25",
+      "microsoft_powerpoint_16_read_only_render": "passed; all three 1920x1080 slides were visually reviewed"
+    },
+    "scope_limit": "既有 normal smoke 只證明 Quick 的基本多頁文字/shape 生成、PPTX 讀取和外部 PowerPoint 渲染，不證明 P01-05 的 table/chart/media/motion/edit round-trip 能力。"
+  },
+  "boundary_case": {
+    "state": "source_contract_reviewed_tests_not_executed",
+    "actual_source_findings": [
+      "Edit Native 只處理確認 plan 中的頁面；未變頁可原樣 passthrough，選定頁可在限制內原位編輯。",
+      "繼承 Master/Layout 形狀不可編輯/刪除；source proxy 不可編輯；round-trip 不允許改 slide size 或新增 Master/Layout 結構。",
+      "未標記的 native chart/table 不會按 payload 更新；unsupported-table 編輯會退化為 shapes 並產生 checker 警告。",
+      "delivery-only 二次 round-trip 必須以已交付 PPTX 作為新來源，並要求 rebuilt=0。"
+    ],
+    "reproducible_test_candidates_not_run": [
+      "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py::test_b2_inherited_deletion_and_edit_fail",
+      "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py::test_b3_proxy_ancestor_change_is_rejected",
+      "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py::test_b5_page_plan_resets_custom_show_selection",
+      "skills/ppt-master/scripts/tests/test_edit_native_batch_c.py::test_c2_roundtrip_quality_receipt_tracks_authoring_and_page_plan"
+    ],
+    "source_evidence": [
+      "skills/ppt-master/workflows/edit-native-pptx.md:107-129,145-169,173-175",
+      "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py:341-395,465-473",
+      "skills/ppt-master/scripts/tests/test_edit_native_batch_c.py:122-170"
+    ]
+  },
+  "failure_case": {
+    "state": "blocked_before_test_execution",
+    "blocker": "Docker Desktop cannot provide a responsive Engine in this session. The Desktop start command reported that its C-drive log file could not be written because the disk has no space; the service could not be opened by the current session. No test ran, so this is an environment blocker rather than a PPT Master failure result.",
+    "diagnostics": [
+      {
+        "command": "docker version --format '{{.Server.Version}}'",
+        "result": "no output after 15 seconds; interrupted; exit code 1"
+      },
+      {
+        "command": "Start-Service -Name 'com.docker.service'",
+        "result": "failed: current session could not open the service"
+      },
+      {
+        "command": "docker desktop status",
+        "result": "no output after 10 seconds; interrupted; exit code 1"
+      },
+      {
+        "command": "docker desktop start --detach --timeout 30",
+        "result": "reported 'Docker Desktop is already running' and repeated log-write errors stating that the C-drive disk has no space; Engine response was not established"
+      }
+    ],
+    "test_execution": "not_run",
+    "reproducible_test_candidates_not_run": [
+      "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py::test_b2_inherited_deletion_and_edit_fail",
+      "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py::test_b7_diagram_is_atomic_proxy",
+      "skills/ppt-master/scripts/tests/test_native_chart_table_parity.py"
+    ]
+  },
+  "static_validation": {
+    "capability_ids_expected": 30,
+    "capability_status_values": [
+      "Native",
+      "Partial",
+      "Fallback",
+      "Unsupported"
+    ],
+    "capabilities_with_source_evidence": "30/30",
+    "quality_assurance_records": 5,
+    "revision_records": 3,
+    "project_product_status_claimed": false,
+    "docker_compose_modified": false
+  },
+  "completion_boundary": "ProjectCapabilityMap has source-level status for PPT-001–PPT-030 plus QA, Revision, and existing-PPTX edit limits. TASK-RES-P01-05 and VERIFY-RES-P01-05 remain in progress until the selected Docker-based boundary/failure tests can be executed and recorded."
+}
