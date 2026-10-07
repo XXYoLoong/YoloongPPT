@@ -1,0 +1,76 @@
+{
+  "requirement_id": "RES-P01-04",
+  "task_id": "TASK-RES-P01-04",
+  "verification_id": "VERIFY-RES-P01-04",
+  "status": "passed",
+  "source_snapshot": {
+    "repository": "hugohe3/ppt-master",
+    "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+    "scope": "Read-only template, layout, style, and intermediate-representation source study."
+  },
+  "normal_case": {
+    "command": "node research/P01/tools/build_project_template_map.mjs F:\\YoloongPPT-Research\\P01",
+    "result": "passed",
+    "map": "research/P01/project_template_map.json",
+    "assertions": {
+      "layout_families": 7,
+      "svg_prototypes": 86,
+      "unique_page_types": 53,
+      "explicit_slots_with_valid_positive_bounds": 320,
+      "design_spec_tokens": 287,
+      "catalog_counts": {
+        "brands": 21,
+        "styles": 14,
+        "layouts": 7,
+        "decks": 2
+      },
+      "registry_svg_count_mismatches": [],
+      "roster_missing_for_svg": [],
+      "pages_missing_viewbox": [],
+      "slots_missing_valid_bounds": []
+    }
+  },
+  "boundary_cases": [
+    {
+      "case": "Page Roster variants",
+      "source_evidence": "The fixed snapshot uses both four-column and five-column roster rows; report_core includes a Master column.",
+      "result": "passed",
+      "observation": "All 86 SVG assets resolve to a roster row, page type, picker name, and purpose."
+    },
+    {
+      "case": "Zero-slot page",
+      "source_evidence": [
+        "templates/layouts/presentation_core/templates/07_blank.svg",
+        "templates/layouts/presentation_core_43/templates/07_blank.svg",
+        "references/pptx-structure-interface.md:22"
+      ],
+      "result": "passed",
+      "observation": "Both Blank prototypes have zero slots; the source contract permits zero-slot pages, so no placeholder was invented."
+    },
+    {
+      "case": "Capacity and tokens",
+      "result": "passed",
+      "observation": "Each explicit slot has numeric bounds. Design Spec token lists are recorded separately because the source does not define a universal one-to-one token-to-slot binding or maximum character/line count."
+    },
+    {
+      "case": "Applicability and structure mode",
+      "result": "passed",
+      "observation": "The map records selection source, creation strategy, reuse scope, adherence, and flat/structured applicability. It preserves explicit-only metadata rules and does not infer layout assignment."
+    }
+  ],
+  "failure_case": {
+    "attempt": 1,
+    "result": "failed, then resolved",
+    "error_code": null,
+    "observed_error": "Unmapped layout assets: 13 report_core SVG roster rows were not associated.",
+    "block_reason": "The first parser assumed every roster had four columns; report_core adds a Master column.",
+    "resolution": "The generator now supports both roster shapes. The rerun passed with zero unmapped SVGs.",
+    "scope": "The failed assertion occurred before writing the map; it did not modify the upstream source or product runtime."
+  },
+  "limitations": [
+    "The map describes PPT Master source assets; it does not claim YoloongPPT has implemented these assets or selected this architecture.",
+    "Slot bounds describe geometric capacity zones. The source does not provide a universal maximum text length or line count, so those limits remain undefined.",
+    "No universal normalized IR combines the Markdown Design Spec, spec_lock contract, per-page SVG metadata, and optional native visualization payloads.",
+    "No product generation, full template render, Office round-trip, Docker application service, or AC-001–AC-030 test was run for this source-mapping task."
+  ]
+}

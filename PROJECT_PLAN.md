@@ -143,6 +143,18 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 主要边界：多数审美、内容及版式选择是 Prompt 引导的 Agent/LLM 判断；上游未定义确定性评分器时保留未定义。Quick smoke 仅观察最终输出，不能还原隐式推理；Default 仅静态追踪。
 - 静态核验：JSON 解析；24 节点均含所需字段；源码文件及行范围有效；40/40 DEC ID 均有关联节点。验证样例复核 Quick 正常输出、Quick/Default 路由边界和只读挂载初始化失败 `OSError errno=30`；失败为 P01-01 已留证，未重复触发。
 - 证据：`research/P01/decision_map.md`、`research/P01/project_decision_map.json`、`research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-03.json`；Excel“需求主表”`N14:P14`、“可执行任务”`L18:M19`。
+
+### TASK-RES-P01-04
+
+- Requirement ID：RES-P01-04；P0；依赖 RES-P01-02。
+- 状态：TASK-RES-P01-04、VERIFY-RES-P01-04 与 Requirement RES-P01-04 均已完成。固定 PPT Master commit 上建立 ProjectTemplateMap，涵盖 Brand/Style/Layout/Deck 索引及全部 7 组 Layout 原型。
+- 资产结构：21 个 Brand、14 个 Style、7 个 Layout、2 个 Deck；7 组 Layout 共 86 个 SVG、53 种页面类型、320 个显式 slot、287 个 Design Spec token。每页包含画布 viewBox、layout key、picker name、用途、Design Spec tokens、slot role 与几何 bounds。核对 86/86 SVG 对应 roster、86/86 有 viewBox、320/320 bounds 有效；Blank 页保留零 slot。
+- 规则与 IR：四种模板类型是正交组合，没有继承层级；记录 library/explicit、standard/fidelity/mirror、style/layout/mirror、strict/adaptive 与 flat/structured 的适用条件和显式元数据约束。Design Spec、spec_lock Schema、逐页 SVG 与可选 native visualization payload 分开记录；不宣称存在统一规范化 IR。
+- 容量限制：bounds 是几何容量区域；固定源码未声明通用字符数或行数上限，文本容量仍未定义。Design Spec token 与 SVG slot 也未被推断为一对一绑定。
+- 核验边界：首次 roster 解析漏掉 report_core 的 13 行（其表格比其他族多一列 Master）；按真实表结构修正后重跑，固定 commit、索引计数、roster、viewBox、slot bounds 检查全部通过。未运行产品生成、全模板渲染、Office round-trip 或 AC-001–AC-030。
+- 项目边界：本项只研究上游源码；未选 YoloongPPT 语言/运行时，没有改 compose.yaml。Chart 33 项、Table 6 种及 12,027 个图标向量分别记录为页面级可视化或资源库，不误列为模板类型。
+- 证据：research/P01/project_template_map.json、research/P01/tools/build_project_template_map.mjs、research/P01/validation/verify-res-p01-04.json、research/P01/README.md；Excel“需求主表”N15:P15、“可执行任务”L20:M21。
+
 ### TASK-RES-P02-01
 
 - Requirement ID：RES-P02-01；P0；无前置任务。

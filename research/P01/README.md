@@ -54,7 +54,7 @@ git -C ppt-master rev-parse HEAD
 | 官方 Quick 最小流程 | 已完成 | `projects/p01_hello_world_20261007/`、最终 PPTX 与 Postflight 报告 |
 | `VERIFY-RES-P01-01` 正常/边界/失败证据 | 已完成 | `projects/p01_hello_world_20261007/validation/verify-res-p01-01.json`、`validation/native-render/slide-01.png` 至 `slide-03.png`；PowerPoint 16.0 只读打开及视觉复核通过 |
 
-因此 `TASK-RES-P01-01`、`VERIFY-RES-P01-01` 与 `RES-P01-01` 均已完成。`TASK-RES-P01-02`、`VERIFY-RES-P01-02`、`TASK-RES-P01-03`、`VERIFY-RES-P01-03` 均已按矩阵完成；当前下一项为 `TASK-RES-P01-04`。
+因此 `TASK-RES-P01-01`、`VERIFY-RES-P01-01` 与 `RES-P01-01` 均已完成。`TASK-RES-P01-02`、`VERIFY-RES-P01-02`、`TASK-RES-P01-03`、`VERIFY-RES-P01-03` 均已按矩阵完成。
 
 ## RES-P01-02：调用链与源码索引
 
@@ -62,7 +62,7 @@ git -C ppt-master rev-parse HEAD
 - [call_graph.md](call_graph.md) 描述 Default、Quick 两条路径、条件节点、revision 和外部边界；[source_index.json](source_index.json) 为 12 个节点、13 条边记录上游文件、函数/Prompt/Schema 和固定源码行。所有本地文件及引用行经脚本检查存在。
 - `validation/verify-res-p01-02.json` 记录正常 Quick 生成、Quick/Default 路由边界，以及只读默认写入路径 `OSError errno=30` 的失败证据。其正常运行轨迹复用 `workflow.log`、PPTX、Postflight、ZIP/读取检查和 PowerPoint 16.0 渲染证据。
 - 运行与静态研究边界：Quick 有实际运行记录；Default 仅追踪源码，没有声称 Default 已运行。LLM/Agent Host 调度与本机/第三方 Office 渲染标为外部黑盒。环境中的 Python 版本仍只是实验观察，不代表 YoloongPPT 的语言、运行时或依赖选型；项目 Docker 配置未变。
-- 后续任务严格按矩阵依赖继续：`TASK-RES-P01-03`（决策节点）已完成；当前下一项是 `TASK-RES-P01-04`（模板/版式/中间表示），`TASK-RES-P01-05` 仍未开始。
+- 后续任务严格按矩阵依赖继续：`TASK-RES-P01-03`（决策节点）和 `TASK-RES-P01-04`（模板/版式/中间表示）已完成；当前下一项是 `TASK-RES-P01-05`。
 
 ## RES-P01-03：页面结构与视觉决策节点
 
@@ -70,6 +70,18 @@ git -C ppt-master rev-parse HEAD
 - [decision_map.md](decision_map.md) 为人读摘要；[project_decision_map.json](project_decision_map.json) 为结构化 ProjectDecisionMap，映射 DEC-001–DEC-040 共 40 个节点，并将 PPT Master 特有的 Quick/Default、两阶段确认、flat/structured 和 SVG 主笔责任单独标记。
 - 这些 crosswalk 是源码研究，不表示产品决策已实现或已验收。Agent/LLM 隐藏推理没有确定性评分器或完整 trace 时保留为外部黑盒；Quick 烟测只证明已选路径产物，不证明全部决策节点运行。
 - `validation/verify-res-p01-03.json` 记录正常 Quick、路由边界、只读写入失败样例和限定范围；默认路径失败为 `OSError errno=30`，此前已有实测日志，本次未重复触发。
+
+## RES-P01-04：模板、版式与中间表示
+
+- `TASK-RES-P01-04`、`VERIFY-RES-P01-04` 与 Requirement `RES-P01-04` 均已完成。依据固定 PPT Master commit 建立 [ProjectTemplateMap](project_template_map.json)，逐页记录主要 Layout 原型、画布、PowerPoint Layout key、slot、geometry、Design Spec tokens、用途和源码定位。
+- 资产盘点：21 个 Brand、14 个 Style、7 个 Layout、2 个 Deck；7 组 Layout 共 86 个 SVG 原型、53 种页面类型、320 个显式 slot 和 287 个 Design Spec token。每个 slot 的正数 bounds 均通过检查；两个 Blank 原型是合法零-slot 页面。
+- 模板类型边界：Brand、Style、Layout、Deck 是正交类型，不构成继承层级。Chart 33 项、Table 6 种是页面级可视化族；图标库 12,027 个向量，均不作为模板类型。索引内容与源 SHA-256 保存在 map。
+- 表示结构：保留 Markdown Design Spec、spec_lock Schema、逐页 SVG 元数据和可选原生 Chart/Table payload 的边界；没有把它们虚构成统一规范化 IR。Layout SVG 的 token 列表与 slot 角色分别记录，源码没有声明一对一绑定。
+- 容量边界：每个 slot 记录 SVG user units 下的 x/y/width/height、面积与画布比例。源码将 bounds 定义为几何容量区域，但没有统一字符数或行数上限；map 明确保留为未定义，不猜测文本容量。
+- 适用条件：记录 library/explicit 选择来源、standard/fidelity/mirror 创建方式、style/layout/mirror 复用范围、strict/adaptive 遵循方式及 flat/structured 结构模式；结构只能依据显式声明，不自动推断或升级旧契约。
+- 核验：固定源码 commit 校验、7/86/53/320 计数、索引声明数量、86/86 roster 映射、86/86 viewBox、320/320 有效 bounds 均通过。首次解析因 report_core 多出 Master 列未映射 13 行；按源码实际两种表结构修正后重跑通过。详见 [verify-res-p01-04.json](validation/verify-res-p01-04.json)。
+- 这是上游源码研究结果，不表示 YoloongPPT 已实现 PPT Master 资产或选择其架构；项目语言/运行时仍未选定，compose.yaml 未改动。下一项按矩阵依赖为 `TASK-RES-P01-05`。
+
 ## 来源
 
 - [PPT Master 固定源码快照](https://github.com/hugohe3/ppt-master/tree/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d)
