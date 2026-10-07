@@ -7,6 +7,7 @@ using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Validation;
 using A = DocumentFormat.OpenXml.Drawing;
+using C = DocumentFormat.OpenXml.Drawing.Charts;
 using P = DocumentFormat.OpenXml.Presentation;
 
 const string RouteId = "PP-04";
@@ -42,6 +43,7 @@ var validation = Validate(outputPath);
 var existingShapeMutation = RunExistingShapeMutation(fixturePath, artifacts);
 var imageRoundTrip = RunImageRoundTrip(fixturePath, artifacts);
 var tableRoundTrip = RunTableRoundTrip(fixturePath, artifacts);
+var chartRoundTrip = RunChartRoundTrip(fixturePath, artifacts);
 
 var invalidPath = Path.Combine(artifacts, "invalid-truncated.pptx");
 var fixtureBytes = File.ReadAllBytes(fixturePath);
@@ -99,6 +101,7 @@ var report = new
     existing_deck_mutation = existingShapeMutation,
     image_round_trip = imageRoundTrip,
     table_round_trip = tableRoundTrip,
+    chart_round_trip = chartRoundTrip,
     unknown_part_preservation = unknownPartTest,
     validation = new
     {
@@ -126,8 +129,9 @@ var report = new
         autoshape_rectangle_fill_stroke = existingShapeMutation.Status,
         embedded_image_add_replace_read = imageRoundTrip.Status,
         table_cell_text_read_update = tableRoundTrip.Status,
+        native_chart_series_data_read_update = chartRoundTrip.Status,
         unknown_part_preservation = unknownPartTest.Status,
-        chart_notes_comments_transitions_animations_media = "untested",
+        combo_error_bars_date_axis_notes_comments_transitions_animations_media = "untested",
         rendering = "untested"
     },
     limitations = new[]
@@ -139,7 +143,8 @@ var report = new
         "Only a rectangle with fixed fill/stroke and explicit EMU geometry was exercised; other AutoShape types, adjustments, and rotation remain untested.",
         "The image case adds and replaces an embedded 1x1 PNG, then reopens and verifies its relationship, binary hash, alt text, and EMU bounds. Crop, contain/cover, rotation, transparency, compression, linked images, rendering, and broader image compatibility remain untested.",
         "The table case creates and updates text in one 2x2 table created by this PoC; cell formatting, merges, row/column editing, rendering, and third-party table mutation remain untested.",
-        "Chart/notes/comments/transition/animation/media authoring and mutation were not exercised."
+        "The chart case creates one clustered column chart with one series, three categories, cached data and an embedded workbook; it updates one value in both the embedded workbook and chart cache. Combo charts, error bars, date axes, labels beyond value labels, rendering, and third-party chart mutation remain untested.",
+        "Notes/comments/transition/animation/media authoring and mutation were not exercised."
     }
 };
 
@@ -157,6 +162,7 @@ Console.WriteLine(JsonSerializer.Serialize(new
     existing_shape_mutation = existingShapeMutation.Status,
     image_round_trip = imageRoundTrip.Status,
     table_round_trip = tableRoundTrip.Status,
+    chart_round_trip = chartRoundTrip.Status,
     unknown_part_preservation = unknownPartTest.Status,
     validation_error_count = validation.ErrorCount,
     mutation_validation_error_count = existingShapeMutation.ValidatorErrorCount,
@@ -728,6 +734,379 @@ static void UpdateTableCellText(string path, string name, int rowIndex, int colu
     slide.Save();
 }
 
+static ChartRoundTripResult RunChartRoundTrip(string fixture, string artifactDirectory)
+{
+    const string chartName = "YoloongPPT Native Chart Probe";
+    const string updatedValue = "20";
+    const long expectedX = 457200L;
+    const long expectedY = 914400L;
+    const long expectedCx = 4572000L;
+    const long expectedCy = 2743200L;
+    var output = Path.Combine(artifactDirectory, "chart-roundtrip.pptx");
+    File.Copy(fixture, output, overwrite: true);
+    AddSlideAndText(output, "Native chart round trip", "The embedded chart workbook and cached series value are updated together.");
+    AddEditableProbeChart(output, chartName, expectedX, expectedY, expectedCx, expectedCy);
+
+    var before = ReadChartSnapshot(output, chartName);
+    UpdateChartValue(output, chartName, pointIndex: 1, updatedValue);
+    var after = ReadChartSnapshot(output, chartName);
+    var validation = Validate(output);
+    var embeddedWorkbookValidation = ValidateEmbeddedWorkbook(output, chartName);
+    var identityAndGeometryPreserved = before.ShapeId == after.ShapeId && before.Name == after.Name &&
+        before.X == after.X && before.Y == after.Y && before.Cx == after.Cx && before.Cy == after.Cy &&
+        after.X == expectedX && after.Y == expectedY && after.Cx == expectedCx && after.Cy == expectedCy;
+    var chartDefinitionPreserved = before.ChartType == "barChart" && after.ChartType == before.ChartType &&
+        before.Title == "Quarterly Revenue" && after.Title == before.Title &&
+        before.SeriesName == "Revenue" && after.SeriesName == before.SeriesName &&
+        before.Categories.SequenceEqual(new[] { "Q1", "Q2", "Q3" }) &&
+        after.Categories.SequenceEqual(before.Categories) &&
+        before.SeriesFormula == after.SeriesFormula && before.CategoryFormula == after.CategoryFormula &&
+        before.ValuesFormula == after.ValuesFormula && before.AxisIds.SequenceEqual(after.AxisIds) &&
+        before.HasLegend && after.HasLegend && before.HasValueLabels && after.HasValueLabels &&
+        before.EmbeddedWorkbookRelationshipId == before.EmbeddedRelationshipId &&
+        after.EmbeddedWorkbookRelationshipId == after.EmbeddedRelationshipId;
+    var dataUpdated = before.Values.SequenceEqual(new[] { "12", "18", "15" }) &&
+        after.Values.SequenceEqual(new[] { "12", updatedValue, "15" }) &&
+        before.EmbeddedWorkbookValue == "18" && after.EmbeddedWorkbookValue == updatedValue &&
+        before.EmbeddedWorkbookSha256 != after.EmbeddedWorkbookSha256;
+    var status = identityAndGeometryPreserved && chartDefinitionPreserved && dataUpdated &&
+        validation.ErrorCount == 0 && embeddedWorkbookValidation.ErrorCount == 0
+        ? "passed"
+        : "failed";
+
+    return new ChartRoundTripResult(
+        status,
+        "This PoC creates one clustered column chart with one series, three categories, cached values, and an embedded workbook; it saves/reopens and updates one value in the cache and embedded workbook. Rendering and other chart types/features are outside this case.",
+        "fixtures/python-pptx-default.pptx",
+        "artifacts/chart-roundtrip.pptx",
+        Sha256File(output),
+        chartName,
+        before,
+        after,
+        identityAndGeometryPreserved,
+        chartDefinitionPreserved,
+        dataUpdated,
+        validation.ErrorCount,
+        validation.Errors,
+        embeddedWorkbookValidation.ErrorCount,
+        embeddedWorkbookValidation.Errors);
+}
+
+static void AddEditableProbeChart(string path, string name, long x, long y, long cx, long cy)
+{
+    using var document = PresentationDocument.Open(path, isEditable: true);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the chart round-trip case.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from the chart test part.");
+    var shapeTree = slide.CommonSlideData?.ShapeTree
+        ?? throw new InvalidDataException("ShapeTree is missing from the chart test slide.");
+    var chartPart = slidePart.AddNewPart<ChartPart>();
+    var workbookPart = chartPart.AddEmbeddedPackagePart(EmbeddedPackagePartType.Xlsx);
+    var workbookBytes = CreateEmbeddedChartWorkbook();
+    using (var workbookStream = new MemoryStream(workbookBytes, writable: false))
+    {
+        workbookPart.FeedData(workbookStream);
+    }
+
+    var workbookRelationshipId = chartPart.GetIdOfPart(workbookPart);
+    var chartXml = $$"""
+        <c:chartSpace xmlns:c="http://schemas.openxmlformats.org/drawingml/2006/chart" xmlns:a="http://schemas.openxmlformats.org/drawingml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
+          <c:lang val="en-US"/>
+          <c:chart>
+            <c:title><c:tx><c:rich><a:bodyPr/><a:lstStyle/><a:p><a:r><a:rPr lang="en-US"/><a:t>Quarterly Revenue</a:t></a:r><a:endParaRPr lang="en-US"/></a:p></c:rich></c:tx><c:overlay val="0"/></c:title>
+            <c:plotArea>
+              <c:layout/>
+              <c:barChart>
+                <c:barDir val="col"/><c:grouping val="clustered"/><c:varyColors val="0"/>
+                <c:ser>
+                  <c:idx val="0"/><c:order val="0"/>
+                  <c:tx><c:strRef><c:f>ChartData!$B$1</c:f><c:strCache><c:ptCount val="1"/><c:pt idx="0"><c:v>Revenue</c:v></c:pt></c:strCache></c:strRef></c:tx>
+                  <c:invertIfNegative val="0"/>
+                  <c:cat><c:strRef><c:f>ChartData!$A$2:$A$4</c:f><c:strCache><c:ptCount val="3"/><c:pt idx="0"><c:v>Q1</c:v></c:pt><c:pt idx="1"><c:v>Q2</c:v></c:pt><c:pt idx="2"><c:v>Q3</c:v></c:pt></c:strCache></c:strRef></c:cat>
+                  <c:val><c:numRef><c:f>ChartData!$B$2:$B$4</c:f><c:numCache><c:formatCode>General</c:formatCode><c:ptCount val="3"/><c:pt idx="0"><c:v>12</c:v></c:pt><c:pt idx="1"><c:v>18</c:v></c:pt><c:pt idx="2"><c:v>15</c:v></c:pt></c:numCache></c:numRef></c:val>
+                </c:ser>
+                <c:dLbls><c:showLegendKey val="0"/><c:showVal val="1"/><c:showCatName val="0"/><c:showSerName val="0"/><c:showPercent val="0"/><c:showLeaderLines val="0"/></c:dLbls>
+                <c:gapWidth val="150"/><c:overlap val="0"/><c:axId val="48650112"/><c:axId val="48672768"/>
+              </c:barChart>
+              <c:catAx><c:axId val="48650112"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="b"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/><c:crossAx val="48672768"/><c:crosses val="autoZero"/><c:auto val="1"/><c:lblAlgn val="ctr"/><c:lblOffset val="100"/></c:catAx>
+              <c:valAx><c:axId val="48672768"/><c:scaling><c:orientation val="minMax"/></c:scaling><c:delete val="0"/><c:axPos val="l"/><c:numFmt formatCode="General" sourceLinked="1"/><c:majorTickMark val="none"/><c:minorTickMark val="none"/><c:tickLblPos val="nextTo"/><c:crossAx val="48650112"/><c:crosses val="autoZero"/><c:crossBetween val="between"/></c:valAx>
+            </c:plotArea>
+            <c:legend><c:legendPos val="r"/><c:overlay val="0"/></c:legend>
+            <c:plotVisOnly val="1"/><c:dispBlanksAs val="gap"/>
+          </c:chart>
+          <c:externalData r:id="{{workbookRelationshipId}}"><c:autoUpdate val="0"/></c:externalData>
+        </c:chartSpace>
+        """;
+    chartPart.ChartSpace = new C.ChartSpace(chartXml);
+    chartPart.ChartSpace.Save();
+
+    var chartRelationshipId = slidePart.GetIdOfPart(chartPart);
+    shapeTree.Append(new P.GraphicFrame(
+        new P.NonVisualGraphicFrameProperties(
+            new P.NonVisualDrawingProperties { Id = 4U, Name = name },
+            new P.NonVisualGraphicFrameDrawingProperties(),
+            new P.ApplicationNonVisualDrawingProperties()),
+        new P.Transform(
+            new A.Offset { X = x, Y = y },
+            new A.Extents { Cx = cx, Cy = cy }),
+        new A.Graphic(
+            new A.GraphicData(new C.ChartReference { Id = chartRelationshipId })
+            {
+                Uri = "http://schemas.openxmlformats.org/drawingml/2006/chart"
+            })));
+    slide.Save();
+}
+
+static byte[] CreateEmbeddedChartWorkbook()
+{
+    const string relationshipNamespace = "http://schemas.openxmlformats.org/package/2006/relationships";
+    const string officeRelationshipNamespace = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
+    const string spreadsheetNamespace = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+    const string contentTypesNamespace = "http://schemas.openxmlformats.org/package/2006/content-types";
+    XNamespace rel = relationshipNamespace;
+    XNamespace officeRel = officeRelationshipNamespace;
+    XNamespace sheet = spreadsheetNamespace;
+    XNamespace contentType = contentTypesNamespace;
+
+    using var output = new MemoryStream();
+    using (var archive = new ZipArchive(output, ZipArchiveMode.Create, leaveOpen: true))
+    {
+        WriteXmlEntry(archive, "[Content_Types].xml", new XDocument(
+            new XElement(contentType + "Types",
+                new XElement(contentType + "Default", new XAttribute("Extension", "rels"), new XAttribute("ContentType", "application/vnd.openxmlformats-package.relationships+xml")),
+                new XElement(contentType + "Default", new XAttribute("Extension", "xml"), new XAttribute("ContentType", "application/xml")),
+                new XElement(contentType + "Override", new XAttribute("PartName", "/xl/workbook.xml"), new XAttribute("ContentType", "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml")),
+                new XElement(contentType + "Override", new XAttribute("PartName", "/xl/worksheets/sheet1.xml"), new XAttribute("ContentType", "application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml")))));
+        WriteXmlEntry(archive, "_rels/.rels", new XDocument(
+            new XElement(rel + "Relationships",
+                new XElement(rel + "Relationship",
+                    new XAttribute("Id", "rId1"),
+                    new XAttribute("Type", "http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument"),
+                    new XAttribute("Target", "xl/workbook.xml")))));
+        WriteXmlEntry(archive, "xl/workbook.xml", new XDocument(
+            new XElement(sheet + "workbook",
+                new XAttribute(XNamespace.Xmlns + "r", officeRel),
+                new XElement(sheet + "sheets",
+                    new XElement(sheet + "sheet",
+                        new XAttribute("name", "ChartData"),
+                        new XAttribute("sheetId", "1"),
+                        new XAttribute(officeRel + "id", "rId1"))))));
+        WriteXmlEntry(archive, "xl/_rels/workbook.xml.rels", new XDocument(
+            new XElement(rel + "Relationships",
+                new XElement(rel + "Relationship",
+                    new XAttribute("Id", "rId1"),
+                    new XAttribute("Type", "http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet"),
+                    new XAttribute("Target", "worksheets/sheet1.xml")))));
+
+        var sheetData = new XElement(sheet + "sheetData",
+            MakeInlineStringRow(1, ("A1", "Quarter"), ("B1", "Revenue")),
+            MakeChartWorkbookRow(2, "Q1", "12"),
+            MakeChartWorkbookRow(3, "Q2", "18"),
+            MakeChartWorkbookRow(4, "Q3", "15"));
+        WriteXmlEntry(archive, "xl/worksheets/sheet1.xml", new XDocument(
+            new XElement(sheet + "worksheet", sheetData)));
+    }
+    return output.ToArray();
+}
+
+static XElement MakeInlineStringRow(int rowNumber, params (string address, string text)[] cells)
+{
+    XNamespace sheet = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+    return new XElement(sheet + "row", new XAttribute("r", rowNumber),
+        cells.Select(cell => new XElement(sheet + "c",
+            new XAttribute("r", cell.address),
+            new XAttribute("t", "inlineStr"),
+            new XElement(sheet + "is", new XElement(sheet + "t", cell.text)))));
+}
+
+static XElement MakeChartWorkbookRow(int rowNumber, string category, string value)
+{
+    XNamespace sheet = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+    return new XElement(sheet + "row", new XAttribute("r", rowNumber),
+        new XElement(sheet + "c", new XAttribute("r", $"A{rowNumber}"), new XAttribute("t", "inlineStr"),
+            new XElement(sheet + "is", new XElement(sheet + "t", category))),
+        new XElement(sheet + "c", new XAttribute("r", $"B{rowNumber}"), new XElement(sheet + "v", value)));
+}
+
+static void WriteXmlEntry(ZipArchive archive, string name, XDocument document)
+{
+    var entry = archive.CreateEntry(name, CompressionLevel.Optimal);
+    using var stream = entry.Open();
+    document.Save(stream, SaveOptions.DisableFormatting);
+}
+
+static void UpdateChartValue(string path, string name, int pointIndex, string updatedValue)
+{
+    using var document = PresentationDocument.Open(path, isEditable: true);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the chart update case.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from the chart update part.");
+    var frame = slide.CommonSlideData?.ShapeTree?.Elements<P.GraphicFrame>()
+        .SingleOrDefault(candidate => candidate.NonVisualGraphicFrameProperties?.NonVisualDrawingProperties?.Name?.Value == name)
+        ?? throw new InvalidDataException($"Chart graphic frame {name} was not found.");
+    var chartReference = frame.Graphic?.GraphicData?.GetFirstChild<C.ChartReference>()
+        ?? throw new InvalidDataException($"Chart graphic frame {name} has no chart reference.");
+    var chartPart = slidePart.GetPartById(chartReference.Id!.Value!) as ChartPart
+        ?? throw new InvalidDataException($"Chart reference for {name} does not resolve to a ChartPart.");
+    XNamespace chartNamespace = "http://schemas.openxmlformats.org/drawingml/2006/chart";
+    var chartDocument = XDocument.Parse(chartPart.ChartSpace?.OuterXml
+        ?? throw new InvalidDataException("ChartSpace is missing."));
+    var value = chartDocument.Descendants(chartNamespace + "numCache")
+        .Single()
+        .Elements(chartNamespace + "pt")
+        .Single(point => (string?)point.Attribute("idx") == pointIndex.ToString())
+        .Element(chartNamespace + "v")
+        ?? throw new InvalidDataException($"Chart value point {pointIndex} was not found.");
+    value.Value = updatedValue;
+    chartPart.ChartSpace = new C.ChartSpace(chartDocument.ToString(SaveOptions.DisableFormatting));
+    chartPart.ChartSpace.Save();
+
+    var embeddedWorkbook = chartPart.EmbeddedPackagePart
+        ?? throw new InvalidDataException("Embedded chart workbook part is missing.");
+    byte[] originalWorkbookBytes;
+    using (var originalWorkbookStream = embeddedWorkbook.GetStream(FileMode.Open, FileAccess.Read))
+    using (var originalWorkbook = new MemoryStream())
+    {
+        originalWorkbookStream.CopyTo(originalWorkbook);
+        originalWorkbookBytes = originalWorkbook.ToArray();
+    }
+    var updatedWorkbookBytes = UpdateEmbeddedWorkbookCell(originalWorkbookBytes, "B3", updatedValue);
+    using var updatedWorkbookStream = new MemoryStream(updatedWorkbookBytes, writable: false);
+    embeddedWorkbook.FeedData(updatedWorkbookStream);
+    slide.Save();
+}
+
+static byte[] UpdateEmbeddedWorkbookCell(byte[] workbookBytes, string cellAddress, string value)
+{
+    XNamespace sheet = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+    using var workbookStream = new MemoryStream(workbookBytes);
+    using (var archive = new ZipArchive(workbookStream, ZipArchiveMode.Update, leaveOpen: true))
+    {
+        var entry = archive.GetEntry("xl/worksheets/sheet1.xml")
+            ?? throw new InvalidDataException("Embedded chart workbook worksheet is missing.");
+        XDocument worksheet;
+        using (var input = entry.Open())
+        {
+            worksheet = XDocument.Load(input);
+        }
+        var cell = worksheet.Descendants(sheet + "c")
+            .SingleOrDefault(candidate => (string?)candidate.Attribute("r") == cellAddress)
+            ?? throw new InvalidDataException($"Embedded chart workbook cell {cellAddress} is missing.");
+        cell.Attribute("t")?.Remove();
+        cell.Elements(sheet + "v").Remove();
+        cell.Add(new XElement(sheet + "v", value));
+        entry.Delete();
+        WriteXmlEntry(archive, "xl/worksheets/sheet1.xml", worksheet);
+    }
+    return workbookStream.ToArray();
+}
+
+static ChartSnapshot ReadChartSnapshot(string path, string name)
+{
+    using var document = PresentationDocument.Open(path, isEditable: false);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the chart snapshot case.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from the chart snapshot part.");
+    var frame = slide.CommonSlideData?.ShapeTree?.Elements<P.GraphicFrame>()
+        .SingleOrDefault(candidate => candidate.NonVisualGraphicFrameProperties?.NonVisualDrawingProperties?.Name?.Value == name)
+        ?? throw new InvalidDataException($"Chart graphic frame {name} was not found.");
+    var drawingProperties = frame.NonVisualGraphicFrameProperties?.NonVisualDrawingProperties
+        ?? throw new InvalidDataException($"Chart graphic frame {name} has no identity properties.");
+    var transform = frame.Transform ?? throw new InvalidDataException($"Chart graphic frame {name} has no bounds.");
+    var chartReference = frame.Graphic?.GraphicData?.GetFirstChild<C.ChartReference>()
+        ?? throw new InvalidDataException($"Chart graphic frame {name} has no chart reference.");
+    var chartPart = slidePart.GetPartById(chartReference.Id!.Value!) as ChartPart
+        ?? throw new InvalidDataException($"Chart reference for {name} does not resolve to a ChartPart.");
+    var chartSpace = chartPart.ChartSpace ?? throw new InvalidDataException("ChartSpace is missing.");
+    var chartDocument = XDocument.Parse(chartSpace.OuterXml);
+    XNamespace chart = "http://schemas.openxmlformats.org/drawingml/2006/chart";
+    XNamespace drawing = "http://schemas.openxmlformats.org/drawingml/2006/main";
+    XNamespace officeRel = "http://schemas.openxmlformats.org/officeDocument/2006/relationships";
+    var chartElement = chartDocument.Root?.Element(chart + "chart") ?? throw new InvalidDataException("Chart element is missing.");
+    var plotArea = chartElement.Element(chart + "plotArea") ?? throw new InvalidDataException("Chart plot area is missing.");
+    var series = plotArea.Descendants(chart + "ser").SingleOrDefault() ?? throw new InvalidDataException("Expected exactly one chart series.");
+    var categories = series.Element(chart + "cat")?.Descendants(chart + "strCache").Elements(chart + "pt")
+        .Select(point => point.Element(chart + "v")?.Value ?? string.Empty).ToArray() ?? [];
+    var values = series.Element(chart + "val")?.Descendants(chart + "numCache").Elements(chart + "pt")
+        .Select(point => point.Element(chart + "v")?.Value ?? string.Empty).ToArray() ?? [];
+    var embeddedWorkbook = chartPart.EmbeddedPackagePart
+        ?? throw new InvalidDataException("Embedded chart workbook part is missing.");
+    var externalRelationshipId = chartDocument.Root?.Element(chart + "externalData")?.Attribute(officeRel + "id")?.Value;
+    var chartType = plotArea.Elements().FirstOrDefault(element => element.Name != chart + "layout")?.Name.LocalName;
+    var axisIds = plotArea.Elements()
+        .Where(element => element.Name == chart + "catAx" || element.Name == chart + "valAx")
+        .Select(axis => axis.Element(chart + "axId")?.Attribute("val")?.Value ?? string.Empty)
+        .ToArray();
+    using var embeddedStream = embeddedWorkbook.GetStream(FileMode.Open, FileAccess.Read);
+    using var embeddedBytes = new MemoryStream();
+    embeddedStream.CopyTo(embeddedBytes);
+    var workbookData = embeddedBytes.ToArray();
+
+    return new ChartSnapshot(
+        drawingProperties.Id?.Value,
+        drawingProperties.Name?.Value,
+        transform.Offset?.X?.Value,
+        transform.Offset?.Y?.Value,
+        transform.Extents?.Cx?.Value,
+        transform.Extents?.Cy?.Value,
+        string.Concat(chartElement.Element(chart + "title")?.Descendants(drawing + "t").Select(text => text.Value) ?? []),
+        chartType,
+        series.Element(chart + "tx")?.Descendants(chart + "strCache").Elements(chart + "pt").FirstOrDefault()?.Element(chart + "v")?.Value,
+        categories,
+        values,
+        series.Element(chart + "tx")?.Descendants(chart + "strRef").Elements(chart + "f").FirstOrDefault()?.Value,
+        series.Element(chart + "cat")?.Descendants(chart + "strRef").Elements(chart + "f").FirstOrDefault()?.Value,
+        series.Element(chart + "val")?.Descendants(chart + "numRef").Elements(chart + "f").FirstOrDefault()?.Value,
+        axisIds,
+        chartElement.Element(chart + "legend") is not null,
+        chartElement.Descendants(chart + "showVal").Any(element => (string?)element.Attribute("val") == "1"),
+        externalRelationshipId,
+        chartPart.GetIdOfPart(embeddedWorkbook),
+        ReadEmbeddedWorkbookCell(workbookData, "B3"),
+        Sha256Bytes(workbookData));
+}
+
+static string ReadEmbeddedWorkbookCell(byte[] workbookBytes, string cellAddress)
+{
+    XNamespace sheet = "http://schemas.openxmlformats.org/spreadsheetml/2006/main";
+    using var input = new MemoryStream(workbookBytes, writable: false);
+    using var archive = new ZipArchive(input, ZipArchiveMode.Read);
+    var entry = archive.GetEntry("xl/worksheets/sheet1.xml")
+        ?? throw new InvalidDataException("Embedded chart workbook worksheet is missing.");
+    using var stream = entry.Open();
+    var worksheet = XDocument.Load(stream);
+    return worksheet.Descendants(sheet + "c")
+        .SingleOrDefault(cell => (string?)cell.Attribute("r") == cellAddress)?
+        .Element(sheet + "v")?.Value
+        ?? throw new InvalidDataException($"Embedded chart workbook cell {cellAddress} is missing.");
+}
+
+static ValidationResult ValidateEmbeddedWorkbook(string presentationPath, string chartName)
+{
+    using var presentation = PresentationDocument.Open(presentationPath, isEditable: false);
+    var slidePart = presentation.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide to validate the embedded chart workbook.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from embedded workbook validation.");
+    var frame = slide.CommonSlideData?.ShapeTree?.Elements<P.GraphicFrame>()
+        .SingleOrDefault(candidate => candidate.NonVisualGraphicFrameProperties?.NonVisualDrawingProperties?.Name?.Value == chartName)
+        ?? throw new InvalidDataException($"Chart graphic frame {chartName} was not found.");
+    var chartReference = frame.Graphic?.GraphicData?.GetFirstChild<C.ChartReference>()
+        ?? throw new InvalidDataException("Chart reference is missing.");
+    var chartPart = slidePart.GetPartById(chartReference.Id!.Value!) as ChartPart
+        ?? throw new InvalidDataException("Chart reference does not resolve to a ChartPart.");
+    var embeddedPart = chartPart.EmbeddedPackagePart ?? throw new InvalidDataException("Embedded chart workbook part is missing.");
+    using var input = embeddedPart.GetStream(FileMode.Open, FileAccess.Read);
+    using var memory = new MemoryStream();
+    input.CopyTo(memory);
+    using var workbook = SpreadsheetDocument.Open(new MemoryStream(memory.ToArray(), writable: false), isEditable: false);
+    var errors = new OpenXmlValidator(FileFormatVersions.Office2019)
+        .Validate(workbook)
+        .Take(20)
+        .Select(error => $"{error.ErrorType}: {error.Description} ({error.Path?.XPath})")
+        .ToArray();
+    return new ValidationResult(errors.Length, errors);
+}
+
 static Dictionary<string, string> HashSelectedParts(string path)
 {
     using var file = File.OpenRead(path);
@@ -954,6 +1333,46 @@ internal sealed record TableRoundTripResult(
     bool TextUpdated,
     int ValidatorErrorCount,
     string[] ValidatorErrors);
+
+internal sealed record ChartSnapshot(
+    uint? ShapeId,
+    string? Name,
+    long? X,
+    long? Y,
+    long? Cx,
+    long? Cy,
+    string Title,
+    string? ChartType,
+    string? SeriesName,
+    string[] Categories,
+    string[] Values,
+    string? SeriesFormula,
+    string? CategoryFormula,
+    string? ValuesFormula,
+    string[] AxisIds,
+    bool HasLegend,
+    bool HasValueLabels,
+    string? EmbeddedRelationshipId,
+    string EmbeddedWorkbookRelationshipId,
+    string EmbeddedWorkbookValue,
+    string EmbeddedWorkbookSha256);
+
+internal sealed record ChartRoundTripResult(
+    string Status,
+    string TestScope,
+    string InputFile,
+    string OutputFile,
+    string OutputSha256,
+    string ChartName,
+    ChartSnapshot Before,
+    ChartSnapshot After,
+    bool IdentityAndGeometryPreserved,
+    bool ChartDefinitionPreserved,
+    bool DataUpdated,
+    int ValidatorErrorCount,
+    string[] ValidatorErrors,
+    int EmbeddedWorkbookValidatorErrorCount,
+    string[] EmbeddedWorkbookValidatorErrors);
 
 internal sealed record InvalidInputResult(string Status, string? ExceptionType, string? Message);
 

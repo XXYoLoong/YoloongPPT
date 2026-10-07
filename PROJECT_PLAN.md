@@ -63,19 +63,19 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 ### TASK-GOV-005
 
 - Requirement ID：GOV-005；P0；无前置任务。
-- 状态：进行中。已建立 `CapabilityStatus` Draft 2020-12 契约草案，并逐项登记 Excel“PowerPoint对象矩阵”的 PPT-001–030 × PP-01–09 共 270 个状态。当前 PP-04 有 11 项能力为 `Partial`，其余 19 项为 `Untested`；其他 8 条路线的 240 项能力仍为 `Untested`。每项均保留证据、版本和范围边界。
+- 状态：进行中。已建立 `CapabilityStatus` Draft 2020-12 契约草案，并逐项登记 Excel“PowerPoint对象矩阵”的 PPT-001–030 × PP-01–09 共 270 个状态。当前 PP-04 有 12 项能力为 `Partial`，其余 18 项为 `Untested`；其他 8 条路线的 240 项能力仍为 `Untested`。每项均保留证据、版本和范围边界。
 - 当前边界：PP-04 的候选 PoC 依赖已固定为 `DocumentFormat.OpenXml` 3.5.1、`DocumentFormat.OpenXml.Framework` 3.5.1、`System.IO.Packaging` 10.0.2；隔离容器实际观察到 .NET SDK 10.0.401。它们只描述此次实验，不是产品语言、运行时或后端选型。PP-08/PP-09 仍只固定候选源码 commit；其余六条路线版本仍未冻结。所有路线的产品后端、API set/Office build 选型均未完成。`SYS-007` Capability Registry 尚未开始，基线也未枚举系统级非 PPT 原子能力或具体运行时 Adapter 实例；catalog 明确登记这两类范围缺口。`VERIFY-GOV-005` 仍未开始。
-- 静态核验：30 项能力 × 9 条路线共 270 条记录；PP-04 当前 11 项 `Partial`、19 项 `Untested`，其余路线保持原状态；3 条候选路线的版本已固定，其他 6 条仍未冻结。PoC 已在锁定 Docker 镜像内运行并生成结构校验、形状修改、图片往返和表格单元格文本往返报告；能力矩阵和 catalog 状态相符。
+- 静态核验：30 项能力 × 9 条路线共 270 条记录；PP-04 当前 12 项 `Partial`、18 项 `Untested`，其余路线保持原状态；3 条候选路线的版本已固定，其他 6 条仍未冻结。PoC 已在锁定 Docker 镜像内运行并生成结构校验、形状修改、图片往返、表格单元格文本往返和图表系列数据往返报告；能力矩阵和 catalog 状态相符。
 - 证据：`contracts/capability-status.schema.json`、`contracts/capability-status.catalog.json`、`contracts/capability-status.fixtures.json`；Excel“PowerPoint对象矩阵”`H2:H31`、“PowerPoint后端”`H5:N5`；`research/poc/PP-04/README.md`、`research/poc/PP-04/artifacts/report.json`。
 
 ### TASK-ADP-PP-04-01 / VERIFY-ADP-PP-04-01
 
 - Requirement ID：ADP-PP-04-01；P0。两个任务仍为进行中：已完成一轮可运行 PoC 和正常/边界/失败验证，但后端行要求的能力清单尚未全部实测。
-- 已验证：在固定镜像 `mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317`（实验中观察到 SDK 10.0.401）中，以锁定依赖运行 PoC。固定 MIT 样例含 1 个 master、11 个 layouts、1 个 theme、0 张 slides；正常用例新增带 title/body 占位符的 1 张 slide。形状用例保存并重新打开 PPTX 后修改矩形探针文本；shape ID/name、preset `rect`、fill/stroke 与 x/y/cx/cy 全部保持，EMU 为 914400/457200/3657600/1828800。图片用例嵌入 1×1 PNG 后重新打开并原位替换图像字节；relationship、content type、alt text、shape ID/name 与 x/y/cx/cy 保持，图像 SHA-256 按预期改变。表格用例新建 2×2 table、保存并重开、读取四个单元格，再更新右下单元格文本；table shape ID/name、x/y/cx/cy 与行列数保持。四个 PPTX 输出均通过 Office 2019 `OpenXmlValidator`（0 错误）。未知部件往返 SHA-256 一致；64 字节截断包按预期以 `System.IO.FileFormatException` 失败；无 slide 的模板作为边界输入被记录。
+- 已验证：在固定镜像 `mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317`（实验中观察到 SDK 10.0.401）中，以锁定依赖运行 PoC。固定 MIT 样例含 1 个 master、11 个 layouts、1 个 theme、0 张 slides；正常用例新增带 title/body 占位符的 1 张 slide。形状用例保存并重新打开 PPTX 后修改矩形探针文本；shape ID/name、preset `rect`、fill/stroke 与 x/y/cx/cy 全部保持，EMU 为 914400/457200/3657600/1828800。图片用例嵌入 1×1 PNG 后重新打开并原位替换图像字节；relationship、content type、alt text、shape ID/name 与 x/y/cx/cy 保持，图像 SHA-256 按预期改变。表格用例新建 2×2 table、保存并重开、读取四个单元格，再更新右下单元格文本；table shape ID/name、x/y/cx/cy 与行列数保持。图表用例新建含一个系列和 Q1–Q3 三个类别的柱形图，并绑定内嵌 XLSX；保存重开后将 Q2 数据从 18 更新为 20，同时更新图表数据缓存和 XLSX 单元格；series/category 公式、标题、图例、数值标签、坐标轴 ID、图表身份和 EMU 边界保持。PPTX 的五个输出均通过 Office 2019 `OpenXmlValidator`（0 错误），图表内嵌 XLSX 亦通过 Office 2019 校验（0 错误）。未知部件往返 SHA-256 一致；64 字节截断包按预期以 `System.IO.FileFormatException` 失败；无 slide 的模板作为边界输入被记录。
 - 往返边界：`slideLayout1.xml` 与 `slideLayout11.xml` 原始字节哈希变化，但母版/布局/主题 XML 经过 namespace declaration、attribute order 和 insignificant formatting whitespace 规范化后相同。该结构比较不代表 Office 渲染保真。探针形状由同一 PoC 新建，不是预先填充的第三方 slide。
-- 尚待验证：图片的 crop/contain/cover/rotation/transparency/compress/link-vs-embed 与渲染；表格的合并、边框/填充/字体/对齐、行列编辑、表头、分页、渲染及第三方既有表格读改保存；图表、media、notes/comments、transitions/animations 及其读改保存；其他 AutoShape/adjustment/rotation、PowerPoint/LibreOffice 渲染与广泛第三方模板兼容性。此清单未实测前，TASK/VERIFY 保持进行中。
+- 尚待验证：图片的 crop/contain/cover/rotation/transparency/compress/link-vs-embed 与渲染；表格的合并、边框/填充/字体/对齐、行列编辑、表头、分页、渲染及第三方既有表格读改保存；图表组合图、误差线、日期轴、其他类型、image fallback、PowerPoint 编辑数据行为、渲染及第三方既有图表读改保存；media、notes/comments、transitions/animations 及其读改保存；其他 AutoShape/adjustment/rotation、PowerPoint/LibreOffice 渲染与广泛第三方模板兼容性。此清单未实测前，TASK/VERIFY 保持进行中。
 - 实验依赖和 SDK 版本仅是候选实验记录，产品架构/运行时/后端仍未选定。
-- 证据：`research/poc/PP-04/PP04PoC.csproj`、`packages.lock.json`、`fixtures/`、`artifacts/pp04-output.pptx`、`artifacts/existing-shape-mutation.pptx`、`artifacts/image-roundtrip.pptx`、`artifacts/table-roundtrip.pptx`、`artifacts/report.json`、Excel“PowerPoint后端”`H5:N5`、“PowerPoint对象矩阵”`H2:H31`、“可执行任务”`L276:M277`。
+- 证据：`research/poc/PP-04/PP04PoC.csproj`、`packages.lock.json`、`fixtures/`、`artifacts/pp04-output.pptx`、`artifacts/existing-shape-mutation.pptx`、`artifacts/image-roundtrip.pptx`、`artifacts/table-roundtrip.pptx`、`artifacts/chart-roundtrip.pptx`、`artifacts/report.json`、Excel“PowerPoint后端”`H5:N5`、“PowerPoint对象矩阵”`H2:H31`、“可执行任务”`L276:M277`。
 
 ### TASK-GOV-006
 

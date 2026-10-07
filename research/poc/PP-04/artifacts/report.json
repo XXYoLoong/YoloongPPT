@@ -22,7 +22,7 @@
     "sample_path": "src/pptx/templates/default.pptx",
     "license": "MIT",
     "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
-    "poc_program_sha256": "9e81efcc163f6ecf0ae3fb93cd15608e18dfcf01f31512f5d45d857095de683c"
+    "poc_program_sha256": "6163f2fd804b4c78f9fff74ba6119e967f60d0d98e71e176f270590da61f47b5"
   },
   "input_inventory": {
     "master_count": 1,
@@ -40,7 +40,7 @@
   "normal_case": {
     "status": "passed",
     "output_file": "artifacts/pp04-output.pptx",
-    "output_sha256": "3ed8e1dce5c50e6860e944d28a558eed23403bf80742fa2a9006e074fc35c4f9",
+    "output_sha256": "259102dd1a84537f082ae067b2fa6010a44bc683eebc53bbe237eea5f8472714",
     "output_inventory": {
       "master_count": 1,
       "layout_count": 11,
@@ -74,7 +74,7 @@
     "test_scope": "The probe shape is created and saved by this PoC, then the deck is reopened and the same shape\u0027s text is changed; this is not a foreign populated template test.",
     "input_file": "fixtures/python-pptx-default.pptx",
     "output_file": "artifacts/existing-shape-mutation.pptx",
-    "output_sha256": "5942c4ec707bc2e3646b96f5d1d83f98ae17c3a68f5062e387b3d5a85d87ca44",
+    "output_sha256": "0226e348a82ffb42d1d8498b23a7f921669cb5b2ee5bfa56e281bed6c2be8ffb",
     "shape_name": "YoloongPPT Editable Probe",
     "before": {
       "shape_id": 4,
@@ -110,7 +110,7 @@
     "test_scope": "A 1x1 PNG is embedded by this PoC, then replaced in place; this does not exercise crop/render behavior or a third-party image object.",
     "input_file": "fixtures/python-pptx-default.pptx",
     "output_file": "artifacts/image-roundtrip.pptx",
-    "output_sha256": "dadd7fd007ba2a4116ae50b7122e98431bcc14ef86f32c3a41dac72a5f8d7d32",
+    "output_sha256": "d35a0f9675a0c29f5aef4f4a1e0d8c0b659dfe71f01bfb4906d9690fcb9dd12d",
     "image_name": "YoloongPPT Embedded Image Probe",
     "alt_text": "One-pixel embedded PNG used to verify image relationships and replacement.",
     "original_image_sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b",
@@ -119,7 +119,7 @@
       "shape_id": 4,
       "name": "YoloongPPT Embedded Image Probe",
       "alt_text": "One-pixel embedded PNG used to verify image relationships and replacement.",
-      "relationship_id": "R65111f57950241dd",
+      "relationship_id": "R4be347bf06704af7",
       "content_type": "image/png",
       "image_sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b",
       "x": 914400,
@@ -131,7 +131,7 @@
       "shape_id": 4,
       "name": "YoloongPPT Embedded Image Probe",
       "alt_text": "One-pixel embedded PNG used to verify image relationships and replacement.",
-      "relationship_id": "R65111f57950241dd",
+      "relationship_id": "R4be347bf06704af7",
       "content_type": "image/png",
       "image_sha256": "d3c936ebdd73f46e6422d5946044c99d524554082272019ab738800318b04892",
       "x": 914400,
@@ -150,7 +150,7 @@
     "test_scope": "This PoC creates a 2x2 table, saves and reopens the deck, updates one cell\u0027s text, then reads it back; table formatting and editing a third-party table are outside this case.",
     "input_file": "fixtures/python-pptx-default.pptx",
     "output_file": "artifacts/table-roundtrip.pptx",
-    "output_sha256": "f7ff4c4a46cc58092ca22c915a66a4475dfdf93456d181cb18d700a9759fa503",
+    "output_sha256": "4792889926e424530d3b5e806edf95dd5d3fe98a3d968afe280a17b291915ba3",
     "table_name": "YoloongPPT Editable Table Probe",
     "before": {
       "shape_id": 4,
@@ -198,6 +198,89 @@
     "validator_error_count": 0,
     "validator_errors": []
   },
+  "chart_round_trip": {
+    "status": "passed",
+    "test_scope": "This PoC creates one clustered column chart with one series, three categories, cached values, and an embedded workbook; it saves/reopens and updates one value in the cache and embedded workbook. Rendering and other chart types/features are outside this case.",
+    "input_file": "fixtures/python-pptx-default.pptx",
+    "output_file": "artifacts/chart-roundtrip.pptx",
+    "output_sha256": "693e85867c2461900476cb5c598376b34779b4330ddb879d7721ee93e478abf1",
+    "chart_name": "YoloongPPT Native Chart Probe",
+    "before": {
+      "shape_id": 4,
+      "name": "YoloongPPT Native Chart Probe",
+      "x": 457200,
+      "y": 914400,
+      "cx": 4572000,
+      "cy": 2743200,
+      "title": "Quarterly Revenue",
+      "chart_type": "barChart",
+      "series_name": "Revenue",
+      "categories": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "values": [
+        "12",
+        "18",
+        "15"
+      ],
+      "series_formula": "ChartData!$B$1",
+      "category_formula": "ChartData!$A$2:$A$4",
+      "values_formula": "ChartData!$B$2:$B$4",
+      "axis_ids": [
+        "48650112",
+        "48672768"
+      ],
+      "has_legend": true,
+      "has_value_labels": true,
+      "embedded_relationship_id": "R7e7fdf4f61a84dd5",
+      "embedded_workbook_relationship_id": "R7e7fdf4f61a84dd5",
+      "embedded_workbook_value": "18",
+      "embedded_workbook_sha256": "1e19758ebf6a431dba6168e0efce217f312038bad71f220ad06619290a2e4322"
+    },
+    "after": {
+      "shape_id": 4,
+      "name": "YoloongPPT Native Chart Probe",
+      "x": 457200,
+      "y": 914400,
+      "cx": 4572000,
+      "cy": 2743200,
+      "title": "Quarterly Revenue",
+      "chart_type": "barChart",
+      "series_name": "Revenue",
+      "categories": [
+        "Q1",
+        "Q2",
+        "Q3"
+      ],
+      "values": [
+        "12",
+        "20",
+        "15"
+      ],
+      "series_formula": "ChartData!$B$1",
+      "category_formula": "ChartData!$A$2:$A$4",
+      "values_formula": "ChartData!$B$2:$B$4",
+      "axis_ids": [
+        "48650112",
+        "48672768"
+      ],
+      "has_legend": true,
+      "has_value_labels": true,
+      "embedded_relationship_id": "R7e7fdf4f61a84dd5",
+      "embedded_workbook_relationship_id": "R7e7fdf4f61a84dd5",
+      "embedded_workbook_value": "20",
+      "embedded_workbook_sha256": "2cd2a9aff425d0ce28239cf02bef1176055bbc0e17571778deba1aaf03ee1269"
+    },
+    "identity_and_geometry_preserved": true,
+    "chart_definition_preserved": true,
+    "data_updated": true,
+    "validator_error_count": 0,
+    "validator_errors": [],
+    "embedded_workbook_validator_error_count": 0,
+    "embedded_workbook_validator_errors": []
+  },
   "unknown_part_preservation": {
     "status": "passed",
     "input_file": "artifacts/unknown-part-input.pptx",
@@ -235,8 +318,9 @@
     "autoshape_rectangle_fill_stroke": "passed",
     "embedded_image_add_replace_read": "passed",
     "table_cell_text_read_update": "passed",
+    "native_chart_series_data_read_update": "passed",
     "unknown_part_preservation": "passed",
-    "chart_notes_comments_transitions_animations_media": "untested",
+    "combo_error_bars_date_axis_notes_comments_transitions_animations_media": "untested",
     "rendering": "untested"
   },
   "limitations": [
@@ -247,6 +331,7 @@
     "Only a rectangle with fixed fill/stroke and explicit EMU geometry was exercised; other AutoShape types, adjustments, and rotation remain untested.",
     "The image case adds and replaces an embedded 1x1 PNG, then reopens and verifies its relationship, binary hash, alt text, and EMU bounds. Crop, contain/cover, rotation, transparency, compression, linked images, rendering, and broader image compatibility remain untested.",
     "The table case creates and updates text in one 2x2 table created by this PoC; cell formatting, merges, row/column editing, rendering, and third-party table mutation remain untested.",
-    "Chart/notes/comments/transition/animation/media authoring and mutation were not exercised."
+    "The chart case creates one clustered column chart with one series, three categories, cached data and an embedded workbook; it updates one value in both the embedded workbook and chart cache. Combo charts, error bars, date axes, labels beyond value labels, rendering, and third-party chart mutation remain untested.",
+    "Notes/comments/transition/animation/media authoring and mutation were not exercised."
   ]
 }

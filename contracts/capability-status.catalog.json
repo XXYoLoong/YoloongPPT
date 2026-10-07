@@ -3,7 +3,7 @@
   "contract_status": "draft",
   "requirement_id": "GOV-005",
   "assessment_context": {
-    "repository_revision": "084c52d6a0013696cc46d2e41e51cfb26eb14031",
+    "repository_revision": "e0e943c0532a412bb39090c279039d743647077a",
     "revision_scope": "能力状态审计所依据的仓库快照；不是产品或后端版本。",
     "matrix_source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
   },
@@ -4394,14 +4394,14 @@
         {
           "capability_id": "PPT-017",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
           "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H18",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4412,9 +4412,14 @@
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
               "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "chart_round_trip",
+              "observed": "passed：创建一个含单系列与三类别的柱形图并绑定内嵌 XLSX；保存重开后同步更新图表缓存与内嵌表格的 Q2 值（18→20），title/series/categories/axis IDs/legend/value labels/公式与图表身份/EMU 保持；PPTX 和内嵌 XLSX 的 Office 2019 Validator 均为 0 错误。组合图、误差线、日期轴、其他类型、image fallback、PowerPoint 编辑数据行为、渲染及第三方既有图表未测。"
             }
           ],
-          "assessment_note": "PPT-017：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
+          "assessment_note": "PPT-017：仅验证本 PoC 创建的单系列三类别柱形图、series/category 引用、标题、坐标轴、图例、数值标签、内嵌 XLSX 与图表缓存同步更新，故标记 Partial。组合图、误差线、日期轴、其他类型、image fallback、PowerPoint 编辑数据行为、渲染及第三方既有图表读改保存未测试；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-017",
