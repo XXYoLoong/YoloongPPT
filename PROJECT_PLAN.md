@@ -288,6 +288,15 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：任务输出为 SourceAnchor；“数据对象”表无同名行，本任务不增删需求、任务或数据对象行。
 - 证据：contracts/source-anchor.schema.json、contracts/source-anchor.catalog.json、contracts/source-anchor.fixtures.json、contracts/source-bundle.schema.json/catalog.json/fixtures.json；Excel“需求主表”N55:P55、“可执行任务”L83:M83。
 
+### TASK-CNT-001
+
+- Requirement ID：CNT-001；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 FactConstraintSet Draft 2020-12 契约、目录和正常/边界预期 fixture；实体、金额/比例、日期、单位、指标、引文和引用分别记录原始表述、可选规范值、证据 ID 与 SourceAnchor。
+- 冲突与缺失：冲突保留全部 claim；DEC-004 未决时不选 winner。缺失值保持空并引用 ERR-009/MISSING_FACT；显式假设必须关联已有 assumption_id；解析部分失败使用 ERR-006/PARSE_PARTIAL。允许的改写转换仅记录 PresentationContext 明示项。
+- 静态核对：32 个 schema 引用和 6 个目录文件引用可定位；正常 fixture 含 10 项保真约束，边界 fixture 覆盖 8%/9% 冲突、缺失续约日期、显式 12% 假设和部分解析失败，evidence/source/anchor 互相匹配。未运行 JSON Schema 实例验证器、事实抽取/改写引擎或 AC-001–AC-030。
+- 基线对齐：“数据对象”表已有 FactConstraintSet 行；仅更新状态和备注，不新增需求、任务或数据对象行。Schema版本仍为“待定义”，草案未获批准。
+- 证据：contracts/fact-constraint-set.schema.json、catalog.json、fixtures.json；Excel“需求主表”N56:P56、“可执行任务”L84:M84、“数据对象”I9:J9。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
