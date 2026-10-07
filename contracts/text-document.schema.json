@@ -1,0 +1,365 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TextDocumentModel 契约（IN-002 草案）",
+  "description": "保留纯文本/Markdown 的原文、块结构、嵌套层级、链接/引用标记及源位置；只做语法结构解析，不执行内容或路由判断。",
+  "oneOf": [
+    { "$ref": "#/$defs/markdown_parse_input" },
+    { "$ref": "#/$defs/markdown_parse_result" }
+  ],
+  "$defs": {
+    "input_source": {
+      "oneOf": [
+        { "$ref": "#/$defs/raw_text_source" },
+        { "$ref": "#/$defs/asset_source" },
+        { "$ref": "#/$defs/url_source" }
+      ]
+    },
+    "raw_text_source": {
+      "type": "object",
+      "required": ["kind", "source_ref"],
+      "properties": {
+        "kind": { "const": "raw_text" },
+        "source_ref": { "const": "raw_markdown" }
+      },
+      "additionalProperties": false
+    },
+    "asset_source": {
+      "type": "object",
+      "required": ["kind", "asset_id"],
+      "properties": {
+        "kind": { "const": "asset" },
+        "asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" }
+      },
+      "additionalProperties": false
+    },
+    "url_source": {
+      "type": "object",
+      "required": ["kind", "uri"],
+      "properties": {
+        "kind": { "const": "url" },
+        "uri": { "type": "string", "format": "uri", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "source_location": {
+      "type": "object",
+      "required": ["source_ref", "start_offset", "end_offset", "offset_unit", "line_start", "line_end"],
+      "properties": {
+        "source_ref": { "const": "raw_markdown" },
+        "start_offset": { "type": "integer", "minimum": 0 },
+        "end_offset": { "type": "integer", "minimum": 0 },
+        "offset_unit": { "const": "unicode_code_point" },
+        "line_start": { "type": "integer", "minimum": 1 },
+        "line_end": { "type": "integer", "minimum": 1 }
+      },
+      "additionalProperties": false
+    },
+    "inline_node": {
+      "oneOf": [
+        { "$ref": "#/$defs/text_node" },
+        { "$ref": "#/$defs/link_node" },
+        { "$ref": "#/$defs/image_node" },
+        { "$ref": "#/$defs/citation_node" },
+        { "$ref": "#/$defs/inline_code_node" },
+        { "$ref": "#/$defs/emphasis_node" },
+        { "$ref": "#/$defs/strong_node" },
+        { "$ref": "#/$defs/line_break_node" }
+      ]
+    },
+    "text_node": {
+      "type": "object",
+      "required": ["kind", "text", "source_location"],
+      "properties": {
+        "kind": { "const": "text" },
+        "text": { "type": "string" },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "link_node": {
+      "type": "object",
+      "required": ["kind", "label", "destination", "title", "source_location"],
+      "properties": {
+        "kind": { "const": "link" },
+        "label": { "type": "array", "items": { "$ref": "#/$defs/inline_node" } },
+        "destination": { "type": "string", "format": "uri-reference" },
+        "title": { "type": ["string", "null"] },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "image_node": {
+      "type": "object",
+      "required": ["kind", "alt_text", "destination", "title", "source_location"],
+      "properties": {
+        "kind": { "const": "image" },
+        "alt_text": { "type": "string" },
+        "destination": { "type": "string", "format": "uri-reference" },
+        "title": { "type": ["string", "null"] },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "citation_node": {
+      "type": "object",
+      "required": ["kind", "raw_marker", "source_location"],
+      "properties": {
+        "kind": { "const": "citation" },
+        "raw_marker": { "type": "string", "minLength": 1 },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "inline_code_node": {
+      "type": "object",
+      "required": ["kind", "literal", "source_location"],
+      "properties": {
+        "kind": { "const": "inline_code" },
+        "literal": { "type": "string" },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "emphasis_node": {
+      "type": "object",
+      "required": ["kind", "children", "source_location"],
+      "properties": {
+        "kind": { "const": "emphasis" },
+        "children": { "type": "array", "items": { "$ref": "#/$defs/inline_node" } },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "strong_node": {
+      "type": "object",
+      "required": ["kind", "children", "source_location"],
+      "properties": {
+        "kind": { "const": "strong" },
+        "children": { "type": "array", "items": { "$ref": "#/$defs/inline_node" } },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "line_break_node": {
+      "type": "object",
+      "required": ["kind", "break_kind", "source_location"],
+      "properties": {
+        "kind": { "const": "line_break" },
+        "break_kind": { "type": "string", "enum": ["soft", "hard"] },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "table_cell": {
+      "type": "object",
+      "required": ["content", "source_location"],
+      "properties": {
+        "content": { "type": "array", "items": { "$ref": "#/$defs/inline_node" } },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "list_item": {
+      "type": "object",
+      "required": ["marker", "ordinal", "blocks", "source_location"],
+      "properties": {
+        "marker": { "type": "string", "minLength": 1 },
+        "ordinal": { "type": ["integer", "null"] },
+        "blocks": { "type": "array", "items": { "$ref": "#/$defs/markdown_block" } },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "markdown_block": {
+      "oneOf": [
+        { "$ref": "#/$defs/heading_block" },
+        { "$ref": "#/$defs/paragraph_block" },
+        { "$ref": "#/$defs/list_block" },
+        { "$ref": "#/$defs/code_block" },
+        { "$ref": "#/$defs/table_block" },
+        { "$ref": "#/$defs/blockquote_block" },
+        { "$ref": "#/$defs/footnote_definition_block" }
+      ]
+    },
+    "heading_block": {
+      "type": "object",
+      "required": ["kind", "block_index", "level", "content", "source_location"],
+      "properties": {
+        "kind": { "const": "heading" },
+        "block_index": { "type": "integer", "minimum": 0 },
+        "level": { "type": "integer", "minimum": 1, "maximum": 6 },
+        "content": { "type": "array", "items": { "$ref": "#/$defs/inline_node" } },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "paragraph_block": {
+      "type": "object",
+      "required": ["kind", "block_index", "content", "source_location"],
+      "properties": {
+        "kind": { "const": "paragraph" },
+        "block_index": { "type": "integer", "minimum": 0 },
+        "content": { "type": "array", "items": { "$ref": "#/$defs/inline_node" } },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "list_block": {
+      "type": "object",
+      "required": ["kind", "block_index", "list_kind", "start_number", "items", "source_location"],
+      "properties": {
+        "kind": { "const": "list" },
+        "block_index": { "type": "integer", "minimum": 0 },
+        "list_kind": { "type": "string", "enum": ["ordered", "unordered"] },
+        "start_number": { "type": ["integer", "null"], "minimum": 1 },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/list_item" } },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "list_kind": { "const": "ordered" } }, "required": ["list_kind"] },
+          "then": { "properties": { "start_number": { "type": "integer", "minimum": 1 } } }
+        },
+        {
+          "if": { "properties": { "list_kind": { "const": "unordered" } }, "required": ["list_kind"] },
+          "then": { "properties": { "start_number": { "type": "null" } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "code_block": {
+      "type": "object",
+      "required": ["kind", "block_index", "fence_char", "fence_length", "language", "literal", "source_location"],
+      "properties": {
+        "kind": { "const": "code_block" },
+        "block_index": { "type": "integer", "minimum": 0 },
+        "fence_char": { "type": "string", "enum": ["backtick", "tilde"] },
+        "fence_length": { "type": "integer", "minimum": 3 },
+        "language": { "type": ["string", "null"] },
+        "literal": { "type": "string" },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "table_block": {
+      "type": "object",
+      "required": ["kind", "block_index", "header", "alignments", "rows", "source_location"],
+      "properties": {
+        "kind": { "const": "table" },
+        "block_index": { "type": "integer", "minimum": 0 },
+        "header": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/table_cell" } },
+        "alignments": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["default", "left", "center", "right"] }
+        },
+        "rows": {
+          "type": "array",
+          "items": { "type": "array", "items": { "$ref": "#/$defs/table_cell" } }
+        },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "blockquote_block": {
+      "type": "object",
+      "required": ["kind", "block_index", "blocks", "source_location"],
+      "properties": {
+        "kind": { "const": "blockquote" },
+        "block_index": { "type": "integer", "minimum": 0 },
+        "blocks": { "type": "array", "items": { "$ref": "#/$defs/markdown_block" } },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "footnote_definition_block": {
+      "type": "object",
+      "required": ["kind", "block_index", "label", "content", "source_location"],
+      "properties": {
+        "kind": { "const": "footnote_definition" },
+        "block_index": { "type": "integer", "minimum": 0 },
+        "label": { "type": "string", "minLength": 1 },
+        "content": { "type": "array", "items": { "$ref": "#/$defs/inline_node" } },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "text_document_model": {
+      "type": "object",
+      "required": ["model_type", "source", "blocks"],
+      "properties": {
+        "model_type": { "const": "TextDocumentModel" },
+        "source": { "$ref": "#/$defs/input_source" },
+        "blocks": { "type": "array", "items": { "$ref": "#/$defs/markdown_block" } }
+      },
+      "additionalProperties": false
+    },
+    "parse_error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "message": { "type": "string", "minLength": 1 },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "markdown_parse_input": {
+      "type": "object",
+      "required": ["record_type", "raw_markdown", "source", "raw_asset_refs"],
+      "properties": {
+        "record_type": { "const": "markdown_parse_input" },
+        "raw_markdown": { "type": "string", "description": "解析输入的逐字原文；解析过程中不得原位覆盖或静默裁剪。" },
+        "source": { "$ref": "#/$defs/input_source" },
+        "raw_asset_refs": {
+          "type": "array",
+          "items": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+          "description": "必须按原序保留调用方提供的 Asset ID；与 source.asset_id 的成员关系由运行时校验。"
+        }
+      },
+      "additionalProperties": false
+    },
+    "markdown_parse_result": {
+      "type": "object",
+      "required": ["record_type", "raw_markdown", "source", "raw_asset_refs", "status", "document", "errors"],
+      "properties": {
+        "record_type": { "const": "markdown_parse_result" },
+        "raw_markdown": { "type": "string", "description": "必须与对应输入完全相同。" },
+        "source": { "$ref": "#/$defs/input_source" },
+        "raw_asset_refs": {
+          "type": "array",
+          "items": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+          "description": "必须与对应输入逐项、按序相同。"
+        },
+        "status": { "type": "string", "enum": ["parsed", "failed"] },
+        "document": {
+          "oneOf": [
+            { "$ref": "#/$defs/text_document_model" },
+            { "type": "null" }
+          ]
+        },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/parse_error" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "parsed" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "document": { "$ref": "#/$defs/text_document_model" },
+              "errors": { "maxItems": 0 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "document": { "type": "null" },
+              "errors": { "minItems": 1 }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

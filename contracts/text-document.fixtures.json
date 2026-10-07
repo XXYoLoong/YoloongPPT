@@ -1,0 +1,175 @@
+{
+  "document_type": "text_document_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-002",
+  "fixtures": [
+    {
+      "fixture_id": "IN-002-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "markdown_parse_input",
+        "raw_markdown": "# 光伏原理\n\n用于课堂的 [来源](https://example.org/solar) 与脚注[^source]。\n\n- 组件把光能转成电能\n  - 保留层级\n\n```text\n组件输出直流电\n```\n\n| 指标 | 数值 |\n| --- | --- |\n| 效率 | 20% |\n\n> 引用原文\n[^source]: 示例出处",
+        "source": { "kind": "raw_text", "source_ref": "raw_markdown" },
+        "raw_asset_refs": []
+      },
+      "expected_result": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "# 光伏原理\n\n用于课堂的 [来源](https://example.org/solar) 与脚注[^source]。\n\n- 组件把光能转成电能\n  - 保留层级\n\n```text\n组件输出直流电\n```\n\n| 指标 | 数值 |\n| --- | --- |\n| 效率 | 20% |\n\n> 引用原文\n[^source]: 示例出处",
+        "source": { "kind": "raw_text", "source_ref": "raw_markdown" },
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "document": {
+          "model_type": "TextDocumentModel",
+          "source": { "kind": "raw_text", "source_ref": "raw_markdown" },
+          "blocks": [
+            {
+              "kind": "heading",
+              "block_index": 0,
+              "level": 1,
+              "content": [
+                { "kind": "text", "text": "光伏原理", "source_location": { "source_ref": "raw_markdown", "start_offset": 2, "end_offset": 6, "offset_unit": "unicode_code_point", "line_start": 1, "line_end": 1 } }
+              ],
+              "source_location": { "source_ref": "raw_markdown", "start_offset": 0, "end_offset": 6, "offset_unit": "unicode_code_point", "line_start": 1, "line_end": 1 }
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 1,
+              "content": [
+                { "kind": "text", "text": "用于课堂的 ", "source_location": { "source_ref": "raw_markdown", "start_offset": 8, "end_offset": 14, "offset_unit": "unicode_code_point", "line_start": 3, "line_end": 3 } },
+                {
+                  "kind": "link",
+                  "label": [
+                    { "kind": "text", "text": "来源", "source_location": { "source_ref": "raw_markdown", "start_offset": 15, "end_offset": 17, "offset_unit": "unicode_code_point", "line_start": 3, "line_end": 3 } }
+                  ],
+                  "destination": "https://example.org/solar",
+                  "title": null,
+                  "source_location": { "source_ref": "raw_markdown", "start_offset": 14, "end_offset": 45, "offset_unit": "unicode_code_point", "line_start": 3, "line_end": 3 }
+                },
+                { "kind": "text", "text": " 与脚注", "source_location": { "source_ref": "raw_markdown", "start_offset": 45, "end_offset": 49, "offset_unit": "unicode_code_point", "line_start": 3, "line_end": 3 } },
+                { "kind": "citation", "raw_marker": "[^source]", "source_location": { "source_ref": "raw_markdown", "start_offset": 49, "end_offset": 58, "offset_unit": "unicode_code_point", "line_start": 3, "line_end": 3 } },
+                { "kind": "text", "text": "。", "source_location": { "source_ref": "raw_markdown", "start_offset": 58, "end_offset": 59, "offset_unit": "unicode_code_point", "line_start": 3, "line_end": 3 } }
+              ],
+              "source_location": { "source_ref": "raw_markdown", "start_offset": 8, "end_offset": 59, "offset_unit": "unicode_code_point", "line_start": 3, "line_end": 3 }
+            },
+            {
+              "kind": "list",
+              "block_index": 2,
+              "list_kind": "unordered",
+              "start_number": null,
+              "items": [
+                {
+                  "marker": "-",
+                  "ordinal": null,
+                  "blocks": [
+                    {
+                      "kind": "paragraph",
+                      "block_index": 0,
+                      "content": [
+                        { "kind": "text", "text": "组件把光能转成电能", "source_location": { "source_ref": "raw_markdown", "start_offset": 63, "end_offset": 72, "offset_unit": "unicode_code_point", "line_start": 5, "line_end": 5 } }
+                      ],
+                      "source_location": { "source_ref": "raw_markdown", "start_offset": 63, "end_offset": 72, "offset_unit": "unicode_code_point", "line_start": 5, "line_end": 5 }
+                    }
+                  ],
+                  "source_location": { "source_ref": "raw_markdown", "start_offset": 61, "end_offset": 72, "offset_unit": "unicode_code_point", "line_start": 5, "line_end": 5 }
+                },
+                {
+                  "marker": "-",
+                  "ordinal": null,
+                  "blocks": [
+                    {
+                      "kind": "paragraph",
+                      "block_index": 0,
+                      "content": [
+                        { "kind": "text", "text": "保留层级", "source_location": { "source_ref": "raw_markdown", "start_offset": 77, "end_offset": 81, "offset_unit": "unicode_code_point", "line_start": 6, "line_end": 6 } }
+                      ],
+                      "source_location": { "source_ref": "raw_markdown", "start_offset": 77, "end_offset": 81, "offset_unit": "unicode_code_point", "line_start": 6, "line_end": 6 }
+                    }
+                  ],
+                  "source_location": { "source_ref": "raw_markdown", "start_offset": 73, "end_offset": 81, "offset_unit": "unicode_code_point", "line_start": 6, "line_end": 6 }
+                }
+              ],
+              "source_location": { "source_ref": "raw_markdown", "start_offset": 61, "end_offset": 81, "offset_unit": "unicode_code_point", "line_start": 5, "line_end": 6 }
+            },
+            {
+              "kind": "code_block",
+              "block_index": 3,
+              "fence_char": "backtick",
+              "fence_length": 3,
+              "language": "text",
+              "literal": "组件输出直流电",
+              "source_location": { "source_ref": "raw_markdown", "start_offset": 83, "end_offset": 102, "offset_unit": "unicode_code_point", "line_start": 8, "line_end": 10 }
+            },
+            {
+              "kind": "table",
+              "block_index": 4,
+              "header": [
+                { "content": [{ "kind": "text", "text": "指标", "source_location": { "source_ref": "raw_markdown", "start_offset": 106, "end_offset": 108, "offset_unit": "unicode_code_point", "line_start": 12, "line_end": 12 } }], "source_location": { "source_ref": "raw_markdown", "start_offset": 106, "end_offset": 108, "offset_unit": "unicode_code_point", "line_start": 12, "line_end": 12 } },
+                { "content": [{ "kind": "text", "text": "数值", "source_location": { "source_ref": "raw_markdown", "start_offset": 111, "end_offset": 113, "offset_unit": "unicode_code_point", "line_start": 12, "line_end": 12 } }], "source_location": { "source_ref": "raw_markdown", "start_offset": 111, "end_offset": 113, "offset_unit": "unicode_code_point", "line_start": 12, "line_end": 12 } }
+              ],
+              "alignments": ["default", "default"],
+              "rows": [
+                [
+                  { "content": [{ "kind": "text", "text": "效率", "source_location": { "source_ref": "raw_markdown", "start_offset": 132, "end_offset": 134, "offset_unit": "unicode_code_point", "line_start": 14, "line_end": 14 } }], "source_location": { "source_ref": "raw_markdown", "start_offset": 132, "end_offset": 134, "offset_unit": "unicode_code_point", "line_start": 14, "line_end": 14 } },
+                  { "content": [{ "kind": "text", "text": "20%", "source_location": { "source_ref": "raw_markdown", "start_offset": 137, "end_offset": 140, "offset_unit": "unicode_code_point", "line_start": 14, "line_end": 14 } }], "source_location": { "source_ref": "raw_markdown", "start_offset": 137, "end_offset": 140, "offset_unit": "unicode_code_point", "line_start": 14, "line_end": 14 } }
+                ]
+              ],
+              "source_location": { "source_ref": "raw_markdown", "start_offset": 104, "end_offset": 142, "offset_unit": "unicode_code_point", "line_start": 12, "line_end": 14 }
+            },
+            {
+              "kind": "blockquote",
+              "block_index": 5,
+              "blocks": [
+                {
+                  "kind": "paragraph",
+                  "block_index": 0,
+                  "content": [
+                    { "kind": "text", "text": "引用原文", "source_location": { "source_ref": "raw_markdown", "start_offset": 146, "end_offset": 150, "offset_unit": "unicode_code_point", "line_start": 16, "line_end": 16 } }
+                  ],
+                  "source_location": { "source_ref": "raw_markdown", "start_offset": 146, "end_offset": 150, "offset_unit": "unicode_code_point", "line_start": 16, "line_end": 16 }
+                }
+              ],
+              "source_location": { "source_ref": "raw_markdown", "start_offset": 144, "end_offset": 150, "offset_unit": "unicode_code_point", "line_start": 16, "line_end": 16 }
+            },
+            {
+              "kind": "footnote_definition",
+              "block_index": 6,
+              "label": "source",
+              "content": [
+                { "kind": "text", "text": "示例出处", "source_location": { "source_ref": "raw_markdown", "start_offset": 162, "end_offset": 166, "offset_unit": "unicode_code_point", "line_start": 17, "line_end": 17 } }
+              ],
+              "source_location": { "source_ref": "raw_markdown", "start_offset": 151, "end_offset": 166, "offset_unit": "unicode_code_point", "line_start": 17, "line_end": 17 }
+            }
+          ]
+        },
+        "errors": []
+      },
+      "verification_note": "契约预期 fixture；运行时 Markdown parser 尚未实现。"
+    },
+    {
+      "fixture_id": "IN-002-BOUNDARY-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "markdown_parse_input",
+        "raw_markdown": "   ",
+        "source": { "kind": "raw_text", "source_ref": "raw_markdown" },
+        "raw_asset_refs": []
+      },
+      "expected_result": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "   ",
+        "source": { "kind": "raw_text", "source_ref": "raw_markdown" },
+        "raw_asset_refs": [],
+        "status": "failed",
+        "document": null,
+        "errors": [
+          {
+            "code": "MARKDOWN_EMPTY",
+            "message": "Markdown 输入为空或仅含空白，无法产生文档块。",
+            "source_location": { "source_ref": "raw_markdown", "start_offset": 0, "end_offset": 3, "offset_unit": "unicode_code_point", "line_start": 1, "line_end": 1 }
+          }
+        ]
+      },
+      "verification_note": "契约预期 fixture；错误语义和解析器行为仍待运行时验证。"
+    }
+  ]
+}

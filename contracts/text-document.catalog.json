@@ -1,0 +1,42 @@
+{
+  "document_type": "text_document_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-002",
+  "task_id": "TASK-IN-002",
+  "schema": "contracts/text-document.schema.json",
+  "fixtures": "contracts/text-document.fixtures.json",
+  "deliverable": "TextDocumentModel",
+  "source_kinds": ["raw_text", "asset", "url"],
+  "block_kinds": ["heading", "paragraph", "list", "code_block", "table", "blockquote", "footnote_definition"],
+  "inline_kinds": ["text", "link", "image", "citation", "inline_code", "emphasis", "strong", "line_break"],
+  "field_rules": [
+    "raw_markdown 必须逐字保留；解析输出不得覆盖原文。raw_asset_refs 必须按原序回传；source.asset_id 是否属于 raw_asset_refs 由运行时校验。",
+    "blocks 按原文先后排列；block_index 从 0 连续递增。嵌套块在所属 list item 或 blockquote 内按同一规则排序。",
+    "source_location.start_offset 为包含端、end_offset 为不包含端，均以原始字符串 Unicode code point 计；行号从 1 开始且首尾行均包含。CRLF、LF、CR 都是行边界，但不会改写 raw_markdown。",
+    "标题 level 保留 1–6；列表按嵌套树保留 item 顺序、marker 和 ordinal；围栏代码保留语言、围栏类型/长度与 literal。",
+    "表格保留表头、行列顺序、单元格来源跨度与对齐方式；每行单元格数及 alignments 数须与表头列数一致。",
+    "链接保留 label、destination、title；图片只保留 Markdown 中的 alt/destination/title，不在 IN-002 下载或解释图片资产。",
+    "citation raw_marker 和 footnote_definition 原样保留；本契约不验证引用来源真实性、目标存在性或外部文献元数据。",
+    "解析失败时仍返回原文、来源与结构化错误；不得静默删除无法解释的语法或将完整文档压平成一个无定位文本块。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "IN-002-NORMAL-001",
+      "fixture_id": "IN-002-NORMAL-001",
+      "purpose": "验证标题、段落、链接/脚注引用、嵌套列表、围栏代码、表格、块引用及位置保留。",
+      "acceptance": "原文和资产引用保持一致；TextDocumentModel 的块顺序、标题层级、列表嵌套、代码、表头/行/对齐、链接与引用均有结构表示及可回溯源位置。"
+    },
+    {
+      "case_id": "IN-002-BOUNDARY-001",
+      "fixture_id": "IN-002-BOUNDARY-001",
+      "purpose": "验证仅含空白的 Markdown 输入。",
+      "acceptance": "status 为 failed、document 为 null，errors 至少一条且 code=MARKDOWN_EMPTY；原文及空白来源位置保留。"
+    }
+  ],
+  "limits": [
+    "Schema、catalog 和 fixtures 是 TASK-IN-002 的语言/运行时无关草案；Markdown 方言、解析库、运行时、依赖版本及许可证尚未选定。表格与脚注语法的运行时兼容范围须由后续实现/PoC 确认。",
+    "TextDocumentModel 是任务表已列出的交付名，但当前数据对象表没有同名注册行；本契约直接追溯到 TASK-IN-002，不新增需求或任务。",
+    "JSON Schema 不能证明跨度与 raw_markdown 内容匹配、block_index 连续、表格列数一致或源资产引用一致；这些需要运行时验证。",
+    "运行时 Markdown parser、文件读取、URL 获取、持久化及应用入口尚未实现。"
+  ]
+}

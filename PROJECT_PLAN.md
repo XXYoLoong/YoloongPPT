@@ -162,6 +162,15 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：自然语言正常样例及空白边界 fixture 已建立；JSON 结构和来源跨度静态核对通过。运行时 parser 未实现，原文/资产引用一致性和跨度语义尚无运行时执行证据，故 `TASK-IN-001` 保持进行中；AC-001 仍未执行。
 - 证据：`contracts/prompt-input.schema.json`、`contracts/prompt-input.catalog.json`、`contracts/prompt-input.fixtures.json`；Excel“需求主表”`N40:P40`、“可执行任务”`L68:M68`、“数据对象”第 2 行。
 
+### TASK-IN-002
+
+- Requirement ID：IN-002；P0；无前置任务。
+- 状态：进行中。已建立 `TextDocumentModel` Draft 2020-12 契约、目录和预期 fixture；模型按原顺序保留标题层级、段落/块位置、嵌套列表、围栏代码、表格、链接、图片引用、块引用与脚注标记。
+- 边界：原始 Markdown 逐字保留；未知语法不得静默扁平化。Markdown 方言、解析库、运行时、依赖和许可证未选定；URL 获取与图片下载不属于本契约的解析实现。任务表有 `TextDocumentModel` 交付名，但数据对象表未单列该对象，本任务只追溯到既有 TASK-IN-002，不增加 Requirement/Task。
+- 静态核验：schema/catalog/fixtures JSON 可解析且 `$ref` 可解析到本地 definitions；fixture 的 31 个来源跨度与行号自洽，块索引、表格列数和正常/边界状态满足草案约定。未运行标准 JSON Schema 验证器。
+- 验收边界：正常结构样例与空白边界样例已建立；parser 尚未实现，方言兼容、真实解析、源位置语义和错误行为没有运行时验证，因此 `TASK-IN-002` 保持进行中；AC-001–AC-030 均未执行。
+- 证据：`contracts/text-document.schema.json`、`contracts/text-document.catalog.json`、`contracts/text-document.fixtures.json`；Excel“需求主表”`N41:P41`、“可执行任务”`L69:M69`。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
