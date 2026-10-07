@@ -1,0 +1,60 @@
+{
+  "verification_id": "VERIFY-RES-P01-02",
+  "requirement_id": "RES-P01-02",
+  "task_id": "TASK-RES-P01-02",
+  "upstream_commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+  "verdict": "已完成",
+  "method": "固定提交源码追踪 + 引用检查 + 已保存 Quick 实际运行轨迹复核",
+  "source_index_sha256": "607d05111f4ec94bb87f9f527c30c52a3f725ee253f74976f936bd2ead9dcffe",
+  "acceptance": "主链路节点均可定位到源码/Prompt/Schema/配置或标记为外部黑盒；有可复现的正常、边界、失败证据；失败原因/errno 已记录。",
+  "cases": [
+    {
+      "id": "NORMAL-QUICK-01",
+      "scenario": "从来源准备到三页 PPTX 导出",
+      "result": "通过；最终 SVG 检查 3/3 页、0 warning、0 error；PPTX Postflight passed；ZIP 与 python-pptx 读取通过；PowerPoint 16.0 外部只读打开并渲染三页",
+      "scope": "Quick 路线实测；非 Default",
+      "evidence": [
+        "research/P01/projects/p01_hello_world_20261007/validation/workflow.log",
+        "research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json",
+        "research/P01/projects/p01_hello_world_20261007/exports/p01-hello-world.pptx",
+        "research/P01/projects/p01_hello_world_20261007/validation/native-render/slide-01.png",
+        "research/P01/projects/p01_hello_world_20261007/validation/native-render/slide-02.png",
+        "research/P01/projects/p01_hello_world_20261007/validation/native-render/slide-03.png"
+      ],
+      "pptx_sha256": "c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25"
+    },
+    {
+      "id": "BOUNDARY-QUICK-01",
+      "scenario": "Quick 与 Default 的工作流分界",
+      "result": "通过；路由源码规定 Quick 跳过 Strategist、Confirm UI、design_spec/schema 与 spec_lock；已有 workflow.log 观测到 profile=quick 并完成 Quick 专属检查和导出",
+      "scope": "路由条件由源码核实，Quick 路径有运行证据；未执行 Default",
+      "evidence": [
+        "research/P01/call_graph.md",
+        "research/P01/source_index.json",
+        "research/P01/projects/p01_hello_world_20261007/validation/workflow.log"
+      ]
+    },
+    {
+      "id": "FAIL-READONLY-01",
+      "scenario": "项目默认路径落在只读挂载时初始化",
+      "result": "预期失败，已记录 OSError errno=30（EROFS / read-only file system）；显式切换到可写项目挂载后初始化成功",
+      "scope": "该失败在先前 P01-01 运行中实测并留在任务日志；本次以已保存记录复核，没有重新触发",
+      "evidence": [
+        "ailog/复现PPTMaster最小生成流程_20261007-182450.md",
+        "development-log/复现PPTMaster最小生成流程_20261007-182450.md",
+        "research/P01/README.md"
+      ],
+      "error": {
+        "meaning": "EROFS / read-only file system",
+        "type": "OSError",
+        "errno": 30
+      }
+    }
+  ],
+  "limits": [
+    "Quick 有实际运行证据；Default 只做固定版本源码追踪，未声称其运行通过。",
+    "Agent Host 内部的 LLM 推理/工具编排、默认路线的用户确认响应和 PowerPoint/LibreOffice 渲染属于外部组件；外部 PowerPoint 仅完成独立 QA。",
+    "此次验证没有选择 YoloongPPT 的产品语言、运行时、架构或 Docker 应用依赖。"
+  ],
+  "checked_at": "2026-10-07T18:41:18 -04:00"
+}

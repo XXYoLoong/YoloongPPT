@@ -1,0 +1,192 @@
+{
+  "requirement_id": "RES-P01-02",
+  "task_id": "TASK-RES-P01-02",
+  "verification_task_id": "VERIFY-RES-P01-02",
+  "upstream": {
+    "repository": "https://github.com/hugohe3/ppt-master",
+    "branch": "main",
+    "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+    "local_read_only_clone": "F:/YoloongPPT-Research/P01"
+  },
+  "interpretation": {
+    "project_kind": "Agent skill/workflow package with CLIs, schemas, prompts, QA and PPTX builder; not a standalone LLM orchestration runtime",
+    "model_and_agent_host_execution": "external_black_box",
+    "user_confirmation": "external_actor; workflow and UI protocol are in repository",
+    "default_route_runtime_observed": false,
+    "quick_route_runtime_observed": true,
+    "product_architecture_or_runtime_selected": false
+  },
+  "nodes": [
+    {
+      "id": "route",
+      "phase": "input_and_routing",
+      "routes": ["Default", "Quick"],
+      "source": [
+        {"file": "skills/ppt-master/SKILL.md", "lines": "25-54", "symbol": "Mandatory Load Order; request routing table", "kind": "prompt_and_route_map"},
+        {"file": "skills/ppt-master/workflows/routing.md", "lines": "27-64", "symbol": "Top-Level Route Matrix; Generate profiles and stages", "kind": "route_rules"}
+      ],
+      "observed": "static_and_quick_trace"
+    },
+    {
+      "id": "source_intake",
+      "phase": "input_and_routing",
+      "routes": ["Default", "Quick"],
+      "source": [
+        {"file": "skills/ppt-master/workflows/generate-pptx.md", "lines": "32-49", "symbol": "Step 1: Source Content Processing", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/workflows/profiles/quick-generate.md", "lines": "49-83", "symbol": "§2 Source and Resource Preparation", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/scripts/source_to_md.py", "lines": "282,574", "symbol": "dispatch_single; main", "kind": "implementation"},
+        {"file": "skills/ppt-master/scripts/source_to_md/_dispatcher.py", "lines": "60", "symbol": "detect_source_type", "kind": "implementation"}
+      ],
+      "observed": "quick_trace_imported_markdown_source"
+    },
+    {
+      "id": "project_setup",
+      "phase": "project_and_sources",
+      "routes": ["Default", "Quick"],
+      "source": [
+        {"file": "skills/ppt-master/workflows/generate-pptx.md", "lines": "53-68", "symbol": "Step 2: init and import-sources", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/workflows/profiles/quick-generate.md", "lines": "49-83", "symbol": "Quick source preparation and project init", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/scripts/project_management/cli.py", "lines": "261-280,273-325,806-806,1150-1173,1197-1304", "symbol": "ProjectManager; init_project; import_sources; validate_project; parser/main", "kind": "implementation"},
+        {"file": "skills/ppt-master/scripts/project_management/paths.py", "lines": "23", "symbol": "PROJECTS_ROOT", "kind": "configuration"}
+      ],
+      "observed": "quick_init_import_and_read_only_boundary"
+    },
+    {
+      "id": "template_and_canvas",
+      "phase": "planning_inputs",
+      "routes": ["Default", "Quick"],
+      "source": [
+        {"file": "skills/ppt-master/workflows/generate-pptx.md", "lines": "72-90", "symbol": "Step 3: Template Candidate Preparation", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/workflows/routing.md", "lines": "48-49,107-116", "symbol": "Default confirmation and template root boundaries", "kind": "route_rules"},
+        {"file": "skills/ppt-master/references/canvas-formats.md", "lines": "1-57", "symbol": "registered canvas formats", "kind": "configuration"},
+        {"file": "skills/ppt-master/references/strategist-template.md", "lines": "3-79", "symbol": "template application planning", "kind": "prompt"}
+      ],
+      "observed": "static_only; no template was selected in Quick smoke run"
+    },
+    {
+      "id": "strategist_and_confirmation",
+      "phase": "planning_and_specification",
+      "routes": ["Default"],
+      "source": [
+        {"file": "skills/ppt-master/workflows/generate-pptx.md", "lines": "91-175", "symbol": "Step 4: Strategist, Stage 1/2, confirmation gates", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/references/strategist.md", "lines": "1-282", "symbol": "Strategist role instructions", "kind": "prompt"},
+        {"file": "skills/ppt-master/references/confirm-surface.md", "lines": "1-108", "symbol": "confirmation surface contract", "kind": "prompt_and_config"},
+        {"file": "skills/ppt-master/scripts/confirm_ui/server.py", "lines": "2802-2984", "symbol": "confirmation UI server", "kind": "implementation"},
+        {"file": "skills/ppt-master/scripts/project_management/project_specs.py", "lines": "1261-1289,1421-1443", "symbol": "validate_markdown_schema; validate_project_artifacts", "kind": "implementation"}
+      ],
+      "schema": [
+        "skills/ppt-master/templates/schemas/design_spec.schema.json",
+        "skills/ppt-master/templates/schemas/spec_lock.schema.json"
+      ],
+      "agent_model_invocation_and_reasoning": "external_black_box",
+      "observed": "static_only"
+    },
+    {
+      "id": "quick_transient_planning",
+      "phase": "planning_and_specification",
+      "routes": ["Quick"],
+      "source": [
+        {"file": "skills/ppt-master/workflows/profiles/quick-generate.md", "lines": "15-48", "symbol": "§1 Profile Boundary", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/workflows/routing.md", "lines": "44,63", "symbol": "explicit Quick bypasses Default planner and has a complete separate runtime", "kind": "route_rules"}
+      ],
+      "schema": [],
+      "agent_model_invocation_and_reasoning": "external_black_box; transient plan remains in Agent context",
+      "observed": "quick_trace"
+    },
+    {
+      "id": "resource_acquisition",
+      "phase": "conditional_assets",
+      "routes": ["Default", "Quick"],
+      "source": [
+        {"file": "skills/ppt-master/workflows/generate-pptx.md", "lines": "183-217", "symbol": "Step 5: Image Acquisition Phase", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/workflows/profiles/quick-generate.md", "lines": "49-83", "symbol": "Quick source/resource preparation", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/references/image-base.md", "lines": "3-53", "symbol": "image/resource lifecycle", "kind": "prompt"}
+      ],
+      "observed": "conditional; no images in smoke deck"
+    },
+    {
+      "id": "svg_authoring",
+      "phase": "page_authoring",
+      "routes": ["Default", "Quick"],
+      "source": [
+        {"file": "skills/ppt-master/workflows/generate-pptx.md", "lines": "220-310", "symbol": "Step 6: Executor Phase and quality gate", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/workflows/profiles/quick-generate.md", "lines": "168-199", "symbol": "§3 Direct SVG Authoring", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/references/executor-base.md", "lines": "1-5,171-199,261-364", "symbol": "Executor prompt and blueprint intake", "kind": "prompt"}
+      ],
+      "output": "project/svg_output/*.svg",
+      "agent_execution": "external_black_box; page content/geometry decisions are generated by Agent; SVG files are the authored source",
+      "observed": "quick_trace_created_three_pages"
+    },
+    {
+      "id": "svg_quality_gate",
+      "phase": "quality_assurance",
+      "routes": ["Default", "Quick"],
+      "source": [
+        {"file": "skills/ppt-master/scripts/svg_quality/cli.py", "lines": "168-356", "symbol": "main", "kind": "implementation"},
+        {"file": "skills/ppt-master/scripts/svg_quality/checker.py", "lines": "1147-1147,1268-1268,7230-7230", "symbol": "SVGQualityChecker; check_file; check_directory", "kind": "implementation"},
+        {"file": "skills/ppt-master/workflows/generate-pptx.md", "lines": "275-310", "symbol": "Default quality gate commands and cadence", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/workflows/profiles/quick-generate.md", "lines": "203-215", "symbol": "Quick lockless final check and report fingerprint", "kind": "workflow_prompt"}
+      ],
+      "observed": "quick_trace_final_gate_passed_3_of_3"
+    },
+    {
+      "id": "preview_and_native_export",
+      "phase": "postprocessing_and_export",
+      "routes": ["Default", "Quick"],
+      "source": [
+        {"file": "skills/ppt-master/workflows/generate-pptx.md", "lines": "320-365", "symbol": "Step 7 postprocessing, finalize_svg preview, native PPTX export", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/workflows/profiles/quick-generate.md", "lines": "203-233", "symbol": "Quick export; explicitly skips finalize_svg.py", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/scripts/finalize_svg.py", "lines": "320-415", "symbol": "finalize_project; main", "kind": "implementation"},
+        {"file": "skills/ppt-master/scripts/svg_to_pptx/pptx_package/cli.py", "lines": "1396-1460,1964-1983,3830-3911", "symbol": "_write_postflight_report; main; builder call and postflight", "kind": "implementation"},
+        {"file": "skills/ppt-master/scripts/svg_to_pptx/pptx_package/builder.py", "lines": "6619-8612", "symbol": "create_pptx_with_native_svg", "kind": "implementation"}
+      ],
+      "observed": "quick_trace_export_and_postflight_passed"
+    },
+    {
+      "id": "revision",
+      "phase": "revision",
+      "routes": ["Default", "Quick"],
+      "source": [
+        {"file": "skills/ppt-master/workflows/generate-pptx.md", "lines": "366-369", "symbol": "Revision Round", "kind": "workflow_prompt"},
+        {"file": "skills/ppt-master/workflows/profiles/quick-generate.md", "lines": "235-237", "symbol": "Revision after delivery", "kind": "workflow_prompt"}
+      ],
+      "observed": "static_only; no revision request in smoke run"
+    },
+    {
+      "id": "office_rendering",
+      "phase": "external_rendering",
+      "routes": ["external_after_export"],
+      "source": [],
+      "external_black_box": "PowerPoint/LibreOffice/other viewer renders the PPTX; rendering is not a node in the PPT Master source-controlled generation CLI",
+      "observed": "Microsoft PowerPoint 16.0 host-only read-only open and 3 PNG exports; validation/verify-res-p01-01.json"
+    }
+  ],
+  "edges": [
+    {"from": "route", "to": "source_intake", "condition": "selected Generate profile"},
+    {"from": "source_intake", "to": "project_setup", "condition": "materials are ready"},
+    {"from": "project_setup", "to": "template_and_canvas", "condition": "Default route"},
+    {"from": "template_and_canvas", "to": "strategist_and_confirmation", "condition": "Default route"},
+    {"from": "project_setup", "to": "quick_transient_planning", "condition": "Quick route"},
+    {"from": "strategist_and_confirmation", "to": "resource_acquisition", "condition": "Default route and assets required"},
+    {"from": "quick_transient_planning", "to": "resource_acquisition", "condition": "Quick route and assets required"},
+    {"from": "strategist_and_confirmation", "to": "svg_authoring", "condition": "Default route; resources optional/ready"},
+    {"from": "quick_transient_planning", "to": "svg_authoring", "condition": "Quick route; resources optional/ready"},
+    {"from": "svg_authoring", "to": "svg_quality_gate", "condition": "all planned pages exist"},
+    {"from": "svg_quality_gate", "to": "preview_and_native_export", "condition": "final gate passes; Default may create svg_final preview; Quick skips it"},
+    {"from": "preview_and_native_export", "to": "revision", "condition": "user requests changes after delivery"},
+    {"from": "preview_and_native_export", "to": "office_rendering", "condition": "separate external visual QA"}
+  ],
+  "runtime_evidence": {
+    "observed_route": "Quick",
+    "workflow_log": "research/P01/projects/p01_hello_world_20261007/validation/workflow.log",
+    "pptx": "research/P01/projects/p01_hello_world_20261007/exports/p01-hello-world.pptx",
+    "pptx_sha256": "c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25",
+    "verification_report": "research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json",
+    "read_only_failure": {
+      "exception": "OSError",
+      "errno": 30,
+      "meaning": "EROFS / read-only file system",
+      "recorded_in": ["ailog/复现PPTMaster最小生成流程_20261007-182450.md", "development-log/复现PPTMaster最小生成流程_20261007-182450.md"]
+    }
+  }
+}

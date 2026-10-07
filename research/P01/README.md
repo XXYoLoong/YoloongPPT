@@ -54,7 +54,15 @@ git -C ppt-master rev-parse HEAD
 | 官方 Quick 最小流程 | 已完成 | `projects/p01_hello_world_20261007/`、最终 PPTX 与 Postflight 报告 |
 | `VERIFY-RES-P01-01` 正常/边界/失败证据 | 已完成 | `projects/p01_hello_world_20261007/validation/verify-res-p01-01.json`、`validation/native-render/slide-01.png` 至 `slide-03.png`；PowerPoint 16.0 只读打开及视觉复核通过 |
 
-因此 `TASK-RES-P01-01`、`VERIFY-RES-P01-01` 与 `RES-P01-01` 均已完成。依赖该需求的 `TASK-RES-P01-02` 现在满足前置条件，可按矩阵继续推进。
+因此 `TASK-RES-P01-01`、`VERIFY-RES-P01-01` 与 `RES-P01-01` 均已完成。`TASK-RES-P01-02` 与 `VERIFY-RES-P01-02` 已按矩阵完成；下一项依赖任务是 `TASK-RES-P01-03`。
+
+## RES-P01-02：调用链与源码索引
+
+- `TASK-RES-P01-02`、`VERIFY-RES-P01-02` 与 Requirement `RES-P01-02` 已完成。根据固定 commit 的工作流、Prompt、Schema、CLI 和组包代码，分别建立 Default 源码调用图与 Quick 运行轨迹索引。
+- [call_graph.md](call_graph.md) 描述 Default、Quick 两条路径、条件节点、revision 和外部边界；[source_index.json](source_index.json) 为 12 个节点、13 条边记录上游文件、函数/Prompt/Schema 和固定源码行。所有本地文件及引用行经脚本检查存在。
+- `validation/verify-res-p01-02.json` 记录正常 Quick 生成、Quick/Default 路由边界，以及只读默认写入路径 `OSError errno=30` 的失败证据。其正常运行轨迹复用 `workflow.log`、PPTX、Postflight、ZIP/读取检查和 PowerPoint 16.0 渲染证据。
+- 运行与静态研究边界：Quick 有实际运行记录；Default 仅追踪源码，没有声称 Default 已运行。LLM/Agent Host 调度与本机/第三方 Office 渲染标为外部黑盒。环境中的 Python 版本仍只是实验观察，不代表 YoloongPPT 的语言、运行时或依赖选型；项目 Docker 配置未变。
+- 后续任务严格按矩阵依赖继续：`TASK-RES-P01-03`（决策节点）是当前下一项；`RES-P01-04`、`RES-P01-05` 未在本次扩展。
 
 ## 来源
 

@@ -122,8 +122,18 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - Docker 当前可用。本次在镜像 `sha256:9cc4943354564a8d71825420752552f989afc8c85a66c7d396df0d0f6a5dab56` 中观察到 Debian 12 / Python `3.11.2`；这是符合上游最低要求的实验环境事实，不是 YoloongPPT 选型。源码克隆只读挂载；全量依赖装入独立的临时研究目录，未改动 Windows 主机 Python 环境或项目 `compose.yaml`。
 - 官方 Quick 烟测：`project_manager.py` 初始化三页 Hello World 项目，Quick 最终检查通过且 0 warnings/0 errors；`svg_to_pptx.py --quick-generate --no-notes --no-animations` 输出可编辑 PPTX，Postflight 通过。ZIP 和 `python-pptx` 读取通过；3 页、17 个文本对象、40 个 DrawingML 形状，0 图片/图表/备注/转场/timing。输出 SHA-256 `c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25`。
 - 正常/边界/失败证据已登记。只读安装目录作为默认写入目标时按预期以 `OSError errno=30` 失败，改为明确可写 `--dir` 后成功；无外部事实的空 `facts[]` 边界输入被接受。Docker 实验镜像没有 Office 渲染器；随后使用本机 Microsoft PowerPoint 16.0 只读打开 PPTX，并导出三张 1920×1080 PNG。视觉复核通过，未见裁切、遮挡或缺字。本机 PowerPoint 仅是 QA 工具，不构成产品运行时选择。
-- `TASK-RES-P01-02` 的前置 Requirement `RES-P01-01` 已满足，可依照任务矩阵继续执行。
+- `TASK-RES-P01-02` 的前置 Requirement `RES-P01-01` 已满足，且其源码调用链和验证证据已在后续章节完成。
 - 证据：`research/P01/README.md`；`research/P01/projects/hello_world_research.md`、`hello_world_research.facts.json`；`research/P01/projects/p01_hello_world_20261007/` 下的 SVG、PPTX、Postflight、`verify-res-p01-01.json` 与 `validation/native-render/`；`research/P01/artifacts/quick-smoke/`；Excel“需求主表”`N12:O12`、“可执行任务”`L14:M15`、“开源项目研究对象”第 2 行。
+
+### TASK-RES-P01-02
+
+- Requirement ID：RES-P01-02；P0；依赖 RES-P01-01。
+- 状态：`TASK-RES-P01-02`、`VERIFY-RES-P01-02` 与 Requirement `RES-P01-02` 均已完成。按固定 PPT Master commit 建立 Default 源码调用链、Quick 独立路线及 SourceIndex，明确分别属于静态源码追踪、实际运行观察和外部黑盒的节点。
+- 主要发现：PPT Master 是供 Agent Host 加载的工作流包，不含通用模型执行循环。Default 包含 Strategist 两阶段规划、确认、`design_spec`/`spec_lock` 校验、SVG 质量门、`finalize_svg.py`、PPTX 导出与 postflight；Quick 在 Agent 上下文中规划，省略 Strategist/Confirm UI/spec/lock，执行 SVG 检查后直接导出。PowerPoint/LibreOffice 渲染在上游生成链外。
+- 实际证据：Quick 正常生成链由 `workflow.log` 记录，三页 PPTX、质量门、postflight 与本机 PowerPoint 16.0 独立渲染通过；只读默认写入路径初始化失败并记录 `OSError errno=30`，改用显式可写挂载成功。Default 只做静态追踪，未声称运行通过。
+- 静态核验：`source_index.json` 含 12 个节点、13 条边；引用文件存在，源码行范围均在文件内。工作簿任务状态/证据见 Excel“需求主表”`N13:P13`、“可执行任务”`L16:M17`。
+- 环境边界：实验容器中的 Python 版本仅为当时观察值；不代表 YoloongPPT 选型。没有更改项目 Docker 应用配置，也未选择产品语言、运行时或依赖。
+- 证据：`research/P01/call_graph.md`、`research/P01/source_index.json`、`research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-02.json`、`research/P01/projects/p01_hello_world_20261007/validation/workflow.log`、`research/P01/projects/p01_hello_world_20261007/exports/p01-hello-world.pptx`；Excel“需求主表”`N13:P13`、“可执行任务”`L16:M17`。
 
 ### TASK-RES-P02-01
 
