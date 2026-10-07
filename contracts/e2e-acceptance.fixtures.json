@@ -1,0 +1,59 @@
+{
+  "document_type": "e2e_acceptance_policy_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "GOV-008",
+  "catalog_ref": "contracts/e2e-acceptance.catalog.json",
+  "fixture_kind": "gate_rule_examples_not_execution_results",
+  "observed_matrix_state": {
+    "acceptance_case_count": 30,
+    "executed_case_count": 0,
+    "all_cases_status": "未执行",
+    "chain_step_count": 45,
+    "in_progress_chain_ids": ["S02"],
+    "not_started_chain_count": 44,
+    "product_runtime_selected": false,
+    "expected_gate_status": "pending"
+  },
+  "policy_cases": [
+    {
+      "fixture_id": "full_scope_and_e2e_closure",
+      "conditions": {
+        "all_acceptance_cases_pass": true,
+        "all_chain_steps_accounted": true,
+        "na_steps_have_reason_and_impact": true,
+        "editable_pptx_verified": true,
+        "all_quality_dimensions_pass": true,
+        "revision_loop_closed": true,
+        "requirement_count": 308,
+        "task_count": 453,
+        "requirement_and_task_scope_closed": true
+      },
+      "expected_gate_status": "accepted"
+    },
+    {
+      "fixture_id": "one_demo_does_not_close_scope",
+      "conditions": { "AC-002": "passed", "remaining_acceptance_cases": "not_passed" },
+      "expected_gate_status": "pending"
+    },
+    {
+      "fixture_id": "image_only_is_not_editable_pptx",
+      "conditions": { "output_type": "images_only", "editable_pptx_verified": false },
+      "expected_gate_status": "rejected"
+    },
+    {
+      "fixture_id": "missing_local_revision_does_not_close_gate",
+      "conditions": { "all_acceptance_cases_pass": true, "all_quality_dimensions_pass": true, "revision_loop_closed": false },
+      "expected_gate_status": "pending"
+    },
+    {
+      "fixture_id": "unexplained_missing_chain_step_is_rejected",
+      "conditions": { "missing_step_id": "S31", "not_applicable_reason": null },
+      "expected_gate_status": "rejected"
+    },
+    {
+      "fixture_id": "reasoned_not_applicable_step_is_accounted",
+      "conditions": { "step_status": "not_applicable", "reason": "该任务模式不触发该步骤", "impact": "无", "evidence_ref": "fixture:step-na" },
+      "expected_gate_status": "accepted_if_all_other_gates_pass"
+    }
+  ]
+}

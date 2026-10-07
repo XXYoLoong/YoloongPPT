@@ -1,0 +1,83 @@
+{
+  "document_type": "e2e_acceptance_contract",
+  "contract_status": "draft",
+  "requirement_id": "GOV-008",
+  "task_id": "TASK-GOV-008",
+  "schema": "contracts/e2e-acceptance.schema.json",
+  "fixtures": "contracts/e2e-acceptance.fixtures.json",
+  "authority": {
+    "pdr_section": "2. 0-1 完整端到端链路",
+    "requirement_cell": "需求主表!A9:P9",
+    "task_cell": "可执行任务!A11:M11",
+    "chain_range": "0-1全链路!A2:I46",
+    "acceptance_range": "验收矩阵!A2:I31"
+  },
+  "acceptance_case_ids": [
+    "AC-001", "AC-002", "AC-003", "AC-004", "AC-005", "AC-006", "AC-007", "AC-008", "AC-009", "AC-010",
+    "AC-011", "AC-012", "AC-013", "AC-014", "AC-015", "AC-016", "AC-017", "AC-018", "AC-019", "AC-020",
+    "AC-021", "AC-022", "AC-023", "AC-024", "AC-025", "AC-026", "AC-027", "AC-028", "AC-029", "AC-030"
+  ],
+  "chain_step_ids": [
+    "S00", "S01", "S02", "S03", "S04", "S05", "S06", "S07", "S08", "S09",
+    "S10", "S11", "S12", "S13", "S14", "S15", "S16", "S17", "S18", "S19",
+    "S20", "S21", "S22", "S23", "S24", "S25", "S26", "S27", "S28", "S29",
+    "S30", "S31", "S32", "S33", "S34", "S35", "S36", "S37", "S38", "S39",
+    "S40", "S41", "S42", "S43", "S44"
+  ],
+  "canonical_path": {
+    "primary_case_id": "AC-002",
+    "traceability_case_id": "AC-027",
+    "full_chain_case_id": "AC-030",
+    "input_profile": "含 heading/table/image/citation 的 DOCX",
+    "route_mode": "create_from_materials",
+    "required_output": "editable_pptx"
+  },
+  "quality_dimensions": ["rendering", "structure", "visual", "factual", "editability"],
+  "revision_closure": {
+    "must_exercise": true,
+    "trigger": "actual_quality_issue",
+    "trigger_detail": "至少一条真实质量问题或一项用户局部修改必须贯穿修订闭环，并关联输入和目标对象。",
+    "evidence_chain": ["QualityIssue", "RevisionPlan", "RevisionAction", "revised_artifact", "targeted_QA_recheck"],
+    "rerun_affected_qa": true,
+    "preserve_unmodified_content": true
+  },
+  "completion_gate": {
+    "all_acceptance_cases_pass": true,
+    "all_chain_steps_accounted": true,
+    "editable_pptx_verified": true,
+    "all_quality_dimensions_pass": true,
+    "revision_loop_closed": true,
+    "requirement_and_task_scope_closed": {
+      "requirement_count": 308,
+      "task_count": 453,
+      "closed_with_evidence": true
+    }
+  },
+  "step_accounting_policy": {
+    "ordered_step_inventory_is_exactly_S00_to_S44": true,
+    "internal_implementation_may_merge_steps": true,
+    "every_step_must_have_status_and_output_or_evidence": true,
+    "not_applicable_requires_trace_reason_and_impact": true,
+    "unexplained_missing_step_is_rejection": true
+  },
+  "acceptance_case_policy": {
+    "all_30_matrix_cases_are_required": true,
+    "each_case_must_pass": true,
+    "acceptance_case_not_applicable_is_allowed": false,
+    "matrix_remains_authoritative_for_case_inputs_and_pass_conditions": true
+  },
+  "insufficient_evidence": ["single_demo", "image_only", "pptx_without_qa", "no_local_revision", "one_acceptance_case_only"],
+  "current_readiness": {
+    "status": "pending",
+    "observed_acceptance_cases": 30,
+    "executed_acceptance_cases": 0,
+    "observed_chain_steps": 45,
+    "product_runtime_selected": false,
+    "reason": "验收矩阵 AC-001–AC-030 均为未执行；当前仓库没有已实现的产品运行链路。"
+  },
+  "limits": [
+    "该 gate 是验收契约草案，不是 AC 通过记录，也不代替真实 PPTX、QA 报告、trace 或修订产物。",
+    "AC-002 主用例连同 AC-027/AC-030 只定义一条可追溯验收路径；单条路径通过仍不能替代其余 AC 或 308 条需求/453 项任务的整体完成审计。",
+    "应用架构、语言、运行时、PPT 后端与渲染器尚未选定；本契约不据此作技术选型。"
+  ]
+}

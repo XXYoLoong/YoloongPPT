@@ -86,6 +86,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验证：Draft 2020-12 Schema 自校验通过；19 类 ID 映射、有效 ID 样例、4 个无效样例及跨对象引用链检查通过；Excel 数据对象覆盖仍为 49 项。未运行 ID 生成器或真实 PPT 端到端追溯。
 - 证据：`contracts/object-id.schema.json`、`contracts/object-id.catalog.json`、`contracts/object-id.fixtures.json`；Excel“需求主表”`N8:P8`、“可执行任务”`L10:M10`、“数据对象”第 3、6–7、10、17、23、29–30、32–49 行。
 
+### TASK-GOV-008
+
+- Requirement ID：GOV-008；P0；无前置任务。
+- 状态：进行中。建立项目级 E2E 完成门槛草案，验收矩阵仍是 30 个场景的唯一输入与通过条件来源。主验证路径采用 AC-002 的 DOCX 材料生成；由 AC-027 检查对象追溯、AC-030 检查 S00–S44 步骤账本。
+- 验收要求：输出真实可编辑 PPTX，并为渲染、结构、视觉、事实和可编辑性分别留存通过证据；至少一条真实质量问题或用户局部修改必须经过 QualityIssue → RevisionPlan → RevisionAction → 新产物 → 定向 QA 复查，同时证明未修改内容保持。每个 S 步骤均需状态及产物/证据；N/A 必须记录理由与影响，不允许出现无解释断点。
+- 整体范围：AC-001–AC-030 全部通过；完整项目还须覆盖并关闭 308 条 Requirement、453 个 Task，不能用单个 demo、图片输出或单次 PPTX 导出替代。
+- 当前边界：验收矩阵 30 个 AC 均为“未执行”；S00–S44 共 45 步，其中 S02 仅有路由契约草案、其余 44 步未开始。仓库尚无产品运行链路，故 gate 保持 pending；本任务不选择产品架构、语言或运行时，也不宣称 AC 已通过。
+- 验证：Draft 2020-12 Schema 与 catalog 实例校验；AC ID 与验收矩阵 30 项逐项一致；S00–S44 与全链路表 45 项逐项一致；6 个 gate policy fixture 的逻辑预期通过。未运行端到端应用或 PowerPoint 验收。
+- 证据：`contracts/e2e-acceptance.schema.json`、`contracts/e2e-acceptance.catalog.json`、`contracts/e2e-acceptance.fixtures.json`；Excel“需求主表”`N9:P9`、“可执行任务”`L11:M11`、“0-1全链路”`A2:I46`、“验收矩阵”`A2:I31`。
+
 ### TASK-GOV-010
 
 - Requirement ID：GOV-010；P0；无前置任务。
