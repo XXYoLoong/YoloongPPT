@@ -223,6 +223,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：任务表已列 TabularEvidence 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-008/TASK-IN-008，不增删需求、任务或数据对象行。
 - 证据：contracts/tabular-evidence.schema.json、contracts/tabular-evidence.catalog.json、contracts/tabular-evidence.fixtures.json；Excel“需求主表”N47:P47、“可执行任务”L75:M75。
 
+### TASK-IN-010
+
+- Requirement ID：IN-010；P0；无前置任务。
+- 状态：进行中。已建立 StructuredEvidence Draft 2020-12 契约、目录及 JSON/YAML/XML 正常和边界预期 fixture，覆盖对象/数组/mapping/sequence/scalar/XML element/text、类型、来源坐标和焦点路径结果。
+- 焦点路径边界：JSON 与 YAML 输入使用 JSON Pointer，XML 使用 XPath 和显式命名空间绑定；路径只返回匹配节点 ID，不剪裁完整证据树。未匹配、语法无效和 unsupported 状态分开表达。
+- 格式边界：YAML 保留可观察的 tag 与映射顺序；重复键、未知自定义 tag、别名循环不得静默覆盖或执行构造器。XML 保留 QName、属性和有序混合子节点；DTD/外部实体默认拒绝。源坐标不可得时使用 null 并记录 coverage。
+- 静态核验：schema/catalog/fixtures JSON 可解析，34 个 schema 内部引用和 2 个外部文件引用可定位；6 个 fixture 的输入/结果 source/asset/format 对齐，3 种正常格式均有匹配焦点节点，3 种边界格式分别声明 JSON_DUPLICATE_KEY、YAML_UNSUPPORTED_TAG、XML_DTD_PROHIBITED。
+- 验收边界：fixtures 是合成预期结构，未运行真实 JSON/YAML/XML parser、XPath 引擎或坐标验证；因此 TASK-IN-010 保持进行中，AC-001–AC-030 均未执行。解析库、运行时和依赖版本未选定。
+- 基线对齐：任务表已列 StructuredEvidence 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-010/TASK-IN-010，不增删需求、任务或数据对象行。
+- 证据：contracts/structured-evidence.schema.json、contracts/structured-evidence.catalog.json、contracts/structured-evidence.fixtures.json；Excel“需求主表”N49:P49、“可执行任务”L77:M77。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

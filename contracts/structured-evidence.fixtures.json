@@ -1,0 +1,1389 @@
+{
+  "document_type": "structured_evidence_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-010",
+  "fixtures": [
+    {
+      "fixture_id": "IN-010-JSON-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "structured_parse_input",
+        "source_id": "source_10101010-1010-4101-8101-101010101010",
+        "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+        "raw_asset_refs": [
+          "asset_11111111-1111-4111-8111-111111111111"
+        ],
+        "format": "json",
+        "focus_selectors": [
+          {
+            "syntax": "json_pointer",
+            "expression": "/slides/1/title",
+            "namespace_bindings": {}
+          }
+        ]
+      },
+      "sample_source_text": "{\"slides\":[{\"title\":\"Overview\"},{\"title\":\"Result\",\"approved\":true,\"source_count\":2,\"notes\":null}]}",
+      "expected_result": {
+        "record_type": "structured_parse_result",
+        "source_id": "source_10101010-1010-4101-8101-101010101010",
+        "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+        "raw_asset_refs": [
+          "asset_11111111-1111-4111-8111-111111111111"
+        ],
+        "format": "json",
+        "status": "parsed",
+        "evidence": {
+          "model_type": "StructuredEvidence",
+          "source": {
+            "source_id": "source_10101010-1010-4101-8101-101010101010",
+            "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+            "raw_asset_refs": [
+              "asset_11111111-1111-4111-8111-111111111111"
+            ],
+            "format": "json",
+            "sha256": null
+          },
+          "root": {
+            "node_id": "json-root",
+            "kind": "object",
+            "scalar_type": null,
+            "value": null,
+            "source_anchor": {
+              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+              "format": "json",
+              "node_id": "json-root",
+              "document_path": "",
+              "line": null,
+              "column": null,
+              "end_line": null,
+              "end_column": null,
+              "byte_offset": null
+            },
+            "members": [
+              {
+                "key": {
+                  "node_id": "json-key-slides",
+                  "kind": "scalar",
+                  "scalar_type": "string",
+                  "value": "slides",
+                  "source_anchor": {
+                    "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                    "format": "json",
+                    "node_id": "json-key-slides",
+                    "document_path": "/slides",
+                    "line": null,
+                    "column": null,
+                    "end_line": null,
+                    "end_column": null,
+                    "byte_offset": null
+                  },
+                  "members": [],
+                  "items": [],
+                  "xml_name": null,
+                  "xml_attributes": [],
+                  "children": [],
+                  "yaml_tag": null
+                },
+                "source_anchor": {
+                  "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                  "format": "json",
+                  "node_id": "json-key-slides",
+                  "document_path": "/slides",
+                  "line": null,
+                  "column": null,
+                  "end_line": null,
+                  "end_column": null,
+                  "byte_offset": null
+                },
+                "value": {
+                  "node_id": "json-slides",
+                  "kind": "array",
+                  "scalar_type": null,
+                  "value": null,
+                  "source_anchor": {
+                    "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                    "format": "json",
+                    "node_id": "json-slides",
+                    "document_path": "/slides",
+                    "line": null,
+                    "column": null,
+                    "end_line": null,
+                    "end_column": null,
+                    "byte_offset": null
+                  },
+                  "members": [],
+                  "items": [
+                    {
+                      "node_id": "json-slide-0",
+                      "kind": "object",
+                      "scalar_type": null,
+                      "value": null,
+                      "source_anchor": {
+                        "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                        "format": "json",
+                        "node_id": "json-slide-0",
+                        "document_path": "/slides/0",
+                        "line": null,
+                        "column": null,
+                        "end_line": null,
+                        "end_column": null,
+                        "byte_offset": null
+                      },
+                      "members": [
+                        {
+                          "key": {
+                            "node_id": "json-key-title-0",
+                            "kind": "scalar",
+                            "scalar_type": "string",
+                            "value": "title",
+                            "source_anchor": {
+                              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                              "format": "json",
+                              "node_id": "json-key-title-0",
+                              "document_path": "/slides/0/title",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          },
+                          "source_anchor": {
+                            "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                            "format": "json",
+                            "node_id": "json-key-title-0",
+                            "document_path": "/slides/0/title",
+                            "line": null,
+                            "column": null,
+                            "end_line": null,
+                            "end_column": null,
+                            "byte_offset": null
+                          },
+                          "value": {
+                            "node_id": "json-title-0",
+                            "kind": "scalar",
+                            "scalar_type": "string",
+                            "value": "Overview",
+                            "source_anchor": {
+                              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                              "format": "json",
+                              "node_id": "json-title-0",
+                              "document_path": "/slides/0/title",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          }
+                        }
+                      ],
+                      "items": [],
+                      "xml_name": null,
+                      "xml_attributes": [],
+                      "children": [],
+                      "yaml_tag": null
+                    },
+                    {
+                      "node_id": "json-slide-1",
+                      "kind": "object",
+                      "scalar_type": null,
+                      "value": null,
+                      "source_anchor": {
+                        "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                        "format": "json",
+                        "node_id": "json-slide-1",
+                        "document_path": "/slides/1",
+                        "line": null,
+                        "column": null,
+                        "end_line": null,
+                        "end_column": null,
+                        "byte_offset": null
+                      },
+                      "members": [
+                        {
+                          "key": {
+                            "node_id": "json-key-title-1",
+                            "kind": "scalar",
+                            "scalar_type": "string",
+                            "value": "title",
+                            "source_anchor": {
+                              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                              "format": "json",
+                              "node_id": "json-key-title-1",
+                              "document_path": "/slides/1/title",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          },
+                          "source_anchor": {
+                            "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                            "format": "json",
+                            "node_id": "json-key-title-1",
+                            "document_path": "/slides/1/title",
+                            "line": null,
+                            "column": null,
+                            "end_line": null,
+                            "end_column": null,
+                            "byte_offset": null
+                          },
+                          "value": {
+                            "node_id": "json-title-1",
+                            "kind": "scalar",
+                            "scalar_type": "string",
+                            "value": "Result",
+                            "source_anchor": {
+                              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                              "format": "json",
+                              "node_id": "json-title-1",
+                              "document_path": "/slides/1/title",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          }
+                        },
+                        {
+                          "key": {
+                            "node_id": "json-key-approved",
+                            "kind": "scalar",
+                            "scalar_type": "string",
+                            "value": "approved",
+                            "source_anchor": {
+                              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                              "format": "json",
+                              "node_id": "json-key-approved",
+                              "document_path": "/slides/1/approved",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          },
+                          "source_anchor": {
+                            "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                            "format": "json",
+                            "node_id": "json-key-approved",
+                            "document_path": "/slides/1/approved",
+                            "line": null,
+                            "column": null,
+                            "end_line": null,
+                            "end_column": null,
+                            "byte_offset": null
+                          },
+                          "value": {
+                            "node_id": "json-approved",
+                            "kind": "scalar",
+                            "scalar_type": "boolean",
+                            "value": true,
+                            "source_anchor": {
+                              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                              "format": "json",
+                              "node_id": "json-approved",
+                              "document_path": "/slides/1/approved",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          }
+                        },
+                        {
+                          "key": {
+                            "node_id": "json-key-count",
+                            "kind": "scalar",
+                            "scalar_type": "string",
+                            "value": "source_count",
+                            "source_anchor": {
+                              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                              "format": "json",
+                              "node_id": "json-key-count",
+                              "document_path": "/slides/1/source_count",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          },
+                          "source_anchor": {
+                            "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                            "format": "json",
+                            "node_id": "json-key-count",
+                            "document_path": "/slides/1/source_count",
+                            "line": null,
+                            "column": null,
+                            "end_line": null,
+                            "end_column": null,
+                            "byte_offset": null
+                          },
+                          "value": {
+                            "node_id": "json-count",
+                            "kind": "scalar",
+                            "scalar_type": "integer",
+                            "value": 2,
+                            "source_anchor": {
+                              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                              "format": "json",
+                              "node_id": "json-count",
+                              "document_path": "/slides/1/source_count",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          }
+                        },
+                        {
+                          "key": {
+                            "node_id": "json-key-notes",
+                            "kind": "scalar",
+                            "scalar_type": "string",
+                            "value": "notes",
+                            "source_anchor": {
+                              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                              "format": "json",
+                              "node_id": "json-key-notes",
+                              "document_path": "/slides/1/notes",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          },
+                          "source_anchor": {
+                            "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                            "format": "json",
+                            "node_id": "json-key-notes",
+                            "document_path": "/slides/1/notes",
+                            "line": null,
+                            "column": null,
+                            "end_line": null,
+                            "end_column": null,
+                            "byte_offset": null
+                          },
+                          "value": {
+                            "node_id": "json-notes",
+                            "kind": "scalar",
+                            "scalar_type": "null",
+                            "value": null,
+                            "source_anchor": {
+                              "source_asset_id": "asset_11111111-1111-4111-8111-111111111111",
+                              "format": "json",
+                              "node_id": "json-notes",
+                              "document_path": "/slides/1/notes",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          }
+                        }
+                      ],
+                      "items": [],
+                      "xml_name": null,
+                      "xml_attributes": [],
+                      "children": [],
+                      "yaml_tag": null
+                    }
+                  ],
+                  "xml_name": null,
+                  "xml_attributes": [],
+                  "children": [],
+                  "yaml_tag": null
+                }
+              }
+            ],
+            "items": [],
+            "xml_name": null,
+            "xml_attributes": [],
+            "children": [],
+            "yaml_tag": null
+          }
+        },
+        "focus_results": [
+          {
+            "selector_index": 0,
+            "syntax": "json_pointer",
+            "expression": "/slides/1/title",
+            "status": "matched",
+            "matched_node_ids": [
+              "json-title-1"
+            ],
+            "reason": null
+          }
+        ],
+        "coverage": [
+          {
+            "feature": "hierarchy",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "scalar_types",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "source_locations",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "focus_paths",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "xml_namespaces",
+            "status": "not_present",
+            "reason": null
+          },
+          {
+            "feature": "yaml_tags",
+            "status": "not_present",
+            "reason": null
+          }
+        ],
+        "errors": []
+      },
+      "verification_note": "合成预期结构；重点路径只标记 title 节点，数组和其它字段仍完整保留。"
+    },
+    {
+      "fixture_id": "IN-010-YAML-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "structured_parse_input",
+        "source_id": "source_20202020-2020-4202-8202-202020202020",
+        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+        "raw_asset_refs": [
+          "asset_22222222-2222-4222-8222-222222222222"
+        ],
+        "format": "yaml",
+        "focus_selectors": [
+          {
+            "syntax": "json_pointer",
+            "expression": "/slides/0/title",
+            "namespace_bindings": {}
+          }
+        ]
+      },
+      "sample_source_text": "project: YoloongPPT\nslides:\n  - title: Overview\n    count: 2\n",
+      "expected_result": {
+        "record_type": "structured_parse_result",
+        "source_id": "source_20202020-2020-4202-8202-202020202020",
+        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+        "raw_asset_refs": [
+          "asset_22222222-2222-4222-8222-222222222222"
+        ],
+        "format": "yaml",
+        "status": "parsed",
+        "evidence": {
+          "model_type": "StructuredEvidence",
+          "source": {
+            "source_id": "source_20202020-2020-4202-8202-202020202020",
+            "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+            "raw_asset_refs": [
+              "asset_22222222-2222-4222-8222-222222222222"
+            ],
+            "format": "yaml",
+            "sha256": null
+          },
+          "root": {
+            "node_id": "yaml-root",
+            "kind": "mapping",
+            "scalar_type": null,
+            "value": null,
+            "source_anchor": {
+              "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+              "format": "yaml",
+              "node_id": "yaml-root",
+              "document_path": "",
+              "line": null,
+              "column": null,
+              "end_line": null,
+              "end_column": null,
+              "byte_offset": null
+            },
+            "members": [
+              {
+                "key": {
+                  "node_id": "yaml-key-project",
+                  "kind": "scalar",
+                  "scalar_type": "string",
+                  "value": "project",
+                  "source_anchor": {
+                    "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                    "format": "yaml",
+                    "node_id": "yaml-key-project",
+                    "document_path": "/project",
+                    "line": null,
+                    "column": null,
+                    "end_line": null,
+                    "end_column": null,
+                    "byte_offset": null
+                  },
+                  "members": [],
+                  "items": [],
+                  "xml_name": null,
+                  "xml_attributes": [],
+                  "children": [],
+                  "yaml_tag": "tag:yaml.org,2002:str"
+                },
+                "source_anchor": {
+                  "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                  "format": "yaml",
+                  "node_id": "yaml-key-project",
+                  "document_path": "/project",
+                  "line": null,
+                  "column": null,
+                  "end_line": null,
+                  "end_column": null,
+                  "byte_offset": null
+                },
+                "value": {
+                  "node_id": "yaml-project",
+                  "kind": "scalar",
+                  "scalar_type": "string",
+                  "value": "YoloongPPT",
+                  "source_anchor": {
+                    "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                    "format": "yaml",
+                    "node_id": "yaml-project",
+                    "document_path": "/project",
+                    "line": null,
+                    "column": null,
+                    "end_line": null,
+                    "end_column": null,
+                    "byte_offset": null
+                  },
+                  "members": [],
+                  "items": [],
+                  "xml_name": null,
+                  "xml_attributes": [],
+                  "children": [],
+                  "yaml_tag": "tag:yaml.org,2002:str"
+                }
+              },
+              {
+                "key": {
+                  "node_id": "yaml-key-slides",
+                  "kind": "scalar",
+                  "scalar_type": "string",
+                  "value": "slides",
+                  "source_anchor": {
+                    "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                    "format": "yaml",
+                    "node_id": "yaml-key-slides",
+                    "document_path": "/slides",
+                    "line": null,
+                    "column": null,
+                    "end_line": null,
+                    "end_column": null,
+                    "byte_offset": null
+                  },
+                  "members": [],
+                  "items": [],
+                  "xml_name": null,
+                  "xml_attributes": [],
+                  "children": [],
+                  "yaml_tag": "tag:yaml.org,2002:str"
+                },
+                "source_anchor": {
+                  "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                  "format": "yaml",
+                  "node_id": "yaml-key-slides",
+                  "document_path": "/slides",
+                  "line": null,
+                  "column": null,
+                  "end_line": null,
+                  "end_column": null,
+                  "byte_offset": null
+                },
+                "value": {
+                  "node_id": "yaml-slides",
+                  "kind": "sequence",
+                  "scalar_type": null,
+                  "value": null,
+                  "source_anchor": {
+                    "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                    "format": "yaml",
+                    "node_id": "yaml-slides",
+                    "document_path": "/slides",
+                    "line": null,
+                    "column": null,
+                    "end_line": null,
+                    "end_column": null,
+                    "byte_offset": null
+                  },
+                  "members": [],
+                  "items": [
+                    {
+                      "node_id": "yaml-slide-0",
+                      "kind": "mapping",
+                      "scalar_type": null,
+                      "value": null,
+                      "source_anchor": {
+                        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                        "format": "yaml",
+                        "node_id": "yaml-slide-0",
+                        "document_path": "/slides/0",
+                        "line": null,
+                        "column": null,
+                        "end_line": null,
+                        "end_column": null,
+                        "byte_offset": null
+                      },
+                      "members": [
+                        {
+                          "key": {
+                            "node_id": "yaml-key-title",
+                            "kind": "scalar",
+                            "scalar_type": "string",
+                            "value": "title",
+                            "source_anchor": {
+                              "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                              "format": "yaml",
+                              "node_id": "yaml-key-title",
+                              "document_path": "/slides/0/title",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": "tag:yaml.org,2002:str"
+                          },
+                          "source_anchor": {
+                            "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                            "format": "yaml",
+                            "node_id": "yaml-key-title",
+                            "document_path": "/slides/0/title",
+                            "line": null,
+                            "column": null,
+                            "end_line": null,
+                            "end_column": null,
+                            "byte_offset": null
+                          },
+                          "value": {
+                            "node_id": "yaml-title",
+                            "kind": "scalar",
+                            "scalar_type": "string",
+                            "value": "Overview",
+                            "source_anchor": {
+                              "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                              "format": "yaml",
+                              "node_id": "yaml-title",
+                              "document_path": "/slides/0/title",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": "tag:yaml.org,2002:str"
+                          }
+                        },
+                        {
+                          "key": {
+                            "node_id": "yaml-key-count",
+                            "kind": "scalar",
+                            "scalar_type": "string",
+                            "value": "count",
+                            "source_anchor": {
+                              "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                              "format": "yaml",
+                              "node_id": "yaml-key-count",
+                              "document_path": "/slides/0/count",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": "tag:yaml.org,2002:str"
+                          },
+                          "source_anchor": {
+                            "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                            "format": "yaml",
+                            "node_id": "yaml-key-count",
+                            "document_path": "/slides/0/count",
+                            "line": null,
+                            "column": null,
+                            "end_line": null,
+                            "end_column": null,
+                            "byte_offset": null
+                          },
+                          "value": {
+                            "node_id": "yaml-count",
+                            "kind": "scalar",
+                            "scalar_type": "integer",
+                            "value": 2,
+                            "source_anchor": {
+                              "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                              "format": "yaml",
+                              "node_id": "yaml-count",
+                              "document_path": "/slides/0/count",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": "tag:yaml.org,2002:int"
+                          }
+                        }
+                      ],
+                      "items": [],
+                      "xml_name": null,
+                      "xml_attributes": [],
+                      "children": [],
+                      "yaml_tag": null
+                    }
+                  ],
+                  "xml_name": null,
+                  "xml_attributes": [],
+                  "children": [],
+                  "yaml_tag": null
+                }
+              }
+            ],
+            "items": [],
+            "xml_name": null,
+            "xml_attributes": [],
+            "children": [],
+            "yaml_tag": null
+          }
+        },
+        "focus_results": [
+          {
+            "selector_index": 0,
+            "syntax": "json_pointer",
+            "expression": "/slides/0/title",
+            "status": "matched",
+            "matched_node_ids": [
+              "yaml-title"
+            ],
+            "reason": null
+          }
+        ],
+        "coverage": [
+          {
+            "feature": "hierarchy",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "scalar_types",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "source_locations",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "focus_paths",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "xml_namespaces",
+            "status": "not_present",
+            "reason": null
+          },
+          {
+            "feature": "yaml_tags",
+            "status": "complete",
+            "reason": null
+          }
+        ],
+        "errors": []
+      },
+      "verification_note": "合成预期结构；JSON Pointer 只标记标题，不删除其他字段；显式记录可观察的标准 YAML tag。"
+    },
+    {
+      "fixture_id": "IN-010-XML-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "structured_parse_input",
+        "source_id": "source_30303030-3030-4303-8303-303030303030",
+        "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+        "raw_asset_refs": [
+          "asset_33333333-3333-4333-8333-333333333333"
+        ],
+        "format": "xml",
+        "focus_selectors": [
+          {
+            "syntax": "xpath",
+            "expression": "//p:slide[@id='s1']/p:title",
+            "namespace_bindings": {
+              "p": "urn:yoloong:ppt"
+            }
+          }
+        ]
+      },
+      "sample_source_text": "<p:presentation xmlns:p=\"urn:yoloong:ppt\" xmlns:m=\"urn:yoloong:meta\"><p:slide id=\"s1\"><p:title>Overview</p:title><m:approved>true</m:approved></p:slide></p:presentation>",
+      "expected_result": {
+        "record_type": "structured_parse_result",
+        "source_id": "source_30303030-3030-4303-8303-303030303030",
+        "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+        "raw_asset_refs": [
+          "asset_33333333-3333-4333-8333-333333333333"
+        ],
+        "format": "xml",
+        "status": "parsed",
+        "evidence": {
+          "model_type": "StructuredEvidence",
+          "source": {
+            "source_id": "source_30303030-3030-4303-8303-303030303030",
+            "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+            "raw_asset_refs": [
+              "asset_33333333-3333-4333-8333-333333333333"
+            ],
+            "format": "xml",
+            "sha256": null
+          },
+          "root": {
+            "node_id": "xml-document",
+            "kind": "document",
+            "scalar_type": null,
+            "value": null,
+            "source_anchor": {
+              "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+              "format": "xml",
+              "node_id": "xml-document",
+              "document_path": "/",
+              "line": null,
+              "column": null,
+              "end_line": null,
+              "end_column": null,
+              "byte_offset": null
+            },
+            "members": [],
+            "items": [],
+            "xml_name": null,
+            "xml_attributes": [],
+            "children": [
+              {
+                "node_id": "xml-presentation",
+                "kind": "element",
+                "scalar_type": null,
+                "value": null,
+                "source_anchor": {
+                  "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                  "format": "xml",
+                  "node_id": "xml-presentation",
+                  "document_path": "/p:presentation",
+                  "line": null,
+                  "column": null,
+                  "end_line": null,
+                  "end_column": null,
+                  "byte_offset": null
+                },
+                "members": [],
+                "items": [],
+                "xml_name": {
+                  "prefix": "p",
+                  "local_name": "presentation",
+                  "namespace_uri": "urn:yoloong:ppt"
+                },
+                "xml_attributes": [
+                  {
+                    "name": {
+                      "prefix": "xmlns",
+                      "local_name": "p",
+                      "namespace_uri": "http://www.w3.org/2000/xmlns/"
+                    },
+                    "value": "urn:yoloong:ppt",
+                    "source_anchor": {
+                      "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                      "format": "xml",
+                      "node_id": "xml-presentation",
+                      "document_path": "/p:presentation/@xmlns:p",
+                      "line": null,
+                      "column": null,
+                      "end_line": null,
+                      "end_column": null,
+                      "byte_offset": null
+                    }
+                  },
+                  {
+                    "name": {
+                      "prefix": "xmlns",
+                      "local_name": "m",
+                      "namespace_uri": "http://www.w3.org/2000/xmlns/"
+                    },
+                    "value": "urn:yoloong:meta",
+                    "source_anchor": {
+                      "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                      "format": "xml",
+                      "node_id": "xml-presentation",
+                      "document_path": "/p:presentation/@xmlns:m",
+                      "line": null,
+                      "column": null,
+                      "end_line": null,
+                      "end_column": null,
+                      "byte_offset": null
+                    }
+                  }
+                ],
+                "children": [
+                  {
+                    "node_id": "xml-slide",
+                    "kind": "element",
+                    "scalar_type": null,
+                    "value": null,
+                    "source_anchor": {
+                      "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                      "format": "xml",
+                      "node_id": "xml-slide",
+                      "document_path": "/p:presentation/p:slide",
+                      "line": null,
+                      "column": null,
+                      "end_line": null,
+                      "end_column": null,
+                      "byte_offset": null
+                    },
+                    "members": [],
+                    "items": [],
+                    "xml_name": {
+                      "prefix": "p",
+                      "local_name": "slide",
+                      "namespace_uri": "urn:yoloong:ppt"
+                    },
+                    "xml_attributes": [
+                      {
+                        "name": {
+                          "prefix": null,
+                          "local_name": "id",
+                          "namespace_uri": null
+                        },
+                        "value": "s1",
+                        "source_anchor": {
+                          "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                          "format": "xml",
+                          "node_id": "xml-slide",
+                          "document_path": "/p:presentation/p:slide/@id",
+                          "line": null,
+                          "column": null,
+                          "end_line": null,
+                          "end_column": null,
+                          "byte_offset": null
+                        }
+                      }
+                    ],
+                    "children": [
+                      {
+                        "node_id": "xml-title",
+                        "kind": "element",
+                        "scalar_type": null,
+                        "value": null,
+                        "source_anchor": {
+                          "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                          "format": "xml",
+                          "node_id": "xml-title",
+                          "document_path": "/p:presentation/p:slide/p:title",
+                          "line": null,
+                          "column": null,
+                          "end_line": null,
+                          "end_column": null,
+                          "byte_offset": null
+                        },
+                        "members": [],
+                        "items": [],
+                        "xml_name": {
+                          "prefix": "p",
+                          "local_name": "title",
+                          "namespace_uri": "urn:yoloong:ppt"
+                        },
+                        "xml_attributes": [],
+                        "children": [
+                          {
+                            "node_id": "xml-title-text",
+                            "kind": "text",
+                            "scalar_type": "string",
+                            "value": "Overview",
+                            "source_anchor": {
+                              "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                              "format": "xml",
+                              "node_id": "xml-title-text",
+                              "document_path": "/p:presentation/p:slide/p:title/text()[1]",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          }
+                        ],
+                        "yaml_tag": null
+                      },
+                      {
+                        "node_id": "xml-approved",
+                        "kind": "element",
+                        "scalar_type": null,
+                        "value": null,
+                        "source_anchor": {
+                          "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                          "format": "xml",
+                          "node_id": "xml-approved",
+                          "document_path": "/p:presentation/p:slide/m:approved",
+                          "line": null,
+                          "column": null,
+                          "end_line": null,
+                          "end_column": null,
+                          "byte_offset": null
+                        },
+                        "members": [],
+                        "items": [],
+                        "xml_name": {
+                          "prefix": "m",
+                          "local_name": "approved",
+                          "namespace_uri": "urn:yoloong:meta"
+                        },
+                        "xml_attributes": [],
+                        "children": [
+                          {
+                            "node_id": "xml-approved-text",
+                            "kind": "text",
+                            "scalar_type": "string",
+                            "value": "true",
+                            "source_anchor": {
+                              "source_asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                              "format": "xml",
+                              "node_id": "xml-approved-text",
+                              "document_path": "/p:presentation/p:slide/m:approved/text()[1]",
+                              "line": null,
+                              "column": null,
+                              "end_line": null,
+                              "end_column": null,
+                              "byte_offset": null
+                            },
+                            "members": [],
+                            "items": [],
+                            "xml_name": null,
+                            "xml_attributes": [],
+                            "children": [],
+                            "yaml_tag": null
+                          }
+                        ],
+                        "yaml_tag": null
+                      }
+                    ],
+                    "yaml_tag": null
+                  }
+                ],
+                "yaml_tag": null
+              }
+            ],
+            "yaml_tag": null
+          }
+        },
+        "focus_results": [
+          {
+            "selector_index": 0,
+            "syntax": "xpath",
+            "expression": "//p:slide[@id='s1']/p:title",
+            "status": "matched",
+            "matched_node_ids": [
+              "xml-title"
+            ],
+            "reason": null
+          }
+        ],
+        "coverage": [
+          {
+            "feature": "hierarchy",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "scalar_types",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "source_locations",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "focus_paths",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "xml_namespaces",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "yaml_tags",
+            "status": "not_present",
+            "reason": null
+          }
+        ],
+        "errors": []
+      },
+      "verification_note": "合成预期结构；xmlns、QName、属性和有序子节点均保留；XPath 使用显式 p 命名空间。"
+    },
+    {
+      "fixture_id": "IN-010-BOUNDARY-JSON-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "structured_parse_input",
+        "source_id": "source_40404040-4040-4404-8404-404040404040",
+        "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+        "raw_asset_refs": [
+          "asset_44444444-4444-4444-8444-444444444444"
+        ],
+        "format": "json",
+        "focus_selectors": []
+      },
+      "sample_source_text": "{\"title\":\"first\",\"title\":\"second\"}",
+      "expected_result": {
+        "record_type": "structured_parse_result",
+        "source_id": "source_40404040-4040-4404-8404-404040404040",
+        "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+        "raw_asset_refs": [
+          "asset_44444444-4444-4444-8444-444444444444"
+        ],
+        "format": "json",
+        "status": "failed",
+        "evidence": null,
+        "focus_results": [],
+        "coverage": [
+          {
+            "feature": "hierarchy",
+            "status": "failed",
+            "reason": "重复对象键无法无损表达为普通 JSON object。"
+          }
+        ],
+        "errors": [
+          {
+            "code": "JSON_DUPLICATE_KEY",
+            "message": "对象包含重复键 title。",
+            "source_anchor": {
+              "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+              "format": "json",
+              "node_id": null,
+              "document_path": "/title",
+              "line": null,
+              "column": null,
+              "end_line": null,
+              "end_column": null,
+              "byte_offset": null
+            }
+          }
+        ]
+      },
+      "verification_note": "解析器不可采用首值或末值覆盖；fixture 文本只是预期输入，不已执行 parser。"
+    },
+    {
+      "fixture_id": "IN-010-BOUNDARY-YAML-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "structured_parse_input",
+        "source_id": "source_50505050-5050-4505-8505-505050505050",
+        "source_asset_id": "asset_55555555-5555-4555-8555-555555555555",
+        "raw_asset_refs": [
+          "asset_55555555-5555-4555-8555-555555555555"
+        ],
+        "format": "yaml",
+        "focus_selectors": []
+      },
+      "sample_source_text": "value: !ruby/object:Kernel {}\n",
+      "expected_result": {
+        "record_type": "structured_parse_result",
+        "source_id": "source_50505050-5050-4505-8505-505050505050",
+        "source_asset_id": "asset_55555555-5555-4555-8555-555555555555",
+        "raw_asset_refs": [
+          "asset_55555555-5555-4555-8555-555555555555"
+        ],
+        "format": "yaml",
+        "status": "failed",
+        "evidence": null,
+        "focus_results": [],
+        "coverage": [
+          {
+            "feature": "yaml_tags",
+            "status": "failed",
+            "reason": "拒绝未支持的自定义标签；不执行标签构造器。"
+          }
+        ],
+        "errors": [
+          {
+            "code": "YAML_UNSUPPORTED_TAG",
+            "message": "检测到未支持的 Ruby 对象标签。",
+            "source_anchor": {
+              "source_asset_id": "asset_55555555-5555-4555-8555-555555555555",
+              "format": "yaml",
+              "node_id": null,
+              "document_path": "/value",
+              "line": null,
+              "column": null,
+              "end_line": null,
+              "end_column": null,
+              "byte_offset": null
+            }
+          }
+        ]
+      },
+      "verification_note": "只定义拒绝结果；未执行任何 YAML 构造器或 parser。"
+    },
+    {
+      "fixture_id": "IN-010-BOUNDARY-XML-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "structured_parse_input",
+        "source_id": "source_60606060-6060-4606-8606-606060606060",
+        "source_asset_id": "asset_66666666-6666-4666-8666-666666666666",
+        "raw_asset_refs": [
+          "asset_66666666-6666-4666-8666-666666666666"
+        ],
+        "format": "xml",
+        "focus_selectors": []
+      },
+      "sample_source_text": "<!DOCTYPE document [<!ENTITY ext SYSTEM \"file:///blocked\">]><document>&ext;</document>",
+      "expected_result": {
+        "record_type": "structured_parse_result",
+        "source_id": "source_60606060-6060-4606-8606-606060606060",
+        "source_asset_id": "asset_66666666-6666-4666-8666-666666666666",
+        "raw_asset_refs": [
+          "asset_66666666-6666-4666-8666-666666666666"
+        ],
+        "format": "xml",
+        "status": "failed",
+        "evidence": null,
+        "focus_results": [],
+        "coverage": [
+          {
+            "feature": "hierarchy",
+            "status": "failed",
+            "reason": "DTD/外部实体策略为禁止。"
+          }
+        ],
+        "errors": [
+          {
+            "code": "XML_DTD_PROHIBITED",
+            "message": "XML 文档声明了 DTD/实体，按契约拒绝解析。",
+            "source_anchor": {
+              "source_asset_id": "asset_66666666-6666-4666-8666-666666666666",
+              "format": "xml",
+              "node_id": null,
+              "document_path": null,
+              "line": null,
+              "column": null,
+              "end_line": null,
+              "end_column": null,
+              "byte_offset": null
+            }
+          }
+        ]
+      },
+      "verification_note": "外部实体地址只作为边界字符串；未发起实体解析或文件/网络访问。"
+    }
+  ],
+  "limits": [
+    "fixture 结构是合成的预期输出；未执行真实 JSON/YAML/XML parser、XPath 引擎或来源坐标验证。",
+    "JSON/YAML 均有行列/byte_offset 示例，XML 有 QName/属性/混合子节点；实际坐标受选定 parser 与编码策略影响。"
+  ]
+}
