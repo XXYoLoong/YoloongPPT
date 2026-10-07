@@ -114,6 +114,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：源码固定及静态元数据已记录；官方最小流程未运行，未生成 PPTX。`TASK-RES-P01-01` 保持进行中；`VERIFY-RES-P01-01` 与依赖它的 `TASK-RES-P01-02` 保持未开始。待 Docker API 可用后，在隔离容器复现并记录实际镜像摘要、依赖和生成物。
 - 证据：`research/P01/README.md`；Excel“需求主表”`N12:O12`、“可执行任务”`L14:M15`、“开源项目研究对象”第 2 行。
 
+### TASK-RES-P02-01
+
+- Requirement ID：RES-P02-01；P0；无前置任务。
+- 状态：进行中。按矩阵冻结 PPTAgent / DeepPresenter 三个研究快照：main `833cda553b343be0e486a93b0b57cac962cdd566`、v0.2.0 `d53296bc0ddd73e81d51c523d20dd711c7f233f3`、v1.1.38 annotated tag object `2e68c095a86bdbb91635dc4d91dad4662aba163c` / peeled commit `2419d30b134a71486523e95ded60b32489fd3c61`。远端 refs 与 GOV-010 既有版本记录一致，固定 clone 位于仓库外 `F:\YoloongPPT-Research\P02`。
+- 锁与许可：main Skill 有 npm `package-lock.json`，Python `requirements.txt` 不是完整锁；v0.2.0 与 v1.1.38 均有 `uv.lock` 和子目录 npm lock。三个源码快照根 LICENSE 均为 MIT。main Skill requirements 固定 `pptagent==1.1.37`，而研究 tag 为 v1.1.38；v0.2.0 的包元数据版本为 0.2.8，与 tag 名 v0.2.0 不同。研究记录按源码事实区分，不静默对齐版本。
+- 上游环境：main Skill README 要求 Linux（含 WSL）或 macOS、uv、npm、LibreOffice；macOS 转换器另需 Chrome，并示例使用 Python 3.12。论文 tags 的 `pyproject.toml` 要求 Python `>=3.11`。这些是上游各自的环境声明，不是 YoloongPPT 的技术选型。
+- 环境阻塞：当前 Docker context `desktop-linux` 的 Engine pipe 不存在；项目容器未启动，P02 官方最小流程、依赖安装和 PPTX 生成均未运行。没有在 Windows 主机安装 P02 依赖。
+- 验收边界：源码 refs、锁文件元数据、运行条件和上游主许可证已做静态核对；因官方最小流程未复现，`ProjectBaseline` 验收仍未完成，`TASK-RES-P02-01` 保持进行中。后续在隔离容器执行官方最小流程并记录环境/日志/生成物。
+- 证据：`research/P02/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N17:P17`、“可执行任务”`L24:M24`、“开源项目研究对象”第 3 行。当前 P02 官网 [README](https://github.com/icip-cas/PPTAgent/blob/833cda553b343be0e486a93b0b57cac962cdd566/README.md) 固定到 main commit。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
