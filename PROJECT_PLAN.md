@@ -288,6 +288,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：任务输出为 SourceAnchor；“数据对象”表无同名行，本任务不增删需求、任务或数据对象行。
 - 证据：contracts/source-anchor.schema.json、contracts/source-anchor.catalog.json、contracts/source-anchor.fixtures.json、contracts/source-bundle.schema.json/catalog.json/fixtures.json；Excel“需求主表”N55:P55、“可执行任务”L83:M83。
 
+### TASK-TPL-001
+
+- Requirement ID：TPL-001；P0；矩阵列明无前置任务。
+- 状态：进行中。已建立语言/运行时无关的 TemplateSourceRecord 草案，登记来源项目/文件/用户上传、来源提交、项目许可证与模板许可证、模板版本、带哈希范围的 SHA-256、带单位/坐标语义的页面尺寸，以及 master/layout/theme 状态。
+- 来源边界：固定对照 PPT Master 2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d、Presenton 35bf44290f821323e003da854f78ffcb0e918167、ai-agent-ppt c3605ebc487fc6c7d4f4139761e46d7021cd656c。PPT Master 多画布规格不能推断成单个模板尺寸；Presenton 的 1280x720 是来源坐标系；ai-agent-ppt 的 pitch JSON 是 13.33x7.5 英寸画布，布局定义为分开的 JSON。
+- 真实 PPTX 样例：只读检查 python-pptx 固定提交 278b47b1dedd5b46ee84c286e77cdfb0bf4594be 的 default.pptx，SHA-256 e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34；ZIP/XML 可定位 1 个 master、11 个 layout、1 个 theme，master 关系均指向存在的 layout/theme 部件，sldSz 为 9144000×6858000 EMU。样例文件未复制进产品树或声明为项目依赖。
+- 许可/版本边界：上游项目根许可证与模板资产许可分开；模板许可和模板自身版本无充分证据的记录保持 unknown。来源提交与模板版本是两个字段，文件时间不用于推断。
+- 基线对齐：更新既有 TPL-001/TASK-TPL-001 状态和证据；数据对象表已有 TemplatePack，但未列 TemplateSourceRecord。本任务契约作为任务输出，不新增/删除需求、任务或数据对象行；与 TemplatePack.source 的正式映射及决策引擎查询、评分、实例化运行时仍待后续任务。
+- 静态核验：3 份契约 JSON 可解析，schema 本地引用可定位；5 个 fixture 的必需字段、TPL-001/TASK-TPL-001 追溯 ID、证据引用及 4 个来源文件/样例 SHA-256 一致。真实 PPTX ZIP/XML 部件与关系盘点得到 1 master、11 layouts、1 theme 和页面尺寸。需求/任务总数仍为 308/453；矩阵仅改需求行 110 的 N:P、任务行 178 的 L:M 共 5 个单元格，数据对象表和验收矩阵无变化。工作簿保留 47 个 package parts、20 张表、8 个表格、115 个公式、29 个数据验证、28 个条件格式和 1 个合并单元格；styles.xml 哈希不变，另外 7 张受重新序列化的非目标工作表渲染图与原图 SHA-256 相同，需求/任务目标行也已前后渲染对照。任务状态计数为 2 已完成、41 进行中、410 未开始；AC-001–AC-030 未执行。未运行上游应用、YoloongPPT parser、PPTX 渲染、上传链路或 JSON Schema 标准实例验证。
+- 证据：contracts/template-source-record.schema.json、contracts/template-source-record.catalog.json、contracts/template-source-record.fixtures.json；Excel“需求主表”N110:P110、“可执行任务”L178:M178；research/P01/README.md、research/P03/README.md、research/P04/README.md。
+
 ### TASK-CNT-001
 
 - Requirement ID：CNT-001；P0；矩阵中无前置任务。
