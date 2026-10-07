@@ -1,0 +1,111 @@
+{
+  "report_type": "PowerPointBackendPocReport",
+  "report_status": "partial",
+  "route_id": "PP-04",
+  "task_id": "ADP-PP-04-01",
+  "candidate": {
+    "library": "DocumentFormat.OpenXml",
+    "package_version": "3.5.1",
+    "package_license": "MIT",
+    "product_backend_selected": false
+  },
+  "environment": {
+    "execution_location": "isolated Docker SDK container",
+    "container_image": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317",
+    "runtime_version": "10.0.12",
+    "dotnet_sdk_version": "10.0.401",
+    "product_runtime_selected": false
+  },
+  "source": {
+    "repository": "scanny/python-pptx",
+    "revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+    "sample_path": "src/pptx/templates/default.pptx",
+    "license": "MIT",
+    "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34"
+  },
+  "input_inventory": {
+    "master_count": 1,
+    "layout_count": 11,
+    "theme_count": 1,
+    "slide_part_count": 0,
+    "first_slide_layout_ref": null,
+    "part_counts": {
+      "masters": 1,
+      "layouts": 11,
+      "themes": 1,
+      "slides": 0
+    }
+  },
+  "normal_case": {
+    "status": "passed",
+    "output_file": "artifacts/pp04-output.pptx",
+    "output_sha256": "24919667c35a6564c5fe19cb6258a8da81fe542d7d68a34cfc17f97138e34e30",
+    "output_inventory": {
+      "master_count": 1,
+      "layout_count": 11,
+      "theme_count": 1,
+      "slide_part_count": 1,
+      "first_slide_layout_ref": "/ppt/slideLayouts/slideLayout1.xml",
+      "part_counts": {
+        "masters": 1,
+        "layouts": 11,
+        "themes": 1,
+        "slides": 1
+      }
+    },
+    "master_layout_theme_parts_byte_identical": false,
+    "changed_preservation_parts": [
+      "ppt/slideLayouts/slideLayout1.xml",
+      "ppt/slideLayouts/slideLayout11.xml"
+    ],
+    "text_written": "PP-04 Open XML SDK PoC",
+    "placeholder_types_written": [
+      "title",
+      "body"
+    ],
+    "text_runs_written": 2,
+    "reused_layout_ref": "/ppt/slideLayouts/slideLayout1.xml"
+  },
+  "unknown_part_preservation": {
+    "status": "passed",
+    "input_file": "artifacts/unknown-part-input.pptx",
+    "output_file": "artifacts/unknown-part-output.pptx",
+    "part_name": "ppt/yoloongppt/poc-unknown.xml",
+    "expected_sha256": "50123578e594e031f7fa1d87fcdb41cbd35cde1ef7c2f624463768243a19c437",
+    "actual_sha256": "50123578e594e031f7fa1d87fcdb41cbd35cde1ef7c2f624463768243a19c437",
+    "exception_type": null,
+    "message": null
+  },
+  "validation": {
+    "validator": "DocumentFormat.OpenXml.OpenXmlValidator",
+    "target": "Office2019",
+    "source_error_count": 0,
+    "output_error_count": 0,
+    "output_errors": []
+  },
+  "boundary_case": {
+    "status": "observed",
+    "detail": "The fixed source package has master/layout/theme parts but no slide parts; the PoC added exactly one slide."
+  },
+  "failure_case": {
+    "status": "failed_as_expected",
+    "exception_type": "System.IO.FileFormatException",
+    "message": "File contains corrupted data."
+  },
+  "capability_observations": {
+    "create_open_save": "partial",
+    "add_slide_and_text": "partial",
+    "reuse_master_layout_theme": "partial",
+    "master_layout_theme_part_bytes_identical": false,
+    "unknown_part_preservation": "passed",
+    "image_table_chart_notes_comments_transitions_animations": "untested",
+    "rendering": "untested",
+    "emu_geometry": "not exercised"
+  },
+  "limitations": [
+    "This is a candidate-backend PoC, not a YoloongPPT product runtime or architecture decision.",
+    "The generated slide is structurally validated but not rendered by PowerPoint or LibreOffice.",
+    "Two slide layout XML part hashes changed during SDK serialization; semantic equality was not separately tested, so exact template layout round-trip preservation is not claimed.",
+    "Image/table/chart/notes/comments/transition/animation authoring and mutation were not exercised."
+  ]
+}

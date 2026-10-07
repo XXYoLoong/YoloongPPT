@@ -71,21 +71,61 @@
     },
     {
       "backend_id": "PP-04",
-      "version_state": "not_frozen",
-      "version_value": null,
-      "unresolved_reason": "PoC 未执行，具体 package/tag/API set/Office build 未冻结；不以宿主机工具版本代替。",
+      "version_state": "pinned",
+      "version_value": "DocumentFormat.OpenXml 3.5.1; DocumentFormat.OpenXml.Framework 3.5.1; System.IO.Packaging 10.0.2; all MIT; mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317; observed .NET SDK 10.0.401; PoC only, product backend/runtime not selected.",
       "evidence_refs": [
         {
           "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
           "location": "PowerPoint后端!I5",
-          "observed": "未执行"
+          "observed": "已执行（部分通过）"
         },
         {
           "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
           "location": "PowerPoint后端!J5",
-          "observed": "未冻结（PoC未执行）"
+          "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+        },
+        {
+          "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+          "location": "PowerPoint后端!H5",
+          "observed": "PoC Docker 已运行（候选实验）"
+        },
+        {
+          "source": "research/poc/PP-04/PP04PoC.csproj",
+          "location": "/ItemGroup/PackageReference",
+          "observed": "DocumentFormat.OpenXml 3.5.1"
+        },
+        {
+          "source": "research/poc/PP-04/packages.lock.json",
+          "location": "/dependencies/net10.0",
+          "observed": "DocumentFormat.OpenXml 3.5.1; DocumentFormat.OpenXml.Framework 3.5.1; System.IO.Packaging 10.0.2"
+        },
+        {
+          "source": "research/poc/PP-04/artifacts/report.json",
+          "location": "/environment/container_image",
+          "observed": "mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317"
+        },
+        {
+          "source": "research/poc/PP-04/artifacts/report.json",
+          "location": "/environment/dotnet_sdk_version",
+          "observed": "10.0.401"
+        },
+        {
+          "source": "https://www.nuget.org/packages/DocumentFormat.OpenXml/3.5.1",
+          "location": "package/version/license",
+          "observed": "3.5.1; MIT"
+        },
+        {
+          "source": "https://www.nuget.org/packages/DocumentFormat.OpenXml.Framework/3.5.1",
+          "location": "package/version/license",
+          "observed": "3.5.1; MIT"
+        },
+        {
+          "source": "https://www.nuget.org/packages/System.IO.Packaging/10.0.2",
+          "location": "package/version/license",
+          "observed": "10.0.2; MIT"
         }
-      ]
+      ],
+      "version_kind": "package"
     },
     {
       "backend_id": "PP-05",
@@ -282,27 +322,37 @@
         {
           "capability_id": "PPT-001",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H2",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/output_sha256",
+              "observed": "24919667c35a6564c5fe19cb6258a8da81fe542d7d68a34cfc17f97138e34e30"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/validation/output_error_count",
+              "observed": "0"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-001：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-001",
@@ -524,27 +574,37 @@
         {
           "capability_id": "PPT-002",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H3",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/output_inventory/slide_part_count",
+              "observed": "1"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/reused_layout_ref",
+              "observed": "/ppt/slideLayouts/slideLayout1.xml"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-002：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-002",
@@ -768,7 +828,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -778,15 +838,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-003：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-003",
@@ -1008,27 +1068,37 @@
         {
           "capability_id": "PPT-004",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H5",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/input_inventory/master_count",
+              "observed": "1"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/changed_preservation_parts",
+              "observed": "ppt/slideLayouts/slideLayout1.xml, ppt/slideLayouts/slideLayout11.xml"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-004：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-004",
@@ -1250,27 +1320,37 @@
         {
           "capability_id": "PPT-005",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H6",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/reused_layout_ref",
+              "observed": "/ppt/slideLayouts/slideLayout1.xml"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/changed_preservation_parts",
+              "observed": "ppt/slideLayouts/slideLayout1.xml, ppt/slideLayouts/slideLayout11.xml"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-005：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-005",
@@ -1492,27 +1572,37 @@
         {
           "capability_id": "PPT-006",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H7",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/input_inventory/theme_count",
+              "observed": "1"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/changed_preservation_parts",
+              "observed": "ppt/slideLayouts/slideLayout1.xml, ppt/slideLayouts/slideLayout11.xml"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-006：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-006",
@@ -1734,27 +1824,32 @@
         {
           "capability_id": "PPT-007",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H8",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/placeholder_types_written",
+              "observed": "title, body"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-007：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-007",
@@ -1976,27 +2071,32 @@
         {
           "capability_id": "PPT-008",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H9",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/text_written",
+              "observed": "PP-04 Open XML SDK PoC"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-008：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-008",
@@ -2218,27 +2318,32 @@
         {
           "capability_id": "PPT-009",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H10",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "/normal_case/text_runs_written",
+              "observed": "2"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-009：仅对本轮明确列出的基础行为标记 Partial；完整对象能力仍未覆盖。候选实验依赖已固定，产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-009",
@@ -2462,7 +2567,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2472,15 +2577,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-010：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-010",
@@ -2704,7 +2809,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2714,15 +2819,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-011：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-011",
@@ -2946,7 +3051,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2956,15 +3061,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-012：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-012",
@@ -3188,7 +3293,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3198,15 +3303,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-013：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-013",
@@ -3430,7 +3535,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3440,15 +3545,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-014：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-014",
@@ -3672,7 +3777,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3682,15 +3787,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-015：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-015",
@@ -3914,7 +4019,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3924,15 +4029,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-016：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-016",
@@ -4156,7 +4261,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4166,15 +4271,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-017：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-017",
@@ -4398,7 +4503,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4408,15 +4513,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-018：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-018",
@@ -4640,7 +4745,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4650,15 +4755,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-019：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-019",
@@ -4882,7 +4987,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4892,15 +4997,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-020：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-020",
@@ -5124,7 +5229,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5134,15 +5239,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-021：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-021",
@@ -5366,7 +5471,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5376,15 +5481,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-022：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-022",
@@ -5608,7 +5713,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5618,15 +5723,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-023：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-023",
@@ -5850,7 +5955,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5860,15 +5965,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-024：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-024",
@@ -6092,7 +6197,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6102,15 +6207,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-025：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-025",
@@ -6334,7 +6439,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6344,15 +6449,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-026：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-026",
@@ -6576,7 +6681,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6586,15 +6691,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-027：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-027",
@@ -6818,7 +6923,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6828,15 +6933,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-028：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-028",
@@ -7060,7 +7165,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -7070,15 +7175,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-029：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-029",
@@ -7302,7 +7407,7 @@
           "backend_id": "PP-04",
           "status": "Untested",
           "version_ref": "PP-04",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -7312,15 +7417,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!I5",
-              "observed": "未执行"
+              "observed": "已执行（部分通过）"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "PPT-030：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-030",

@@ -63,10 +63,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 ### TASK-GOV-005
 
 - Requirement ID：GOV-005；P0；无前置任务。
-- 状态：进行中。建立 `CapabilityStatus` Draft 2020-12 契约草案，并逐项登记 Excel“PowerPoint对象矩阵”的 PPT-001–030 × PP-01–09 共 270 个状态。根据当前矩阵与 PoC 证据，270 项均保留为 `Untested`；30 行已关联状态证据，PP-08/PP-09 的候选源码 commit 已固定，另 7 条路线的具体源码/依赖版本仍未冻结。九条路线 PoC 均未执行；源码提交固定不代表已选为产品后端或已有能力结论。
-- 当前边界：九条 PowerPoint 路线均未执行 PoC。PP-08/PP-09 仅固定了候选仓库的 main commit；其余七条路线仍未冻结具体版本，且所有路线的产品后端、package/API set/Office build 选型均未完成。`SYS-007` Capability Registry 尚未开始，基线也未枚举系统级非 PPT 原子能力或具体运行时 Adapter 实例；catalog 明确登记这两类范围缺口。`VERIFY-GOV-005` 仍未开始，尚无实际能力测试证据。
-- 静态核验：Draft 2020-12 元模式、30 项能力、9 个后端版本状态、270 条状态记录和 fixture 校验通过；每项记录均匹配矩阵中的状态、版本栏和证据位置。未运行后端 PoC。
-- 证据：`contracts/capability-status.schema.json`、`contracts/capability-status.catalog.json`、`contracts/capability-status.fixtures.json`；Excel“PowerPoint对象矩阵”`P2:P31`、“PowerPoint后端”`I2:J10`、“需求主表”`N6:P6`、“可执行任务”`L7:M7`。
+- 状态：进行中。建立 `CapabilityStatus` Draft 2020-12 契约草案，并逐项登记 Excel“PowerPoint对象矩阵”的 PPT-001–030 × PP-01–09 共 270 个状态。当前 PP-04 有 8 项基础能力为 `Partial`，其余 262 项为 `Untested`；每项均保留证据、版本和范围边界。
+- 当前边界：PP-04 的候选 PoC 依赖已固定为 `DocumentFormat.OpenXml` 3.5.1、`DocumentFormat.OpenXml.Framework` 3.5.1、`System.IO.Packaging` 10.0.2；隔离容器实际观察到 .NET SDK 10.0.401。它们只描述此次实验，不是产品语言、运行时或后端选型。PP-08/PP-09 仍只固定候选源码 commit；其余六条路线版本仍未冻结。所有路线的产品后端、API set/Office build 选型均未完成。`SYS-007` Capability Registry 尚未开始，基线也未枚举系统级非 PPT 原子能力或具体运行时 Adapter 实例；catalog 明确登记这两类范围缺口。`VERIFY-GOV-005` 仍未开始。
+- 静态核验：30 项能力 × 9 条路线共 270 条记录；PP-04 当前 8 项 `Partial`、22 项 `Untested`，其余路线保持原状态；3 条候选路线的版本已固定，其他 6 条仍未冻结。PoC 已在锁定 Docker 镜像内运行并生成结构校验报告；能力矩阵和 catalog 状态相符。
+- 证据：`contracts/capability-status.schema.json`、`contracts/capability-status.catalog.json`、`contracts/capability-status.fixtures.json`；Excel“PowerPoint对象矩阵”`H2:H31`、“PowerPoint后端”`H5:N5`；`research/poc/PP-04/README.md`、`research/poc/PP-04/artifacts/report.json`。
+
+### TASK-ADP-PP-04-01 / VERIFY-ADP-PP-04-01
+
+- Requirement ID：ADP-PP-04-01；P0。任务和验证任务均为进行中。
+- 已验证：在固定镜像 `mcr.microsoft.com/dotnet/sdk@sha256:e70cdb7f80b0348f5cb85f19a8f670fca061f033d57eed12fa003d58b0e06317`（实际 SDK 10.0.401）中，以锁定依赖运行 Open XML SDK PoC；从固定 commit 的 MIT 样例读取 1 个 master、11 个 layouts、1 个 theme，新增带 title/body 占位符的 1 张 slide 并保存；Office 2019 `OpenXmlValidator` 错误数为 0。自定义未知部件往返后 SHA-256 一致；64 字节截断包按预期以 `System.IO.FileFormatException` 失败。
+- 边界：`slideLayout1.xml` 和 `slideLayout11.xml` 字节哈希发生变化；未验证其 XML 语义等价，因此不宣称精确 layout round-trip 保真。尚未测试图像、表格、图表、既有对象读取/更新、notes/comments、transitions/animations、EMU 或 PowerPoint/LibreOffice 渲染。PoC 依赖和容器版本仅用于候选实验，产品架构没有据此选定。
+- 证据：`research/poc/PP-04/PP04PoC.csproj`、`packages.lock.json`、`fixtures/`、`artifacts/pp04-output.pptx`、`artifacts/report.json`、Excel“PowerPoint后端”`H5:N5`、“PowerPoint对象矩阵”`H2:H10`、“可执行任务”`L276:L277`。
 
 ### TASK-GOV-006
 
