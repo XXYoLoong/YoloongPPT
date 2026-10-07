@@ -1,0 +1,134 @@
+{
+  "document_type": "pdf_evidence_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-004",
+  "fixtures": [
+    {
+      "fixture_id": "IN-004-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "pdf_parse_input",
+        "source_asset_id": "asset_123e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": ["asset_123e4567-e89b-42d3-a456-426614174000"]
+      },
+      "expected_result": {
+        "record_type": "pdf_parse_result",
+        "source_asset_id": "asset_123e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": ["asset_123e4567-e89b-42d3-a456-426614174000"],
+        "status": "parsed",
+        "evidence": {
+          "model_type": "PdfEvidence",
+          "source_asset_id": "asset_123e4567-e89b-42d3-a456-426614174000",
+          "pages": [
+            {
+              "page_index": 0,
+              "page_number": 1,
+              "coordinate_frame": {"units": "pt_1_over_72_inch", "origin": "top_left", "page_box": "rotated_crop_box", "rotation_degrees": 0, "width": 612, "height": 792},
+              "elements": [
+                {
+                  "kind": "text",
+                  "element_index": 0,
+                  "reading_order_index": 0,
+                  "text": "光伏简报",
+                  "bbox": {"x_min": 72, "y_min": 48, "x_max": 220, "y_max": 72},
+                  "source_anchor": {"source_ref": "pdf_asset", "page_index": 0, "page_number": 1, "element_index": 0, "object_kind": "text", "row_index": null, "cell_index": null},
+                  "extraction_method": "native_text_layer"
+                },
+                {
+                  "kind": "text",
+                  "element_index": 1,
+                  "reading_order_index": 1,
+                  "text": "2025年装机容量增长20%。",
+                  "bbox": {"x_min": 72, "y_min": 90, "x_max": 315, "y_max": 110},
+                  "source_anchor": {"source_ref": "pdf_asset", "page_index": 0, "page_number": 1, "element_index": 1, "object_kind": "text", "row_index": null, "cell_index": null},
+                  "extraction_method": "native_text_layer"
+                },
+                {
+                  "kind": "table",
+                  "element_index": 2,
+                  "reading_order_index": 2,
+                  "bbox": {"x_min": 72, "y_min": 140, "x_max": 420, "y_max": 240},
+                  "source_anchor": {"source_ref": "pdf_asset", "page_index": 0, "page_number": 1, "element_index": 2, "object_kind": "table", "row_index": null, "cell_index": null},
+                  "rows": [
+                    [
+                      {"cell_index": 0, "text": "指标", "bbox": {"x_min": 72, "y_min": 150, "x_max": 230, "y_max": 175}, "source_anchor": {"source_ref": "pdf_asset", "page_index": 0, "page_number": 1, "element_index": 2, "object_kind": "table_cell", "row_index": 0, "cell_index": 0}},
+                      {"cell_index": 1, "text": "数据", "bbox": {"x_min": 230, "y_min": 150, "x_max": 420, "y_max": 175}, "source_anchor": {"source_ref": "pdf_asset", "page_index": 0, "page_number": 1, "element_index": 2, "object_kind": "table_cell", "row_index": 0, "cell_index": 1}}
+                    ],
+                    [
+                      {"cell_index": 0, "text": "2025年", "bbox": {"x_min": 72, "y_min": 185, "x_max": 230, "y_max": 210}, "source_anchor": {"source_ref": "pdf_asset", "page_index": 0, "page_number": 1, "element_index": 2, "object_kind": "table_cell", "row_index": 1, "cell_index": 0}},
+                      {"cell_index": 1, "text": "20%", "bbox": {"x_min": 230, "y_min": 185, "x_max": 420, "y_max": 210}, "source_anchor": {"source_ref": "pdf_asset", "page_index": 0, "page_number": 1, "element_index": 2, "object_kind": "table_cell", "row_index": 1, "cell_index": 1}}
+                    ]
+                  ]
+                },
+                {
+                  "kind": "image",
+                  "element_index": 3,
+                  "reading_order_index": 3,
+                  "bbox": {"x_min": 72, "y_min": 270, "x_max": 300, "y_max": 450},
+                  "source_anchor": {"source_ref": "pdf_asset", "page_index": 0, "page_number": 1, "element_index": 3, "object_kind": "image", "row_index": null, "cell_index": null},
+                  "resource_status": "extracted",
+                  "resource_ref": "page-0-image-0",
+                  "reason": null
+                }
+              ],
+              "heading_candidates": [
+                {
+                  "text_element_index": 0,
+                  "candidate_level": 1,
+                  "signals": ["font_size", "weight", "position"],
+                  "source_anchor": {"source_ref": "pdf_asset", "page_index": 0, "page_number": 1, "element_index": 0, "object_kind": "text", "row_index": null, "cell_index": null}
+                }
+              ]
+            },
+            {
+              "page_index": 1,
+              "page_number": 2,
+              "coordinate_frame": {"units": "pt_1_over_72_inch", "origin": "top_left", "page_box": "rotated_crop_box", "rotation_degrees": 0, "width": 612, "height": 792},
+              "elements": [
+                {
+                  "kind": "text",
+                  "element_index": 0,
+                  "reading_order_index": 0,
+                  "text": "数据来源",
+                  "bbox": {"x_min": 72, "y_min": 50, "x_max": 180, "y_max": 70},
+                  "source_anchor": {"source_ref": "pdf_asset", "page_index": 1, "page_number": 2, "element_index": 0, "object_kind": "text", "row_index": null, "cell_index": null},
+                  "extraction_method": "native_text_layer"
+                }
+              ],
+              "heading_candidates": [
+                {
+                  "text_element_index": 0,
+                  "candidate_level": 2,
+                  "signals": ["font_size", "weight"],
+                  "source_anchor": {"source_ref": "pdf_asset", "page_index": 1, "page_number": 2, "element_index": 0, "object_kind": "text", "row_index": null, "cell_index": null}
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "verification_note": "契约预期 fixture；没有由真实 PDF parser 生成或确认这些页块和坐标。"
+    },
+    {
+      "fixture_id": "IN-004-BOUNDARY-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "pdf_parse_input",
+        "source_asset_id": "asset_223e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": ["asset_223e4567-e89b-42d3-a456-426614174000"]
+      },
+      "expected_result": {
+        "record_type": "pdf_parse_result",
+        "source_asset_id": "asset_223e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": ["asset_223e4567-e89b-42d3-a456-426614174000"],
+        "status": "failed",
+        "evidence": null,
+        "errors": [
+          {"code": "PDF_NO_TEXT_LAYER", "message": "PDF 未检测到可提取的原生文本层；IN-004 不执行 OCR。"}
+        ]
+      },
+      "verification_note": "边界预期 fixture；不得据此报告 IN-005 OCR 已运行。"
+    }
+  ]
+}

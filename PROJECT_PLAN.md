@@ -180,6 +180,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：损坏 DOCX 的结构化失败 fixture 已建立；DOCX parser 与固定分页渲染尚未实现/执行，因此 `TASK-IN-003` 保持进行中，页码和真实文件解析验收未通过；AC-001–AC-030 均未执行。
 - 证据：`contracts/docx-evidence.schema.json`、`contracts/docx-evidence.catalog.json`、`contracts/docx-evidence.fixtures.json`；Excel“需求主表”`N42:P42`、“可执行任务”`L70:M70`。
 
+### TASK-IN-004
+
+- Requirement ID：IN-004；P0；无前置任务。
+- 状态：进行中。已建立 `PdfEvidence` Draft 2020-12 契约、目录和正常/边界预期 fixture；记录逐页文本块、标题候选、表格单元格、图片对象、坐标框架和来源锚点。
+- 坐标边界：项目契约定义使用旋转后 CropBox 左上角原点、point（1/72 英寸）单位；每个 bbox 都带可解释的页面 frame。该坐标转换尚未用真实 PDF/旋转页夹具执行验证。
+- 输入边界：IN-004 只处理原生文本层；扫描 PDF 边界返回 `PDF_NO_TEXT_LAYER`，不在本任务中静默进入 OCR。OCR 属于独立 IN-005。
+- 静态核验：schema/catalog/fixtures JSON 可解析且 `$ref` 可定位；正常 fixture 含 2 页、5 个元素、4 个表格单元格，页号/索引/锚点一致且 bbox 在页面 frame 内；Asset ID 输入/输出一致。未运行标准 JSON Schema 验证器。
+- 验收边界：fixtures 仅为预期结构，无真实 PDF parser 或页框变换结果；`TASK-IN-004` 保持进行中，表格/图片提取和坐标精度未验收；AC-001–AC-030 均未执行。
+- 证据：`contracts/pdf-evidence.schema.json`、`contracts/pdf-evidence.catalog.json`、`contracts/pdf-evidence.fixtures.json`；Excel“需求主表”`N43:P43`、“可执行任务”`L71:M71`。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
