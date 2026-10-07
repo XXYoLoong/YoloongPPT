@@ -1,0 +1,174 @@
+{
+  "requirement_id": "TPL-008",
+  "task_id": "TASK-TPL-008",
+  "schema": "contracts/template-field-map.schema.json",
+  "fixture_status": "partial",
+  "source_crosswalk_ids": ["P01_PPT_MASTER", "P03_PRESENTON", "P04_AI_AGENT_PPT", "PYTHON_PPTX_DEFAULT_SAMPLE"],
+  "fixtures": [
+    {
+      "case_id": "p01_ctrtitle_to_title",
+      "expected_valid": true,
+      "instance": {
+        "spec_type": "TemplateFieldMap",
+        "contract_status": "draft",
+        "requirement_id": "TPL-008",
+        "task_id": "TASK-TPL-008",
+        "role_baseline": { "source_step": "S24", "roles": ["title", "body", "image", "chart", "table", "note"] },
+        "entries": [
+          {
+            "case_id": "p01_ctrtitle",
+            "source_field": {
+              "source_id": "P01_PPT_MASTER",
+              "source_revision": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+              "source_path": "skills/ppt-master/scripts/template_import/manifest.py",
+              "field_locator": "OOXML placeholder manifest semanticRole crosswalk",
+              "source_field_name": "placeholder_type",
+              "raw_value": "ctrTitle"
+            },
+            "mapping": {
+              "status": "mapped",
+              "canonical_role": "title",
+              "candidate_roles": [],
+              "evidence_refs": ["P01_PLACEHOLDER_MANIFEST", "MATRIX_S24_ROLE_BASELINE"],
+              "reason": null
+            }
+          }
+        ],
+        "evidence_refs": ["P01_PLACEHOLDER_MANIFEST", "MATRIX_S24_ROLE_BASELINE"],
+        "limitations": ["该映射只覆盖固定 adapter 的已审阅字段和值，不构成通用 OOXML 规则。"]
+      }
+    },
+    {
+      "case_id": "p03_semantic_component_not_executed",
+      "expected_valid": true,
+      "instance": {
+        "spec_type": "TemplateFieldMap",
+        "contract_status": "draft",
+        "requirement_id": "TPL-008",
+        "task_id": "TASK-TPL-008",
+        "role_baseline": { "source_step": "S24", "roles": ["title", "body", "image", "chart", "table", "note"] },
+        "entries": [
+          {
+            "case_id": "p03_semantic_component",
+            "source_field": {
+              "source_id": "P03_PRESENTON",
+              "source_revision": "35bf44290f821323e003da854f78ffcb0e918167",
+              "source_path": "docs/template-v2.md; servers/fastapi/templates/v2/schema.py",
+              "field_locator": "model-certified semantic component result after source elements and preview",
+              "source_field_name": null,
+              "raw_value": null
+            },
+            "mapping": {
+              "status": "unknown",
+              "canonical_role": null,
+              "candidate_roles": [],
+              "evidence_refs": ["P03_TEMPLATE_V2_DOC", "MATRIX_S24_ROLE_BASELINE"],
+              "reason": "固定源码说明语义组件需模型分析与预览认证；本项目只完成静态来源审阅，未执行该流程，不能从 RawSlideLayouts 字段推定 canonical role。"
+            }
+          }
+        ],
+        "evidence_refs": ["P03_TEMPLATE_V2_DOC", "MATRIX_S24_ROLE_BASELINE"],
+        "limitations": ["这是静态审阅的 unknown 边界，不表示 Presenton 映射运行已验证。"]
+      }
+    },
+    {
+      "case_id": "p04_declared_title_slot",
+      "expected_valid": true,
+      "instance": {
+        "spec_type": "TemplateFieldMap",
+        "contract_status": "draft",
+        "requirement_id": "TPL-008",
+        "task_id": "TASK-TPL-008",
+        "role_baseline": { "source_step": "S24", "roles": ["title", "body", "image", "chart", "table", "note"] },
+        "entries": [
+          {
+            "case_id": "p04_title_slot",
+            "source_field": {
+              "source_id": "P04_AI_AGENT_PPT",
+              "source_revision": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+              "source_path": "src/layouts/title.layout.json",
+              "field_locator": "LayoutNode.slot",
+              "source_field_name": "slot",
+              "raw_value": "title"
+            },
+            "mapping": {
+              "status": "declared",
+              "canonical_role": "title",
+              "candidate_roles": [],
+              "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON", "MATRIX_S24_ROLE_BASELINE"],
+              "reason": null
+            }
+          }
+        ],
+        "evidence_refs": ["P04_ABSTRACT_LAYOUT_JSON", "MATRIX_S24_ROLE_BASELINE"],
+        "limitations": ["slot 是语义名称，不是稳定 slot UUID；本 fixture 不证明其他 layout 的字段映射。"]
+      }
+    },
+    {
+      "case_id": "real_pptx_ctrtitle_to_title",
+      "expected_valid": true,
+      "instance": {
+        "spec_type": "TemplateFieldMap",
+        "contract_status": "draft",
+        "requirement_id": "TPL-008",
+        "task_id": "TASK-TPL-008",
+        "role_baseline": { "source_step": "S24", "roles": ["title", "body", "image", "chart", "table", "note"] },
+        "entries": [
+          {
+            "case_id": "real_pptx_ctrtitle",
+            "source_field": {
+              "source_id": "PYTHON_PPTX_DEFAULT_SAMPLE",
+              "source_revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+              "source_path": "src/pptx/templates/default.pptx",
+              "field_locator": "ppt/slideLayouts/slideLayout1.xml#shape-id=2",
+              "source_field_name": "p:ph/@type",
+              "raw_value": "ctrTitle"
+            },
+            "mapping": {
+              "status": "mapped",
+              "canonical_role": "title",
+              "candidate_roles": [],
+              "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE", "P01_PLACEHOLDER_MANIFEST", "MATRIX_S24_ROLE_BASELINE"],
+              "reason": null
+            }
+          }
+        ],
+        "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE", "P01_PLACEHOLDER_MANIFEST", "MATRIX_S24_ROLE_BASELINE"],
+        "limitations": ["真实样例有 0 个 slide parts；只核对 layout placeholder 字段和静态 adapter crosswalk。"]
+      }
+    },
+    {
+      "case_id": "real_pptx_subtitle_not_silently_mapped",
+      "expected_valid": true,
+      "instance": {
+        "spec_type": "TemplateFieldMap",
+        "contract_status": "draft",
+        "requirement_id": "TPL-008",
+        "task_id": "TASK-TPL-008",
+        "role_baseline": { "source_step": "S24", "roles": ["title", "body", "image", "chart", "table", "note"] },
+        "entries": [
+          {
+            "case_id": "real_pptx_subtitle",
+            "source_field": {
+              "source_id": "PYTHON_PPTX_DEFAULT_SAMPLE",
+              "source_revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+              "source_path": "src/pptx/templates/default.pptx",
+              "field_locator": "ppt/slideLayouts/slideLayout1.xml#shape-id=3",
+              "source_field_name": "p:ph/@type",
+              "raw_value": "subTitle"
+            },
+            "mapping": {
+              "status": "unmapped",
+              "canonical_role": null,
+              "candidate_roles": [],
+              "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE", "MATRIX_S24_ROLE_BASELINE"],
+              "reason": "样例明确存在 subTitle，但 S24 只列六个统一角色且没有 subtitle；保留来源值，不将其猜测性并入 title 或 body。"
+            }
+          }
+        ],
+        "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE", "MATRIX_S24_ROLE_BASELINE"],
+        "limitations": ["unmapped 只表示当前 S24 基线没有有证据支持的目标角色，不代表该来源字段不存在。"]
+      }
+    }
+  ]
+}

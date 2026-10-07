@@ -399,6 +399,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核验：Schema/catalog/fixtures 及布局/槽位集成 JSON 可解析，本地引用、scope ID 和 unknown 限值/原因边界静态核对。未运行标准 JSON Schema validator、容量测量器、YoloongPPT parser/runtime、Office 渲染或 AC-001–AC-030。
 - 证据：`contracts/capacity-rules.schema.json`、`contracts/capacity-rules.catalog.json`、`contracts/capacity-rules.fixtures.json`、`contracts/layout-template.schema.json/catalog.json/fixtures.json`、`contracts/layout-slot.schema.json/catalog.json/fixtures.json`；Excel“需求主表”`N116:P116`、“可执行任务”`L184:M184`、“数据对象”`D29:J30`；PDR 段落 139、`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
 
+### TASK-TPL-008
+
+- Requirement ID：TPL-008；P0；矩阵未列前置任务；相关链路为 S24，DEC-032 仍有其自身依赖与执行任务。
+- 状态：进行中。建立任务级 `TemplateFieldMap` 草案，使用矩阵 S24 的六类角色（标题、正文、图片、图表、表格、注释）作为唯一当前 canonical role 集合；英文 role ID 仅为这六类的契约键。每条记录保留来源版本、路径、字段位置、原字段名/原值、映射状态和证据引用。
+- 命名规则：`declared` 表示源字段已声明基线角色，`mapped` 表示固定来源 alias 有证据地映射，`ambiguous` 表示证据支持多个候选但不能唯一选择，`unmapped` 表示来源字段已知但 S24 没有可证明的目标，`unknown` 表示来源语义或映射规则尚未验证。`subTitle` 不自动并入 `title` 或 `body`。
+- 来源对照：PPT Master 固定版本的 `ctrTitle→title` 是 adapter-specific crosswalk；Presenton 的 `RawSlideLayouts` 语义组件需模型分析和预览认证，当前保留 unknown；ai-agent-ppt 固定 title layout 的 `slot="title"` 是来源声明；python-pptx 固定真实 `default.pptx` 样例的 `ctrTitle` 映射至 title，`subTitle` 因不在 S24 角色集中保持 unmapped。以上仅为源码/文件静态对照，未运行上游应用。
+- 数据对象对齐：矩阵“数据对象”无 `TemplateFieldMap` 独立行，因此只按 TASK-TPL-008 输出交付任务级契约；不新增、删除或改动需求、任务、数据对象行，也不分配全局实体 ID。
+- 当前边界：P03 语义模型流程、P01/P04 上游程序、YoloongPPT 映射运行时、DEC-032 决策执行、模板查询/评分/实例化、Office 渲染仍未验证。真实样例没有 slide parts，不能证明逐页绑定行为。
+- 静态核验：三个契约 JSON 均解析成功；5 个 fixture 的 Requirement/Task ID、S24 六角色、四类必需来源覆盖、证据引用及 mapped/declared 与 unknown/unmapped 状态约束一致。此为静态一致性检查；未运行 Draft 2020-12 标准 Schema validator、上游应用、YoloongPPT parser/runtime、Office 渲染或 AC-001–AC-030。
+- 证据：`contracts/template-field-map.schema.json`、`contracts/template-field-map.catalog.json`、`contracts/template-field-map.fixtures.json`；Excel“需求主表”`N117:P117`、“可执行任务”`L185:M185`、“0-1全链路”`A26:D26`；`contracts/layout-slot.catalog.json`、`contracts/layout-slot.fixtures.json`、`contracts/layout-template.fixtures.json`、`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
+
 ### TASK-CNT-001
 
 - Requirement ID：CNT-001；P0；矩阵中无前置任务。

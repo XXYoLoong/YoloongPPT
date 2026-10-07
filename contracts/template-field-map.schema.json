@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TemplateFieldMap 契约（TASK-TPL-008 草案）",
+  "description": "任务级模板字段到 S24 内容角色的映射产物，不表示新增正式数据对象或已实现运行时。保留来源原值；证据不足时必须使用 unknown/unmapped/ambiguous，不得静默猜测。",
+  "type": "object",
+  "required": ["spec_type", "contract_status", "requirement_id", "task_id", "role_baseline", "entries", "evidence_refs", "limitations"],
+  "properties": {
+    "spec_type": { "const": "TemplateFieldMap" },
+    "contract_status": { "const": "draft" },
+    "requirement_id": { "const": "TPL-008" },
+    "task_id": { "const": "TASK-TPL-008" },
+    "role_baseline": { "$ref": "#/$defs/role_baseline" },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "$ref": "#/$defs/mapping_entry" }
+    },
+    "evidence_refs": { "$ref": "#/$defs/evidence_refs", "minItems": 1 },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "evidence_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "content_role": {
+      "type": "string",
+      "enum": ["title", "body", "image", "chart", "table", "note"]
+    },
+    "role_baseline": {
+      "type": "object",
+      "required": ["source_step", "roles"],
+      "properties": {
+        "source_step": { "const": "S24" },
+        "roles": {
+          "const": ["title", "body", "image", "chart", "table", "note"]
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_field": {
+      "type": "object",
+      "required": ["source_id", "source_revision", "source_path", "field_locator", "source_field_name", "raw_value"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "source_revision": { "type": "string", "minLength": 1 },
+        "source_path": { "type": "string", "minLength": 1 },
+        "field_locator": { "type": "string", "minLength": 1 },
+        "source_field_name": { "type": ["string", "null"] },
+        "raw_value": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "mapping_entry": {
+      "type": "object",
+      "required": ["case_id", "source_field", "mapping"],
+      "properties": {
+        "case_id": { "type": "string", "minLength": 1 },
+        "source_field": { "$ref": "#/$defs/source_field" },
+        "mapping": { "$ref": "#/$defs/mapping_result" }
+      },
+      "additionalProperties": false
+    },
+    "mapping_result": {
+      "type": "object",
+      "required": ["status", "canonical_role", "candidate_roles", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["declared", "mapped", "ambiguous", "unmapped", "unknown"] },
+        "canonical_role": { "oneOf": [{ "$ref": "#/$defs/content_role" }, { "type": "null" }] },
+        "candidate_roles": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/content_role" }
+        },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs", "minItems": 1 },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["declared", "mapped"] } }, "required": ["status"] },
+          "then": { "properties": { "canonical_role": { "$ref": "#/$defs/content_role" }, "candidate_roles": { "maxItems": 0 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "ambiguous" } }, "required": ["status"] },
+          "then": { "properties": { "canonical_role": { "const": null }, "candidate_roles": { "minItems": 2 }, "evidence_refs": { "minItems": 1 }, "reason": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["unmapped", "unknown"] } }, "required": ["status"] },
+          "then": { "properties": { "canonical_role": { "const": null }, "candidate_roles": { "maxItems": 0 }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}
