@@ -201,6 +201,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：任务表已列 ImportedDeckModel 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-006/TASK-IN-006，不增删需求、任务或数据对象行。
 - 证据：contracts/imported-deck.schema.json、contracts/imported-deck.catalog.json、contracts/imported-deck.fixtures.json；Excel“需求主表”N45:P45、“可执行任务”L73:M73。
 
+### TASK-IN-007
+
+- Requirement ID：IN-007；P0；无前置任务。
+- 状态：进行中。已建立 TemplatePack Draft 2020-12 契约、目录及正常/边界预期 fixture，覆盖 master/layout/placeholders、主题 token、brand/Logo Asset、preview、license 和 version。
+- 结构边界：TemplatePack 强制包含结构化 master 与 layout 及关联占位符；preview 只能作为补充，不能把模板简化成截图。只收到图片时返回 TEMPLATE_STRUCTURE_NOT_FOUND；损坏 PPTX 返回 PPTX_INVALID_PACKAGE。
+- 证据边界：品牌规则必须关联来源锚点；source version 与 license 无证据时标记 unknown，不从外观、文件时间或环境信息推断。几何保留源 EMU 值，未知时显式记录 unsupported。
+- 静态核验：schema/catalog/fixtures JSON 可解析且引用可定位；正常 fixture 结构化保留 master/layout/2 个 placeholder/主题色与字体/品牌规则/Logo 和 preview Asset ID；版本与许可证明确为 unknown，结果为 partial。另有损坏包与“只有截图”两个结构化失败边界 fixture。
+- 验收边界：fixtures 是合成预期结构，未运行真实 PPTX 模板解析、母版/版式继承、品牌识别、资产提取或 Office 渲染；因此 TASK-IN-007 保持进行中，AC-001–AC-030 均未执行。产品运行时和依赖未选定。
+- 基线对齐：已在矩阵“数据对象”既有 TemplatePack 行 I28:J28 记录进行中和契约证据；没有新增或删改需求、任务或数据对象行。
+- 证据：contracts/template-pack.schema.json、contracts/template-pack.catalog.json、contracts/template-pack.fixtures.json；Excel“需求主表”N46:P46、“可执行任务”L74:M74、“数据对象”I28:J28。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

@@ -1,0 +1,58 @@
+{
+  "document_type": "template_pack_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-007",
+  "task_id": "TASK-IN-007",
+  "schema": "contracts/template-pack.schema.json",
+  "fixtures": "contracts/template-pack.fixtures.json",
+  "deliverable": "TemplatePack",
+  "data_object_row": "数据对象!A28:J28",
+  "references": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.drawing.extents?view=openxml-3.0.1",
+      "supports": "DrawingML extents describe object bounds; preserve source geometry in EMU."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.presentation.slidesize.cx?view=openxml-3.0.1",
+      "supports": "PowerPoint presentation slide dimensions use EMU coordinates."
+    }
+  ],
+  "field_rules": [
+    "TemplatePack 必须分别结构化 master、layout、placeholder、theme/style token、brand 与 AssetRecord 引用；preview 是可选辅助视图，不能单独构成模板。",
+    "模板结构锚点保留 OOXML package part、shape/relationship/placeholder 索引；几何沿用源 EMU 值并标明 slide/group_local 坐标空间，无法可靠解释时用 unsupported 加原因。",
+    "layout 必须关联其 master；placeholder 保留类型、索引、来源锚点、几何和引用的样式 token。模板的 master/layout/placeholder 结构不能由截图反推或替代。",
+    "主题色、字体、间距和效果以带来源锚点的 token 表示；品牌名、品牌规则、颜色/字体 token 与 Logo Asset ID 必须能追溯到模板来源。",
+    "source.version 只记录源文件显式声明或可定位的版本信息；没有证据时状态为 unknown，不从文件时间或开发环境推断版本。",
+    "license.status 为 observed/unknown/conflicting/not_applicable；只有存在来源证据时才填写许可证标识与归属。未知不等于允许使用。",
+    "资产保留 Asset ID、部件引用、MIME、可测 SHA-256、归属及已观察许可证；预览图引用单独 Asset ID，不能替代结构化资产和模板对象。",
+    "结构可读但部分 token、brand、assets、license 或 version 未知时返回 partial 并逐项说明 coverage；未知信息不得静默填入常见默认值。",
+    "无效/损坏 PPTX 返回 failed、evidence=null 和稳定错误码；仅有截图/图片且没有 PPTX master/layout 结构时返回 TEMPLATE_STRUCTURE_NOT_FOUND，不接受为 TemplatePack。",
+    "source_asset_id 必须属于 raw_asset_refs；结果按原顺序回传 raw_asset_refs。输入/输出引用一致性、layout-master 关联及 asset/token 引用由运行时校验。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "IN-007-NORMAL-001",
+      "fixture_id": "IN-007-NORMAL-001",
+      "purpose": "验证含母版、版式占位符、主题 token、品牌 Logo 和预览引用的模板包。",
+      "acceptance": "TemplatePack 同时包含结构化 master/layout/placeholders/theme/brand/assets；预览作为附加材料。版本或许可证无证据时明确 unknown 并返回 partial。"
+    },
+    {
+      "case_id": "IN-007-BOUNDARY-001",
+      "fixture_id": "IN-007-BOUNDARY-001",
+      "purpose": "验证损坏/无效 ZIP 与 OOXML 部件的 PPTX。",
+      "acceptance": "结果 failed、evidence=null、errors 含 PPTX_INVALID_PACKAGE，并原样返回源 Asset ID。"
+    },
+    {
+      "case_id": "IN-007-BOUNDARY-002",
+      "fixture_id": "IN-007-BOUNDARY-002",
+      "purpose": "验证只提供截图而没有 master/layout 结构的输入。",
+      "acceptance": "结果 failed、evidence=null、errors 含 TEMPLATE_STRUCTURE_NOT_FOUND；截图不能作为 TemplatePack 的唯一内容。"
+    }
+  ],
+  "limits": [
+    "契约与 fixtures 是语言/运行时无关草案；PPTX 模板解析库、PowerPoint/LibreOffice 版本、运行时、依赖版本与许可证均未选定。",
+    "fixtures 为合成预期对象，不是由真实 PPTX parser 或渲染器产生；当前未验证组变换、母版继承、品牌识别、素材提取或版式渲染。",
+    "许可证和版本状态只记录观察与证据，不构成使用许可或模板兼容性判断。",
+    "preview 可以为空或不支持；模板合格性依赖结构化母版、版式与占位符关系，不由 preview 的存在与否决定。"
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "document_type": "template_pack_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-007",
+  "fixtures": [
+    {
+      "fixture_id": "IN-007-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "template_extract_input",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444",
+        "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+        "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+        "input_kind": "pptx_package"
+      },
+      "expected_result": {
+        "record_type": "template_extract_result",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444",
+        "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+        "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+        "input_kind": "pptx_package",
+        "status": "partial",
+        "evidence": {
+          "model_type": "TemplatePack",
+          "source": {
+            "source_id": "source_d4444444-4444-4444-b444-444444444444",
+            "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+            "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+            "package_part": "ppt/presentation.xml",
+            "mime_type": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "sha256": null
+          },
+          "masters": [
+            {
+              "source_part": "ppt/slideMasters/slideMaster1.xml",
+              "name": "主母版",
+              "layout_part_uris": ["ppt/slideLayouts/slideLayout1.xml"],
+              "source_anchor": {
+                "package_part": "ppt/slideMasters/slideMaster1.xml",
+                "slide_index": null,
+                "shape_id": null,
+                "relationship_id": null,
+                "placeholder_index": null,
+                "group_shape_ids": []
+              },
+              "placeholders": [
+                {
+                  "name": "标题占位符",
+                  "placeholder_type": "title",
+                  "placeholder_index": 0,
+                  "source_anchor": {
+                    "package_part": "ppt/slideMasters/slideMaster1.xml",
+                    "slide_index": null,
+                    "shape_id": "2",
+                    "relationship_id": null,
+                    "placeholder_index": 0,
+                    "group_shape_ids": []
+                  },
+                  "geometry": {
+                    "status": "measured",
+                    "coordinate_space": "slide",
+                    "unit": "EMU",
+                    "x": 457200,
+                    "y": 228600,
+                    "cx": 8229600,
+                    "cy": 914400,
+                    "rotation_degrees": 0,
+                    "reason": null
+                  },
+                  "style_token_refs": ["font.major.latin", "color.accent1"]
+                }
+              ]
+            }
+          ],
+          "layouts": [
+            {
+              "source_part": "ppt/slideLayouts/slideLayout1.xml",
+              "name": "标题与内容",
+              "master_part_uri": "ppt/slideMasters/slideMaster1.xml",
+              "source_anchor": {
+                "package_part": "ppt/slideLayouts/slideLayout1.xml",
+                "slide_index": null,
+                "shape_id": null,
+                "relationship_id": null,
+                "placeholder_index": null,
+                "group_shape_ids": []
+              },
+              "placeholders": [
+                {
+                  "name": "正文占位符",
+                  "placeholder_type": "body",
+                  "placeholder_index": 1,
+                  "source_anchor": {
+                    "package_part": "ppt/slideLayouts/slideLayout1.xml",
+                    "slide_index": null,
+                    "shape_id": "3",
+                    "relationship_id": null,
+                    "placeholder_index": 1,
+                    "group_shape_ids": []
+                  },
+                  "geometry": {
+                    "status": "measured",
+                    "coordinate_space": "slide",
+                    "unit": "EMU",
+                    "x": 685800,
+                    "y": 1600200,
+                    "cx": 7772400,
+                    "cy": 3200400,
+                    "rotation_degrees": 0,
+                    "reason": null
+                  },
+                  "style_token_refs": ["font.major.latin", "color.accent1"]
+                }
+              ]
+            }
+          ],
+          "tokens": {
+            "status": "complete",
+            "items": [
+              {
+                "token_id": "color.accent1",
+                "kind": "color",
+                "name": "主题强调色 1",
+                "value": "#325B94",
+                "unit": "hex",
+                "source_anchor": {
+                  "package_part": "ppt/theme/theme1.xml",
+                  "slide_index": null,
+                  "shape_id": null,
+                  "relationship_id": null,
+                  "placeholder_index": null,
+                  "group_shape_ids": []
+                }
+              },
+              {
+                "token_id": "font.major.latin",
+                "kind": "font",
+                "name": "主题西文字体",
+                "value": "Aptos Display",
+                "unit": null,
+                "source_anchor": {
+                  "package_part": "ppt/theme/theme1.xml",
+                  "slide_index": null,
+                  "shape_id": null,
+                  "relationship_id": null,
+                  "placeholder_index": null,
+                  "group_shape_ids": []
+                }
+              }
+            ],
+            "reason": null
+          },
+          "brand": {
+            "status": "identified",
+            "brand_names": ["示例品牌"],
+            "color_token_refs": ["color.accent1"],
+            "font_token_refs": ["font.major.latin"],
+            "logo_asset_ids": ["asset_aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa"],
+            "rules": [
+              {
+                "rule": "封面 Logo 使用原始比例，品牌色用于标题强调。",
+                "source_anchor": {
+                  "package_part": "ppt/slideMasters/slideMaster1.xml",
+                  "slide_index": null,
+                  "shape_id": "7",
+                  "relationship_id": "rId5",
+                  "placeholder_index": null,
+                  "group_shape_ids": []
+                }
+              }
+            ],
+            "reason": null
+          },
+          "assets": {
+            "status": "complete",
+            "items": [
+              {
+                "asset_id": "asset_aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+                "kind": "logo",
+                "source_part": "ppt/media/image1.png",
+                "mime_type": "image/png",
+                "sha256": null,
+                "attribution": null,
+                "license_identifiers": []
+              },
+              {
+                "asset_id": "asset_bbbbbbbb-bbbb-4bbb-9bbb-bbbbbbbbbbbb",
+                "kind": "preview",
+                "source_part": null,
+                "mime_type": "image/png",
+                "sha256": null,
+                "attribution": null,
+                "license_identifiers": []
+              }
+            ],
+            "reason": null
+          },
+          "preview": {
+            "status": "present",
+            "asset_id": "asset_bbbbbbbb-bbbb-4bbb-9bbb-bbbbbbbbbbbb",
+            "origin": "derived_render",
+            "reason": null
+          },
+          "license": {
+            "status": "unknown",
+            "identifiers": [],
+            "evidence_refs": [],
+            "attribution": null,
+            "reason": "合成样例未包含许可证证据；不得由主题/Logo 外观推断许可。"
+          },
+          "version": {
+            "status": "unknown",
+            "value": null,
+            "source_anchor": null,
+            "reason": "样例源文件未声明可定位的模板版本。"
+          }
+        },
+        "coverage": [
+          { "feature": "masters", "status": "complete", "reason": null },
+          { "feature": "layouts", "status": "complete", "reason": null },
+          { "feature": "placeholders", "status": "complete", "reason": null },
+          { "feature": "theme_tokens", "status": "complete", "reason": null },
+          { "feature": "brand", "status": "complete", "reason": null },
+          { "feature": "assets", "status": "complete", "reason": null },
+          { "feature": "preview", "status": "complete", "reason": null },
+          { "feature": "license", "status": "partial", "reason": "源文件未提供许可证证据。" },
+          { "feature": "version", "status": "partial", "reason": "源文件未声明版本。" }
+        ],
+        "errors": []
+      },
+      "verification_note": "合成的正常预期结构；版本/许可未知被明确保留为 partial。"
+    },
+    {
+      "fixture_id": "IN-007-BOUNDARY-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "template_extract_input",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444",
+        "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+        "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+        "input_kind": "pptx_package"
+      },
+      "expected_result": {
+        "record_type": "template_extract_result",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444",
+        "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+        "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+        "input_kind": "pptx_package",
+        "status": "failed",
+        "evidence": null,
+        "coverage": [
+          { "feature": "masters", "status": "failed", "reason": "损坏包无法读取母版关系。" },
+          { "feature": "layouts", "status": "failed", "reason": "损坏包无法读取版式关系。" },
+          { "feature": "placeholders", "status": "failed", "reason": "损坏包无法读取占位符。" },
+          { "feature": "theme_tokens", "status": "failed", "reason": "损坏包无法读取主题。" },
+          { "feature": "brand", "status": "failed", "reason": "损坏包无法提取品牌信息。" },
+          { "feature": "assets", "status": "failed", "reason": "损坏包无法读取素材关系。" },
+          { "feature": "preview", "status": "unsupported", "reason": "无可读取的模板内容可生成预览。" },
+          { "feature": "license", "status": "not_present", "reason": null },
+          { "feature": "version", "status": "not_present", "reason": null }
+        ],
+        "errors": [
+          {
+            "code": "PPTX_INVALID_PACKAGE",
+            "message": "PPTX 模板包无法解析：ZIP 或必要的 OOXML 部件缺失或损坏。",
+            "source_anchor": null
+          }
+        ]
+      },
+      "verification_note": "损坏包失败预期；实际错误分类待运行时 parser 验证。"
+    },
+    {
+      "fixture_id": "IN-007-BOUNDARY-002",
+      "kind": "boundary",
+      "input": {
+        "record_type": "template_extract_input",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444",
+        "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+        "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+        "input_kind": "image_preview"
+      },
+      "expected_result": {
+        "record_type": "template_extract_result",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444",
+        "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+        "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+        "input_kind": "image_preview",
+        "status": "failed",
+        "evidence": null,
+        "coverage": [
+          { "feature": "masters", "status": "failed", "reason": "截图不包含可解析的 PowerPoint 母版部件。" },
+          { "feature": "layouts", "status": "failed", "reason": "截图不包含可解析的 PowerPoint 版式部件。" },
+          { "feature": "placeholders", "status": "failed", "reason": "截图不能保留占位符类型与来源锚点。" },
+          { "feature": "theme_tokens", "status": "unsupported", "reason": "不能只从像素反推原始主题 token。" },
+          { "feature": "brand", "status": "unsupported", "reason": "截图视觉内容不能替代有来源锚点的品牌规则与资产引用。" },
+          { "feature": "assets", "status": "failed", "reason": "截图不能提供 PPTX 内嵌素材关系。" },
+          { "feature": "preview", "status": "complete", "reason": null },
+          { "feature": "license", "status": "not_present", "reason": null },
+          { "feature": "version", "status": "not_present", "reason": null }
+        ],
+        "errors": [
+          {
+            "code": "TEMPLATE_STRUCTURE_NOT_FOUND",
+            "message": "只有截图而没有 PPTX master/layout 结构，不能生成 TemplatePack。",
+            "source_anchor": null
+          }
+        ]
+      },
+      "verification_note": "截图专用边界；预览已存在也不能代替结构化模板。"
+    }
+  ]
+}
