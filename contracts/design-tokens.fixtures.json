@@ -1,0 +1,157 @@
+{
+  "requirement_id": "TPL-005",
+  "task_id": "TASK-TPL-005",
+  "schema": "contracts/design-tokens.schema.json",
+  "fixture_status": "partial",
+  "source_crosswalk_ids": [
+    "P01-PPT-Master",
+    "P03-Presenton",
+    "P04-ai-agent-ppt",
+    "REAL-PPTX-TPL001"
+  ],
+  "fixtures": [
+    {
+      "fixture_id": "TPL-005-REAL-PPTX-001",
+      "expected_valid": true,
+      "source_file": "C:/Users/Ni/AppData/Local/Temp/yoloongppt-tpl001-python-pptx-default.pptx",
+      "source_file_sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
+      "theme_part_sha256": "4c3412087e8fa20cf5642f42e69f1e733881c28611a2bdd4622654ee313d214e",
+      "part_counts": {
+        "masters": 1,
+        "layouts": 11,
+        "themes": 1,
+        "slides": 0,
+        "charts": 0,
+        "media": 0
+      },
+      "instance": {
+        "spec_type": "DesignTokens",
+        "contract_status": "draft",
+        "requirement_id": "TPL-005",
+        "task_id": "TASK-TPL-005",
+        "source_ref": "ppt/theme/theme1.xml",
+        "evidence_refs": [
+          "AI_PPT_PDR_完整需求定义_V0.3.docx#TPL-005",
+          "AI_PPT_完整需求与任务矩阵_V0.3.xlsx#需求主表!A114:P114",
+          "C:/Users/Ni/AppData/Local/Temp/yoloongppt-tpl001-python-pptx-default.pptx#ppt/theme/theme1.xml"
+        ],
+        "tokens": {
+          "fonts": {
+            "status": "partial",
+            "value": [
+              { "name": "major.latin", "value": "Calibri", "source_ref": "ppt/theme/theme1.xml#a:fontScheme/a:majorFont/a:latin", "attributes": {} },
+              { "name": "major.ea", "value": "", "source_ref": "ppt/theme/theme1.xml#a:fontScheme/a:majorFont/a:ea", "attributes": { "empty_typeface": true } },
+              { "name": "major.cs", "value": "", "source_ref": "ppt/theme/theme1.xml#a:fontScheme/a:majorFont/a:cs", "attributes": { "empty_typeface": true } },
+              { "name": "minor.latin", "value": "Calibri", "source_ref": "ppt/theme/theme1.xml#a:fontScheme/a:minorFont/a:latin", "attributes": {} },
+              { "name": "minor.ea", "value": "", "source_ref": "ppt/theme/theme1.xml#a:fontScheme/a:minorFont/a:ea", "attributes": { "empty_typeface": true } },
+              { "name": "minor.cs", "value": "", "source_ref": "ppt/theme/theme1.xml#a:fontScheme/a:minorFont/a:cs", "attributes": { "empty_typeface": true } }
+            ],
+            "evidence_refs": ["ppt/theme/theme1.xml#a:fontScheme"],
+            "reason": "Latin 字体可观察；EA/CS 字段为空字符串，且样例没有页面字体使用数据，不能推出字体比例或替换规则。"
+          },
+          "type_scale": {
+            "status": "unknown",
+            "value": null,
+            "evidence_refs": ["ppt/theme/theme1.xml#a:fontScheme", "package-counts#slides=0"],
+            "reason": "主题样例没有可验证的标题/正文字号比例或页面级文本样式。"
+          },
+          "colors": {
+            "status": "partial",
+            "value": [
+              { "name": "dk1", "value": "#000000", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:dk1/a:sysClr", "attributes": { "source_type": "sysClr", "system_value": "windowText", "lastClr": "000000" } },
+              { "name": "lt1", "value": "#FFFFFF", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:lt1/a:sysClr", "attributes": { "source_type": "sysClr", "system_value": "window", "lastClr": "FFFFFF" } },
+              { "name": "dk2", "value": "#1F497D", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:dk2/a:srgbClr", "attributes": { "source_type": "srgbClr" } },
+              { "name": "lt2", "value": "#EEECE1", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:lt2/a:srgbClr", "attributes": { "source_type": "srgbClr" } },
+              { "name": "accent1", "value": "#4F81BD", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:accent1/a:srgbClr", "attributes": { "source_type": "srgbClr" } },
+              { "name": "accent2", "value": "#C0504D", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:accent2/a:srgbClr", "attributes": { "source_type": "srgbClr" } },
+              { "name": "accent3", "value": "#9BBB59", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:accent3/a:srgbClr", "attributes": { "source_type": "srgbClr" } },
+              { "name": "accent4", "value": "#8064A2", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:accent4/a:srgbClr", "attributes": { "source_type": "srgbClr" } },
+              { "name": "accent5", "value": "#4BACC6", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:accent5/a:srgbClr", "attributes": { "source_type": "srgbClr" } },
+              { "name": "accent6", "value": "#F79646", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:accent6/a:srgbClr", "attributes": { "source_type": "srgbClr" } },
+              { "name": "hlink", "value": "#0000FF", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:hlink/a:srgbClr", "attributes": { "source_type": "srgbClr" } },
+              { "name": "folHlink", "value": "#800080", "source_ref": "ppt/theme/theme1.xml#a:clrScheme/a:folHlink/a:srgbClr", "attributes": { "source_type": "srgbClr" } }
+            ],
+            "evidence_refs": ["ppt/theme/theme1.xml#a:clrScheme"],
+            "reason": "保留 12 个主题槽及原始表示；未将它们推断为产品品牌或语义色角色。"
+          },
+          "spacing": {
+            "status": "unknown",
+            "value": null,
+            "evidence_refs": ["ppt/slideLayouts#count=11", "package-counts#slides=0"],
+            "reason": "layout 几何不是可确认的全局 spacing token；该样例没有页面内容用于推导间距尺度。"
+          },
+          "radius": {
+            "status": "unknown",
+            "value": null,
+            "evidence_refs": ["package-counts#slides=0"],
+            "reason": "样例没有可核验的圆角设计令牌。"
+          },
+          "border": {
+            "status": "partial",
+            "value": [
+              { "name": "fmtScheme.lnStyleLst.count", "value": 3, "source_ref": "ppt/theme/theme1.xml#a:fmtScheme/a:lnStyleLst", "attributes": { "semantic_styles_decoded": false } }
+            ],
+            "evidence_refs": ["ppt/theme/theme1.xml#a:fmtScheme/a:lnStyleLst"],
+            "reason": "只确认线条样式列表含 3 项，没有展开成边框令牌或用途映射。"
+          },
+          "shadow": {
+            "status": "partial",
+            "value": [
+              { "name": "fmtScheme.effectStyleLst.count", "value": 3, "source_ref": "ppt/theme/theme1.xml#a:fmtScheme/a:effectStyleLst", "attributes": { "effect_styles_decoded": false } }
+            ],
+            "evidence_refs": ["ppt/theme/theme1.xml#a:fmtScheme/a:effectStyleLst"],
+            "reason": "效果样式列表含 3 项，但未确认其中各项是否为阴影，也未抽取阴影参数。"
+          },
+          "backgrounds": {
+            "status": "partial",
+            "value": [
+              { "name": "master.background", "value": "schemeClr: bg1", "source_ref": "ppt/slideMasters/slideMaster1.xml#p:bg/p:bgRef", "attributes": { "idx": 1001, "resolved_theme_color": null } }
+            ],
+            "evidence_refs": ["ppt/slideMasters/slideMaster1.xml#p:bg", "ppt/theme/theme1.xml#a:clrScheme"],
+            "reason": "记录母版背景原始 scheme 引用；未将其解析成最终显示色或覆盖所有 layout/slide 背景。"
+          },
+          "image_treatment": {
+            "status": "unknown",
+            "value": null,
+            "evidence_refs": ["package-counts#media=0", "package-counts#slides=0"],
+            "reason": "样例没有图片和页面内容，无法观察裁切、适配、圆角或装饰处理。"
+          },
+          "chart_style": {
+            "status": "unknown",
+            "value": null,
+            "evidence_refs": ["package-counts#charts=0", "package-counts#slides=0"],
+            "reason": "样例没有 chart 部件，不能验证图表系列色、字体、网格线或标签样式。"
+          },
+          "table_style": {
+            "status": "partial",
+            "value": [
+              { "name": "tableStyles.default", "value": "{5C22544A-7EE6-4342-B048-85BDC9FD1C3A}", "source_ref": "ppt/tableStyles.xml#tblStyleLst/@def", "attributes": {} },
+              { "name": "tableStyles.declared_style_count", "value": 0, "source_ref": "ppt/tableStyles.xml#tblStyleLst/*", "attributes": {} }
+            ],
+            "evidence_refs": ["ppt/tableStyles.xml"],
+            "reason": "存在默认 style GUID，但部件没有样式定义子项；不能推断该默认样式的表格视觉规则。"
+          }
+        },
+        "limitations": [
+          "这是固定样例的只读 OOXML 观察，不是 YoloongPPT parser 输出。",
+          "fixture 保留直接观察值；没有证据的设计令牌保持 null，未使用常见主题值补齐。"
+        ]
+      }
+    }
+  ],
+  "invalid_cases": [
+    {
+      "case_id": "unknown_type_scale_must_not_be_filled",
+      "base_fixture_id": "TPL-005-REAL-PPTX-001",
+      "mutation": {
+        "path": "/tokens/type_scale/value",
+        "operation": "replace",
+        "value": [
+          { "name": "body", "value": "18pt", "source_ref": "invented", "attributes": {} }
+        ]
+      },
+      "expected_rejected": true,
+      "reason": "unknown 状态必须保持 value=null；不得推断常见字号比例。"
+    }
+  ]
+}

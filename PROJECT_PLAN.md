@@ -365,6 +365,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态验证范围：JSON 解析、本地 `$ref` 和 fixture 状态/边界检查；不表示标准 JSON Schema validator、YoloongPPT parser/runtime、源应用执行、Office 渲染或 AC-001–AC-030 已通过。
 - 证据：`contracts/layout-slot.schema.json`、`contracts/layout-slot.catalog.json`、`contracts/layout-slot.fixtures.json`、`contracts/layout-template.schema.json`、`contracts/layout-template.fixtures.json`；Excel“需求主表”`N113:P113`、“可执行任务”`L181:M181`、“数据对象”`D30/J30`；`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
 
+### TASK-TPL-005
+
+- Requirement ID：TPL-005；P0；矩阵未列前置任务。
+- 状态：进行中。为既有 DesignTokens 数据对象建立语言/运行时无关的 Draft 2020-12 契约，覆盖 fonts、type scale、colors、spacing、radius、border、shadow、backgrounds、image treatment、chart style 和 table style；字段使用 declared/mapped/partial/unknown/unsupported/not_present 状态，未知值必须为 null 并说明原因。
+- 来源对照：固定 PPT Master 源码读取部分 OOXML 颜色与字体字段；Presenton 从 raw layout 统计并选择语义主题角色，记录其注入合成颜色和确定性回退；ai-agent-ppt 使用抽象模板 colors/fonts/spacing 与 CSS 样式映射。三种来源模型不同，不据此选择 YoloongPPT 产品运行时或默认值。
+- 真实 PPTX：只读核对既有 python-pptx default.pptx（SHA-256 e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34；theme part SHA-256 4c3412087e8fa20cf5642f42e69f1e733881c28611a2bdd4622654ee313d214e）。样例含 1 master、11 layouts、1 theme、0 slides、0 charts、0 media；保留 12 个原始颜色槽、字体方案、母版背景引用、格式样式计数及 tableStyles 默认 GUID。字号比例、通用间距、圆角、阴影语义、图片处理及图表样式仍 unknown/partial，不补入假值。
+- fallback 边界：Presenton 无颜色时注入的四个合成颜色和 LLM 失败后的确定性角色选择，仅作为来源观察记录，不能成为 YoloongPPT 产品 fallback。颜色源槽与语义角色分开；空字体字符串原样保留。
+- 数据对象对齐：只更新既有“数据对象”DesignTokens 行；不新增或删除需求、任务或数据对象。契约尚未定义独立 token-set ID；若后续将其确定为独立持久化实体，须先按 GOV-007 记录 ID 映射。
+- 静态核验：检查 Schema/catalog/fixture JSON、Schema 本地引用及每个分类的 unknown/partial 不变量；当前工作区没有 Draft 2020-12 标准 validator，因此不宣称标准 Schema 实例验证通过。没有运行 YoloongPPT parser/runtime、三种上游程序、Office 渲染、真实图表/图片案例或 AC-001–AC-030。
+- 证据：contracts/design-tokens.schema.json、contracts/design-tokens.catalog.json、contracts/design-tokens.fixtures.json；Excel“需求主表”N114:P114、“可执行任务”L182:M182、“数据对象”D31/J31；research/P01/README.md、research/P03/README.md、research/P04/README.md。
+
 ### TASK-CNT-001
 
 - Requirement ID：CNT-001；P0；矩阵中无前置任务。
