@@ -1,0 +1,412 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "EvidenceConflict 契约（CNT-003 草案）",
+  "description": "保留同一事实主题的来源证据、原始值、来源优先级依据和解决状态；DEC-004 未决时不自行挑选。",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/evidence_conflict"
+    }
+  ],
+  "$defs": {
+    "evidence_ref": {
+      "type": "object",
+      "required": [
+        "claim_id",
+        "source_id",
+        "evidence_id",
+        "source_anchor"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "$ref": "object-id.schema.json#/$defs/source_id"
+        },
+        "evidence_id": {
+          "oneOf": [
+            {
+              "$ref": "object-id.schema.json#/$defs/evidence_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "source_anchor": {
+          "$ref": "source-anchor.schema.json#/$defs/source_anchor"
+        }
+      },
+      "additionalProperties": false
+    },
+    "value_ref": {
+      "type": "object",
+      "required": [
+        "claim_id",
+        "source_value"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_value": {}
+      },
+      "additionalProperties": false
+    },
+    "fact_constraint_ref": {
+      "type": "object",
+      "required": [
+        "source_record_type",
+        "requirement_id",
+        "task_id",
+        "fact_id"
+      ],
+      "properties": {
+        "source_record_type": {
+          "const": "fact_constraint"
+        },
+        "requirement_id": {
+          "const": "CNT-001"
+        },
+        "task_id": {
+          "const": "TASK-CNT-001"
+        },
+        "fact_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_bundle_conflict_ref": {
+      "type": "object",
+      "required": [
+        "source_record_type",
+        "requirement_id",
+        "task_id",
+        "conflict_id"
+      ],
+      "properties": {
+        "source_record_type": {
+          "const": "source_bundle_conflict"
+        },
+        "requirement_id": {
+          "const": "IN-014"
+        },
+        "task_id": {
+          "const": "TASK-IN-014"
+        },
+        "conflict_id": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "resolution": {
+      "type": "object",
+      "required": [
+        "status",
+        "basis",
+        "decision_ref",
+        "source_priority_policy",
+        "selected_source_id",
+        "selected_claim_id",
+        "merge_summary",
+        "unresolved_reason"
+      ],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": [
+            "unresolved",
+            "user_selected",
+            "user_merged"
+          ]
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "unresolved",
+            "explicit_user_selection",
+            "caller_supplied_priority",
+            "explicit_user_merge"
+          ]
+        },
+        "decision_ref": {
+          "const": "DEC-004"
+        },
+        "source_priority_policy": {
+          "$ref": "source-bundle.schema.json#/$defs/source_priority_policy"
+        },
+        "selected_source_id": {
+          "oneOf": [
+            {
+              "$ref": "object-id.schema.json#/$defs/source_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "selected_claim_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "merge_summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "unresolved_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "unresolved"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "basis": {
+                "const": "unresolved"
+              },
+              "selected_source_id": {
+                "type": "null"
+              },
+              "selected_claim_id": {
+                "type": "null"
+              },
+              "merge_summary": {
+                "type": "null"
+              },
+              "unresolved_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "user_selected"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "basis": {
+                "enum": [
+                  "explicit_user_selection",
+                  "caller_supplied_priority"
+                ]
+              },
+              "selected_source_id": {
+                "$ref": "object-id.schema.json#/$defs/source_id"
+              },
+              "selected_claim_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "merge_summary": {
+                "type": "null"
+              },
+              "unresolved_reason": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "user_merged"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "basis": {
+                "const": "explicit_user_merge"
+              },
+              "selected_source_id": {
+                "type": "null"
+              },
+              "selected_claim_id": {
+                "type": "null"
+              },
+              "merge_summary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "unresolved_reason": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "basis": {
+                "const": "caller_supplied_priority"
+              }
+            },
+            "required": [
+              "basis"
+            ]
+          },
+          "then": {
+            "properties": {
+              "source_priority_policy": {
+                "properties": {
+                  "status": {
+                    "const": "caller_supplied"
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "error_ref": {
+      "type": "object",
+      "required": [
+        "error_id",
+        "reason_code"
+      ],
+      "properties": {
+        "error_id": {
+          "const": "ERR-008"
+        },
+        "reason_code": {
+          "const": "SOURCE_CONFLICT"
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence_conflict": {
+      "type": "object",
+      "required": [
+        "record_type",
+        "requirement_id",
+        "task_id",
+        "conflict_id",
+        "source_ref",
+        "topic",
+        "evidence_refs",
+        "values",
+        "resolution",
+        "error_ref"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "evidence_conflict"
+        },
+        "requirement_id": {
+          "const": "CNT-003"
+        },
+        "task_id": {
+          "const": "TASK-CNT-003"
+        },
+        "conflict_id": {
+          "$ref": "object-id.schema.json#/$defs/object_id"
+        },
+        "source_ref": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/fact_constraint_ref"
+            },
+            {
+              "$ref": "#/$defs/source_bundle_conflict_ref"
+            }
+          ]
+        },
+        "topic": {
+          "type": "object",
+          "required": [
+            "fact_key",
+            "fact_kind"
+          ],
+          "properties": {
+            "fact_key": {
+              "type": "string",
+              "minLength": 1
+            },
+            "fact_kind": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "enum": [
+                "person",
+                "organization",
+                "product",
+                "amount",
+                "percentage",
+                "date",
+                "unit",
+                "metric",
+                "quote",
+                "citation",
+                null
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/evidence_ref"
+          }
+        },
+        "values": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/value_ref"
+          }
+        },
+        "resolution": {
+          "$ref": "#/$defs/resolution"
+        },
+        "error_ref": {
+          "$ref": "#/$defs/error_ref"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

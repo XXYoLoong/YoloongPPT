@@ -306,6 +306,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：矩阵“数据对象”表没有 DataBinding 行；本任务不新增需求、任务或数据对象行，Schema 版本仍为“待定义”，草案未获批准。
 - 证据：contracts/data-binding.schema.json、contracts/data-binding.catalog.json、contracts/data-binding.fixtures.json、contracts/fact-constraint-set.schema.json/catalog.json/fixtures.json；Excel“需求主表”N57:P57、“可执行任务”L85:M85。
 
+### TASK-CNT-003
+
+- Requirement ID：CNT-003；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 EvidenceConflict Draft 2020-12 契约、目录与四个正常/边界预期 fixture。记录 topic、全部 evidence_refs、逐 claim 原值、解决状态、决策依据和 ERR-008/SOURCE_CONFLICT 引用。
+- 冲突策略：单一受支持数值不生成冲突对象；未决冲突保留全部来源、claim、锚点和值，selected source/claim 为空。只有显式用户选择或本次调用方提供的优先级才能记录解决；优先序最高来源必须有唯一 claim，否则保持 unresolved，不自动降级到较低来源。调用方优先级不形成产品默认，DEC-004/TASK-DEC-004 保持未开始。
+- 缺失边界：缺失续约日期不构造 EvidenceConflict，继续由 CNT-001 的 missing 状态及 ERR-009/MISSING_FACT 表达。ERR-008 在此只被契约引用；错误Fallback 行保持未开始，未实现 fallback 运行时。
+- 静态核对：14 个 schema `$ref` 与 6 个目录文件引用可定位；4 个 fixture 中 claim/value/SourceAnchor 与 CNT-001 或 IN-014 上游样例一致，调用方优先级选择可追溯且保留其余值。未运行 JSON Schema 实例验证器、冲突检测器、DEC-004 决策器、fallback 运行时或 AC-001–AC-030。
+- 基线对齐：更新既有“数据对象”EvidenceConflict 行状态与备注；不新增/删除需求、任务、数据对象或错误码。Schema 版本仍为“待定义”，草案未获批准。
+- 证据：contracts/evidence-conflict.schema.json、contracts/evidence-conflict.catalog.json、contracts/evidence-conflict.fixtures.json；contracts/source-bundle.schema.json/catalog.json/fixtures.json、contracts/fact-constraint-set.schema.json/fixtures.json；Excel“需求主表”N58:P58、“可执行任务”L86:M86、“数据对象”I8:J8。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

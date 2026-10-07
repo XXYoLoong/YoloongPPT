@@ -1,0 +1,342 @@
+{
+  "document_type": "evidence_conflict_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-003",
+  "task_id": "TASK-CNT-003",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-003-NORMAL-001",
+      "kind": "normal",
+      "purpose": "单一支持的百分比不构成来源冲突。",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "fact_id": "growth_rate",
+        "presentation_context": {
+          "allowed_transformations": []
+        },
+        "source_priority_policy": {
+          "status": "unresolved",
+          "decision_id": "DEC-004",
+          "task_id": "TASK-DEC-004",
+          "precedence_source_ids": [],
+          "unresolved_reason": "没有冲突需排序。"
+        }
+      },
+      "expected_output": {
+        "evidence_conflict": null,
+        "reason": "仅一条受支持 claim；事实值保留在 FactConstraintSet。"
+      }
+    },
+    {
+      "fixture_id": "CNT-003-BOUNDARY-001",
+      "kind": "boundary",
+      "purpose": "FactConstraintSet 中 8%/9% 冲突，DEC-004 未决。",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "fact_id": "revenue_growth",
+        "presentation_context": {
+          "allowed_transformations": []
+        },
+        "source_priority_policy": {
+          "status": "unresolved",
+          "decision_id": "DEC-004",
+          "task_id": "TASK-DEC-004",
+          "precedence_source_ids": [],
+          "unresolved_reason": "DEC-004 未决；未提供 caller-supplied precedence。"
+        }
+      },
+      "expected_output": {
+        "evidence_conflict": {
+          "record_type": "evidence_conflict",
+          "requirement_id": "CNT-003",
+          "task_id": "TASK-CNT-003",
+          "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+          "source_ref": {
+            "source_record_type": "fact_constraint",
+            "requirement_id": "CNT-001",
+            "task_id": "TASK-CNT-001",
+            "fact_id": "revenue_growth"
+          },
+          "topic": {
+            "fact_key": "revenue_growth",
+            "fact_kind": "percentage"
+          },
+          "evidence_refs": [
+            {
+              "claim_id": "claim-growth-8",
+              "source_id": "source_33333333-3333-4333-8333-333333333333",
+              "evidence_id": "evidence_33333333-3333-4333-8333-333333333333",
+              "source_anchor": {
+                "source_id": "source_33333333-3333-4333-8333-333333333333",
+                "asset_id": null,
+                "native_locator": "text:char/19-36",
+                "locator": {
+                  "kind": "text_span",
+                  "segment_index": 0,
+                  "start_char": 19,
+                  "end_char": 36,
+                  "offset_unit": "unicode_code_points"
+                },
+                "locator_status": "located",
+                "reason": null
+              }
+            },
+            {
+              "claim_id": "claim-growth-9",
+              "source_id": "source_44444444-4444-4444-8444-444444444444",
+              "evidence_id": "evidence_34333333-3333-4333-8333-333333333333",
+              "source_anchor": {
+                "source_id": "source_44444444-4444-4444-8444-444444444444",
+                "asset_id": "asset_44444444-4444-4444-8444-444444444444",
+                "native_locator": "page:2/element:4",
+                "locator": {
+                  "kind": "pdf_element",
+                  "page_index": 1,
+                  "page_number": 2,
+                  "element_index": 4,
+                  "object_kind": "text",
+                  "row_index": null,
+                  "cell_index": null
+                },
+                "locator_status": "located",
+                "reason": null
+              }
+            }
+          ],
+          "values": [
+            {
+              "claim_id": "claim-growth-8",
+              "source_value": {
+                "raw_text": "8% year over year",
+                "normalized_text": null,
+                "numeric_value": "8",
+                "date_value": null,
+                "date_precision": null,
+                "unit": "%",
+                "currency": null,
+                "percentage_base": "revenue",
+                "period": "FY2025",
+                "qualifier": null,
+                "citation_uri": null
+              }
+            },
+            {
+              "claim_id": "claim-growth-9",
+              "source_value": {
+                "raw_text": "9% year over year",
+                "normalized_text": null,
+                "numeric_value": "9",
+                "date_value": null,
+                "date_precision": null,
+                "unit": "%",
+                "currency": null,
+                "percentage_base": "revenue",
+                "period": "FY2025",
+                "qualifier": null,
+                "citation_uri": null
+              }
+            }
+          ],
+          "resolution": {
+            "status": "unresolved",
+            "basis": "unresolved",
+            "decision_ref": "DEC-004",
+            "source_priority_policy": {
+              "status": "unresolved",
+              "decision_id": "DEC-004",
+              "task_id": "TASK-DEC-004",
+              "precedence_source_ids": [],
+              "unresolved_reason": "DEC-004 尚未确定全局 precedence；此输入没有用户选择或调用方排序。"
+            },
+            "selected_source_id": null,
+            "selected_claim_id": null,
+            "merge_summary": null,
+            "unresolved_reason": "上游 fact 保留多个不同值，且当前没有显式解决选择。"
+          },
+          "error_ref": {
+            "error_id": "ERR-008",
+            "reason_code": "SOURCE_CONFLICT"
+          }
+        }
+      }
+    },
+    {
+      "fixture_id": "CNT-003-PRIORITY-001",
+      "kind": "boundary",
+      "purpose": "对 SourceBundle 中 8%/9%/9% 冲突显式提供仅对此请求生效的来源顺序。",
+      "input": {
+        "source_bundle_fixture_id": "IN-014-NORMAL-001",
+        "source_bundle_conflict_id": "conflict-revenue-growth",
+        "source_priority_policy": {
+          "status": "caller_supplied",
+          "decision_id": "DEC-004",
+          "task_id": "TASK-DEC-004",
+          "precedence_source_ids": [
+            "source_22222222-2222-4222-8222-222222222222",
+            "source_11111111-1111-4111-8111-111111111111",
+            "source_33333333-3333-4333-8333-333333333333"
+          ],
+          "unresolved_reason": null
+        }
+      },
+      "expected_output": {
+        "evidence_conflict": {
+          "record_type": "evidence_conflict",
+          "requirement_id": "CNT-003",
+          "task_id": "TASK-CNT-003",
+          "conflict_id": "object_34333333-3333-4333-8333-333333333333",
+          "source_ref": {
+            "source_record_type": "source_bundle_conflict",
+            "requirement_id": "IN-014",
+            "task_id": "TASK-IN-014",
+            "conflict_id": "conflict-revenue-growth"
+          },
+          "topic": {
+            "fact_key": "revenue_growth",
+            "fact_kind": null
+          },
+          "evidence_refs": [
+            {
+              "claim_id": "claim-revenue-8",
+              "source_id": "source_11111111-1111-4111-8111-111111111111",
+              "evidence_id": null,
+              "source_anchor": {
+                "source_id": "source_11111111-1111-4111-8111-111111111111",
+                "asset_id": null,
+                "native_locator": "text:paragraph/1",
+                "locator": {
+                  "kind": "text_span",
+                  "segment_index": 0,
+                  "start_char": 13,
+                  "end_char": 15,
+                  "offset_unit": "unicode_code_points"
+                },
+                "locator_status": "located",
+                "reason": null
+              }
+            },
+            {
+              "claim_id": "claim-revenue-9-a",
+              "source_id": "source_22222222-2222-4222-8222-222222222222",
+              "evidence_id": null,
+              "source_anchor": {
+                "source_id": "source_22222222-2222-4222-8222-222222222222",
+                "asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                "native_locator": "page:2/paragraph:4",
+                "locator": {
+                  "kind": "pdf_element",
+                  "page_index": null,
+                  "page_number": 2,
+                  "element_index": null,
+                  "object_kind": "text",
+                  "row_index": null,
+                  "cell_index": null
+                },
+                "locator_status": "partial",
+                "reason": {
+                  "code": "native_locator_not_normalized",
+                  "summary": "保留旧定位文本 page:2/paragraph:4；原文未定义段落索引基准，未猜测转换。"
+                }
+              }
+            },
+            {
+              "claim_id": "claim-revenue-9-b",
+              "source_id": "source_33333333-3333-4333-8333-333333333333",
+              "evidence_id": null,
+              "source_anchor": {
+                "source_id": "source_33333333-3333-4333-8333-333333333333",
+                "asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                "native_locator": "page:2/paragraph:4",
+                "locator": {
+                  "kind": "pdf_element",
+                  "page_index": null,
+                  "page_number": 2,
+                  "element_index": null,
+                  "object_kind": "text",
+                  "row_index": null,
+                  "cell_index": null
+                },
+                "locator_status": "partial",
+                "reason": {
+                  "code": "native_locator_not_normalized",
+                  "summary": "保留旧定位文本 page:2/paragraph:4；原文未定义段落索引基准，未猜测转换。"
+                }
+              }
+            }
+          ],
+          "values": [
+            {
+              "claim_id": "claim-revenue-8",
+              "source_value": 0.08
+            },
+            {
+              "claim_id": "claim-revenue-9-a",
+              "source_value": 0.09
+            },
+            {
+              "claim_id": "claim-revenue-9-b",
+              "source_value": 0.09
+            }
+          ],
+          "resolution": {
+            "status": "user_selected",
+            "basis": "caller_supplied_priority",
+            "decision_ref": "DEC-004",
+            "source_priority_policy": {
+              "status": "caller_supplied",
+              "decision_id": "DEC-004",
+              "task_id": "TASK-DEC-004",
+              "precedence_source_ids": [
+                "source_22222222-2222-4222-8222-222222222222",
+                "source_11111111-1111-4111-8111-111111111111",
+                "source_33333333-3333-4333-8333-333333333333"
+              ],
+              "unresolved_reason": null
+            },
+            "selected_source_id": "source_22222222-2222-4222-8222-222222222222",
+            "selected_claim_id": "claim-revenue-9-a",
+            "merge_summary": null,
+            "unresolved_reason": null
+          },
+          "error_ref": {
+            "error_id": "ERR-008",
+            "reason_code": "SOURCE_CONFLICT"
+          }
+        }
+      }
+    },
+    {
+      "fixture_id": "CNT-003-BOUNDARY-002",
+      "kind": "boundary",
+      "purpose": "缺失续约日期不是多来源冲突。",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "fact_id": "renewal_date",
+        "presentation_context": {
+          "allowed_transformations": []
+        },
+        "source_priority_policy": {
+          "status": "unresolved",
+          "decision_id": "DEC-004",
+          "task_id": "TASK-DEC-004",
+          "precedence_source_ids": [],
+          "unresolved_reason": "缺失事实没有可排序的 source claim。"
+        }
+      },
+      "expected_output": {
+        "evidence_conflict": null,
+        "upstream_error_ref": {
+          "error_id": "ERR-009",
+          "reason_code": "MISSING_FACT",
+          "fact_id": "renewal_date"
+        },
+        "reason": "不生成冲突或缺失日期；沿用 CNT-001 缺失事实记录。"
+      }
+    }
+  ],
+  "limits": [
+    "Fixture 复用 CNT-001 与 IN-014 的合成预期数据，不证明实际冲突检测器或决策器运行。",
+    "IN-014 与 CNT-001 的合成 claim/source ID 集各自独立；不依据相同 fact_key 推断证据 identity。",
+    "显式 priority fixture 是调用方提供的一次性策略样例，不是产品默认值或 DEC-004 的全局决议。"
+  ]
+}
