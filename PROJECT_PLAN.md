@@ -76,6 +76,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核验：Draft 2020-12 元模式校验通过；ConfigSchema catalog 的 20 个参数项和 pending trace fixture 均通过 schema 实例校验；仅用于结构校验的 synthetic effective snapshot 正例通过，缺少值来源、未解参数或未解来源策略的负例均被拒绝。未运行应用配置加载或 trace 集成测试。
 - 证据：`contracts/config-schema.schema.json`、`contracts/config-schema.catalog.json`、`contracts/config-schema.fixtures.json`；Excel“需求主表”`N7:P7`、“可执行任务”`L9:M9`。
 
+### TASK-GOV-007
+
+- Requirement ID：GOV-007；P0；无前置任务。
+- 状态：进行中。建立语言/运行时无关的稳定 ID 约定草案：运行时实体使用类型前缀 + RFC 9562 UUIDv4，决策定义继续使用基线的 DEC-001–040；矩阵 Requirement/Task ID 与运行时 ID 分开。
+- 对象映射：TaskSpec.task_id、ArtifactManifest.deck_id、SlideSpec.slide_id、SourceRecord.source_id、SourceEvidence.evidence_id、Assumption.assumption_id、AssetRecord.asset_id、PagePlan.section_id、LayoutTemplate.layout_id、LayoutSlot.slot_id、ObjectMap.logical_object_id、AtomicCapability.capability_id、CapabilityImplementation.implementation_id、PowerPointAdapter.adapter_id、DecisionCandidate.candidate_id、DecisionTrace.node_id/trace_id、QualityIssue.issue_id、RenderArtifact/ArtifactManifest.artifact_id 均有明确映射；其余显式 ID 字段的引用关系见 catalog。逻辑对象 ID 与后端 shape ID 分离；ObjectMap.source_ref 与 SlideSpec.source_refs[] 在草案中引用 evidence_id，可追到 SourceEvidence 和 SourceRecord。
+- 基线对齐：数据对象表没有单列 Deck；本草案将 deck_id 纳入既有 ArtifactManifest 最低字段，不新增对象行。其他对象的完整 schema 与运行时实现仍待后续任务。
+- 当前边界：Schema、catalog 和 fixtures 仅是格式及引用关系约定；静态验证不能证明真实 PPT shape 已可追溯。对象拆分/合并及跨修订实体识别仍待架构评审。
+- 验证：Draft 2020-12 Schema 自校验通过；19 类 ID 映射、有效 ID 样例、4 个无效样例及跨对象引用链检查通过；Excel 数据对象覆盖仍为 49 项。未运行 ID 生成器或真实 PPT 端到端追溯。
+- 证据：`contracts/object-id.schema.json`、`contracts/object-id.catalog.json`、`contracts/object-id.fixtures.json`；Excel“需求主表”`N8:P8`、“可执行任务”`L10:M10`、“数据对象”第 3、6–7、10、17、23、29–30、32–49 行。
+
 ### TASK-GOV-010
 
 - Requirement ID：GOV-010；P0；无前置任务。
