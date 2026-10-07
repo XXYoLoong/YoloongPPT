@@ -1,0 +1,38 @@
+{
+  "document_type": "ocr_evidence_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-005",
+  "task_id": "TASK-IN-005",
+  "schema": "contracts/ocr-evidence.schema.json",
+  "fixtures": "contracts/ocr-evidence.fixtures.json",
+  "deliverable": "OcrEvidence",
+  "matrix_trace": {
+    "requirement_row": "需求主表!A44:P44",
+    "task_row": "可执行任务!A72:N72",
+    "data_object_check": "数据对象!A1:J100"
+  },
+  "field_rules": [
+    "逐页区分 native text layer presence 与 OCR/visual route；当 text_layer_status=absent 时不得静默标记 OCR not_required 或 not_run。",
+    "page_index 沿用 PdfEvidence 的零基索引；page_number 沿用其一基物理页码。SourceAnchor、coordinate_frame 和 bbox 直接复用 PdfEvidence 契约。",
+    "保留处理器原始置信度分数与 scale；不在本任务设产品阈值，也不把置信度解释为事实正确概率。ERR-007 继续表示低置信输出须标记并避免直接作为事实。",
+    "结果记录处理器状态、版本、模型和许可证状态；许可证未知时保留 unknown 与原因，不填造标识。未选型的预期 fixture 明确使用 fixture_only/not_executed，不冒充真实 OCR 输出。",
+    "解析错误只复用矩阵既有代码：ERR-004/INPUT_CORRUPT、ERR-006/PARSE_PARTIAL、ERR-007/OCR_LOW_CONFIDENCE。无文本层是逐页检测结果和 OCR 路由条件，不凭空新增错误码。",
+    "raw_asset_refs 原序回传；source_asset_id、page_index/page_number、元素锚点及错误与置信度之间的跨字段一致性留给运行时验证。"
+  ],
+  "data_object_alignment": {
+    "canonical_data_object_registered": false,
+    "reason": "任务表交付名为 OcrEvidence，但数据对象表没有同名行；SourceEvidence 已登记 confidence/anchor。沿用 IN-002/IN-003/IN-004 的任务级输出契约模式，不增加、删除或改写数据对象行。"
+  },
+  "acceptance_cases": [
+    {"case_id": "IN-005-NORMAL-001", "fixture_id": "IN-005-NORMAL-001", "purpose": "无文本扫描页进入 OCR/visual path，输出文字、confidence、page number 和可追溯 anchor。"},
+    {"case_id": "IN-005-BOUNDARY-LOW-CONFIDENCE-001", "fixture_id": "IN-005-BOUNDARY-LOW-CONFIDENCE-001", "purpose": "混合文本/扫描页，并显式保留低置信 OCR 和 ERR-007。"},
+    {"case_id": "IN-005-PARTIAL-OCR-FAILURE-001", "fixture_id": "IN-005-PARTIAL-OCR-FAILURE-001", "purpose": "OCR 阶段局部失败时保留页状态并输出 ERR-006。"},
+    {"case_id": "IN-005-FAILED-CORRUPT-PDF-001", "fixture_id": "IN-005-FAILED-CORRUPT-PDF-001", "purpose": "损坏 PDF 返回 ERR-004 结构化失败，不伪造页码或证据。"}
+  ],
+  "limits": [
+    "Schema/catalog/fixtures 是 TASK-IN-005 的运行时无关草案；PDF renderer、OCR 引擎/模型、依赖版本、产品运行时和许可证均未选定。",
+    "Fixtures 是合成期望结构，不是实际 PDF/OCR parser 产物；没有达到 TASK-IN-005 的运行时验收。",
+    "OCR 置信度尺度保留原样；低置信判定阈值、语言检测、阅读顺序、版面解析/表格重建与视觉问答策略待架构和 PoC 定义。",
+    "当前只登记 IN-005 任务输出，不将 OcrEvidence 声称为正式数据对象，也不修改 308/453 基线行数。"
+  ]
+}

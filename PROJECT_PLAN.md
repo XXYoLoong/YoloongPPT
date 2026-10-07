@@ -190,6 +190,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：fixtures 仅为预期结构，无真实 PDF parser 或页框变换结果；`TASK-IN-004` 保持进行中，表格/图片提取和坐标精度未验收；AC-001–AC-030 均未执行。
 - 证据：`contracts/pdf-evidence.schema.json`、`contracts/pdf-evidence.catalog.json`、`contracts/pdf-evidence.fixtures.json`；Excel“需求主表”`N43:P43`、“可执行任务”`L71:M71`。
 
+### TASK-IN-005
+
+- Requirement ID：IN-005；P1；矩阵未列前置任务。
+- 状态：进行中。已建立 `OcrEvidence` Draft 2020-12 任务级契约草案及四个合成预期 fixture，覆盖扫描页 OCR/视觉路由、混合文本/扫描页、低置信度输出、OCR 部分失败和损坏 PDF 的结构化错误。
+- 逐页与来源：沿用 IN-004 的零基 `page_index`、一基 `page_number`、coordinate_frame、PDF SourceAnchor 和 bbox 定义；无文本页必须进入 `ocr_visual` 路径，不将未运行/失败静默写成 OCR 已完成。
+- 置信度与错误：保存处理器原始 score 和 scale，不设置产品阈值，也不将置信度视作事实正确概率。复用矩阵既有 ERR-004/INPUT_CORRUPT、ERR-006/PARSE_PARTIAL、ERR-007/OCR_LOW_CONFIDENCE；低置信文字继续保留并标记，不能直接作为已确认事实。
+- 运行时与版本边界：记录 processor 执行状态、引擎/版本/模型/许可证字段；当前 fixtures 明确标为 fixture_only/not_executed。PDF renderer、OCR 引擎/模型、依赖版本、产品运行时和许可尚未选定。
+- 数据对象对齐：任务交付名 `OcrEvidence` 未列为独立数据对象；`SourceEvidence` 已有 confidence/anchor。本任务只建任务级契约，不新增、删除或改写数据对象行。
+- 静态核验：3 个 JSON 文件可解析；本地 Schema 引用、页码/锚点/置信度尺度、no-text 路由以及 ERR-004/006/007 映射静态核对。未运行标准 JSON Schema validator、真实 PDF/OCR parser、视觉处理器、Office renderer 或 AC-001–AC-030。
+- 证据：`contracts/ocr-evidence.schema.json`、`contracts/ocr-evidence.catalog.json`、`contracts/ocr-evidence.fixtures.json`；Excel“需求主表”`N44:P44`、“可执行任务”`L72:M72`；`contracts/pdf-evidence.schema.json`、`contracts/input-issue.schema.json`。
+
 ### TASK-IN-006
 
 - Requirement ID：IN-006；P0；无前置任务。

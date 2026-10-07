@@ -1,0 +1,311 @@
+{
+  "document_type": "ocr_evidence_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-005",
+  "task_id": "TASK-IN-005",
+  "schema": "contracts/ocr-evidence.schema.json",
+  "fixtures": [
+    {
+      "fixture_id": "IN-005-NORMAL-001",
+      "kind": "normal",
+      "purpose": "扫描 PDF 页面没有原生文本层，进入 OCR/视觉路径，保存识别文字、置信度、页码和来源锚点。",
+      "input": {
+        "record_type": "ocr_parse_input",
+        "source_asset_id": "asset_323e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": [
+          "asset_323e4567-e89b-42d3-a456-426614174000"
+        ]
+      },
+      "expected_result": {
+        "record_type": "ocr_parse_result",
+        "source_asset_id": "asset_323e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": [
+          "asset_323e4567-e89b-42d3-a456-426614174000"
+        ],
+        "processor": {
+          "status": "fixture_only",
+          "execution_status": "not_executed",
+          "engine_name": null,
+          "engine_version": null,
+          "model_name": null,
+          "license_identifiers": [],
+          "reason": "合成预期 fixture；本任务没有选定或执行 OCR 引擎。",
+          "license_status": "unknown",
+          "license_reason": "OCR 引擎未选定，因此许可证状态未知。"
+        },
+        "status": "parsed",
+        "evidence": {
+          "model_type": "OcrEvidence",
+          "source_asset_id": "asset_323e4567-e89b-42d3-a456-426614174000",
+          "pages": [
+            {
+              "page_index": 0,
+              "page_number": 1,
+              "coordinate_frame": {
+                "units": "pt_1_over_72_inch",
+                "origin": "top_left",
+                "page_box": "rotated_crop_box",
+                "rotation_degrees": 0,
+                "width": 612,
+                "height": 792
+              },
+              "text_layer_status": "absent",
+              "route": "ocr_visual",
+              "ocr_status": "completed",
+              "visual_status": "completed",
+              "text_blocks": [
+                {
+                  "block_index": 0,
+                  "text": "扫描页示例文本",
+                  "confidence": {
+                    "status": "measured",
+                    "score": 0.96,
+                    "scale": "zero_to_one",
+                    "assessment": "not_assessed",
+                    "assessment_basis": null
+                  },
+                  "bbox": {
+                    "x_min": 72,
+                    "y_min": 80,
+                    "x_max": 286,
+                    "y_max": 108
+                  },
+                  "source_anchor": {
+                    "source_ref": "pdf_asset",
+                    "page_index": 0,
+                    "page_number": 1,
+                    "element_index": 0,
+                    "object_kind": "text",
+                    "row_index": null,
+                    "cell_index": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "verification_note": "仅为期望结构 fixture；不是实际 OCR 输出或准确率结论。"
+    },
+    {
+      "fixture_id": "IN-005-BOUNDARY-LOW-CONFIDENCE-001",
+      "kind": "boundary",
+      "purpose": "同一 PDF 混有文本页和扫描页；扫描页低置信块保留并登记 ERR-007，不静默当成确定事实。",
+      "input": {
+        "record_type": "ocr_parse_input",
+        "source_asset_id": "asset_423e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": [
+          "asset_423e4567-e89b-42d3-a456-426614174000"
+        ]
+      },
+      "expected_result": {
+        "record_type": "ocr_parse_result",
+        "source_asset_id": "asset_423e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": [
+          "asset_423e4567-e89b-42d3-a456-426614174000"
+        ],
+        "processor": {
+          "status": "fixture_only",
+          "execution_status": "not_executed",
+          "engine_name": null,
+          "engine_version": null,
+          "model_name": null,
+          "license_identifiers": [],
+          "reason": "合成预期 fixture；未选定 OCR 引擎或生产置信度阈值。",
+          "license_status": "unknown",
+          "license_reason": "OCR 引擎未选定，因此许可证状态未知。"
+        },
+        "status": "partial",
+        "evidence": {
+          "model_type": "OcrEvidence",
+          "source_asset_id": "asset_423e4567-e89b-42d3-a456-426614174000",
+          "pages": [
+            {
+              "page_index": 0,
+              "page_number": 1,
+              "coordinate_frame": {
+                "units": "pt_1_over_72_inch",
+                "origin": "top_left",
+                "page_box": "rotated_crop_box",
+                "rotation_degrees": 0,
+                "width": 612,
+                "height": 792
+              },
+              "text_layer_status": "present",
+              "route": "native_text",
+              "ocr_status": "not_required",
+              "visual_status": "not_run",
+              "text_blocks": []
+            },
+            {
+              "page_index": 1,
+              "page_number": 2,
+              "coordinate_frame": {
+                "units": "pt_1_over_72_inch",
+                "origin": "top_left",
+                "page_box": "rotated_crop_box",
+                "rotation_degrees": 0,
+                "width": 612,
+                "height": 792
+              },
+              "text_layer_status": "absent",
+              "route": "ocr_visual",
+              "ocr_status": "completed",
+              "visual_status": "completed",
+              "text_blocks": [
+                {
+                  "block_index": 0,
+                  "text": "低置信度示例",
+                  "confidence": {
+                    "status": "measured",
+                    "score": 0.42,
+                    "scale": "zero_to_one",
+                    "assessment": "low",
+                    "assessment_basis": "仅用于此合成 fixture；没有定义产品阈值。"
+                  },
+                  "bbox": {
+                    "x_min": 72,
+                    "y_min": 80,
+                    "x_max": 266,
+                    "y_max": 108
+                  },
+                  "source_anchor": {
+                    "source_ref": "pdf_asset",
+                    "page_index": 1,
+                    "page_number": 2,
+                    "element_index": 0,
+                    "object_kind": "text",
+                    "row_index": null,
+                    "cell_index": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": [
+          {
+            "error_id": "ERR-007",
+            "reason_code": "OCR_LOW_CONFIDENCE",
+            "message": "识别块被 fixture 标为低置信；保留文本和原始置信度，不能直接作为已确认事实。",
+            "source_anchor": {
+              "source_ref": "pdf_asset",
+              "page_index": 1,
+              "page_number": 2,
+              "element_index": 0,
+              "object_kind": "text",
+              "row_index": null,
+              "cell_index": null
+            }
+          }
+        ]
+      },
+      "verification_note": "低置信分类为 fixture 预期，不代表 OCR 阈值已选定或实际执行。"
+    },
+    {
+      "fixture_id": "IN-005-PARTIAL-OCR-FAILURE-001",
+      "kind": "boundary",
+      "purpose": "无文本页进入 OCR/视觉路径但 OCR 阶段失败；保留页级状态并用既有 ERR-006 标记部分解析。",
+      "input": {
+        "record_type": "ocr_parse_input",
+        "source_asset_id": "asset_523e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": [
+          "asset_523e4567-e89b-42d3-a456-426614174000"
+        ]
+      },
+      "expected_result": {
+        "record_type": "ocr_parse_result",
+        "source_asset_id": "asset_523e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": [
+          "asset_523e4567-e89b-42d3-a456-426614174000"
+        ],
+        "processor": {
+          "status": "fixture_only",
+          "execution_status": "not_executed",
+          "engine_name": null,
+          "engine_version": null,
+          "model_name": null,
+          "license_identifiers": [],
+          "reason": "合成预期 fixture；未执行 OCR。",
+          "license_status": "unknown",
+          "license_reason": "OCR 引擎未选定，因此许可证状态未知。"
+        },
+        "status": "partial",
+        "evidence": {
+          "model_type": "OcrEvidence",
+          "source_asset_id": "asset_523e4567-e89b-42d3-a456-426614174000",
+          "pages": [
+            {
+              "page_index": 0,
+              "page_number": 1,
+              "coordinate_frame": {
+                "units": "pt_1_over_72_inch",
+                "origin": "top_left",
+                "page_box": "rotated_crop_box",
+                "rotation_degrees": 0,
+                "width": 612,
+                "height": 792
+              },
+              "text_layer_status": "absent",
+              "route": "ocr_visual",
+              "ocr_status": "failed",
+              "visual_status": "partial",
+              "text_blocks": []
+            }
+          ]
+        },
+        "errors": [
+          {
+            "error_id": "ERR-006",
+            "reason_code": "PARSE_PARTIAL",
+            "message": "第 1 页 OCR 阶段失败；保留页级失败状态，不伪造识别文本。",
+            "source_anchor": null
+          }
+        ]
+      },
+      "verification_note": "预期错误路径；没有执行 OCR 引擎。"
+    },
+    {
+      "fixture_id": "IN-005-FAILED-CORRUPT-PDF-001",
+      "kind": "failure",
+      "purpose": "损坏 PDF 在 OCR 前无法打开时返回结构化错误，不构造页码或 OCR 文本。",
+      "input": {
+        "record_type": "ocr_parse_input",
+        "source_asset_id": "asset_623e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": [
+          "asset_623e4567-e89b-42d3-a456-426614174000"
+        ]
+      },
+      "expected_result": {
+        "record_type": "ocr_parse_result",
+        "source_asset_id": "asset_623e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": [
+          "asset_623e4567-e89b-42d3-a456-426614174000"
+        ],
+        "processor": {
+          "status": "fixture_only",
+          "execution_status": "not_executed",
+          "engine_name": null,
+          "engine_version": null,
+          "model_name": null,
+          "license_identifiers": [],
+          "reason": "合成损坏输入预期；未执行解析或 OCR。",
+          "license_status": "unknown",
+          "license_reason": "OCR 引擎未选定，因此许可证状态未知。"
+        },
+        "status": "failed",
+        "evidence": null,
+        "errors": [
+          {
+            "error_id": "ERR-004",
+            "reason_code": "INPUT_CORRUPT",
+            "message": "PDF 结构损坏，无法读取页面；不生成页码或 OCR 证据。",
+            "source_anchor": null
+          }
+        ]
+      },
+      "verification_note": "结构化失败预期；没有构造真实损坏 PDF 或运行解析器。"
+    }
+  ]
+}
