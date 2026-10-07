@@ -4,6 +4,7 @@
   "decision_id": "DEC-001",
   "lifecycle_refs": ["S00", "S01", "S02", "S03"],
   "schema": "contracts/task-route.schema.json",
+  "input_contract_ref": "contracts/prompt-input.schema.json#/$defs/raw_task_request",
   "input_basis": [
     "RawTaskRequest: raw_text, attachments, requested_mode, requested_outputs",
     "RuntimeCapabilitySnapshot: os, office_version, powerpoint_state, api_sets, adapters, models, fonts, renderers, tools"

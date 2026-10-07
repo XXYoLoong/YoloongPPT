@@ -154,6 +154,14 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：源码 refs、锁文件摘要、上游运行声明与许可差异已静态记录；`ProjectBaseline` 仍未通过，`TASK-RES-P05-01` 保持进行中，`VERIFY-RES-P05-01` 保持未开始；P05-02 至 P05-05 与 AC-001–AC-030 状态未因此改变。
 - 证据：`research/P05/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N32:P32`、“可执行任务”`L54:M55`、“开源项目研究对象”第 6 行。
 
+### TASK-IN-001
+
+- Requirement ID：IN-001；P0；无前置任务。
+- 状态：进行中。已建立 Draft 2020-12 的 `RawTaskRequest` 与 Prompt 规范化结果草案，固定原始文本、附件 Asset ID、显式请求字段、主题/要求/修改指令/上下文及错误/来源跨度；`task-route.catalog.json` 已显式引用该输入契约。
+- 边界：解析结果只表示文本结构；不包含 TaskRoute、DEC、模板/样式或 provider 选择。`requested_mode` 与 `requested_outputs` 是调用方显式输入，不是解析器推断结果。
+- 验收边界：自然语言正常样例及空白边界 fixture 已建立；JSON 结构和来源跨度静态核对通过。运行时 parser 未实现，原文/资产引用一致性和跨度语义尚无运行时执行证据，故 `TASK-IN-001` 保持进行中；AC-001 仍未执行。
+- 证据：`contracts/prompt-input.schema.json`、`contracts/prompt-input.catalog.json`、`contracts/prompt-input.fixtures.json`；Excel“需求主表”`N40:P40`、“可执行任务”`L68:M68`、“数据对象”第 2 行。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

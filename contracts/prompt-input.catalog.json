@@ -1,0 +1,36 @@
+{
+  "document_type": "input_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-001",
+  "task_id": "TASK-IN-001",
+  "schema": "contracts/prompt-input.schema.json",
+  "fixtures": "contracts/prompt-input.fixtures.json",
+  "baseline_data_object": "RawTaskRequest",
+  "baseline_fields": ["raw_text", "attachments", "requested_mode", "requested_outputs"],
+  "normalization_fields": ["topic", "requirements", "modification_instructions", "context"],
+  "field_rules": [
+    "RawTaskRequest.raw_text 必须原文保留；规范化结果是独立对象，不得覆盖原文。",
+    "attachments 使用 GOV-007 Asset ID；PromptNormalizationResult.raw_asset_refs 必须与输入附件引用逐项、按序相同。",
+    "requested_mode 与 requested_outputs 仅保存调用方显式值；输入解析不推导最终路由、模式、样式或业务决定。",
+    "每个规范化文本项至少引用一个 raw_text 来源跨度；start_offset 为包含端，end_offset 为不包含端，单位为 Unicode code point。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "IN-001-NORMAL-001",
+      "fixture_id": "IN-001-NORMAL-001",
+      "purpose": "从一条自然语言请求中分别识别主题、要求、修改指令和上下文。",
+      "acceptance": "原文和附件引用完全保留；四类字段结构化输出且各自有原文跨度；结果没有 route/DEC 决策字段。"
+    },
+    {
+      "case_id": "IN-001-BOUNDARY-001",
+      "fixture_id": "IN-001-BOUNDARY-001",
+      "purpose": "空白 Prompt 的边界输入。",
+      "acceptance": "status 为 failed、normalized_instruction 为 null，并返回 code= PROMPT_EMPTY 的非空结构化错误。"
+    }
+  ],
+  "limits": [
+    "Schema 与 fixtures 是 IN-001 的输入/解析结果草案；运行时 Prompt parser、调用入口和持久化尚未实现。",
+    "JSON Schema 不能证明 raw_text/raw_asset_refs 与原请求逐字逐项一致，也不能证明来源跨度确实对应规范化内容；需在运行时通过解析器执行用例验证。",
+    "Unicode code point 偏移与 Asset ID 的接口映射是可评审草案；没有选择产品语言或运行时。"
+  ]
+}
