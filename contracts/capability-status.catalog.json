@@ -3,7 +3,7 @@
   "contract_status": "draft",
   "requirement_id": "GOV-005",
   "assessment_context": {
-    "repository_revision": "1dd0a90",
+    "repository_revision": "0c116bcd9b6d423a669a829ffa37a5939ab658f6",
     "revision_scope": "能力状态审计所依据的仓库快照；不是产品或后端版本。",
     "matrix_source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
   },
@@ -143,9 +143,8 @@
     },
     {
       "backend_id": "PP-08",
-      "version_state": "not_frozen",
-      "version_value": null,
-      "unresolved_reason": "PoC 未执行，具体 package/tag/API set/Office build 未冻结；不以宿主机工具版本代替。",
+      "version_state": "pinned",
+      "version_value": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9",
       "evidence_refs": [
         {
           "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -155,15 +154,25 @@
         {
           "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
           "location": "PowerPoint后端!J9",
-          "observed": "未冻结（PoC未执行）"
+          "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+        },
+        {
+          "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+          "location": "refs/heads/main",
+          "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
+        },
+        {
+          "source": "contracts/version-manifest.catalog.json",
+          "location": "resource_id=PP08-SOURCE",
+          "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
         }
-      ]
+      ],
+      "version_kind": "commit"
     },
     {
       "backend_id": "PP-09",
-      "version_state": "not_frozen",
-      "version_value": null,
-      "unresolved_reason": "PoC 未执行，具体 package/tag/API set/Office build 未冻结；不以宿主机工具版本代替。",
+      "version_state": "pinned",
+      "version_value": "9f767046955e7469fa1a06f9abc89cc85442d98f",
       "evidence_refs": [
         {
           "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -173,9 +182,20 @@
         {
           "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
           "location": "PowerPoint后端!J10",
-          "observed": "未冻结（PoC未执行）"
+          "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+        },
+        {
+          "source": "https://github.com/kzarzycki/powerpoint-mcp",
+          "location": "refs/heads/main",
+          "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
+        },
+        {
+          "source": "contracts/version-manifest.catalog.json",
+          "location": "resource_id=PP09-SOURCE",
+          "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
         }
-      ]
+      ],
+      "version_kind": "commit"
     }
   ],
   "capabilities": [
@@ -364,7 +384,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -379,17 +399,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-001",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -404,10 +429,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -596,7 +626,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -611,17 +641,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-002",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -636,10 +671,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -828,7 +868,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -843,17 +883,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-003",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -868,10 +913,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -1060,7 +1110,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -1075,17 +1125,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-004",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -1100,10 +1155,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -1292,7 +1352,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -1307,17 +1367,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-005",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -1332,10 +1397,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -1524,7 +1594,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -1539,17 +1609,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-006",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -1564,10 +1639,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -1756,7 +1836,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -1771,17 +1851,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-007",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -1796,10 +1881,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -1988,7 +2078,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2003,17 +2093,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-008",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2028,10 +2123,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -2220,7 +2320,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2235,17 +2335,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-009",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2260,10 +2365,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -2452,7 +2562,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2467,17 +2577,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-010",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2492,10 +2607,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -2684,7 +2804,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2699,17 +2819,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-011",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2724,10 +2849,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -2916,7 +3046,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2931,17 +3061,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-012",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -2956,10 +3091,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -3148,7 +3288,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3163,17 +3303,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-013",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3188,10 +3333,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -3380,7 +3530,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3395,17 +3545,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-014",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3420,10 +3575,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -3612,7 +3772,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3627,17 +3787,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-015",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3652,10 +3817,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -3844,7 +4014,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3859,17 +4029,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-016",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3884,10 +4059,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -4076,7 +4256,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4091,17 +4271,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-017",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4116,10 +4301,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -4308,7 +4498,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4323,17 +4513,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-018",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4348,10 +4543,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -4540,7 +4740,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4555,17 +4755,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-019",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4580,10 +4785,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -4772,7 +4982,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4787,17 +4997,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-020",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -4812,10 +5027,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -5004,7 +5224,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5019,17 +5239,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-021",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5044,10 +5269,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -5236,7 +5466,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5251,17 +5481,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-022",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5276,10 +5511,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -5468,7 +5708,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5483,17 +5723,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-023",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5508,10 +5753,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -5700,7 +5950,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5715,17 +5965,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-024",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5740,10 +5995,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -5932,7 +6192,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5947,17 +6207,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-025",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -5972,10 +6237,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -6164,7 +6434,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6179,17 +6449,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-026",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6204,10 +6479,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -6396,7 +6676,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6411,17 +6691,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-027",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6436,10 +6721,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -6628,7 +6918,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6643,17 +6933,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-028",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6668,10 +6963,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -6860,7 +7160,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6875,17 +7175,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-029",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -6900,10 +7205,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     },
@@ -7092,7 +7402,7 @@
           "backend_id": "PP-08",
           "status": "Untested",
           "version_ref": "PP-08",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -7107,17 +7417,22 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J9",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         },
         {
           "capability_id": "PPT-030",
           "backend_id": "PP-09",
           "status": "Untested",
           "version_ref": "PP-09",
-          "version_state": "not_frozen",
+          "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -7132,10 +7447,15 @@
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J10",
-              "observed": "未冻结（PoC未执行）"
+              "observed": "源码 commit 9f767046955e7469fa1a06f9abc89cc85442d98f（候选仓库版本；PoC 未执行，产品后端未选定）"
+            },
+            {
+              "source": "https://github.com/kzarzycki/powerpoint-mcp",
+              "location": "refs/heads/main",
+              "observed": "9f767046955e7469fa1a06f9abc89cc85442d98f"
             }
           ],
-          "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
+          "assessment_note": "该后端 PoC 未执行；这里只固定候选源码 commit，不表示选为产品后端，也不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
         }
       ]
     }

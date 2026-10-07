@@ -59,10 +59,45 @@
         ],
         "assessment_note": "该后端 PoC 未执行；当前为未测试记录，不代表 Native、Partial、Fallback 或 Unsupported 能力结论。"
       }
+    },
+    {
+      "fixture_id": "GOV-005-UNTESTED-WITH-PINNED-CANDIDATE-SOURCE-001",
+      "expected_schema_valid": true,
+      "document": {
+        "capability_id": "PPT-001",
+        "backend_id": "PP-08",
+        "status": "Untested",
+        "version_ref": "PP-08",
+        "version_state": "pinned",
+        "evidence_refs": [
+          {
+            "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+            "location": "PowerPoint对象矩阵!L2",
+            "observed": "Untested"
+          },
+          {
+            "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+            "location": "PowerPoint后端!I9",
+            "observed": "未执行"
+          },
+          {
+            "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+            "location": "PowerPoint后端!J9",
+            "observed": "源码 commit 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9（候选仓库版本；PoC 未执行，产品后端未选定）"
+          },
+          {
+            "source": "https://github.com/Ayushmaniar/powerpoint-mcp",
+            "location": "refs/heads/main",
+            "observed": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
+          }
+        ],
+        "assessment_note": "只固定候选源码 commit；PoC 未执行，产品后端未选定，能力仍为 Untested。"
+      }
     }
   ],
   "limits": [
     "fixture 只验证 CapabilityStatus 结构和版本约束，不是后端 PoC。",
-    "实际能力结论必须引用真实版本与可复现测试/源码证据。"
+    "实际能力结论必须引用真实版本与可复现测试/源码证据。",
+    "Pinned candidate repository commits can coexist with Untested capability statuses; source revision pinning is not a product backend selection."
   ]
 }

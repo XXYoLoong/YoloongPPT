@@ -1,0 +1,725 @@
+{
+  "document_type": "version_manifest",
+  "contract_status": "draft",
+  "requirement_id": "GOV-010",
+  "captured_at": "2026-10-07T07:32:29Z",
+  "repository_basis": {
+    "commit": "0c116bcd9b6d423a669a829ffa37a5939ab658f6",
+    "branch": "yoloongdevlop",
+    "purpose": "固定版本目录采集前的已提交项目快照；本任务其余变更随本次提交继续版本化。"
+  },
+  "code_commit": {
+    "commit": "0c116bcd9b6d423a669a829ffa37a5939ab658f6",
+    "branch": "yoloongdevlop",
+    "recorded_scope": "版本目录生成前的已提交快照；用于指认本清单的代码基线，不等同于应用发布版本。"
+  },
+  "coverage_summary": {
+    "code_commit": "pinned",
+    "dependencies": "partial",
+    "models": "not_selected",
+    "adapters": "not_selected",
+    "office_api_sets": "not_selected",
+    "templates": "not_selected",
+    "schemas": "partial",
+    "renderers": "not_selected",
+    "test_data": "not_selected",
+    "docker_base_image": "pinned"
+  },
+  "resources": [
+    {
+      "resource_id": "PROJECT-COMMIT",
+      "kind": "project_commit",
+      "name": "YoloongPPT 仓库基线快照",
+      "usage": "project_baseline",
+      "version_status": "pinned",
+      "version_kind": "git_commit",
+      "version_value": "0c116bcd9b6d423a669a829ffa37a5939ab658f6",
+      "declared_ref": "yoloongdevlop after VersionManifest schema commit",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/XXYoLoong/YoloongPPT/commit/0c116bcd9b6d423a669a829ffa37a5939ab658f6",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "MIT",
+        "evidence_ref": "LICENSE"
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "git rev-parse HEAD after schema commit: 0c116bcd9b6d423a669a829ffa37a5939ab658f6",
+        "工作范围：此快照已包含 VersionManifest schema 契约，尚不包含本任务的版本目录和矩阵回填。"
+      ]
+    },
+    {
+      "resource_id": "BASELINE-PDR",
+      "kind": "baseline_document",
+      "name": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "usage": "project_baseline",
+      "version_status": "pinned",
+      "version_kind": "sha256",
+      "version_value": "sha256:40f70cb7e4500a2833625bddf9b911c36db29567d9ea70e910242043dc3106e1",
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": null,
+      "license": {
+        "status": "not_applicable",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "SHA-256 captured from project baseline file: 40f70cb7e4500a2833625bddf9b911c36db29567d9ea70e910242043dc3106e1",
+        "AI_PPT_PDR_完整需求定义_V0.3.docx paragraph 13: GOV-010 版本冻结"
+      ]
+    },
+    {
+      "resource_id": "BASELINE-MATRIX",
+      "kind": "baseline_document",
+      "name": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "usage": "project_baseline",
+      "version_status": "pinned",
+      "version_kind": "sha256",
+      "version_value": "sha256:a5e156fac964e53ce7e0cdf2a73bfe962ff11df0dc41b2ca3d2f440e842981cc",
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": null,
+      "license": {
+        "status": "not_applicable",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "SHA-256 captured from project baseline file: a5e156fac964e53ce7e0cdf2a73bfe962ff11df0dc41b2ca3d2f440e842981cc",
+        "需求主表!A11:P11; 可执行任务!A13:M13; 开源项目研究对象!A2:L6; PowerPoint后端!A9:J10; 数据对象!VersionManifest"
+      ]
+    },
+    {
+      "resource_id": "PROJECT-SCHEMAS",
+      "kind": "project_schema",
+      "name": "已提交治理契约 Schema 集",
+      "usage": "project_baseline",
+      "version_status": "pinned",
+      "version_kind": "git_commit",
+      "version_value": "0c116bcd9b6d423a669a829ffa37a5939ab658f6",
+      "declared_ref": "0c116bcd9b6d423a669a829ffa37a5939ab658f6",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/XXYoLoong/YoloongPPT/tree/0c116bcd9b6d423a669a829ffa37a5939ab658f6/contracts",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "MIT",
+        "evidence_ref": "LICENSE"
+      },
+      "requirement_refs": [
+        "GOV-002",
+        "GOV-003",
+        "GOV-004",
+        "GOV-005",
+        "GOV-006",
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "contracts/task-route.schema.json@repository snapshot",
+        "contracts/constraint-set.schema.json@repository snapshot",
+        "contracts/fallback-record.schema.json@repository snapshot",
+        "contracts/capability-status.schema.json@repository snapshot",
+        "contracts/config-schema.schema.json@repository snapshot",
+        "contracts/version-manifest.schema.json@repository snapshot"
+      ]
+    },
+    {
+      "resource_id": "P01-MAIN",
+      "kind": "source_repository",
+      "name": "PPT Master main 源码快照",
+      "usage": "research_only",
+      "version_status": "pinned",
+      "version_kind": "git_commit",
+      "version_value": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "declared_ref": "refs/heads/main",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/hugohe3/ppt-master",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "MIT",
+        "evidence_ref": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P01-01"
+      ],
+      "evidence_refs": [
+        "research/P01/README.md; P01 repository reference",
+        "git ls-remote read on 2026-10-07: refs/heads/main -> 2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d"
+      ]
+    },
+    {
+      "resource_id": "P01-V660",
+      "kind": "source_repository",
+      "name": "PPT Master v6.6.0 tag target",
+      "usage": "research_only",
+      "version_status": "pinned",
+      "version_kind": "git_tag_target",
+      "version_value": "a50758ac29ec027e85966db33e2ae80031446756",
+      "declared_ref": "refs/tags/v6.6.0",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/hugohe3/ppt-master",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "MIT",
+        "evidence_ref": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P01-01"
+      ],
+      "evidence_refs": [
+        "research/P01/README.md: tag target differs from recorded main",
+        "git ls-remote read on 2026-10-07: refs/tags/v6.6.0 -> a50758ac29ec027e85966db33e2ae80031446756"
+      ]
+    },
+    {
+      "resource_id": "P01-REQS",
+      "kind": "dependency_specification",
+      "name": "PPT Master requirements.txt",
+      "usage": "research_only",
+      "version_status": "unlocked",
+      "version_kind": "dependency_specification",
+      "version_value": null,
+      "declared_ref": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d:requirements.txt",
+      "tag_object_sha": null,
+      "declared_constraint": "上游依赖为范围/下限约束，未发现锁文件；不作为 YoloongPPT 产品依赖选型。",
+      "unresolved_reason": "上游 requirements.txt 没有锁定可重建的完整依赖版本。",
+      "source_url": "https://github.com/hugohe3/ppt-master/blob/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d/requirements.txt",
+      "license": {
+        "status": "not_applicable",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P01-01"
+      ],
+      "evidence_refs": [
+        "research/P01/README.md: requirements summary; root lockfile inventory"
+      ]
+    },
+    {
+      "resource_id": "P01-PYMUPDF",
+      "kind": "library",
+      "name": "PyMuPDF（P01 可选 PDF 转换依赖）",
+      "usage": "research_only",
+      "version_status": "unlocked",
+      "version_kind": "dependency_specification",
+      "version_value": null,
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": "研究记录为可选依赖，未固定精确包版本；仅标示上游许可边界。",
+      "unresolved_reason": "上游研究记录未提供该可选依赖的不可变版本。",
+      "source_url": "https://github.com/hugohe3/ppt-master",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "AGPL-3.0",
+        "evidence_ref": "research/P01/README.md"
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P01-01"
+      ],
+      "evidence_refs": [
+        "research/P01/README.md: PyMuPDF 可选 PDF 转换依赖及 AGPL-3.0"
+      ]
+    },
+    {
+      "resource_id": "P02-MAIN",
+      "kind": "source_repository",
+      "name": "PPTAgent main 源码快照",
+      "usage": "research_only",
+      "version_status": "pinned",
+      "version_kind": "git_commit",
+      "version_value": "833cda553b343be0e486a93b0b57cac962cdd566",
+      "declared_ref": "refs/heads/main",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/icip-cas/PPTAgent",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "MIT",
+        "evidence_ref": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P02-01"
+      ],
+      "evidence_refs": [
+        "开源项目研究对象!E3:L3; official GitHub ref",
+        "git ls-remote read on 2026-10-07: refs/heads/main -> 833cda553b343be0e486a93b0b57cac962cdd566"
+      ]
+    },
+    {
+      "resource_id": "P02-V020",
+      "kind": "source_repository",
+      "name": "PPTAgent v0.2.0 tag target",
+      "usage": "research_only",
+      "version_status": "pinned",
+      "version_kind": "git_tag_target",
+      "version_value": "d53296bc0ddd73e81d51c523d20dd711c7f233f3",
+      "declared_ref": "refs/tags/v0.2.0",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/icip-cas/PPTAgent",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "MIT",
+        "evidence_ref": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P02-01"
+      ],
+      "evidence_refs": [
+        "开源项目研究对象!E3; official GitHub tag ref",
+        "git ls-remote read on 2026-10-07: refs/tags/v0.2.0 -> d53296bc0ddd73e81d51c523d20dd711c7f233f3"
+      ]
+    },
+    {
+      "resource_id": "P02-V1138",
+      "kind": "source_repository",
+      "name": "PPTAgent v1.1.38 tag target",
+      "usage": "research_only",
+      "version_status": "pinned",
+      "version_kind": "git_tag_target",
+      "version_value": "2419d30b134a71486523e95ded60b32489fd3c61",
+      "declared_ref": "refs/tags/v1.1.38",
+      "tag_object_sha": "2e68c095a86bdbb91635dc4d91dad4662aba163c",
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/icip-cas/PPTAgent",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "MIT",
+        "evidence_ref": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P02-01"
+      ],
+      "evidence_refs": [
+        "开源项目研究对象!E3; annotated tag peeled commit",
+        "git ls-remote read on 2026-10-07: refs/tags/v1.1.38 -> 2419d30b134a71486523e95ded60b32489fd3c61"
+      ]
+    },
+    {
+      "resource_id": "P03-MAIN",
+      "kind": "source_repository",
+      "name": "Presenton main 源码快照",
+      "usage": "research_only",
+      "version_status": "pinned",
+      "version_kind": "git_commit",
+      "version_value": "35bf44290f821323e003da854f78ffcb0e918167",
+      "declared_ref": "refs/heads/main",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/presenton/presenton",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "Apache-2.0",
+        "evidence_ref": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P03-01"
+      ],
+      "evidence_refs": [
+        "开源项目研究对象!E4:L4; official GitHub ref",
+        "git ls-remote read on 2026-10-07: refs/heads/main -> 35bf44290f821323e003da854f78ffcb0e918167"
+      ]
+    },
+    {
+      "resource_id": "P04-MAIN",
+      "kind": "source_repository",
+      "name": "ai-agent-ppt main 源码快照",
+      "usage": "research_only",
+      "version_status": "pinned",
+      "version_kind": "git_commit",
+      "version_value": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "declared_ref": "refs/heads/main",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/peterfei/ai-agent-ppt",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "MIT",
+        "evidence_ref": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P04-01"
+      ],
+      "evidence_refs": [
+        "开源项目研究对象!E5:L5; official GitHub ref",
+        "git ls-remote read on 2026-10-07: refs/heads/main -> c3605ebc487fc6c7d4f4139761e46d7021cd656c"
+      ]
+    },
+    {
+      "resource_id": "P05-MAIN",
+      "kind": "source_repository",
+      "name": "Auto PPT Engine main 源码快照",
+      "usage": "research_only",
+      "version_status": "pinned",
+      "version_kind": "git_commit",
+      "version_value": "5ae0670747885c464aa8063329a902d80a251877",
+      "declared_ref": "refs/heads/main",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/lijunliu-gh/auto-ppt-engine",
+      "license": {
+        "status": "baseline_reported",
+        "spdx_id": "AGPL-3.0",
+        "evidence_ref": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx"
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P05-01"
+      ],
+      "evidence_refs": [
+        "开源项目研究对象!E6:L6; official GitHub ref",
+        "git ls-remote read on 2026-10-07: refs/heads/main -> 5ae0670747885c464aa8063329a902d80a251877"
+      ]
+    },
+    {
+      "resource_id": "PP08-SOURCE",
+      "kind": "source_repository",
+      "name": "PowerPoint MCP - COM 候选源码",
+      "usage": "candidate",
+      "version_status": "pinned",
+      "version_kind": "git_commit",
+      "version_value": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9",
+      "declared_ref": "refs/heads/main",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/Ayushmaniar/powerpoint-mcp",
+      "license": {
+        "status": "not_assessed",
+        "spdx_id": "not_assessed",
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "ADP-PP-08"
+      ],
+      "evidence_refs": [
+        "PowerPoint后端!J9; candidate source commit only; PoC remains unexecuted",
+        "git ls-remote read on 2026-10-07: refs/heads/main -> 6b3939d72e5e867b90b269c603a6b8e79ca1c9f9"
+      ]
+    },
+    {
+      "resource_id": "PP09-SOURCE",
+      "kind": "source_repository",
+      "name": "PowerPoint MCP - Office.js bridge 候选源码",
+      "usage": "candidate",
+      "version_status": "pinned",
+      "version_kind": "git_commit",
+      "version_value": "9f767046955e7469fa1a06f9abc89cc85442d98f",
+      "declared_ref": "refs/heads/main",
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": null,
+      "source_url": "https://github.com/kzarzycki/powerpoint-mcp",
+      "license": {
+        "status": "not_assessed",
+        "spdx_id": "not_assessed",
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "ADP-PP-09"
+      ],
+      "evidence_refs": [
+        "PowerPoint后端!J10; candidate source commit only; PoC remains unexecuted",
+        "git ls-remote read on 2026-10-07: refs/heads/main -> 9f767046955e7469fa1a06f9abc89cc85442d98f"
+      ]
+    },
+    {
+      "resource_id": "PRODUCT-RUNTIME",
+      "kind": "library",
+      "name": "YoloongPPT 产品运行时",
+      "usage": "not_selected",
+      "version_status": "not_selected",
+      "version_kind": "none",
+      "version_value": null,
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": "需求基线未选定产品语言或运行时；须比较需求、PoC、平台限制及许可后决定。",
+      "source_url": null,
+      "license": {
+        "status": "not_applicable",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "AGENTS.md: 项目架构及语言尚未选定"
+      ]
+    },
+    {
+      "resource_id": "PRODUCT-LIBRARIES",
+      "kind": "library",
+      "name": "YoloongPPT 产品依赖集合",
+      "usage": "not_selected",
+      "version_status": "not_selected",
+      "version_kind": "none",
+      "version_value": null,
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": "没有完成架构选择或后端 PoC，尚不能确定产品库及精确版本。",
+      "source_url": null,
+      "license": {
+        "status": "not_applicable",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "GOV-010 baseline; TASK-RES-P01-01 remains in progress"
+      ]
+    },
+    {
+      "resource_id": "PRODUCT-MODELS",
+      "kind": "model",
+      "name": "产品模型与模型版本集合",
+      "usage": "not_selected",
+      "version_status": "not_selected",
+      "version_kind": "none",
+      "version_value": null,
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": "需求基线未指定模型供应商、模型名称或模型版本；须在研究与验收中记录不可变标识。",
+      "source_url": null,
+      "license": {
+        "status": "not_assessed",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "AI_PPT_PDR_完整需求定义_V0.3.docx paragraph 13; architecture not selected"
+      ]
+    },
+    {
+      "resource_id": "PRODUCT-OFFICE-API",
+      "kind": "office_api_set",
+      "name": "产品 Office API set",
+      "usage": "not_selected",
+      "version_status": "not_selected",
+      "version_kind": "none",
+      "version_value": null,
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": "PP-02/PP-08/PP-09 等候选路线尚未完成 PoC，未选定 Office API set 或宿主版本。",
+      "source_url": null,
+      "license": {
+        "status": "not_applicable",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "AI_PPT_完整需求与任务矩阵_V0.3.xlsx: PowerPoint后端 rows 2-10"
+      ]
+    },
+    {
+      "resource_id": "PRODUCT-ADAPTERS",
+      "kind": "adapter",
+      "name": "产品运行时 Adapter 集合",
+      "usage": "not_selected",
+      "version_status": "not_selected",
+      "version_kind": "none",
+      "version_value": null,
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": "运行时 Adapter 与 PowerPoint 后端尚未依据 PoC 选型。",
+      "source_url": null,
+      "license": {
+        "status": "not_applicable",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "AI_PPT_完整需求与任务矩阵_V0.3.xlsx: PowerPoint后端 rows 2-10; Adapter catalog not selected"
+      ]
+    },
+    {
+      "resource_id": "PRODUCT-TEMPLATES",
+      "kind": "template",
+      "name": "产品模板基线集合",
+      "usage": "not_selected",
+      "version_status": "not_selected",
+      "version_kind": "none",
+      "version_value": null,
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": "当前无已批准的产品模板集合或模板 hash。",
+      "source_url": null,
+      "license": {
+        "status": "not_assessed",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "AI_PPT_PDR_完整需求定义_V0.3.docx paragraph 13"
+      ]
+    },
+    {
+      "resource_id": "PRODUCT-RENDERER",
+      "kind": "renderer",
+      "name": "产品 PPTX/页面渲染器",
+      "usage": "not_selected",
+      "version_status": "not_selected",
+      "version_kind": "none",
+      "version_value": null,
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": "渲染器依赖架构和 PoC 决策，尚未选型。",
+      "source_url": null,
+      "license": {
+        "status": "not_assessed",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "OBS-007 VersionManifest fields; renderer implementation not selected"
+      ]
+    },
+    {
+      "resource_id": "PRODUCT-TESTDATA",
+      "kind": "test_data",
+      "name": "产品验收测试数据集",
+      "usage": "not_selected",
+      "version_status": "not_selected",
+      "version_kind": "none",
+      "version_value": null,
+      "declared_ref": null,
+      "tag_object_sha": null,
+      "declared_constraint": null,
+      "unresolved_reason": "尚未登记可复现的外部验收数据集版本或逐文件 hash。",
+      "source_url": null,
+      "license": {
+        "status": "not_assessed",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "GOV-010; AC-001–AC-030 acceptance data not yet prepared"
+      ]
+    },
+    {
+      "resource_id": "DOCKER-BASE",
+      "kind": "container_base_image",
+      "name": "隔离开发容器 Debian 多架构基础镜像索引",
+      "usage": "development_environment",
+      "version_status": "pinned",
+      "version_kind": "oci_index_digest",
+      "version_value": "sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587",
+      "declared_ref": "debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587",
+      "tag_object_sha": null,
+      "declared_constraint": "OCI image index digest; locks the multi-platform manifest list; not a product runtime selection.",
+      "unresolved_reason": null,
+      "source_url": "https://hub.docker.com/_/debian",
+      "license": {
+        "status": "not_assessed",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "Dockerfile base image only; no container build or application runtime claim",
+        "Docker Hub Registry API queried 2026-10-07T07:32:29Z: Docker-Content-Digest sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587; Content-Type application/vnd.oci.image.index.v1+json"
+      ]
+    },
+    {
+      "resource_id": "DOCKER-APT",
+      "kind": "container_packages",
+      "name": "隔离开发容器 APT 系统包",
+      "usage": "development_environment",
+      "version_status": "unlocked",
+      "version_kind": "dependency_specification",
+      "version_value": null,
+      "declared_ref": "Dockerfile apt-get install",
+      "tag_object_sha": null,
+      "declared_constraint": "bash, ca-certificates, git installed without explicit package versions or a Debian snapshot source.",
+      "unresolved_reason": "APT package versions are not pinned and no Docker build was performed in this task.",
+      "source_url": "https://hub.docker.com/_/debian",
+      "license": {
+        "status": "not_assessed",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010"
+      ],
+      "evidence_refs": [
+        "Dockerfile: apt-get update and packages without version suffix"
+      ]
+    }
+  ],
+  "acceptance_readiness": {
+    "status": "pending",
+    "reasons": [
+      "P01 requirements 与开发容器 APT 包仍无精确锁定版本。",
+      "产品语言/运行时、产品依赖、模型、Office API set、Adapter、模板、renderer 与验收测试数据尚未选定。",
+      "九条 PowerPoint 路线的 PoC 均未执行；PP-08/PP-09 仅冻结候选源码 commit。",
+      "当前项目没有已实现的产品运行链路，因此未执行端到端 PPTX 验收。"
+    ]
+  }
+}

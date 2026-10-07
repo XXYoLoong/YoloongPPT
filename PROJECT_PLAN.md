@@ -63,8 +63,8 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 ### TASK-GOV-005
 
 - Requirement ID：GOV-005；P0；无前置任务。
-- 状态：进行中。建立 `CapabilityStatus` Draft 2020-12 契约草案，并逐项登记 Excel“PowerPoint对象矩阵”的 PPT-001–030 × PP-01–09 共 270 个状态。根据当前矩阵与 PoC 证据，270 项均保留为 `Untested`；30 行已关联状态证据，9 条后端版本栏明确记录“未冻结（PoC未执行）”。这些是未测试记录，不代表后端能力结论。
-- 当前边界：九条 PowerPoint 路线均未执行 PoC，具体 package/tag/API set/Office build 版本未冻结。`SYS-007` Capability Registry 尚未开始，基线也未枚举系统级非 PPT 原子能力或具体运行时 Adapter 实例；catalog 明确登记这两类范围缺口。`VERIFY-GOV-005` 仍未开始，尚无实际能力测试证据。
+- 状态：进行中。建立 `CapabilityStatus` Draft 2020-12 契约草案，并逐项登记 Excel“PowerPoint对象矩阵”的 PPT-001–030 × PP-01–09 共 270 个状态。根据当前矩阵与 PoC 证据，270 项均保留为 `Untested`；30 行已关联状态证据，PP-08/PP-09 的候选源码 commit 已固定，另 7 条路线的具体源码/依赖版本仍未冻结。九条路线 PoC 均未执行；源码提交固定不代表已选为产品后端或已有能力结论。
+- 当前边界：九条 PowerPoint 路线均未执行 PoC。PP-08/PP-09 仅固定了候选仓库的 main commit；其余七条路线仍未冻结具体版本，且所有路线的产品后端、package/API set/Office build 选型均未完成。`SYS-007` Capability Registry 尚未开始，基线也未枚举系统级非 PPT 原子能力或具体运行时 Adapter 实例；catalog 明确登记这两类范围缺口。`VERIFY-GOV-005` 仍未开始，尚无实际能力测试证据。
 - 静态核验：Draft 2020-12 元模式、30 项能力、9 个后端版本状态、270 条状态记录和 fixture 校验通过；每项记录均匹配矩阵中的状态、版本栏和证据位置。未运行后端 PoC。
 - 证据：`contracts/capability-status.schema.json`、`contracts/capability-status.catalog.json`、`contracts/capability-status.fixtures.json`；Excel“PowerPoint对象矩阵”`P2:P31`、“PowerPoint后端”`I2:J10`、“需求主表”`N6:P6`、“可执行任务”`L7:M7`。
 
@@ -75,6 +75,15 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 当前边界：基线未指定各参数的 JSON 类型、默认值、取值范围或来源优先级。DEC-004 要决定优先级或保留 unresolved，且 TASK-DEC-004 依赖 RES-031；因此 catalog 明确记录待决策，不设置产品默认值。产品架构和运行时尚未选定，应用 trace 也未实现；pending fixture 只验证草案结构，不满足运行时有效配置快照验收。
 - 静态核验：Draft 2020-12 元模式校验通过；ConfigSchema catalog 的 20 个参数项和 pending trace fixture 均通过 schema 实例校验；仅用于结构校验的 synthetic effective snapshot 正例通过，缺少值来源、未解参数或未解来源策略的负例均被拒绝。未运行应用配置加载或 trace 集成测试。
 - 证据：`contracts/config-schema.schema.json`、`contracts/config-schema.catalog.json`、`contracts/config-schema.fixtures.json`；Excel“需求主表”`N7:P7`、“可执行任务”`L9:M9`。
+
+### TASK-GOV-010
+
+- Requirement ID：GOV-010；P0；无前置任务。
+- 状态：进行中。已建立 Draft 2020-12 VersionManifest 契约、资源清单及正/负例；固定项目基线提交、PDR 与需求矩阵 SHA-256、P01–P05 研究 refs、PP-08/PP-09 候选源码 commit，以及 Docker Debian 多架构基础镜像索引 digest。
+- 冻结范围：P01 main 与 v6.6.0 tag target 分别记录；P02 main/Skill、v0.2.0、v1.1.38（含 annotated tag object 与 peeled commit）；P03–P05 main refs；PP-08/PP-09 main commits 仅用于源码研究。候选仓库版本固定不等于产品后端选型。
+- 未决范围：P01 requirements 与容器 APT 包未精确锁定；产品语言/运行时、产品库、模型、Office API set、Adapter、模板、renderer 和验收测试数据均未选定。九条 PowerPoint PoC 尚未执行，当前没有产品 E2E 验收结果。
+- 验证边界：完成 Draft 2020-12 Schema/fixtures 静态校验、矩阵单元格回读，以及导出前后工作簿结构检查；容器基础镜像只核对 registry digest，未构建镜像或启动应用。
+- 证据：contracts/version-manifest.schema.json、contracts/version-manifest.catalog.json、contracts/version-manifest.fixtures.json；Excel“需求主表”N11:P11、“可执行任务”L13:M13、“开源项目研究对象”第 3–6 行、“PowerPoint后端”J9:J10；Dockerfile。
 
 ### TASK-RES-P01-01
 
