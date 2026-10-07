@@ -1,0 +1,266 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LayoutTemplate 契约（TPL-003 草案）",
+  "description": "记录单个 PPTX layout 部件的原始身份、占位符声明、直接几何和到 master 的继承关系。需求中的 showMasterShapes 对应 OOXML layout/@showMasterSp 原始属性；契约草案不表示 YoloongPPT 已实现 parser。",
+  "type": "object",
+  "required": [
+    "spec_type", "contract_status", "requirement_id", "task_id", "layout_id",
+    "source_template_record_id", "source_layout", "master_relationship",
+    "placeholders", "master_shape_visibility", "page_types", "slots",
+    "constraints", "capacity", "backend_support", "evidence_refs", "limitations"
+  ],
+  "properties": {
+    "spec_type": { "const": "LayoutTemplate" },
+    "contract_status": { "const": "draft" },
+    "requirement_id": { "const": "TPL-003" },
+    "task_id": { "const": "TASK-TPL-003" },
+    "layout_id": { "$ref": "object-id.schema.json#/$defs/layout_id" },
+    "source_template_record_id": { "type": ["string", "null"] },
+    "source_layout": { "$ref": "#/$defs/source_layout" },
+    "master_relationship": { "$ref": "#/$defs/master_relationship" },
+    "placeholders": { "$ref": "#/$defs/placeholders" },
+    "master_shape_visibility": { "$ref": "#/$defs/master_shape_visibility" },
+    "page_types": { "$ref": "#/$defs/page_types" },
+    "slots": { "$ref": "#/$defs/deferred_collection" },
+    "constraints": { "$ref": "#/$defs/deferred_collection" },
+    "capacity": { "$ref": "#/$defs/deferred_value" },
+    "backend_support": { "$ref": "#/$defs/backend_support" },
+    "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+    "limitations": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "evidence_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "attribute": {
+      "type": "object",
+      "required": ["presence", "raw_value", "parsed_boolean"],
+      "properties": {
+        "presence": { "enum": ["present", "omitted", "unknown"] },
+        "raw_value": { "type": ["string", "null"] },
+        "parsed_boolean": { "type": ["boolean", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "presence": { "const": "omitted" } }, "required": ["presence"] },
+          "then": { "properties": { "raw_value": { "const": null }, "parsed_boolean": { "const": null } } }
+        },
+        {
+          "if": { "properties": { "presence": { "const": "present" } }, "required": ["presence"] },
+          "then": { "properties": { "raw_value": { "type": "string", "minLength": 1 } }}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "source_layout": {
+      "type": "object",
+      "required": ["source_part", "name_status", "name", "type_attribute", "attributes"],
+      "properties": {
+        "source_part": { "type": "string", "minLength": 1 },
+        "name_status": { "enum": ["present", "omitted", "unknown"] },
+        "name": { "type": ["string", "null"] },
+        "type_attribute": { "$ref": "#/$defs/attribute" },
+        "attributes": {
+          "type": "object",
+          "required": ["matching_name", "preserve", "user_drawn", "show_master_sp", "show_master_ph_anim"],
+          "properties": {
+            "matching_name": { "$ref": "#/$defs/attribute" },
+            "preserve": { "$ref": "#/$defs/attribute" },
+            "user_drawn": { "$ref": "#/$defs/attribute" },
+            "show_master_sp": { "$ref": "#/$defs/attribute" },
+            "show_master_ph_anim": { "$ref": "#/$defs/attribute" }
+          },
+          "additionalProperties": false
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "name_status": { "const": "present" } }, "required": ["name_status"] },
+          "then": { "properties": { "name": { "type": "string", "minLength": 1 } }}
+        },
+        {
+          "if": { "properties": { "name_status": { "const": "omitted" } }, "required": ["name_status"] },
+          "then": { "properties": { "name": { "const": null } }}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "master_relationship": {
+      "type": "object",
+      "required": ["status", "relationship_id", "relationship_type", "target_ref", "target_part", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["resolved", "unresolved", "not_present", "unknown"] },
+        "relationship_id": { "type": ["string", "null"] },
+        "relationship_type": { "type": ["string", "null"] },
+        "target_ref": { "type": ["string", "null"] },
+        "target_part": { "type": ["string", "null"] },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "resolved" } }, "required": ["status"] },
+          "then": { "properties": { "relationship_id": { "type": "string", "minLength": 1 }, "relationship_type": { "type": "string", "minLength": 1 }, "target_ref": { "type": "string", "minLength": 1 }, "target_part": { "type": "string", "minLength": 1 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } }}
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["unresolved", "unknown"] } }, "required": ["status"] },
+          "then": { "properties": { "reason": { "type": "string", "minLength": 1 } }}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "geometry": {
+      "type": "object",
+      "required": ["status", "unit", "x", "y", "cx", "cy", "rotation_raw", "reason"],
+      "properties": {
+        "status": { "enum": ["observed", "not_present", "unsupported", "unknown"] },
+        "unit": { "type": ["string", "null"], "enum": ["EMU", null] },
+        "x": { "type": ["integer", "null"] },
+        "y": { "type": ["integer", "null"] },
+        "cx": { "type": ["integer", "null"], "minimum": 0 },
+        "cy": { "type": ["integer", "null"], "minimum": 0 },
+        "rotation_raw": { "type": ["string", "null"] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "observed" } }, "required": ["status"] },
+          "then": { "properties": { "unit": { "const": "EMU" }, "x": { "type": "integer" }, "y": { "type": "integer" }, "cx": { "type": "integer", "minimum": 0 }, "cy": { "type": "integer", "minimum": 0 }, "reason": { "const": null } }}
+        },
+        {
+          "if": { "properties": { "status": { "const": "not_present" } }, "required": ["status"] },
+          "then": { "properties": { "unit": { "const": null }, "x": { "const": null }, "y": { "const": null }, "cx": { "const": null }, "cy": { "const": null }, "rotation_raw": { "const": null }, "reason": { "type": "string", "minLength": 1 } }}
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["unsupported", "unknown"] } }, "required": ["status"] },
+          "then": { "properties": { "reason": { "type": "string", "minLength": 1 } }}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "master_placeholder_resolution": {
+      "type": "object",
+      "required": ["status", "master_part", "master_shape_id", "geometry", "reason"],
+      "properties": {
+        "status": { "enum": ["resolved", "unresolved", "not_attempted", "unknown"] },
+        "master_part": { "type": ["string", "null"] },
+        "master_shape_id": { "type": ["string", "null"] },
+        "geometry": { "oneOf": [{ "$ref": "#/$defs/geometry" }, { "type": "null" }] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "placeholder": {
+      "type": "object",
+      "required": ["shape_id", "name", "type_attribute", "index_attribute", "direct_geometry", "master_resolution", "source_ref"],
+      "properties": {
+        "shape_id": { "type": ["string", "null"] },
+        "name": { "type": ["string", "null"] },
+        "type_attribute": { "$ref": "#/$defs/attribute" },
+        "index_attribute": { "$ref": "#/$defs/attribute" },
+        "direct_geometry": { "$ref": "#/$defs/geometry" },
+        "master_resolution": { "$ref": "#/$defs/master_placeholder_resolution" },
+        "source_ref": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "placeholders": {
+      "type": "object",
+      "required": ["status", "items", "reason"],
+      "properties": {
+        "status": { "enum": ["complete", "partial", "not_present", "unsupported", "unknown"] },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/placeholder" } },
+        "reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "master_shape_visibility": {
+      "type": "object",
+      "required": ["raw_attribute_ref", "adapter_interpretations", "canonical_resolution"],
+      "properties": {
+        "raw_attribute_ref": { "const": "/source_layout/attributes/show_master_sp" },
+        "adapter_interpretations": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["adapter_ref", "effective_value", "evidence_kind", "execution_status", "evidence_refs"],
+            "properties": {
+              "adapter_ref": { "type": "string", "minLength": 1 },
+              "effective_value": { "type": "boolean" },
+              "evidence_kind": { "enum": ["source_code_rule", "executed_result"] },
+              "execution_status": { "enum": ["not_executed", "executed"] },
+              "evidence_refs": { "$ref": "#/$defs/evidence_refs" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "canonical_resolution": {
+          "type": "object",
+          "required": ["status", "effective_value", "reason"],
+          "properties": {
+            "status": { "enum": ["pending", "resolved", "unsupported", "unknown"] },
+            "effective_value": { "type": ["boolean", "null"] },
+            "reason": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "page_types": {
+      "type": "object",
+      "required": ["status", "items", "reason"],
+      "properties": {
+        "status": { "enum": ["pending", "not_assessed", "resolved"] },
+        "items": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "deferred_collection": {
+      "type": "object",
+      "required": ["status", "items", "reason"],
+      "properties": {
+        "status": { "enum": ["pending", "not_assessed", "defined"] },
+        "items": { "type": "array", "items": { "type": "object", "additionalProperties": true } },
+        "reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "deferred_value": {
+      "type": "object",
+      "required": ["status", "value", "reason"],
+      "properties": {
+        "status": { "enum": ["pending", "not_assessed", "defined"] },
+        "value": { "type": ["object", "null"], "additionalProperties": true },
+        "reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "backend_support": {
+      "type": "object",
+      "required": ["status", "items", "reason"],
+      "properties": {
+        "status": { "enum": ["unknown", "not_assessed", "assessed"] },
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["backend_id", "status", "reason"],
+            "properties": {
+              "backend_id": { "type": "string", "minLength": 1 },
+              "status": { "enum": ["supported", "partial", "unsupported", "untested"] },
+              "reason": { "type": ["string", "null"] }
+            },
+            "additionalProperties": false
+          }
+        },
+        "reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    }
+  }
+}

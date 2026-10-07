@@ -1,0 +1,796 @@
+{
+  "requirement_id": "TPL-003",
+  "task_id": "TASK-TPL-003",
+  "schema": "contracts/layout-template.schema.json",
+  "fixture_status": "partial",
+  "source_crosswalks": [
+    {
+      "source": "PPT Master",
+      "repository": "https://github.com/hugohe3/ppt-master",
+      "revision": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "license": "MIT",
+      "evidence_ref": "P01_LAYOUT_MANIFEST",
+      "paths": [
+        "skills/ppt-master/scripts/pptx_to_svg/converter.py",
+        "skills/ppt-master/scripts/pptx_to_svg/ooxml_loader.py"
+      ],
+      "observed": [
+        "manifest roster includes layout part/name, parent master, showMasterShapes, drawable shape count, and extracted placeholders",
+        "inheritance graph records layout-to-master relation",
+        "showMasterSp omission is interpreted as true by this adapter source rule"
+      ],
+      "coverage": "native_pptx_structure",
+      "execution_status": "source_review_only",
+      "limitation": "PPT Master parser was not executed against the real sample during this task."
+    },
+    {
+      "source": "Presenton",
+      "repository": "https://github.com/presenton/presenton",
+      "revision": "35bf44290f821323e003da854f78ffcb0e918167",
+      "license": "Apache-2.0",
+      "evidence_ref": "P03_RAW_LAYOUTS",
+      "paths": [
+        "docs/template-v2.md",
+        "servers/fastapi/api/v1/ppt/endpoints/template.py",
+        "servers/fastapi/templates/v2/schema.py"
+      ],
+      "observed": [
+        "export path converts source PPTX into RawSlideLayouts with elements, positions, sizes, styles and assets",
+        "layout certification uses model-derived semantic/flexible/capacity information and slide previews"
+      ],
+      "coverage": "partial_raw_layout_and_certification",
+      "execution_status": "source_review_only",
+      "limitation": "Crosswalk does not establish preservation of all native OOXML layout attributes or placeholder inheritance."
+    },
+    {
+      "source": "ai-agent-ppt",
+      "repository": "https://github.com/peterfei/ai-agent-ppt",
+      "revision": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "license": "MIT",
+      "evidence_ref": "P04_ABSTRACT_LAYOUT_JSON",
+      "paths": [
+        "src/core/engine/layout-loader.ts",
+        "src/layouts/*.layout.json"
+      ],
+      "observed": [
+        "LayoutLoader reads named semantic JSON layouts with name/description/root nodes",
+        "recursive LayoutNode carries tagName, optional slot/src, style and children"
+      ],
+      "coverage": "abstract_semantic_layout_only",
+      "execution_status": "source_review_only",
+      "limitation": "Reviewed path does not establish native PPTX layout-part, relationship, placeholder-attribute or inheritance parsing."
+    }
+  ],
+  "real_pptx_sample": {
+    "source": "python-pptx default template",
+    "repository": "https://github.com/scanny/python-pptx",
+    "revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+    "source_file": "src/pptx/templates/default.pptx",
+    "source_url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/src/pptx/templates/default.pptx",
+    "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
+    "counts": {
+      "masters": 1,
+      "layouts": 11,
+      "themes": 1,
+      "slide_parts": 0
+    },
+    "layout_roster": [
+      {
+        "source_part": "ppt/slideLayouts/slideLayout1.xml",
+        "name": "Title Slide",
+        "layout_type": "title",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 5,
+        "placeholders_with_explicit_type": 5,
+        "placeholders_with_type_omitted": 0,
+        "placeholders_with_explicit_index": 4,
+        "placeholders_with_explicit_geometry": 2,
+        "show_master_sp_presence": "omitted"
+      },
+      {
+        "source_part": "ppt/slideLayouts/slideLayout2.xml",
+        "name": "Title and Content",
+        "layout_type": "obj",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 5,
+        "placeholders_with_explicit_type": 4,
+        "placeholders_with_type_omitted": 1,
+        "placeholders_with_explicit_index": 4,
+        "placeholders_with_explicit_geometry": 0,
+        "show_master_sp_presence": "omitted"
+      },
+      {
+        "source_part": "ppt/slideLayouts/slideLayout3.xml",
+        "name": "Section Header",
+        "layout_type": "secHead",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 5,
+        "placeholders_with_explicit_type": 5,
+        "placeholders_with_type_omitted": 0,
+        "placeholders_with_explicit_index": 4,
+        "placeholders_with_explicit_geometry": 2,
+        "show_master_sp_presence": "omitted"
+      },
+      {
+        "source_part": "ppt/slideLayouts/slideLayout4.xml",
+        "name": "Two Content",
+        "layout_type": "twoObj",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 6,
+        "placeholders_with_explicit_type": 4,
+        "placeholders_with_type_omitted": 2,
+        "placeholders_with_explicit_index": 5,
+        "placeholders_with_explicit_geometry": 2,
+        "show_master_sp_presence": "omitted"
+      },
+      {
+        "source_part": "ppt/slideLayouts/slideLayout5.xml",
+        "name": "Comparison",
+        "layout_type": "twoTxTwoObj",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 8,
+        "placeholders_with_explicit_type": 6,
+        "placeholders_with_type_omitted": 2,
+        "placeholders_with_explicit_index": 7,
+        "placeholders_with_explicit_geometry": 4,
+        "show_master_sp_presence": "omitted"
+      },
+      {
+        "source_part": "ppt/slideLayouts/slideLayout6.xml",
+        "name": "Title Only",
+        "layout_type": "titleOnly",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 4,
+        "placeholders_with_explicit_type": 4,
+        "placeholders_with_type_omitted": 0,
+        "placeholders_with_explicit_index": 3,
+        "placeholders_with_explicit_geometry": 0,
+        "show_master_sp_presence": "omitted"
+      },
+      {
+        "source_part": "ppt/slideLayouts/slideLayout7.xml",
+        "name": "Blank",
+        "layout_type": "blank",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 3,
+        "placeholders_with_explicit_type": 3,
+        "placeholders_with_type_omitted": 0,
+        "placeholders_with_explicit_index": 3,
+        "placeholders_with_explicit_geometry": 0,
+        "show_master_sp_presence": "omitted"
+      },
+      {
+        "source_part": "ppt/slideLayouts/slideLayout8.xml",
+        "name": "Content with Caption",
+        "layout_type": "objTx",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 6,
+        "placeholders_with_explicit_type": 5,
+        "placeholders_with_type_omitted": 1,
+        "placeholders_with_explicit_index": 5,
+        "placeholders_with_explicit_geometry": 3,
+        "show_master_sp_presence": "omitted"
+      },
+      {
+        "source_part": "ppt/slideLayouts/slideLayout9.xml",
+        "name": "Picture with Caption",
+        "layout_type": "picTx",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 6,
+        "placeholders_with_explicit_type": 6,
+        "placeholders_with_type_omitted": 0,
+        "placeholders_with_explicit_index": 5,
+        "placeholders_with_explicit_geometry": 3,
+        "show_master_sp_presence": "omitted"
+      },
+      {
+        "source_part": "ppt/slideLayouts/slideLayout10.xml",
+        "name": "Title and Vertical Text",
+        "layout_type": "vertTx",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 5,
+        "placeholders_with_explicit_type": 5,
+        "placeholders_with_type_omitted": 0,
+        "placeholders_with_explicit_index": 4,
+        "placeholders_with_explicit_geometry": 0,
+        "show_master_sp_presence": "omitted"
+      },
+      {
+        "source_part": "ppt/slideLayouts/slideLayout11.xml",
+        "name": "Vertical Title and Text",
+        "layout_type": "vertTitleAndTx",
+        "master_target": "../slideMasters/slideMaster1.xml",
+        "master_relationship_id": "rId1",
+        "placeholder_count": 5,
+        "placeholders_with_explicit_type": 5,
+        "placeholders_with_type_omitted": 0,
+        "placeholders_with_explicit_index": 4,
+        "placeholders_with_explicit_geometry": 2,
+        "show_master_sp_presence": "omitted"
+      }
+    ],
+    "inspection": "Read-only ZIP/XML inventory; relationship targets and placeholder declarations inspected. No application or office renderer was run."
+  },
+  "fixtures": [
+    {
+      "case_id": "real-title-layout-direct-geometry",
+      "description": "真实 PPTX 中直接声明 EMU 几何且多个可选属性省略的 layout。",
+      "evidence_refs": [
+        "PYTHON_PPTX_DEFAULT_SAMPLE",
+        "P01_SHOW_MASTER_SP_RULE"
+      ],
+      "instance": {
+        "spec_type": "LayoutTemplate",
+        "contract_status": "draft",
+        "requirement_id": "TPL-003",
+        "task_id": "TASK-TPL-003",
+        "layout_id": "layout_76bd87e4-fdd8-42a8-9f19-cb6b8ce35350",
+        "source_template_record_id": "template_source_real-pptx-sample",
+        "source_layout": {
+          "source_part": "ppt/slideLayouts/slideLayout1.xml",
+          "name_status": "present",
+          "name": "Title Slide",
+          "type_attribute": {
+            "presence": "present",
+            "raw_value": "title",
+            "parsed_boolean": null
+          },
+          "attributes": {
+            "matching_name": {
+              "presence": "omitted",
+              "raw_value": null,
+              "parsed_boolean": null
+            },
+            "preserve": {
+              "presence": "present",
+              "raw_value": "1",
+              "parsed_boolean": true
+            },
+            "user_drawn": {
+              "presence": "omitted",
+              "raw_value": null,
+              "parsed_boolean": null
+            },
+            "show_master_sp": {
+              "presence": "omitted",
+              "raw_value": null,
+              "parsed_boolean": null
+            },
+            "show_master_ph_anim": {
+              "presence": "omitted",
+              "raw_value": null,
+              "parsed_boolean": null
+            }
+          }
+        },
+        "master_relationship": {
+          "status": "resolved",
+          "relationship_id": "rId1",
+          "relationship_type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideMaster",
+          "target_ref": "../slideMasters/slideMaster1.xml",
+          "target_part": "ppt/slideMasters/slideMaster1.xml",
+          "evidence_refs": [
+            "PYTHON_PPTX_DEFAULT_SAMPLE"
+          ],
+          "reason": null
+        },
+        "placeholders": {
+          "status": "complete",
+          "items": [
+            {
+              "shape_id": "2",
+              "name": "Title 1",
+              "type_attribute": {
+                "presence": "present",
+                "raw_value": "ctrTitle",
+                "parsed_boolean": null
+              },
+              "index_attribute": {
+                "presence": "omitted",
+                "raw_value": null,
+                "parsed_boolean": null
+              },
+              "direct_geometry": {
+                "status": "observed",
+                "unit": "EMU",
+                "x": 685800,
+                "y": 2130425,
+                "cx": 7772400,
+                "cy": 1470025,
+                "rotation_raw": null,
+                "reason": null
+              },
+              "master_resolution": {
+                "status": "unresolved",
+                "master_part": "ppt/slideMasters/slideMaster1.xml",
+                "master_shape_id": null,
+                "geometry": null,
+                "reason": "本 fixture 只记录 layout 部件直接声明；未运行 master placeholder 匹配器，不能从 layout 几何缺失推断最终继承结果。"
+              },
+              "source_ref": "ppt/slideLayouts/slideLayout1.xml#shape-id=2"
+            },
+            {
+              "shape_id": "3",
+              "name": "Subtitle 2",
+              "type_attribute": {
+                "presence": "present",
+                "raw_value": "subTitle",
+                "parsed_boolean": null
+              },
+              "index_attribute": {
+                "presence": "present",
+                "raw_value": "1",
+                "parsed_boolean": null
+              },
+              "direct_geometry": {
+                "status": "observed",
+                "unit": "EMU",
+                "x": 1371600,
+                "y": 3886200,
+                "cx": 6400800,
+                "cy": 1752600,
+                "rotation_raw": null,
+                "reason": null
+              },
+              "master_resolution": {
+                "status": "unresolved",
+                "master_part": "ppt/slideMasters/slideMaster1.xml",
+                "master_shape_id": null,
+                "geometry": null,
+                "reason": "本 fixture 只记录 layout 部件直接声明；未运行 master placeholder 匹配器，不能从 layout 几何缺失推断最终继承结果。"
+              },
+              "source_ref": "ppt/slideLayouts/slideLayout1.xml#shape-id=3"
+            },
+            {
+              "shape_id": "4",
+              "name": "Date Placeholder 3",
+              "type_attribute": {
+                "presence": "present",
+                "raw_value": "dt",
+                "parsed_boolean": null
+              },
+              "index_attribute": {
+                "presence": "present",
+                "raw_value": "10",
+                "parsed_boolean": null
+              },
+              "direct_geometry": {
+                "status": "not_present",
+                "unit": null,
+                "x": null,
+                "y": null,
+                "cx": null,
+                "cy": null,
+                "rotation_raw": null,
+                "reason": "布局部件此占位符未直接声明几何；这不代表有效几何为空，master 占位符继承尚未解析。"
+              },
+              "master_resolution": {
+                "status": "unresolved",
+                "master_part": "ppt/slideMasters/slideMaster1.xml",
+                "master_shape_id": null,
+                "geometry": null,
+                "reason": "本 fixture 只记录 layout 部件直接声明；未运行 master placeholder 匹配器，不能从 layout 几何缺失推断最终继承结果。"
+              },
+              "source_ref": "ppt/slideLayouts/slideLayout1.xml#shape-id=4"
+            },
+            {
+              "shape_id": "5",
+              "name": "Footer Placeholder 4",
+              "type_attribute": {
+                "presence": "present",
+                "raw_value": "ftr",
+                "parsed_boolean": null
+              },
+              "index_attribute": {
+                "presence": "present",
+                "raw_value": "11",
+                "parsed_boolean": null
+              },
+              "direct_geometry": {
+                "status": "not_present",
+                "unit": null,
+                "x": null,
+                "y": null,
+                "cx": null,
+                "cy": null,
+                "rotation_raw": null,
+                "reason": "布局部件此占位符未直接声明几何；这不代表有效几何为空，master 占位符继承尚未解析。"
+              },
+              "master_resolution": {
+                "status": "unresolved",
+                "master_part": "ppt/slideMasters/slideMaster1.xml",
+                "master_shape_id": null,
+                "geometry": null,
+                "reason": "本 fixture 只记录 layout 部件直接声明；未运行 master placeholder 匹配器，不能从 layout 几何缺失推断最终继承结果。"
+              },
+              "source_ref": "ppt/slideLayouts/slideLayout1.xml#shape-id=5"
+            },
+            {
+              "shape_id": "6",
+              "name": "Slide Number Placeholder 5",
+              "type_attribute": {
+                "presence": "present",
+                "raw_value": "sldNum",
+                "parsed_boolean": null
+              },
+              "index_attribute": {
+                "presence": "present",
+                "raw_value": "12",
+                "parsed_boolean": null
+              },
+              "direct_geometry": {
+                "status": "not_present",
+                "unit": null,
+                "x": null,
+                "y": null,
+                "cx": null,
+                "cy": null,
+                "rotation_raw": null,
+                "reason": "布局部件此占位符未直接声明几何；这不代表有效几何为空，master 占位符继承尚未解析。"
+              },
+              "master_resolution": {
+                "status": "unresolved",
+                "master_part": "ppt/slideMasters/slideMaster1.xml",
+                "master_shape_id": null,
+                "geometry": null,
+                "reason": "本 fixture 只记录 layout 部件直接声明；未运行 master placeholder 匹配器，不能从 layout 几何缺失推断最终继承结果。"
+              },
+              "source_ref": "ppt/slideLayouts/slideLayout1.xml#shape-id=6"
+            }
+          ],
+          "reason": null
+        },
+        "master_shape_visibility": {
+          "raw_attribute_ref": "/source_layout/attributes/show_master_sp",
+          "adapter_interpretations": [
+            {
+              "adapter_ref": "P01 ppt-master part_show_master_sp",
+              "effective_value": true,
+              "evidence_kind": "source_code_rule",
+              "execution_status": "not_executed",
+              "evidence_refs": [
+                "P01_SHOW_MASTER_SP_RULE"
+              ]
+            }
+          ],
+          "canonical_resolution": {
+            "status": "pending",
+            "effective_value": null,
+            "reason": "记录 OOXML 原属性和 P01 源码适配器的默认规则；产品解析器/跨源规范化规则尚未选定。"
+          }
+        },
+        "page_types": {
+          "status": "pending",
+          "items": [],
+          "reason": "保留原始 layout type；语义页型与 layout 适用关系属于 TPL-006。"
+        },
+        "slots": {
+          "status": "pending",
+          "items": [],
+          "reason": "Slot role/bounds/content type 等契约属于 TPL-004。"
+        },
+        "constraints": {
+          "status": "pending",
+          "items": [],
+          "reason": "约束字段将在 LayoutSlot 与 LayoutApplicability 契约任务中按基线定义。"
+        },
+        "capacity": {
+          "status": "pending",
+          "value": null,
+          "reason": "Layout/slot 容量属于 TPL-007。"
+        },
+        "backend_support": {
+          "status": "unknown",
+          "items": [],
+          "reason": "产品后端尚未选定，未运行后端能力 PoC。"
+        },
+        "evidence_refs": [
+          "P01_LAYOUT_MANIFEST",
+          "P03_RAW_LAYOUTS",
+          "P04_ABSTRACT_LAYOUT_JSON",
+          "PYTHON_PPTX_DEFAULT_SAMPLE"
+        ],
+        "limitations": [
+          "本契约与样例仅作静态来源对照及 PPTX ZIP/XML 结构盘点；没有执行 YoloongPPT parser。",
+          "P01、Presenton 与 ai-agent-ppt 的源码路径是不同抽象层，不能据此声称三者都提供等价的原生 layout parser 输出。",
+          "本样例没有 slide XML 部件，因此不推断具体 slide 的有效 inherited visibility、placeholder geometry 或动画结果。"
+        ]
+      }
+    },
+    {
+      "case_id": "real-content-layout-omitted-placeholder-type",
+      "description": "真实 PPTX 中 placeholder type 省略、index 显式存在且 layout 几何省略的 layout。",
+      "evidence_refs": [
+        "PYTHON_PPTX_DEFAULT_SAMPLE",
+        "P01_SHOW_MASTER_SP_RULE"
+      ],
+      "instance": {
+        "spec_type": "LayoutTemplate",
+        "contract_status": "draft",
+        "requirement_id": "TPL-003",
+        "task_id": "TASK-TPL-003",
+        "layout_id": "layout_0f87c942-0497-42f0-a4c8-7633d7df3ed1",
+        "source_template_record_id": "template_source_real-pptx-sample",
+        "source_layout": {
+          "source_part": "ppt/slideLayouts/slideLayout2.xml",
+          "name_status": "present",
+          "name": "Title and Content",
+          "type_attribute": {
+            "presence": "present",
+            "raw_value": "obj",
+            "parsed_boolean": null
+          },
+          "attributes": {
+            "matching_name": {
+              "presence": "omitted",
+              "raw_value": null,
+              "parsed_boolean": null
+            },
+            "preserve": {
+              "presence": "present",
+              "raw_value": "1",
+              "parsed_boolean": true
+            },
+            "user_drawn": {
+              "presence": "omitted",
+              "raw_value": null,
+              "parsed_boolean": null
+            },
+            "show_master_sp": {
+              "presence": "omitted",
+              "raw_value": null,
+              "parsed_boolean": null
+            },
+            "show_master_ph_anim": {
+              "presence": "omitted",
+              "raw_value": null,
+              "parsed_boolean": null
+            }
+          }
+        },
+        "master_relationship": {
+          "status": "resolved",
+          "relationship_id": "rId1",
+          "relationship_type": "http://schemas.openxmlformats.org/officeDocument/2006/relationships/slideMaster",
+          "target_ref": "../slideMasters/slideMaster1.xml",
+          "target_part": "ppt/slideMasters/slideMaster1.xml",
+          "evidence_refs": [
+            "PYTHON_PPTX_DEFAULT_SAMPLE"
+          ],
+          "reason": null
+        },
+        "placeholders": {
+          "status": "complete",
+          "items": [
+            {
+              "shape_id": "2",
+              "name": "Title 1",
+              "type_attribute": {
+                "presence": "present",
+                "raw_value": "title",
+                "parsed_boolean": null
+              },
+              "index_attribute": {
+                "presence": "omitted",
+                "raw_value": null,
+                "parsed_boolean": null
+              },
+              "direct_geometry": {
+                "status": "not_present",
+                "unit": null,
+                "x": null,
+                "y": null,
+                "cx": null,
+                "cy": null,
+                "rotation_raw": null,
+                "reason": "布局部件此占位符未直接声明几何；这不代表有效几何为空，master 占位符继承尚未解析。"
+              },
+              "master_resolution": {
+                "status": "unresolved",
+                "master_part": "ppt/slideMasters/slideMaster1.xml",
+                "master_shape_id": null,
+                "geometry": null,
+                "reason": "本 fixture 只记录 layout 部件直接声明；未运行 master placeholder 匹配器，不能从 layout 几何缺失推断最终继承结果。"
+              },
+              "source_ref": "ppt/slideLayouts/slideLayout2.xml#shape-id=2"
+            },
+            {
+              "shape_id": "3",
+              "name": "Content Placeholder 2",
+              "type_attribute": {
+                "presence": "omitted",
+                "raw_value": null,
+                "parsed_boolean": null
+              },
+              "index_attribute": {
+                "presence": "present",
+                "raw_value": "1",
+                "parsed_boolean": null
+              },
+              "direct_geometry": {
+                "status": "not_present",
+                "unit": null,
+                "x": null,
+                "y": null,
+                "cx": null,
+                "cy": null,
+                "rotation_raw": null,
+                "reason": "布局部件此占位符未直接声明几何；这不代表有效几何为空，master 占位符继承尚未解析。"
+              },
+              "master_resolution": {
+                "status": "unresolved",
+                "master_part": "ppt/slideMasters/slideMaster1.xml",
+                "master_shape_id": null,
+                "geometry": null,
+                "reason": "本 fixture 只记录 layout 部件直接声明；未运行 master placeholder 匹配器，不能从 layout 几何缺失推断最终继承结果。"
+              },
+              "source_ref": "ppt/slideLayouts/slideLayout2.xml#shape-id=3"
+            },
+            {
+              "shape_id": "4",
+              "name": "Date Placeholder 3",
+              "type_attribute": {
+                "presence": "present",
+                "raw_value": "dt",
+                "parsed_boolean": null
+              },
+              "index_attribute": {
+                "presence": "present",
+                "raw_value": "10",
+                "parsed_boolean": null
+              },
+              "direct_geometry": {
+                "status": "not_present",
+                "unit": null,
+                "x": null,
+                "y": null,
+                "cx": null,
+                "cy": null,
+                "rotation_raw": null,
+                "reason": "布局部件此占位符未直接声明几何；这不代表有效几何为空，master 占位符继承尚未解析。"
+              },
+              "master_resolution": {
+                "status": "unresolved",
+                "master_part": "ppt/slideMasters/slideMaster1.xml",
+                "master_shape_id": null,
+                "geometry": null,
+                "reason": "本 fixture 只记录 layout 部件直接声明；未运行 master placeholder 匹配器，不能从 layout 几何缺失推断最终继承结果。"
+              },
+              "source_ref": "ppt/slideLayouts/slideLayout2.xml#shape-id=4"
+            },
+            {
+              "shape_id": "5",
+              "name": "Footer Placeholder 4",
+              "type_attribute": {
+                "presence": "present",
+                "raw_value": "ftr",
+                "parsed_boolean": null
+              },
+              "index_attribute": {
+                "presence": "present",
+                "raw_value": "11",
+                "parsed_boolean": null
+              },
+              "direct_geometry": {
+                "status": "not_present",
+                "unit": null,
+                "x": null,
+                "y": null,
+                "cx": null,
+                "cy": null,
+                "rotation_raw": null,
+                "reason": "布局部件此占位符未直接声明几何；这不代表有效几何为空，master 占位符继承尚未解析。"
+              },
+              "master_resolution": {
+                "status": "unresolved",
+                "master_part": "ppt/slideMasters/slideMaster1.xml",
+                "master_shape_id": null,
+                "geometry": null,
+                "reason": "本 fixture 只记录 layout 部件直接声明；未运行 master placeholder 匹配器，不能从 layout 几何缺失推断最终继承结果。"
+              },
+              "source_ref": "ppt/slideLayouts/slideLayout2.xml#shape-id=5"
+            },
+            {
+              "shape_id": "6",
+              "name": "Slide Number Placeholder 5",
+              "type_attribute": {
+                "presence": "present",
+                "raw_value": "sldNum",
+                "parsed_boolean": null
+              },
+              "index_attribute": {
+                "presence": "present",
+                "raw_value": "12",
+                "parsed_boolean": null
+              },
+              "direct_geometry": {
+                "status": "not_present",
+                "unit": null,
+                "x": null,
+                "y": null,
+                "cx": null,
+                "cy": null,
+                "rotation_raw": null,
+                "reason": "布局部件此占位符未直接声明几何；这不代表有效几何为空，master 占位符继承尚未解析。"
+              },
+              "master_resolution": {
+                "status": "unresolved",
+                "master_part": "ppt/slideMasters/slideMaster1.xml",
+                "master_shape_id": null,
+                "geometry": null,
+                "reason": "本 fixture 只记录 layout 部件直接声明；未运行 master placeholder 匹配器，不能从 layout 几何缺失推断最终继承结果。"
+              },
+              "source_ref": "ppt/slideLayouts/slideLayout2.xml#shape-id=6"
+            }
+          ],
+          "reason": null
+        },
+        "master_shape_visibility": {
+          "raw_attribute_ref": "/source_layout/attributes/show_master_sp",
+          "adapter_interpretations": [
+            {
+              "adapter_ref": "P01 ppt-master part_show_master_sp",
+              "effective_value": true,
+              "evidence_kind": "source_code_rule",
+              "execution_status": "not_executed",
+              "evidence_refs": [
+                "P01_SHOW_MASTER_SP_RULE"
+              ]
+            }
+          ],
+          "canonical_resolution": {
+            "status": "pending",
+            "effective_value": null,
+            "reason": "记录 OOXML 原属性和 P01 源码适配器的默认规则；产品解析器/跨源规范化规则尚未选定。"
+          }
+        },
+        "page_types": {
+          "status": "pending",
+          "items": [],
+          "reason": "保留原始 layout type；语义页型与 layout 适用关系属于 TPL-006。"
+        },
+        "slots": {
+          "status": "pending",
+          "items": [],
+          "reason": "Slot role/bounds/content type 等契约属于 TPL-004。"
+        },
+        "constraints": {
+          "status": "pending",
+          "items": [],
+          "reason": "约束字段将在 LayoutSlot 与 LayoutApplicability 契约任务中按基线定义。"
+        },
+        "capacity": {
+          "status": "pending",
+          "value": null,
+          "reason": "Layout/slot 容量属于 TPL-007。"
+        },
+        "backend_support": {
+          "status": "unknown",
+          "items": [],
+          "reason": "产品后端尚未选定，未运行后端能力 PoC。"
+        },
+        "evidence_refs": [
+          "P01_LAYOUT_MANIFEST",
+          "P03_RAW_LAYOUTS",
+          "P04_ABSTRACT_LAYOUT_JSON",
+          "PYTHON_PPTX_DEFAULT_SAMPLE"
+        ],
+        "limitations": [
+          "本契约与样例仅作静态来源对照及 PPTX ZIP/XML 结构盘点；没有执行 YoloongPPT parser。",
+          "P01、Presenton 与 ai-agent-ppt 的源码路径是不同抽象层，不能据此声称三者都提供等价的原生 layout parser 输出。",
+          "本样例没有 slide XML 部件，因此不推断具体 slide 的有效 inherited visibility、placeholder geometry 或动画结果。"
+        ]
+      }
+    }
+  ]
+}

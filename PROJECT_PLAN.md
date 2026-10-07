@@ -310,6 +310,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核验：契约 JSON 可解析且本地 schema 引用存在；4 个 fixture 的任务追溯 ID、证据 ID、关系目标与状态边界一致。未运行标准 JSON Schema validator、YoloongPPT parser、Office 渲染、模板上传链路或 AC-001–AC-030。
 - 证据：contracts/master-spec.schema.json、catalog.json、fixtures.json；Excel“需求主表”N111:P111、“可执行任务”L179:M179；research/P01/README.md、research/P03/README.md、research/P04/README.md。
 
+### TASK-TPL-003
+
+- Requirement ID：TPL-003；P0；矩阵标记无前置任务。
+- 状态：进行中。建立 `LayoutTemplate` Draft 2020-12 契约草案、来源 crosswalk 与真实 PPTX fixture，记录 layout name/type、原始属性、placeholder type/index、直接 EMU 几何、layout→master 关系及 master-shape 可见性解释状态。
+- 来源对照：PPT Master 固定提交 `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d` 有原生 master/layout roster、继承关系、placeholder 与 `showMasterSp` 解析规则；Presenton 固定提交 `35bf44290f821323e003da854f78ffcb0e918167` 的 `RawSlideLayouts` 保留来源元素/位置/尺寸等，但依赖预览和后续语义认证；ai-agent-ppt 固定提交 `c3605ebc487fc6c7d4f4139761e46d7021cd656c` 的 `LayoutLoader` 消费抽象 JSON layout，不等同于原生 PPTX layout parser。均为源码静态 review，未运行上游程序。
+- 真实 PPTX：只读盘点 python-pptx 固定提交 `278b47b1dedd5b46ee84c286e77cdfb0bf4594be` 的 `default.pptx`，SHA-256 `e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34`；确认 1 master、11 layouts、1 theme、0 slide parts；fixture覆盖直接几何与省略 type/index/visibility 属性。layout 几何未声明时保留为 direct `not_present`，对应 master geometry 解析记为 unresolved；没有推断成零尺寸或最终继承结果。
+- 可见性边界：OOXML 原属性保留为 `showMasterSp`。PPT Master 源码把省略属性按 true 解释只记录为该适配器源码规则，不是 YoloongPPT 产品默认；产品级规范化保持 pending。没有 slide parts，不报告具体页面的有效继承可见性。
+- 数据对象对齐：在既有 `LayoutTemplate` 数据对象行登记 Schema 草案版本，不新增/删除需求、任务或数据对象。字段 `layout_id, page_types, slots, constraints, capacity, backend_support` 均保留；其中 Slot 结构交给 TPL-004、语义页型映射交给 TPL-006、容量交给 TPL-007，后端能力待选型/PoC。
+- 静态核验：Schema、catalog、fixtures JSON 解析；本地 Schema 引用及样例结构、11 layout roster、master 关系、直接几何和原始属性状态静态核对。未运行 JSON Schema 标准 validator、YoloongPPT parser、PPT Master/Presenton/ai-agent-ppt 程序、Office 渲染或 AC-001–AC-030。
+- 证据：`contracts/layout-template.schema.json`、`contracts/layout-template.catalog.json`、`contracts/layout-template.fixtures.json`；Excel“需求主表”`N112:O112`、“可执行任务”`L180:M180`、“数据对象”`D29/J29`；`research/P01/README.md`、`research/P03/README.md`、`research/P04/README.md`。
+
 ### TASK-CNT-001
 
 - Requirement ID：CNT-001；P0；矩阵中无前置任务。
