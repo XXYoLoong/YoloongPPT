@@ -66,15 +66,20 @@
   ],
   "current_execution": {
     "status": "not_run",
-    "attempted_command": "scripts/project.ps1 start",
-    "observed_error": "Docker Engine desktop-linux pipe 不存在；com.docker.service 无法由当前会话打开并启动。",
-    "container_started": false,
+    "attempted_command": "scripts/project.ps1 start; docker exec 仅检查通用开发容器",
+    "observed_error": "首次 Docker 启动时清理 stale AF_UNIX socket 失败；已将不可读的 socket 条目改名留存并重启 Desktop，当前 Engine 与项目容器已运行。模板导入/重建命令仍未运行。",
+    "container_started": true,
+    "container_name": "yoloongppt-workspace-1",
+    "container_id": "6c22127c2416afeddf79eaed05d3a4a549e5c9a9aabf71e3281c84cc89a0999a",
+    "container_image_id": "sha256:e3dda207b44bf716a50f24cd688236fe7b2f82e055bceda871859e4f204cf2c4",
+    "docker_engine_version_observation": "27.4.0",
+    "runtime_observation": "Debian 12 通用容器；bash/git/ca-certificates 可用，node 与 python3 不存在。仅为环境观测，不是 YoloongPPT 产品运行时选型。",
     "runtime_selected": false
   },
   "limitations": [
     "没有 YoloongPPT 模板导入/重建运行时，产品架构、语言及依赖版本仍未选定。",
-    "Docker Desktop 进程已启动，但 Engine pipe 未建立；项目 Compose 容器没有启动。当前 C: 可用空间约 285 MiB 是环境观测，不据此认定唯一根因。",
-    "固定真实样例没有 slide parts；需要在项目容器可用后，使用可追溯输入模板生成至少一页，再比较输出 package part 和渲染结果。",
+    "项目 Docker 开发容器已启动；当前通用镜像未安装产品语言/运行时。容器环境观测不构成技术选型。",
+    "固定真实样例没有 slide parts，且模板重建 runtime 尚无；架构选定后需用可追溯输入模板生成至少一页，再比较输出 package part 和渲染结果。",
     "本契约、来源 crosswalk 与静态 inventory fixture 不是实际重建或 Office/LibreOffice 验收。"
   ]
 }
