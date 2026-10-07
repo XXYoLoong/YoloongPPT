@@ -1,0 +1,316 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TabularEvidence 契约（IN-008 草案）",
+  "description": "结构化保留 XLSX/CSV 的 sheet/table/range、单元格类型、表头单位、日期、公式显示值、图表候选与来源锚点。",
+  "oneOf": [
+    { "$ref": "#/$defs/tabular_input" },
+    { "$ref": "#/$defs/tabular_result" }
+  ],
+  "$defs": {
+    "asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+    "source_id": { "$ref": "object-id.schema.json#/$defs/source_id" },
+    "scalar": { "type": ["string", "number", "boolean", "null"] },
+    "source_anchor": {
+      "type": "object",
+      "required": ["source_asset_id", "sheet_name", "cell_ref", "range_ref", "row_index", "column_index", "csv_record_number", "csv_field_index"],
+      "properties": {
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "sheet_name": { "type": ["string", "null"] },
+        "cell_ref": { "type": ["string", "null"] },
+        "range_ref": { "type": ["string", "null"] },
+        "row_index": { "type": ["integer", "null"], "minimum": 0 },
+        "column_index": { "type": ["integer", "null"], "minimum": 0 },
+        "csv_record_number": { "type": ["integer", "null"], "minimum": 1 },
+        "csv_field_index": { "type": ["integer", "null"], "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "unit_annotation": {
+      "type": "object",
+      "required": ["status", "value", "source_anchor", "reason"],
+      "properties": {
+        "status": { "type": "string", "enum": ["observed", "unknown", "conflicting", "not_applicable"] },
+        "value": { "type": ["string", "null"] },
+        "source_anchor": { "oneOf": [{ "$ref": "#/$defs/source_anchor" }, { "type": "null" }] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "observed" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "value": { "type": "string", "minLength": 1 },
+              "source_anchor": { "$ref": "#/$defs/source_anchor" },
+              "reason": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["unknown", "conflicting"] } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "value": { "type": "null" },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "not_applicable" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "value": { "type": "null" },
+              "source_anchor": { "type": "null" },
+              "reason": { "type": "null" }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "tabular_cell": {
+      "type": "object",
+      "required": ["cell_type", "raw_value", "normalized_value", "number_format", "formula_text", "cached_value_status", "cached_value", "display_value", "source_anchor"],
+      "properties": {
+        "cell_type": { "type": "string", "enum": ["text", "integer", "decimal", "boolean", "date", "datetime", "formula", "error", "blank", "unknown"] },
+        "raw_value": { "$ref": "#/$defs/scalar" },
+        "normalized_value": { "$ref": "#/$defs/scalar" },
+        "number_format": { "type": ["string", "null"] },
+        "formula_text": { "type": ["string", "null"] },
+        "cached_value_status": { "type": "string", "enum": ["not_formula", "available", "missing", "error"] },
+        "cached_value": { "$ref": "#/$defs/scalar" },
+        "display_value": { "type": ["string", "null"] },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "cell_type": { "const": "formula" } }, "required": ["cell_type"] },
+          "then": {
+            "properties": {
+              "formula_text": { "type": "string", "minLength": 1 },
+              "cached_value_status": { "enum": ["available", "missing", "error"] }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "cell_type": { "enum": ["text", "integer", "decimal", "boolean", "date", "datetime", "error", "blank", "unknown"] } }, "required": ["cell_type"] },
+          "then": {
+            "properties": {
+              "formula_text": { "type": "null" },
+              "cached_value_status": { "const": "not_formula" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "cell_type": { "enum": ["date", "datetime"] } }, "required": ["cell_type"] },
+          "then": { "properties": { "normalized_value": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "column_definition": {
+      "type": "object",
+      "required": ["column_index", "header_text", "source_anchor", "observed_types", "candidate_types", "unit"],
+      "properties": {
+        "column_index": { "type": "integer", "minimum": 0 },
+        "header_text": { "type": ["string", "null"] },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "observed_types": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "enum": ["text", "integer", "decimal", "boolean", "date", "datetime", "formula", "error", "blank", "unknown"] }
+        },
+        "candidate_types": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string", "enum": ["text", "integer", "decimal", "boolean", "date", "datetime", "unknown"] }
+        },
+        "unit": { "$ref": "#/$defs/unit_annotation" }
+      },
+      "additionalProperties": false
+    },
+    "data_row": {
+      "type": "object",
+      "required": ["row_index", "cells"],
+      "properties": {
+        "row_index": { "type": "integer", "minimum": 0 },
+        "cells": { "type": "array", "items": { "$ref": "#/$defs/tabular_cell" } }
+      },
+      "additionalProperties": false
+    },
+    "tabular_region": {
+      "type": "object",
+      "required": ["kind", "name", "sheet_name", "range_ref", "has_header", "source_anchor", "columns", "rows"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["xlsx_table", "xlsx_range", "csv_table"] },
+        "name": { "type": ["string", "null"] },
+        "sheet_name": { "type": ["string", "null"] },
+        "range_ref": { "type": ["string", "null"] },
+        "has_header": { "type": "boolean" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "columns": { "type": "array", "items": { "$ref": "#/$defs/column_definition" } },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/data_row" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "const": "csv_table" } }, "required": ["kind"] },
+          "then": { "properties": { "sheet_name": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "kind": { "enum": ["xlsx_table", "xlsx_range"] } }, "required": ["kind"] },
+          "then": { "properties": { "sheet_name": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "workbook_sheet": {
+      "type": "object",
+      "required": ["sheet_index", "name", "used_range", "date_system", "source_anchor"],
+      "properties": {
+        "sheet_index": { "type": "integer", "minimum": 0 },
+        "name": { "type": "string", "minLength": 1 },
+        "used_range": { "type": ["string", "null"] },
+        "date_system": { "type": "string", "enum": ["excel_1900", "excel_1904", "unknown"] },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "chart_series": {
+      "type": "object",
+      "required": ["name", "category_range", "value_range", "categories", "values", "source_anchor"],
+      "properties": {
+        "name": { "type": ["string", "null"] },
+        "category_range": { "type": ["string", "null"] },
+        "value_range": { "type": ["string", "null"] },
+        "categories": { "type": "array", "items": { "$ref": "#/$defs/scalar" } },
+        "values": { "type": "array", "items": { "$ref": "#/$defs/scalar" } },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "chart_candidate": {
+      "type": "object",
+      "required": ["kind", "chart_type", "basis", "source_anchor", "series"],
+      "properties": {
+        "kind": { "type": "string", "enum": ["existing_chart", "range_candidate"] },
+        "chart_type": { "type": ["string", "null"] },
+        "basis": { "type": "string", "minLength": 1 },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "series": { "type": "array", "items": { "$ref": "#/$defs/chart_series" } }
+      },
+      "additionalProperties": false
+    },
+    "tabular_source": {
+      "type": "object",
+      "required": ["source_id", "source_asset_id", "raw_asset_refs", "format", "sha256"],
+      "properties": {
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "format": { "type": "string", "enum": ["xlsx", "csv"] },
+        "sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "tabular_evidence": {
+      "type": "object",
+      "required": ["model_type", "source", "sheets", "regions", "chart_candidates"],
+      "properties": {
+        "model_type": { "type": "string", "const": "TabularEvidence" },
+        "source": { "$ref": "#/$defs/tabular_source" },
+        "sheets": { "type": "array", "items": { "$ref": "#/$defs/workbook_sheet" } },
+        "regions": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/tabular_region" } },
+        "chart_candidates": { "type": "array", "items": { "$ref": "#/$defs/chart_candidate" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "source": { "properties": { "format": { "const": "csv" } }, "required": ["format"] } }, "required": ["source"] },
+          "then": {
+            "properties": {
+              "sheets": { "maxItems": 0 },
+              "regions": { "items": { "properties": { "kind": { "const": "csv_table" } }, "required": ["kind"] } },
+              "chart_candidates": { "maxItems": 0 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "source": { "properties": { "format": { "const": "xlsx" } }, "required": ["format"] } }, "required": ["source"] },
+          "then": {
+            "properties": {
+              "sheets": { "minItems": 1 },
+              "regions": { "items": { "properties": { "kind": { "enum": ["xlsx_table", "xlsx_range"] } }, "required": ["kind"] } }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "coverage_item": {
+      "type": "object",
+      "required": ["feature", "status", "reason"],
+      "properties": {
+        "feature": { "type": "string", "enum": ["sheets", "tables_ranges", "cell_types", "units", "dates", "formulas", "chart_candidates"] },
+        "status": { "type": "string", "enum": ["complete", "partial", "not_present", "unsupported", "failed"] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["complete", "not_present"] } }, "required": ["status"] },
+          "then": { "properties": { "reason": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["partial", "unsupported", "failed"] } }, "required": ["status"] },
+          "then": { "properties": { "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "parse_error": {
+      "type": "object",
+      "required": ["code", "message", "source_anchor"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "message": { "type": "string", "minLength": 1 },
+        "source_anchor": { "oneOf": [{ "$ref": "#/$defs/source_anchor" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "tabular_input": {
+      "type": "object",
+      "required": ["record_type", "source_id", "source_asset_id", "raw_asset_refs", "format"],
+      "properties": {
+        "record_type": { "type": "string", "const": "tabular_parse_input" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "format": { "type": "string", "enum": ["xlsx", "csv"] }
+      },
+      "additionalProperties": false
+    },
+    "tabular_result": {
+      "type": "object",
+      "required": ["record_type", "source_id", "source_asset_id", "raw_asset_refs", "format", "status", "evidence", "coverage", "errors"],
+      "properties": {
+        "record_type": { "type": "string", "const": "tabular_parse_result" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "format": { "type": "string", "enum": ["xlsx", "csv"] },
+        "status": { "type": "string", "enum": ["parsed", "partial", "failed"] },
+        "evidence": { "oneOf": [{ "$ref": "#/$defs/tabular_evidence" }, { "type": "null" }] },
+        "coverage": { "type": "array", "items": { "$ref": "#/$defs/coverage_item" } },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/parse_error" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["parsed", "partial"] } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "$ref": "#/$defs/tabular_evidence" } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "type": "null" }, "errors": { "minItems": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

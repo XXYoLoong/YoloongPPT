@@ -1,0 +1,602 @@
+{
+  "document_type": "tabular_evidence_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-008",
+  "fixtures": [
+    {
+      "fixture_id": "IN-008-XLSX-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "tabular_parse_input",
+        "source_id": "source_11111111-1111-4111-8111-111111111111",
+        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+        "raw_asset_refs": ["asset_22222222-2222-4222-8222-222222222222"],
+        "format": "xlsx"
+      },
+      "expected_result": {
+        "record_type": "tabular_parse_result",
+        "source_id": "source_11111111-1111-4111-8111-111111111111",
+        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+        "raw_asset_refs": ["asset_22222222-2222-4222-8222-222222222222"],
+        "format": "xlsx",
+        "status": "parsed",
+        "evidence": {
+          "model_type": "TabularEvidence",
+          "source": {
+            "source_id": "source_11111111-1111-4111-8111-111111111111",
+            "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+            "raw_asset_refs": ["asset_22222222-2222-4222-8222-222222222222"],
+            "format": "xlsx",
+            "sha256": null
+          },
+          "sheets": [
+            {
+              "sheet_index": 0,
+              "name": "Revenue",
+              "used_range": "A1:C3",
+              "date_system": "excel_1900",
+              "source_anchor": {
+                "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                "sheet_name": "Revenue",
+                "cell_ref": null,
+                "range_ref": "A1:C3",
+                "row_index": null,
+                "column_index": null,
+                "csv_record_number": null,
+                "csv_field_index": null
+              }
+            }
+          ],
+          "regions": [
+            {
+              "kind": "xlsx_table",
+              "name": "tbl_revenue",
+              "sheet_name": "Revenue",
+              "range_ref": "A1:C3",
+              "has_header": true,
+              "source_anchor": {
+                "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                "sheet_name": "Revenue",
+                "cell_ref": null,
+                "range_ref": "A1:C3",
+                "row_index": null,
+                "column_index": null,
+                "csv_record_number": null,
+                "csv_field_index": null
+              },
+              "columns": [
+                {
+                  "column_index": 0,
+                  "header_text": "Date",
+                  "source_anchor": {
+                    "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                    "sheet_name": "Revenue",
+                    "cell_ref": "A1",
+                    "range_ref": null,
+                    "row_index": 0,
+                    "column_index": 0,
+                    "csv_record_number": null,
+                    "csv_field_index": null
+                  },
+                  "observed_types": ["date"],
+                  "candidate_types": ["date"],
+                  "unit": { "status": "not_applicable", "value": null, "source_anchor": null, "reason": null }
+                },
+                {
+                  "column_index": 1,
+                  "header_text": "Capacity (GW)",
+                  "source_anchor": {
+                    "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                    "sheet_name": "Revenue",
+                    "cell_ref": "B1",
+                    "range_ref": null,
+                    "row_index": 0,
+                    "column_index": 1,
+                    "csv_record_number": null,
+                    "csv_field_index": null
+                  },
+                  "observed_types": ["integer"],
+                  "candidate_types": ["integer", "decimal"],
+                  "unit": {
+                    "status": "observed",
+                    "value": "GW",
+                    "source_anchor": {
+                      "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                      "sheet_name": "Revenue",
+                      "cell_ref": "B1",
+                      "range_ref": null,
+                      "row_index": 0,
+                      "column_index": 1,
+                      "csv_record_number": null,
+                      "csv_field_index": null
+                    },
+                    "reason": null
+                  }
+                },
+                {
+                  "column_index": 2,
+                  "header_text": "Growth (%)",
+                  "source_anchor": {
+                    "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                    "sheet_name": "Revenue",
+                    "cell_ref": "C1",
+                    "range_ref": null,
+                    "row_index": 0,
+                    "column_index": 2,
+                    "csv_record_number": null,
+                    "csv_field_index": null
+                  },
+                  "observed_types": ["formula"],
+                  "candidate_types": ["decimal"],
+                  "unit": {
+                    "status": "observed",
+                    "value": "%",
+                    "source_anchor": {
+                      "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                      "sheet_name": "Revenue",
+                      "cell_ref": "C1",
+                      "range_ref": null,
+                      "row_index": 0,
+                      "column_index": 2,
+                      "csv_record_number": null,
+                      "csv_field_index": null
+                    },
+                    "reason": null
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "row_index": 1,
+                  "cells": [
+                    {
+                      "cell_type": "date",
+                      "raw_value": 45658,
+                      "normalized_value": "2025-01-01",
+                      "number_format": "m/d/yyyy",
+                      "formula_text": null,
+                      "cached_value_status": "not_formula",
+                      "cached_value": null,
+                      "display_value": "1/1/2025",
+                      "source_anchor": {
+                        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                        "sheet_name": "Revenue",
+                        "cell_ref": "A2",
+                        "range_ref": null,
+                        "row_index": 1,
+                        "column_index": 0,
+                        "csv_record_number": null,
+                        "csv_field_index": null
+                      }
+                    },
+                    {
+                      "cell_type": "integer",
+                      "raw_value": 560,
+                      "normalized_value": 560,
+                      "number_format": "0",
+                      "formula_text": null,
+                      "cached_value_status": "not_formula",
+                      "cached_value": null,
+                      "display_value": "560",
+                      "source_anchor": {
+                        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                        "sheet_name": "Revenue",
+                        "cell_ref": "B2",
+                        "range_ref": null,
+                        "row_index": 1,
+                        "column_index": 1,
+                        "csv_record_number": null,
+                        "csv_field_index": null
+                      }
+                    },
+                    {
+                      "cell_type": "formula",
+                      "raw_value": null,
+                      "normalized_value": null,
+                      "number_format": "0.0%",
+                      "formula_text": "=B2/500-1",
+                      "cached_value_status": "available",
+                      "cached_value": 0.12,
+                      "display_value": "12.0%",
+                      "source_anchor": {
+                        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                        "sheet_name": "Revenue",
+                        "cell_ref": "C2",
+                        "range_ref": null,
+                        "row_index": 1,
+                        "column_index": 2,
+                        "csv_record_number": null,
+                        "csv_field_index": null
+                      }
+                    }
+                  ]
+                },
+                {
+                  "row_index": 2,
+                  "cells": [
+                    {
+                      "cell_type": "date",
+                      "raw_value": 46023,
+                      "normalized_value": "2026-01-01",
+                      "number_format": "m/d/yyyy",
+                      "formula_text": null,
+                      "cached_value_status": "not_formula",
+                      "cached_value": null,
+                      "display_value": "1/1/2026",
+                      "source_anchor": {
+                        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                        "sheet_name": "Revenue",
+                        "cell_ref": "A3",
+                        "range_ref": null,
+                        "row_index": 2,
+                        "column_index": 0,
+                        "csv_record_number": null,
+                        "csv_field_index": null
+                      }
+                    },
+                    {
+                      "cell_type": "integer",
+                      "raw_value": 680,
+                      "normalized_value": 680,
+                      "number_format": "0",
+                      "formula_text": null,
+                      "cached_value_status": "not_formula",
+                      "cached_value": null,
+                      "display_value": "680",
+                      "source_anchor": {
+                        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                        "sheet_name": "Revenue",
+                        "cell_ref": "B3",
+                        "range_ref": null,
+                        "row_index": 2,
+                        "column_index": 1,
+                        "csv_record_number": null,
+                        "csv_field_index": null
+                      }
+                    },
+                    {
+                      "cell_type": "formula",
+                      "raw_value": null,
+                      "normalized_value": null,
+                      "number_format": "0.0%",
+                      "formula_text": "=B3/B2-1",
+                      "cached_value_status": "available",
+                      "cached_value": 0.21428571428571427,
+                      "display_value": "21.4%",
+                      "source_anchor": {
+                        "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                        "sheet_name": "Revenue",
+                        "cell_ref": "C3",
+                        "range_ref": null,
+                        "row_index": 2,
+                        "column_index": 2,
+                        "csv_record_number": null,
+                        "csv_field_index": null
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "chart_candidates": [
+            {
+              "kind": "existing_chart",
+              "chart_type": "line",
+              "basis": "源 workbook 中存在 chart 对象",
+              "source_anchor": {
+                "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                "sheet_name": "Revenue",
+                "cell_ref": null,
+                "range_ref": "Revenue!A1:B3",
+                "row_index": null,
+                "column_index": null,
+                "csv_record_number": null,
+                "csv_field_index": null
+              },
+              "series": [
+                {
+                  "name": "Capacity",
+                  "category_range": "Revenue!A2:A3",
+                  "value_range": "Revenue!B2:B3",
+                  "categories": ["2025-01-01", "2026-01-01"],
+                  "values": [560, 680],
+                  "source_anchor": {
+                    "source_asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                    "sheet_name": "Revenue",
+                    "cell_ref": null,
+                    "range_ref": "Revenue!A2:B3",
+                    "row_index": null,
+                    "column_index": null,
+                    "csv_record_number": null,
+                    "csv_field_index": null
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "coverage": [
+          { "feature": "sheets", "status": "complete", "reason": null },
+          { "feature": "tables_ranges", "status": "complete", "reason": null },
+          { "feature": "cell_types", "status": "complete", "reason": null },
+          { "feature": "units", "status": "complete", "reason": null },
+          { "feature": "dates", "status": "complete", "reason": null },
+          { "feature": "formulas", "status": "complete", "reason": null },
+          { "feature": "chart_candidates", "status": "complete", "reason": null }
+        ],
+        "errors": []
+      },
+      "verification_note": "合成的预期 XLSX 结构；公式缓存、日期和图表没有从真实工作簿解析。"
+    },
+    {
+      "fixture_id": "IN-008-CSV-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "tabular_parse_input",
+        "source_id": "source_33333333-3333-4333-8333-333333333333",
+        "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+        "raw_asset_refs": ["asset_44444444-4444-4444-8444-444444444444"],
+        "format": "csv"
+      },
+      "expected_result": {
+        "record_type": "tabular_parse_result",
+        "source_id": "source_33333333-3333-4333-8333-333333333333",
+        "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+        "raw_asset_refs": ["asset_44444444-4444-4444-8444-444444444444"],
+        "format": "csv",
+        "status": "parsed",
+        "evidence": {
+          "model_type": "TabularEvidence",
+          "source": {
+            "source_id": "source_33333333-3333-4333-8333-333333333333",
+            "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+            "raw_asset_refs": ["asset_44444444-4444-4444-8444-444444444444"],
+            "format": "csv",
+            "sha256": null
+          },
+          "sheets": [],
+          "regions": [
+            {
+              "kind": "csv_table",
+              "name": "csv-records",
+              "sheet_name": null,
+              "range_ref": "records 1-2",
+              "has_header": true,
+              "source_anchor": {
+                "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+                "sheet_name": null,
+                "cell_ref": null,
+                "range_ref": "header + records 1-2",
+                "row_index": null,
+                "column_index": null,
+                "csv_record_number": null,
+                "csv_field_index": null
+              },
+              "columns": [
+                {
+                  "column_index": 0,
+                  "header_text": "month",
+                  "source_anchor": {
+                    "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+                    "sheet_name": null,
+                    "cell_ref": null,
+                    "range_ref": null,
+                    "row_index": null,
+                    "column_index": null,
+                    "csv_record_number": 1,
+                    "csv_field_index": 0
+                  },
+                  "observed_types": ["text"],
+                  "candidate_types": ["date"],
+                  "unit": { "status": "not_applicable", "value": null, "source_anchor": null, "reason": null }
+                },
+                {
+                  "column_index": 1,
+                  "header_text": "Energy (kWh)",
+                  "source_anchor": {
+                    "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+                    "sheet_name": null,
+                    "cell_ref": null,
+                    "range_ref": null,
+                    "row_index": null,
+                    "column_index": null,
+                    "csv_record_number": 1,
+                    "csv_field_index": 1
+                  },
+                  "observed_types": ["text"],
+                  "candidate_types": ["decimal"],
+                  "unit": {
+                    "status": "observed",
+                    "value": "kWh",
+                    "source_anchor": {
+                      "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+                      "sheet_name": null,
+                      "cell_ref": null,
+                      "range_ref": null,
+                      "row_index": null,
+                      "column_index": null,
+                      "csv_record_number": 1,
+                      "csv_field_index": 1
+                    },
+                    "reason": null
+                  }
+                }
+              ],
+              "rows": [
+                {
+                  "row_index": 0,
+                  "cells": [
+                    {
+                      "cell_type": "text",
+                      "raw_value": "2025-01",
+                      "normalized_value": null,
+                      "number_format": null,
+                      "formula_text": null,
+                      "cached_value_status": "not_formula",
+                      "cached_value": null,
+                      "display_value": "2025-01",
+                      "source_anchor": {
+                        "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+                        "sheet_name": null,
+                        "cell_ref": null,
+                        "range_ref": null,
+                        "row_index": null,
+                        "column_index": null,
+                        "csv_record_number": 2,
+                        "csv_field_index": 0
+                      }
+                    },
+                    {
+                      "cell_type": "text",
+                      "raw_value": "1234.5",
+                      "normalized_value": null,
+                      "number_format": null,
+                      "formula_text": null,
+                      "cached_value_status": "not_formula",
+                      "cached_value": null,
+                      "display_value": "1234.5",
+                      "source_anchor": {
+                        "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+                        "sheet_name": null,
+                        "cell_ref": null,
+                        "range_ref": null,
+                        "row_index": null,
+                        "column_index": null,
+                        "csv_record_number": 2,
+                        "csv_field_index": 1
+                      }
+                    }
+                  ]
+                },
+                {
+                  "row_index": 1,
+                  "cells": [
+                    {
+                      "cell_type": "text",
+                      "raw_value": "2025-02",
+                      "normalized_value": null,
+                      "number_format": null,
+                      "formula_text": null,
+                      "cached_value_status": "not_formula",
+                      "cached_value": null,
+                      "display_value": "2025-02",
+                      "source_anchor": {
+                        "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+                        "sheet_name": null,
+                        "cell_ref": null,
+                        "range_ref": null,
+                        "row_index": null,
+                        "column_index": null,
+                        "csv_record_number": 3,
+                        "csv_field_index": 0
+                      }
+                    },
+                    {
+                      "cell_type": "text",
+                      "raw_value": "1410",
+                      "normalized_value": null,
+                      "number_format": null,
+                      "formula_text": null,
+                      "cached_value_status": "not_formula",
+                      "cached_value": null,
+                      "display_value": "1410",
+                      "source_anchor": {
+                        "source_asset_id": "asset_44444444-4444-4444-8444-444444444444",
+                        "sheet_name": null,
+                        "cell_ref": null,
+                        "range_ref": null,
+                        "row_index": null,
+                        "column_index": null,
+                        "csv_record_number": 3,
+                        "csv_field_index": 1
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "chart_candidates": []
+        },
+        "coverage": [
+          { "feature": "sheets", "status": "not_present", "reason": null },
+          { "feature": "tables_ranges", "status": "complete", "reason": null },
+          { "feature": "cell_types", "status": "complete", "reason": null },
+          { "feature": "units", "status": "complete", "reason": null },
+          { "feature": "dates", "status": "partial", "reason": "CSV 日期样式保留为原始字符串，未擅自规范化。" },
+          { "feature": "formulas", "status": "not_present", "reason": null },
+          { "feature": "chart_candidates", "status": "not_present", "reason": null }
+        ],
+        "errors": []
+      },
+      "verification_note": "合成的预期 CSV 结构；文本数值/月份未从真实 CSV 推断或改写。"
+    },
+    {
+      "fixture_id": "IN-008-BOUNDARY-XLSX-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "tabular_parse_input",
+        "source_id": "source_55555555-5555-4555-8555-555555555555",
+        "source_asset_id": "asset_66666666-6666-4666-8666-666666666666",
+        "raw_asset_refs": ["asset_66666666-6666-4666-8666-666666666666"],
+        "format": "xlsx"
+      },
+      "expected_result": {
+        "record_type": "tabular_parse_result",
+        "source_id": "source_55555555-5555-4555-8555-555555555555",
+        "source_asset_id": "asset_66666666-6666-4666-8666-666666666666",
+        "raw_asset_refs": ["asset_66666666-6666-4666-8666-666666666666"],
+        "format": "xlsx",
+        "status": "failed",
+        "evidence": null,
+        "coverage": [
+          { "feature": "sheets", "status": "failed", "reason": "损坏的 ZIP/OOXML 包无法读取 workbook 与 sheet 关系。" },
+          { "feature": "tables_ranges", "status": "failed", "reason": "损坏的 XLSX 无法读取表格或范围。" },
+          { "feature": "cell_types", "status": "failed", "reason": "损坏的 XLSX 无法读取单元格。" },
+          { "feature": "units", "status": "failed", "reason": "损坏的 XLSX 无法定位表头元数据。" },
+          { "feature": "dates", "status": "failed", "reason": "损坏的 XLSX 无法读取日期系统。" },
+          { "feature": "formulas", "status": "failed", "reason": "损坏的 XLSX 无法读取公式缓存。" },
+          { "feature": "chart_candidates", "status": "failed", "reason": "损坏的 XLSX 无法读取图表关系。" }
+        ],
+        "errors": [
+          { "code": "XLSX_INVALID_PACKAGE", "message": "XLSX 包无法解析：ZIP 或必要的 OOXML 部件缺失或损坏。", "source_anchor": null }
+        ]
+      },
+      "verification_note": "损坏包失败预期；真实 XLSX parser 错误分类待验证。"
+    },
+    {
+      "fixture_id": "IN-008-BOUNDARY-CSV-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "tabular_parse_input",
+        "source_id": "source_77777777-7777-4777-8777-777777777777",
+        "source_asset_id": "asset_88888888-8888-4888-8888-888888888888",
+        "raw_asset_refs": ["asset_88888888-8888-4888-8888-888888888888"],
+        "format": "csv"
+      },
+      "expected_result": {
+        "record_type": "tabular_parse_result",
+        "source_id": "source_77777777-7777-4777-8777-777777777777",
+        "source_asset_id": "asset_88888888-8888-4888-8888-888888888888",
+        "raw_asset_refs": ["asset_88888888-8888-4888-8888-888888888888"],
+        "format": "csv",
+        "status": "failed",
+        "evidence": null,
+        "coverage": [
+          { "feature": "sheets", "status": "not_present", "reason": null },
+          { "feature": "tables_ranges", "status": "failed", "reason": "CSV 引号未闭合，记录边界无法安全确定。" },
+          { "feature": "cell_types", "status": "failed", "reason": "CSV 记录无法安全分列。" },
+          { "feature": "units", "status": "failed", "reason": "CSV 表头无法安全解析。" },
+          { "feature": "dates", "status": "not_present", "reason": null },
+          { "feature": "formulas", "status": "not_present", "reason": null },
+          { "feature": "chart_candidates", "status": "not_present", "reason": null }
+        ],
+        "errors": [
+          { "code": "CSV_MALFORMED", "message": "CSV 包含未闭合引号，无法安全确定字段与记录边界。", "source_anchor": null }
+        ]
+      },
+      "verification_note": "畸形 CSV 失败预期；实际 CSV 引号解析待运行时验证。"
+    }
+  ]
+}

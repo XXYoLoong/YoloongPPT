@@ -212,6 +212,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：已在矩阵“数据对象”既有 TemplatePack 行 I28:J28 记录进行中和契约证据；没有新增或删改需求、任务或数据对象行。
 - 证据：contracts/template-pack.schema.json、contracts/template-pack.catalog.json、contracts/template-pack.fixtures.json；Excel“需求主表”N46:P46、“可执行任务”L74:M74、“数据对象”I28:J28。
 
+### TASK-IN-008
+
+- Requirement ID：IN-008；P0；无前置任务。
+- 状态：进行中。已建立 TabularEvidence Draft 2020-12 契约、目录及 XLSX/CSV 正常与边界预期 fixture，覆盖 sheet/table/range、cell 类型、表头单位、日期系统、公式缓存显示值、图表候选及可定位来源。
+- 来源边界：XLSX 以 sheet/cell/range 锚点保留来源，日期序列关联 workbook 的 1900/1904 日期系统；CSV 保留原始字符串与 record/field 锚点，不虚构 sheet 或 cell 地址。单位只在表头或可定位元数据明确声明时标记 observed。
+- 公式与图表边界：保留公式文本、缓存状态和显示值；缓存缺失时不重算或伪造结果。图表对象/数据范围只作为候选及来源证据，不代表图表适用性判断。
+- 静态核验：schema/catalog/fixtures JSON 可解析，schema 的本地引用可定位，4 个 fixture 的输入/结果资产引用一致；正常 XLSX 覆盖 1 个 sheet、1 个表区域、3 列/2 行、日期序列、公式缓存与 1 个图表候选，正常 CSV 保留无 sheet/cell 的 record/field 锚点；两个边界 fixture 分别声明 XLSX_INVALID_PACKAGE 与 CSV_MALFORMED。
+- 验收边界：fixtures 是合成预期结构，未运行真实 XLSX/CSV parser、公式引擎或 Excel 渲染；因此 TASK-IN-008 保持进行中，AC-001–AC-030 均未执行。产品运行时、解析库和依赖版本未选定。
+- 基线对齐：任务表已列 TabularEvidence 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-008/TASK-IN-008，不增删需求、任务或数据对象行。
+- 证据：contracts/tabular-evidence.schema.json、contracts/tabular-evidence.catalog.json、contracts/tabular-evidence.fixtures.json；Excel“需求主表”N47:P47、“可执行任务”L75:M75。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
