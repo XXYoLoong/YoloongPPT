@@ -1,0 +1,71 @@
+{
+  "document_type": "data_binding_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-002",
+  "task_id": "TASK-CNT-002",
+  "data_object": "DataBinding",
+  "schema": "contracts/data-binding.schema.json",
+  "fixtures": "contracts/data-binding.fixtures.json",
+  "deliverable": "DataBinding",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "CNT-002 要求图表、表格和正文中的同一数据引用同一数据对象；CNT-003 要求保留来源冲突，不得静默选值。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表 N57:P57 与可执行任务 L85:M85 定义 DataBinding 输入、输出及数字/冲突/缺失验收。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.schema.json",
+      "supports": "Source fact、claim、数值和证据锚点来源；缺失事实使用 ERR-009/MISSING_FACT。"
+    },
+    {
+      "url": "contracts/source-anchor.schema.json",
+      "supports": "每条 claim 的 evidence_refs 使用结构化 SourceAnchor。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "binding_id、evidence_id、source_id 与 assumption_id 复用既有 ID 约定。"
+    },
+    {
+      "url": "contracts/source-bundle.catalog.json",
+      "supports": "DEC-004 未决时不为来源冲突自行选出全局胜者。"
+    }
+  ],
+  "field_rules": [
+    "一个 DataBinding 只绑定一个 FactConstraintSet fact_id；来源定位到 requirement_id=CNT-001、task_id=TASK-CNT-001，并保留 claim_id、evidence_id、source_id 和 SourceAnchor。",
+    "binding_id 复用 GOV-007 已登记的通用 object_id；同一生成内容中的正文、表格单元格和图表序列以 consumer_refs 引用同一个 binding_id。consumer_ref 不含数值或文本副本，禁止各展示位置独立改写事实值。",
+    "supported fact 可绑定；conflicting 仅在 FactConstraintSet 已记录 user_selected 及其 claim 时可绑定。DEC-004 未决且 resolution_status=unresolved 时必须 blocked，保留所有冲突 claims，selected_claim_id 为空且 value=null。",
+    "missing fact 必须 blocked 且 value=null；上游 FactConstraintSet 继续携带 ERR-009/MISSING_FACT。本契约不复制或新建全局错误码。",
+    "assumption fact 在本草案中 blocked，直到 PresentationContext 中存在明确的假设展示规则；不得当作 SourceEvidence。",
+    "value 是同一事实在所有 consumer_refs 上共享的唯一值对象。allowed_transformations 仅来自 PresentationContext 明示许可；applied_transformations 必须是其子集。无转换许可时 display_text 保留 raw_text。金额/百分比等数字使用十进制字符串。",
+    "consumer_refs 只记 surface 和 target_ref；绑定与消费者之间的 ID 相等、来源 claim 完整、展示值与上游 claim 一致等跨字段规则由语义验证器检查，JSON Schema 本身不能证明。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-002-NORMAL-001",
+      "fixture_id": "CNT-002-NORMAL-001",
+      "purpose": "同一受支持百分比同时供正文、表格和图表使用。",
+      "acceptance": "三个消费者引用同一个 binding_id；只有 DataBinding 存储数字与展示文本，三种 surface 没有独立数值字段。"
+    },
+    {
+      "case_id": "CNT-002-BOUNDARY-001",
+      "fixture_id": "CNT-002-BOUNDARY-001",
+      "purpose": "复用 CNT-001 的 8%/9% 未解决来源冲突。",
+      "acceptance": "保留两个 claim 与证据锚点；selected_claim_id=null、state=blocked、value=null；正文/表格/图表统一引用此 blocked binding。"
+    },
+    {
+      "case_id": "CNT-002-BOUNDARY-002",
+      "fixture_id": "CNT-002-BOUNDARY-002",
+      "purpose": "复用 CNT-001 缺失的续约日期。",
+      "acceptance": "无 claim、state=blocked、value=null；上游 ERR-009/MISSING_FACT 可追溯；不编造日期。"
+    }
+  ],
+  "limits": [
+    "本契约、catalog 和 fixtures 是静态草案；没有 DataBinding 生成器、内容模型、PPTX 写入或渲染器。",
+    "跨对象 claim 引用一致性、binding_id 与 consumer_refs 相等、应用转换是否获 PresentationContext 授权及实际语义数值一致尚未由 JSON Schema/运行时验证。",
+    "DEC-004 尚未完成；没有执行冲突优先级决策。AC-001–AC-030 均未执行。",
+    "矩阵“数据对象”表未列 DataBinding；此任务不新增需求、任务或数据对象基线行。"
+  ]
+}

@@ -297,6 +297,15 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：“数据对象”表已有 FactConstraintSet 行；仅更新状态和备注，不新增需求、任务或数据对象行。Schema版本仍为“待定义”，草案未获批准。
 - 证据：contracts/fact-constraint-set.schema.json、catalog.json、fixtures.json；Excel“需求主表”N56:P56、“可执行任务”L84:M84、“数据对象”I9:J9。
 
+### TASK-CNT-002
+
+- Requirement ID：CNT-002；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 DataBinding Draft 2020-12 契约、目录与正常/边界预期 fixture，单个 binding 关联一个 CNT-001 fact，并由正文、表格单元格和图表序列共同引用；consumer 不保存独立数字或展示文本。
+- 冲突与缺失：复用 CNT-001 的 `growth_rate` 正常值、`revenue_growth` 8%/9% 未解决冲突及缺失的 `renewal_date`。冲突保留全部 claim 和 SourceAnchor，DEC-004 未决时 blocked 且不选值；缺失值 blocked 且为空，由上游 FactConstraintSet 保留 ERR-009/MISSING_FACT。本契约不新增全局错误码。
+- 静态核对：17 个 schema `$ref` 与 6 个目录文件引用可定位；3 个 fixture 的 claim/evidence/anchor 与 CNT-001 上游 fixture 一致，数字与已授权转换规则匹配，正文/表格/图表引用同一个 binding_id 且消费者不携带数值。未运行 JSON Schema 实例验证器、DataBinding 运行时、实际内容生成、PPTX 写入/渲染或 AC-001–AC-030。
+- 基线对齐：矩阵“数据对象”表没有 DataBinding 行；本任务不新增需求、任务或数据对象行，Schema 版本仍为“待定义”，草案未获批准。
+- 证据：contracts/data-binding.schema.json、contracts/data-binding.catalog.json、contracts/data-binding.fixtures.json、contracts/fact-constraint-set.schema.json/catalog.json/fixtures.json；Excel“需求主表”N57:P57、“可执行任务”L85:M85。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
