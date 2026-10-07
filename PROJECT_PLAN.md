@@ -299,6 +299,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核验：3 份契约 JSON 可解析，schema 本地引用可定位；5 个 fixture 的必需字段、TPL-001/TASK-TPL-001 追溯 ID、证据引用及 4 个来源文件/样例 SHA-256 一致。真实 PPTX ZIP/XML 部件与关系盘点得到 1 master、11 layouts、1 theme 和页面尺寸。需求/任务总数仍为 308/453；矩阵仅改需求行 110 的 N:P、任务行 178 的 L:M 共 5 个单元格，数据对象表和验收矩阵无变化。工作簿保留 47 个 package parts、20 张表、8 个表格、115 个公式、29 个数据验证、28 个条件格式和 1 个合并单元格；styles.xml 哈希不变，另外 7 张受重新序列化的非目标工作表渲染图与原图 SHA-256 相同，需求/任务目标行也已前后渲染对照。任务状态计数为 2 已完成、41 进行中、410 未开始；AC-001–AC-030 未执行。未运行上游应用、YoloongPPT parser、PPTX 渲染、上传链路或 JSON Schema 标准实例验证。
 - 证据：contracts/template-source-record.schema.json、contracts/template-source-record.catalog.json、contracts/template-source-record.fixtures.json；Excel“需求主表”N110:P110、“可执行任务”L178:M178；research/P01/README.md、research/P03/README.md、research/P04/README.md。
 
+### TASK-TPL-002
+
+- Requirement ID：TPL-002；P0；矩阵列明无前置任务。
+- 状态：进行中。建立 MasterSpec Draft 2020-12 草案契约、来源目录与 4 个 crosswalk/specimen fixture，覆盖背景、shape、text style、clrMap、master-layout/theme relationship，以及 transition/timing 的直接声明和逐目标 slide 继承结果状态。
+- 标准边界：Master 直接缺少 p:transition/p:timing 不代表目标 slide 的有效效果为空；必须保留 slide/layout/master 覆盖链。真实样例无 slide XML 部件，effective resolution 记为 no_target_slide_parts，不推断空 transition/timing。
+- 来源对照：PPT Master 固定提交有 PPTX 导入、master/layout roster/inheritance graph、clrMap resolver 与部分 txStyles reader；Presenton 固定提交有 RawSlideLayouts/theme 及沿 slide→layout→master 读取字体声明的路径，但不是完整 MasterSpec；ai-agent-ppt reviewed template 配置消费语义 JSON 与分开的 layout JSON，没有 native MasterSpec 输入字段。以上仅静态源码 crosswalk，不表示上游应用已运行。
+- 真实 PPTX：只读检查 python-pptx 固定提交 278b47b1dedd5b46ee84c286e77cdfb0bf4594be 的 default.pptx，SHA-256 e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34；定位 1 master、5 个 p:sp、12 项 clrMap、11 个可解析且目标存在的 layout 关系、1 个 theme 关系、title/body/other 样式层级。包内 0 个 slide XML 部件，故未解析逐页继承结果。样例不作为产品依赖或技术选型。
+- 数据对象对齐：矩阵“数据对象”表已有 TemplatePack.masters，但没有 MasterSpec 独立对象行；契约只作为 TASK-TPL-002 输出，正式字段映射与消费方式待后续任务，不增删需求、任务或数据对象行。
+- 静态核验：契约 JSON 可解析且本地 schema 引用存在；4 个 fixture 的任务追溯 ID、证据 ID、关系目标与状态边界一致。未运行标准 JSON Schema validator、YoloongPPT parser、Office 渲染、模板上传链路或 AC-001–AC-030。
+- 证据：contracts/master-spec.schema.json、catalog.json、fixtures.json；Excel“需求主表”N111:P111、“可执行任务”L179:M179；research/P01/README.md、research/P03/README.md、research/P04/README.md。
+
 ### TASK-CNT-001
 
 - Requirement ID：CNT-001；P0；矩阵中无前置任务。

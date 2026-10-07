@@ -1,0 +1,746 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "MasterSpec 契约（TPL-002 草案）",
+  "description": "语言和运行时无关的 slide master 结构解析输出契约。用于记录 master 部件的背景、shape、text style、color map、layout/theme 关系，以及 transition/timing 直接声明与按目标 slide 解析的继承状态；不是已实现的 YoloongPPT parser。",
+  "type": "object",
+  "required": [
+    "spec_type",
+    "spec_id",
+    "requirement_id",
+    "task_id",
+    "source_template_record_id",
+    "master_id",
+    "source_master_part",
+    "status",
+    "background",
+    "shapes",
+    "text_styles",
+    "color_map",
+    "layout_relationships",
+    "theme_relationship",
+    "transition",
+    "timing",
+    "evidence_refs",
+    "limitations"
+  ],
+  "properties": {
+    "spec_type": {
+      "const": "MasterSpec"
+    },
+    "spec_id": {
+      "type": "string",
+      "pattern": "^master_spec_[a-z0-9-]+$"
+    },
+    "requirement_id": {
+      "const": "TPL-002"
+    },
+    "task_id": {
+      "const": "TASK-TPL-002"
+    },
+    "source_template_record_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "master_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "source_master_part": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "complete",
+        "partial",
+        "unknown"
+      ]
+    },
+    "background": {
+      "$ref": "#/$defs/background"
+    },
+    "shapes": {
+      "$ref": "#/$defs/shapes"
+    },
+    "text_styles": {
+      "$ref": "#/$defs/text_styles"
+    },
+    "color_map": {
+      "$ref": "#/$defs/color_map"
+    },
+    "layout_relationships": {
+      "$ref": "#/$defs/layout_relationships"
+    },
+    "theme_relationship": {
+      "$ref": "#/$defs/relationship"
+    },
+    "transition": {
+      "$ref": "#/$defs/inherited_effect"
+    },
+    "timing": {
+      "$ref": "#/$defs/inherited_effect"
+    },
+    "evidence_refs": {
+      "$ref": "#/$defs/evidence_refs"
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "evidence_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "background": {
+      "type": "object",
+      "required": [
+        "status",
+        "source_part",
+        "kind",
+        "raw_reference",
+        "resolved_color",
+        "evidence_refs",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "observed",
+            "partial",
+            "not_present",
+            "unsupported",
+            "unknown"
+          ]
+        },
+        "source_part": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "solidFill",
+            "gradFill",
+            "blipFill",
+            "pattFill",
+            "bgRef",
+            null
+          ]
+        },
+        "raw_reference": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "element": {
+              "type": "string"
+            },
+            "index": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "scheme_color": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "theme_target_slot": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+        "resolved_color": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidence_refs"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "shape_item": {
+      "type": "object",
+      "required": [
+        "shape_id",
+        "name",
+        "kind",
+        "placeholder",
+        "geometry",
+        "text_presence",
+        "source_ref"
+      ],
+      "properties": {
+        "shape_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "kind": {
+          "enum": [
+            "shape",
+            "group",
+            "picture",
+            "graphic_frame",
+            "connector",
+            "content_part",
+            "unknown"
+          ]
+        },
+        "placeholder": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "type": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "index": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "type",
+            "index"
+          ],
+          "additionalProperties": false
+        },
+        "geometry": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "properties": {
+            "unit": {
+              "enum": [
+                "EMU",
+                "pt",
+                "px",
+                "inches"
+              ]
+            },
+            "x": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "y": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "cx": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "cy": {
+              "type": [
+                "number",
+                "null"
+              ]
+            },
+            "rotation": {
+              "type": [
+                "number",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "unit",
+            "x",
+            "y",
+            "cx",
+            "cy",
+            "rotation"
+          ],
+          "additionalProperties": false
+        },
+        "text_presence": {
+          "enum": [
+            "present",
+            "empty",
+            "unknown"
+          ]
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "shapes": {
+      "type": "object",
+      "required": [
+        "status",
+        "items",
+        "evidence_refs",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_present",
+            "unsupported",
+            "unknown"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/shape_item"
+          }
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidence_refs"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "text_level": {
+      "type": "object",
+      "required": [
+        "level",
+        "font_size_hundredth_pt",
+        "source_ref"
+      ],
+      "properties": {
+        "level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 9
+        },
+        "font_size_hundredth_pt": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "text_style_item": {
+      "type": "object",
+      "required": [
+        "role",
+        "levels",
+        "source_ref"
+      ],
+      "properties": {
+        "role": {
+          "enum": [
+            "title",
+            "body",
+            "other"
+          ]
+        },
+        "levels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text_level"
+          }
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "text_styles": {
+      "type": "object",
+      "required": [
+        "status",
+        "items",
+        "evidence_refs",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_present",
+            "unsupported",
+            "unknown"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/text_style_item"
+          }
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidence_refs"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "color_map_item": {
+      "type": "object",
+      "required": [
+        "source_scheme",
+        "target_theme_slot",
+        "source_ref"
+      ],
+      "properties": {
+        "source_scheme": {
+          "type": "string",
+          "minLength": 1
+        },
+        "target_theme_slot": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_ref": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "color_map": {
+      "type": "object",
+      "required": [
+        "status",
+        "items",
+        "evidence_refs",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_present",
+            "unsupported",
+            "unknown"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/color_map_item"
+          }
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidence_refs"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "relationship": {
+      "type": "object",
+      "required": [
+        "status",
+        "relationship_id",
+        "relationship_type",
+        "target_ref",
+        "target_part",
+        "resolution_status",
+        "evidence_refs",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "observed",
+            "partial",
+            "not_present",
+            "unsupported",
+            "unknown"
+          ]
+        },
+        "relationship_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relationship_type": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "target_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "target_part": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolution_status": {
+          "enum": [
+            "resolved",
+            "unresolved",
+            "external",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidence_refs"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "layout_relationships": {
+      "type": "object",
+      "required": [
+        "status",
+        "items",
+        "evidence_refs",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "complete",
+            "partial",
+            "not_present",
+            "unsupported",
+            "unknown"
+          ]
+        },
+        "items": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/relationship"
+          }
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidence_refs"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "inheritance_chain_item": {
+      "type": "object",
+      "required": [
+        "source_part",
+        "relationship_type",
+        "evidence_refs"
+      ],
+      "properties": {
+        "source_part": {
+          "type": "string",
+          "minLength": 1
+        },
+        "relationship_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidence_refs"
+        }
+      },
+      "additionalProperties": false
+    },
+    "effect_declaration": {
+      "type": "object",
+      "required": [
+        "status",
+        "source_part",
+        "raw_element",
+        "evidence_refs",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "observed",
+            "not_present",
+            "unsupported",
+            "unknown"
+          ]
+        },
+        "source_part": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "raw_element": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "additionalProperties": true
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidence_refs"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "effect_resolution": {
+      "type": "object",
+      "required": [
+        "status",
+        "target_slide_part",
+        "resolved_source_part",
+        "inheritance_chain",
+        "evidence_refs",
+        "reason"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "resolved",
+            "unresolved",
+            "no_target_slide_parts",
+            "unknown"
+          ]
+        },
+        "target_slide_part": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "resolved_source_part": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "inheritance_chain": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/inheritance_chain_item"
+          }
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/evidence_refs"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "inherited_effect": {
+      "type": "object",
+      "required": [
+        "master_declaration",
+        "effective_resolution"
+      ],
+      "properties": {
+        "master_declaration": {
+          "$ref": "#/$defs/effect_declaration"
+        },
+        "effective_resolution": {
+          "$ref": "#/$defs/effect_resolution"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}
