@@ -1,0 +1,65 @@
+{
+  "document_type": "presentation_scenario_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-006",
+  "task_id": "TASK-CNT-006",
+  "data_object": "PresentationScenario",
+  "schema": "contracts/presentation-scenario.schema.json",
+  "fixtures": "contracts/presentation-scenario.fixtures.json",
+  "deliverable": "PresentationScenario",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "PDR para 399：记录汇报/路演/教学/研究/培训/会议/阅读型文档等场景以及预计时长。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第 61 行、任务第 89 行定义输入、输出和数字/冲突/缺失验收；数据对象第 11 行已有 PresentationContext.scenario/duration 字段。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "字段来源引用复用 evidence_id 与 assumption_id 既有格式。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "数值、未决来源冲突和关键事实缺失上游 fixture，验证演示场景不会改写事实边界。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "冲突边界引用 CNT-003 未解决冲突，DEC-004 未决时不替代来源选择。"
+    }
+  ],
+  "field_rules": [
+    "PresentationScenario 仅输出 scenario、duration 与逐字段 field_provenance；字段名与既有 PresentationContext 对象清单对应。",
+    "汇报、路演、教学、研究、培训、会议、阅读型文档是 PDR 示例而非封闭枚举；保留调用方表达，不强制分类或收窄到列表。",
+    "scenario 与 duration 仅从明确 PresentationContext、SourceEvidence 或 Assumption 记录；每个非空字段都需对应 evidence_id、assumption_id 或原始 PresentationContext JSON Pointer。",
+    "duration 保留数字、单位、范围和限定原文；不做单位换算、取中点、舍入或默认时长。没有时长时为 null。",
+    "没有显式场景时 scenario 为 null；空值代表未记录，不意味着系统选择默认场景。",
+    "来源数值、未解决 EvidenceConflict 和 missing fact 不映射为场景/时长；冲突继续由 CNT-003 表达，缺失事实由 CNT-001/ERR-009 表达。演示场景不得覆盖事实约束。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-006-NORMAL-001",
+      "fixture_id": "CNT-006-NORMAL-001",
+      "purpose": "明确指定路演场景与预计时长，输入同时含数字来源事实。",
+      "acceptance": "逐字保留“路演”与“约 15 分钟”，通过上下文指针逐字段追溯；不从财务数字推导场景。"
+    },
+    {
+      "case_id": "CNT-006-CONFLICT-001",
+      "fixture_id": "CNT-006-CONFLICT-001",
+      "purpose": "数值、未决来源冲突与缺失事实并存。",
+      "acceptance": "阅读型文档和时长保留原文；来源冲突继续 unresolved/ERR-008，renewal_date 继续 ERR-009。"
+    },
+    {
+      "case_id": "CNT-006-MISSING-001",
+      "fixture_id": "CNT-006-MISSING-001",
+      "purpose": "PresentationContext 没有场景与时长。",
+      "acceptance": "scenario、duration 为 null 且无来源引用，不补造默认场景或预计时长。"
+    }
+  ],
+  "limits": [
+    "PDR 未规定闭合场景枚举、时长数据类型/单位规范或默认值，本草案不作全局选择。",
+    "未运行 PresentationScenario 生成器、JSON Pointer 运行时解析、时长换算或 JSON Schema 实例验证。",
+    "矩阵“数据对象”未列 PresentationScenario；仅更新既有 CNT-006/TASK-CNT-006，不改变基线行数。"
+  ]
+}

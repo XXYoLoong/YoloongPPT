@@ -1,0 +1,117 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PresentationScenario 契约（CNT-006 草案）",
+  "description": "保留调用方明确给出的演示场景和预计时长原文；PDR 中的场景示例不是封闭枚举。",
+  "type": "object",
+  "required": [
+    "scenario",
+    "duration",
+    "field_provenance"
+  ],
+  "properties": {
+    "scenario": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "明确给出的主要演示场景，原文保留；未提供时为 null。"
+    },
+    "duration": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "预计时长原文，保留数字、范围、单位和限定语，不进行未授权换算；未提供时为 null。"
+    },
+    "field_provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/field_provenance"
+      },
+      "description": "逐字段记录 SourceEvidence、Assumption 或 PresentationContext 原始路径。"
+    }
+  },
+  "$defs": {
+    "scenario_field": {
+      "type": "string",
+      "enum": [
+        "scenario",
+        "duration"
+      ]
+    },
+    "field_source_ref": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "evidence_id"
+          ],
+          "properties": {
+            "kind": {
+              "const": "source_evidence"
+            },
+            "evidence_id": {
+              "$ref": "object-id.schema.json#/$defs/evidence_id"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "assumption_id"
+          ],
+          "properties": {
+            "kind": {
+              "const": "assumption"
+            },
+            "assumption_id": {
+              "$ref": "object-id.schema.json#/$defs/assumption_id"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "context_pointer"
+          ],
+          "properties": {
+            "kind": {
+              "const": "presentation_context"
+            },
+            "context_pointer": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^/",
+              "description": "指向输入 PresentationContext 的 JSON Pointer。"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "field_provenance": {
+      "type": "object",
+      "required": [
+        "field",
+        "source"
+      ],
+      "properties": {
+        "field": {
+          "$ref": "#/$defs/scenario_field"
+        },
+        "source": {
+          "$ref": "#/$defs/field_source_ref"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

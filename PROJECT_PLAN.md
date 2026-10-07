@@ -336,6 +336,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：更新既有 CNT-005 与 TASK-CNT-005 状态和证据；矩阵未列 AudienceProfile 数据对象，本任务不新增/删除任何基线行，PresentationContext 对象状态不变。
 - 证据：contracts/audience-profile.schema.json、contracts/audience-profile.catalog.json、contracts/audience-profile.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N60:P60、“可执行任务”L88:M88。
 
+### TASK-CNT-006
+
+- Requirement ID：CNT-006；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 PresentationScenario Draft 2020-12 契约、目录和三个正常/边界 fixture，覆盖明确场景/时长、数字/未决冲突/缺失事实并存，以及输入未提供场景和时长。
+- 字段边界：保留 scenario 与 duration 原文，逐字段引用 SourceEvidence、Assumption 或 PresentationContext JSON Pointer。PDR 的场景是开放示例；duration 不解析单位、不换算、不取中点、不设默认。未提供字段为 null。
+- 事实保护：数值不用于推断场景；未决来源冲突继续由 CNT-003/ERR-008 表达，missing fact 继续由 CNT-001/ERR-009 表达；不覆盖事实约束。
+- 静态核对：schema/catalog/fixtures JSON 可解析，5 个 schema 引用和目录 JSON 文件引用可定位；3 个 fixture 对应 acceptance case，原文/路径、数值隔离、未决冲突与缺失事实引用对齐。未运行 JSON Schema 实例验证器、场景/时长分类器、运行时或 AC-001–AC-030。
+- 基线对齐：更新既有 CNT-006/TASK-CNT-006 状态和证据；PresentationScenario 未单列数据对象，不新增/删除基线行，PresentationContext 对象行保持未开始。
+- 证据：contracts/presentation-scenario.schema.json、contracts/presentation-scenario.catalog.json、contracts/presentation-scenario.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N61:P61、“可执行任务”L89:M89。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

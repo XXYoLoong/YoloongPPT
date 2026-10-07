@@ -1,0 +1,106 @@
+{
+  "document_type": "presentation_scenario_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-006",
+  "task_id": "TASK-CNT-006",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-006-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {
+          "scenario": "路演",
+          "duration": "约 15 分钟"
+        }
+      },
+      "expected_output": {
+        "scenario": "路演",
+        "duration": "约 15 分钟",
+        "field_provenance": [
+          {
+            "field": "scenario",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/scenario"
+            }
+          },
+          {
+            "field": "duration",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/duration"
+            }
+          }
+        ]
+      },
+      "expected_action": "preserve_explicit_scenario_and_duration"
+    },
+    {
+      "fixture_id": "CNT-006-CONFLICT-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "presentation_context": {
+          "scenario": "阅读型文档",
+          "duration": "10–15 分钟"
+        }
+      },
+      "expected_output": {
+        "scenario": "阅读型文档",
+        "duration": "10–15 分钟",
+        "field_provenance": [
+          {
+            "field": "scenario",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/scenario"
+            }
+          },
+          {
+            "field": "duration",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/duration"
+            }
+          }
+        ]
+      },
+      "expected_conflict_ref": {
+        "fixture_id": "CNT-003-BOUNDARY-001",
+        "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+        "resolution_status": "unresolved",
+        "error_id": "ERR-008",
+        "reason_code": "SOURCE_CONFLICT"
+      },
+      "expected_missing_fact_ref": {
+        "fact_id": "renewal_date",
+        "error_id": "ERR-009",
+        "reason_code": "MISSING_FACT"
+      },
+      "expected_action": "preserve_scenario_without_resolving_source_conflict"
+    },
+    {
+      "fixture_id": "CNT-006-MISSING-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "presentation_context": {}
+      },
+      "expected_output": {
+        "scenario": null,
+        "duration": null,
+        "field_provenance": []
+      },
+      "expected_action": "leave_scenario_and_duration_unspecified"
+    }
+  ],
+  "limits": [
+    "数字、来源冲突和 renewal_date 缺失复用 CNT-001/CNT-003 上游合成 fixture；PresentationScenario 不复制、裁决或填补这些事实。",
+    "场景示例是开放集合；未指定场景时为 null，不推断默认汇报/路演场景。",
+    "预计时长仅保留原文，单位、范围、缓急/约数等限定均不归一或换算；未提供为 null。",
+    "PresentationScenario 字段细节与完整 PresentationContext schema 尚无基线批准；当前是任务输出草案，不新增“数据对象”行。",
+    "未实现输入解析、场景/时长分类和语义校验；未运行 JSON Schema 实例验证器或 AC-001–AC-030。"
+  ]
+}
