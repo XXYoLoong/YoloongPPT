@@ -37,23 +37,24 @@ git -C ppt-master rev-parse HEAD
 - 仓库根 `LICENSE` 为 MIT。上游 README 和依赖清单指出 PDF 转换可选依赖 PyMuPDF 使用 AGPL-3.0；若本项目考虑复用该路径，需单独核对依赖引入及分发边界。
 - 上游支持的最小运行链路见 [Generate your first deck](https://github.com/hugohe3/ppt-master/blob/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d/docs/getting-started.md#generate-your-first-deck)：准备可读取的来源材料，通过 Agent 对话请求生成，最后得到可编辑 `.pptx`。它不是一个独立的一行 CLI 示例。
 
-本次没有在宿主机安装 Python，也没有记录某个 Python 小版本为本项目要求。Docker 服务端不可响应，故尚未创建容器、安装上游依赖或运行生成链路；上游运行环境版本仍待隔离复现后按实际镜像摘要和容器输出记录。
+本次 P01 试验在 Docker 容器中执行，没有在 Windows Python 环境安装上游依赖，也没有把容器版本当作 YoloongPPT 的技术选型。试验使用本机已有镜像 ID `sha256:9cc4943354564a8d71825420752552f989afc8c85a66c7d396df0d0f6a5dab56`；容器内观察到 Debian 12 与 Python `3.11.2`，满足上游 Python `3.10+` 前置条件。这只是本次实验环境观测，不是项目产品要求。上游 `requirements.txt` 已在容器内安装到 F 盘临时研究目录；锁文件不存在，实际解析的 88 个发行包记录在 `artifacts/quick-smoke/pip-list.json`。根许可证为 MIT；全量依赖试验装入了可选 PDF 依赖 PyMuPDF `1.28.2`（AGPL-3.0），但不构成本项目依赖选择。清单 SHA-256、环境镜像 ID 和许可边界见 `artifacts/quick-smoke/environment.json`。
 
 ## 本次环境观测与复现状态
 
-- Windows Docker CLI：`27.4.0`；当前 Docker context：`desktop-linux`；WSL 2 中 `docker-desktop` 发行版处于运行状态。
-- 本机 `docker version` 服务端查询 20 秒超时；对 `dockerDesktopLinuxEngine` 和官方 Windows 默认 `docker_engine` 命名管道发送只读 `GET /_ping`，均未收到响应。
-- Docker Desktop 本地日志报告因磁盘空间不足无法写入 VM 日志；Docker WSL 中 `/mnt/host/c` 观测为约 75 MB 可用、显示 100%。C: 上本任务此前失败的临时克隆已转移到 F: 并校验 SHA，当前 API 仍无响应。此证据记录相关状态，不据此单独断言引擎无响应的唯一根因。
-- 本机的 `docker --version` 成功，证明 CLI 可执行；没有证据证明容器服务可用。
+- 2026-10-07 检查时 Docker CLI、Engine 与 Compose 均可用；项目 `compose.yaml` 的通用 workspace 容器保持原样。
+- PPT Master 安装目录以只读方式挂载；项目工作目录和实验依赖目标通过独立挂载提供给临时容器。容器内先运行 `attribution_guard.py`，再按上游要求安装并检查依赖；`import pptx; import fitz` 通过。
+- 复现使用上游 FAQ 推荐的三页 Quick “Hello World”烟测。`project_manager.py init` 在只读源码目录默认路径下按预期以 `OSError errno=30` 失败；指定可写的 `--dir /workspace/research/P01/projects` 后初始化成功。
+- 三页 PPTX 的最终检查器和 Postflight 均通过；包可由 `python-pptx` 读取，ZIP 完整，17 个文本对象及 DrawingML 形状均保留，未发现图片、图表、备注、转场或 timing。最终文件 SHA-256 为 `c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25`。
+- 当前实验镜像没有 PowerPoint 或 LibreOffice，故尚未完成真实演示应用打开及视觉渲染；不得把结构检查等同于 Office 渲染验证。
 
 | 验收项 | 状态 | 证据 |
 |---|---|---|
 | 固定 branch / commit | 已完成 | `main` / `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d` |
-| 查明 lock 文件、运行要求与许可证 | 已完成（上游静态证据） | 上述官方文档、`requirements.txt`、`LICENSE` |
-| 官方最小流程 | 未运行 | Docker API 探测未响应；未安装依赖、未生成 PPTX |
-| `VERIFY-RES-P01-01` 正常/边界/失败证据 | 未开始 | 依赖实际运行链路 |
+| 查明锁文件、运行要求与许可证 | 已完成 | 固定源码、`requirements.txt`、`LICENSE`、环境及发行包清单 |
+| 官方 Quick 最小流程 | 已完成 | `projects/p01_hello_world_20261007/`、最终 PPTX 与 Postflight 报告 |
+| `VERIFY-RES-P01-01` 正常/边界/失败证据 | 进行中 | `projects/p01_hello_world_20261007/validation/verify-res-p01-01.json`；真实 Office/LibreOffice 打开与渲染仍待验证 |
 
-因此 `RES-P01-01` 与 `TASK-RES-P01-01` 保持进行中；`VERIFY-RES-P01-01` 及依赖它的 `TASK-RES-P01-02` 不标为完成或开始。后续应在 Docker API 恢复后，在隔离容器里运行上游最小流程并记录实际运行环境与生成物，再开始调用链拆解。
+因此 `TASK-RES-P01-01` 已完成，`VERIFY-RES-P01-01` 与 `RES-P01-01` 保持进行中，原因是本容器没有演示应用渲染器。依赖该需求的 `TASK-RES-P01-02` 仍未开始；在渲染验证补齐前不推进调用链拆解。
 
 ## 来源
 

@@ -117,11 +117,12 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 ### TASK-RES-P01-01
 
 - Requirement ID：RES-P01-01；P0；无前置任务。
-- 状态：进行中。已检出 PPT Master `main` 分支快照 `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d`；上游 `v6.6.0` tag 为另一提交 `a50758ac29ec027e85966db33e2ae80031446756`。研究只记录上游要求，不据此选择 YoloongPPT 的运行时。
-- 静态证据：上游 Getting Started 声明 Python 3.10+；根 `requirements.txt` 包含 skill 依赖，版本为下限约束，未发现项目级锁文件；根许可证为 MIT，PDF 转换的可选 PyMuPDF 依赖为 AGPL-3.0。运行链路是 Agent Host 对话请求生成并导出可编辑 PPTX，不是单条 CLI 示例。
-- 环境阻塞：本机 Docker CLI `27.4.0` 可执行，但服务端 `docker version` 超时；对当前 `desktop-linux` 端点及官方 Windows 默认命名管道的只读 API 探测均未响应。Docker Desktop 日志记录 C: 空间不足导致 VM 日志写入失败；清理本任务自建临时克隆后仍无法连通。未启动/重置共享 Docker 引擎，也未在宿主机安装上游依赖。
-- 验收边界：源码固定及静态元数据已记录；官方最小流程未运行，未生成 PPTX。`TASK-RES-P01-01` 保持进行中；`VERIFY-RES-P01-01` 与依赖它的 `TASK-RES-P01-02` 保持未开始。待 Docker API 可用后，在隔离容器复现并记录实际镜像摘要、依赖和生成物。
-- 证据：`research/P01/README.md`；Excel“需求主表”`N12:O12`、“可执行任务”`L14:M15`、“开源项目研究对象”第 2 行。
+- 状态：`TASK-RES-P01-01` 已完成；`VERIFY-RES-P01-01` 与 Requirement `RES-P01-01` 仍进行中。固定研究快照为 PPT Master `main` commit `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d`；上游 `v6.6.0` tag 指向另一提交 `a50758ac29ec027e85966db33e2ae80031446756`。这项研究不选择 YoloongPPT 的架构、语言或运行时。
+- 上游声明 Python `3.10+`，根 `requirements.txt` 只有下限约束且无锁文件；源码根许可证 MIT。全量安装观测到 88 个发行包；可选 PyMuPDF `1.28.2`（AGPL-3.0）仅在本次临时研究容器中安装，不成为产品依赖决定。`requirements.txt` SHA-256、镜像 ID、完整版本清单和许可边界见 `research/P01/artifacts/quick-smoke/environment.json` 与 `pip-list.json`。
+- Docker 当前可用。本次在镜像 `sha256:9cc4943354564a8d71825420752552f989afc8c85a66c7d396df0d0f6a5dab56` 中观察到 Debian 12 / Python `3.11.2`；这是符合上游最低要求的实验环境事实，不是 YoloongPPT 选型。源码克隆只读挂载；全量依赖装入独立的临时研究目录，未改动 Windows 主机 Python 环境或项目 `compose.yaml`。
+- 官方 Quick 烟测：`project_manager.py` 初始化三页 Hello World 项目，Quick 最终检查通过且 0 warnings/0 errors；`svg_to_pptx.py --quick-generate --no-notes --no-animations` 输出可编辑 PPTX，Postflight 通过。ZIP 和 `python-pptx` 读取通过；3 页、17 个文本对象、40 个 DrawingML 形状，0 图片/图表/备注/转场/timing。输出 SHA-256 `c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25`。
+- 正常/边界/失败证据已登记。只读安装目录作为默认写入目标时按预期以 `OSError errno=30` 失败，改为明确可写 `--dir` 后成功；无外部事实的空 `facts[]` 边界输入被接受。`VERIFY-RES-P01-01` 暂不完成：实验镜像无 PowerPoint/LibreOffice，真实 Office 打开与视觉渲染尚未验证。依赖 Requirement 的 `TASK-RES-P01-02` 仍未开始。
+- 证据：`research/P01/README.md`；`research/P01/projects/hello_world_research.md`、`hello_world_research.facts.json`；`research/P01/projects/p01_hello_world_20261007/` 下的 SVG、PPTX、Postflight 与 `verify-res-p01-01.json`；`research/P01/artifacts/quick-smoke/`；Excel“需求主表”`N12:O12`、“可执行任务”`L14:M15`、“开源项目研究对象”第 2 行。
 
 ### TASK-RES-P02-01
 

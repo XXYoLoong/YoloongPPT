@@ -1,0 +1,28 @@
+{
+  "task_id": "TASK-RES-P01-01",
+  "upstream_commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+  "source_requirements_sha256": "5b9c025632edafb19a53db251b3608b687b3c4387f55416f7f40ed4aa41b934e",
+  "source_lockfile": null,
+  "docker_experiment": {
+    "image_id": "sha256:9cc4943354564a8d71825420752552f989afc8c85a66c7d396df0d0f6a5dab56",
+    "operating_system": "Debian GNU/Linux 12 (bookworm)",
+    "python_observed": "3.11.2",
+    "python_interpretation": "Observed only in this temporary P01 experiment image; it meets the upstream Python 3.10+ prerequisite and is not a YoloongPPT product runtime choice.",
+    "office_renderer_available": false
+  },
+  "dependency_install": {
+    "requirements_file": "F:\\YoloongPPT-Research\\P01\\requirements.txt",
+    "resolved_distribution_count": 88,
+    "full_package_inventory": "research/P01/artifacts/quick-smoke/pip-list.json",
+    "import_smoke": {
+      "python_pptx": "passed",
+      "pymupdf_fitz": "passed",
+      "attribution_guard": "passed"
+    },
+    "installation_scope": "Installed with pip --target from inside Docker; only the temporary experiment container imported the mounted target directory. No Windows host Python environment was modified."
+  },
+  "license_boundary": {
+    "upstream_repository": "MIT",
+    "optional_pdf_dependency": "PyMuPDF 1.28.2 (AGPL-3.0) was installed because the full upstream requirements file was exercised; this does not select it as a YoloongPPT product dependency."
+  }
+}
