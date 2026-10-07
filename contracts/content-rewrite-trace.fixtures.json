@@ -1,0 +1,454 @@
+{
+  "document_type": "content_rewrite_trace_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-011",
+  "task_id": "TASK-CNT-011",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-011-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "before_text": "FY2025 ARR was US$2.4 million. FY2025 revenue grew 8% year over year. Highlight both ARR scale and revenue growth.",
+        "presentation_context": {
+          "compression_instruction": "压缩表达并保留事实、限定词、单位和结论。",
+          "conclusion": "Highlight both ARR scale and revenue growth."
+        }
+      },
+      "expected_output": {
+        "status": "complete",
+        "before_text": "FY2025 ARR was US$2.4 million. FY2025 revenue grew 8% year over year. Highlight both ARR scale and revenue growth.",
+        "after_text": "Highlight both ARR scale and revenue growth: FY2025 ARR was US$2.4 million; revenue grew 8% year over year.",
+        "trace": [
+          {
+            "element_key": "arr-claim",
+            "element_kind": "fact",
+            "before_text": "FY2025 ARR was US$2.4 million",
+            "after_text": "FY2025 ARR was US$2.4 million",
+            "retention": "exact",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "context_refs": [
+              "/compression_instruction"
+            ],
+            "boundary_refs": [],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "growth-claim",
+            "element_kind": "fact",
+            "before_text": "FY2025 revenue grew 8% year over year",
+            "after_text": "revenue grew 8% year over year",
+            "retention": "condensed",
+            "evidence_refs": [
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "context_refs": [
+              "/compression_instruction"
+            ],
+            "boundary_refs": [],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "arr-unit",
+            "element_kind": "unit",
+            "before_text": "US$2.4 million",
+            "after_text": "US$2.4 million",
+            "retention": "exact",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "context_refs": [],
+            "boundary_refs": [],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "period-and-qualifier",
+            "element_kind": "qualifier",
+            "before_text": "FY2025; year over year",
+            "after_text": "FY2025; year over year",
+            "retention": "exact",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "context_refs": [],
+            "boundary_refs": [],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "presentation-conclusion",
+            "element_kind": "conclusion",
+            "before_text": "Highlight both ARR scale and revenue growth.",
+            "after_text": "Highlight both ARR scale and revenue growth",
+            "retention": "exact",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "context_refs": [
+              "/conclusion",
+              "/compression_instruction"
+            ],
+            "boundary_refs": [],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          }
+        ],
+        "evidence_refs": [
+          "evidence_15111111-1111-4111-8111-111111111111",
+          "evidence_16111111-1111-4111-8111-111111111111"
+        ],
+        "assumption_refs": [],
+        "presentation_context_refs": [
+          "/compression_instruction",
+          "/conclusion"
+        ],
+        "conflict_refs": [],
+        "missing_fact_refs": []
+      },
+      "expected_action": "compress_while_preserving_all_required_elements"
+    },
+    {
+      "fixture_id": "CNT-011-CONFLICT-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "before_text": "FY2025 revenue growth was 8% year over year. Another source says 9% year over year; the difference is unresolved.",
+        "presentation_context": {
+          "compression_instruction": "压缩表达，但保留每个冲突值、期间、限定词和未决结论。"
+        }
+      },
+      "expected_output": {
+        "status": "complete",
+        "before_text": "FY2025 revenue growth was 8% year over year. Another source says 9% year over year; the difference is unresolved.",
+        "after_text": "FY2025 revenue growth remains unresolved at 8% vs 9% year over year.",
+        "trace": [
+          {
+            "element_key": "growth-8",
+            "element_kind": "fact",
+            "before_text": "8% year over year",
+            "after_text": "8%",
+            "retention": "condensed",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "context_refs": [
+              "/compression_instruction"
+            ],
+            "boundary_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "growth-9",
+            "element_kind": "fact",
+            "before_text": "9% year over year",
+            "after_text": "9%",
+            "retention": "condensed",
+            "evidence_refs": [
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "context_refs": [
+              "/compression_instruction"
+            ],
+            "boundary_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "growth-unit",
+            "element_kind": "unit",
+            "before_text": "8%; 9%",
+            "after_text": "8%; 9%",
+            "retention": "exact",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "context_refs": [],
+            "boundary_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "period-qualifier",
+            "element_kind": "qualifier",
+            "before_text": "FY2025; year over year",
+            "after_text": "FY2025; year over year",
+            "retention": "exact",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "context_refs": [],
+            "boundary_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "conflict-conclusion",
+            "element_kind": "conclusion",
+            "before_text": "The difference is unresolved.",
+            "after_text": "remains unresolved",
+            "retention": "rephrased",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "context_refs": [],
+            "boundary_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          }
+        ],
+        "evidence_refs": [
+          "evidence_33333333-3333-4333-8333-333333333333",
+          "evidence_34333333-3333-4333-8333-333333333333"
+        ],
+        "assumption_refs": [],
+        "presentation_context_refs": [
+          "/compression_instruction"
+        ],
+        "conflict_refs": [
+          {
+            "kind": "unresolved_conflict",
+            "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+            "error_id": "ERR-008",
+            "reason_code": "SOURCE_CONFLICT",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ]
+          }
+        ],
+        "missing_fact_refs": []
+      },
+      "expected_action": "preserve_both_unresolved_values"
+    },
+    {
+      "fixture_id": "CNT-011-MISSING-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "focus_fact_id": "renewal_date",
+        "before_text": "Planned margin is 12% (a planning assumption). The renewal date is not present.",
+        "presentation_context": {
+          "compression_instruction": "压缩表达，但不补写缺失事实；保留显式假设。"
+        }
+      },
+      "expected_output": {
+        "status": "complete",
+        "before_text": "Planned margin is 12% (a planning assumption). The renewal date is not present.",
+        "after_text": "Planned margin remains a 12% planning assumption; renewal date remains unavailable.",
+        "trace": [
+          {
+            "element_key": "planned-margin",
+            "element_kind": "fact",
+            "before_text": "Planned margin is 12% (a planning assumption).",
+            "after_text": "Planned margin remains a 12% planning assumption",
+            "retention": "rephrased",
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ],
+            "context_refs": [
+              "/compression_instruction"
+            ],
+            "boundary_refs": [],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "assumption-unit",
+            "element_kind": "unit",
+            "before_text": "12%",
+            "after_text": "12%",
+            "retention": "exact",
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ],
+            "context_refs": [],
+            "boundary_refs": [],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "renewal-date",
+            "element_kind": "fact",
+            "before_text": "The renewal date is not present.",
+            "after_text": "renewal date remains unavailable",
+            "retention": "rephrased",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "context_refs": [],
+            "boundary_refs": [
+              {
+                "kind": "missing_fact",
+                "fact_id": "renewal_date",
+                "error_id": "ERR-009",
+                "reason_code": "MISSING_FACT"
+              }
+            ],
+            "omission_reason": null,
+            "authorization_context_ref": null
+          }
+        ],
+        "evidence_refs": [],
+        "assumption_refs": [
+          "assumption_35333333-3333-4333-8333-333333333333"
+        ],
+        "presentation_context_refs": [
+          "/compression_instruction"
+        ],
+        "conflict_refs": [],
+        "missing_fact_refs": [
+          {
+            "kind": "missing_fact",
+            "fact_id": "renewal_date",
+            "error_id": "ERR-009",
+            "reason_code": "MISSING_FACT"
+          }
+        ]
+      },
+      "expected_action": "retain_assumption_and_missing_fact_boundary"
+    },
+    {
+      "fixture_id": "CNT-011-OVERCOMPRESSION-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "before_text": "FY2025 revenue grew 8% year over year.",
+        "presentation_context": {
+          "compression_instruction": "压缩为一个 token，同时保留全部事实、限定词、单位和期间。"
+        }
+      },
+      "expected_output": {
+        "status": "blocked",
+        "before_text": "FY2025 revenue grew 8% year over year.",
+        "after_text": null,
+        "trace": [
+          {
+            "element_key": "growth-claim",
+            "element_kind": "fact",
+            "before_text": "FY2025 revenue grew 8% year over year.",
+            "after_text": null,
+            "retention": "omitted",
+            "evidence_refs": [
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "context_refs": [
+              "/compression_instruction"
+            ],
+            "boundary_refs": [],
+            "omission_reason": "One-token length limit conflicts with retaining the value, unit, qualifier, and period.",
+            "authorization_context_ref": null
+          },
+          {
+            "element_key": "growth-unit",
+            "element_kind": "unit",
+            "before_text": "8% year over year in FY2025",
+            "after_text": null,
+            "retention": "omitted",
+            "evidence_refs": [
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "context_refs": [
+              "/compression_instruction"
+            ],
+            "boundary_refs": [],
+            "omission_reason": "One-token length limit conflicts with retaining the value, unit, qualifier, and period.",
+            "authorization_context_ref": null
+          }
+        ],
+        "evidence_refs": [
+          "evidence_16111111-1111-4111-8111-111111111111"
+        ],
+        "assumption_refs": [],
+        "presentation_context_refs": [
+          "/compression_instruction"
+        ],
+        "conflict_refs": [],
+        "missing_fact_refs": []
+      },
+      "expected_action": "block_when_constraints_cannot_all_be_preserved"
+    }
+  ],
+  "limits": [
+    "fixture 中 before/after 文本是静态预期；不代表摘要/压缩运行时或语义等价检查器已实现。",
+    "每个 trace 元素的证据/假设引用复用现有 ID；PresentationContext 路径仅在对应 fixture 的 context 中存在时使用。",
+    "单位和限定词按来源原文保持；本任务不授权数字换算、舍入、翻译或更改结论。",
+    "冲突 fixture 不选择 8% 或 9%；缺失 fixture 不生成 renewal_date 值；无法满足全部保留约束时状态为 blocked。"
+  ]
+}

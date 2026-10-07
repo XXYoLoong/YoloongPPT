@@ -388,6 +388,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：更新既有 CNT-010/TASK-CNT-010 状态和证据；CitationPolicy 未列入数据对象表，不新增/删除任何矩阵行。
 - 证据：contracts/citation-policy.schema.json、contracts/citation-policy.catalog.json、contracts/citation-policy.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N65:P65、“可执行任务”L93:M93。
 
+### TASK-CNT-011
+
+- Requirement ID：CNT-011；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 ContentRewriteTrace Draft 2020-12 契约、目录及 4 个 fixture，覆盖数字压缩、未决冲突、缺失事实和无法满足约束的过度压缩。
+- 追溯边界：保存整体 before_text/after_text 和事实、限定词、单位、结论逐元素 trace；复用 evidence_id、assumption_id 与显式 PresentationContext 路径，局部键不替代全局 ID。
+- 保留边界：保留 ARR US$2.4 million、FY2025、8% year-over-year 与上下文结论；未决 8%/9% 全部保留并引用 ERR-008；renewal_date 缺失继续引用 ERR-009，显式 12% 假设独立保留。未授权遗漏或无法同时满足保留约束时不可标记 complete。
+- 转换边界：压缩不能静默改变事实、限定词、单位或结论；不授权数字换算、舍入或翻译。显式遗漏记录理由及 context pointer；压缩预算与保留约束冲突时阻止交付。
+- 静态核对：schema/catalog/fixtures JSON 可解析，4 个验收 fixture 的 before/after、元素引用汇总、数值/冲突/缺失/blocked 边界静态一致；未运行 JSON Schema 实例验证器、摘要运行时、语义等价检查器或 AC-001–AC-030。
+- 基线对齐：更新既有 CNT-011/TASK-CNT-011 状态和证据；ContentRewriteTrace 未列在数据对象表，不新增/删除矩阵行。
+- 证据：contracts/content-rewrite-trace.schema.json、contracts/content-rewrite-trace.catalog.json、contracts/content-rewrite-trace.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N66:P66、“可执行任务”L94:M94。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

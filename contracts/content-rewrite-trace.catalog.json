@@ -1,0 +1,70 @@
+{
+  "document_type": "content_rewrite_trace_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-011",
+  "task_id": "TASK-CNT-011",
+  "data_object": "ContentRewriteTrace",
+  "schema": "contracts/content-rewrite-trace.schema.json",
+  "fixtures": "contracts/content-rewrite-trace.fixtures.json",
+  "deliverable": "ContentRewriteTrace",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "PDR para 404：压缩时保留事实、限定词、单位和结论并产生 before/after trace。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第 66 行、任务第 94 行定义 ContentRewriteTrace 输入、输出及数字/冲突/缺失验收；数据对象表未列该名称。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "CNT-001-NORMAL-001 的 ARR/增长数字；CNT-001-BOUNDARY-001 的冲突、显式假设和缺失续约日期。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "CNT-003-BOUNDARY-001 的 8%/9% 未决冲突和 ERR-008。"
+    },
+    {
+      "url": "contracts/data-binding.catalog.json",
+      "supports": "无显式转换许可时保留 raw_text；转换记录不得覆盖来源值。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "复用既有 evidence_id、assumption_id 格式。"
+    }
+  ],
+  "field_rules": [
+    "before_text 与 after_text 保存整体改写前后文本；trace 逐项映射事实、限定词、单位和结论的 before/after 与 exact/condensed/rephrased/unresolved 状态。局部 element_key 不是新的全局实体 ID。",
+    "每个 trace 元素至少关联 evidence_id、assumption_id、PresentationContext JSON Pointer 或既有冲突/缺失边界；顶层引用数组按首次出现去重汇总。",
+    "只允许执行明确要求的压缩；不凭空增添事实、改单位、舍入数值、删除限定词或改变结论。来源未授权的单位/数值变换不属于本任务。",
+    "显式遗漏必须记录 before_text、理由与授权 context pointer；未授权遗漏或无法同时满足压缩与保留约束时不得标记 complete，应阻止交付或保留 partial。",
+    "冲突时保留所有来源 claim、数值、单位、期间、限定词及 ERR-008，不能挑选/合并 winner。缺失事实继续关联 ERR-009，不生成其值；无关的显式假设仍按既有 assumption_id 追溯。",
+    "PresentationContext 在本任务只有 fixture 使用的显式路径，未定义完整 schema。ContentRewriteTrace 未列在数据对象表，本任务不增删矩阵行。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-011-NORMAL-001",
+      "fixture_id": "CNT-011-NORMAL-001",
+      "purpose": "compress_while_preserving_all_required_elements",
+      "acceptance": "before/after 与逐元素 trace 保留 US$2.4 million、8%、FY2025、year-over-year 和显式结论。"
+    },
+    {
+      "case_id": "CNT-011-CONFLICT-001",
+      "fixture_id": "CNT-011-CONFLICT-001",
+      "purpose": "preserve_both_unresolved_values",
+      "acceptance": "压缩后同时保留 8%/9%、期间和未决 ERR-008。"
+    },
+    {
+      "case_id": "CNT-011-MISSING-001",
+      "fixture_id": "CNT-011-MISSING-001",
+      "purpose": "retain_assumption_and_missing_fact_boundary",
+      "acceptance": "保留显式假设并维持 renewal_date 缺失/ERR-009，不补值。"
+    },
+    {
+      "case_id": "CNT-011-OVERCOMPRESSION-001",
+      "fixture_id": "CNT-011-OVERCOMPRESSION-001",
+      "purpose": "block_when_constraints_cannot_all_be_preserved",
+      "acceptance": "无法保留必要元素时为 blocked，不静默省略。"
+    }
+  ]
+}

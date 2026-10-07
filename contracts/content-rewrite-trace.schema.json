@@ -1,0 +1,273 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ContentRewriteTrace 契约（CNT-011 草案）",
+  "description": "记录压缩前后文本与逐元素保留/变换轨迹；事实、限定词、单位和结论必须可追溯。",
+  "type": "object",
+  "required": [
+    "status",
+    "before_text",
+    "after_text",
+    "trace",
+    "evidence_refs",
+    "assumption_refs",
+    "presentation_context_refs",
+    "conflict_refs",
+    "missing_fact_refs"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "partial",
+        "blocked"
+      ]
+    },
+    "before_text": {
+      "type": "string",
+      "minLength": 1
+    },
+    "after_text": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "trace": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/rewrite_trace_entry"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "object-id.schema.json#/$defs/evidence_id"
+      }
+    },
+    "assumption_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "object-id.schema.json#/$defs/assumption_id"
+      }
+    },
+    "presentation_context_refs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^/"
+      }
+    },
+    "conflict_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/conflict_ref"
+      }
+    },
+    "missing_fact_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/missing_fact_ref"
+      }
+    }
+  },
+  "$defs": {
+    "conflict_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "conflict_id",
+        "error_id",
+        "reason_code",
+        "evidence_refs"
+      ],
+      "properties": {
+        "kind": {
+          "const": "unresolved_conflict"
+        },
+        "conflict_id": {
+          "$ref": "object-id.schema.json#/$defs/object_id"
+        },
+        "error_id": {
+          "const": "ERR-008"
+        },
+        "reason_code": {
+          "const": "SOURCE_CONFLICT"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "missing_fact_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "fact_id",
+        "error_id",
+        "reason_code"
+      ],
+      "properties": {
+        "kind": {
+          "const": "missing_fact"
+        },
+        "fact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error_id": {
+          "const": "ERR-009"
+        },
+        "reason_code": {
+          "const": "MISSING_FACT"
+        }
+      },
+      "additionalProperties": false
+    },
+    "boundary_ref": {
+      "oneOf": [
+        {
+          "$ref": "#/$defs/conflict_ref"
+        },
+        {
+          "$ref": "#/$defs/missing_fact_ref"
+        }
+      ]
+    },
+    "rewrite_trace_entry": {
+      "type": "object",
+      "required": [
+        "element_key",
+        "element_kind",
+        "before_text",
+        "after_text",
+        "retention",
+        "evidence_refs",
+        "assumption_refs",
+        "context_refs",
+        "boundary_refs",
+        "omission_reason",
+        "authorization_context_ref"
+      ],
+      "properties": {
+        "element_key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "仅在当前 trace 内使用的局部键。"
+        },
+        "element_kind": {
+          "type": "string",
+          "enum": [
+            "fact",
+            "qualifier",
+            "unit",
+            "conclusion"
+          ]
+        },
+        "before_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "after_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retention": {
+          "type": "string",
+          "enum": [
+            "exact",
+            "condensed",
+            "rephrased",
+            "unresolved",
+            "omitted"
+          ]
+        },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        },
+        "assumption_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          }
+        },
+        "context_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^/"
+          }
+        },
+        "boundary_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/boundary_ref"
+          }
+        },
+        "omission_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "authorization_context_ref": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^/"
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "evidence_refs": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "assumption_refs": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "context_refs": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "boundary_refs": {
+              "minItems": 1
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}
