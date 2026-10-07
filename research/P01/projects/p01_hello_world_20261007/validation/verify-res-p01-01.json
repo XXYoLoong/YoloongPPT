@@ -56,6 +56,43 @@
   "timing_elements": 0,
   "notes_parts": 0,
   "pptx_sha256": "c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25",
-  "office_renderer_available": false,
-  "render_status": "pending: no PowerPoint/LibreOffice renderer in this Docker image"
+  "office_renderer_available": true,
+  "render_status": "passed: Microsoft PowerPoint 16.0 opened the PPTX read-only and exported all 3 slides; all rendered PNGs visually reviewed.",
+  "native_powerpoint_render": {
+    "application": "Microsoft PowerPoint",
+    "version": "16.0",
+    "validation_scope": "Host-only renderer; separate from the Docker experiment and not a product runtime choice.",
+    "opened_read_only": true,
+    "slide_export_api": "PowerPoint Slides.Item(i).Export",
+    "format": "PNG",
+    "slide_count": 3,
+    "dimensions_px": [
+      1920,
+      1080
+    ],
+    "visual_review": "passed: no clipping, overlap, or missing text observed",
+    "files": [
+      {
+        "slide": 1,
+        "path": "research/P01/projects/p01_hello_world_20261007/validation/native-render/slide-01.png",
+        "width_px": 1920,
+        "height_px": 1080,
+        "sha256": "e64b8c3927985fe138fc3393583f9dd56699d9b194ff3943ccb3691db73474c7"
+      },
+      {
+        "slide": 2,
+        "path": "research/P01/projects/p01_hello_world_20261007/validation/native-render/slide-02.png",
+        "width_px": 1920,
+        "height_px": 1080,
+        "sha256": "1b9cf7782a43b5ab6201efa49d8b73ab4664e7e9862409813f06eeb6b2f50d24"
+      },
+      {
+        "slide": 3,
+        "path": "research/P01/projects/p01_hello_world_20261007/validation/native-render/slide-03.png",
+        "width_px": 1920,
+        "height_px": 1080,
+        "sha256": "d4f732f251d29ea1ad58abc3a5cf080198db8ebdb249df4bff4025ecaeb7cd00"
+      }
+    ]
+  }
 }

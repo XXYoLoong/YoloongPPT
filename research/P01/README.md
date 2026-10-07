@@ -45,16 +45,16 @@ git -C ppt-master rev-parse HEAD
 - PPT Master 安装目录以只读方式挂载；项目工作目录和实验依赖目标通过独立挂载提供给临时容器。容器内先运行 `attribution_guard.py`，再按上游要求安装并检查依赖；`import pptx; import fitz` 通过。
 - 复现使用上游 FAQ 推荐的三页 Quick “Hello World”烟测。`project_manager.py init` 在只读源码目录默认路径下按预期以 `OSError errno=30` 失败；指定可写的 `--dir /workspace/research/P01/projects` 后初始化成功。
 - 三页 PPTX 的最终检查器和 Postflight 均通过；包可由 `python-pptx` 读取，ZIP 完整，17 个文本对象及 DrawingML 形状均保留，未发现图片、图表、备注、转场或 timing。最终文件 SHA-256 为 `c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25`。
-- 当前实验镜像没有 PowerPoint 或 LibreOffice，故尚未完成真实演示应用打开及视觉渲染；不得把结构检查等同于 Office 渲染验证。
+- 当前 Docker 实验镜像没有 PowerPoint 或 LibreOffice。另用本机已有 Microsoft PowerPoint 16.0 以只读方式打开生成文件，并通过 [Slide.Export](https://learn.microsoft.com/en-us/office/vba/api/powerpoint.slide.export) 导出三张 1920×1080 PNG；三页视觉复核均通过，未见裁切、遮挡或缺字。图片及 SHA-256 见 `projects/p01_hello_world_20261007/validation/native-render/` 与 `verify-res-p01-01.json`。本机 Office 仅用于验证，不是 Docker 项目运行环境或 YoloongPPT 产品依赖。
 
 | 验收项 | 状态 | 证据 |
 |---|---|---|
 | 固定 branch / commit | 已完成 | `main` / `2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d` |
 | 查明锁文件、运行要求与许可证 | 已完成 | 固定源码、`requirements.txt`、`LICENSE`、环境及发行包清单 |
 | 官方 Quick 最小流程 | 已完成 | `projects/p01_hello_world_20261007/`、最终 PPTX 与 Postflight 报告 |
-| `VERIFY-RES-P01-01` 正常/边界/失败证据 | 进行中 | `projects/p01_hello_world_20261007/validation/verify-res-p01-01.json`；真实 Office/LibreOffice 打开与渲染仍待验证 |
+| `VERIFY-RES-P01-01` 正常/边界/失败证据 | 已完成 | `projects/p01_hello_world_20261007/validation/verify-res-p01-01.json`、`validation/native-render/slide-01.png` 至 `slide-03.png`；PowerPoint 16.0 只读打开及视觉复核通过 |
 
-因此 `TASK-RES-P01-01` 已完成，`VERIFY-RES-P01-01` 与 `RES-P01-01` 保持进行中，原因是本容器没有演示应用渲染器。依赖该需求的 `TASK-RES-P01-02` 仍未开始；在渲染验证补齐前不推进调用链拆解。
+因此 `TASK-RES-P01-01`、`VERIFY-RES-P01-01` 与 `RES-P01-01` 均已完成。依赖该需求的 `TASK-RES-P01-02` 现在满足前置条件，可按矩阵继续推进。
 
 ## 来源
 
