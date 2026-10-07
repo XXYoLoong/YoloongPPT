@@ -1,0 +1,118 @@
+{
+  "document_type": "docx_evidence_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-003",
+  "fixtures": [
+    {
+      "fixture_id": "IN-003-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "docx_parse_input",
+        "source_asset_id": "asset_123e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": ["asset_123e4567-e89b-42d3-a456-426614174000"]
+      },
+      "expected_result": {
+        "record_type": "docx_parse_result",
+        "source_asset_id": "asset_123e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": ["asset_123e4567-e89b-42d3-a456-426614174000"],
+        "status": "parsed",
+        "evidence": {
+          "model_type": "DocxEvidence",
+          "source_asset_id": "asset_123e4567-e89b-42d3-a456-426614174000",
+          "blocks": [
+            {
+              "kind": "paragraph",
+              "block_index": 0,
+              "source_anchor": {"story": "body", "paragraph_index": 0, "table_index": null, "row_index": null, "cell_index": null},
+              "role": "heading",
+              "style_name": "Heading 1",
+              "heading_level": 1,
+              "caption_for_image_index": null,
+              "runs": [{"kind": "text", "text": "项目概览"}],
+              "page_location": {"status": "pending", "page_numbers": [], "renderer_ref": null, "reason": "未执行固定分页渲染，不能推断物理页码。"}
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 1,
+              "source_anchor": {"story": "body", "paragraph_index": 1, "table_index": null, "row_index": null, "cell_index": null},
+              "role": "paragraph",
+              "style_name": "Normal",
+              "heading_level": null,
+              "caption_for_image_index": null,
+              "runs": [
+                {"kind": "text", "text": "查看 "},
+                {"kind": "hyperlink", "display_text": "来源报告", "target": "https://example.org/report", "target_kind": "external"},
+                {"kind": "text", "text": "。"}
+              ],
+              "page_location": {"status": "pending", "page_numbers": [], "renderer_ref": null, "reason": "未执行固定分页渲染，不能推断物理页码。"}
+            },
+            {
+              "kind": "table",
+              "block_index": 2,
+              "source_anchor": {"story": "body", "paragraph_index": null, "table_index": 0, "row_index": null, "cell_index": null},
+              "table_index": 0,
+              "rows": [
+                [
+                  {"cell_index": 0, "paragraphs": [{"kind": "paragraph", "block_index": 0, "source_anchor": {"story": "body", "paragraph_index": 0, "table_index": 0, "row_index": 0, "cell_index": 0}, "role": "paragraph", "style_name": "Normal", "heading_level": null, "caption_for_image_index": null, "runs": [{"kind": "text", "text": "年份"}], "page_location": {"status": "pending", "page_numbers": [], "renderer_ref": null, "reason": "未执行固定分页渲染，不能推断物理页码。"}}]},
+                  {"cell_index": 1, "paragraphs": [{"kind": "paragraph", "block_index": 0, "source_anchor": {"story": "body", "paragraph_index": 0, "table_index": 0, "row_index": 0, "cell_index": 1}, "role": "paragraph", "style_name": "Normal", "heading_level": null, "caption_for_image_index": null, "runs": [{"kind": "text", "text": "产量"}], "page_location": {"status": "pending", "page_numbers": [], "renderer_ref": null, "reason": "未执行固定分页渲染，不能推断物理页码。"}}]}
+                ],
+                [
+                  {"cell_index": 0, "paragraphs": [{"kind": "paragraph", "block_index": 0, "source_anchor": {"story": "body", "paragraph_index": 0, "table_index": 0, "row_index": 1, "cell_index": 0}, "role": "paragraph", "style_name": "Normal", "heading_level": null, "caption_for_image_index": null, "runs": [{"kind": "text", "text": "2025"}], "page_location": {"status": "pending", "page_numbers": [], "renderer_ref": null, "reason": "未执行固定分页渲染，不能推断物理页码。"}}]},
+                  {"cell_index": 1, "paragraphs": [{"kind": "paragraph", "block_index": 0, "source_anchor": {"story": "body", "paragraph_index": 0, "table_index": 0, "row_index": 1, "cell_index": 1}, "role": "paragraph", "style_name": "Normal", "heading_level": null, "caption_for_image_index": null, "runs": [{"kind": "text", "text": "20%"}], "page_location": {"status": "pending", "page_numbers": [], "renderer_ref": null, "reason": "未执行固定分页渲染，不能推断物理页码。"}}]}
+                ]
+              ],
+              "page_location": {"status": "pending", "page_numbers": [], "renderer_ref": null, "reason": "未执行固定分页渲染，不能推断物理页码。"}
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 3,
+              "source_anchor": {"story": "body", "paragraph_index": 2, "table_index": null, "row_index": null, "cell_index": null},
+              "role": "paragraph",
+              "style_name": "Normal",
+              "heading_level": null,
+              "caption_for_image_index": null,
+              "runs": [
+                {"kind": "image", "image_index": 0, "media_ref": "word/media/image1.png", "alt_text": "光伏组件图", "description": null},
+                {"kind": "text", "text": "图示"}
+              ],
+              "page_location": {"status": "pending", "page_numbers": [], "renderer_ref": null, "reason": "未执行固定分页渲染，不能推断物理页码。"}
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 4,
+              "source_anchor": {"story": "body", "paragraph_index": 3, "table_index": null, "row_index": null, "cell_index": null},
+              "role": "caption",
+              "style_name": "Caption",
+              "heading_level": null,
+              "caption_for_image_index": 0,
+              "runs": [{"kind": "text", "text": "图 1 光伏组件"}],
+              "page_location": {"status": "pending", "page_numbers": [], "renderer_ref": null, "reason": "未执行固定分页渲染，不能推断物理页码。"}
+            }
+          ]
+        },
+        "errors": []
+      },
+      "verification_note": "结构预期 fixture；未从真实 DOCX 或分页渲染器运行解析。"
+    },
+    {
+      "fixture_id": "IN-003-BOUNDARY-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "docx_parse_input",
+        "source_asset_id": "asset_123e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": ["asset_123e4567-e89b-42d3-a456-426614174000"]
+      },
+      "expected_result": {
+        "record_type": "docx_parse_result",
+        "source_asset_id": "asset_123e4567-e89b-42d3-a456-426614174000",
+        "raw_asset_refs": ["asset_123e4567-e89b-42d3-a456-426614174000"],
+        "status": "failed",
+        "evidence": null,
+        "errors": [
+          {"code": "DOCX_INVALID_PACKAGE", "message": "DOCX 包无法解析：必要的 ZIP/OOXML 部件缺失或损坏。"}
+        ]
+      },
+      "verification_note": "边界预期 fixture；实际损坏包检测待运行时 parser 验证。"
+    }
+  ]
+}

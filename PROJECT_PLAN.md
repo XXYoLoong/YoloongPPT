@@ -171,6 +171,15 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：正常结构样例与空白边界样例已建立；parser 尚未实现，方言兼容、真实解析、源位置语义和错误行为没有运行时验证，因此 `TASK-IN-002` 保持进行中；AC-001–AC-030 均未执行。
 - 证据：`contracts/text-document.schema.json`、`contracts/text-document.catalog.json`、`contracts/text-document.fixtures.json`；Excel“需求主表”`N41:P41`、“可执行任务”`L69:M69`。
 
+### TASK-IN-003
+
+- Requirement ID：IN-003；P0；无前置任务。
+- 状态：进行中。已建立 `DocxEvidence` Draft 2020-12 契约、目录和正常/损坏包边界 fixture；按顺序保留标题/段落、表格单元格、超链接、图片引用、题注和段落锚点。
+- 边界：物理页码依赖排版引擎、字体和版式；在未固定渲染器时 fixture 明确标记 `pending` 并不给出虚构页码。DOCX 库、运行时、依赖和许可证未选定。任务表已列 `DocxEvidence` 交付名，但数据对象表无同名行；本任务不新增需求或任务。
+- 静态核验：schema/catalog/fixtures JSON 可解析且 `$ref` 可解析；正常 fixture 的 5 个正文块、表格、超链接、图片/题注关联和 9 个分页状态位置均符合契约预期；输入资产引用在结果中保留。未运行标准 JSON Schema 验证器。
+- 验收边界：损坏 DOCX 的结构化失败 fixture 已建立；DOCX parser 与固定分页渲染尚未实现/执行，因此 `TASK-IN-003` 保持进行中，页码和真实文件解析验收未通过；AC-001–AC-030 均未执行。
+- 证据：`contracts/docx-evidence.schema.json`、`contracts/docx-evidence.catalog.json`、`contracts/docx-evidence.fixtures.json`；Excel“需求主表”`N42:P42`、“可执行任务”`L70:M70`。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
