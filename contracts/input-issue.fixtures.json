@@ -1,0 +1,394 @@
+{
+  "document_type": "input_issue_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-015",
+  "fixtures": [
+    {
+      "fixture_id": "IN-015-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "input_assessment_input",
+        "policy": {
+          "supported_formats": [
+            "application/pdf",
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "image/png"
+          ],
+          "max_file_size_bytes": 10485760,
+          "max_expanded_size_bytes": 52428800,
+          "signature_check": "enabled",
+          "password_handling": "reject_without_bruteforce"
+        },
+        "assets": [
+          {
+            "source_id": "source_11111111-1111-4111-8111-111111111111",
+            "asset_id": "asset_11111111-1111-4111-8111-111111111111",
+            "display_name": "overview.png",
+            "declared_format": "image/png",
+            "signature_format": "image/png",
+            "size_bytes": 524288,
+            "expanded_size_bytes": null,
+            "access_status": "readable",
+            "encryption_status": "not_applicable",
+            "integrity_status": "valid"
+          }
+        ]
+      },
+      "expected_result": {
+        "record_type": "input_assessment_result",
+        "status": "ready",
+        "assessments": [
+          {
+            "source_id": "source_11111111-1111-4111-8111-111111111111",
+            "asset_id": "asset_11111111-1111-4111-8111-111111111111",
+            "status": "ready",
+            "issue_ids": []
+          }
+        ],
+        "issues": [],
+        "registry_reviews": [],
+        "coverage": [
+          {
+            "feature": "password_protection",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "integrity",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "format_signature",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "size_limits",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "unsupported_formats",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "visibility",
+            "status": "complete",
+            "reason": null
+          }
+        ]
+      },
+      "verification_note": "阈值是本合成请求的显式输入，不是产品默认；未读取真实图像。"
+    },
+    {
+      "fixture_id": "IN-015-BOUNDARY-BATCH-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "input_assessment_input",
+        "policy": {
+          "supported_formats": [
+            "application/pdf",
+            "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+          ],
+          "max_file_size_bytes": 10485760,
+          "max_expanded_size_bytes": 52428800,
+          "signature_check": "enabled",
+          "password_handling": "reject_without_bruteforce"
+        },
+        "assets": [
+          {
+            "source_id": "source_22222222-2222-4222-8222-222222222222",
+            "asset_id": "asset_22222222-2222-4222-8222-222222222222",
+            "display_name": "locked.pptx",
+            "declared_format": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "signature_format": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "size_bytes": 200000,
+            "expanded_size_bytes": null,
+            "access_status": "readable",
+            "encryption_status": "encrypted",
+            "integrity_status": "unknown"
+          },
+          {
+            "source_id": "source_33333333-3333-4333-8333-333333333333",
+            "asset_id": "asset_33333333-3333-4333-8333-333333333333",
+            "display_name": "broken.docx",
+            "declared_format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "signature_format": "application/zip",
+            "size_bytes": 13000,
+            "expanded_size_bytes": null,
+            "access_status": "readable",
+            "encryption_status": "not_encrypted",
+            "integrity_status": "corrupt"
+          },
+          {
+            "source_id": "source_44444444-4444-4444-8444-444444444444",
+            "asset_id": "asset_44444444-4444-4444-8444-444444444444",
+            "display_name": "report.pdf",
+            "declared_format": "application/pdf",
+            "signature_format": "application/zip",
+            "size_bytes": 64000,
+            "expanded_size_bytes": null,
+            "access_status": "readable",
+            "encryption_status": "not_applicable",
+            "integrity_status": "valid"
+          },
+          {
+            "source_id": "source_55555555-5555-4555-8555-555555555555",
+            "asset_id": "asset_55555555-5555-4555-8555-555555555555",
+            "display_name": "large.pdf",
+            "declared_format": "application/pdf",
+            "signature_format": "application/pdf",
+            "size_bytes": 15728640,
+            "expanded_size_bytes": null,
+            "access_status": "readable",
+            "encryption_status": "not_encrypted",
+            "integrity_status": "valid"
+          },
+          {
+            "source_id": "source_66666666-6666-4666-8666-666666666666",
+            "asset_id": "asset_66666666-6666-4666-8666-666666666666",
+            "display_name": "archive.pptx",
+            "declared_format": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "signature_format": "application/zip",
+            "size_bytes": 900000,
+            "expanded_size_bytes": 67108864,
+            "access_status": "readable",
+            "encryption_status": "not_encrypted",
+            "integrity_status": "valid"
+          },
+          {
+            "source_id": "source_77777777-7777-4777-8777-777777777777",
+            "asset_id": "asset_77777777-7777-4777-8777-777777777777",
+            "display_name": "unknown.bin",
+            "declared_format": "application/octet-stream",
+            "signature_format": "application/x-unknown",
+            "size_bytes": 4096,
+            "expanded_size_bytes": null,
+            "access_status": "readable",
+            "encryption_status": "not_applicable",
+            "integrity_status": "unknown"
+          }
+        ]
+      },
+      "expected_result": {
+        "record_type": "input_assessment_result",
+        "status": "blocked",
+        "assessments": [
+          {
+            "source_id": "source_22222222-2222-4222-8222-222222222222",
+            "asset_id": "asset_22222222-2222-4222-8222-222222222222",
+            "status": "blocked",
+            "issue_ids": [
+              "issue-password"
+            ]
+          },
+          {
+            "source_id": "source_33333333-3333-4333-8333-333333333333",
+            "asset_id": "asset_33333333-3333-4333-8333-333333333333",
+            "status": "blocked",
+            "issue_ids": [
+              "issue-corrupt"
+            ]
+          },
+          {
+            "source_id": "source_44444444-4444-4444-8444-444444444444",
+            "asset_id": "asset_44444444-4444-4444-8444-444444444444",
+            "status": "needs_review",
+            "issue_ids": [
+              "issue-format-mismatch"
+            ]
+          },
+          {
+            "source_id": "source_55555555-5555-4555-8555-555555555555",
+            "asset_id": "asset_55555555-5555-4555-8555-555555555555",
+            "status": "needs_review",
+            "issue_ids": [
+              "issue-size-limit"
+            ]
+          },
+          {
+            "source_id": "source_66666666-6666-4666-8666-666666666666",
+            "asset_id": "asset_66666666-6666-4666-8666-666666666666",
+            "status": "blocked",
+            "issue_ids": [
+              "issue-expansion-limit"
+            ]
+          },
+          {
+            "source_id": "source_77777777-7777-4777-8777-777777777777",
+            "asset_id": "asset_77777777-7777-4777-8777-777777777777",
+            "status": "blocked",
+            "issue_ids": [
+              "issue-unsupported"
+            ]
+          }
+        ],
+        "issues": [
+          {
+            "issue_id": "issue-password",
+            "source_id": "source_22222222-2222-4222-8222-222222222222",
+            "asset_id": "asset_22222222-2222-4222-8222-222222222222",
+            "issue_type": "password_protected",
+            "severity": "blocking",
+            "registry_status": "registered",
+            "error_id": "ERR-003",
+            "reason_code": "INPUT_PASSWORD_PROTECTED",
+            "review_ref": null,
+            "message": "输入文件受密码保护，要求调用方提供已解锁副本。",
+            "observed_format": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "declared_format": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "observed_size_bytes": 200000,
+            "configured_limit_bytes": null,
+            "action": "provide_unlocked_copy",
+            "safe_to_parse": false
+          },
+          {
+            "issue_id": "issue-corrupt",
+            "source_id": "source_33333333-3333-4333-8333-333333333333",
+            "asset_id": "asset_33333333-3333-4333-8333-333333333333",
+            "issue_type": "corrupt_input",
+            "severity": "blocking",
+            "registry_status": "registered",
+            "error_id": "ERR-004",
+            "reason_code": "INPUT_CORRUPT",
+            "review_ref": null,
+            "message": "输入包结构损坏，不能继续解析。",
+            "observed_format": "application/zip",
+            "declared_format": "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+            "observed_size_bytes": 13000,
+            "configured_limit_bytes": null,
+            "action": "replace_or_repair",
+            "safe_to_parse": false
+          },
+          {
+            "issue_id": "issue-format-mismatch",
+            "source_id": "source_44444444-4444-4444-8444-444444444444",
+            "asset_id": "asset_44444444-4444-4444-8444-444444444444",
+            "issue_type": "format_signature_mismatch",
+            "severity": "blocking",
+            "registry_status": "review_required",
+            "error_id": null,
+            "reason_code": null,
+            "review_ref": "IN-015-FORMAT-SIGNATURE-MISMATCH",
+            "message": "声明为 PDF 的输入签名与内容探测不一致；需确认格式并完成错误码评审。",
+            "observed_format": "application/zip",
+            "declared_format": "application/pdf",
+            "observed_size_bytes": 64000,
+            "configured_limit_bytes": null,
+            "action": "review_error_registry",
+            "safe_to_parse": false
+          },
+          {
+            "issue_id": "issue-size-limit",
+            "source_id": "source_55555555-5555-4555-8555-555555555555",
+            "asset_id": "asset_55555555-5555-4555-8555-555555555555",
+            "issue_type": "input_size_limit",
+            "severity": "blocking",
+            "registry_status": "review_required",
+            "error_id": null,
+            "reason_code": null,
+            "review_ref": "IN-015-INPUT-SIZE-LIMIT",
+            "message": "文件超过此请求显式提供的大小限制；错误码注册评审待处理。",
+            "observed_format": "application/pdf",
+            "declared_format": "application/pdf",
+            "observed_size_bytes": 15728640,
+            "configured_limit_bytes": 10485760,
+            "action": "review_error_registry",
+            "safe_to_parse": false
+          },
+          {
+            "issue_id": "issue-expansion-limit",
+            "source_id": "source_66666666-6666-4666-8666-666666666666",
+            "asset_id": "asset_66666666-6666-4666-8666-666666666666",
+            "issue_type": "archive_expansion_limit",
+            "severity": "blocking",
+            "registry_status": "registered",
+            "error_id": "ERR-005",
+            "reason_code": "ZIP_BOMB_LIMIT",
+            "review_ref": null,
+            "message": "归档展开体积超过此请求显式配置的上限，停止解压。",
+            "observed_format": "application/zip",
+            "declared_format": "application/vnd.openxmlformats-officedocument.presentationml.presentation",
+            "observed_size_bytes": 67108864,
+            "configured_limit_bytes": 52428800,
+            "action": "replace_or_repair",
+            "safe_to_parse": false
+          },
+          {
+            "issue_id": "issue-unsupported",
+            "source_id": "source_77777777-7777-4777-8777-777777777777",
+            "asset_id": "asset_77777777-7777-4777-8777-777777777777",
+            "issue_type": "unsupported_format",
+            "severity": "blocking",
+            "registry_status": "registered",
+            "error_id": "ERR-002",
+            "reason_code": "INPUT_UNSUPPORTED",
+            "review_ref": null,
+            "message": "检测到的格式不在此请求的 supported_formats 列表中。",
+            "observed_format": "application/x-unknown",
+            "declared_format": "application/octet-stream",
+            "observed_size_bytes": 4096,
+            "configured_limit_bytes": null,
+            "action": "convert_to_supported_format",
+            "safe_to_parse": false
+          }
+        ],
+        "registry_reviews": [
+          {
+            "review_ref": "IN-015-FORMAT-SIGNATURE-MISMATCH",
+            "issue_type": "format_signature_mismatch",
+            "reason": "现有 ErrorFallback reason_code 无精确匹配；需由治理任务决定是否登记新错误码。",
+            "status": "required"
+          },
+          {
+            "review_ref": "IN-015-INPUT-SIZE-LIMIT",
+            "issue_type": "input_size_limit",
+            "reason": "现有 ErrorFallback reason_code 无通用输入文件大小超限码；ZIP_BOMB_LIMIT 仅表示解压超限。",
+            "status": "required"
+          }
+        ],
+        "coverage": [
+          {
+            "feature": "password_protection",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "integrity",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "format_signature",
+            "status": "partial",
+            "reason": "签名不匹配有 issue，但 ErrorFallback 注册评审待完成。"
+          },
+          {
+            "feature": "size_limits",
+            "status": "partial",
+            "reason": "普通文件大小超限缺少已注册错误码；归档展开限制使用 ERR-005。"
+          },
+          {
+            "feature": "unsupported_formats",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "visibility",
+            "status": "complete",
+            "reason": null
+          }
+        ]
+      },
+      "verification_note": "Observed formats/sizes and error assignments are synthetic expectations. No parser, signature detector, limit check, or ErrorFallback registry mutation was run."
+    }
+  ],
+  "limits": [
+    "所有阈值仅为 fixture 输入示例，不是产品默认；实现必须读经批准的配置。",
+    "没有为格式签名不一致或普通文件大小限制新增 Error Code；registry_reviews 是待治理事项，不是已批准代码。",
+    "未进行真实加密探测、格式签名判定、archive 展开、文件读取或安全扫描。"
+  ]
+}

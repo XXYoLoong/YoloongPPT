@@ -267,6 +267,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：任务表已列 SourceBundle 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-014/TASK-IN-014，不增删需求、任务或数据对象行。
 - 证据：contracts/source-bundle.schema.json、contracts/source-bundle.catalog.json、contracts/source-bundle.fixtures.json；Excel“需求主表”N53:P53、“可执行任务”L81:M81。
 
+### TASK-IN-015
+
+- Requirement ID：IN-015；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 InputIssue Draft 2020-12 契约、目录及正常/边界预期 fixture，涵盖加密、损坏、格式签名不匹配、文件大小限制、归档展开限制和不支持格式。输入阈值仅来自 fixture 的显式调用方策略，不是产品默认。
+- 错误码映射：仅复用矩阵已登记的 ERR-002/INPUT_UNSUPPORTED、ERR-003/INPUT_PASSWORD_PROTECTED、ERR-004/INPUT_CORRUPT、ERR-005/ZIP_BOMB_LIMIT；格式签名不匹配和普通文件大小限制没有精确代码，标记 registry review，不新增代码或错配近似代码。schema 将 ERR-001–005 与原因码及问题类型绑定。
+- 输入边界：完整性状态与格式判定分开；Office/OOXML 的有效类型不能仅由 ZIP 魔数确定。所有边界资产都不能安全解析，因此批次预期为 blocked；不得静默跳过。
+- 静态核对：JSON 可解析，schema 外部 ID 引用及 catalog 文件引用可定位；正常 fixture 为 ready，六项边界 fixture 均有结构化问题，错误码和 issue 引用一致。未运行 JSON Schema 实例验证器、真实解析器、加密探测、签名识别、解压预算检查或 AC-001–AC-030。
+- 基线对齐：任务输出为 InputIssue[]；“数据对象”表无 InputIssue 行，本任务不增删需求、任务或数据对象。
+- 证据：contracts/input-issue.schema.json、contracts/input-issue.catalog.json、contracts/input-issue.fixtures.json；Excel“需求主表”N54:P54、“可执行任务”L82:M82。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。
