@@ -419,6 +419,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核验：schema/catalog/fixtures JSON 可解析，12 个 schema 引用及目录文件引用可定位；3 个 fixture 对应 3 个 acceptance case，9 个 required_detail 对齐 9 条转移轨迹和 8 个 notes block；来源/假设 ID、数字、冲突/缺失边界及页面文本短于草稿静态一致。未运行 JSON Schema 实例验证器、notes runtime、PPT-023 backend PoC 或 AC-017/AC-001–AC-030。
 - 证据：contracts/notes-spec.schema.json、contracts/notes-spec.catalog.json、contracts/notes-spec.fixtures.json；Excel“需求主表”N68:P68、“可执行任务”L96:M96。
 
+### TASK-CNT-014
+
+- Requirement ID：CNT-014；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 AppendixPlan Draft 2020-12 契约、目录及 4 个静态 fixture，覆盖显式附录模式、模式未决、数字来源、8%/9% 冲突与缺失日期/假设。
+- 链接：正文 main_item 的 marker 指向 appendix_entry；entry 反向保留 main_item_refs，并以 evidence_id/source_id 回链现有来源锚点。局部 key 仅用于计划内关联。
+- 边界：appendix 模式来自显式 PresentationContext，未选择时返回 unresolved；冲突保留双方值和 ERR-008，不选择 winner；renewal_date 保留 ERR-009，不填值，12% 保持 assumption。
+- 基线对齐：SlideContentSpec 已有 citation_refs；AppendixPlan 未列为独立数据对象，本任务不新增/删除矩阵行。附录排版、PPTX 内容标记/跳转和 runtime 尚未实现。
+- 静态核验：schema/catalog/fixtures JSON 可解析，16 个 schema 引用和目录文件引用可定位；4 个 fixture 对应 4 个 acceptance case，正文标记与附录反向 main_item_refs 成对一致，evidence_id/source_id 来源锚点回链一致。未决模式不默认附录；数字、冲突/缺失边界和 assumption 归属静态核对通过。未运行 JSON Schema 实例验证器、附录 runtime、DEC-004 或 AC-001–AC-030。
+- 证据：contracts/appendix-plan.schema.json、contracts/appendix-plan.catalog.json、contracts/appendix-plan.fixtures.json；Excel“需求主表”N69:P69、“可执行任务”L97:M97。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

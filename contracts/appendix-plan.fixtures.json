@@ -1,0 +1,317 @@
+{
+  "document_type": "appendix_plan_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-014",
+  "task_id": "TASK-CNT-014",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-014-APPENDIX-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {
+          "citation_mode": "appendix"
+        },
+        "main_draft": "FY2025 ARR was US$2.4 million; revenue grew 8% year over year. Cite the 2025 Annual Report.",
+        "required_appendix_items": [
+          "detailed_metrics",
+          "source_reference"
+        ]
+      },
+      "expected_output": {
+        "status": "complete",
+        "citation_mode": "appendix",
+        "main_items": [
+          {
+            "main_item_key": "normal-summary",
+            "text": "FY2025 ARR: US$2.4 million; revenue growth: 8% year over year [A1][A2].",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111",
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "appendix_refs": [
+              {
+                "entry_key": "normal-data",
+                "marker": "[A1]"
+              },
+              {
+                "entry_key": "normal-source",
+                "marker": "[A2]"
+              }
+            ]
+          }
+        ],
+        "appendix_entries": [
+          {
+            "entry_key": "normal-data",
+            "kind": "data_summary",
+            "title": "FY2025 operating metrics",
+            "content": "ARR: US$2.4 million (FY2025). Revenue growth: 8% year over year (FY2025).",
+            "main_item_refs": [
+              "normal-summary"
+            ],
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_15111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              },
+              {
+                "evidence_id": "evidence_16111111-1111-4111-8111-111111111111",
+                "source_id": "source_11111111-1111-4111-8111-111111111111"
+              }
+            ]
+          },
+          {
+            "entry_key": "normal-source",
+            "kind": "source_reference",
+            "title": "2025 Annual Report",
+            "content": "2025 Annual Report; source citation evidence is retained for source-anchor lookup.",
+            "main_item_refs": [
+              "normal-summary"
+            ],
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_20222222-2222-4222-8222-222222222222",
+                "source_id": "source_22222222-2222-4222-8222-222222222222"
+              }
+            ]
+          }
+        ]
+      },
+      "expected_action": "place_detailed_data_and_source_in_appendix_with_backlinks"
+    },
+    {
+      "fixture_id": "CNT-014-MODE-UNRESOLVED-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {},
+        "main_draft": "FY2025 ARR: US$2.4 million; growth: 8% year over year.",
+        "required_appendix_items": [
+          "detailed_metrics"
+        ]
+      },
+      "expected_output": {
+        "status": "unresolved",
+        "citation_mode": "unresolved",
+        "main_items": [
+          {
+            "main_item_key": "unresolved-main",
+            "text": "FY2025 ARR: US$2.4 million; growth: 8% year over year.",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "appendix_refs": []
+          }
+        ],
+        "appendix_entries": []
+      },
+      "expected_action": "do_not_default_appendix_mode"
+    },
+    {
+      "fixture_id": "CNT-014-CONFLICT-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "presentation_context": {
+          "citation_mode": "appendix"
+        },
+        "main_draft": "FY2025 revenue growth is 8% in one source and 9% in another; the conflict is unresolved.",
+        "required_appendix_items": [
+          "conflicting_source_values"
+        ]
+      },
+      "expected_output": {
+        "status": "complete",
+        "citation_mode": "appendix",
+        "main_items": [
+          {
+            "main_item_key": "conflict-main",
+            "text": "FY2025 revenue growth remains unresolved: 8% vs 9% year over year [A1].",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "appendix_refs": [
+              {
+                "entry_key": "conflict-detail",
+                "marker": "[A1]"
+              }
+            ]
+          }
+        ],
+        "appendix_entries": [
+          {
+            "entry_key": "conflict-detail",
+            "kind": "conflict_record",
+            "title": "Unresolved FY2025 growth values",
+            "content": "Source A reports 8% year over year in FY2025. Source B reports 9% year over year in FY2025. DEC-004 has not selected a value.",
+            "main_item_refs": [
+              "conflict-main"
+            ],
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "source_backlinks": [
+              {
+                "evidence_id": "evidence_33333333-3333-4333-8333-333333333333",
+                "source_id": "source_33333333-3333-4333-8333-333333333333"
+              },
+              {
+                "evidence_id": "evidence_34333333-3333-4333-8333-333333333333",
+                "source_id": "source_44444444-4444-4444-8444-444444444444"
+              }
+            ]
+          }
+        ]
+      },
+      "expected_action": "retain_both_conflicting_values_with_ERR_008"
+    },
+    {
+      "fixture_id": "CNT-014-MISSING-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "presentation_context": {
+          "citation_mode": "appendix"
+        },
+        "main_draft": "Planned margin is 12% as an assumption; the renewal date is not present.",
+        "required_appendix_items": [
+          "explicit_assumption",
+          "missing_date"
+        ]
+      },
+      "expected_output": {
+        "status": "complete",
+        "citation_mode": "appendix",
+        "main_items": [
+          {
+            "main_item_key": "missing-main",
+            "text": "Planned margin: 12% (assumption); renewal date unavailable [A1][A2].",
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ],
+            "conflict_refs": [],
+            "missing_fact_refs": [
+              {
+                "kind": "missing_fact",
+                "fact_id": "renewal_date",
+                "error_id": "ERR-009",
+                "reason_code": "MISSING_FACT"
+              }
+            ],
+            "appendix_refs": [
+              {
+                "entry_key": "assumption-detail",
+                "marker": "[A1]"
+              },
+              {
+                "entry_key": "missing-detail",
+                "marker": "[A2]"
+              }
+            ]
+          }
+        ],
+        "appendix_entries": [
+          {
+            "entry_key": "assumption-detail",
+            "kind": "assumption_record",
+            "title": "Planned margin assumption",
+            "content": "12% is a user-supplied planning assumption; it is not SourceEvidence.",
+            "main_item_refs": [
+              "missing-main"
+            ],
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "source_backlinks": []
+          },
+          {
+            "entry_key": "missing-detail",
+            "kind": "missing_fact_record",
+            "title": "Renewal date",
+            "content": "The renewal date is missing (ERR-009); no date value is available.",
+            "main_item_refs": [
+              "missing-main"
+            ],
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [
+              {
+                "kind": "missing_fact",
+                "fact_id": "renewal_date",
+                "error_id": "ERR-009",
+                "reason_code": "MISSING_FACT"
+              }
+            ],
+            "source_backlinks": []
+          }
+        ]
+      },
+      "expected_action": "append_missing_and_assumption_boundaries_without_filling_value"
+    }
+  ],
+  "limits": [
+    "AppendixPlan 通过 fixture ID 引用 CNT-001 SourceEvidence/Assumption 与 CNT-003 EvidenceConflict；entry_key/main_item_key 是本计划内部引用键，不是全局实体 ID。",
+    "附录 mode 必须来自显式 PresentationContext.citation_mode。未选择时输出 unresolved，不默认 appendix 或其他来源展示模式。",
+    "main_items.appendix_refs 与 appendix_entries.main_item_refs 双向核对；entry evidence_refs 通过 source_backlinks 回到既有 SourceEvidence.source_id/anchor。",
+    "冲突条目保留 8%/9% 和 ERR-008，不选 winner；missing renewal_date 保留 ERR-009，不生成值；12% assumption 不伪装为 SourceEvidence。",
+    "AppendixPlan 未列为独立数据对象；本草案不实现附录排版/生成，也不声称 PPTX 端到端引用跳转已验证。"
+  ]
+}
