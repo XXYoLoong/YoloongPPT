@@ -346,6 +346,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：更新既有 CNT-006/TASK-CNT-006 状态和证据；PresentationScenario 未单列数据对象，不新增/删除基线行，PresentationContext 对象行保持未开始。
 - 证据：contracts/presentation-scenario.schema.json、contracts/presentation-scenario.catalog.json、contracts/presentation-scenario.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N61:P61、“可执行任务”L89:M89。
 
+### TASK-CNT-007
+
+- Requirement ID：CNT-007；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 LanguageStyleSpec Draft 2020-12 契约、目录和四个正常/边界 fixture，分别覆盖中文、英文、混合语言、仅部分字段指定、数值/未决冲突/缺失事实以及全字段未提供。
+- 字段边界：language、tone、formal_level、terminology_rules、brand_terms 均来自显式输入并逐字段记录 evidence_id、assumption_id 或 PresentationContext JSON Pointer；未提供标量为 null、列表为空，不设默认。
+- 事实保护：不从数值或冲突推导语言样式；冲突继续由 CNT-003/ERR-008 表达，missing fact 继续由 CNT-001/ERR-009 表达。契约仅记录要求，不表示翻译、多语言渲染或术语执行已交付。
+- 静态核对：schema/catalog/fixtures JSON 可解析，5 个 schema 引用和目录 JSON 文件引用可定位；4 个 fixture 对应 acceptance case，三种语言模式、原文/来源路径、数字隔离、冲突和缺失事实引用对齐。未运行 JSON Schema 实例验证器、语言/风格转换器、运行时或 AC-001–AC-030。
+- 基线对齐：更新既有 CNT-007/TASK-CNT-007 状态和证据；LanguageStyleSpec 无独立数据对象行，不新增/删除基线行，PresentationContext 对象仍未开始。
+- 证据：contracts/language-style-spec.schema.json、contracts/language-style-spec.catalog.json、contracts/language-style-spec.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N62:P62、“可执行任务”L90:M90。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

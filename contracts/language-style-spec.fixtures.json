@@ -1,0 +1,206 @@
+{
+  "document_type": "language_style_spec_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-007",
+  "task_id": "TASK-CNT-007",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-007-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {
+          "language": "中文/英文混合",
+          "tone": "清晰、专业、直接",
+          "formal_level": "正式但易读",
+          "terminology_rules": [
+            "SaaS 首次出现时写作“软件即服务（SaaS）”"
+          ],
+          "brand_terms": [
+            "YoloongPPT"
+          ]
+        }
+      },
+      "expected_output": {
+        "language": "中文/英文混合",
+        "tone": "清晰、专业、直接",
+        "formal_level": "正式但易读",
+        "terminology_rules": [
+          "SaaS 首次出现时写作“软件即服务（SaaS）”"
+        ],
+        "brand_terms": [
+          "YoloongPPT"
+        ],
+        "field_provenance": [
+          {
+            "field": "language",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/language"
+            }
+          },
+          {
+            "field": "tone",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/tone"
+            }
+          },
+          {
+            "field": "formal_level",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/formal_level"
+            }
+          },
+          {
+            "field": "terminology_rules",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/terminology_rules"
+            }
+          },
+          {
+            "field": "brand_terms",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/brand_terms"
+            }
+          }
+        ]
+      },
+      "expected_action": "preserve_explicit_language_and_style"
+    },
+    {
+      "fixture_id": "CNT-007-CHINESE-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {
+          "language": "中文"
+        }
+      },
+      "expected_output": {
+        "language": "中文",
+        "tone": null,
+        "formal_level": null,
+        "terminology_rules": [],
+        "brand_terms": [],
+        "field_provenance": [
+          {
+            "field": "language",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/language"
+            }
+          }
+        ]
+      },
+      "expected_action": "preserve_explicit_chinese_language"
+    },
+    {
+      "fixture_id": "CNT-007-CONFLICT-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "presentation_context": {
+          "language": "英文",
+          "tone": "客观",
+          "formal_level": "专业",
+          "terminology_rules": [
+            "API 保留英文缩写"
+          ],
+          "brand_terms": [
+            "YoloongPPT"
+          ]
+        }
+      },
+      "expected_output": {
+        "language": "英文",
+        "tone": "客观",
+        "formal_level": "专业",
+        "terminology_rules": [
+          "API 保留英文缩写"
+        ],
+        "brand_terms": [
+          "YoloongPPT"
+        ],
+        "field_provenance": [
+          {
+            "field": "language",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/language"
+            }
+          },
+          {
+            "field": "tone",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/tone"
+            }
+          },
+          {
+            "field": "formal_level",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/formal_level"
+            }
+          },
+          {
+            "field": "terminology_rules",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/terminology_rules"
+            }
+          },
+          {
+            "field": "brand_terms",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/brand_terms"
+            }
+          }
+        ]
+      },
+      "expected_conflict_ref": {
+        "fixture_id": "CNT-003-BOUNDARY-001",
+        "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+        "resolution_status": "unresolved",
+        "error_id": "ERR-008",
+        "reason_code": "SOURCE_CONFLICT"
+      },
+      "expected_missing_fact_ref": {
+        "fact_id": "renewal_date",
+        "error_id": "ERR-009",
+        "reason_code": "MISSING_FACT"
+      },
+      "expected_action": "preserve_style_without_resolving_source_conflict"
+    },
+    {
+      "fixture_id": "CNT-007-MISSING-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "presentation_context": {}
+      },
+      "expected_output": {
+        "language": null,
+        "tone": null,
+        "formal_level": null,
+        "terminology_rules": [],
+        "brand_terms": [],
+        "field_provenance": []
+      },
+      "expected_action": "leave_language_and_style_unspecified"
+    }
+  ],
+  "limits": [
+    "数字、来源冲突和 renewal_date 缺失复用 CNT-001/CNT-003 上游合成 fixture；LanguageStyleSpec 不复制、裁决或改写这些事实。",
+    "language 字段可以保留中文、英文或混合语言表述；契约只记录要求，不实现语言识别、翻译或多语言排版。",
+    "tone、formal_level、terminology_rules、brand_terms 均保留原始字符串；没有定义闭合 taxonomy、优先级或品牌词规范。",
+    "未提供的标量为 null，列表为空；不补默认语言、语气、正式等级或术语。",
+    "未实现语言/语气转换运行时、来源语义校验或真实多语言 PPT 验收；未运行 JSON Schema 实例验证器或 AC-001–AC-030。"
+  ]
+}

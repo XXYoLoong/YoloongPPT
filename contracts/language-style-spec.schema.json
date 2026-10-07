@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "LanguageStyleSpec 契约（CNT-007 草案）",
+  "description": "记录调用方/来源明确指定的语言、语气、正式程度、术语规则和品牌词原文；记录字段不证明翻译或风格转换能力已实现。",
+  "type": "object",
+  "required": [
+    "language",
+    "tone",
+    "formal_level",
+    "terminology_rules",
+    "brand_terms",
+    "field_provenance"
+  ],
+  "properties": {
+    "language": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "保留语言要求原文，可表述中文、英文或混合语言；未提供时为 null，不设置默认语言。"
+    },
+    "tone": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "保留调用方指定的语气原文，不归类到未定义的 tone taxonomy。"
+    },
+    "formal_level": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "保留正式程度原文，不使用未定义等级或阈值。"
+    },
+    "terminology_rules": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "逐项保留明确给出的术语/译名/用法规则与顺序。"
+    },
+    "brand_terms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "逐项保留品牌词原文、大小写和顺序；不自行改写或推导品牌词。"
+    },
+    "field_provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/field_provenance"
+      },
+      "description": "逐字段记录 SourceEvidence、Assumption 或 PresentationContext 原始路径。"
+    }
+  },
+  "$defs": {
+    "style_field": {
+      "type": "string",
+      "enum": [
+        "language",
+        "tone",
+        "formal_level",
+        "terminology_rules",
+        "brand_terms"
+      ]
+    },
+    "field_source_ref": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "evidence_id"
+          ],
+          "properties": {
+            "kind": {
+              "const": "source_evidence"
+            },
+            "evidence_id": {
+              "$ref": "object-id.schema.json#/$defs/evidence_id"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "assumption_id"
+          ],
+          "properties": {
+            "kind": {
+              "const": "assumption"
+            },
+            "assumption_id": {
+              "$ref": "object-id.schema.json#/$defs/assumption_id"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "context_pointer"
+          ],
+          "properties": {
+            "kind": {
+              "const": "presentation_context"
+            },
+            "context_pointer": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^/",
+              "description": "指向输入 PresentationContext 的 JSON Pointer。"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "field_provenance": {
+      "type": "object",
+      "required": [
+        "field",
+        "source"
+      ],
+      "properties": {
+        "field": {
+          "$ref": "#/$defs/style_field"
+        },
+        "source": {
+          "$ref": "#/$defs/field_source_ref"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}
