@@ -1,0 +1,162 @@
+{
+  "requirement_id": "IN-013",
+  "task_id": "TASK-IN-013",
+  "fixtures_are_synthetic": true,
+  "cases": [
+    {
+      "case_id": "IN-013-NORMAL-MOODBOARD-001",
+      "purpose": "展示六类可追溯视觉倾向；不识别或复制具体品牌内容。",
+      "input": {
+        "record_type": "style_reference_input",
+        "source_id": "source_1f56aeb2-3742-4cf2-9a60-2bd43fd2141a",
+        "source_asset_id": "asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292",
+        "raw_asset_refs": ["asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292"],
+        "usage": "style_reference",
+        "declared_media_type": "image/png",
+        "rights_context": { "asset_origin": "user_upload", "user_provided_asset": true, "reproduction_authorized": null, "authorization_evidence_ref": null, "license_status": "unknown", "license_ref": null, "license_reason": "合成夹具未提供许可资料" }
+      },
+      "expected_result": {
+        "record_type": "style_reference_result",
+        "source_id": "source_1f56aeb2-3742-4cf2-9a60-2bd43fd2141a",
+        "source_asset_id": "asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292",
+        "raw_asset_refs": ["asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292"],
+        "usage": "style_reference",
+        "status": "parsed",
+        "evidence": {
+          "model_type": "StyleReference",
+          "source": { "source_id": "source_1f56aeb2-3742-4cf2-9a60-2bd43fd2141a", "source_asset_id": "asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292", "raw_asset_refs": ["asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292"], "usage": "style_reference", "rights_context": { "asset_origin": "user_upload", "user_provided_asset": true, "reproduction_authorized": null, "authorization_evidence_ref": null, "license_status": "unknown", "license_ref": null, "license_reason": "合成夹具未提供许可资料" } },
+          "visual_style": {
+            "colors": [{ "color_hex": "#18324A", "role_tendency": "background", "source_anchor": { "source_id": "source_1f56aeb2-3742-4cf2-9a60-2bd43fd2141a", "asset_id": "asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292", "native_locator": "pixel-region:background", "locator": { "kind": "image_region", "element_id": "background", "bbox": { "x": 0, "y": 0, "width": 1280, "height": 720, "coordinate_space": "raw_source_pixels_top_left" } }, "locator_status": "located", "reason": null }, "confidence": 0.96 }],
+            "typography": [{ "family_tendency": "sans_serif", "weight_tendency": "mixed", "emphasis_tendency": "high_contrast", "source_anchor": { "source_id": "source_1f56aeb2-3742-4cf2-9a60-2bd43fd2141a", "asset_id": "asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292", "native_locator": "pixel-region:title", "locator": { "kind": "image_region", "element_id": "title", "bbox": { "x": 72, "y": 48, "width": 520, "height": 140, "coordinate_space": "raw_source_pixels_top_left" } }, "locator_status": "located", "reason": null }, "confidence": 0.74 }],
+            "composition": [{ "pattern": "split", "description": "左侧标题与右侧视觉区分栏。", "source_anchor": { "source_id": "source_1f56aeb2-3742-4cf2-9a60-2bd43fd2141a", "asset_id": "asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292", "native_locator": "pixel-region:canvas", "locator": { "kind": "image_region", "element_id": "canvas", "bbox": { "x": 0, "y": 0, "width": 1280, "height": 720, "coordinate_space": "raw_source_pixels_top_left" } }, "locator_status": "located", "reason": null }, "confidence": 0.81 }],
+            "density": [{ "level": "moderate", "description": "留白与信息块数量呈中等密度倾向。", "source_anchor": { "source_id": "source_1f56aeb2-3742-4cf2-9a60-2bd43fd2141a", "asset_id": "asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292", "native_locator": "pixel-region:canvas", "locator": { "kind": "image_region", "element_id": "canvas", "bbox": { "x": 0, "y": 0, "width": 1280, "height": 720, "coordinate_space": "raw_source_pixels_top_left" } }, "locator_status": "located", "reason": null }, "confidence": 0.68 }],
+            "image_treatment": [{ "treatment": "cropped", "description": "照片使用边缘裁切，保留主体区域。", "source_anchor": { "source_id": "source_1f56aeb2-3742-4cf2-9a60-2bd43fd2141a", "asset_id": "asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292", "native_locator": "pixel-region:photo", "locator": { "kind": "image_region", "element_id": "photo", "bbox": { "x": 720, "y": 80, "width": 500, "height": 560, "coordinate_space": "raw_source_pixels_top_left" } }, "locator_status": "located", "reason": null }, "confidence": 0.77 }],
+            "decorative_language": [{ "motif": "geometric", "description": "使用简单几何色块作为分隔装饰。", "source_anchor": { "source_id": "source_1f56aeb2-3742-4cf2-9a60-2bd43fd2141a", "asset_id": "asset_13c1eea2-0eeb-437b-9e2e-30ef07bec292", "native_locator": "pixel-region:decoration", "locator": { "kind": "image_region", "element_id": "decoration", "bbox": { "x": 640, "y": 0, "width": 80, "height": 720, "coordinate_space": "raw_source_pixels_top_left" } }, "locator_status": "located", "reason": null }, "confidence": 0.71 }]
+          },
+          "protected_elements": []
+        },
+        "coverage": [
+          { "feature": "colors", "status": "complete", "reason": null },
+          { "feature": "typography", "status": "complete", "reason": null },
+          { "feature": "composition", "status": "complete", "reason": null },
+          { "feature": "density", "status": "complete", "reason": null },
+          { "feature": "image_treatment", "status": "complete", "reason": null },
+          { "feature": "decorative_language", "status": "complete", "reason": null }
+        ],
+        "errors": [],
+        "processor": { "execution_status": "fixture_only", "name": null, "version": null, "license_status": "unknown", "license_reason": "合成预期结果；未运行风格分析器" }
+      }
+    },
+    {
+      "case_id": "IN-013-BOUNDARY-PROTECTED-UNKNOWN-RIGHTS-001",
+      "purpose": "识别疑似受保护 logo 时只保留类别、位置和排除决定；权利未知时不输出其内容。",
+      "input": {
+        "record_type": "style_reference_input",
+        "source_id": "source_2c2af303-12db-4af9-a6b5-f30eabf1f71b",
+        "source_asset_id": "asset_94a2bbee-564c-49f4-87ae-3f5726fa258e",
+        "raw_asset_refs": ["asset_94a2bbee-564c-49f4-87ae-3f5726fa258e"],
+        "usage": "style_reference",
+        "declared_media_type": "image/jpeg",
+        "rights_context": { "asset_origin": "external_url", "user_provided_asset": false, "reproduction_authorized": null, "authorization_evidence_ref": null, "license_status": "unknown", "license_ref": null, "license_reason": "来源许可未确认" }
+      },
+      "expected_result": {
+        "record_type": "style_reference_result",
+        "source_id": "source_2c2af303-12db-4af9-a6b5-f30eabf1f71b",
+        "source_asset_id": "asset_94a2bbee-564c-49f4-87ae-3f5726fa258e",
+        "raw_asset_refs": ["asset_94a2bbee-564c-49f4-87ae-3f5726fa258e"],
+        "usage": "style_reference",
+        "status": "parsed",
+        "evidence": {
+          "model_type": "StyleReference",
+          "source": { "source_id": "source_2c2af303-12db-4af9-a6b5-f30eabf1f71b", "source_asset_id": "asset_94a2bbee-564c-49f4-87ae-3f5726fa258e", "raw_asset_refs": ["asset_94a2bbee-564c-49f4-87ae-3f5726fa258e"], "usage": "style_reference", "rights_context": { "asset_origin": "external_url", "user_provided_asset": false, "reproduction_authorized": null, "authorization_evidence_ref": null, "license_status": "unknown", "license_ref": null, "license_reason": "来源许可未确认" } },
+          "visual_style": { "colors": [{ "color_hex": "#E6B84A", "role_tendency": "accent", "source_anchor": { "source_id": "source_2c2af303-12db-4af9-a6b5-f30eabf1f71b", "asset_id": "asset_94a2bbee-564c-49f4-87ae-3f5726fa258e", "native_locator": "pixel-region:accent", "locator": { "kind": "image_region", "element_id": "accent", "bbox": { "x": 28, "y": 30, "width": 210, "height": 90, "coordinate_space": "raw_source_pixels_top_left" } }, "locator_status": "located", "reason": null }, "confidence": 0.83 }], "typography": [], "composition": [], "density": [], "image_treatment": [], "decorative_language": [] },
+          "protected_elements": [{ "element_kind": "logo", "detection_status": "candidate", "source_anchor": { "source_id": "source_2c2af303-12db-4af9-a6b5-f30eabf1f71b", "asset_id": "asset_94a2bbee-564c-49f4-87ae-3f5726fa258e", "native_locator": "pixel-region:protected-mark", "locator": { "kind": "image_region", "element_id": "protected-mark", "bbox": { "x": 1040, "y": 24, "width": 180, "height": 84, "coordinate_space": "raw_source_pixels_top_left" } }, "locator_status": "located", "reason": null }, "reproduction_decision": "excluded_rights_unknown" }]
+        },
+        "coverage": [
+          { "feature": "colors", "status": "complete", "reason": null },
+          { "feature": "typography", "status": "not_observed", "reason": null },
+          { "feature": "composition", "status": "not_observed", "reason": null },
+          { "feature": "density", "status": "not_observed", "reason": null },
+          { "feature": "image_treatment", "status": "not_observed", "reason": null },
+          { "feature": "decorative_language", "status": "not_observed", "reason": null }
+        ],
+        "errors": [],
+        "processor": { "execution_status": "fixture_only", "name": null, "version": null, "license_status": "unknown", "license_reason": "合成预期结果；未运行风格分析器" }
+      }
+    },
+    {
+      "case_id": "IN-013-BOUNDARY-PARTIAL-OBSERVATION-001",
+      "purpose": "部分视觉特征不可判读时保留可追溯候选和 ERR-006，不臆断未观测字体或图像处理。",
+      "input": {
+        "record_type": "style_reference_input",
+        "source_id": "source_3b056813-33b5-4f11-b8a0-4bba92ef8a24",
+        "source_asset_id": "asset_b9273a95-577f-4ec1-a241-bf3e84b310ed",
+        "raw_asset_refs": ["asset_b9273a95-577f-4ec1-a241-bf3e84b310ed"],
+        "usage": "style_reference",
+        "declared_media_type": "image/png",
+        "rights_context": null
+      },
+      "expected_result": {
+        "record_type": "style_reference_result",
+        "source_id": "source_3b056813-33b5-4f11-b8a0-4bba92ef8a24",
+        "source_asset_id": "asset_b9273a95-577f-4ec1-a241-bf3e84b310ed",
+        "raw_asset_refs": ["asset_b9273a95-577f-4ec1-a241-bf3e84b310ed"],
+        "usage": "style_reference",
+        "status": "partial",
+        "evidence": {
+          "model_type": "StyleReference",
+          "source": { "source_id": "source_3b056813-33b5-4f11-b8a0-4bba92ef8a24", "source_asset_id": "asset_b9273a95-577f-4ec1-a241-bf3e84b310ed", "raw_asset_refs": ["asset_b9273a95-577f-4ec1-a241-bf3e84b310ed"], "usage": "style_reference", "rights_context": null },
+          "visual_style": { "colors": [{ "color_hex": "#5E4B8B", "role_tendency": "unknown", "source_anchor": { "source_id": "source_3b056813-33b5-4f11-b8a0-4bba92ef8a24", "asset_id": "asset_b9273a95-577f-4ec1-a241-bf3e84b310ed", "native_locator": "pixel-region:color-swatch", "locator": { "kind": "image_region", "element_id": "color-swatch", "bbox": { "x": 10, "y": 10, "width": 120, "height": 72, "coordinate_space": "raw_source_pixels_top_left" } }, "locator_status": "located", "reason": null }, "confidence": 0.61 }], "typography": [], "composition": [{ "pattern": "unknown", "description": "画面分辨率不足，无法稳定判断版式关系。", "source_anchor": { "source_id": "source_3b056813-33b5-4f11-b8a0-4bba92ef8a24", "asset_id": "asset_b9273a95-577f-4ec1-a241-bf3e84b310ed", "native_locator": "pixel-region:canvas", "locator": { "kind": "image_region", "element_id": "canvas", "bbox": { "x": 0, "y": 0, "width": 320, "height": 180, "coordinate_space": "raw_source_pixels_top_left" } }, "locator_status": "located", "reason": null }, "confidence": null }], "density": [], "image_treatment": [], "decorative_language": [] },
+          "protected_elements": []
+        },
+        "coverage": [
+          { "feature": "colors", "status": "complete", "reason": null },
+          { "feature": "typography", "status": "unsupported", "reason": "合成边界：文本细节不足以稳定判断字体倾向。" },
+          { "feature": "composition", "status": "partial", "reason": "合成边界：只保留低置信版式候选。" },
+          { "feature": "density", "status": "not_observed", "reason": null },
+          { "feature": "image_treatment", "status": "unsupported", "reason": "合成边界：图像处理效果无法从当前证据确认。" },
+          { "feature": "decorative_language", "status": "not_observed", "reason": null }
+        ],
+        "errors": [{ "error_id": "ERR-006", "code": "PARSE_PARTIAL", "phase": "feature_extraction", "message": "部分风格特征不可判读；已保留可定位候选并明确未观测项。", "source_anchor": null }],
+        "processor": { "execution_status": "fixture_only", "name": null, "version": null, "license_status": "unknown", "license_reason": "合成预期结果；未运行风格分析器" }
+      }
+    },
+    {
+      "case_id": "IN-013-FAILED-UNSUPPORTED-MEDIA-001",
+      "purpose": "不支持的媒体格式返回 ERR-002、结构化失败原因并保留原始资产引用。",
+      "input": {
+        "record_type": "style_reference_input",
+        "source_id": "source_4d47ff7f-b129-427f-b627-7d3506d47690",
+        "source_asset_id": "asset_7873f3c7-5676-4f98-8fc3-e83b9af051ee",
+        "raw_asset_refs": ["asset_7873f3c7-5676-4f98-8fc3-e83b9af051ee"],
+        "usage": "style_reference",
+        "declared_media_type": "application/x-unknown",
+        "rights_context": null
+      },
+      "expected_result": {
+        "record_type": "style_reference_result",
+        "source_id": "source_4d47ff7f-b129-427f-b627-7d3506d47690",
+        "source_asset_id": "asset_7873f3c7-5676-4f98-8fc3-e83b9af051ee",
+        "raw_asset_refs": ["asset_7873f3c7-5676-4f98-8fc3-e83b9af051ee"],
+        "usage": "style_reference",
+        "status": "failed",
+        "evidence": null,
+        "coverage": [
+          { "feature": "colors", "status": "unsupported", "reason": "输入媒体类型不支持。" },
+          { "feature": "typography", "status": "unsupported", "reason": "输入媒体类型不支持。" },
+          { "feature": "composition", "status": "unsupported", "reason": "输入媒体类型不支持。" },
+          { "feature": "density", "status": "unsupported", "reason": "输入媒体类型不支持。" },
+          { "feature": "image_treatment", "status": "unsupported", "reason": "输入媒体类型不支持。" },
+          { "feature": "decorative_language", "status": "unsupported", "reason": "输入媒体类型不支持。" }
+        ],
+        "errors": [{ "error_id": "ERR-002", "code": "INPUT_UNSUPPORTED", "phase": "decode", "message": "当前契约处理路径不支持该输入媒体类型。", "source_anchor": null }],
+        "processor": { "execution_status": "fixture_only", "name": null, "version": null, "license_status": "unknown", "license_reason": "合成预期结果；未运行风格分析器" }
+      }
+    }
+  ],
+  "notes": [
+    "所有结果均为合成预期，不是实际图像解码、OCR、颜色提取、布局或风格模型输出。",
+    "授权状态未知或未授权时不复制保护元素；任何许可结论都不能由视觉外观推断。",
+    "置信度不代表事实或法律授权，不设置产品接受阈值；具体识别器、版本与许可待选型。"
+  ]
+}

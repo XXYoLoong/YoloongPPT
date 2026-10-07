@@ -1,0 +1,36 @@
+{
+  "requirement_id": "IN-013",
+  "task_id": "TASK-IN-013",
+  "output": "StyleReference",
+  "status": "draft_contract",
+  "schema": "contracts/style-reference.schema.json",
+  "fixtures": "contracts/style-reference.fixtures.json",
+  "baseline_alignment": {
+    "requirement_row": "需求主表!A52:P52",
+    "task_row": "可执行任务!A80:N80",
+    "data_object_row": null,
+    "data_object_note": "StyleReference 是任务交付名，数据对象表未列同名正式对象；本任务不新增数据对象行。"
+  },
+  "feature_coverage": ["colors", "typography", "composition", "density", "image_treatment", "decorative_language"],
+  "traceability": [
+    { "requirement": "IN-013", "covered_by": ["style_reference.source", "style_reference.visual_style", "style_reference.protected_elements", "coverage", "errors"] },
+    { "requirement": "IN-011", "relationship": "ImageEvidence 是相关输入/上游候选格式；TASK-IN-013 在矩阵中没有声明对 TASK-IN-011 的依赖，本契约不增加该依赖。" },
+    { "requirement": "SEC-013", "covered_by": ["rights_context.license_status", "rights_context.license_ref", "rights_context.license_reason"] },
+    { "requirement": "SEC-014", "covered_by": ["source_anchor", "source_id", "source_asset_id"] }
+  ],
+  "rights_and_reuse_rules": [
+    "提取视觉倾向不代表允许复用受保护资产；不把 logo 位图、品牌标识或受保护文字/插画内容嵌入 StyleReference。",
+    "用户是否提供资产、是否明确授权、授权证据引用和 license 状态分别保存；授权未知或未授权的保护元素标为 excluded。",
+    "只有用户提供且授权证据明确时，保护元素才可标记 eligible_for_separate_authorized_asset_flow；仍由后续资产/许可流程决定是否复用。",
+    "字体倾向不等于检测到具体字体名称或该字体具有可安装/复用授权。"
+  ],
+  "error_mapping": [
+    { "error_id": "ERR-002", "code": "INPUT_UNSUPPORTED", "use": "当前处理器不支持输入媒体类型或格式时。" },
+    { "error_id": "ERR-006", "code": "PARSE_PARTIAL", "use": "部分特征未能解析，但仍保留可追溯风格证据时。" }
+  ],
+  "limits": [
+    "Fixtures 是合成结构，不是实际图像、OCR、颜色抽取、版面或风格模型输出。",
+    "视觉检测置信度是候选，不代表事实、授权、品牌身份或风格质量；不设产品置信度阈值。",
+    "产品运行时、图像解析器/视觉模型、版本、依赖、模型和资产许可仍待实际 PoC 与架构评估决定。"
+  ]
+}

@@ -278,6 +278,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：任务表已列 AssetInventory 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-012/TASK-IN-012，不增删需求、任务或数据对象行。
 - 证据：contracts/asset-inventory.schema.json、contracts/asset-inventory.catalog.json、contracts/asset-inventory.fixtures.json；Excel“需求主表”N51:P51、“可执行任务”L79:M79。
 
+### TASK-IN-013
+
+- Requirement ID：IN-013；P1；矩阵未列前置任务。
+- 状态：进行中。已建立 `StyleReference` Draft 2020-12 契约、目录与 4 个合成正常/边界/失败 fixture，分别覆盖颜色、字体倾向、构图、密度、图像处理、装饰语言及逐项来源锚点。
+- 观察与复用边界：字体记录为视觉倾向，不冒充具体字体识别；每个候选保留 confidence 与 image-region SourceAnchor。未观测/不支持特征显式列入 coverage，不设识别阈值。
+- 权利边界：用户提供状态、复制授权证据和 license 状态分别记录。StyleReference 仅保存保护元素的类别、位置与处理决定，不复制 logo/品牌标记/受保护文字或插画；权利未知或未授权时排除，用户提供且有授权证据也只可进入独立资产/许可流程。
+- 与 IN-011 的关系：复用 `SourceAnchor` 定位约定，并允许与 `ImageEvidence` 候选关联；矩阵未声明 TASK-IN-011 为前置，本任务不新增依赖。StyleReference 不在数据对象表中，本任务不新增数据对象行。
+- 静态核验：三个 JSON 文件可解析，本地 `$ref` 可定位；4 个 fixture 的 source/asset 引用、六类 coverage、正常/部分/失败状态、ERR-002/006 映射、权利门控与处理器未执行标记静态核对通过。未运行标准 JSON Schema validator、真实图像解码/OCR/视觉模型或许可授权流程。
+- 验收边界：fixtures 是合成预期；真实图片解析、特征抽取和版权/许可边界执行尚无运行时证据。因此 TASK-IN-013 保持进行中，AC-001–AC-030 均未执行；产品架构、运行时、模型/依赖版本与许可未选定。
+- 证据：`contracts/style-reference.schema.json`、`contracts/style-reference.catalog.json`、`contracts/style-reference.fixtures.json`、`contracts/image-evidence.schema.json`；Excel“需求主表”`N52:P52`、“可执行任务”`L80:M80`；关联 `SEC-013/014`。
+
 ### TASK-IN-014
 
 - Requirement ID：IN-014；P0；矩阵中无前置任务。
