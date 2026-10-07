@@ -326,6 +326,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：更新既有 CNT-004、TASK-CNT-004 和 Assumption 数据对象状态/证据，不新增或删除需求、任务、对象或错误码；DEC-005 保持未开始。
 - 证据：contracts/assumption.schema.json、contracts/assumption.catalog.json、contracts/assumption.fixtures.json、contracts/evidence-conflict.fixtures.json、contracts/fact-constraint-set.fixtures.json、PROJECT_PLAN.md；Excel“需求主表”N59:P59、“可执行任务”L87:M87、“数据对象”I10:J10。
 
+### TASK-CNT-005
+
+- Requirement ID：CNT-005；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 AudienceProfile Draft 2020-12 契约、目录和三个正常/边界 fixture，覆盖显式受众上下文、数字/未决冲突/缺失事实并存，以及没有受众信息。
+- 字段边界：knowledge_level、roles、concerns、expected_actions 保留明确输入原文及顺序；逐字段记录 evidence_id、assumption_id 或 PresentationContext JSON Pointer。未知知识水平为 null，未知列表为空；不做角色刻板推断、不设知识等级/人群默认。
+- 事实保护：源数字不用于猜受众；CNT-003 未决冲突不由画像选择来源，missing fact 继续引用 CNT-001/ERR-009。AudienceProfile 只辅助内容深度和术语，不覆盖事实约束。
+- 静态核对：schema/catalog/fixtures JSON 可解析，schema 引用及目录文件引用可定位；3 个 fixture 对应 3 个 acceptance case，字段值/上下文路径、数值输入隔离、未决冲突和缺失事实引用静态对齐。未运行 JSON Schema 实例验证器、受众抽取器、语义校验器、运行时或 AC-001–AC-030。
+- 基线对齐：更新既有 CNT-005 与 TASK-CNT-005 状态和证据；矩阵未列 AudienceProfile 数据对象，本任务不新增/删除任何基线行，PresentationContext 对象状态不变。
+- 证据：contracts/audience-profile.schema.json、contracts/audience-profile.catalog.json、contracts/audience-profile.fixtures.json、contracts/fact-constraint-set.fixtures.json、contracts/evidence-conflict.fixtures.json；Excel“需求主表”N60:P60、“可执行任务”L88:M88。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

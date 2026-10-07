@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AudienceProfile 契约（CNT-005 草案）",
+  "description": "记录调用方或来源明确提供的受众知识水平、角色、关心点和预期行动；不基于身份、行业或主题刻板推断受众。",
+  "type": "object",
+  "required": [
+    "knowledge_level",
+    "roles",
+    "concerns",
+    "expected_actions",
+    "field_provenance"
+  ],
+  "properties": {
+    "knowledge_level": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1,
+      "description": "保留明确提供的知识水平原文；未提供为 null，不归一到未定义的等级量表。"
+    },
+    "roles": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "保留明确提供的受众角色与顺序；空数组表示当前没有记录项，不表示受众没有角色。"
+    },
+    "concerns": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "保留明确提供的关心点与顺序；不得从行业或角色自行推测。"
+    },
+    "expected_actions": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": "保留明确提出的预期行动；没有提供时为空数组。"
+    },
+    "field_provenance": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/field_provenance"
+      },
+      "description": "逐字段记录 SourceEvidence、Assumption 或 PresentationContext 原始路径。"
+    }
+  },
+  "$defs": {
+    "profile_field": {
+      "type": "string",
+      "enum": [
+        "knowledge_level",
+        "roles",
+        "concerns",
+        "expected_actions"
+      ]
+    },
+    "field_source_ref": {
+      "oneOf": [
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "evidence_id"
+          ],
+          "properties": {
+            "kind": {
+              "const": "source_evidence"
+            },
+            "evidence_id": {
+              "$ref": "object-id.schema.json#/$defs/evidence_id"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "assumption_id"
+          ],
+          "properties": {
+            "kind": {
+              "const": "assumption"
+            },
+            "assumption_id": {
+              "$ref": "object-id.schema.json#/$defs/assumption_id"
+            }
+          },
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "required": [
+            "kind",
+            "context_pointer"
+          ],
+          "properties": {
+            "kind": {
+              "const": "presentation_context"
+            },
+            "context_pointer": {
+              "type": "string",
+              "minLength": 1,
+              "pattern": "^/",
+              "description": "指向输入 PresentationContext 的 JSON Pointer。"
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "field_provenance": {
+      "type": "object",
+      "required": [
+        "field",
+        "source"
+      ],
+      "properties": {
+        "field": {
+          "$ref": "#/$defs/profile_field"
+        },
+        "source": {
+          "$ref": "#/$defs/field_source_ref"
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

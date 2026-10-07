@@ -1,0 +1,65 @@
+{
+  "document_type": "audience_profile_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-005",
+  "task_id": "TASK-CNT-005",
+  "data_object": "AudienceProfile",
+  "schema": "contracts/audience-profile.schema.json",
+  "fixtures": "contracts/audience-profile.fixtures.json",
+  "deliverable": "AudienceProfile",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "PDR para 398：记录受众知识水平、角色、关心点和预期行动，用于内容深度与术语。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第 60 行、任务第 88 行定义输入 SourceEvidence + PresentationContext、输出 AudienceProfile 及数字/冲突/缺失验收；数据对象第 11 行列 PresentationContext.audience。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "字段来源引用复用 evidence_id 与 assumption_id 既有格式。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "数字、来源冲突和关键事实缺失边界复用 CNT-001 上游静态案例，不将其内容解释为受众属性。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "冲突用例引用 CNT-003 未解决的 revenue_growth 冲突，确认画像构造不替 DEC-004 选择来源。"
+    }
+  ],
+  "field_rules": [
+    "AudienceProfile 仅输出 knowledge_level、roles、concerns、expected_actions 与逐字段 field_provenance；字段集合是本任务草案，因矩阵没有 AudienceProfile 独立数据对象行，不向基线新增行。",
+    "knowledge_level 保留调用方/来源的原文字面值；基线没有知识等级枚举或尺度，不建立默认等级或分类阈值。",
+    "roles、concerns、expected_actions 仅记录显式 PresentationContext、SourceEvidence 或 Assumption 支持的原始文字，保持顺序，不改写、不补齐、不去重；不依据年龄、职级、行业或主题刻板推断。",
+    "每个非空 profile 字段都要有一个或多个对应 field_provenance 项；来源为 evidence_id、assumption_id，或指向输入 PresentationContext 字段的 JSON Pointer。引用沿用既有 ID，不新造身份。",
+    "未提供 knowledge_level 时为 null，其他未提供列表为空；这些状态表示没有记录，不断言受众不存在该属性。不要静默套用 persona、角色或内容深度默认值。",
+    "SourceEvidence 中数字及单位、未解决 EvidenceConflict、missing fact 不映射成受众知识/关心点/行动；冲突留在 CNT-003，缺失事实按 CNT-001/ERR-009 处理。AudienceProfile 只能辅助内容深度和术语，不得改写事实约束。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-005-NORMAL-001",
+      "fixture_id": "CNT-005-NORMAL-001",
+      "purpose": "PresentationContext 明确给出四类受众信息，同时输入含有数值来源事实。",
+      "acceptance": "四个字段逐字保留并逐字段指向原上下文路径；不得从财务数值推导受众属性。"
+    },
+    {
+      "case_id": "CNT-005-CONFLICT-001",
+      "fixture_id": "CNT-005-CONFLICT-001",
+      "purpose": "数值、来源冲突及另一个关键事实缺失同时存在。",
+      "acceptance": "画像只保留明确给出的受众信息；8%/9% 冲突保持未决并引用 ERR-008，renewal_date 缺失仍由 ERR-009 表达。"
+    },
+    {
+      "case_id": "CNT-005-MISSING-001",
+      "fixture_id": "CNT-005-MISSING-001",
+      "purpose": "PresentationContext 没有受众信息。",
+      "acceptance": "knowledge_level 为 null、列表为空且 provenance 为空；不声称受众没有相应属性，不补造 persona。"
+    }
+  ],
+  "limits": [
+    "契约字段、知识等级分类和角色 taxonomy 未在需求基线中定义；该草案不代表产品字段已批准。",
+    "未运行 AudienceProfile 生成器、原文/JSON Pointer 解析或运行时语义校验；fixtures 是合成静态预期。",
+    "矩阵“数据对象”未列 AudienceProfile；此任务只更新既有 CNT-005/TASK-CNT-005 状态，不改变基线行数。"
+  ]
+}
