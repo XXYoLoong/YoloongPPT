@@ -40,8 +40,8 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - Requirement ID：GOV-002；P0；DEC-001；S02。
 - 状态：进行中。已建立语言/运行时无关的 TaskRoute schema 与八模式契约目录草案；每种模式都列有输入、流程、输出、独立保护策略和验收场景。另列 8 个常规路由场景与 1 个边界冲突场景。
 - 当前边界：Excel 的“数据对象”表列出 `RawTaskRequest`、`TaskSpec.route` 和 `RuntimeCapabilitySnapshot`，但未单列 `TaskRoute` 的正式字段定义。因此 `contracts/task-route.schema.json` 中的路由结果/trace 字段仍是待评审草案。运行时路由、候选生成算法、冲突优先级、与 `TaskSpec.route` 的正式版本关系及 P01–P05 实现映射尚未完成；不能据此宣称系统已支持八种模式。
-- 静态核验：目录含 8 个唯一模式，每个均有 input/flow/output/acceptance_case 与独立 protection_policy_id；决策场景含 8 个常规样例及 1 个边界冲突样例；schema 与目录可解析为 JSON。当前执行环境没有 `jsonschema` 包，未运行 JSON Schema 标准验证器，也未运行路由器测试。
-- 证据：`contracts/task-route.schema.json`、`contracts/task-route.catalog.json`；Excel“需求主表”`N3:P3`、“可执行任务”`L3:M3`、“决策链”`M2`、“0-1全链路”`G4:I4`。
+- 静态核验：目录含 8 个唯一模式，每个均有 input/flow/output/acceptance_case 与独立 protection_policy_id；新增 `contracts/task-route.fixtures.json`，为 8 个常规场景和 1 个边界冲突场景给出完整预期 TaskRoute，逐项保留路由理由、DEC-001 候选/选择依据和保护策略；fixture 与 catalog 的场景 ID、请求文本、预期 mode/policy 一致。JSON 解析及契约字段/模式/策略映射静态检查通过。当前没有运行 JSON Schema 标准验证器，也未运行路由器测试。
+- 证据：`contracts/task-route.schema.json`、`contracts/task-route.catalog.json`、`contracts/task-route.fixtures.json`；Excel“需求主表”`N3:P3`、“可执行任务”`L3:M3`、“决策链”`M2`、“0-1全链路”`G4:I4`。
 
 ### TASK-GOV-003
 

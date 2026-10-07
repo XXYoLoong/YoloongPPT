@@ -4,6 +4,7 @@
   "decision_id": "DEC-001",
   "lifecycle_refs": ["S00", "S01", "S02", "S03"],
   "schema": "contracts/task-route.schema.json",
+  "fixtures": "contracts/task-route.fixtures.json",
   "input_contract_ref": "contracts/prompt-input.schema.json#/$defs/raw_task_request",
   "input_basis": [
     "RawTaskRequest: raw_text, attachments, requested_mode, requested_outputs",
@@ -171,5 +172,6 @@
     "本目录和 schema 是契约草案及静态接受场景，不表示已经实现运行时路由。",
     "DEC-001 的候选生成算法、冲突优先级、各模式完整后续节点、TaskRoute 正式字段和与 TaskSpec.route 的版本化关系仍待需求/架构评审。",
     "S01 能力探测只记录运行时观测；不得据此决定产品语言、架构或依赖版本。"
-  ]
+  ],
+  "fixture_note": "静态契约样例含八种明确路由和一个需要澄清的范围冲突；不表示运行时路由已实现。"
 }
