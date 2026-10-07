@@ -3658,14 +3658,14 @@
         {
           "capability_id": "PPT-014",
           "backend_id": "PP-04",
-          "status": "Untested",
+          "status": "Partial",
           "version_ref": "PP-04",
           "version_state": "pinned",
           "evidence_refs": [
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint对象矩阵!H15",
-              "observed": "Untested"
+              "observed": "Partial"
             },
             {
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
@@ -3676,9 +3676,14 @@
               "source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
               "location": "PowerPoint后端!J5",
               "observed": "DocumentFormat.OpenXml 3.5.1 (MIT)；SDK 10.0.401（仅实验环境）"
+            },
+            {
+              "source": "research/poc/PP-04/artifacts/report.json",
+              "location": "image_round_trip",
+              "observed": "passed：嵌入式 PNG 可添加、读取并替换；relationship、content type、alt text、对象身份和 EMU bounds 保持，二进制 SHA-256 改变；OpenXmlValidator 0 错误。"
             }
           ],
-          "assessment_note": "PPT-014：本轮未测试，保持 Untested。候选实验依赖版本已固定；产品后端/运行时未选定。"
+          "assessment_note": "PPT-014：仅验证本 PoC 创建的 1x1 PNG 嵌入、关系读取和原位替换，故标记 Partial。裁切、contain/cover、旋转、透明度、压缩、链接图像、渲染及第三方既有图片对象仍未测试；产品后端/运行时未选定。"
         },
         {
           "capability_id": "PPT-014",

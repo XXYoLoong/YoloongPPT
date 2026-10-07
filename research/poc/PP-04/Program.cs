@@ -40,6 +40,7 @@ var preservation = CompareMasterLayoutThemeParts(fixturePath, outputPath);
 var semanticPreservation = CompareMasterLayoutThemePartsSemantically(fixturePath, outputPath);
 var validation = Validate(outputPath);
 var existingShapeMutation = RunExistingShapeMutation(fixturePath, artifacts);
+var imageRoundTrip = RunImageRoundTrip(fixturePath, artifacts);
 
 var invalidPath = Path.Combine(artifacts, "invalid-truncated.pptx");
 var fixtureBytes = File.ReadAllBytes(fixturePath);
@@ -75,7 +76,8 @@ var report = new
         revision = SourceRevision,
         sample_path = "src/pptx/templates/default.pptx",
         license = "MIT",
-        sha256 = fixtureHash
+        sha256 = fixtureHash,
+        poc_program_sha256 = Sha256File(Path.Combine(projectRoot, "Program.cs"))
     },
     input_inventory = inputInventory,
     normal_case = new
@@ -94,6 +96,7 @@ var report = new
         reused_layout_ref = outputInventory.FirstSlideLayoutRef
     },
     existing_deck_mutation = existingShapeMutation,
+    image_round_trip = imageRoundTrip,
     unknown_part_preservation = unknownPartTest,
     validation = new
     {
@@ -119,8 +122,9 @@ var report = new
         existing_shape_text_read_update = existingShapeMutation.Status,
         shape_geometry_emu_round_trip = existingShapeMutation.GeometryPreserved,
         autoshape_rectangle_fill_stroke = existingShapeMutation.Status,
+        embedded_image_add_replace_read = imageRoundTrip.Status,
         unknown_part_preservation = unknownPartTest.Status,
-        image_table_chart_notes_comments_transitions_animations = "untested",
+        table_chart_notes_comments_transitions_animations_media = "untested",
         rendering = "untested"
     },
     limitations = new[]
@@ -130,7 +134,8 @@ var report = new
         "Two slide layout XML part hashes changed during SDK serialization; the selected master/layout/theme parts were XML-structure-equivalent after normalizing namespace declarations, attribute order, and insignificant formatting whitespace.",
         "The editable-shape case mutates a shape created earlier in this PoC; editing a pre-populated third-party slide was not exercised.",
         "Only a rectangle with fixed fill/stroke and explicit EMU geometry was exercised; other AutoShape types, adjustments, and rotation remain untested.",
-        "Image/table/chart/notes/comments/transition/animation authoring and mutation were not exercised."
+        "The image case adds and replaces an embedded 1x1 PNG, then reopens and verifies its relationship, binary hash, alt text, and EMU bounds. Crop, contain/cover, rotation, transparency, compression, linked images, rendering, and broader image compatibility remain untested.",
+        "Table/chart/notes/comments/transition/animation/media authoring and mutation were not exercised."
     }
 };
 
@@ -146,6 +151,7 @@ Console.WriteLine(JsonSerializer.Serialize(new
     master_layout_theme_parts_byte_identical = preservation.all_equal,
     master_layout_theme_parts_semantically_equal = semanticPreservation.all_equal,
     existing_shape_mutation = existingShapeMutation.Status,
+    image_round_trip = imageRoundTrip.Status,
     unknown_part_preservation = unknownPartTest.Status,
     validation_error_count = validation.ErrorCount,
     mutation_validation_error_count = existingShapeMutation.ValidatorErrorCount,
@@ -429,6 +435,138 @@ static void UpdateShapeText(string path, string name, string text)
     slide.Save();
 }
 
+static ImageRoundTripResult RunImageRoundTrip(string fixture, string artifactDirectory)
+{
+    const string imageName = "YoloongPPT Embedded Image Probe";
+    const string altText = "One-pixel embedded PNG used to verify image relationships and replacement.";
+    const long expectedX = 914400L;
+    const long expectedY = 457200L;
+    const long expectedCx = 1828800L;
+    const long expectedCy = 914400L;
+    var originalBytes = Convert.FromBase64String("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR4nGNgYAAAAAMAASsJTYQAAAAASUVORK5CYII=");
+    var replacementBytes = Convert.FromBase64String("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADUlEQVR4nGP4z8AAAAMBAQDJ/pLvAAAAAElFTkSuQmCC");
+    var output = Path.Combine(artifactDirectory, "image-roundtrip.pptx");
+    File.Copy(fixture, output, overwrite: true);
+    AddSlideAndText(output, "Embedded image round trip", "The embedded PNG is replaced after the first save.");
+    AddEmbeddedImage(output, imageName, altText, originalBytes, expectedX, expectedY, expectedCx, expectedCy);
+
+    var before = ReadImageSnapshot(output, imageName);
+    ReplaceEmbeddedImage(output, imageName, replacementBytes);
+    var after = ReadImageSnapshot(output, imageName);
+    var validation = Validate(output);
+    var boundsPreserved = before.X == after.X && before.Y == after.Y &&
+        before.Cx == after.Cx && before.Cy == after.Cy &&
+        after.X == expectedX && after.Y == expectedY &&
+        after.Cx == expectedCx && after.Cy == expectedCy;
+    var identityPreserved = before.ShapeId == after.ShapeId &&
+        before.Name == after.Name && before.AltText == after.AltText &&
+        before.RelationshipId == after.RelationshipId;
+    var imageReplaced = before.ImageSha256 == Sha256Bytes(originalBytes) &&
+        after.ImageSha256 == Sha256Bytes(replacementBytes) &&
+        before.ImageSha256 != after.ImageSha256 &&
+        after.ContentType == "image/png";
+    var status = boundsPreserved && identityPreserved && imageReplaced && validation.ErrorCount == 0 ? "passed" : "failed";
+
+    return new ImageRoundTripResult(
+        status,
+        "A 1x1 PNG is embedded by this PoC, then replaced in place; this does not exercise crop/render behavior or a third-party image object.",
+        "fixtures/python-pptx-default.pptx",
+        "artifacts/image-roundtrip.pptx",
+        Sha256File(output),
+        imageName,
+        altText,
+        Sha256Bytes(originalBytes),
+        Sha256Bytes(replacementBytes),
+        before,
+        after,
+        boundsPreserved,
+        identityPreserved,
+        imageReplaced,
+        validation.ErrorCount,
+        validation.Errors);
+}
+
+static void AddEmbeddedImage(string path, string name, string altText, byte[] imageBytes, long x, long y, long cx, long cy)
+{
+    using var document = PresentationDocument.Open(path, isEditable: true);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the image round-trip case.");
+    var slide = slidePart.Slide ?? throw new InvalidDataException("Slide root is missing from the image test part.");
+    var shapeTree = slide.CommonSlideData?.ShapeTree
+        ?? throw new InvalidDataException("ShapeTree is missing from the image test slide.");
+    var imagePart = slidePart.AddImagePart(ImagePartType.Png);
+    using (var imageStream = new MemoryStream(imageBytes, writable: false))
+    {
+        imagePart.FeedData(imageStream);
+    }
+
+    var relationshipId = slidePart.GetIdOfPart(imagePart);
+    shapeTree.Append(new P.Picture(
+        new P.NonVisualPictureProperties(
+            new P.NonVisualDrawingProperties { Id = 4U, Name = name, Description = altText },
+            new P.NonVisualPictureDrawingProperties(new A.PictureLocks { NoChangeAspect = true }),
+            new P.ApplicationNonVisualDrawingProperties()),
+        new P.BlipFill(
+            new A.Blip { Embed = relationshipId },
+            new A.Stretch(new A.FillRectangle())),
+        new P.ShapeProperties(
+            new A.Transform2D(
+                new A.Offset { X = x, Y = y },
+                new A.Extents { Cx = cx, Cy = cy }),
+            new A.PresetGeometry(new A.AdjustValueList()) { Preset = A.ShapeTypeValues.Rectangle })));
+    slide.Save();
+}
+
+static void ReplaceEmbeddedImage(string path, string name, byte[] replacementBytes)
+{
+    using var document = PresentationDocument.Open(path, isEditable: true);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the image replacement case.");
+    var picture = slidePart.Slide?.CommonSlideData?.ShapeTree?.Elements<P.Picture>()
+        .SingleOrDefault(candidate => candidate.NonVisualPictureProperties?.NonVisualDrawingProperties?.Name?.Value == name)
+        ?? throw new InvalidDataException($"Picture {name} was not found.");
+    var relationshipId = picture.BlipFill?.Blip?.Embed?.Value
+        ?? throw new InvalidDataException($"Picture {name} has no embedded image relationship.");
+    var imagePart = slidePart.GetPartById(relationshipId) as ImagePart
+        ?? throw new InvalidDataException($"Picture {name} relationship does not resolve to an ImagePart.");
+    using var replacementStream = new MemoryStream(replacementBytes, writable: false);
+    imagePart.FeedData(replacementStream);
+}
+
+static ImageSnapshot ReadImageSnapshot(string path, string name)
+{
+    using var document = PresentationDocument.Open(path, isEditable: false);
+    var slidePart = document.PresentationPart?.SlideParts.SingleOrDefault()
+        ?? throw new InvalidDataException("Expected exactly one slide for the image snapshot case.");
+    var picture = slidePart.Slide?.CommonSlideData?.ShapeTree?.Elements<P.Picture>()
+        .SingleOrDefault(candidate => candidate.NonVisualPictureProperties?.NonVisualDrawingProperties?.Name?.Value == name)
+        ?? throw new InvalidDataException($"Picture {name} was not found.");
+    var drawingProperties = picture.NonVisualPictureProperties?.NonVisualDrawingProperties
+        ?? throw new InvalidDataException($"Picture {name} has no non-visual drawing properties.");
+    var transform = picture.ShapeProperties?.GetFirstChild<A.Transform2D>()
+        ?? throw new InvalidDataException($"Picture {name} has no geometry transform.");
+    var relationshipId = picture.BlipFill?.Blip?.Embed?.Value
+        ?? throw new InvalidDataException($"Picture {name} has no embedded image relationship.");
+    var imagePart = slidePart.GetPartById(relationshipId) as ImagePart
+        ?? throw new InvalidDataException($"Picture {name} relationship does not resolve to an ImagePart.");
+    using var imageStream = imagePart.GetStream(FileMode.Open, FileAccess.Read);
+    var imageSha256 = Convert.ToHexString(SHA256.HashData(imageStream)).ToLowerInvariant();
+
+    return new ImageSnapshot(
+        drawingProperties.Id?.Value,
+        drawingProperties.Name?.Value,
+        drawingProperties.Description?.Value,
+        relationshipId,
+        imagePart.ContentType,
+        imageSha256,
+        transform.Offset?.X?.Value,
+        transform.Offset?.Y?.Value,
+        transform.Extents?.Cx?.Value,
+        transform.Extents?.Cy?.Value);
+}
+
+static string Sha256Bytes(byte[] bytes) => Convert.ToHexString(SHA256.HashData(bytes)).ToLowerInvariant();
+
 static Dictionary<string, string> HashSelectedParts(string path)
 {
     using var file = File.OpenRead(path);
@@ -597,6 +735,36 @@ internal sealed record ShapeMutationResult(
     ShapeSnapshot After,
     bool GeometryPreserved,
     bool TextUpdated,
+    int ValidatorErrorCount,
+    string[] ValidatorErrors);
+
+internal sealed record ImageSnapshot(
+    uint? ShapeId,
+    string? Name,
+    string? AltText,
+    string RelationshipId,
+    string ContentType,
+    string ImageSha256,
+    long? X,
+    long? Y,
+    long? Cx,
+    long? Cy);
+
+internal sealed record ImageRoundTripResult(
+    string Status,
+    string TestScope,
+    string InputFile,
+    string OutputFile,
+    string OutputSha256,
+    string ImageName,
+    string AltText,
+    string OriginalImageSha256,
+    string ReplacementImageSha256,
+    ImageSnapshot Before,
+    ImageSnapshot After,
+    bool BoundsPreserved,
+    bool IdentityPreserved,
+    bool ImageReplaced,
     int ValidatorErrorCount,
     string[] ValidatorErrors);
 

@@ -21,7 +21,8 @@
     "revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
     "sample_path": "src/pptx/templates/default.pptx",
     "license": "MIT",
-    "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34"
+    "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
+    "poc_program_sha256": "e1ebc274a19b62fa35daa466fd9455b9b07f1311e1d2d8f2072b5035524d6acf"
   },
   "input_inventory": {
     "master_count": 1,
@@ -39,7 +40,7 @@
   "normal_case": {
     "status": "passed",
     "output_file": "artifacts/pp04-output.pptx",
-    "output_sha256": "117974be5a7685c71ad9763d79996fd448e9d0d99b10251e7ace8cc6f634a1f8",
+    "output_sha256": "7bc52c95980990b5d5f0bc38105ce0bbc3452a3e8971bd60f52d3f5c635863f4",
     "output_inventory": {
       "master_count": 1,
       "layout_count": 11,
@@ -73,7 +74,7 @@
     "test_scope": "The probe shape is created and saved by this PoC, then the deck is reopened and the same shape\u0027s text is changed; this is not a foreign populated template test.",
     "input_file": "fixtures/python-pptx-default.pptx",
     "output_file": "artifacts/existing-shape-mutation.pptx",
-    "output_sha256": "06cd2b57754de849d43bfa9f7e883eee7ac6d924273aab9c57f882680e1163bd",
+    "output_sha256": "a7459cae3e6b22eff28d468f016ac54f364c28f00731fc3ed1ec5f9e555f8669",
     "shape_name": "YoloongPPT Editable Probe",
     "before": {
       "shape_id": 4,
@@ -101,6 +102,46 @@
     },
     "geometry_preserved": true,
     "text_updated": true,
+    "validator_error_count": 0,
+    "validator_errors": []
+  },
+  "image_round_trip": {
+    "status": "passed",
+    "test_scope": "A 1x1 PNG is embedded by this PoC, then replaced in place; this does not exercise crop/render behavior or a third-party image object.",
+    "input_file": "fixtures/python-pptx-default.pptx",
+    "output_file": "artifacts/image-roundtrip.pptx",
+    "output_sha256": "8d9057ad132b7413ed83e8d6038a3faf573e8777c27a8cb412df0a616ee394cf",
+    "image_name": "YoloongPPT Embedded Image Probe",
+    "alt_text": "One-pixel embedded PNG used to verify image relationships and replacement.",
+    "original_image_sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b",
+    "replacement_image_sha256": "d3c936ebdd73f46e6422d5946044c99d524554082272019ab738800318b04892",
+    "before": {
+      "shape_id": 4,
+      "name": "YoloongPPT Embedded Image Probe",
+      "alt_text": "One-pixel embedded PNG used to verify image relationships and replacement.",
+      "relationship_id": "R1d86c0eb3fde42f0",
+      "content_type": "image/png",
+      "image_sha256": "d014edc031656dd8a5cb7740ed900d658ba3108ff6fcb977fc3ff4f758c10f0b",
+      "x": 914400,
+      "y": 457200,
+      "cx": 1828800,
+      "cy": 914400
+    },
+    "after": {
+      "shape_id": 4,
+      "name": "YoloongPPT Embedded Image Probe",
+      "alt_text": "One-pixel embedded PNG used to verify image relationships and replacement.",
+      "relationship_id": "R1d86c0eb3fde42f0",
+      "content_type": "image/png",
+      "image_sha256": "d3c936ebdd73f46e6422d5946044c99d524554082272019ab738800318b04892",
+      "x": 914400,
+      "y": 457200,
+      "cx": 1828800,
+      "cy": 914400
+    },
+    "bounds_preserved": true,
+    "identity_preserved": true,
+    "image_replaced": true,
     "validator_error_count": 0,
     "validator_errors": []
   },
@@ -139,8 +180,9 @@
     "existing_shape_text_read_update": "passed",
     "shape_geometry_emu_round_trip": true,
     "autoshape_rectangle_fill_stroke": "passed",
+    "embedded_image_add_replace_read": "passed",
     "unknown_part_preservation": "passed",
-    "image_table_chart_notes_comments_transitions_animations": "untested",
+    "table_chart_notes_comments_transitions_animations_media": "untested",
     "rendering": "untested"
   },
   "limitations": [
@@ -149,6 +191,7 @@
     "Two slide layout XML part hashes changed during SDK serialization; the selected master/layout/theme parts were XML-structure-equivalent after normalizing namespace declarations, attribute order, and insignificant formatting whitespace.",
     "The editable-shape case mutates a shape created earlier in this PoC; editing a pre-populated third-party slide was not exercised.",
     "Only a rectangle with fixed fill/stroke and explicit EMU geometry was exercised; other AutoShape types, adjustments, and rotation remain untested.",
-    "Image/table/chart/notes/comments/transition/animation authoring and mutation were not exercised."
+    "The image case adds and replaces an embedded 1x1 PNG, then reopens and verifies its relationship, binary hash, alt text, and EMU bounds. Crop, contain/cover, rotation, transparency, compression, linked images, rendering, and broader image compatibility remain untested.",
+    "Table/chart/notes/comments/transition/animation/media authoring and mutation were not exercised."
   ]
 }
