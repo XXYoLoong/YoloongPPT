@@ -8,40 +8,458 @@
       "kind": "normal",
       "input": {
         "record_type": "source_bundle_input",
-        "source_priority_policy": { "status": "unresolved", "decision_id": "DEC-004", "task_id": "TASK-DEC-004", "precedence_source_ids": [], "unresolved_reason": "DEC-004 未完成；矩阵前置 RES-031 尚未解决。" },
-        "dedup_policy": { "mode": "hash_candidates_only", "keep_all_sources": true },
+        "source_priority_policy": {
+          "status": "unresolved",
+          "decision_id": "DEC-004",
+          "task_id": "TASK-DEC-004",
+          "precedence_source_ids": [],
+          "unresolved_reason": "DEC-004 未完成；矩阵前置 RES-031 尚未解决。"
+        },
+        "dedup_policy": {
+          "mode": "hash_candidates_only",
+          "keep_all_sources": true
+        },
         "sources": [
-          { "source_id": "source_11111111-1111-4111-8111-111111111111", "input_order": 0, "kind": "text", "locator": null, "raw_text": "Revenue grew 8% year over year.", "locator_redaction": "unavailable", "display_name": "user text", "raw_asset_refs": [], "content_sha256": null, "priority_rank": null, "claims": [{ "claim_id": "claim-revenue-8", "fact_key": "revenue_growth", "value": 0.08, "source_anchor": "text:paragraph/1" }] },
-          { "source_id": "source_22222222-2222-4222-8222-222222222222", "input_order": 1, "kind": "file", "locator": "reports/current.pdf", "raw_text": null, "locator_redaction": "not_required", "display_name": "current.pdf", "raw_asset_refs": ["asset_22222222-2222-4222-8222-222222222222"], "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "priority_rank": null, "claims": [{ "claim_id": "claim-revenue-9-a", "fact_key": "revenue_growth", "value": 0.09, "source_anchor": "page:2/paragraph:4" }] },
-          { "source_id": "source_33333333-3333-4333-8333-333333333333", "input_order": 2, "kind": "file", "locator": "reports/current-copy.pdf", "raw_text": null, "locator_redaction": "not_required", "display_name": "current-copy.pdf", "raw_asset_refs": ["asset_33333333-3333-4333-8333-333333333333"], "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "priority_rank": null, "claims": [{ "claim_id": "claim-revenue-9-b", "fact_key": "revenue_growth", "value": 0.09, "source_anchor": "page:2/paragraph:4" }] }
+          {
+            "source_id": "source_11111111-1111-4111-8111-111111111111",
+            "input_order": 0,
+            "kind": "text",
+            "locator": null,
+            "raw_text": "Revenue grew 8% year over year.",
+            "locator_redaction": "unavailable",
+            "display_name": "user text",
+            "raw_asset_refs": [],
+            "content_sha256": null,
+            "priority_rank": null,
+            "claims": [
+              {
+                "claim_id": "claim-revenue-8",
+                "fact_key": "revenue_growth",
+                "value": 0.08,
+                "source_anchor": {
+                  "source_id": "source_11111111-1111-4111-8111-111111111111",
+                  "asset_id": null,
+                  "native_locator": "text:paragraph/1",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 13,
+                    "end_char": 15,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          },
+          {
+            "source_id": "source_22222222-2222-4222-8222-222222222222",
+            "input_order": 1,
+            "kind": "file",
+            "locator": "reports/current.pdf",
+            "raw_text": null,
+            "locator_redaction": "not_required",
+            "display_name": "current.pdf",
+            "raw_asset_refs": [
+              "asset_22222222-2222-4222-8222-222222222222"
+            ],
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "priority_rank": null,
+            "claims": [
+              {
+                "claim_id": "claim-revenue-9-a",
+                "fact_key": "revenue_growth",
+                "value": 0.09,
+                "source_anchor": {
+                  "source_id": "source_22222222-2222-4222-8222-222222222222",
+                  "asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                  "native_locator": "page:2/paragraph:4",
+                  "locator": {
+                    "kind": "pdf_element",
+                    "page_index": null,
+                    "page_number": 2,
+                    "element_index": null,
+                    "object_kind": "text",
+                    "row_index": null,
+                    "cell_index": null
+                  },
+                  "locator_status": "partial",
+                  "reason": {
+                    "code": "native_locator_not_normalized",
+                    "summary": "保留旧定位文本 page:2/paragraph:4；原文未定义段落索引基准，未猜测转换。"
+                  }
+                }
+              }
+            ]
+          },
+          {
+            "source_id": "source_33333333-3333-4333-8333-333333333333",
+            "input_order": 2,
+            "kind": "file",
+            "locator": "reports/current-copy.pdf",
+            "raw_text": null,
+            "locator_redaction": "not_required",
+            "display_name": "current-copy.pdf",
+            "raw_asset_refs": [
+              "asset_33333333-3333-4333-8333-333333333333"
+            ],
+            "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+            "priority_rank": null,
+            "claims": [
+              {
+                "claim_id": "claim-revenue-9-b",
+                "fact_key": "revenue_growth",
+                "value": 0.09,
+                "source_anchor": {
+                  "source_id": "source_33333333-3333-4333-8333-333333333333",
+                  "asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                  "native_locator": "page:2/paragraph:4",
+                  "locator": {
+                    "kind": "pdf_element",
+                    "page_index": null,
+                    "page_number": 2,
+                    "element_index": null,
+                    "object_kind": "text",
+                    "row_index": null,
+                    "cell_index": null
+                  },
+                  "locator_status": "partial",
+                  "reason": {
+                    "code": "native_locator_not_normalized",
+                    "summary": "保留旧定位文本 page:2/paragraph:4；原文未定义段落索引基准，未猜测转换。"
+                  }
+                }
+              }
+            ]
+          }
         ]
       },
       "expected_result": {
-        "record_type": "source_bundle_result", "status": "partial",
+        "record_type": "source_bundle_result",
+        "status": "partial",
         "bundle": {
           "model_type": "SourceBundle",
-          "source_priority_policy": { "status": "unresolved", "decision_id": "DEC-004", "task_id": "TASK-DEC-004", "precedence_source_ids": [], "unresolved_reason": "DEC-004 未完成；不得使用全局来源顺序自动胜出。" },
-          "dedup_policy": { "mode": "hash_candidates_only", "keep_all_sources": true },
+          "source_priority_policy": {
+            "status": "unresolved",
+            "decision_id": "DEC-004",
+            "task_id": "TASK-DEC-004",
+            "precedence_source_ids": [],
+            "unresolved_reason": "DEC-004 未完成；不得使用全局来源顺序自动胜出。"
+          },
+          "dedup_policy": {
+            "mode": "hash_candidates_only",
+            "keep_all_sources": true
+          },
           "sources": [
-            { "source_id": "source_11111111-1111-4111-8111-111111111111", "input_order": 0, "kind": "text", "locator": null, "raw_text": "Revenue grew 8% year over year.", "locator_redaction": "unavailable", "display_name": "user text", "raw_asset_refs": [], "content_sha256": null, "priority_rank": null, "claims": [{ "claim_id": "claim-revenue-8", "fact_key": "revenue_growth", "value": 0.08, "source_anchor": "text:paragraph/1" }] },
-            { "source_id": "source_22222222-2222-4222-8222-222222222222", "input_order": 1, "kind": "file", "locator": "reports/current.pdf", "raw_text": null, "locator_redaction": "not_required", "display_name": "current.pdf", "raw_asset_refs": ["asset_22222222-2222-4222-8222-222222222222"], "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "priority_rank": null, "claims": [{ "claim_id": "claim-revenue-9-a", "fact_key": "revenue_growth", "value": 0.09, "source_anchor": "page:2/paragraph:4" }] },
-            { "source_id": "source_33333333-3333-4333-8333-333333333333", "input_order": 2, "kind": "file", "locator": "reports/current-copy.pdf", "raw_text": null, "locator_redaction": "not_required", "display_name": "current-copy.pdf", "raw_asset_refs": ["asset_33333333-3333-4333-8333-333333333333"], "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "priority_rank": null, "claims": [{ "claim_id": "claim-revenue-9-b", "fact_key": "revenue_growth", "value": 0.09, "source_anchor": "page:2/paragraph:4" }] }
+            {
+              "source_id": "source_11111111-1111-4111-8111-111111111111",
+              "input_order": 0,
+              "kind": "text",
+              "locator": null,
+              "raw_text": "Revenue grew 8% year over year.",
+              "locator_redaction": "unavailable",
+              "display_name": "user text",
+              "raw_asset_refs": [],
+              "content_sha256": null,
+              "priority_rank": null,
+              "claims": [
+                {
+                  "claim_id": "claim-revenue-8",
+                  "fact_key": "revenue_growth",
+                  "value": 0.08,
+                  "source_anchor": {
+                    "source_id": "source_11111111-1111-4111-8111-111111111111",
+                    "asset_id": null,
+                    "native_locator": "text:paragraph/1",
+                    "locator": {
+                      "kind": "text_span",
+                      "segment_index": 0,
+                      "start_char": 13,
+                      "end_char": 15,
+                      "offset_unit": "unicode_code_points"
+                    },
+                    "locator_status": "located",
+                    "reason": null
+                  }
+                }
+              ]
+            },
+            {
+              "source_id": "source_22222222-2222-4222-8222-222222222222",
+              "input_order": 1,
+              "kind": "file",
+              "locator": "reports/current.pdf",
+              "raw_text": null,
+              "locator_redaction": "not_required",
+              "display_name": "current.pdf",
+              "raw_asset_refs": [
+                "asset_22222222-2222-4222-8222-222222222222"
+              ],
+              "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "priority_rank": null,
+              "claims": [
+                {
+                  "claim_id": "claim-revenue-9-a",
+                  "fact_key": "revenue_growth",
+                  "value": 0.09,
+                  "source_anchor": {
+                    "source_id": "source_22222222-2222-4222-8222-222222222222",
+                    "asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                    "native_locator": "page:2/paragraph:4",
+                    "locator": {
+                      "kind": "pdf_element",
+                      "page_index": null,
+                      "page_number": 2,
+                      "element_index": null,
+                      "object_kind": "text",
+                      "row_index": null,
+                      "cell_index": null
+                    },
+                    "locator_status": "partial",
+                    "reason": {
+                      "code": "native_locator_not_normalized",
+                      "summary": "保留旧定位文本 page:2/paragraph:4；原文未定义段落索引基准，未猜测转换。"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "source_id": "source_33333333-3333-4333-8333-333333333333",
+              "input_order": 2,
+              "kind": "file",
+              "locator": "reports/current-copy.pdf",
+              "raw_text": null,
+              "locator_redaction": "not_required",
+              "display_name": "current-copy.pdf",
+              "raw_asset_refs": [
+                "asset_33333333-3333-4333-8333-333333333333"
+              ],
+              "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "priority_rank": null,
+              "claims": [
+                {
+                  "claim_id": "claim-revenue-9-b",
+                  "fact_key": "revenue_growth",
+                  "value": 0.09,
+                  "source_anchor": {
+                    "source_id": "source_33333333-3333-4333-8333-333333333333",
+                    "asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                    "native_locator": "page:2/paragraph:4",
+                    "locator": {
+                      "kind": "pdf_element",
+                      "page_index": null,
+                      "page_number": 2,
+                      "element_index": null,
+                      "object_kind": "text",
+                      "row_index": null,
+                      "cell_index": null
+                    },
+                    "locator_status": "partial",
+                    "reason": {
+                      "code": "native_locator_not_normalized",
+                      "summary": "保留旧定位文本 page:2/paragraph:4；原文未定义段落索引基准，未猜测转换。"
+                    }
+                  }
+                }
+              ]
+            }
           ],
-          "duplicate_groups": [{ "group_id": "duplicate-candidate-1", "basis": "sha256_match", "status": "candidate", "source_ids": ["source_22222222-2222-4222-8222-222222222222", "source_33333333-3333-4333-8333-333333333333"], "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "canonical_source_id": null }],
-          "conflicts": [{ "conflict_id": "conflict-revenue-growth", "fact_key": "revenue_growth", "claims": [{ "source_id": "source_11111111-1111-4111-8111-111111111111", "claim_id": "claim-revenue-8", "value": 0.08, "source_anchor": "text:paragraph/1" }, { "source_id": "source_22222222-2222-4222-8222-222222222222", "claim_id": "claim-revenue-9-a", "value": 0.09, "source_anchor": "page:2/paragraph:4" }, { "source_id": "source_33333333-3333-4333-8333-333333333333", "claim_id": "claim-revenue-9-b", "value": 0.09, "source_anchor": "page:2/paragraph:4" }], "resolution_status": "unresolved", "selected_source_id": null, "merge_summary": null, "decision_ref": "DEC-004", "unresolved_reason": "不同来源的 revenue_growth 值冲突，且无经确认的来源优先级或用户选择。" }]
+          "duplicate_groups": [
+            {
+              "group_id": "duplicate-candidate-1",
+              "basis": "sha256_match",
+              "status": "candidate",
+              "source_ids": [
+                "source_22222222-2222-4222-8222-222222222222",
+                "source_33333333-3333-4333-8333-333333333333"
+              ],
+              "content_sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+              "canonical_source_id": null
+            }
+          ],
+          "conflicts": [
+            {
+              "conflict_id": "conflict-revenue-growth",
+              "fact_key": "revenue_growth",
+              "claims": [
+                {
+                  "source_id": "source_11111111-1111-4111-8111-111111111111",
+                  "claim_id": "claim-revenue-8",
+                  "value": 0.08,
+                  "source_anchor": {
+                    "source_id": "source_11111111-1111-4111-8111-111111111111",
+                    "asset_id": null,
+                    "native_locator": "text:paragraph/1",
+                    "locator": {
+                      "kind": "text_span",
+                      "segment_index": 0,
+                      "start_char": 13,
+                      "end_char": 15,
+                      "offset_unit": "unicode_code_points"
+                    },
+                    "locator_status": "located",
+                    "reason": null
+                  }
+                },
+                {
+                  "source_id": "source_22222222-2222-4222-8222-222222222222",
+                  "claim_id": "claim-revenue-9-a",
+                  "value": 0.09,
+                  "source_anchor": {
+                    "source_id": "source_22222222-2222-4222-8222-222222222222",
+                    "asset_id": "asset_22222222-2222-4222-8222-222222222222",
+                    "native_locator": "page:2/paragraph:4",
+                    "locator": {
+                      "kind": "pdf_element",
+                      "page_index": null,
+                      "page_number": 2,
+                      "element_index": null,
+                      "object_kind": "text",
+                      "row_index": null,
+                      "cell_index": null
+                    },
+                    "locator_status": "partial",
+                    "reason": {
+                      "code": "native_locator_not_normalized",
+                      "summary": "保留旧定位文本 page:2/paragraph:4；原文未定义段落索引基准，未猜测转换。"
+                    }
+                  }
+                },
+                {
+                  "source_id": "source_33333333-3333-4333-8333-333333333333",
+                  "claim_id": "claim-revenue-9-b",
+                  "value": 0.09,
+                  "source_anchor": {
+                    "source_id": "source_33333333-3333-4333-8333-333333333333",
+                    "asset_id": "asset_33333333-3333-4333-8333-333333333333",
+                    "native_locator": "page:2/paragraph:4",
+                    "locator": {
+                      "kind": "pdf_element",
+                      "page_index": null,
+                      "page_number": 2,
+                      "element_index": null,
+                      "object_kind": "text",
+                      "row_index": null,
+                      "cell_index": null
+                    },
+                    "locator_status": "partial",
+                    "reason": {
+                      "code": "native_locator_not_normalized",
+                      "summary": "保留旧定位文本 page:2/paragraph:4；原文未定义段落索引基准，未猜测转换。"
+                    }
+                  }
+                }
+              ],
+              "resolution_status": "unresolved",
+              "selected_source_id": null,
+              "merge_summary": null,
+              "decision_ref": "DEC-004",
+              "unresolved_reason": "不同来源的 revenue_growth 值冲突，且无经确认的来源优先级或用户选择。"
+            }
+          ]
         },
-        "coverage": [{ "feature": "source_identity", "status": "complete", "reason": null }, { "feature": "priority", "status": "partial", "reason": "DEC-004 未决；没有来源被默认选中。" }, { "feature": "conflict_detection", "status": "partial", "reason": "冲突被保留，等待用户/决策策略。" }, { "feature": "deduplication", "status": "partial", "reason": "SHA-256 相同仅形成候选，未做字节级比对或删除来源。" }, { "feature": "raw_asset_refs", "status": "complete", "reason": null }], "errors": []
+        "coverage": [
+          {
+            "feature": "source_identity",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "priority",
+            "status": "partial",
+            "reason": "DEC-004 未决；没有来源被默认选中。"
+          },
+          {
+            "feature": "conflict_detection",
+            "status": "partial",
+            "reason": "冲突被保留，等待用户/决策策略。"
+          },
+          {
+            "feature": "deduplication",
+            "status": "partial",
+            "reason": "SHA-256 相同仅形成候选，未做字节级比对或删除来源。"
+          },
+          {
+            "feature": "raw_asset_refs",
+            "status": "complete",
+            "reason": null
+          },
+          {
+            "feature": "source_anchors",
+            "status": "partial",
+            "reason": "文本范围已规范化；合成 PDF 段落索引基准未声明，原生定位保留并标为 partial。"
+          }
+        ],
+        "errors": []
       },
       "verification_note": "所有输入来源都保留；示例 hash 与事实值仅为合成占位，不是实际文件解析结果。"
     },
     {
       "fixture_id": "IN-014-BOUNDARY-001",
       "kind": "boundary",
-      "input": { "record_type": "source_bundle_input", "source_priority_policy": { "status": "unresolved", "decision_id": "DEC-004", "task_id": "TASK-DEC-004", "precedence_source_ids": [], "unresolved_reason": "DEC-004 未完成。" }, "dedup_policy": { "mode": "hash_candidates_only", "keep_all_sources": true }, "sources": [
-        { "source_id": "source_44444444-4444-4444-8444-444444444444", "input_order": 0, "kind": "text", "locator": null, "raw_text": "first", "locator_redaction": "unavailable", "display_name": "text A", "raw_asset_refs": [], "content_sha256": null, "priority_rank": null, "claims": [] },
-        { "source_id": "source_44444444-4444-4444-8444-444444444444", "input_order": 1, "kind": "text", "locator": null, "raw_text": "second", "locator_redaction": "unavailable", "display_name": "text B", "raw_asset_refs": [], "content_sha256": null, "priority_rank": null, "claims": [] }
-      ] },
-      "expected_result": { "record_type": "source_bundle_result", "status": "failed", "bundle": null, "coverage": [{ "feature": "source_identity", "status": "failed", "reason": "输入中 source_id 重复，无法无歧义追溯。" }], "errors": [{ "code": "SOURCE_ID_DUPLICATE", "message": "多个输入来源使用相同 source_id。", "source_id": "source_44444444-4444-4444-8444-444444444444" }] },
+      "input": {
+        "record_type": "source_bundle_input",
+        "source_priority_policy": {
+          "status": "unresolved",
+          "decision_id": "DEC-004",
+          "task_id": "TASK-DEC-004",
+          "precedence_source_ids": [],
+          "unresolved_reason": "DEC-004 未完成。"
+        },
+        "dedup_policy": {
+          "mode": "hash_candidates_only",
+          "keep_all_sources": true
+        },
+        "sources": [
+          {
+            "source_id": "source_44444444-4444-4444-8444-444444444444",
+            "input_order": 0,
+            "kind": "text",
+            "locator": null,
+            "raw_text": "first",
+            "locator_redaction": "unavailable",
+            "display_name": "text A",
+            "raw_asset_refs": [],
+            "content_sha256": null,
+            "priority_rank": null,
+            "claims": []
+          },
+          {
+            "source_id": "source_44444444-4444-4444-8444-444444444444",
+            "input_order": 1,
+            "kind": "text",
+            "locator": null,
+            "raw_text": "second",
+            "locator_redaction": "unavailable",
+            "display_name": "text B",
+            "raw_asset_refs": [],
+            "content_sha256": null,
+            "priority_rank": null,
+            "claims": []
+          }
+        ]
+      },
+      "expected_result": {
+        "record_type": "source_bundle_result",
+        "status": "failed",
+        "bundle": null,
+        "coverage": [
+          {
+            "feature": "source_identity",
+            "status": "failed",
+            "reason": "输入中 source_id 重复，无法无歧义追溯。"
+          }
+        ],
+        "errors": [
+          {
+            "code": "SOURCE_ID_DUPLICATE",
+            "message": "多个输入来源使用相同 source_id。",
+            "source_id": "source_44444444-4444-4444-8444-444444444444"
+          }
+        ]
+      },
       "verification_note": "拒绝重复来源身份，不合并或覆盖两个输入文本。"
     }
   ],

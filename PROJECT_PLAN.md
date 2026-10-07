@@ -266,6 +266,7 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：所有来源内容、哈希及冲突值均为合成预期；未运行真实文件/URL/text 解析、优先级决策、冲突检测器或去重引擎。因此 TASK-IN-014 保持进行中，AC-001–AC-030 均未执行。
 - 基线对齐：任务表已列 SourceBundle 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-014/TASK-IN-014，不增删需求、任务或数据对象行。
 - 证据：contracts/source-bundle.schema.json、contracts/source-bundle.catalog.json、contracts/source-bundle.fixtures.json；Excel“需求主表”N53:P53、“可执行任务”L81:M81。
+- IN-016 类型对齐：source_claim 与 conflict claim 的来源锚点改用结构化 SourceAnchor；旧 PDF 定位保留原始字符串并标记 partial，不推测段落索引基准。
 
 ### TASK-IN-015
 
@@ -276,6 +277,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核对：JSON 可解析，schema 外部 ID 引用及 catalog 文件引用可定位；正常 fixture 为 ready，六项边界 fixture 均有结构化问题，错误码和 issue 引用一致。未运行 JSON Schema 实例验证器、真实解析器、加密探测、签名识别、解压预算检查或 AC-001–AC-030。
 - 基线对齐：任务输出为 InputIssue[]；“数据对象”表无 InputIssue 行，本任务不增删需求、任务或数据对象。
 - 证据：contracts/input-issue.schema.json、contracts/input-issue.catalog.json、contracts/input-issue.fixtures.json；Excel“需求主表”N54:P54、“可执行任务”L82:M82。
+
+### TASK-IN-016
+
+- Requirement ID：IN-016；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 SourceAnchor Draft 2020-12 契约、目录与正常/边界预期 fixture，覆盖文本、DOCX、PDF、XLSX/CSV、结构化文件、图片、URL 与 PPTX 定位。
+- 统一锚点信封保留 source_id、asset_id、原生定位文本、定位联合体和 located/partial/unavailable 状态；未知页码、未抓取 URL、索引基准不明和 parser failure 各自有结构化原因。格式专属原始 anchor schema 保持原职责；SourceBundle claim/conflict claim 已引用统一对象。
+- 错误边界：实际解析器部分失败复用矩阵 ERR-006/PARSE_PARTIAL；未测页码、未抓取 URL 和未规范化定位使用 SourceAnchor 局部 reason，不新增全局错误码。旧 IN-014 PDF 定位未声明索引基准，原文保留并标 partial。
+- 静态核对：2 个 schema 中 51 个引用可定位；正常 fixture 含 8 种 locator，边界 fixture 含 partial/unavailable 及 ERR-006。SourceBundle 输入、结果和冲突 claim 的 anchor 均为对象且 source_id/asset_id 对齐；未运行 JSON Schema 实例验证器、真实解析器、网页抓取或 AC-001–AC-030。
+- 基线对齐：任务输出为 SourceAnchor；“数据对象”表无同名行，本任务不增删需求、任务或数据对象行。
+- 证据：contracts/source-anchor.schema.json、contracts/source-anchor.catalog.json、contracts/source-anchor.fixtures.json、contracts/source-bundle.schema.json/catalog.json/fixtures.json；Excel“需求主表”N55:P55、“可执行任务”L83:M83。
 
 ### TASK-GOV-009
 

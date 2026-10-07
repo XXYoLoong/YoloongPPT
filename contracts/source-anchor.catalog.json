@@ -1,0 +1,76 @@
+{
+  "document_type": "source_anchor_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-016",
+  "task_id": "TASK-IN-016",
+  "schema": "contracts/source-anchor.schema.json",
+  "fixtures": "contracts/source-anchor.fixtures.json",
+  "deliverable": "SourceAnchor[]",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "IN-016 要求进入 PPT 的事实、数字、引用与图表数据尽量保留页、段、表、单元格或 URL 定位。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "IN-016/TASK-IN-016 的 SourceAnchor 输出与正常、边界、解析失败验收。"
+    },
+    {
+      "url": "contracts/docx-evidence.schema.json",
+      "supports": "现有格式级 source_anchor 定义及定位字段约定。"
+    },
+    {
+      "url": "contracts/pdf-evidence.schema.json",
+      "supports": "现有格式级 source_anchor 定义及定位字段约定。"
+    },
+    {
+      "url": "contracts/tabular-evidence.schema.json",
+      "supports": "现有格式级 source_anchor 定义及定位字段约定。"
+    },
+    {
+      "url": "contracts/structured-evidence.schema.json",
+      "supports": "现有格式级 source_anchor 定义及定位字段约定。"
+    },
+    {
+      "url": "contracts/image-evidence.schema.json",
+      "supports": "现有格式级 source_anchor 定义及定位字段约定。"
+    },
+    {
+      "url": "contracts/imported-deck.schema.json",
+      "supports": "现有格式级 source_anchor 定义及定位字段约定。"
+    },
+    {
+      "url": "contracts/fallback-record.catalog.json",
+      "supports": "解析部分失败复用 ERR-006/PARSE_PARTIAL；局部 locator reason 不冒充全局 ErrorFallback。"
+    }
+  ],
+  "field_rules": [
+    "每个 SourceAnchor 绑定 source_id；文件来源另绑定 asset_id，文本和 URL 等无文件资产时 asset_id 为 null。source identity 必须与所属 SourceBundle claim 一致。",
+    "locator 为按来源类型区分的结构化联合体，支持纯文本范围、DOCX 逻辑位置/PDF 页和元素、XLSX/CSV 单元格、JSON/YAML/XML 节点、图像区域、URL 及 PPTX 包部件；统一信封不抹平格式级字段。",
+    "原始格式 anchor 放入 native_locator 保留；无法可靠转换的索引必须标 partial 并保留原文和原因，不猜测 0/1 基准、物理分页或内容位置。DOCX 逻辑段落定位与物理页码是两个独立维度。",
+    "locator_status=located 表示当前 locator 可定位源内容；partial 表示定位不完整；unavailable 表示没有可用 locator。partial/unavailable 必须附结构化 reason.code 与 summary。",
+    "URL 必须先移除凭据和敏感 query 再写入 redacted_url/native_locator；retrieval_status 单独说明是否抓取。锚点记录 URL 不表示网络抓取已发生。",
+    "ERR-006/PARSE_PARTIAL 仅用于解析器实际部分失败；未抓取、页码未测或未归一化等状态以 locator reason 表示，不伪造全局错误码。",
+    "不同格式契约中的 source_anchor 保持格式级职责；本契约定义跨业务事实和 SourceBundle claim 使用的规范化 SourceAnchor。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "IN-016-NORMAL-001",
+      "fixture_id": "IN-016-NORMAL-001",
+      "purpose": "覆盖文本、DOCX、PDF、表格、结构化文件、图像、URL 与 PPTX 来源的规范化定位。",
+      "acceptance": "source_id/asset_id 保留；有定位的 anchors 可追溯；DOCX 页码未渲染时单独标 pending；URL 地址可记录但不表示已抓取。"
+    },
+    {
+      "case_id": "IN-016-BOUNDARY-001",
+      "fixture_id": "IN-016-BOUNDARY-001",
+      "purpose": "覆盖 DOCX 页码未测量、URL 未抓取和解析器部分失败。",
+      "acceptance": "未知位置明确 partial/unavailable 并有结构化 reason；真实解析失败复用 ERR-006/PARSE_PARTIAL；原生 locator 和 source identity 不丢失。"
+    }
+  ],
+  "limits": [
+    "本契约和 fixtures 为静态预期，不实现 DOCX/PDF/XLSX/CSV/图片/网页/PPTX 解析器或 locator 映射器。",
+    "fixtures 中所有来源、坐标、URL、页码和解析错误均为合成；没有抓取网页或读取真实业务来源。",
+    "“数据对象”表未列 SourceAnchor；本任务不增删基线的需求、任务或数据对象行。",
+    "AC-001–AC-030 未执行。"
+  ]
+}

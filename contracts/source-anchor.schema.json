@@ -1,0 +1,952 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SourceAnchor 契约（IN-016 草案）",
+  "description": "统一包裹源身份与格式定位，保留原生定位文本；物理页码、未抓取 URL、解析失败等不确定性显式记录。",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/source_anchor"
+    },
+    {
+      "$ref": "#/$defs/source_anchor_result"
+    }
+  ],
+  "$defs": {
+    "source_id": {
+      "$ref": "object-id.schema.json#/$defs/source_id"
+    },
+    "asset_id": {
+      "$ref": "object-id.schema.json#/$defs/asset_id"
+    },
+    "locator_reason": {
+      "type": "object",
+      "required": [
+        "code",
+        "summary"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "enum": [
+            "page_not_measured",
+            "source_not_fetched",
+            "native_locator_not_normalized",
+            "parser_failure",
+            "renderer_unavailable",
+            "unsupported_locator",
+            "source_missing",
+            "unknown"
+          ]
+        },
+        "summary": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_anchor": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "asset_id",
+        "native_locator",
+        "locator",
+        "locator_status",
+        "reason"
+      ],
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/source_id"
+        },
+        "asset_id": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/asset_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "native_locator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locator": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/text_span_locator"
+            },
+            {
+              "$ref": "#/$defs/docx_block_locator"
+            },
+            {
+              "$ref": "#/$defs/pdf_element_locator"
+            },
+            {
+              "$ref": "#/$defs/tabular_cell_locator"
+            },
+            {
+              "$ref": "#/$defs/structured_node_locator"
+            },
+            {
+              "$ref": "#/$defs/image_region_locator"
+            },
+            {
+              "$ref": "#/$defs/web_resource_locator"
+            },
+            {
+              "$ref": "#/$defs/presentation_part_locator"
+            },
+            {
+              "$ref": "#/$defs/unavailable_locator"
+            }
+          ]
+        },
+        "locator_status": {
+          "type": "string",
+          "enum": [
+            "located",
+            "partial",
+            "unavailable"
+          ]
+        },
+        "reason": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/locator_reason"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "locator_status": {
+                "const": "located"
+              }
+            },
+            "required": [
+              "locator_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "type": "null"
+              },
+              "locator": {
+                "not": {
+                  "properties": {
+                    "kind": {
+                      "const": "unavailable"
+                    }
+                  },
+                  "required": [
+                    "kind"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "locator_status": {
+                "enum": [
+                  "partial",
+                  "unavailable"
+                ]
+              }
+            },
+            "required": [
+              "locator_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "$ref": "#/$defs/locator_reason"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "locator": {
+                "properties": {
+                  "kind": {
+                    "const": "unavailable"
+                  }
+                },
+                "required": [
+                  "kind"
+                ]
+              }
+            },
+            "required": [
+              "locator"
+            ]
+          },
+          "then": {
+            "properties": {
+              "locator_status": {
+                "const": "unavailable"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "locator_status": {
+                "const": "unavailable"
+              }
+            },
+            "required": [
+              "locator_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "locator": {
+                "properties": {
+                  "kind": {
+                    "const": "unavailable"
+                  }
+                },
+                "required": [
+                  "kind"
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "text_span_locator": {
+      "type": "object",
+      "required": [
+        "kind",
+        "segment_index",
+        "start_char",
+        "end_char",
+        "offset_unit"
+      ],
+      "properties": {
+        "kind": {
+          "const": "text_span"
+        },
+        "segment_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "start_char": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "end_char": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "offset_unit": {
+          "const": "unicode_code_points"
+        }
+      },
+      "additionalProperties": false
+    },
+    "docx_block_locator": {
+      "type": "object",
+      "required": [
+        "kind",
+        "story",
+        "paragraph_index",
+        "table_index",
+        "row_index",
+        "cell_index",
+        "page_location"
+      ],
+      "properties": {
+        "kind": {
+          "const": "docx_block"
+        },
+        "story": {
+          "type": "string",
+          "enum": [
+            "body",
+            "header",
+            "footer",
+            "footnote",
+            "endnote"
+          ]
+        },
+        "paragraph_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "table_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "row_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "cell_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "page_location": {
+          "type": "object",
+          "required": [
+            "status",
+            "page_numbers",
+            "renderer_ref",
+            "reason"
+          ],
+          "properties": {
+            "status": {
+              "type": "string",
+              "enum": [
+                "measured",
+                "pending",
+                "unsupported"
+              ]
+            },
+            "page_numbers": {
+              "type": "array",
+              "items": {
+                "type": "integer",
+                "minimum": 1
+              }
+            },
+            "renderer_ref": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "reason": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "const": "measured"
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "page_numbers": {
+                    "minItems": 1
+                  },
+                  "renderer_ref": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "reason": {
+                    "type": "null"
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "status": {
+                    "enum": [
+                      "pending",
+                      "unsupported"
+                    ]
+                  }
+                },
+                "required": [
+                  "status"
+                ]
+              },
+              "then": {
+                "properties": {
+                  "page_numbers": {
+                    "maxItems": 0
+                  },
+                  "renderer_ref": {
+                    "type": "null"
+                  },
+                  "reason": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                }
+              }
+            }
+          ],
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "pdf_element_locator": {
+      "type": "object",
+      "required": [
+        "kind",
+        "page_index",
+        "page_number",
+        "element_index",
+        "object_kind",
+        "row_index",
+        "cell_index"
+      ],
+      "properties": {
+        "kind": {
+          "const": "pdf_element"
+        },
+        "page_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "page_number": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "element_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "object_kind": {
+          "type": "string",
+          "enum": [
+            "text",
+            "table",
+            "table_cell",
+            "image"
+          ]
+        },
+        "row_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "cell_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "tabular_cell_locator": {
+      "type": "object",
+      "required": [
+        "kind",
+        "sheet_name",
+        "cell_ref",
+        "range_ref",
+        "row_index",
+        "column_index",
+        "csv_record_number",
+        "csv_field_index"
+      ],
+      "properties": {
+        "kind": {
+          "const": "tabular_cell"
+        },
+        "sheet_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "cell_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "range_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "row_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "column_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "csv_record_number": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "csv_field_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "structured_node_locator": {
+      "type": "object",
+      "required": [
+        "kind",
+        "format",
+        "node_id",
+        "document_path",
+        "line",
+        "column",
+        "end_line",
+        "end_column",
+        "byte_offset"
+      ],
+      "properties": {
+        "kind": {
+          "const": "structured_node"
+        },
+        "format": {
+          "type": "string",
+          "enum": [
+            "json",
+            "yaml",
+            "xml"
+          ]
+        },
+        "node_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "document_path": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "column": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "end_line": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "end_column": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "byte_offset": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      },
+      "additionalProperties": false
+    },
+    "image_region_locator": {
+      "type": "object",
+      "required": [
+        "kind",
+        "element_id",
+        "bbox"
+      ],
+      "properties": {
+        "kind": {
+          "const": "image_region"
+        },
+        "element_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "bbox": {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "x",
+                "y",
+                "width",
+                "height",
+                "coordinate_space"
+              ],
+              "properties": {
+                "x": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "y": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "width": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "height": {
+                  "type": "number",
+                  "exclusiveMinimum": 0
+                },
+                "coordinate_space": {
+                  "type": "string",
+                  "enum": [
+                    "raw_source_pixels_top_left",
+                    "display_pixels_top_left",
+                    "normalized_0_to_1"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "web_resource_locator": {
+      "type": "object",
+      "required": [
+        "kind",
+        "redacted_url",
+        "url_redaction",
+        "fragment",
+        "retrieval_status",
+        "content_sha256"
+      ],
+      "properties": {
+        "kind": {
+          "const": "web_resource"
+        },
+        "redacted_url": {
+          "type": "string",
+          "minLength": 1
+        },
+        "url_redaction": {
+          "type": "string",
+          "enum": [
+            "not_required",
+            "redacted",
+            "unavailable",
+            "unknown"
+          ]
+        },
+        "fragment": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "retrieval_status": {
+          "type": "string",
+          "enum": [
+            "not_fetched",
+            "fetched",
+            "blocked",
+            "not_found"
+          ]
+        },
+        "content_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "additionalProperties": false
+    },
+    "presentation_part_locator": {
+      "type": "object",
+      "required": [
+        "kind",
+        "package_part",
+        "slide_index",
+        "shape_id",
+        "relationship_id",
+        "row_index",
+        "column_index",
+        "group_shape_ids"
+      ],
+      "properties": {
+        "kind": {
+          "const": "presentation_part"
+        },
+        "package_part": {
+          "type": "string",
+          "minLength": 1
+        },
+        "slide_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "shape_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "relationship_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "row_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "column_index": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "group_shape_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "unavailable_locator": {
+      "type": "object",
+      "required": [
+        "kind",
+        "reason_code"
+      ],
+      "properties": {
+        "kind": {
+          "const": "unavailable"
+        },
+        "reason_code": {
+          "type": "string",
+          "enum": [
+            "parser_failure",
+            "renderer_unavailable",
+            "source_not_fetched",
+            "unsupported_locator",
+            "source_missing"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "anchor_error": {
+      "type": "object",
+      "required": [
+        "error_id",
+        "reason_code",
+        "source_id",
+        "asset_id",
+        "anchor_index",
+        "message"
+      ],
+      "properties": {
+        "error_id": {
+          "const": "ERR-006"
+        },
+        "reason_code": {
+          "const": "PARSE_PARTIAL"
+        },
+        "source_id": {
+          "$ref": "#/$defs/source_id"
+        },
+        "asset_id": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/asset_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "anchor_index": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_anchor_result": {
+      "type": "object",
+      "required": [
+        "record_type",
+        "status",
+        "anchors",
+        "errors"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "source_anchor_result"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "complete",
+            "partial",
+            "failed"
+          ]
+        },
+        "anchors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_anchor"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/anchor_error"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "anchors": {
+                "minItems": 1
+              },
+              "errors": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "failed"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "anchors": {
+                "maxItems": 0
+              },
+              "errors": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

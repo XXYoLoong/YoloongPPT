@@ -3,182 +3,865 @@
   "title": "SourceBundle 契约（IN-014 草案）",
   "description": "以 source_id 组织文本/文件/URL 多源输入，保留优先级未决状态、来源冲突和去重候选，不静默选择或删除来源。",
   "oneOf": [
-    { "$ref": "#/$defs/source_bundle_input" },
-    { "$ref": "#/$defs/source_bundle_result" }
+    {
+      "$ref": "#/$defs/source_bundle_input"
+    },
+    {
+      "$ref": "#/$defs/source_bundle_result"
+    }
   ],
   "$defs": {
-    "asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
-    "source_id": { "$ref": "object-id.schema.json#/$defs/source_id" },
+    "asset_id": {
+      "$ref": "object-id.schema.json#/$defs/asset_id"
+    },
+    "source_id": {
+      "$ref": "object-id.schema.json#/$defs/source_id"
+    },
     "source_priority_policy": {
       "type": "object",
-      "required": ["status", "decision_id", "task_id", "precedence_source_ids", "unresolved_reason"],
+      "required": [
+        "status",
+        "decision_id",
+        "task_id",
+        "precedence_source_ids",
+        "unresolved_reason"
+      ],
       "properties": {
-        "status": { "type": "string", "enum": ["unresolved", "caller_supplied"] },
-        "decision_id": { "type": "string", "const": "DEC-004" },
-        "task_id": { "type": "string", "const": "TASK-DEC-004" },
-        "precedence_source_ids": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/source_id" } },
-        "unresolved_reason": { "type": ["string", "null"] }
+        "status": {
+          "type": "string",
+          "enum": [
+            "unresolved",
+            "caller_supplied"
+          ]
+        },
+        "decision_id": {
+          "type": "string",
+          "const": "DEC-004"
+        },
+        "task_id": {
+          "type": "string",
+          "const": "TASK-DEC-004"
+        },
+        "precedence_source_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/source_id"
+          }
+        },
+        "unresolved_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       },
       "allOf": [
-        { "if": { "properties": { "status": { "const": "unresolved" } }, "required": ["status"] }, "then": { "properties": { "precedence_source_ids": { "maxItems": 0 }, "unresolved_reason": { "type": "string", "minLength": 1 } } } },
-        { "if": { "properties": { "status": { "const": "caller_supplied" } }, "required": ["status"] }, "then": { "properties": { "precedence_source_ids": { "minItems": 2 }, "unresolved_reason": { "type": "null" } } } }
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "unresolved"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "precedence_source_ids": {
+                "maxItems": 0
+              },
+              "unresolved_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "caller_supplied"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "precedence_source_ids": {
+                "minItems": 2
+              },
+              "unresolved_reason": {
+                "type": "null"
+              }
+            }
+          }
+        }
       ],
       "additionalProperties": false
     },
     "source_claim": {
       "type": "object",
-      "required": ["claim_id", "fact_key", "value", "source_anchor"],
+      "required": [
+        "claim_id",
+        "fact_key",
+        "value",
+        "source_anchor"
+      ],
       "properties": {
-        "claim_id": { "type": "string", "minLength": 1 },
-        "fact_key": { "type": "string", "minLength": 1 },
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fact_key": {
+          "type": "string",
+          "minLength": 1
+        },
         "value": {},
-        "source_anchor": { "type": ["string", "null"] }
+        "source_anchor": {
+          "$ref": "#/$defs/source_anchor"
+        }
       },
       "additionalProperties": false
     },
     "source_item": {
       "type": "object",
-      "required": ["source_id", "input_order", "kind", "locator", "raw_text", "locator_redaction", "display_name", "raw_asset_refs", "content_sha256", "priority_rank", "claims"],
+      "required": [
+        "source_id",
+        "input_order",
+        "kind",
+        "locator",
+        "raw_text",
+        "locator_redaction",
+        "display_name",
+        "raw_asset_refs",
+        "content_sha256",
+        "priority_rank",
+        "claims"
+      ],
       "properties": {
-        "source_id": { "$ref": "#/$defs/source_id" },
-        "input_order": { "type": "integer", "minimum": 0 },
-        "kind": { "type": "string", "enum": ["text", "file", "url"] },
-        "locator": { "type": ["string", "null"] },
-        "raw_text": { "type": ["string", "null"] },
-        "locator_redaction": { "type": "string", "enum": ["not_required", "redacted", "unavailable", "unknown"] },
-        "display_name": { "type": ["string", "null"] },
-        "raw_asset_refs": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
-        "content_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
-        "priority_rank": { "type": ["integer", "null"], "minimum": 1 },
-        "claims": { "type": "array", "items": { "$ref": "#/$defs/source_claim" } }
+        "source_id": {
+          "$ref": "#/$defs/source_id"
+        },
+        "input_order": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "text",
+            "file",
+            "url"
+          ]
+        },
+        "locator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "raw_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "locator_redaction": {
+          "type": "string",
+          "enum": [
+            "not_required",
+            "redacted",
+            "unavailable",
+            "unknown"
+          ]
+        },
+        "display_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "raw_asset_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/asset_id"
+          }
+        },
+        "content_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "priority_rank": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_claim"
+          }
+        }
       },
       "allOf": [
-        { "if": { "properties": { "kind": { "const": "text" } }, "required": ["kind"] }, "then": { "properties": { "raw_asset_refs": { "maxItems": 0 }, "raw_text": { "type": "string" }, "locator": { "type": "null" } } } },
-        { "if": { "properties": { "kind": { "enum": ["file", "url"] } }, "required": ["kind"] }, "then": { "properties": { "raw_text": { "type": "null" } } } },
-        { "if": { "properties": { "kind": { "const": "url" } }, "required": ["kind"] }, "then": { "properties": { "locator_redaction": { "enum": ["redacted", "unavailable", "unknown"] } } } }
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "text"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "raw_asset_refs": {
+                "maxItems": 0
+              },
+              "raw_text": {
+                "type": "string"
+              },
+              "locator": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "enum": [
+                  "file",
+                  "url"
+                ]
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "raw_text": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "url"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "locator_redaction": {
+                "enum": [
+                  "redacted",
+                  "unavailable",
+                  "unknown"
+                ]
+              }
+            }
+          }
+        }
       ],
       "additionalProperties": false
     },
     "dedup_policy": {
       "type": "object",
-      "required": ["mode", "keep_all_sources"],
+      "required": [
+        "mode",
+        "keep_all_sources"
+      ],
       "properties": {
-        "mode": { "type": "string", "enum": ["hash_candidates_only", "verify_bytes_before_dedup"] },
-        "keep_all_sources": { "type": "boolean", "const": true }
+        "mode": {
+          "type": "string",
+          "enum": [
+            "hash_candidates_only",
+            "verify_bytes_before_dedup"
+          ]
+        },
+        "keep_all_sources": {
+          "type": "boolean",
+          "const": true
+        }
       },
       "additionalProperties": false
     },
     "bundle_conflict_claim": {
       "type": "object",
-      "required": ["source_id", "claim_id", "value", "source_anchor"],
+      "required": [
+        "source_id",
+        "claim_id",
+        "value",
+        "source_anchor"
+      ],
       "properties": {
-        "source_id": { "$ref": "#/$defs/source_id" },
-        "claim_id": { "type": "string", "minLength": 1 },
+        "source_id": {
+          "$ref": "#/$defs/source_id"
+        },
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
         "value": {},
-        "source_anchor": { "type": ["string", "null"] }
+        "source_anchor": {
+          "$ref": "#/$defs/source_anchor"
+        }
       },
       "additionalProperties": false
     },
     "source_conflict": {
       "type": "object",
-      "required": ["conflict_id", "fact_key", "claims", "resolution_status", "selected_source_id", "merge_summary", "decision_ref", "unresolved_reason"],
+      "required": [
+        "conflict_id",
+        "fact_key",
+        "claims",
+        "resolution_status",
+        "selected_source_id",
+        "merge_summary",
+        "decision_ref",
+        "unresolved_reason"
+      ],
       "properties": {
-        "conflict_id": { "type": "string", "minLength": 1 },
-        "fact_key": { "type": "string", "minLength": 1 },
-        "claims": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/bundle_conflict_claim" } },
-        "resolution_status": { "type": "string", "enum": ["unresolved", "user_selected", "user_merged"] },
-        "selected_source_id": { "oneOf": [{ "$ref": "#/$defs/source_id" }, { "type": "null" }] },
-        "merge_summary": { "type": ["string", "null"] },
-        "decision_ref": { "type": "string", "const": "DEC-004" },
-        "unresolved_reason": { "type": ["string", "null"] }
+        "conflict_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fact_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claims": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/bundle_conflict_claim"
+          }
+        },
+        "resolution_status": {
+          "type": "string",
+          "enum": [
+            "unresolved",
+            "user_selected",
+            "user_merged"
+          ]
+        },
+        "selected_source_id": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/source_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "merge_summary": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "decision_ref": {
+          "type": "string",
+          "const": "DEC-004"
+        },
+        "unresolved_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       },
       "allOf": [
-        { "if": { "properties": { "resolution_status": { "const": "unresolved" } }, "required": ["resolution_status"] }, "then": { "properties": { "selected_source_id": { "type": "null" }, "merge_summary": { "type": "null" }, "unresolved_reason": { "type": "string", "minLength": 1 } } } },
-        { "if": { "properties": { "resolution_status": { "const": "user_selected" } }, "required": ["resolution_status"] }, "then": { "properties": { "selected_source_id": { "$ref": "#/$defs/source_id" }, "merge_summary": { "type": "null" }, "unresolved_reason": { "type": "null" } } } },
-        { "if": { "properties": { "resolution_status": { "const": "user_merged" } }, "required": ["resolution_status"] }, "then": { "properties": { "selected_source_id": { "type": "null" }, "merge_summary": { "type": "string", "minLength": 1 }, "unresolved_reason": { "type": "null" } } } }
+        {
+          "if": {
+            "properties": {
+              "resolution_status": {
+                "const": "unresolved"
+              }
+            },
+            "required": [
+              "resolution_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "selected_source_id": {
+                "type": "null"
+              },
+              "merge_summary": {
+                "type": "null"
+              },
+              "unresolved_reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resolution_status": {
+                "const": "user_selected"
+              }
+            },
+            "required": [
+              "resolution_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "selected_source_id": {
+                "$ref": "#/$defs/source_id"
+              },
+              "merge_summary": {
+                "type": "null"
+              },
+              "unresolved_reason": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resolution_status": {
+                "const": "user_merged"
+              }
+            },
+            "required": [
+              "resolution_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "selected_source_id": {
+                "type": "null"
+              },
+              "merge_summary": {
+                "type": "string",
+                "minLength": 1
+              },
+              "unresolved_reason": {
+                "type": "null"
+              }
+            }
+          }
+        }
       ],
       "additionalProperties": false
     },
     "duplicate_group": {
       "type": "object",
-      "required": ["group_id", "basis", "status", "source_ids", "content_sha256", "canonical_source_id"],
+      "required": [
+        "group_id",
+        "basis",
+        "status",
+        "source_ids",
+        "content_sha256",
+        "canonical_source_id"
+      ],
       "properties": {
-        "group_id": { "type": "string", "minLength": 1 },
-        "basis": { "type": "string", "enum": ["sha256_match", "byte_identical", "normalized_candidate", "user_declared"] },
-        "status": { "type": "string", "enum": ["candidate", "verified_duplicate", "distinct"] },
-        "source_ids": { "type": "array", "minItems": 2, "uniqueItems": true, "items": { "$ref": "#/$defs/source_id" } },
-        "content_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
-        "canonical_source_id": { "oneOf": [{ "$ref": "#/$defs/source_id" }, { "type": "null" }] }
+        "group_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "basis": {
+          "type": "string",
+          "enum": [
+            "sha256_match",
+            "byte_identical",
+            "normalized_candidate",
+            "user_declared"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "candidate",
+            "verified_duplicate",
+            "distinct"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/source_id"
+          }
+        },
+        "content_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "canonical_source_id": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/source_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
       },
       "allOf": [
-        { "if": { "properties": { "status": { "const": "candidate" } }, "required": ["status"] }, "then": { "properties": { "canonical_source_id": { "type": "null" } } } },
-        { "if": { "properties": { "status": { "const": "verified_duplicate" } }, "required": ["status"] }, "then": { "properties": { "basis": { "enum": ["byte_identical", "user_declared"] } } } }
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "candidate"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "canonical_source_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "verified_duplicate"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "basis": {
+                "enum": [
+                  "byte_identical",
+                  "user_declared"
+                ]
+              }
+            }
+          }
+        }
       ],
       "additionalProperties": false
     },
     "source_bundle": {
       "type": "object",
-      "required": ["model_type", "sources", "source_priority_policy", "dedup_policy", "duplicate_groups", "conflicts"],
+      "required": [
+        "model_type",
+        "sources",
+        "source_priority_policy",
+        "dedup_policy",
+        "duplicate_groups",
+        "conflicts"
+      ],
       "properties": {
-        "model_type": { "type": "string", "const": "SourceBundle" },
-        "sources": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/source_item" } },
-        "source_priority_policy": { "$ref": "#/$defs/source_priority_policy" },
-        "dedup_policy": { "$ref": "#/$defs/dedup_policy" },
-        "duplicate_groups": { "type": "array", "items": { "$ref": "#/$defs/duplicate_group" } },
-        "conflicts": { "type": "array", "items": { "$ref": "#/$defs/source_conflict" } }
+        "model_type": {
+          "type": "string",
+          "const": "SourceBundle"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/source_item"
+          }
+        },
+        "source_priority_policy": {
+          "$ref": "#/$defs/source_priority_policy"
+        },
+        "dedup_policy": {
+          "$ref": "#/$defs/dedup_policy"
+        },
+        "duplicate_groups": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/duplicate_group"
+          }
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_conflict"
+          }
+        }
       },
       "additionalProperties": false
     },
     "bundle_error": {
       "type": "object",
-      "required": ["code", "message", "source_id"],
+      "required": [
+        "code",
+        "message",
+        "source_id"
+      ],
       "properties": {
-        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
-        "message": { "type": "string", "minLength": 1 },
-        "source_id": { "oneOf": [{ "$ref": "#/$defs/source_id" }, { "type": "null" }] }
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/source_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
       },
       "additionalProperties": false
     },
     "coverage_item": {
       "type": "object",
-      "required": ["feature", "status", "reason"],
+      "required": [
+        "feature",
+        "status",
+        "reason"
+      ],
       "properties": {
-        "feature": { "type": "string", "enum": ["source_identity", "priority", "conflict_detection", "deduplication", "raw_asset_refs"] },
-        "status": { "type": "string", "enum": ["complete", "partial", "not_present", "unsupported", "failed"] },
-        "reason": { "type": ["string", "null"] }
+        "feature": {
+          "type": "string",
+          "enum": [
+            "source_identity",
+            "priority",
+            "conflict_detection",
+            "deduplication",
+            "raw_asset_refs",
+            "source_anchors"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "complete",
+            "partial",
+            "not_present",
+            "unsupported",
+            "failed"
+          ]
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
       },
       "allOf": [
-        { "if": { "properties": { "status": { "enum": ["complete", "not_present"] } }, "required": ["status"] }, "then": { "properties": { "reason": { "type": "null" } } } },
-        { "if": { "properties": { "status": { "enum": ["partial", "unsupported", "failed"] } }, "required": ["status"] }, "then": { "properties": { "reason": { "type": "string", "minLength": 1 } } } }
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "complete",
+                  "not_present"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "partial",
+                  "unsupported",
+                  "failed"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
       ],
       "additionalProperties": false
     },
     "source_bundle_input": {
       "type": "object",
-      "required": ["record_type", "sources", "source_priority_policy", "dedup_policy"],
+      "required": [
+        "record_type",
+        "sources",
+        "source_priority_policy",
+        "dedup_policy"
+      ],
       "properties": {
-        "record_type": { "type": "string", "const": "source_bundle_input" },
-        "sources": { "type": "array", "minItems": 2, "items": { "$ref": "#/$defs/source_item" } },
-        "source_priority_policy": { "$ref": "#/$defs/source_priority_policy" },
-        "dedup_policy": { "$ref": "#/$defs/dedup_policy" }
+        "record_type": {
+          "type": "string",
+          "const": "source_bundle_input"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 2,
+          "items": {
+            "$ref": "#/$defs/source_item"
+          }
+        },
+        "source_priority_policy": {
+          "$ref": "#/$defs/source_priority_policy"
+        },
+        "dedup_policy": {
+          "$ref": "#/$defs/dedup_policy"
+        }
       },
       "additionalProperties": false
     },
     "source_bundle_result": {
       "type": "object",
-      "required": ["record_type", "status", "bundle", "coverage", "errors"],
+      "required": [
+        "record_type",
+        "status",
+        "bundle",
+        "coverage",
+        "errors"
+      ],
       "properties": {
-        "record_type": { "type": "string", "const": "source_bundle_result" },
-        "status": { "type": "string", "enum": ["bundled", "partial", "failed"] },
-        "bundle": { "oneOf": [{ "$ref": "#/$defs/source_bundle" }, { "type": "null" }] },
-        "coverage": { "type": "array", "items": { "$ref": "#/$defs/coverage_item" } },
-        "errors": { "type": "array", "items": { "$ref": "#/$defs/bundle_error" } }
+        "record_type": {
+          "type": "string",
+          "const": "source_bundle_result"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "bundled",
+            "partial",
+            "failed"
+          ]
+        },
+        "bundle": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/source_bundle"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coverage_item"
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/bundle_error"
+          }
+        }
       },
       "allOf": [
-        { "if": { "properties": { "status": { "enum": ["bundled", "partial"] } }, "required": ["status"] }, "then": { "properties": { "bundle": { "$ref": "#/$defs/source_bundle" } } } },
-        { "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] }, "then": { "properties": { "bundle": { "type": "null" }, "errors": { "minItems": 1 } } } }
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "bundled",
+                  "partial"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "bundle": {
+                "$ref": "#/$defs/source_bundle"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "failed"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "bundle": {
+                "type": "null"
+              },
+              "errors": {
+                "minItems": 1
+              }
+            }
+          }
+        }
       ],
       "additionalProperties": false
+    },
+    "source_anchor": {
+      "$ref": "source-anchor.schema.json#/$defs/source_anchor"
     }
   }
 }
