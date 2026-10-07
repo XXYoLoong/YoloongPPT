@@ -256,6 +256,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：任务表已列 AssetInventory 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-012/TASK-IN-012，不增删需求、任务或数据对象行。
 - 证据：contracts/asset-inventory.schema.json、contracts/asset-inventory.catalog.json、contracts/asset-inventory.fixtures.json；Excel“需求主表”N51:P51、“可执行任务”L79:M79。
 
+### TASK-IN-014
+
+- Requirement ID：IN-014；P0；矩阵中无前置任务。
+- 状态：进行中。已建立 SourceBundle Draft 2020-12 契约、目录及多源冲突/重复 ID 预期 fixture，覆盖 text/file/URL 来源、source_id、输入顺序、优先级状态、原始资产引用、冲突和去重候选。
+- 优先级边界：来源优先级引用 DEC-004/TASK-DEC-004；现有 GOV-006 配置基线将其标记为 unresolved，TASK-DEC-004 仍依赖 RES-031。因此不定义全局 precedence/default；caller 未给明确规则时保留冲突，不自动选 winner。
+- 冲突与去重边界：每条冲突保留 source/claim/value/anchor；仅显式 user selection/merge 可标记 resolved。SHA-256 匹配只生成 duplicate candidate；字节比对或明确确认前不选 canonical，也不删除任何来源。
+- 静态核验：schema/catalog/fixtures JSON 可解析，25 个 schema 内部引用和 2 个外部文件引用可定位；正常 fixture 保留 3 个来源、3 条冲突 claims、1 个 hash duplicate candidate；重复 source_id 边界返回 SOURCE_ID_DUPLICATE。
+- 验收边界：所有来源内容、哈希及冲突值均为合成预期；未运行真实文件/URL/text 解析、优先级决策、冲突检测器或去重引擎。因此 TASK-IN-014 保持进行中，AC-001–AC-030 均未执行。
+- 基线对齐：任务表已列 SourceBundle 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-014/TASK-IN-014，不增删需求、任务或数据对象行。
+- 证据：contracts/source-bundle.schema.json、contracts/source-bundle.catalog.json、contracts/source-bundle.fixtures.json；Excel“需求主表”N53:P53、“可执行任务”L81:M81。
+
 ### TASK-GOV-009
 
 - Requirement ID：GOV-009；P0；无前置任务。

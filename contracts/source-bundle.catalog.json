@@ -1,0 +1,31 @@
+{
+  "document_type": "source_bundle_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-014",
+  "task_id": "TASK-IN-014",
+  "schema": "contracts/source-bundle.schema.json",
+  "fixtures": "contracts/source-bundle.fixtures.json",
+  "deliverable": "SourceBundle",
+  "references": [
+    { "url": "https://csrc.nist.gov/pubs/fips/180-4/upd1/final", "supports": "NIST FIPS 180-4 specifies hash algorithms that generate message digests; matching SHA-256 is used here only as a duplicate candidate signal, not as semantic equivalence proof." },
+    { "url": "contracts/config-schema.catalog.json", "supports": "GOV-006 currently leaves source-priority policy unresolved and references DEC-004/TASK-DEC-004 with prerequisite RES-031." }
+  ],
+  "field_rules": [
+    "每个输入来源有稳定 source_id 和 input_order；文本、文件和 URL 不合并成单一无来源字符串。raw_asset_refs 按来源原顺序保留。",
+    "来源优先级和冲突策略引用 DEC-004。由于 DEC-004/TASK-DEC-004 当前仍 unresolved（待 RES-031），本契约不定义全局 precedence/default；调用方未提供明确排序时必须保留 unresolved。",
+    "冲突保留各 source_id、claim_id、值和来源锚点；只有显式 user_selected 或 user_merged 才记录解决状态。不得静默覆盖、平均、拼接或删除冲突值。",
+    "重复内容按 SHA-256 匹配只创建 candidate；只有原始字节比较或用户声明确认后才能标记 verified_duplicate。规范化/语义相似仅是 candidate。任何 canonical 引用不得删除原来源及 raw_asset_refs。",
+    "URL 的凭据/敏感 query 必须在持久化 locator 前 redacted；本任务的 bundle 不执行 URL 抓取，不把未下载 URL 伪装成已读来源。",
+    "source_id 重复、引用缺失或冲突来源无法定位时返回稳定结构化错误；局部问题可以 partial，bundle 整体无法保持来源身份时 failed。",
+    "源文本、文件或 URL 的内容解释不由合并步骤产生；claim/value 只记录解析层提供的证据候选，业务优先级策略仍由 DEC-004 决定。"
+  ],
+  "acceptance_cases": [
+    { "case_id": "IN-014-NORMAL-001", "fixture_id": "IN-014-NORMAL-001", "purpose": "验证文本与文件多源、未决优先级、事实冲突保留和 hash 去重候选。", "acceptance": "所有来源 ID/原始资产引用保留；冲突有全部 claims 和 anchor，未选 winner；相同 SHA-256 只形成候选组，不丢来源。" },
+    { "case_id": "IN-014-BOUNDARY-001", "fixture_id": "IN-014-BOUNDARY-001", "purpose": "验证重复 source_id。", "acceptance": "返回 failed、bundle=null、errors 含 SOURCE_ID_DUPLICATE；不能把两个输入压成一个来源。" }
+  ],
+  "limits": [
+    "DEC-004 的全局来源 precedence 仍未决；不能把示例 priority 或 caller order 提升为产品默认规则。",
+    "SHA-256 hash match 只作候选依据；真实字节比对、语义去重和规范化字段规则尚未实现/选定。",
+    "SourceBundle schema 与 fixtures 是结构草案；未运行真实文件/URL/text 解析、内容提取、冲突检测器或 dedup 引擎。AC-001–AC-030 未执行。"
+  ]
+}
