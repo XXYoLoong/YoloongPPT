@@ -234,6 +234,17 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 基线对齐：任务表已列 TabularEvidence 为输出，但“数据对象”表无同名行；本任务只关联既有 IN-008/TASK-IN-008，不增删需求、任务或数据对象行。
 - 证据：contracts/tabular-evidence.schema.json、contracts/tabular-evidence.catalog.json、contracts/tabular-evidence.fixtures.json；Excel“需求主表”N47:P47、“可执行任务”L75:M75。
 
+### TASK-IN-009
+
+- Requirement ID：IN-009；P1；矩阵未列前置任务。
+- 状态：进行中。已建立 `WebEvidence` Draft 2020-12 草案、目录及正常/边界合成 fixtures，覆盖 title、正文块、嵌套列表、表格、图片引用、metadata、链接引用、来源锚点和原始资产引用。
+- 网络安全边界：远程获取输入必须带显式策略；仅允许 HTTP/HTTPS，私网目标默认拒绝，重定向目标重新检查，并显式提供最大重定向、响应大小和允许内容类型。图片、超链接与其他嵌入引用只抽取、不自动请求；脱敏 URL 与拒绝原因写入审计结果。
+- 错误映射：复用 ERR-002/INPUT_UNSUPPORTED、ERR-006/PARSE_PARTIAL、ERR-013/ASSET_DOWNLOAD_FAIL、ERR-014/ASSET_UNSAFE_URL；解析失败需携带结构化阶段、原因和来源锚点（若可得）。
+- 范围边界：`WebEvidence` 是任务输出名，未列为正式数据对象；不新增数据对象行。HTML/DOM 定位器、解析器、HTTP client、运行时、依赖版本和许可证尚未由实际 PoC 选择；max_redirects、max_response_bytes 与 media-type 集合不设产品默认值。
+- 静态核验：三个 JSON 文件可解析；本地 `$ref` 可定位；6 个 fixture 的输入/输出 source ID 与原始资产引用一致，正常/部分/失败状态、策略字段、错误码映射和“外部引用不下载”约束静态核对通过。未找到标准 JSON Schema validator。Fixtures 是合成期望，不是实际网络请求、HTML 解析或 SSRF 防护测试。
+- 验收边界：运行时未实现；TASK-IN-009 保持进行中，尚未满足实际解析、HTTP 策略执行或安全配置验证；AC-001–AC-030 均未执行。
+- 证据：`contracts/web-evidence.schema.json`、`contracts/web-evidence.catalog.json`、`contracts/web-evidence.fixtures.json`；Excel“需求主表”`N48:P48`、“可执行任务”`L76:M76`；关联 `SEC-002/003/006/016` 与 `ERR-002/006/013/014`。
+
 ### TASK-IN-010
 
 - Requirement ID：IN-010；P0；无前置任务。
