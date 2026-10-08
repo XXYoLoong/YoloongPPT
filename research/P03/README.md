@@ -59,3 +59,7 @@ git -C F:\YoloongPPT-Research\P03 rev-parse HEAD
 ## 调用链研究（RES-P03-02）
 
 已从固定源码建立 Standard、Smart、直接 REST/MCP、编辑/修订和 PPTX/PDF 导出调用链；节点和符号位置见 call-graph.md 与 source-index.json。@presenton/export-core 固定 v1.0.34，但其实现以外部发布制品形式提供，按黑盒标注。源码静态追踪完成；本地登录状态尚未初始化，生成请求被 HTTP 428 门禁挡住，因此 VERIFY-RES-P03-02 仍进行中。运行观测见 validation/verify-res-p03-02.json。
+
+## 结构与视觉决策映射（RES-P03-03）
+
+已从固定源码提取 17 个节点，并逐项映射 DEC-001–DEC-040。6 项有明确机制，29 项部分映射，5 项未发现独立等价机制。节点输入、候选、机制、输出、fallback 和源码索引见 decision-map.json；摘要见 decision-map.md。静态映射已完成；动态决策样例受本地登录初始化 HTTP 428 阻塞，VERIFY-RES-P03-03 保持进行中。

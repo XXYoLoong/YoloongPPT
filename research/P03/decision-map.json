@@ -1,0 +1,812 @@
+{
+  "project": "presenton/presenton",
+  "sourceCommit": "35bf44290f821323e003da854f78ffcb0e918167",
+  "task": "TASK-RES-P03-03",
+  "scope": "Static source mapping only; runtime generation and visual validation are not claimed.",
+  "statusLegend": {
+    "mapped": "Explicit source mechanism found",
+    "partial": "Prompt/config/source branch exists but full global contract or runtime evidence is absent",
+    "not_evidenced": "No corresponding independent mechanism found in traced source"
+  },
+  "sourceIndex": "research/P03/source-index.json",
+  "nodes": [
+    {
+      "id": "P03-MODE",
+      "decIds": [
+        "DEC-001"
+      ],
+      "status": "mapped",
+      "input": [
+        "generation_mode",
+        "REST/MCP operation"
+      ],
+      "candidates": [
+        "Standard outline/review",
+        "Smart direct stream",
+        "v1 REST",
+        "v2 Smart REST",
+        "MCP allowlisted API"
+      ],
+      "mechanism": "UI routes explicit Standard/Smart state; stream endpoint dispatches by generation_mode; MCP wraps allowlisted OpenAPI calls. No automatic intent classifier found.",
+      "output": [
+        "outline/editor route",
+        "API/job response"
+      ],
+      "fallback": "No automatic alternate mode; invalid routes follow endpoint/router errors.",
+      "sourceIndex": [
+        "web-input-routing",
+        "standard-stream-endpoint",
+        "smart-rest-v2",
+        "mcp-openapi-adapter"
+      ]
+    },
+    {
+      "id": "P03-REQUEST",
+      "decIds": [
+        "DEC-002",
+        "DEC-008",
+        "DEC-013"
+      ],
+      "status": "partial",
+      "input": [
+        "content/slides_markdown/files",
+        "tone/verbosity/language",
+        "n_slides/template",
+        "title/TOC flags",
+        "export_as"
+      ],
+      "candidates": [
+        "caller values",
+        "Pydantic defaults",
+        "model auto-detection if language/count omitted"
+      ],
+      "mechanism": "Request model defines defaults; UI clamps slide count; API checks input, count, TOC minimum and template. No unified PresentationContext contract.",
+      "output": [
+        "validated request fields"
+      ],
+      "fallback": "Invalid input/template returns endpoint errors; omitted language/count delegated to model.",
+      "sourceIndex": [
+        "generation-api-client",
+        "direct-rest-v1"
+      ]
+    },
+    {
+      "id": "P03-SOURCES",
+      "decIds": [
+        "DEC-003",
+        "DEC-004",
+        "DEC-005",
+        "DEC-006",
+        "DEC-007"
+      ],
+      "status": "partial",
+      "input": [
+        "prompt/content",
+        "uploaded file paths",
+        "web_search",
+        "community design IDs"
+      ],
+      "candidates": [
+        "user text",
+        "decomposed document context",
+        "search context",
+        "visual guidance"
+      ],
+      "mechanism": "Document loaders and web-search routing build prompt context; Smart may add community context. No source conflict resolver, audience classifier or scenario classifier found.",
+      "output": [
+        "additional_context/source_context"
+      ],
+      "fallback": "Loader/provider errors follow local endpoint path; source conflict fallback not evidenced.",
+      "sourceIndex": [
+        "file-ingest-api",
+        "outline-prompt-and-model",
+        "direct-rest-v1",
+        "smart-stream-endpoint"
+      ]
+    },
+    {
+      "id": "P03-OUTLINE",
+      "decIds": [
+        "DEC-009",
+        "DEC-010",
+        "DEC-011",
+        "DEC-012",
+        "DEC-015",
+        "DEC-016",
+        "DEC-019",
+        "DEC-020"
+      ],
+      "status": "partial",
+      "input": [
+        "source context",
+        "language/tone/verbosity/instructions",
+        "requested slide count"
+      ],
+      "candidates": [
+        "LLM-generated outline list"
+      ],
+      "mechanism": "Prompt builders call provider and parse PresentationOutlineModel; no separate thesis/graph/storyline/intent/rewrite contracts.",
+      "output": [
+        "PresentationOutlineModel.slides"
+      ],
+      "fallback": "Malformed output or undershoot errors; overshoot is truncated to requested count.",
+      "sourceIndex": [
+        "outline-prompt-and-model",
+        "outline-schema",
+        "direct-rest-v1"
+      ]
+    },
+    {
+      "id": "P03-PAGE-TOC",
+      "decIds": [
+        "DEC-013",
+        "DEC-014",
+        "DEC-015",
+        "DEC-037"
+      ],
+      "status": "partial",
+      "input": [
+        "n_slides",
+        "include_title_slide",
+        "include_table_of_contents",
+        "outline count"
+      ],
+      "candidates": [
+        "title/TOC on/off",
+        "TOC count and insertion position"
+      ],
+      "mechanism": "Count helpers adjust outlines and insert a TOC layout after title or first. No section budget or animation selector found.",
+      "output": [
+        "adjusted outline/structure sequence"
+      ],
+      "fallback": "No matching TOC layout means no TOC insertion; invalid page counts are rejected.",
+      "sourceIndex": [
+        "direct-rest-v1",
+        "prepare-and-layout"
+      ]
+    },
+    {
+      "id": "P03-TEMPLATE",
+      "decIds": [
+        "DEC-028",
+        "DEC-029",
+        "DEC-035"
+      ],
+      "status": "partial",
+      "input": [
+        "user template ID/name",
+        "TemplateV2 layouts/assets/theme/fonts"
+      ],
+      "candidates": [
+        "stored TemplateV2",
+        "bundled template alias"
+      ],
+      "mechanism": "API resolves supplied template and derives theme/font/icon settings; no cross-template ranking.",
+      "output": [
+        "resolved template/layout/theme/fonts"
+      ],
+      "fallback": "Invalid template=400, missing bundled record=503, default icon setting.",
+      "sourceIndex": [
+        "prepare-and-layout",
+        "template-storage-and-schema",
+        "default-template-import"
+      ]
+    },
+    {
+      "id": "P03-LAYOUT",
+      "decIds": [
+        "DEC-017",
+        "DEC-030",
+        "DEC-031"
+      ],
+      "status": "partial",
+      "input": [
+        "outline list",
+        "selected template layouts",
+        "ordered flag"
+      ],
+      "candidates": [
+        "layout indices in selected template"
+      ],
+      "mechanism": "Ordered layouts use their stored order; unordered layouts call LLM structure generation. No explicit score/rationale contract.",
+      "output": [
+        "PresentationStructureModel.slides"
+      ],
+      "fallback": "Web prepare fills missing and random-replaces invalid indices; direct REST random-replaces out-of-range indices. Paths differ; no repair trace.",
+      "sourceIndex": [
+        "prepare-and-layout",
+        "structure-prompt-and-schema",
+        "presentation-structure-model"
+      ]
+    },
+    {
+      "id": "P03-SLOTS",
+      "decIds": [
+        "DEC-018",
+        "DEC-019",
+        "DEC-032"
+      ],
+      "status": "partial",
+      "input": [
+        "selected layout schema",
+        "slide outline/source"
+      ],
+      "candidates": [
+        "schema-defined text/image/icon/chart/table/infographic fields"
+      ],
+      "mechanism": "Template schema constrains structured slide-content output; generated fields hydrate template UI.",
+      "output": [
+        "SlideModel.content and UI values"
+      ],
+      "fallback": "LLM/schema error reaches stream error; Standard rendered overflow score not found.",
+      "sourceIndex": [
+        "template-schema",
+        "slide-content-prompt",
+        "standard-stream-endpoint"
+      ]
+    },
+    {
+      "id": "P03-VISUAL",
+      "decIds": [
+        "DEC-022",
+        "DEC-025",
+        "DEC-026",
+        "DEC-027"
+      ],
+      "status": "partial",
+      "input": [
+        "slide outline/intent",
+        "template schema",
+        "quantitative evidence"
+      ],
+      "candidates": [
+        "text/card/table/chart/infographic/diagram/image/Smart HTML"
+      ],
+      "mechanism": "Standard layout schema permits object fields; Smart prompts guide visual/chart choice and Chart.js for quantitative slides. Actual choice is model output.",
+      "output": [
+        "structured object fields or HTML fragment"
+      ],
+      "fallback": "Invalid output follows stream error; no deck-level visual correction gate found.",
+      "sourceIndex": [
+        "template-schema",
+        "slide-content-prompt",
+        "smart-prompt-and-validation"
+      ]
+    },
+    {
+      "id": "P03-ASSETS",
+      "decIds": [
+        "DEC-023",
+        "DEC-024",
+        "DEC-036"
+      ],
+      "status": "partial",
+      "input": [
+        "image_prompt/icon_query",
+        "outline image URLs",
+        "template target geometry"
+      ],
+      "candidates": [
+        "provided URL",
+        "image-generation service",
+        "icon search"
+      ],
+      "mechanism": "Uses supplied image URL when present, else generates; icons use search; template supplies target dimensions.",
+      "output": [
+        "asset URLs/image records"
+      ],
+      "fallback": "Standard image failure may use placeholder.jpg with warning; empty icon results use placeholder.svg; icon exceptions still raise.",
+      "sourceIndex": [
+        "asset-processing",
+        "standard-stream-endpoint"
+      ]
+    },
+    {
+      "id": "P03-SMART",
+      "decIds": [
+        "DEC-017",
+        "DEC-022",
+        "DEC-029",
+        "DEC-033",
+        "DEC-034",
+        "DEC-035"
+      ],
+      "status": "partial",
+      "input": [
+        "Smart mode prompt/files/count",
+        "community guidance",
+        "saved HTML checkpoints"
+      ],
+      "candidates": [
+        "delimited title/TOC/content/closing HTML fragments",
+        "continuation from completed slides"
+      ],
+      "mechanism": "Dedicated prompts define 1280x720, safe-area, fit and visual rules; parser normalizes/checks HTML; accepted slides persist as smart-html.",
+      "output": [
+        "SSE and HTML slide checkpoints"
+      ],
+      "fallback": "Parser/provider recovery or stream errors; prompt-level fit is not browser-measured overflow QA.",
+      "sourceIndex": [
+        "smart-prompt-and-validation",
+        "smart-stream-endpoint",
+        "pdf-maker-render-source"
+      ]
+    },
+    {
+      "id": "P03-FACTS",
+      "decIds": [
+        "DEC-005",
+        "DEC-021"
+      ],
+      "status": "partial",
+      "input": [
+        "user/document context",
+        "optional search context"
+      ],
+      "candidates": [
+        "source-backed claims",
+        "source notes"
+      ],
+      "mechanism": "Smart prompt instructs use of source facts and not invent citations; no typed fact/assumption contract or citation-placement planner found.",
+      "output": [
+        "generated copy and optional speaker notes"
+      ],
+      "fallback": "Unresolved facts/citation placement fallback not evidenced.",
+      "sourceIndex": [
+        "smart-prompt-and-validation",
+        "outline-prompt-and-model",
+        "slide-record-model"
+      ]
+    },
+    {
+      "id": "P03-MARKDOWN",
+      "decIds": [
+        "DEC-012",
+        "DEC-015",
+        "DEC-016",
+        "DEC-019"
+      ],
+      "status": "mapped",
+      "input": [
+        "slides_markdown list",
+        "optional content/instructions"
+      ],
+      "candidates": [
+        "direct per-slide mapping",
+        "generated outline path if absent"
+      ],
+      "mechanism": "Handler maps each supplied item to one SlideOutlineModel and sets n_slides; otherwise generates outline.",
+      "output": [
+        "one outline per supplied item or generated outline"
+      ],
+      "fallback": "Too many slides or invalid input yields endpoint error.",
+      "sourceIndex": [
+        "direct-rest-v1",
+        "outline-schema"
+      ]
+    },
+    {
+      "id": "P03-REVISION",
+      "decIds": [
+        "DEC-039"
+      ],
+      "status": "partial",
+      "input": [
+        "asset/Smart stream errors and warnings",
+        "user chat message"
+      ],
+      "candidates": [
+        "retry/recovery",
+        "placeholder",
+        "chat add/update/delete slide/component"
+      ],
+      "mechanism": "Smart safety/parser checks; Standard asset fallback; chat tools mutate slide/component data. No QA-to-RevisionPlan deck loop.",
+      "output": [
+        "warning/status or requested persisted edits"
+      ],
+      "fallback": "Placeholders preserve some renderability; provider/safety errors may fail stream.",
+      "sourceIndex": [
+        "asset-processing",
+        "smart-stream-endpoint",
+        "standard-stream-endpoint",
+        "chat-edit-api",
+        "chat-edit-service",
+        "chat-edit-tools"
+      ]
+    },
+    {
+      "id": "P03-TRACE",
+      "decIds": [
+        "DEC-040"
+      ],
+      "status": "partial",
+      "input": [
+        "SSE lifecycle/errors",
+        "async task state",
+        "persisted presentation"
+      ],
+      "candidates": [
+        "complete",
+        "failed",
+        "cancelled/disconnected",
+        "retry/recovery"
+      ],
+      "mechanism": "SSE and async status expose progress/error; records/logs persist state. No complete candidate/evidence/score/reason DecisionTrace found.",
+      "output": [
+        "SSE/async result and saved deck"
+      ],
+      "fallback": "Exceptions/cancellation logged or surfaced; trace completeness not established.",
+      "sourceIndex": [
+        "direct-rest-v1",
+        "standard-stream-endpoint",
+        "provider-adapters"
+      ]
+    },
+    {
+      "id": "P03-EXPORT",
+      "decIds": [
+        "DEC-038"
+      ],
+      "status": "partial",
+      "input": [
+        "presentation ID",
+        "export_as=pptx or pdf"
+      ],
+      "candidates": [
+        "PPTX",
+        "PDF"
+      ],
+      "mechanism": "Task service passes requested format to pinned @presenton/export-core v1.0.34; no capability-aware selection across backends.",
+      "output": [
+        "export artifact path"
+      ],
+      "fallback": "Runner or output-path validation error; exporter implementation is external black box.",
+      "sourceIndex": [
+        "presentation-export-url",
+        "export-task-service",
+        "export-runner-shim",
+        "export-core"
+      ]
+    },
+    {
+      "id": "P03-MCP",
+      "decIds": [],
+      "status": "mapped",
+      "input": [
+        "MCP tool call",
+        "OpenAPI operation allowlist"
+      ],
+      "candidates": [
+        "allowlisted async generation/file/template operations"
+      ],
+      "mechanism": "FastMCP derives tools from filtered OpenAPI routes and delegates through HTTP API.",
+      "output": [
+        "API result/job handle"
+      ],
+      "fallback": "Non-allowlisted operations are not exposed.",
+      "sourceIndex": [
+        "mcp-openapi-adapter"
+      ]
+    }
+  ],
+  "decCrosswalk": [
+    {
+      "id": "DEC-001",
+      "status": "mapped",
+      "nodeIds": [
+        "P03-MODE"
+      ]
+    },
+    {
+      "id": "DEC-002",
+      "status": "partial",
+      "nodeIds": [
+        "P03-REQUEST"
+      ]
+    },
+    {
+      "id": "DEC-003",
+      "status": "partial",
+      "nodeIds": [
+        "P03-SOURCES"
+      ]
+    },
+    {
+      "id": "DEC-004",
+      "status": "not_evidenced",
+      "nodeIds": []
+    },
+    {
+      "id": "DEC-005",
+      "status": "partial",
+      "nodeIds": [
+        "P03-SOURCES",
+        "P03-FACTS"
+      ]
+    },
+    {
+      "id": "DEC-006",
+      "status": "not_evidenced",
+      "nodeIds": []
+    },
+    {
+      "id": "DEC-007",
+      "status": "not_evidenced",
+      "nodeIds": []
+    },
+    {
+      "id": "DEC-008",
+      "status": "partial",
+      "nodeIds": [
+        "P03-REQUEST"
+      ]
+    },
+    {
+      "id": "DEC-009",
+      "status": "partial",
+      "nodeIds": [
+        "P03-OUTLINE"
+      ]
+    },
+    {
+      "id": "DEC-010",
+      "status": "partial",
+      "nodeIds": [
+        "P03-OUTLINE"
+      ]
+    },
+    {
+      "id": "DEC-011",
+      "status": "partial",
+      "nodeIds": [
+        "P03-OUTLINE"
+      ]
+    },
+    {
+      "id": "DEC-012",
+      "status": "partial",
+      "nodeIds": [
+        "P03-OUTLINE",
+        "P03-MARKDOWN"
+      ]
+    },
+    {
+      "id": "DEC-013",
+      "status": "mapped",
+      "nodeIds": [
+        "P03-REQUEST",
+        "P03-PAGE-TOC"
+      ]
+    },
+    {
+      "id": "DEC-014",
+      "status": "partial",
+      "nodeIds": [
+        "P03-PAGE-TOC"
+      ]
+    },
+    {
+      "id": "DEC-015",
+      "status": "partial",
+      "nodeIds": [
+        "P03-OUTLINE",
+        "P03-PAGE-TOC",
+        "P03-MARKDOWN"
+      ]
+    },
+    {
+      "id": "DEC-016",
+      "status": "partial",
+      "nodeIds": [
+        "P03-OUTLINE",
+        "P03-MARKDOWN"
+      ]
+    },
+    {
+      "id": "DEC-017",
+      "status": "partial",
+      "nodeIds": [
+        "P03-LAYOUT",
+        "P03-SMART"
+      ]
+    },
+    {
+      "id": "DEC-018",
+      "status": "partial",
+      "nodeIds": [
+        "P03-SLOTS"
+      ]
+    },
+    {
+      "id": "DEC-019",
+      "status": "partial",
+      "nodeIds": [
+        "P03-OUTLINE",
+        "P03-SLOTS",
+        "P03-MARKDOWN"
+      ]
+    },
+    {
+      "id": "DEC-020",
+      "status": "partial",
+      "nodeIds": [
+        "P03-OUTLINE"
+      ]
+    },
+    {
+      "id": "DEC-021",
+      "status": "not_evidenced",
+      "nodeIds": []
+    },
+    {
+      "id": "DEC-022",
+      "status": "partial",
+      "nodeIds": [
+        "P03-VISUAL",
+        "P03-SMART"
+      ]
+    },
+    {
+      "id": "DEC-023",
+      "status": "partial",
+      "nodeIds": [
+        "P03-ASSETS"
+      ]
+    },
+    {
+      "id": "DEC-024",
+      "status": "mapped",
+      "nodeIds": [
+        "P03-ASSETS"
+      ]
+    },
+    {
+      "id": "DEC-025",
+      "status": "partial",
+      "nodeIds": [
+        "P03-VISUAL"
+      ]
+    },
+    {
+      "id": "DEC-026",
+      "status": "partial",
+      "nodeIds": [
+        "P03-VISUAL"
+      ]
+    },
+    {
+      "id": "DEC-027",
+      "status": "partial",
+      "nodeIds": [
+        "P03-VISUAL"
+      ]
+    },
+    {
+      "id": "DEC-028",
+      "status": "mapped",
+      "nodeIds": [
+        "P03-TEMPLATE"
+      ]
+    },
+    {
+      "id": "DEC-029",
+      "status": "partial",
+      "nodeIds": [
+        "P03-TEMPLATE",
+        "P03-SMART"
+      ]
+    },
+    {
+      "id": "DEC-030",
+      "status": "mapped",
+      "nodeIds": [
+        "P03-LAYOUT"
+      ]
+    },
+    {
+      "id": "DEC-031",
+      "status": "partial",
+      "nodeIds": [
+        "P03-LAYOUT"
+      ]
+    },
+    {
+      "id": "DEC-032",
+      "status": "mapped",
+      "nodeIds": [
+        "P03-SLOTS"
+      ]
+    },
+    {
+      "id": "DEC-033",
+      "status": "partial",
+      "nodeIds": [
+        "P03-LAYOUT",
+        "P03-SMART"
+      ]
+    },
+    {
+      "id": "DEC-034",
+      "status": "partial",
+      "nodeIds": [
+        "P03-SMART"
+      ]
+    },
+    {
+      "id": "DEC-035",
+      "status": "partial",
+      "nodeIds": [
+        "P03-TEMPLATE",
+        "P03-SMART"
+      ]
+    },
+    {
+      "id": "DEC-036",
+      "status": "partial",
+      "nodeIds": [
+        "P03-ASSETS"
+      ]
+    },
+    {
+      "id": "DEC-037",
+      "status": "partial",
+      "nodeIds": [
+        "P03-PAGE-TOC"
+      ]
+    },
+    {
+      "id": "DEC-038",
+      "status": "not_evidenced",
+      "nodeIds": [
+        "P03-EXPORT"
+      ]
+    },
+    {
+      "id": "DEC-039",
+      "status": "partial",
+      "nodeIds": [
+        "P03-REVISION"
+      ]
+    },
+    {
+      "id": "DEC-040",
+      "status": "partial",
+      "nodeIds": [
+        "P03-TRACE"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "decId": "DEC-004",
+      "reason": "No explicit source-priority/conflict-resolution mechanism found."
+    },
+    {
+      "decId": "DEC-006",
+      "reason": "No explicit audience classifier or confidence output found."
+    },
+    {
+      "decId": "DEC-007",
+      "reason": "No explicit use-case/scenario classifier found."
+    },
+    {
+      "decId": "DEC-021",
+      "reason": "Speaker note storage exists, but no citation-placement planner was found."
+    },
+    {
+      "decId": "DEC-038",
+      "reason": "No capability-aware selection among multiple PowerPoint backends found."
+    }
+  ],
+  "projectSpecific": [
+    "P03-MARKDOWN: slides_markdown item-to-outline direct mapping",
+    "P03-LAYOUT: ordered template bypasses LLM layout assignment",
+    "P03-SMART: delimited HTML stream and smart-html checkpoints",
+    "P03-MCP: FastMCP OpenAPI allowlist",
+    "P03-EXPORT: pinned external exporter boundary"
+  ],
+  "evidenceBoundary": {
+    "static": "Node sourceIndex references resolve through source-index.json to pinned source paths/functions/line ranges.",
+    "runtime": "No generation model request, PPTX/PDF, or browser visual QA performed. Reuse verify-res-p03-02.json for HTTP 428 login gate evidence."
+  }
+}

@@ -196,6 +196,13 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - VERIFY-RES-P03-02 状态：进行中。HTTP 实际观察为 GET / = 200，GET /api/v1/auth/status = 200 且 configured=false；空生成请求与 n_slides=0 请求均由登录初始化门禁返回 428，未进入 endpoint 输入校验。没有生成大纲、页面或 PPTX。
 - 验收边界：Standard 允许素材 fallback 并写 warning；未在所追踪主路径发现完整 deck 级 QA gate。Smart 有 HTML 规范化/安全检查，不等于原生 PowerPoint 对象或整套质量验收。后续继续验证正常生成、跨过登录门禁后的边界和 provider 失败路径。
 - 证据：research/P03/call-graph.md、research/P03/source-index.json、research/P03/validation/verify-res-p03-02.json；Excel“需求主表”第 23 行、“可执行任务”第 36–37 行、“开源项目研究对象”第 4 行。
+### TASK-RES-P03-03 / VERIFY-RES-P03-03
+
+- Requirement ID：RES-P03-03；P0；依赖 TASK-RES-P03-02，已满足。
+- TASK-RES-P03-03 状态：已完成。固定源码决策图记录 17 个代码级节点，并对 DEC-001–DEC-040 做完整交叉映射：6 个有明确机制、29 个部分映射、5 个未发现等价独立机制。
+- 映射边界：明确区分字段/代码分支、LLM prompt 隐式选择、以及源码未发现的机制。ordered/unordered layout、slides_markdown 直接映射、Smart HTML 流和 fallback 分支都保留各自行为；随机 layout 修补、模型外部服务和 export-core 外部黑盒均显式标出。
+- VERIFY-RES-P03-03 状态：进行中。正常 Standard/Smart 生成无法通过本地登录初始化门禁；n_slides=0 与空输入也在 HTTP 428 门禁被拦截，未执行到决策 endpoint。没有生成页面/PPTX/PDF或验证视觉结果。
+- 证据：research/P03/decision-map.md、research/P03/decision-map.json、research/P03/validation/verify-res-p03-03.json；源码路径通过 research/P03/source-index.json 解析到冻结 commit。Excel“需求主表”第 24 行、“可执行任务”第 38–39 行。
 ### TASK-RES-P04-01
 
 - Requirement ID：RES-P04-01；P0；无前置任务。PDR 同时列出后续 `RES-P04-02` 完整调用链和 `RES-P04-03` 决策节点任务，本条不替代它们。

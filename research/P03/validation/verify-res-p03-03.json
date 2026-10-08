@@ -1,0 +1,42 @@
+{
+  "task": "VERIFY-RES-P03-03",
+  "requirement": "RES-P03-03",
+  "sourceCommit": "35bf44290f821323e003da854f78ffcb0e918167",
+  "status": "进行中",
+  "cases": [
+    {
+      "name": "normal-standard-layout",
+      "scenario": "Standard prompt, 5 slides and valid selected template; generate outline/layout",
+      "status": "blocked",
+      "observed": "Local login setup gate HTTP 428; no model/layout assignment executed.",
+      "evidence": "research/P03/validation/verify-res-p03-02.json"
+    },
+    {
+      "name": "normal-smart-visual",
+      "scenario": "Smart prompt and valid count; generate HTML slide and check chart/canvas rules",
+      "status": "blocked",
+      "observed": "Local login setup gate HTTP 428; no Smart slide or rendered overflow check executed.",
+      "evidence": "research/P03/validation/verify-res-p03-02.json"
+    },
+    {
+      "name": "edge-slide-count",
+      "scenario": "n_slides=0",
+      "status": "blocked-before-decision",
+      "observed": "HTTP 428 gate precedes endpoint validation; edge logic is statically located only.",
+      "evidence": "research/P03/validation/verify-res-p03-02.json"
+    },
+    {
+      "name": "failure-empty-content",
+      "scenario": "empty content without slides_markdown/files",
+      "status": "blocked-before-decision",
+      "observed": "HTTP 428 gate precedes empty-input validation; endpoint failure response not verified.",
+      "evidence": "research/P03/validation/verify-res-p03-02.json"
+    }
+  ],
+  "limitation": "No account initialization or provider credentials were configured. No outline/layout/slide/export generation occurred.",
+  "remaining": [
+    "Run at least 3 normal and 1 edge/conflict decision cases after local login setup is configured",
+    "Record layout/visual/fallback traces and export output",
+    "Update crosswalk with runtime observations"
+  ]
+}
