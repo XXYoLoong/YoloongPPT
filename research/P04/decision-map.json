@@ -1,0 +1,1791 @@
+{
+  "schemaVersion": "1.0",
+  "requirementId": "RES-P04-03",
+  "taskId": "TASK-RES-P04-03",
+  "verifyTaskId": "VERIFY-RES-P04-03",
+  "project": {
+    "repository": "https://github.com/peterfei/ai-agent-ppt",
+    "branch": "main",
+    "commit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+    "license": "MIT",
+    "scope": "固定上游源码研究；不是 YoloongPPT 产品运行时/依赖/能力选择。"
+  },
+  "sourceIndex": "research/P04/source-index.json",
+  "mappingSemantics": "DEC crosswalk 只表示固定上游中存在相近源码证据，不表示统一决策契约等价、YoloongPPT 已实现或已验收。projectSpecific 标出该仓库自己的规则。未发现独立机制会明确记录为 not_evidenced。",
+  "statusLegend": {
+    "mapped": "找到明确、可定位的候选/优先级/映射机制；仍仅代表上游源码。",
+    "partial": "找到相关 prompt、字段或局部规则，但缺少统一契约、完整选择/追踪或运行证据。",
+    "not_evidenced": "在固定源码调用链未发现可定位的独立对应机制。"
+  },
+  "executionBoundary": "17 个源码级节点逐一记录 input、candidates、mechanism、output、constraints、fallback、trace 与源码行；DEC-001–040 全量交叉映射。节点级执行证据只引用 P04-01/P04-02 已有隔离样例；截图 Vision 路径与模型内部选择保持源码观察状态。",
+  "decisionNodes": [
+    {
+      "id": "P04-ROUTE",
+      "name": "CLI 路由优先级",
+      "stage": "入口路由",
+      "decIds": [
+        "DEC-001"
+      ],
+      "status": "mapped",
+      "projectSpecific": true,
+      "input": [
+        "Create 命令选项及配置/provider 初始化结果"
+      ],
+      "candidates": [
+        "--html",
+        "--images",
+        "--topic/--input",
+        "缺少输入"
+      ],
+      "mechanism": "CreateCommand 先解析模板，再按 html > images > topic/input 的源码顺序分流；没有意图分类器。",
+      "output": [
+        "选定的上游生成分支；或输入校验错误"
+      ],
+      "constraints": [
+        "CLI 初始化仍要求有效配置和已注册 Provider，即使 HTML 分支不调用模型。"
+      ],
+      "fallback": "缺输入抛出参数错误；不自动切换到另一模式。",
+      "trace": "常规日志记录所选命令/输出；没有统一 TaskRoute 或 DecisionTrace。",
+      "sources": [
+        {
+          "file": "src/index.ts",
+          "lines": [
+            15,
+            97
+          ],
+          "sourceIndexIds": [
+            "CLI-ROUTES"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            47,
+            85
+          ],
+          "sourceIndexIds": [
+            "CREATE-ROUTER",
+            "INPUT-FILE"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            157,
+            187
+          ],
+          "sourceIndexIds": [
+            "HTML-ROUTE"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            190,
+            377
+          ],
+          "sourceIndexIds": [
+            "IMAGE-ROUTE"
+          ]
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-01.json",
+          "research/P04/validation/verify-res-p04-02.json"
+        ],
+        "cases": [
+          "HTML 正常",
+          "topic 正常",
+          "缺输入失败"
+        ]
+      }
+    },
+    {
+      "id": "P04-INPUT",
+      "name": "主题/文件输入与语言提示",
+      "stage": "输入准备",
+      "decIds": [
+        "DEC-002",
+        "DEC-003",
+        "DEC-008"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "--topic、--input、--lang、配置 defaultLang"
+      ],
+      "candidates": [
+        "UTF-8 单文件",
+        "目录根 README.md/package.json",
+        "主题文本",
+        "显式语言"
+      ],
+      "mechanism": "单文件按 UTF-8 读取；目录只拼接根 README.md 与 package.json，扫描异常被忽略；lang 被转换后写入 outline prompt。没有来源角色分类或冲突处理。",
+      "output": [
+        "传给 outline generator 的原始字符串、模板名和可选语言提示"
+      ],
+      "constraints": [
+        "目录其余文件不纳入；默认语言/受众/场景没有统一 PresentationContext。"
+      ],
+      "fallback": "缺失或读取异常可能得到空/失败输入；未做 source priority/merge。",
+      "trace": "输入内容不生成逐句 source_id 或选择理由 trace。",
+      "sources": [
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            71,
+            85
+          ],
+          "sourceIndexIds": [
+            "INPUT-FILE"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            395,
+            411
+          ],
+          "sourceIndexIds": [
+            "INPUT-FILE"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            87,
+            97
+          ],
+          "sourceIndexIds": [
+            "CREATE-ROUTER"
+          ]
+        },
+        {
+          "file": "src/core/engine/outline-generator.ts",
+          "lines": [
+            48,
+            65
+          ],
+          "sourceIndexIds": [
+            "OUTLINE"
+          ]
+        },
+        {
+          "file": "src/types/config.ts",
+          "lines": [
+            36,
+            40
+          ],
+          "sourceIndexIds": []
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-01.json",
+          "research/P04/validation/verify-res-p04-02.json"
+        ],
+        "cases": [
+          "topic 文本正常",
+          "缺输入失败"
+        ]
+      }
+    },
+    {
+      "id": "P04-OUTLINE",
+      "name": "LLM 大纲与页面意图",
+      "stage": "内容规划",
+      "decIds": [
+        "DEC-009",
+        "DEC-011",
+        "DEC-012",
+        "DEC-013",
+        "DEC-015",
+        "DEC-016",
+        "DEC-017",
+        "DEC-019",
+        "DEC-022",
+        "DEC-023",
+        "DEC-024",
+        "DEC-026",
+        "DEC-027"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "主题或读取后的文本、模板名、语言提示"
+      ],
+      "candidates": [
+        "标题与有序 slide 列表；8 个 layout 名称；bullet/code/chart/timeline/comparison/image 字段"
+      ],
+      "mechanism": "SYSTEM_PROMPT 要求 5–15 页、layout 多样、单页 focused message、适当数据/代码/比较，并强制每套至少一页 image/image-text；LLM 生成 JSON。仅解析 JSON 并检查 title 与 slides 数组，不校验单页字段或语义。",
+      "output": [
+        "Outline.title 与 Outline.slides；每页可带 layout、标题、bulletPoints、notes、imageUrl、chartData、codeSnippet、timelineData、comparisonItems"
+      ],
+      "constraints": [
+        "5–15 是 prompt 规则而非硬 schema；CreateCommand 未把可选 slideCount 传入本次调用。",
+        "至少一页图片是上游固定 prompt 规则，不是产品默认。",
+        "没有显式 thesis、ContentGraph、section tree、容量或事实/证据决策对象。"
+      ],
+      "fallback": "LLM 响应解析或最小结构检查失败时重试；没有字段级修复、可解释候选或语义 fallback。",
+      "trace": "源码只能证明 prompt 与解析边界；模型候选、分数、内部推理不可见，也不形成完整 trace。",
+      "sources": [
+        {
+          "file": "src/core/engine/outline-generator.ts",
+          "lines": [
+            10,
+            80
+          ],
+          "sourceIndexIds": [
+            "OUTLINE"
+          ]
+        },
+        {
+          "file": "src/types/config.ts",
+          "lines": [
+            75,
+            110
+          ],
+          "sourceIndexIds": []
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "partially_observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-02.json"
+        ],
+        "cases": [
+          "注入式 topic outline 正常；未覆盖真实 LLM 候选/评分"
+        ]
+      }
+    },
+    {
+      "id": "P04-OUTLINE-RETRY",
+      "name": "大纲请求重试",
+      "stage": "失败处理",
+      "decIds": [
+        "DEC-040"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "大纲生成调用异常"
+      ],
+      "candidates": [
+        "首次成功",
+        "重试后成功",
+        "重试耗尽"
+      ],
+      "mechanism": "withRetry 最多 3 次，等待 2 秒、4 秒；仅包裹大纲生成调用。",
+      "output": [
+        "成功的大纲或最终抛出的最后一个错误"
+      ],
+      "constraints": [
+        "不记录候选、分数、证据链或每次响应；内容填充阶段不使用该重试器。"
+      ],
+      "fallback": "重试耗尽后抛出最后错误并结束该路径。",
+      "trace": "控制台 warning/fail 文本，不是结构化 DecisionTrace。",
+      "sources": [
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            379,
+            393
+          ],
+          "sourceIndexIds": [
+            "OUTLINE-RETRY"
+          ]
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "source_only",
+        "reports": [],
+        "cases": []
+      }
+    },
+    {
+      "id": "P04-TEMPLATE",
+      "name": "模板族与主题参数",
+      "stage": "模板解析",
+      "decIds": [
+        "DEC-002",
+        "DEC-028",
+        "DEC-029",
+        "DEC-033",
+        "DEC-034",
+        "DEC-035"
+      ],
+      "status": "mapped",
+      "projectSpecific": true,
+      "input": [
+        "CLI --template、配置 defaultTemplate、内置回退值"
+      ],
+      "candidates": [
+        "business",
+        "education",
+        "pitch",
+        "report",
+        "tech"
+      ],
+      "mechanism": "优先级为命令行 > 配置 > 固定 tech；TemplateManager 用 Zod 校验 colors/fonts/spacing/slideSize。模板文件定义颜色、字体、字号/行距和画布尺寸。",
+      "output": [
+        "TemplateConfig 供 layout 变量及 PPTX 渲染使用"
+      ],
+      "constraints": [
+        "无跨模板评分、品牌/模板继承、背景/装饰密度比较或能力约束匹配。"
+      ],
+      "fallback": "模板文件缺失/无效时终止生成并报错，不改用其他模板。",
+      "trace": "没有记录候选模板和选择 rationale 的持久化 trace。",
+      "sources": [
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            47,
+            57
+          ],
+          "sourceIndexIds": [
+            "CREATE-ROUTER"
+          ]
+        },
+        {
+          "file": "src/core/template/template-manager.ts",
+          "lines": [
+            9,
+            90
+          ],
+          "sourceIndexIds": [
+            "TEMPLATE"
+          ]
+        },
+        {
+          "file": "src/templates/business/template.json",
+          "lines": [
+            1,
+            26
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/templates/education/template.json",
+          "lines": [
+            1,
+            26
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/templates/pitch/template.json",
+          "lines": [
+            1,
+            26
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/templates/report/template.json",
+          "lines": [
+            1,
+            26
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/templates/tech/template.json",
+          "lines": [
+            1,
+            26
+          ],
+          "sourceIndexIds": []
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-01.json",
+          "research/P04/validation/verify-res-p04-02.json"
+        ],
+        "cases": [
+          "tech 模板生成成功"
+        ]
+      }
+    },
+    {
+      "id": "P04-CONTENT-FILL",
+      "name": "逐页扩写与失败保留",
+      "stage": "逐页内容生成",
+      "decIds": [
+        "DEC-019",
+        "DEC-020",
+        "DEC-037"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "大纲页标题、layout、bulletPoints、codeSnippet、chartData"
+      ],
+      "candidates": [
+        "expandedText",
+        "speakerNotes"
+      ],
+      "mechanism": "ContentFiller 按页串行请求模型扩写；成功时合并 expandedText/speakerNotes；异常或响应 JSON 解析失败时 catch 并保留原 outline slide。",
+      "output": [
+        "带扩写字段或原样保留的 SlideContent 列表"
+      ],
+      "constraints": [
+        "没有内容容量、压缩/拆分、事实/引用保持或 speaker notes OOXML 决策；扩写结果可能不被所选 layout 消费。"
+      ],
+      "fallback": "逐页失败静默回退原始页，继续输出；没有结构化错误状态。",
+      "trace": "只有进度提示；不保存每页输入/模型响应/回退原因。",
+      "sources": [
+        {
+          "file": "src/core/engine/content-filler.ts",
+          "lines": [
+            8,
+            73
+          ],
+          "sourceIndexIds": [
+            "CONTENT-FILL"
+          ]
+        },
+        {
+          "file": "src/types/config.ts",
+          "lines": [
+            75,
+            115
+          ],
+          "sourceIndexIds": []
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-02.json"
+        ],
+        "cases": [
+          "正常假响应",
+          "内容填充异常后保留原页"
+        ]
+      }
+    },
+    {
+      "id": "P04-LAYOUT-CHOICE",
+      "name": "大纲 layout 类型与布局名",
+      "stage": "版式选择",
+      "decIds": [
+        "DEC-017",
+        "DEC-030"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "LLM outline 中的 layout 字段"
+      ],
+      "candidates": [
+        "title",
+        "bullet",
+        "code",
+        "chart",
+        "timeline",
+        "comparison",
+        "image",
+        "image-text"
+      ],
+      "mechanism": "Prompt 给出八个名称；下游按生成的字符串尝试加载同名 JSON 文件。LayoutLoader.list 可列目录文件，但 CreateCommand 路径不据此生成候选或打分。",
+      "output": [
+        "输入到 LayoutLoader.load 的一个 layout 名称"
+      ],
+      "constraints": [
+        "Outline schema 未对 layout 枚举校验；未发现容量、backend、内容语义的候选筛选或评分。"
+      ],
+      "fallback": "无法加载时该页被跳过，见 P04-LAYOUT-LOAD。",
+      "trace": "没有保存 layout 候选集合、选择理由或分数。",
+      "sources": [
+        {
+          "file": "src/core/engine/outline-generator.ts",
+          "lines": [
+            10,
+            39
+          ],
+          "sourceIndexIds": [
+            "OUTLINE"
+          ]
+        },
+        {
+          "file": "src/core/engine/layout-loader.ts",
+          "lines": [
+            64,
+            83
+          ],
+          "sourceIndexIds": [
+            "LAYOUT-LOADER"
+          ]
+        },
+        {
+          "file": "src/layouts/bullet.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/chart.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/code.layout.json",
+          "lines": [
+            1,
+            50
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/comparison.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/image-text.layout.json",
+          "lines": [
+            1,
+            56
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/image.layout.json",
+          "lines": [
+            1,
+            39
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/timeline.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/title.layout.json",
+          "lines": [
+            1,
+            38
+          ],
+          "sourceIndexIds": []
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "partially_observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-02.json"
+        ],
+        "cases": [
+          "bullet layout 实际生成；其他 layout 未逐一运行"
+        ]
+      }
+    },
+    {
+      "id": "P04-LAYOUT-LOAD",
+      "name": "版式文件校验与跳过",
+      "stage": "版式加载",
+      "decIds": [
+        "DEC-030",
+        "DEC-032",
+        "DEC-040"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "生成的 layout 名称及布局 JSON 文件"
+      ],
+      "candidates": [
+        "有效并符合 Zod schema",
+        "缺失/JSON 错误/schema 错误"
+      ],
+      "mechanism": "按精确文件名读取 `{name}.layout.json` 并校验根/节点结构；异常返回 null；CreateCommand 累计 skipped 后仍构建输出。",
+      "output": [
+        "LayoutDefinition 或 null；后者导致该页跳过"
+      ],
+      "constraints": [
+        "不校验 slot 与输入字段完备性，不对全部页跳过设置终止门槛。"
+      ],
+      "fallback": "缺失/无效 layout 不自动选替代版式，也不阻止其余页面导出。",
+      "trace": "仅最终成功信息可显示 skipped 数量，无每页错误码/决策 trace。",
+      "sources": [
+        {
+          "file": "src/core/engine/layout-loader.ts",
+          "lines": [
+            34,
+            83
+          ],
+          "sourceIndexIds": [
+            "LAYOUT-LOADER"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            139,
+            153
+          ],
+          "sourceIndexIds": [
+            "CREATE-ROUTER"
+          ]
+        },
+        {
+          "file": "src/layouts/bullet.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/chart.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/code.layout.json",
+          "lines": [
+            1,
+            50
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/comparison.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/image-text.layout.json",
+          "lines": [
+            1,
+            56
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/image.layout.json",
+          "lines": [
+            1,
+            39
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/timeline.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/title.layout.json",
+          "lines": [
+            1,
+            38
+          ],
+          "sourceIndexIds": []
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "source_only",
+        "reports": [],
+        "cases": []
+      }
+    },
+    {
+      "id": "P04-SLOT-BINDING",
+      "name": "页面内容到 layout slot 映射",
+      "stage": "内容绑定",
+      "decIds": [
+        "DEC-018",
+        "DEC-019",
+        "DEC-032"
+      ],
+      "status": "mapped",
+      "projectSpecific": false,
+      "input": [
+        "SlideContent 字段与 LayoutNode.slot"
+      ],
+      "candidates": [
+        "title",
+        "subtitle",
+        "code",
+        "notes",
+        "image",
+        "bulletPoints"
+      ],
+      "mechanism": "SLOT_MAP 将六种命名 slot 映射到字段/子节点；模板变量从 colors/fonts/spacing 解析；bulletPoints 展开为 li。",
+      "output": [
+        "StyleNode 树"
+      ],
+      "constraints": [
+        "chartData、timelineData、comparisonItems 虽有类型/提示字段，但没有对应 SLOT_MAP；没有容量或字段不匹配诊断。"
+      ],
+      "fallback": "空 code/notes/image 返回 null、无内容的 bulletPoints 生成空列表；不报告 unsupported slot。",
+      "trace": "不输出字段→slot trace；PPTXBuilder 会再把树压成顺序块。",
+      "sources": [
+        {
+          "file": "src/core/engine/slide-renderer.ts",
+          "lines": [
+            5,
+            73
+          ],
+          "sourceIndexIds": [
+            "SLOT-BINDING"
+          ]
+        },
+        {
+          "file": "src/types/config.ts",
+          "lines": [
+            75,
+            115
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/bullet.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/chart.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/code.layout.json",
+          "lines": [
+            1,
+            50
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/comparison.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/image-text.layout.json",
+          "lines": [
+            1,
+            56
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/image.layout.json",
+          "lines": [
+            1,
+            39
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/timeline.layout.json",
+          "lines": [
+            1,
+            36
+          ],
+          "sourceIndexIds": []
+        },
+        {
+          "file": "src/layouts/title.layout.json",
+          "lines": [
+            1,
+            38
+          ],
+          "sourceIndexIds": []
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-02.json"
+        ],
+        "cases": [
+          "bullet layout 的 title 与 bulletPoints 产物检查"
+        ]
+      }
+    },
+    {
+      "id": "P04-TOPIC-RENDER",
+      "name": "主题路线几何、文字与装饰",
+      "stage": "PPTX 渲染",
+      "decIds": [
+        "DEC-018",
+        "DEC-033",
+        "DEC-034",
+        "DEC-035",
+        "DEC-036"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "StyleNode 树、模板尺寸/颜色/字体/spacing"
+      ],
+      "candidates": [
+        "顺序文本块、图片块、固定装饰形状"
+      ],
+      "mechanism": "PPTXBuilder 将树展平为文本/图片块，忽略原布局树的 x/y/网格关系；用游标纵向放置、估算行数并裁到剩余高度，设置字体/颜色/字号；图片按块尺寸写入。",
+      "output": [
+        "PptxGenJS slide 对象与 PPTX buffer"
+      ],
+      "constraints": [
+        "几何规则主要是垂直流；没有一致的网格/连接线/文本溢出 QA；模板 slideSize 生效。"
+      ],
+      "fallback": "超出剩余高度时压到 bottomLimit；远程图像处理见 P04-IMAGE-ASSET。",
+      "trace": "未记录每个元素的候选布局/坐标原因或 render trace。",
+      "sources": [
+        {
+          "file": "src/core/engine/pptx-builder.ts",
+          "lines": [
+            25,
+            219
+          ],
+          "sourceIndexIds": [
+            "PPTX-BUILDER"
+          ]
+        },
+        {
+          "file": "src/core/engine/pptx-builder.ts",
+          "lines": [
+            225,
+            236
+          ],
+          "sourceIndexIds": [
+            "PPTX-BUILDER"
+          ]
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-02.json"
+        ],
+        "cases": [
+          "topic 正常与填充回退 PPTX 结构及文本检查"
+        ]
+      }
+    },
+    {
+      "id": "P04-HTML-STRUCTURE",
+      "name": "HTML 结构解析与几何计算",
+      "stage": "HTML 页面编译",
+      "decIds": [
+        "DEC-022",
+        "DEC-033",
+        "DEC-034",
+        "DEC-035",
+        "DEC-036"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "单个 HTML 字符串、模板画布尺寸"
+      ],
+      "candidates": [
+        "解析出来的元素树与 LayoutBox"
+      ],
+      "mechanism": "HTML 直达 PureLayout；wrapper 解析简化标签/内联样式，调用 purelayout 计算 1280×720 viewport 几何，再修补 flex 子项位置，PPTAdapter 逐 box 写入单页。",
+      "output": [
+        "LayoutBox[] 与一张 PPTX slide"
+      ],
+      "constraints": [
+        "纯 HTML 路径不经过 topic 大纲、layout registry 或 LLM；purelayout 包内部算法是外部黑盒。"
+      ],
+      "fallback": "空/无法解析 HTML 抛错；不切换到其他 route。",
+      "trace": "记录元素总数，不保留 DOM→box→PPT shape 的完整 trace。",
+      "sources": [
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            157,
+            187
+          ],
+          "sourceIndexIds": [
+            "HTML-ROUTE"
+          ]
+        },
+        {
+          "file": "src/core/engine/pure-layout.ts",
+          "lines": [
+            70,
+            158
+          ],
+          "sourceIndexIds": [
+            "PURELAYOUT-WRAPPER"
+          ]
+        },
+        {
+          "file": "src/core/engine/pure-layout.ts",
+          "lines": [
+            354,
+            584
+          ],
+          "sourceIndexIds": [
+            "PURELAYOUT-WRAPPER"
+          ]
+        },
+        {
+          "file": "src/core/engine/ppt-adapter.ts",
+          "lines": [
+            24,
+            188
+          ],
+          "sourceIndexIds": [
+            "PPT-ADAPTER"
+          ]
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-01.json"
+        ],
+        "cases": [
+          "官方 HTML 最小样例",
+          "嵌套 HTML 边界"
+        ]
+      }
+    },
+    {
+      "id": "P04-HTML-CSS",
+      "name": "HTML/截图路线的 CSS 子集与净化",
+      "stage": "页面结构归一",
+      "decIds": [
+        "DEC-033",
+        "DEC-034",
+        "DEC-035"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "HTML 标签、内联 style、style block"
+      ],
+      "candidates": [
+        "标签选择器、class、tag.class、已识别的内联属性"
+      ],
+      "mechanism": "图片路线仅解析少量 selector；跳过 @media、伪类等嵌套规则；删除 class、脚本/head 等标签；把 body 替换为 div；多根节点包入 flex 容器。",
+      "output": [
+        "PureLayout 可处理的简化 HTML"
+      ],
+      "constraints": [
+        "不是浏览器 CSS 引擎；支持范围窄于通用 HTML/CSS，视觉还原能力未由静态映射证明。"
+      ],
+      "fallback": "不支持的规则忽略；必要时用包装容器继续解析。",
+      "trace": "没有记录哪些 CSS 被忽略的诊断 trace。",
+      "sources": [
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            307,
+            348
+          ],
+          "sourceIndexIds": [
+            "IMAGE-ROUTE"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            413,
+            563
+          ],
+          "sourceIndexIds": [
+            "HTML-CSS-CONVERSION"
+          ]
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-01.json"
+        ],
+        "cases": [
+          "嵌套标签和内联字号/颜色样例；未覆盖复杂 CSS"
+        ]
+      }
+    },
+    {
+      "id": "P04-IMAGE-ANALYSIS",
+      "name": "截图视觉结构抽取",
+      "stage": "截图反建",
+      "decIds": [
+        "DEC-022",
+        "DEC-023",
+        "DEC-024"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "PNG/JPG/JPEG/WEBP 图片与选择的 Vision Provider"
+      ],
+      "candidates": [
+        "backgroundColor、title、subtitle、text/row sections、文字样式"
+      ],
+      "mechanism": "中英文 prompt 要求 JSON 描述结构并提取全部文字；图片以 data URL 和文本 prompt 一起发送给 Provider。该路线意图是从截图提取版面信息。",
+      "output": [
+        "JSON 结构描述，后续转换为 HTML"
+      ],
+      "constraints": [
+        "MIME 仅对 png 标为 image/png，其余扩展名标 image/jpeg；视觉模型行为是远程黑盒。"
+      ],
+      "fallback": "JSON 解析失败后进入原始 HTML fallback；图片单页异常会继续处理后续图片。",
+      "trace": "仅有 Provider 调用；没有保存模型候选、视觉置信度或元素证据定位。",
+      "sources": [
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            190,
+            291
+          ],
+          "sourceIndexIds": [
+            "IMAGE-ROUTE"
+          ]
+        },
+        {
+          "file": "src/core/providers/provider-adapter.ts",
+          "lines": [
+            1,
+            13
+          ],
+          "sourceIndexIds": [
+            "PROVIDER-INTERFACE"
+          ]
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "source_only",
+        "reports": [],
+        "cases": []
+      }
+    },
+    {
+      "id": "P04-VISION-FALLBACK",
+      "name": "视觉响应 JSON/HTML 回退",
+      "stage": "截图反建",
+      "decIds": [
+        "DEC-022",
+        "DEC-033",
+        "DEC-040"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "Vision Provider 原始响应文本"
+      ],
+      "candidates": [
+        "可解析 JSON",
+        "JSON 失败时原始响应按 HTML 处理"
+      ],
+      "mechanism": "先抽取 JSON 块并转为 HTML；解析失败使用完整 raw 响应；随后清理部分标签、移除 class、body 转 div、多根元素自动包装。",
+      "output": [
+        "供 PureLayout 解析的 HTML"
+      ],
+      "constraints": [
+        "raw HTML 不经严格 schema/sanitizer 覆盖审计；fallback 成功不代表结构正确。"
+      ],
+      "fallback": "空或不可解析 HTML 后续失败；没有 fallback 决策确认。",
+      "trace": "没有记录解析尝试/错误和每个清理转换的结构化事件。",
+      "sources": [
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            294,
+            349
+          ],
+          "sourceIndexIds": [
+            "IMAGE-ROUTE"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            517,
+            563
+          ],
+          "sourceIndexIds": [
+            "HTML-CSS-CONVERSION"
+          ]
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "source_only",
+        "reports": [],
+        "cases": []
+      }
+    },
+    {
+      "id": "P04-BACKGROUND-FALLBACK",
+      "name": "截图背景色回退",
+      "stage": "视觉样式回退",
+      "decIds": [
+        "DEC-029",
+        "DEC-035"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "LayoutBox 背景与文本颜色、模板 primary/background"
+      ],
+      "candidates": [
+        "已有背景色",
+        "无背景且有浅色文字",
+        "无背景且无浅色文字"
+      ],
+      "mechanism": "只在未发现背景 box 时应用规则：存在浅色文字则用 template.colors.primary，否则用 template.colors.background。",
+      "output": [
+        "slide.background color"
+      ],
+      "constraints": [
+        "只检查颜色亮度，没有对比度/可读性 QA，也不比较主题方向。"
+      ],
+      "fallback": "识别到任意背景 box 时不应用该回退。",
+      "trace": "无选择理由 trace；isLightHex 只实现简化 hex 亮度判断。",
+      "sources": [
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            351,
+            363
+          ],
+          "sourceIndexIds": [
+            "IMAGE-ROUTE"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            573,
+            584
+          ],
+          "sourceIndexIds": [
+            "HTML-CSS-CONVERSION"
+          ]
+        },
+        {
+          "file": "src/templates/tech/template.json",
+          "lines": [
+            1,
+            26
+          ],
+          "sourceIndexIds": []
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "source_only",
+        "reports": [],
+        "cases": []
+      }
+    },
+    {
+      "id": "P04-PPT-ADAPTER",
+      "name": "LayoutBox 到 PowerPoint 元素映射",
+      "stage": "PPTX 序列化前适配",
+      "decIds": [
+        "DEC-033",
+        "DEC-034",
+        "DEC-035",
+        "DEC-036",
+        "DEC-038"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "LayoutBox、TemplateConfig、背景与素材信息"
+      ],
+      "candidates": [
+        "RENDER_MAP 支持的 text/image/background 元素到 PptxGenJS API"
+      ],
+      "mechanism": "PPTAdapter 将 box 几何、文字/图片样式和背景映射到 PptxGenJS；PPTX 后端在固定源码中是单一路径，不按能力注册表择优。",
+      "output": [
+        "PptxGenJS slide API 调用"
+      ],
+      "constraints": [
+        "没有 adapter 能力预检、round-trip 或原生对象能力比较；第三方 OOXML 序列化属于外部黑盒。"
+      ],
+      "fallback": "素材读取失败按 adapter/调用点处理；无备用后端。",
+      "trace": "未产生 backend selection 或每个形状的持久化 trace。",
+      "sources": [
+        {
+          "file": "src/core/engine/ppt-adapter.ts",
+          "lines": [
+            24,
+            188
+          ],
+          "sourceIndexIds": [
+            "PPT-ADAPTER"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            168,
+            184
+          ],
+          "sourceIndexIds": [
+            "HTML-ROUTE"
+          ]
+        },
+        {
+          "file": "src/core/engine/pptx-builder.ts",
+          "lines": [
+            52,
+            60
+          ],
+          "sourceIndexIds": [
+            "PPTX-BUILDER"
+          ]
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "observed",
+        "reports": [
+          "research/P04/validation/verify-res-p04-01.json"
+        ],
+        "cases": [
+          "HTML 正常与嵌套 HTML 输出经适配器写为 PPTX"
+        ]
+      }
+    },
+    {
+      "id": "P04-IMAGE-ASSET",
+      "name": "图像下载失败处理",
+      "stage": "素材载入",
+      "decIds": [
+        "DEC-024",
+        "DEC-036",
+        "DEC-040"
+      ],
+      "status": "partial",
+      "projectSpecific": true,
+      "input": [
+        "背景/内容图片 URL 或本地图片路径"
+      ],
+      "candidates": [
+        "HTTP 成功、HTTP 失败、超时、异常"
+      ],
+      "mechanism": "fetch 最多等待 10 秒；PPTXBuilder 下载失败返回 null 后将原 URL 作为 path 交给 PptxGenJS；图片重建路线逐图 catch 后继续并最终保存。",
+      "output": [
+        "base64 image data、原 URL path 或失败页跳过"
+      ],
+      "constraints": [
+        "WEBP 在截图路线上 MIME 标注不准确；远端图片网络和 PptxGenJS 行为未实测。"
+      ],
+      "fallback": "下载失败不阻止 topic PPTX；图片分析失败跳过该张并继续。",
+      "trace": "只输出 spinner/log 文本，没有标准错误码或素材失败 DecisionTrace。",
+      "sources": [
+        {
+          "file": "src/core/engine/pptx-builder.ts",
+          "lines": [
+            225,
+            236
+          ],
+          "sourceIndexIds": [
+            "PPTX-BUILDER"
+          ]
+        },
+        {
+          "file": "src/core/engine/ppt-adapter.ts",
+          "lines": [
+            175,
+            188
+          ],
+          "sourceIndexIds": [
+            "PPT-ADAPTER"
+          ]
+        },
+        {
+          "file": "src/commands/create.ts",
+          "lines": [
+            364,
+            377
+          ],
+          "sourceIndexIds": [
+            "IMAGE-ROUTE"
+          ]
+        }
+      ],
+      "runtimeEvidence": {
+        "status": "source_only",
+        "reports": [],
+        "cases": []
+      }
+    }
+  ],
+  "decCrosswalk": [
+    {
+      "id": "DEC-001",
+      "name": "任务模式路由",
+      "status": "mapped",
+      "nodeIds": [
+        "P04-ROUTE"
+      ],
+      "reason": "显式 CLI 分支顺序；仅映射上游命令路由，不等价于完整意图路由。"
+    },
+    {
+      "id": "DEC-002",
+      "name": "输入约束归一化",
+      "status": "partial",
+      "nodeIds": [
+        "P04-INPUT",
+        "P04-TEMPLATE"
+      ],
+      "reason": "模板/语言等参数分散在选项与配置中，没有统一 ValidatedInputs。"
+    },
+    {
+      "id": "DEC-003",
+      "name": "来源加载策略",
+      "status": "partial",
+      "nodeIds": [
+        "P04-INPUT"
+      ],
+      "reason": "接受主题、文件或目录文本；没有事实/模板/风格/素材来源角色分类。"
+    },
+    {
+      "id": "DEC-004",
+      "name": "来源优先级/冲突",
+      "status": "not_evidenced",
+      "nodeIds": [],
+      "reason": "未发现来源优先级或 unresolved 冲突处理机制。"
+    },
+    {
+      "id": "DEC-005",
+      "name": "事实/假设边界",
+      "status": "not_evidenced",
+      "nodeIds": [],
+      "reason": "未发现事实、假设、placeholder 或询问边界对象。"
+    },
+    {
+      "id": "DEC-006",
+      "name": "受众判定",
+      "status": "not_evidenced",
+      "nodeIds": [],
+      "reason": "未发现受众推断或置信度机制。"
+    },
+    {
+      "id": "DEC-007",
+      "name": "用途与场景",
+      "status": "not_evidenced",
+      "nodeIds": [],
+      "reason": "未发现用途/场景分类器或 PresentationScenario。"
+    },
+    {
+      "id": "DEC-008",
+      "name": "语言/语气",
+      "status": "partial",
+      "nodeIds": [
+        "P04-INPUT"
+      ],
+      "reason": "可把语言字符串放入 prompt；没有术语/正式度/品牌词策略对象。"
+    },
+    {
+      "id": "DEC-009",
+      "name": "核心论点",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE"
+      ],
+      "reason": "大纲有 deck title，但无独立、可验证的核心论点结构。"
+    },
+    {
+      "id": "DEC-010",
+      "name": "内容关系图",
+      "status": "not_evidenced",
+      "nodeIds": [],
+      "reason": "未发现内容关系图或关系类型抽取。"
+    },
+    {
+      "id": "DEC-011",
+      "name": "故事线",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE"
+      ],
+      "reason": "Prompt 要求 slide message/顺序，但没有故事线类型与显式选取。"
+    },
+    {
+      "id": "DEC-012",
+      "name": "章节/大纲",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE"
+      ],
+      "reason": "生成有序 slide 数组；无章节树或 section transition。"
+    },
+    {
+      "id": "DEC-013",
+      "name": "总页数预算",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE"
+      ],
+      "reason": "Prompt 固定 5–15 页；没有时长/内容量约束下的预算模型。"
+    },
+    {
+      "id": "DEC-014",
+      "name": "章节页数分配",
+      "status": "not_evidenced",
+      "nodeIds": [],
+      "reason": "未发现章节、封面/目录/总结/附录页数分配。"
+    },
+    {
+      "id": "DEC-015",
+      "name": "分页",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE"
+      ],
+      "reason": "只要求总页数区间；未发现按语义与容量的合并/拆分页决策。"
+    },
+    {
+      "id": "DEC-016",
+      "name": "单页目标",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE"
+      ],
+      "reason": "Prompt 要求每页 focused message，但没有 SlideIntent 对象。"
+    },
+    {
+      "id": "DEC-017",
+      "name": "页面类型",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE",
+        "P04-LAYOUT-CHOICE"
+      ],
+      "reason": "Prompt 列出 8 种 layout 名；无独立 SlideType 分类或字段级校验。"
+    },
+    {
+      "id": "DEC-018",
+      "name": "内容容量",
+      "status": "partial",
+      "nodeIds": [
+        "P04-SLOT-BINDING",
+        "P04-TOPIC-RENDER"
+      ],
+      "reason": "有固定 slot 与文字行数/剩余高度估算；不是统一的多对象容量模型。"
+    },
+    {
+      "id": "DEC-019",
+      "name": "标题与层级文案",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE",
+        "P04-CONTENT-FILL",
+        "P04-SLOT-BINDING"
+      ],
+      "reason": "有标题、bullet、扩写字段和模板样式；没有层级文案契约或证据追溯。"
+    },
+    {
+      "id": "DEC-020",
+      "name": "压缩/扩写/拆分",
+      "status": "partial",
+      "nodeIds": [
+        "P04-CONTENT-FILL"
+      ],
+      "reason": "只做逐页扩写；没有压缩、拆页、合页、内容保留轨迹。"
+    },
+    {
+      "id": "DEC-021",
+      "name": "来源展示位置",
+      "status": "not_evidenced",
+      "nodeIds": [],
+      "reason": "未发现来源引用字段或 inline/notes/footnote/appendix 位置决策。"
+    },
+    {
+      "id": "DEC-022",
+      "name": "主视觉表达",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE",
+        "P04-HTML-STRUCTURE",
+        "P04-IMAGE-ANALYSIS",
+        "P04-VISION-FALLBACK"
+      ],
+      "reason": "支持若干页面表达字段/结构，但不按 ContentGraph 选择或比较视觉表达。"
+    },
+    {
+      "id": "DEC-023",
+      "name": "图片必要性",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE",
+        "P04-IMAGE-ANALYSIS"
+      ],
+      "reason": "Prompt 强制至少一页图片或图文；没有图片信息价值/装饰性判断。"
+    },
+    {
+      "id": "DEC-024",
+      "name": "素材来源策略",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE",
+        "P04-IMAGE-ANALYSIS",
+        "P04-IMAGE-ASSET"
+      ],
+      "reason": "Prompt 使用 Unsplash URL，截图路线使用输入图；无统一素材源/搜索/生成选择策略。"
+    },
+    {
+      "id": "DEC-025",
+      "name": "表格必要性",
+      "status": "not_evidenced",
+      "nodeIds": [],
+      "reason": "未发现表格必要性判断或表格对象规划。"
+    },
+    {
+      "id": "DEC-026",
+      "name": "图表必要性与类型",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE"
+      ],
+      "reason": "类型与 prompt 有 chartData 描述，但没有图表类型选择机制或可用 slot/render 映射。"
+    },
+    {
+      "id": "DEC-027",
+      "name": "流程/关系图类型",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE"
+      ],
+      "reason": "有 timelineData 字段和 timeline layout 名；没有按关系类型选择图示的规则。"
+    },
+    {
+      "id": "DEC-028",
+      "name": "模板族选择",
+      "status": "mapped",
+      "nodeIds": [
+        "P04-TEMPLATE"
+      ],
+      "reason": "CLI > 配置 > tech 的模板选择优先级与 schema 校验明确。"
+    },
+    {
+      "id": "DEC-029",
+      "name": "全局风格",
+      "status": "partial",
+      "nodeIds": [
+        "P04-TEMPLATE",
+        "P04-BACKGROUND-FALLBACK"
+      ],
+      "reason": "模板提供 token，截图路线有背景 fallback；没有统一风格决策/一致性 QA。"
+    },
+    {
+      "id": "DEC-030",
+      "name": "版式候选检索",
+      "status": "partial",
+      "nodeIds": [
+        "P04-LAYOUT-CHOICE",
+        "P04-LAYOUT-LOAD"
+      ],
+      "reason": "按 layout 字符串加载指定文件；无基于槽位、容量、素材与 backend 的候选检索。"
+    },
+    {
+      "id": "DEC-031",
+      "name": "版式评分与选择",
+      "status": "not_evidenced",
+      "nodeIds": [],
+      "reason": "未发现版式候选评分、排序或选择评估器。"
+    },
+    {
+      "id": "DEC-032",
+      "name": "槽位映射",
+      "status": "mapped",
+      "nodeIds": [
+        "P04-LAYOUT-LOAD",
+        "P04-SLOT-BINDING"
+      ],
+      "reason": "存在明确的六种 slot→内容映射；缺失字段诊断和全部资产覆盖不完整。"
+    },
+    {
+      "id": "DEC-033",
+      "name": "几何布局",
+      "status": "partial",
+      "nodeIds": [
+        "P04-TEMPLATE",
+        "P04-TOPIC-RENDER",
+        "P04-HTML-STRUCTURE",
+        "P04-VISION-FALLBACK",
+        "P04-HTML-CSS",
+        "P04-PPT-ADAPTER"
+      ],
+      "reason": "主题路线丢弃树几何并采用垂直游标；HTML 路线用 PureLayout boxes；两者语义不同。"
+    },
+    {
+      "id": "DEC-034",
+      "name": "字体与文本适配",
+      "status": "partial",
+      "nodeIds": [
+        "P04-TEMPLATE",
+        "P04-TOPIC-RENDER",
+        "P04-HTML-STRUCTURE",
+        "P04-HTML-CSS",
+        "P04-PPT-ADAPTER"
+      ],
+      "reason": "有字号、字体与行高估算；无统一 autosize/CJK/RTL/字体能力处理。"
+    },
+    {
+      "id": "DEC-035",
+      "name": "颜色/背景/效果",
+      "status": "partial",
+      "nodeIds": [
+        "P04-TEMPLATE",
+        "P04-TOPIC-RENDER",
+        "P04-HTML-STRUCTURE",
+        "P04-HTML-CSS",
+        "P04-BACKGROUND-FALLBACK",
+        "P04-PPT-ADAPTER"
+      ],
+      "reason": "有颜色 token、CSS 颜色和背景回退；无完整对比度、效果及 QA 规则。"
+    },
+    {
+      "id": "DEC-036",
+      "name": "图片裁切与适配",
+      "status": "partial",
+      "nodeIds": [
+        "P04-TOPIC-RENDER",
+        "P04-HTML-STRUCTURE",
+        "P04-PPT-ADAPTER",
+        "P04-IMAGE-ASSET"
+      ],
+      "reason": "存在图片尺寸/下载调用；未发现 focal point、crop/contain/cover 选择与视觉验证闭环。"
+    },
+    {
+      "id": "DEC-037",
+      "name": "动画/切换/备注",
+      "status": "partial",
+      "nodeIds": [
+        "P04-CONTENT-FILL"
+      ],
+      "reason": "有 speakerNotes 字段与 notes slot，但没有场景选择、transition/animation 决策或可靠 notes PPTX 证据。"
+    },
+    {
+      "id": "DEC-038",
+      "name": "预执行与后端选择",
+      "status": "partial",
+      "nodeIds": [
+        "P04-PPT-ADAPTER"
+      ],
+      "reason": "固定调用 PptxGenJS；没有根据需求/平台/round-trip 做 backend 预检或择优。"
+    },
+    {
+      "id": "DEC-039",
+      "name": "质量问题与回退",
+      "status": "not_evidenced",
+      "nodeIds": [],
+      "reason": "固定 CLI 主链路未发现结构/视觉/事实/编辑性 QA 到 revision 的闭环。"
+    },
+    {
+      "id": "DEC-040",
+      "name": "终止与轨迹",
+      "status": "partial",
+      "nodeIds": [
+        "P04-OUTLINE-RETRY",
+        "P04-LAYOUT-LOAD",
+        "P04-VISION-FALLBACK",
+        "P04-IMAGE-ASSET"
+      ],
+      "reason": "有局部 retry/continue/fallback；没有统一 final/warning/fail 和完整 DecisionTrace。"
+    }
+  ],
+  "projectSpecificMechanisms": [
+    {
+      "id": "P04-PS-01",
+      "nodeId": "P04-ROUTE",
+      "rule": "固定 CLI 优先级 html > images > topic/input；不做用户意图自动分类。"
+    },
+    {
+      "id": "P04-PS-02",
+      "nodeId": "P04-OUTLINE",
+      "rule": "Prompt 指定 5–15 页、至少一页 image/image-text，并建议 Unsplash URL。"
+    },
+    {
+      "id": "P04-PS-03",
+      "nodeId": "P04-TEMPLATE",
+      "rule": "没有 CLI/配置模板时固定回退 tech；模板无效则失败。"
+    },
+    {
+      "id": "P04-PS-04",
+      "nodeId": "P04-CONTENT-FILL",
+      "rule": "逐页填充失败 catch 后保留原 outline 内容并继续。"
+    },
+    {
+      "id": "P04-PS-05",
+      "nodeId": "P04-LAYOUT-LOAD",
+      "rule": "无效/缺失 layout 页被计数跳过，仍生成剩余 PPTX。"
+    },
+    {
+      "id": "P04-PS-06",
+      "nodeId": "P04-HTML-CSS",
+      "rule": "只支持有限 CSS selector；不支持的规则会忽略。"
+    },
+    {
+      "id": "P04-PS-07",
+      "nodeId": "P04-VISION-FALLBACK",
+      "rule": "Vision JSON 解析失败时把原始响应当 HTML 清理后继续。"
+    },
+    {
+      "id": "P04-PS-08",
+      "nodeId": "P04-BACKGROUND-FALLBACK",
+      "rule": "缺背景时依据是否含浅色文字，在模板 primary/background 间二选一。"
+    }
+  ],
+  "evidenceBoundary": {
+    "sourceMapping": "范围固定到 commit c3605ebc487fc6c7d4f4139761e46d7021cd656c；源码位置由验证脚本对仓库文件、行范围及 source-index 引用核对。",
+    "runtimeReuse": [
+      "research/P04/validation/verify-res-p04-01.json",
+      "research/P04/validation/verify-res-p04-02.json"
+    ],
+    "reuseSemantics": "P04-03 验证脚本复核既有正常/边界/失败报告和 PPTX SHA-256，不重复发起上游命令或模型/API 请求。",
+    "productCapabilityUpdate": "更新的是本 ProjectDecisionMap 与 P04 研究状态；不更改 YoloongPPT 产品 CapabilityStatus，不把上游行为记为产品能力。",
+    "notExecuted": [
+      "真实 LLM/Vision API",
+      "模型候选/评分/内部推理",
+      "P04 所有 8 个 layout 与 5 个 template 的逐一运行",
+      "截图 route 的运行",
+      "Office/LibreOffice 视觉渲染",
+      "上游 Vitest 全套",
+      "YoloongPPT 产品 runtime 或 AC-001–AC-030"
+    ]
+  },
+  "limitations": [
+    "上游 prompt 中的要求不等于运行时 schema、确定性规则或正确产物。",
+    "两条已验证路径的 PPTX 只检查包结构与文字，没有视觉渲染/内容事实/PowerPoint round-trip 证据。",
+    "CSS、PureLayout、PptxGenJS 与托管模型存在外部行为边界；本图只标记仓库内可见调用与黑盒边界。"
+  ]
+}

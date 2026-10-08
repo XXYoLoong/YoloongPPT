@@ -96,3 +96,8 @@ CLI 外层要求存在有效配置和已实现的 provider，所以 HTML 虽然�
 `validation/verify-res-p04-02.mjs` 在 Node 24.14.0 Docker 容器中执行；容器 `--network none`，使用注入式假 Provider，不使用真实凭据或模型/API。正常主题路线生成 PPTX，内容填充错误被捕获后仍生成 PPTX，缺输入在零 Provider 调用时按预期失败。两个 PPTX 的必需 ZIP 部件和 slide 文本已检查，结果在 `validation/verify-res-p04-02.json`。
 
 没有运行上游 Vitest 测试套件，没有调用真实模型、Vision 服务或图片 URL，没有用 PowerPoint/LibreOffice 渲染。Node 24.14.0 是本次研究容器的环境观测，不构成 YoloongPPT 技术选型。
+
+
+## 相关决策图
+
+影响页面结构和视觉结果的源码级节点及 DEC-001–040 交叉映射见 [decision-map.md](decision-map.md) 与 [decision-map.json](decision-map.json)（Requirement ID：RES-P04-03）。该映射不代表 YoloongPPT 产品已实现。

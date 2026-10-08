@@ -667,6 +667,15 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验证：对照 GOV-009 原文逐项核对 SCOPE、AGENTS 和 CH-013 的纳入/排除措辞；回读矩阵状态与证据路径一致。
 - 证据：`SCOPE.md`、`AGENTS.md`；Excel“需求主表”`N10:P10`、“可执行任务”`L12:M12`、“Codex交接”第 14 行。
 
+### TASK-RES-P04-03 / VERIFY-RES-P04-03
+
+- Requirement ID：RES-P04-03；P0；前置 RES-P04-02。固定源码为 `peterfei/ai-agent-ppt` main commit `c3605ebc487fc6c7d4f4139761e46d7021cd656c`，MIT。
+- 状态：已完成（上游源码研究）；ProjectDecisionMap 提取 17 个源码级页面结构/视觉节点。每个节点记录 input、candidates、mechanism、output、constraints、fallback、trace 和可定位源码行。
+- DEC 交叉映射：覆盖 DEC-001–040 全部 40 项；3 mapped、27 partial、10 not_evidenced。项目路由、Prompt 规则、模板默认、layout 跳过、Vision raw-HTML 回退和背景色 fallback 均单独标记，不补写为产品策略。
+- 验证：禁网 Node Docker 容器执行 `verify-res-p04-03.mjs`；核对 source-index 引用/源码行、40 个 DEC ID 与既有 P04-01/02 正常/边界/失败报告和 PPTX 文件 SHA-256。复用已有隔离运行证据，没有重发 Provider/API 请求。
+- 边界：真实 LLM/Vision、模型内部候选/评分、截图路线、所有 layout/template、视觉渲染、QA/revision、产品 CapabilityStatus 和 AC-001–AC-030 均未因此完成或宣称通过。仅回填 P04 源码研究状态。
+- 证据：`research/P04/decision-map.md`、`research/P04/decision-map.json`、`research/P04/validation/verify-res-p04-03.mjs`、`research/P04/validation/verify-res-p04-03.json`；Excel“需求主表”N29:P29、“可执行任务”L48:M49、“开源项目研究对象”K5:N5。
+
 ## 约束
 
 - 默认开发分支为 `yoloongdevlop`，每项项目配置或实现工作按项目规则提交并推送到 `origin/yoloongdevlop`。

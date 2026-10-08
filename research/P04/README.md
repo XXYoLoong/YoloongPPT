@@ -5,7 +5,7 @@
 - Requirement ID：`RES-P04-01`
 - Task ID：`TASK-RES-P04-01`
 - 研究目的：固定 ai-agent-ppt 上游源码，记录 branch/commit、锁文件、运行条件和许可证，并尝试官方最小流程。
-- 本文只保留上游研究证据，不据此选择 YoloongPPT 产品语言、运行时或 PPTX 后端。完整调用链与决策节点由 PDR 中的 `RES-P04-02`、`RES-P04-03` 任务继续研究。
+- 本文只保留上游研究证据，不据此选择 YoloongPPT 产品语言、运行时或 PPTX 后端。完整调用链与页面结构/视觉决策节点分别记录在 `RES-P04-02`、`RES-P04-03`；模板/版式与 PPT 写入、QA/修订边界仍由 `RES-P04-04`、`RES-P04-05` 研究。
 
 ## 固定源码快照
 
@@ -68,7 +68,7 @@ Node 18.20.8 下的官方 CLI HTML 样例失败，报错为 SyntaxError: Cannot 
 
 ### 许可与结论边界
 
-固定上游仓库根许可证为 MIT。锁文件中的 pptxgenjs@4.0.1 包元数据也声明 MIT；其余传递依赖的逐包许可证清单和法律兼容性审查不属于本次完成范围。固定版本、官方流程复现和正常/边界/失败运行证据已完成。P04-02 源码调用链现已完成；P04-03/04/05 仍是独立后续研究任务。
+固定上游仓库根许可证为 MIT。锁文件中的 pptxgenjs@4.0.1 包元数据也声明 MIT；其余传递依赖的逐包许可证清单和法律兼容性审查不属于本次完成范围。固定版本、官方流程复现和正常/边界/失败运行证据已完成。P04-02 源码调用链与 P04-03 决策节点图已完成；P04-04/05 仍是独立后续研究任务。
 
 未运行上游测试套件；没有验证真实托管模型生成、截图识别、广泛 HTML/CSS 支持、视觉质量、PowerPoint 编辑行为或 YoloongPPT 产品能力。候选项目结果不能外推为产品功能承诺。
 
@@ -90,3 +90,11 @@ Node 18.20.8 下的官方 CLI HTML 样例失败，报错为 SyntaxError: Cannot 
 - [Node.js 18 包规则](https://nodejs.org/download/release/v18.20.7/docs/api/packages.html)
 - [Node.js 22.12 语法检测规则](https://nodejs.org/download/release/v22.12.0/docs/api/packages.html)
 - [PptxGenJS 4.0.1 包元数据](https://www.npmjs.com/package/pptxgenjs/v/4.0.1)
+
+
+## RES-P04-03 页面结构与视觉决策节点
+
+- Requirement ID：`RES-P04-03`；Task / verification：`TASK-RES-P04-03` / `VERIFY-RES-P04-03`；固定源码仍为 MIT commit `c3605ebc487fc6c7d4f4139761e46d7021cd656c`。
+- [decision-map.md](decision-map.md) 摘要 17 个源码级决策节点；[decision-map.json](decision-map.json) 逐节点记录输入、候选、机制、输出、约束、fallback、trace 和源码行，交叉覆盖 DEC-001–040。
+- 状态为 3 mapped、27 partial、10 not_evidenced；只评价上游证据，不更新产品 CapabilityStatus。
+- [verify-res-p04-03.mjs](validation/verify-res-p04-03.mjs) 在禁网 Docker 中复核源码行、40 个 DEC ID 与 P04-01/P04-02 已有运行产物哈希；正常、边界、失败样例均有可复查证据。未调用真实模型/Vision API，未做 Office/LibreOffice 视觉评审。

@@ -1,0 +1,178 @@
+{
+  "schemaVersion": "1.0",
+  "requirementId": "RES-P04-03",
+  "taskId": "TASK-RES-P04-03",
+  "verifyTaskId": "VERIFY-RES-P04-03",
+  "project": "peterfei/ai-agent-ppt",
+  "upstreamCommit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+  "validationExecution": {
+    "runner": "Docker",
+    "image": "node:24.14.0-bookworm-slim",
+    "runtime": "v24.14.0",
+    "network": "none",
+    "sourceCheckout": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+    "sourceCheckoutClean": true,
+    "gitStateObservedOnHost": true,
+    "realCredentialsUsed": false,
+    "realModelOrApiCalls": false,
+    "outputDirectory": "research/P04/validation"
+  },
+  "decisionMap": {
+    "status": "passed",
+    "nodeCount": 17,
+    "checkedSourceRanges": 72,
+    "decIdCoverage": [
+      "DEC-001",
+      "DEC-002",
+      "DEC-003",
+      "DEC-004",
+      "DEC-005",
+      "DEC-006",
+      "DEC-007",
+      "DEC-008",
+      "DEC-009",
+      "DEC-010",
+      "DEC-011",
+      "DEC-012",
+      "DEC-013",
+      "DEC-014",
+      "DEC-015",
+      "DEC-016",
+      "DEC-017",
+      "DEC-018",
+      "DEC-019",
+      "DEC-020",
+      "DEC-021",
+      "DEC-022",
+      "DEC-023",
+      "DEC-024",
+      "DEC-025",
+      "DEC-026",
+      "DEC-027",
+      "DEC-028",
+      "DEC-029",
+      "DEC-030",
+      "DEC-031",
+      "DEC-032",
+      "DEC-033",
+      "DEC-034",
+      "DEC-035",
+      "DEC-036",
+      "DEC-037",
+      "DEC-038",
+      "DEC-039",
+      "DEC-040"
+    ],
+    "crosswalkStatusCounts": {
+      "mapped": 3,
+      "partial": 27,
+      "not_evidenced": 10
+    },
+    "projectSpecificMechanismCount": 8,
+    "allSourceRangesExist": true,
+    "sourceIndexReferencesResolve": true
+  },
+  "reusedRuntimeCases": [
+    {
+      "caseId": "p04-01-html-normal",
+      "category": "normal",
+      "executionReused": true,
+      "result": "Parsed 1 element; rendered one slide; saved PPTX.",
+      "artifact": {
+        "path": "research/P04/validation/minimal-html-poc.pptx",
+        "bytes": 45012,
+        "sha256": "D6BD31369C7F07073886A689D4F45BE7163E9FD396B5692128B5700D78045383",
+        "matchesPriorReport": true,
+        "sourceReport": "research/P04/validation/verify-res-p04-01.json"
+      }
+    },
+    {
+      "caseId": "p04-01-nested-html-edge",
+      "category": "boundary",
+      "executionReused": true,
+      "result": "Parsed 4 elements; rendered one slide; saved PPTX.",
+      "artifact": {
+        "path": "research/P04/validation/edge-nested-html-poc.pptx",
+        "bytes": 47372,
+        "sha256": "0B142B904F7D041BEF066813AF9A10C6D778CA74C593950493EE2E866B75D3FA",
+        "matchesPriorReport": true,
+        "sourceReport": "research/P04/validation/verify-res-p04-01.json"
+      }
+    },
+    {
+      "caseId": "p04-01-missing-input-failure",
+      "category": "failure",
+      "executionReused": true,
+      "exitCode": 1,
+      "error": "Create failed: Provide --topic, --input, --html, or --images"
+    },
+    {
+      "caseId": "p04-02-topic-normal",
+      "category": "normal",
+      "executionReused": true,
+      "result": "success",
+      "providerCalls": 2,
+      "artifact": {
+        "path": "research/P04/validation/topic-route-normal.pptx",
+        "bytes": 47127,
+        "sha256": "EB314E726DF935D01A833E46C4F105BF24ABAD6EA81DA9144F088B26550FC61D",
+        "matchesPriorReport": true,
+        "sourceReport": "research/P04/validation/verify-res-p04-02.json"
+      }
+    },
+    {
+      "caseId": "p04-02-content-fill-fallback",
+      "category": "boundary",
+      "executionReused": true,
+      "result": "success",
+      "providerCalls": 2,
+      "observedBehavior": "ContentFiller catches the provider error, keeps original outline slide data, and PPTX generation continues.",
+      "artifact": {
+        "path": "research/P04/validation/topic-route-fill-fallback.pptx",
+        "bytes": 47127,
+        "sha256": "EB314E726DF935D01A833E46C4F105BF24ABAD6EA81DA9144F088B26550FC61D",
+        "matchesPriorReport": true,
+        "sourceReport": "research/P04/validation/verify-res-p04-02.json"
+      }
+    },
+    {
+      "caseId": "p04-02-missing-input-failure",
+      "category": "failure",
+      "executionReused": true,
+      "result": "expected_failure",
+      "providerCalls": 0,
+      "error": "Provide --topic, --input, --html, or --images"
+    }
+  ],
+  "casesNotExecuted": [
+    "截图 Vision 路线",
+    "真实托管模型候选/评分",
+    "无效 layout 跳过运行",
+    "上游 Vitest 全套",
+    "Office/LibreOffice 视觉渲染",
+    "QA/revision 或 YoloongPPT 产品验收"
+  ],
+  "acceptance": {
+    "all17DecisionNodesHaveRequiredFields": true,
+    "all40UnifiedDecIdsCrossReferenced": true,
+    "sourceRangesVerifiedAgainstPinnedCheckout": true,
+    "existingNormalBoundaryFailureArtifactsRehashed": true,
+    "projectCapabilityStatusNotChanged": true
+  },
+  "limitations": [
+    "正常/边界/失败运行结果来自 P04-01/P04-02 已完成的禁网验证；本脚本只复核其报告、产物哈希与源码映射，不重复运行上游生成命令。",
+    "Node 24.14.0 是此次隔离验证容器观测，不构成 YoloongPPT 产品运行时选择。",
+    "截图 Vision、真实模型行为、所有版式资产、视觉质量和可编辑性未由本报告验证。"
+  ],
+  "sourceRefs": [
+    "research/P04/decision-map.json",
+    "research/P04/decision-map.md",
+    "research/P04/source-index.json",
+    "research/P04/validation/verify-res-p04-01.json",
+    "research/P04/validation/verify-res-p04-02.json",
+    "research/P04/validation/minimal-html-poc.pptx",
+    "research/P04/validation/edge-nested-html-poc.pptx",
+    "research/P04/validation/topic-route-normal.pptx",
+    "research/P04/validation/topic-route-fill-fallback.pptx"
+  ]
+}
