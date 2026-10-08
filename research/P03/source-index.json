@@ -2,8 +2,8 @@
   "project": "presenton/presenton",
   "commit": "35bf44290f821323e003da854f78ffcb0e918167",
   "checkout": "F:/YoloongPPT-Research/P03",
-  "task": "TASK-RES-P03-02; TASK-RES-P03-04",
-  "scope": "Static source trace for the P03-02 call graph and P03-04 template map; no model or export generation request was issued.",
+  "task": "TASK-RES-P03-02; TASK-RES-P03-04; TASK-RES-P03-05",
+  "scope": "Static source trace for P03-02 call graph, P03-04 template map and P03-05 PPT capability map; no model or export generation request was issued.",
   "nodes": [
     {"id":"web-input-routing","kind":"source","path":"servers/nextjs/app/(presentation-generator)/upload/components/UploadPage.tsx","symbols":["getGenerationDestination","handleGeneratePresentation","handleDocumentProcessing","handleDirectPresentationGeneration"],"lines":"309-311; 410-583","role":"Collects prompt/files/options and routes standard to outline, smart to editor stream."},
     {"id":"generation-api-client","kind":"source","path":"servers/nextjs/app/(presentation-generator)/services/api/presentation-generation.ts","symbols":["PresentationGenerationApi.uploadDoc","decomposeDocuments","createPresentation","presentationPrepare","updatePresentationContent","updatePresentationSlide","updateOutlines"],"lines":"23-102; 172-275","role":"Next.js HTTP client for upload, decompose, create, prepare, update and outline operations."},
@@ -23,7 +23,7 @@
     {"id":"standard-stream-endpoint","kind":"source","path":"servers/fastapi/api/v1/ppt/endpoints/presentation.py","symbols":["stream_presentation"],"lines":"2224-2465","role":"Dispatches Smart mode or generates Standard slides sequentially, persists slides and emits SSE."},
     {"id":"slide-content-prompt","kind":"source","path":"servers/fastapi/utils/llm_calls/generate_slide_content.py","symbols":["SLIDE_CONTENT_SYSTEM_PROMPT","SLIDE_CONTENT_USER_PROMPT","get_messages","get_slide_content_from_type_and_outline"],"lines":"20-275","role":"Creates layout-constrained structured content for each slide."},
     {"id":"asset-processing","kind":"source","path":"servers/fastapi/utils/process_slides.py","symbols":["process_slide_add_placeholder_assets","process_slide_and_fetch_assets"],"lines":"173-427","role":"Adds placeholder assets and fetches/generated images/icons; caller can permit warning-bearing fallback."},
-    {"id":"smart-prompt-and-validation","kind":"source","path":"servers/fastapi/utils/llm_calls/generate_smart_presentation.py","symbols":["SMART_DECK_SYSTEM_PROMPT","SMART_DIRECT_HTML_PROMPT","normalize_smart_slide_html","_validate_smart_slide_layout_safety","generate_smart_presentation"],"lines":"63-208; 308-733","role":"Builds Smart HTML prompts, normalizes and validates slide HTML, streams parsed slide results."},
+    {"id":"smart-prompt-and-validation","kind":"source","path":"servers/fastapi/utils/llm_calls/generate_smart_presentation.py","symbols":["SMART_DECK_SYSTEM_PROMPT","SMART_DIRECT_HTML_PROMPT","normalize_smart_slide_html","_validate_smart_slide_layout_safety","generate_smart_presentation"],"lines":"63-208; 308-518; 525-733","role":"Builds Smart HTML prompts, normalizes content, rejects unsafe/overflow-prone layouts, and streams parsed slide data."},
     {"id":"smart-stream-endpoint","kind":"source","path":"servers/fastapi/api/v1/ppt/endpoints/presentation.py","symbols":["stream_smart_presentation"],"lines":"1874-2221","role":"Persists accepted HTML pages as smart-html slide checkpoints and emits SSE."},
     {"id":"presentation-record-model","kind":"source","path":"servers/fastapi/models/sql/presentation.py","symbols":["PresentationModel"],"lines":"21-90","role":"Stores request/config, content/files, outline, layout/structure, generation mode and theme."},
     {"id":"slide-record-model","kind":"source","path":"servers/fastapi/models/sql/slide.py","symbols":["SlideModel"],"lines":"9-45","role":"Stores standard JSON content/UI or Smart html_content and slide identity/order."},
@@ -32,7 +32,7 @@
     {"id":"smart-rest-v2","kind":"source","path":"servers/fastapi/api/v2/ppt/endpoints/presentation.py","symbols":["generate_smart_presentation_sync","generate_smart_presentation_async"],"lines":"229-298","role":"Smart sync/async REST wrappers reusing v1 presentation, stream and export services."},
     {"id":"mcp-openapi-adapter","kind":"source","path":"servers/fastapi/mcp_server.py","symbols":["MCP endpoint allowlist","create_openapi_api_client","create_mcp_server","FastMCP.from_openapi"],"lines":"42-100; 331-365; 426-448","role":"Publishes allowlisted OpenAPI routes as MCP tools; delegates to the HTTP API."},
     {"id":"presentation-export-url","kind":"source","path":"servers/fastapi/utils/export_utils.py","symbols":["_build_presentation_export_url","export_presentation"],"lines":"27-67","role":"Builds /pdf-maker URL from presentation id and invokes export task service."},
-    {"id":"export-task-service","kind":"source","path":"servers/fastapi/services/export_task_service.py","symbols":["_run_task_locked","export_from_url"],"lines":"297-450","role":"Writes task/response files, launches Node runner, validates output path and moves output."},
+    {"id":"export-task-service","kind":"source","path":"servers/fastapi/services/export_task_service.py","symbols":["_run_task_locked","export_from_url","convert_pptx_to_html","convert_pptx_to_json"],"lines":"297-520; 685-724","role":"Runs the external export task wrapper for PPTX/PDF and PPTX-to-HTML/JSON conversion, then validates/scopes returned artifacts."},
     {"id":"pdf-maker-render-source","kind":"source","path":"servers/nextjs/app/(export)/pdf-maker/PdfMakerPage.tsx","symbols":["PdfMakerPage","print canvas styles"],"lines":"1-210","role":"Loads presentation and renders a fixed 1280x720 export viewport."},
     {"id":"export-runner-shim","kind":"source","path":"scripts/run-presentation-export.mjs","symbols":["runTask"],"lines":"1-108","role":"Runner shim calling the external export package."},
     {"id":"export-core","kind":"external","name":"@presenton/export-core","version":"v1.0.34","evidence":"root package.json presentationExportVersion; scripts/sync-presentation-export.cjs; scripts/run-presentation-export.mjs","role":"PPTX/PDF conversion implementation is a separately downloaded release artifact and is not in the source clone; treat as black box."},
@@ -41,13 +41,16 @@
     {"id":"edit-derive-api","kind":"source","path":"servers/fastapi/api/v1/ppt/endpoints/presentation.py","symbols":["edit_presentation_with_new_content","derive_presentation_from_existing_one"],"lines":"3242-3334","role":"Creates edited or derived presentations through explicit REST endpoints."},
     {"id":"chat-edit-api","kind":"source","path":"servers/fastapi/api/v1/ppt/endpoints/chat.py","symbols":["chat_message","chat_message_stream"],"lines":"105-165","role":"Exposes synchronous and SSE chat revision endpoints."},
     {"id":"chat-edit-service","kind":"source","path":"servers/fastapi/services/chat/service.py","symbols":["ChatService","_run_llm_with_tools"],"lines":"106-480","role":"Runs editor model turns and dispatches tool calls."},
-    {"id":"chat-edit-tools","kind":"source","path":"servers/fastapi/services/chat/tools.py","symbols":["addNewSlide","addNewSlideLayout","updateSlide","deleteSlide"],"lines":"98-274","role":"Implements slide and element/component editing actions."},
-    {"id":"chat-edit-prompts","kind":"source","path":"servers/fastapi/services/chat/prompts.py","symbols":["build_system_prompt"],"lines":"1-250","role":"Defines editor chat tool instructions."}
-,
-    {"id":"template-element-model","kind":"source","path":"servers/fastapi/templates/v2/models/elements.py","symbols":["Position","Size","Font","Text","Image","Flex","Grid","SlideElement"],"lines":"100-145; 181-265; 567-640","role":"Defines source geometry, visual style, content element types and flexible/grid structures."},
+    {"id":"chat-edit-tools","kind":"source","path":"servers/fastapi/services/chat/tools.py","symbols":["addNewSlide","addNewSlideLayout","updateSlide","deleteSlide","addElement","addInfographic","updateElement","deleteElement","addComponent","updateComponent","deleteComponent"],"lines":"94-121; 127-320; 628-1055","role":"Registers chat editing tools and implements slide, element and component mutations through the editor memory layer."},
+    {"id":"chat-edit-prompts","kind":"source","path":"servers/fastapi/services/chat/prompts.py","symbols":["build_system_prompt"],"lines":"1-250","role":"Defines editor chat tool instructions."},
+    {"id":"template-element-model","kind":"source","path":"servers/fastapi/templates/v2/models/elements.py","symbols":["Position","Size","Font","Text","TextRun","Container","Image","TextList","Table","Vector","Chart","Infographic","Flex","Grid","Group","SlideElement"],"lines":"181-223; 224-320; 336-639","role":"Defines internal slide content objects, visual attributes, source geometry and nested layout models; does not prove OOXML export."},
     {"id":"template-layout-model","kind":"source","path":"servers/fastapi/templates/v2/models/layouts.py","symbols":["LayoutGenerationOptions","RawSlideLayout","Component","MergedComponent","SlideLayout","TextCapacityPlan"],"lines":"34-115; 716-792","role":"Defines raw and certified layout/component structures, generation options and text-capacity adjustments."},
     {"id":"template-theme-model","kind":"source","path":"servers/fastapi/models/theme_data.py","symbols":["PresentationThemeColors","PresentationThemeFonts","PresentationThemeData"],"lines":"4-34","role":"Defines semantic theme color and text-font token structure."},
-    {"id":"template-capacity-pipeline","kind":"source","path":"servers/fastapi/templates/v2/certified_generation.py","symbols":["GENERATE_TEXT_CAPACITY_SYSTEM_PROMPT","_text_capacity_generation_payload","_apply_text_capacity_plan","generate_slide_layout"],"lines":"383-439; 1746-2022; 2174; 3651-3858","role":"Generates and applies text-capacity plans during template certification; includes an observed 1280x720 boundary constant."}
+    {"id":"template-capacity-pipeline","kind":"source","path":"servers/fastapi/templates/v2/certified_generation.py","symbols":["GENERATE_TEXT_CAPACITY_SYSTEM_PROMPT","_text_capacity_generation_payload","_apply_text_capacity_plan","generate_slide_layout"],"lines":"383-439; 1746-2022; 2174; 3651-3858","role":"Generates and applies text-capacity plans during template certification; includes an observed 1280x720 boundary constant."},
+    {"id":"pptx-template-import","kind":"source","path":"servers/fastapi/api/v1/ppt/endpoints/template.py","symbols":["_prepare_template_source","create_template"],"lines":"918-999; 1567-1608","role":"Converts uploaded PPTX through PPTX-to-JSON, validates RawSlideLayouts and prepares template layouts; this is a template reference path, not direct original-deck editing."},
+    {"id":"test-template-import","kind":"test-locator","path":"servers/fastapi/tests/unit/test_template_api.py","symbols":["test_create_template_converts_generates_and_persists","test_create_template_caps_raw_layouts_to_preview_images","test_create_template_requires_slide_images","test_mcp_template_upload_combines_pptx_and_fonts"],"lines":"349-553; 703-740","role":"Static test locators for template conversion, layout/preview limits and upload; not executed in this research task."},
+    {"id":"test-edit-export","kind":"test-locator","path":"servers/fastapi/tests/integration/test_presentation_generation_flow.py","symbols":["test_edit_presentation_hydrates_template_slide_ui","test_derive_presentation_hydrates_template_slide_ui","test_export_existing_presentation_returns_path_without_regenerating","test_export_existing_presentation_404s_for_unknown_id"],"lines":"1316-1389; 1431-1481","role":"Static test locators for edit/derive/export endpoints; not executed in this research task."},
+    {"id":"test-pptx-input","kind":"test-locator","path":"servers/fastapi/tests/test_pptx_font_utils.py","symbols":["test_check_fonts_in_pptx_rejects_corrupted_pptx","test_template_preview_slide_cap_and_pptx_trim","test_preview_dimensions_from_pptx_use_export_core_coordinate_space"],"lines":"141-252; 703-719","role":"Static test locators for corrupt/oversize PPTX and template preview handling; not executed in this research task."}
   ],
   "edges": [
     {"from":"web-input-routing","to":"generation-api-client","label":"upload/decompose/create"},
@@ -84,14 +87,22 @@
     {"from":"edit-derive-api","to":"presentation-record-model","label":"create edited/derived deck"},
     {"from":"chat-edit-api","to":"chat-edit-service","label":"chat turn"},
     {"from":"chat-edit-service","to":"chat-edit-tools","label":"execute tool calls"},
-    {"from":"chat-edit-tools","to":"slide-record-model","label":"tool-driven revision"}
-,
+    {"from":"chat-edit-tools","to":"slide-record-model","label":"tool-driven revision"},
     {"from":"default-template-import","to":"template-storage-and-schema","label":"imports bundled template records"},
     {"from":"template-element-model","to":"template-schema","label":"element content and geometry schema"},
     {"from":"template-layout-model","to":"template-schema","label":"raw/certified layout structure"},
     {"from":"template-theme-model","to":"template-storage-and-schema","label":"template theme fields"},
     {"from":"template-schema","to":"prepare-and-layout","label":"builds editable template content schemas"},
     {"from":"prepare-and-layout","to":"structure-prompt-and-schema","label":"maps outline to layout indices"},
-    {"from":"template-capacity-pipeline","to":"template-layout-model","label":"uses TextCapacityPlan during certification"}
+    {"from":"template-capacity-pipeline","to":"template-layout-model","label":"uses TextCapacityPlan during certification"},
+    {"from":"pptx-template-import","to":"export-task-service","label":"convert PPTX to JSON before template extraction"},
+    {"from":"test-template-import","to":"pptx-template-import","label":"static coverage locator; not run"},
+    {"from":"test-template-import","to":"export-task-service","label":"mocks conversion wrapper in template tests"},
+    {"from":"test-pptx-input","to":"pptx-template-import","label":"static input-boundary coverage locator; not run"},
+    {"from":"test-edit-export","to":"edit-derive-api","label":"static edit/derive coverage locator; not run"},
+    {"from":"test-edit-export","to":"presentation-export-url","label":"static export coverage locator; not run"},
+    {"from":"chat-edit-tools","to":"slide-record-model","label":"mutates persisted slide content and layout"},
+    {"from":"template-element-model","to":"editor-render","label":"internal object schemas feed browser editor rendering"},
+    {"from":"pptx-template-import","to":"export-core","label":"conversion implementation resides in external artifact via task runner"}
   ]
 }

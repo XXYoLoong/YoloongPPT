@@ -73,3 +73,13 @@ git -C F:\YoloongPPT-Research\P03 rev-parse HEAD
 默认模板没有显式页面类型或逐版式适用条件；清单中的页面类型只按 layout ID/description 做关键词候选标记，不映射为 YoloongPPT 产品页面类型。16 份模板 JSON 未声明 parent/extends；merged-component variants 记录为替代组件，不视作继承。运行时会从 outline 与 layout 描述/Schema 建立版式索引映射，不能据此声称视觉生成或适用性已通过验证。
 
 `TASK-RES-P03-04` 静态提取完成。`VERIFY-RES-P03-04` 仍进行中：静态结构清单和来源定位已核对；正常生成、边界/失败生成、PPTX 导出与视觉检查尚无运行证据。Presenton 本地认证仍未配置，先前 HTTP 428 门禁记录见 P03-02/03 验证报告；本任务没有发送模型请求或生成文件。详见 `validation/verify-res-p03-04.json`。
+
+## PPT 写入、渲染、QA、修订与已有 PPT 边界（RES-P03-05）
+
+已完成固定 Presenton commit 的静态能力映射：`capability-map.md` 为摘要，`capability-map.json` 按能力记录 `Native/Partial/Fallback/Unsupported` 状态、层级边界与 source-index 引用。`Native` 在此表示源码中存在对应内部模型或实现，不代表已验证 PowerPoint OOXML 原生对象。
+
+主要对象包括文本、图片、矢量形状、表格、图表、信息图、文本列表、容器/Flex/Grid/Group、模板/主题、演讲者备注及 Smart HTML。对象内部表示在源码可见，但所有 PPTX 最终序列化状态受外部 `@presenton/export-core@1.0.34` 黑盒限制，保持 Partial。图片生成失败的占位图和图标无结果占位符单独标为 Fallback。
+
+源码包含请求/schema 校验和 Smart 单页溢出/裁切启发式检查；未在已追踪 Standard 主路径中发现整套 deck 的事实/语义/视觉 QA 门禁。REST `/edit`、`/derive` 与 chat tools 提供数据库演示文稿的修订路径。已有 PPTX 可转换为模板参考；未发现任意原 PPTX 包的直接原位编辑与往返保真路径。
+
+`TASK-RES-P03-05` 静态映射完成；`VERIFY-RES-P03-05` 进行中。测试仅静态定位，未运行；认证门禁和外部导出黑盒使正常/边界/失败生成、PPTX 对象及视觉 QA 仍待验证。详见 `validation/verify-res-p03-05.json`。

@@ -1,0 +1,108 @@
+{
+  "schemaVersion": "1.0",
+  "requirementId": "RES-P03-05",
+  "taskId": "TASK-RES-P03-05",
+  "verifyTaskId": "VERIFY-RES-P03-05",
+  "project": "presenton/presenton",
+  "upstreamCommit": "35bf44290f821323e003da854f78ffcb0e918167",
+  "taskStatus": "已完成",
+  "verifyStatus": "进行中",
+  "method": "固定 checkout 源码静态追踪；静态检查测试名称和源码位置；未执行上游测试、生成请求、模型调用或 PPTX 导出。",
+  "normalCase": {
+    "description": "Standard/Smart 内部写入、浏览器渲染和导出任务链",
+    "sourceTrace": "已定位源码路径与对象模型。",
+    "execution": "未运行",
+    "result": "端到端导出和渲染未验证。"
+  },
+  "edgeCase": {
+    "description": "PPTX 模板 layout 数量与预览图片数量不一致，以及大/损坏 PPTX 上传",
+    "sourceTrace": "固定源码包含 layout 截取/数量检查；静态定位对应上游测试。",
+    "execution": "未运行",
+    "testLocators": [
+      "tests/unit/test_template_api.py::test_create_template_caps_raw_layouts_to_preview_images",
+      "tests/unit/test_template_api.py::test_create_template_requires_slide_images",
+      "tests/test_pptx_font_utils.py::test_template_preview_slide_cap_and_pptx_trim",
+      "tests/test_pptx_font_utils.py::test_check_fonts_in_pptx_rejects_corrupted_pptx"
+    ],
+    "result": "没有本次边界运行证据。"
+  },
+  "failureCase": {
+    "description": "Smart HTML 溢出/裁切和图片资源处理失败",
+    "sourceTrace": "Smart 检查源码可返回 HTTP 400；允许图片 fallback 的路径替换占位图并记录 warning。",
+    "execution": "未运行",
+    "result": "没有本次失败路径运行证据；占位结果不得当作成功生成。"
+  },
+  "runtimeGate": {
+    "status": "pending_credentials",
+    "evidence": "复用 P03-02/03 既有验证：configured=false，生成请求被 HTTP 428 登录门禁拦截。该历史结果不冒充 P03-05 本次重试。",
+    "actionTaken": "本任务没有发起生成/API 请求，没有读取或配置密钥，没有导出 PPTX。"
+  },
+  "inspectedTests": [
+    {
+      "path": "servers/fastapi/tests/unit/test_template_api.py",
+      "lines": "349-553; 703-740",
+      "names": [
+        "test_create_template_converts_generates_and_persists",
+        "test_create_template_caps_raw_layouts_to_preview_images",
+        "test_create_template_requires_slide_images",
+        "test_mcp_template_upload_combines_pptx_and_fonts"
+      ],
+      "executed": false
+    },
+    {
+      "path": "servers/fastapi/tests/integration/test_presentation_generation_flow.py",
+      "lines": "1316-1389; 1431-1481",
+      "names": [
+        "test_edit_presentation_hydrates_template_slide_ui",
+        "test_derive_presentation_hydrates_template_slide_ui",
+        "test_export_existing_presentation_returns_path_without_regenerating",
+        "test_export_existing_presentation_404s_for_unknown_id"
+      ],
+      "executed": false
+    },
+    {
+      "path": "servers/fastapi/tests/test_pptx_font_utils.py",
+      "lines": "141-252; 703-719",
+      "names": [
+        "test_check_fonts_in_pptx_rejects_corrupted_pptx",
+        "test_template_preview_slide_cap_and_pptx_trim",
+        "test_preview_dimensions_from_pptx_use_export_core_coordinate_space"
+      ],
+      "executed": false
+    }
+  ],
+  "automatedTestsRun": [],
+  "sourceRefs": [
+    "slide-record-model",
+    "template-element-model",
+    "asset-processing",
+    "standard-stream-endpoint",
+    "smart-prompt-and-validation",
+    "smart-stream-endpoint",
+    "editor-render",
+    "pdf-maker-render-source",
+    "presentation-export-url",
+    "export-task-service",
+    "export-runner-shim",
+    "export-core",
+    "edit-derive-api",
+    "chat-edit-api",
+    "chat-edit-service",
+    "chat-edit-tools",
+    "pptx-template-import",
+    "test-template-import",
+    "test-edit-export",
+    "test-pptx-input"
+  ],
+  "acceptance": {
+    "mainPptObjectsHaveStatus": true,
+    "qaAndRevisionCapabilitiesHaveStatus": true,
+    "exportBlackBoxMarked": true,
+    "verificationBoundaryExplicit": true
+  },
+  "nextEvidenceNeeded": [
+    "在认证就绪环境中运行正常、边界和失败生成路径",
+    "获得真实 PPTX/PDF 并检查 OOXML 对象、备注、资产和可编辑性",
+    "进行浏览器/导出后视觉 QA 并保存可复现证据"
+  ]
+}

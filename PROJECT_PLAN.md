@@ -213,6 +213,14 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 静态核验：16 个模板 JSON 均可解析；模板、layout、slot、merged-component 和静态文件清单计数与源目录一致；source-index 的新增源码引用可定位到冻结 checkout。没有运行模板 API、模型生成、PPTX 导出或视觉检查。
 - VERIFY-RES-P03-04 状态：进行中。正常/边界/失败生成、实际内容 Schema 输出和视觉渲染尚未验证；本机认证状态此前记录为 `configured=false`，生成请求曾在 HTTP 428 登录门禁被拦截。该任务没有重试生成或配置凭据。
 - 证据：`research/P03/template-map.md`、`research/P03/template-map.json`、`research/P03/validation/verify-res-p03-04.json`、`research/P03/source-index.json`；Excel“需求主表”第 25 行、“可执行任务”第 40–41 行、“开源项目研究对象”第 4 行。
+
+### TASK-RES-P03-05 — Presenton PPT 对象、QA、修订与已有 PPT 边界
+- Requirement：RES-P03-05；依赖：RES-P03-02；固定上游 commit：35bf44290f821323e003da854f78ffcb0e918167。
+- 静态交付：research/P03/capability-map.json、research/P03/capability-map.md、research/P03/source-index.json、research/P03/validation/verify-res-p03-05.json。
+- 覆盖对象内部模型、浏览器渲染、导出黑盒、schema/Smart 单页检查、Standard deck QA 边界、REST/chat 修订、已有 PPT 模板转换与原包编辑边界。
+- TASK-RES-P03-05：已完成（静态源码映射）；VERIFY-RES-P03-05：进行中（测试未运行，正常/边界/失败生成与导出视觉结果待认证环境验证）。
+- 未调用模型或生成 API，未生成 PPTX；不得将内部对象模型描述为已验证的 PPTX 原生对象。
+
 ### TASK-RES-P04-01
 
 - Requirement ID：RES-P04-01；P0；无前置任务。PDR 同时列出后续 `RES-P04-02` 完整调用链和 `RES-P04-03` 决策节点任务，本条不替代它们。
