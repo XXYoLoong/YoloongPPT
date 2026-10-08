@@ -1,0 +1,58 @@
+{
+  "requirementId": "RES-P03-01",
+  "taskId": "TASK-RES-P03-01",
+  "capturedAtLocal": "2026-10-08 00:54:16 -04:00",
+  "upstream": {
+    "repository": "https://github.com/presenton/presenton.git",
+    "ref": "refs/heads/main",
+    "commit": "35bf44290f821323e003da854f78ffcb0e918167",
+    "workingTree": "clean",
+    "version": "0.9.11-beta",
+    "license": "Apache-2.0"
+  },
+  "runtime": {
+    "dockerContext": "desktop-linux",
+    "dockerEngineVersion": "27.4.0",
+    "dockerRootDir": "/var/lib/docker",
+    "dockerDesktopWslVhdx": "F:\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+    "dockerDesktopWslVhdxBytes": 77184630784,
+    "dockerComposeVersion": "2.31.0-desktop.2",
+    "composeProject": "yoloongppt-p03",
+    "containerName": "yoloongppt-p03-production-1",
+    "containerStatus": "running",
+    "containerStartedAt": "2026-10-08T04:52:08.441051119Z",
+    "imageId": "sha256:822dc9c5c34bbb3cc126f38cec2dc9c646330eb1ee53c2fd37b6e0fee1bc87dd",
+    "hostPort": "127.0.0.1:5001",
+    "mounts": [
+      {
+        "source": "F:\\YoloongPPT-Research\\P03\\app_data",
+        "destination": "/app_data",
+        "readWrite": true
+      },
+      {
+        "source": "F:\\YoloongPPT-Research\\P03\\servers\\fastapi\\templates",
+        "destination": "/app/servers/fastapi/templates",
+        "readWrite": false
+      }
+    ],
+    "rootHttpStatus": 200,
+    "rootTitle": "Presenton - Open Source AI presentation generator",
+    "authStatusHttp": 200,
+    "authConfigured": false,
+    "authAuthenticated": false,
+    "modelCredentialsForwarded": false,
+    "modelGenerationRequested": false,
+    "pptxGenerated": false
+  },
+  "reproduction": {
+    "officialCompose": "F:\\YoloongPPT-Research\\P03\\docker-compose.yml",
+    "localOverride": "F:\\YoloongPPT-Research\\P03-official-smoke\\compose.local.yaml",
+    "command": "docker compose --project-name yoloongppt-p03 --env-file F:\\YoloongPPT-Research\\P03-official-smoke\\compose.env --project-directory F:\\YoloongPPT-Research\\P03 -f F:\\YoloongPPT-Research\\P03\\docker-compose.yml -f F:\\YoloongPPT-Research\\P03-official-smoke\\compose.local.yaml --progress plain up -d --build --no-deps production",
+    "result": "official-source production service built and started; local HTTP readiness passed"
+  },
+  "limits": [
+    "This verifies container build/start and local HTTP readiness only.",
+    "No model/API request or presentation generation was made; provider credentials are not configured.",
+    "Upstream Dockerfile runtimes are environment observations and are not YoloongPPT product selections."
+  ]
+}

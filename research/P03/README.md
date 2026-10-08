@@ -9,14 +9,14 @@
 
 ## 固定源码快照
 
-2026-10-07 查询官方 Git remote：`refs/heads/main` 为 `35bf44290f821323e003da854f78ffcb0e918167`，与 `contracts/version-manifest.catalog.json` 中 `P03-MAIN` 的 pinned commit 一致。研究 clone 位于仓库外 `F:\YoloongPPT-Research\P03`，当前 detached HEAD 即该 commit；使用 blob-filter 和 sparse checkout 只展开 README、文档、脚本与 Web/API 服务目录，避免复制大量模板素材。工作树干净。
+2026-10-07 查询官方 Git remote：`refs/heads/main` 为 `35bf44290f821323e003da854f78ffcb0e918167`，与 `contracts/version-manifest.catalog.json` 中 `P03-MAIN` 的 pinned commit 一致。研究 clone 位于仓库外 `F:\YoloongPPT-Research\P03`，当前 detached HEAD 即该 commit；使用 blob-filter 和 sparse checkout 展开源码研究目录及官方 Docker build 所需模板、文档提取资源，工作树干净。
 
 复现固定 checkout：
 
 ```powershell
 git clone --filter=blob:none --depth=1 --no-checkout https://github.com/presenton/presenton.git F:\YoloongPPT-Research\P03
 git -C F:\YoloongPPT-Research\P03 sparse-checkout init --cone
-git -C F:\YoloongPPT-Research\P03 sparse-checkout set docs servers/fastapi servers/nextjs scripts
+git -C F:\YoloongPPT-Research\P03 sparse-checkout set docs servers/fastapi servers/nextjs scripts templates electron/resources/document-extraction
 git -C F:\YoloongPPT-Research\P03 checkout --detach 35bf44290f821323e003da854f78ffcb0e918167
 git -C F:\YoloongPPT-Research\P03 rev-parse HEAD
 ```
@@ -41,12 +41,14 @@ git -C F:\YoloongPPT-Research\P03 rev-parse HEAD
 
 - 固定 README 描述 Docker 自托管应用和 Electron 桌面应用；Electron 开发模式使用 Next.js Web UI 与 FastAPI 后端。官方 Docker 快速启动使用 `ghcr.io/presenton/presenton:latest`，该标签不等于本任务冻结的源码 commit；后续复现应使用冻结源码对应的 Compose/build 路径并记录实际镜像摘要。
 - `docs/presentation-generation-modes.md` 记录 Standard 固定 layouts、outline review 和模板工作流；Smart 使用 adaptive layouts 并将生成内容流式送入编辑器，不走模板工作流。`PRESENTATION_GENERATION_MODE` 控制 Web UI 选项和 MCP 工具暴露；文档明确它不作为 REST API 授权控制。
-- 研究对象表还要求继续核对 custom template 解析、API/MCP job、`slides_markdown` 映射和编辑器对象模型；当前只完成 ProjectBaseline 的静态基线，不宣称这些能力已经迁移或通过验证。
+- 研究对象表还要求继续核对 custom template 解析、API/MCP job、`slides_markdown` 映射和编辑器对象模型；这些属于后续调用链与能力研究任务，不据当前基线宣称已通过验证。
 - 固定 README 同时描述多用户工作区及账号管理。该上游范围与 GOV-009 明确排除的账号/多租户方向重叠；这里只作为边界观察，不纳入 YoloongPPT 当前产品范围。
 
-## 复现状态与阻塞
+## 复现状态与边界
 
-项目要求的隔离 Docker 当前不可用：`docker version` 无法连接 `desktop-linux` 的 `//./pipe/dockerDesktopLinuxEngine`。没有启动容器、安装上游依赖、运行官方最小流程或生成 PPTX；也没有在 Windows 主机安装依赖。静态 refs、locks、环境声明、上游主许可证和核心工作流已记录，但 `ProjectBaseline` 验收仍未完成，`TASK-RES-P03-01` 保持进行中。Docker Engine 恢复后，应从冻结 commit 在项目隔离容器中执行官方源码 Compose 流程，记录真实镜像摘要、环境、日志和输出，再更新任务状态。
+2026-10-08 从冻结源码通过上游 `docker-compose.yml` 构建并启动 `production` 服务；本地 override 将唯一 Web 端口限制为 `127.0.0.1:5001`，官方 OAuth 回调端口未发布。Compose 项目名为 `yoloongppt-p03`，容器可写层位于 Docker Desktop WSL 数据盘 `F:\DockerDesktopWSL\disk\docker_data.vhdx`，应用数据绑定到 `F:\YoloongPPT-Research\P03\app_data`，模板以只读方式绑定。镜像 ID 为 `sha256:822dc9c5c34bbb3cc126f38cec2dc9c646330eb1ee53c2fd37b6e0fee1bc87dd`。
+
+启动日志显示 Next.js、FastAPI、数据库迁移及默认模板导入完成；首页返回 HTTP 200，`/api/v1/auth/status` 返回 HTTP 200。接口报告 `configured=false`、`authenticated=false`。官方 Quick Start 的 Docker 最小流程是启动并打开本地网页；固定源码的容器已启动且首页可访问，因此 `TASK-RES-P03-01` 的基线验收完成。正常启动样例已记录，`VERIFY-RES-P03-01` 保持进行中，仍需准备边界/失败样例。没有配置或转发模型凭据，没有发起模型/API 请求，也没有生成 PPTX 或做视觉评审；这些生成能力不包含在本任务已验证结果内。对应可复现记录见 `research/P03/validation/smoke.json`。
 
 ## 固定来源
 

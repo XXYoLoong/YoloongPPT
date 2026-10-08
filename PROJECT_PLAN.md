@@ -174,19 +174,19 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 上游环境：main Skill README 要求 Linux（含 WSL）或 macOS、uv、npm、LibreOffice；macOS 转换器另需 Chrome，并示例使用 Python 3.12。论文 tags 的 `pyproject.toml` 要求 Python `>=3.11`。这些是上游各自的环境声明，不是 YoloongPPT 的技术选型。
 - 环境进展：实验时及后续复核均确认 `desktop-linux` WSL Engine 使用 F 盘 WSL VHDX；研究容器将源码只读挂载、实验依赖与缓存写到 F 盘。按 main Skill requirements 安装 229 个 Python 包、npm lock、Playwright Chromium，并完成容器内 Codex Skill 注册；`uv pip check`、上游 Quick Start 的 11 项 `doctor` 检查及 Chromium headless smoke 通过。Windows 主机未安装 P02 依赖。
 - 环境版本边界：本次观察到容器 Python 3.11.2、uv 0.12.23、Node 18.20.4/npm 9.2.0、LibreOffice 7.4.7.2、Playwright 1.62.0。Python 3.11.2 仅是 Debian 容器观测值，不是 YoloongPPT 产品技术选型；产品语言与运行时仍未选定。上游 npm 安装输出 6 个 high severity findings，尚未修复或替换依赖。
-- 当前 Docker 状态：短暂停止后已恢复；`docker desktop status` 为 running，Engine `27.4.0`，`DockerRootDir=/var/lib/docker`。项目 workspace 与 P02 研究容器均 Up，源码和 artifacts 的宿主挂载均在 F 盘。Docker Desktop settings 仍显示 `DataFolder=C:\ProgramData\DockerDesktop\vm-data`，但当前 `wslEngineEnabled=True`，WSL VHDX 在 `F:\DockerDesktopWSL`；项目 Docker 层与容器挂载均确认位于 F。
+- 当前 Docker 状态：短暂停止后已恢复；`docker desktop status` 为 running，Engine `27.4.0`，`DockerRootDir=/var/lib/docker`。项目 workspace、P02 研究容器和 Presenton P03 研究容器均 Up，源码、artifacts 与应用数据宿主挂载均在 F 盘；P03 Web 端口只绑定 `127.0.0.1:5001`。Docker Desktop settings 仍显示 `DataFolder=C:\ProgramData\DockerDesktop\vm-data`，但当前 `wslEngineEnabled=True`，WSL VHDX 在 `F:\DockerDesktopWSL`；项目 Docker 层与容器挂载均确认位于 F。
 - 验收边界：额外尝试的 `pptagent --help` 包入口约 60 秒未返回，已中断；官方 README 指定的 `scripts/pptagent.py doctor` 已通过 11 项检查。未向容器传入提供商凭据，未调用模型/API、生成 PPTX 或完成视觉评审。因此 `ProjectBaseline` 官方生成与审查尚未通过，`TASK-RES-P02-01` 与 `VERIFY-RES-P02-01` 保持进行中。
 - 证据：`research/P02/README.md`、`research/P02/validation/environment-main-skill.txt`、`research/P02/validation/packages-freeze-main-skill.txt`、`research/P02/validation/official-doctor-main-skill.json`、`research/P02/validation/verify-res-p02-01.json`、`research/P02/scripts/`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N17:P17`、“可执行任务”`L24:M25`、“开源项目研究对象”第 3 行。当前 P02 官网 [README](https://github.com/icip-cas/PPTAgent/blob/833cda553b343be0e486a93b0b57cac962cdd566/README.md) 固定到 main commit。
 
 ### TASK-RES-P03-01
 
 - Requirement ID：RES-P03-01；P0；无前置任务。
-- 状态：进行中。官方 `refs/heads/main` 于 2026-10-07 指向 `35bf44290f821323e003da854f78ffcb0e918167`，与 GOV-010 的 `P03-MAIN` pinned commit 一致。仓库外研究 clone `F:\YoloongPPT-Research\P03` 使用该 detached commit 和 sparse checkout。
+- 状态：已完成。官方 `refs/heads/main` 于 2026-10-07 指向 `35bf44290f821323e003da854f78ffcb0e918167`，与 GOV-010 的 `P03-MAIN` pinned commit 一致。仓库外研究 clone `F:\YoloongPPT-Research\P03` 使用该 detached commit 和 sparse checkout，已包含官方 Docker build 所需资源目录。
 - 锁与许可：记录根、Electron、Next.js 的三个 npm v3 lock 和 FastAPI `uv.lock` version 1/revision 3；FastAPI 上游声明 `>=3.11,<3.12`，uv lock 约束为 `==3.11.*`，不推导补丁版本或产品运行时。根许可证 Apache-2.0，另有第三方归属 `NOTICE`；尚未完成依赖逐项许可审计。
 - 上游流程：固定文档描述 Standard（固定 layout、outline review、模板）和 Smart（adaptive layout、流式进入编辑器）；Web UI / MCP 模式开关不等于 REST API 授权。上游 README 还描述多用户工作区，此功能属于 GOV-009 排除边界，不扩大本项目范围。
-- 环境阻塞：`docker version` 仍无法连接当前 `desktop-linux` Engine pipe；未启动容器、安装依赖、运行最小流程或生成 PPTX。
-- 验收边界：源码快照、锁文件、运行条件、许可证与核心模式文档已静态核对；`ProjectBaseline` 官方最小流程尚未复现，`TASK-RES-P03-01` 保持进行中。待 Docker 恢复后在隔离容器复现并记录环境、日志和产物。
-- 证据：`research/P03/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N22:P22`、“可执行任务”`L34:M34`、“开源项目研究对象”第 4 行。官方 [README](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/README.md) 与[生成模式说明](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/docs/presentation-generation-modes.md)固定到同一 commit。
+- 运行验证：从固定源码使用上游 `docker-compose.yml` 构建并启动 `production`；本地 override 仅发布 `127.0.0.1:5001`。容器数据盘位于 `F:\DockerDesktopWSL\disk\docker_data.vhdx`，`/app_data` 绑定 F 盘。Next.js/FastAPI 启动、数据库迁移和默认模板导入完成；首页与 `/api/v1/auth/status` 均返回 HTTP 200。
+- 验收边界：RES-P03-01 / TASK-RES-P03-01 的基线验收是固定 checkout、锁/环境/许可证记录，以及官方 Quick Start 的 Docker 启动与本地网页访问，以上均已完成。正常启动验证证据已记录；`VERIFY-RES-P03-01` 进行中，尚缺边界/失败样例。接口状态为 `configured=false`，没有模型凭据、模型/API 请求、PPTX 生成或视觉评审；这些结果仍待后续生成任务验证。
+- 证据：`research/P03/README.md`、`research/P03/validation/smoke.json`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N22:P22`、“可执行任务”`L34:M34`、“开源项目研究对象”第 4 行。官方 [README](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/README.md) 与[生成模式说明](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/docs/presentation-generation-modes.md)固定到同一 commit。
 
 ### TASK-RES-P04-01
 
