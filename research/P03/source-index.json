@@ -2,8 +2,8 @@
   "project": "presenton/presenton",
   "commit": "35bf44290f821323e003da854f78ffcb0e918167",
   "checkout": "F:/YoloongPPT-Research/P03",
-  "task": "TASK-RES-P03-02",
-  "scope": "Static source trace; no model or export generation request was issued.",
+  "task": "TASK-RES-P03-02; TASK-RES-P03-04",
+  "scope": "Static source trace for the P03-02 call graph and P03-04 template map; no model or export generation request was issued.",
   "nodes": [
     {"id":"web-input-routing","kind":"source","path":"servers/nextjs/app/(presentation-generator)/upload/components/UploadPage.tsx","symbols":["getGenerationDestination","handleGeneratePresentation","handleDocumentProcessing","handleDirectPresentationGeneration"],"lines":"309-311; 410-583","role":"Collects prompt/files/options and routes standard to outline, smart to editor stream."},
     {"id":"generation-api-client","kind":"source","path":"servers/nextjs/app/(presentation-generator)/services/api/presentation-generation.ts","symbols":["PresentationGenerationApi.uploadDoc","decomposeDocuments","createPresentation","presentationPrepare","updatePresentationContent","updatePresentationSlide","updateOutlines"],"lines":"23-102; 172-275","role":"Next.js HTTP client for upload, decompose, create, prepare, update and outline operations."},
@@ -43,6 +43,11 @@
     {"id":"chat-edit-service","kind":"source","path":"servers/fastapi/services/chat/service.py","symbols":["ChatService","_run_llm_with_tools"],"lines":"106-480","role":"Runs editor model turns and dispatches tool calls."},
     {"id":"chat-edit-tools","kind":"source","path":"servers/fastapi/services/chat/tools.py","symbols":["addNewSlide","addNewSlideLayout","updateSlide","deleteSlide"],"lines":"98-274","role":"Implements slide and element/component editing actions."},
     {"id":"chat-edit-prompts","kind":"source","path":"servers/fastapi/services/chat/prompts.py","symbols":["build_system_prompt"],"lines":"1-250","role":"Defines editor chat tool instructions."}
+,
+    {"id":"template-element-model","kind":"source","path":"servers/fastapi/templates/v2/models/elements.py","symbols":["Position","Size","Font","Text","Image","Flex","Grid","SlideElement"],"lines":"100-145; 181-265; 567-640","role":"Defines source geometry, visual style, content element types and flexible/grid structures."},
+    {"id":"template-layout-model","kind":"source","path":"servers/fastapi/templates/v2/models/layouts.py","symbols":["LayoutGenerationOptions","RawSlideLayout","Component","MergedComponent","SlideLayout","TextCapacityPlan"],"lines":"34-115; 716-792","role":"Defines raw and certified layout/component structures, generation options and text-capacity adjustments."},
+    {"id":"template-theme-model","kind":"source","path":"servers/fastapi/models/theme_data.py","symbols":["PresentationThemeColors","PresentationThemeFonts","PresentationThemeData"],"lines":"4-34","role":"Defines semantic theme color and text-font token structure."},
+    {"id":"template-capacity-pipeline","kind":"source","path":"servers/fastapi/templates/v2/certified_generation.py","symbols":["GENERATE_TEXT_CAPACITY_SYSTEM_PROMPT","_text_capacity_generation_payload","_apply_text_capacity_plan","generate_slide_layout"],"lines":"383-439; 1746-2022; 2174; 3651-3858","role":"Generates and applies text-capacity plans during template certification; includes an observed 1280x720 boundary constant."}
   ],
   "edges": [
     {"from":"web-input-routing","to":"generation-api-client","label":"upload/decompose/create"},
@@ -80,5 +85,13 @@
     {"from":"chat-edit-api","to":"chat-edit-service","label":"chat turn"},
     {"from":"chat-edit-service","to":"chat-edit-tools","label":"execute tool calls"},
     {"from":"chat-edit-tools","to":"slide-record-model","label":"tool-driven revision"}
+,
+    {"from":"default-template-import","to":"template-storage-and-schema","label":"imports bundled template records"},
+    {"from":"template-element-model","to":"template-schema","label":"element content and geometry schema"},
+    {"from":"template-layout-model","to":"template-schema","label":"raw/certified layout structure"},
+    {"from":"template-theme-model","to":"template-storage-and-schema","label":"template theme fields"},
+    {"from":"template-schema","to":"prepare-and-layout","label":"builds editable template content schemas"},
+    {"from":"prepare-and-layout","to":"structure-prompt-and-schema","label":"maps outline to layout indices"},
+    {"from":"template-capacity-pipeline","to":"template-layout-model","label":"uses TextCapacityPlan during certification"}
   ]
 }

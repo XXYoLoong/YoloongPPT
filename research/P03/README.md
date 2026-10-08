@@ -63,3 +63,13 @@ git -C F:\YoloongPPT-Research\P03 rev-parse HEAD
 ## 结构与视觉决策映射（RES-P03-03）
 
 已从固定源码提取 17 个节点，并逐项映射 DEC-001–DEC-040。6 项有明确机制，29 项部分映射，5 项未发现独立等价机制。节点输入、候选、机制、输出、fallback 和源码索引见 decision-map.json；摘要见 decision-map.md。静态映射已完成；动态决策样例受本地登录初始化 HTTP 428 阻塞，VERIFY-RES-P03-03 保持进行中。
+
+## 模板、版式与中间表示（RES-P03-04）
+
+固定 Presenton commit 的 16 个默认模板已结构化为 `template-map.json`（机器可读清单）和 `template-map.md`（摘要）。清单覆盖 383 个 layouts、1,600 个组件槽位、444 个 merged-component 变体组、10,283 个嵌套元素和 1,002 个静态文件；对模板 JSON 和静态文件记录 SHA-256。二进制图片、字体和缩略图不复制进本项目。
+
+组件 ID/描述/位置表示槽位；元素树记录类型、命名内容字段、几何、样式属性及显式容量约束。主题颜色/字体作为 token 保留；`Position`/`Size` 是源数值坐标，模板 JSON 没有声明坐标单位。上游认证代码出现 1280×720 画布常量，但它不是模板 JSON 的单位声明。字符容量不会由几何推算；独立 `TextCapacityPlan` 属于认证生成路径，不是这 16 个静态模板预先测得的上限。
+
+默认模板没有显式页面类型或逐版式适用条件；清单中的页面类型只按 layout ID/description 做关键词候选标记，不映射为 YoloongPPT 产品页面类型。16 份模板 JSON 未声明 parent/extends；merged-component variants 记录为替代组件，不视作继承。运行时会从 outline 与 layout 描述/Schema 建立版式索引映射，不能据此声称视觉生成或适用性已通过验证。
+
+`TASK-RES-P03-04` 静态提取完成。`VERIFY-RES-P03-04` 仍进行中：静态结构清单和来源定位已核对；正常生成、边界/失败生成、PPTX 导出与视觉检查尚无运行证据。Presenton 本地认证仍未配置，先前 HTTP 428 门禁记录见 P03-02/03 验证报告；本任务没有发送模型请求或生成文件。详见 `validation/verify-res-p03-04.json`。

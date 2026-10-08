@@ -1,0 +1,50 @@
+{
+  "task": "VERIFY-RES-P03-04",
+  "requirement": "RES-P03-04",
+  "sourceCommit": "35bf44290f821323e003da854f78ffcb0e918167",
+  "status": "进行中",
+  "staticChecks": {
+    "templateJsonFilesParsed": 16,
+    "layouts": 383,
+    "componentSlots": 1600,
+    "mergedComponentGroups": 444,
+    "nestedElements": 10283,
+    "staticAssets": 1002,
+    "templateJsonHashMismatches": 0,
+    "staticAssetHashMismatches": 0,
+    "unresolvedSourceReferences": 0,
+    "unresolvedSourceIndexEdges": 0,
+    "explicitPageTypeFields": 0,
+    "layoutApplicabilityConditionFields": 0,
+    "templateInheritanceFields": 0
+  },
+  "cases": [
+    {
+      "name": "normal-static-template-inventory",
+      "scenario": "读取全部固定版本默认模板并建立版式、槽位、元素、token 和静态文件清单",
+      "status": "passed_static_inventory",
+      "observed": "16 templates, 383 layouts, 1600 component slots, 444 merged-component groups, 10283 nested elements, 1002 static asset files; source hashes are recorded.",
+      "evidence": "research/P03/template-map.json"
+    },
+    {
+      "name": "edge-missing-page-type-and-applicability",
+      "scenario": "检查版式是否声明页面类型、适用条件与模板继承字段",
+      "status": "recorded_source_boundary",
+      "observed": "Default template JSON has no explicit page-type or per-layout applicability field; page-type labels are keyword-derived candidates. No parent/extends field is declared; merged variants are not treated as inheritance.",
+      "evidence": "research/P03/template-map.json"
+    },
+    {
+      "name": "failure-template-render-and-export",
+      "scenario": "通过已选模板生成内容并渲染/导出，以观察真实容量与视觉结果",
+      "status": "not_run_authentication_unconfigured",
+      "observed": "No template generation request, model call, PPTX export, or visual review was attempted in this task. The existing P03-02/03 reports record configured=false and an HTTP 428 login-setup gate.",
+      "evidence": "research/P03/validation/verify-res-p03-02.json; research/P03/validation/verify-res-p03-03.json"
+    }
+  ],
+  "limitation": "Static inventory verifies the pinned files and source model only. It does not establish runtime schema behavior, real text capacity, overflow handling, visual fidelity, or PPTX export behavior.",
+  "remaining": [
+    "After authentication/provider setup is authorized, run normal, edge, and failure template cases and capture layout assignments and traces.",
+    "Export representative PPTX output and inspect rendered pages for geometry, overflow, token application, and asset resolution.",
+    "Update template applicability and capacity observations only from reproducible runtime evidence."
+  ]
+}

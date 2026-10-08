@@ -203,6 +203,16 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 映射边界：明确区分字段/代码分支、LLM prompt 隐式选择、以及源码未发现的机制。ordered/unordered layout、slides_markdown 直接映射、Smart HTML 流和 fallback 分支都保留各自行为；随机 layout 修补、模型外部服务和 export-core 外部黑盒均显式标出。
 - VERIFY-RES-P03-03 状态：进行中。正常 Standard/Smart 生成无法通过本地登录初始化门禁；n_slides=0 与空输入也在 HTTP 428 门禁被拦截，未执行到决策 endpoint。没有生成页面/PPTX/PDF或验证视觉结果。
 - 证据：research/P03/decision-map.md、research/P03/decision-map.json、research/P03/validation/verify-res-p03-03.json；源码路径通过 research/P03/source-index.json 解析到冻结 commit。Excel“需求主表”第 24 行、“可执行任务”第 38–39 行。
+
+### TASK-RES-P03-04 / VERIFY-RES-P03-04
+
+- Requirement ID：RES-P03-04；TASK-RES-P03-04 依赖 TASK-RES-P03-02，已满足。
+- TASK-RES-P03-04 状态：已完成。固定 commit `35bf44290f821323e003da854f78ffcb0e918167` 的 16 个默认模板已生成 `ProjectTemplateMap`，记录 383 个 layout、1,600 个组件槽位、444 个 merged-component 变体组、10,283 个嵌套元素和 1,002 个静态文件；模板 JSON 与静态文件均带 SHA-256。
+- 字段范围：组件槽位与元素树保留 ID、描述、层级、位置/尺寸、内容字段、样式/主题 token、显式 min/max 容量字段、重复组件变体及静态资产清单。元素坐标单位未由模板 JSON 声明；源码中的 1280×720 常量只作为源码观察。文本字符容量不从几何推算。
+- 未决语义：默认模板没有显式页面类型或逐版式适用条件；`template-map.json` 的页面类型是依据 ID/description 关键词形成的候选，未映射到产品 taxonomy。未发现模板 `parent`/`extends` 字段；merged-component variants 不等同继承。TextCapacityPlan 是单独的模板认证生成结构，不构成默认模板的已测容量。
+- 静态核验：16 个模板 JSON 均可解析；模板、layout、slot、merged-component 和静态文件清单计数与源目录一致；source-index 的新增源码引用可定位到冻结 checkout。没有运行模板 API、模型生成、PPTX 导出或视觉检查。
+- VERIFY-RES-P03-04 状态：进行中。正常/边界/失败生成、实际内容 Schema 输出和视觉渲染尚未验证；本机认证状态此前记录为 `configured=false`，生成请求曾在 HTTP 428 登录门禁被拦截。该任务没有重试生成或配置凭据。
+- 证据：`research/P03/template-map.md`、`research/P03/template-map.json`、`research/P03/validation/verify-res-p03-04.json`、`research/P03/source-index.json`；Excel“需求主表”第 25 行、“可执行任务”第 40–41 行、“开源项目研究对象”第 4 行。
 ### TASK-RES-P04-01
 
 - Requirement ID：RES-P04-01；P0；无前置任务。PDR 同时列出后续 `RES-P04-02` 完整调用链和 `RES-P04-03` 决策节点任务，本条不替代它们。
