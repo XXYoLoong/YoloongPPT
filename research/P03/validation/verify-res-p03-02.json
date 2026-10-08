@@ -1,0 +1,40 @@
+{
+  "task": "VERIFY-RES-P03-02",
+  "requirement": "RES-P03-02",
+  "sourceCommit": "35bf44290f821323e003da854f78ffcb0e918167",
+  "checkedAtLocal": "2026-10-08T01:07:56.1540863-04:00",
+  "target": "Presenton 本地研究容器 127.0.0.1:5001",
+  "cases": [
+    {
+      "name": "normal_page_shell",
+      "method": "GET /",
+      "status": 200,
+      "result": "页面外壳可访问；这不是演示文稿生成通过证据。"
+    },
+    {
+      "name": "provider_setup_status",
+      "method": "GET /api/v1/auth/status",
+      "status": 200,
+      "result": "configured=false, authenticated=false。"
+    },
+    {
+      "name": "empty_generation_request",
+      "method": "POST /api/v1/ppt/presentation/generate",
+      "status": 428,
+      "result": "Login setup is required；登录初始化门禁先于生成 endpoint 校验。"
+    },
+    {
+      "name": "zero_slide_edge_request",
+      "method": "POST /api/v1/ppt/presentation/generate, n_slides=0",
+      "status": 428,
+      "result": "Login setup is required；请求未到达页数边界校验。"
+    }
+  ],
+  "status": "进行中",
+  "blocker": "本地 auth/status 为 configured=false；生成路由返回 HTTP 428 登录初始化门禁。未初始化用户或提供模型凭据，未调用模型/API、未生成 PPTX。",
+  "remaining": [
+    "正常大纲/页面生成及导出运行样例",
+    "越过登录门禁后复测空输入与页数边界",
+    "记录 provider/模型失败路径和可复现 trace"
+  ]
+}

@@ -55,3 +55,7 @@ git -C F:\YoloongPPT-Research\P03 rev-parse HEAD
 - [Presenton 官方仓库固定快照](https://github.com/presenton/presenton/tree/35bf44290f821323e003da854f78ffcb0e918167)
 - [固定快照 README](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/README.md)
 - [Standard / Smart 模式说明](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/docs/presentation-generation-modes.md)
+
+## 调用链研究（RES-P03-02）
+
+已从固定源码建立 Standard、Smart、直接 REST/MCP、编辑/修订和 PPTX/PDF 导出调用链；节点和符号位置见 call-graph.md 与 source-index.json。@presenton/export-core 固定 v1.0.34，但其实现以外部发布制品形式提供，按黑盒标注。源码静态追踪完成；本地登录状态尚未初始化，生成请求被 HTTP 428 门禁挡住，因此 VERIFY-RES-P03-02 仍进行中。运行观测见 validation/verify-res-p03-02.json。

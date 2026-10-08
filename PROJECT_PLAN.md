@@ -188,6 +188,14 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 验收边界：RES-P03-01 / TASK-RES-P03-01 的基线验收是固定 checkout、锁/环境/许可证记录，以及官方 Quick Start 的 Docker 启动与本地网页访问，以上均已完成。正常启动验证证据已记录；`VERIFY-RES-P03-01` 进行中，尚缺边界/失败样例。接口状态为 `configured=false`，没有模型凭据、模型/API 请求、PPTX 生成或视觉评审；这些结果仍待后续生成任务验证。
 - 证据：`research/P03/README.md`、`research/P03/validation/smoke.json`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N22:P22`、“可执行任务”`L34:M34`、“开源项目研究对象”第 4 行。官方 [README](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/README.md) 与[生成模式说明](https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/docs/presentation-generation-modes.md)固定到同一 commit。
 
+### TASK-RES-P03-02 / VERIFY-RES-P03-02
+
+- Requirement ID：RES-P03-02；P0；TASK-RES-P03-02 依赖 TASK-RES-P03-01，已满足。
+- TASK-RES-P03-02 状态：已完成。基于冻结 commit 35bf44290f821323e003da854f78ffcb0e918167 逐段追踪网页 Standard、网页 Smart、直接 REST、MCP OpenAPI adapter、编辑/聊天修订、TemplateV2、SSE 持久化与 PPTX/PDF 导出；没有只根据 README 推断。主节点均有源码路径及符号索引。
+- 路径边界：export-core 实现不在 clone 内，根 package.json 的 presentationExportVersion 固定为 v1.0.34，故明确列为外部黑盒。provider 服务/密钥也在 llmai 调用边界之外。本次没有生成请求；不能把源码路径当作运行成功或产品架构决定。
+- VERIFY-RES-P03-02 状态：进行中。HTTP 实际观察为 GET / = 200，GET /api/v1/auth/status = 200 且 configured=false；空生成请求与 n_slides=0 请求均由登录初始化门禁返回 428，未进入 endpoint 输入校验。没有生成大纲、页面或 PPTX。
+- 验收边界：Standard 允许素材 fallback 并写 warning；未在所追踪主路径发现完整 deck 级 QA gate。Smart 有 HTML 规范化/安全检查，不等于原生 PowerPoint 对象或整套质量验收。后续继续验证正常生成、跨过登录门禁后的边界和 provider 失败路径。
+- 证据：research/P03/call-graph.md、research/P03/source-index.json、research/P03/validation/verify-res-p03-02.json；Excel“需求主表”第 23 行、“可执行任务”第 36–37 行、“开源项目研究对象”第 4 行。
 ### TASK-RES-P04-01
 
 - Requirement ID：RES-P04-01；P0；无前置任务。PDR 同时列出后续 `RES-P04-02` 完整调用链和 `RES-P04-03` 决策节点任务，本条不替代它们。
