@@ -172,9 +172,11 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 状态：进行中。按矩阵冻结 PPTAgent / DeepPresenter 三个研究快照：main `833cda553b343be0e486a93b0b57cac962cdd566`、v0.2.0 `d53296bc0ddd73e81d51c523d20dd711c7f233f3`、v1.1.38 annotated tag object `2e68c095a86bdbb91635dc4d91dad4662aba163c` / peeled commit `2419d30b134a71486523e95ded60b32489fd3c61`。远端 refs 与 GOV-010 既有版本记录一致，固定 clone 位于仓库外 `F:\YoloongPPT-Research\P02`。
 - 锁与许可：main Skill 有 npm `package-lock.json`，Python `requirements.txt` 不是完整锁；v0.2.0 与 v1.1.38 均有 `uv.lock` 和子目录 npm lock。三个源码快照根 LICENSE 均为 MIT。main Skill requirements 固定 `pptagent==1.1.37`，而研究 tag 为 v1.1.38；v0.2.0 的包元数据版本为 0.2.8，与 tag 名 v0.2.0 不同。研究记录按源码事实区分，不静默对齐版本。
 - 上游环境：main Skill README 要求 Linux（含 WSL）或 macOS、uv、npm、LibreOffice；macOS 转换器另需 Chrome，并示例使用 Python 3.12。论文 tags 的 `pyproject.toml` 要求 Python `>=3.11`。这些是上游各自的环境声明，不是 YoloongPPT 的技术选型。
-- 环境阻塞：当前 Docker context `desktop-linux` 的 Engine pipe 不存在；项目容器未启动，P02 官方最小流程、依赖安装和 PPTX 生成均未运行。没有在 Windows 主机安装 P02 依赖。
-- 验收边界：源码 refs、锁文件元数据、运行条件和上游主许可证已做静态核对；因官方最小流程未复现，`ProjectBaseline` 验收仍未完成，`TASK-RES-P02-01` 保持进行中。后续在隔离容器执行官方最小流程并记录环境/日志/生成物。
-- 证据：`research/P02/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N17:P17`、“可执行任务”`L24:M24`、“开源项目研究对象”第 3 行。当前 P02 官网 [README](https://github.com/icip-cas/PPTAgent/blob/833cda553b343be0e486a93b0b57cac962cdd566/README.md) 固定到 main commit。
+- 环境进展：实验时及后续复核均确认 `desktop-linux` WSL Engine 使用 F 盘 WSL VHDX；研究容器将源码只读挂载、实验依赖与缓存写到 F 盘。按 main Skill requirements 安装 229 个 Python 包、npm lock、Playwright Chromium，并完成容器内 Codex Skill 注册；`uv pip check`、上游 Quick Start 的 11 项 `doctor` 检查及 Chromium headless smoke 通过。Windows 主机未安装 P02 依赖。
+- 环境版本边界：本次观察到容器 Python 3.11.2、uv 0.12.23、Node 18.20.4/npm 9.2.0、LibreOffice 7.4.7.2、Playwright 1.62.0。Python 3.11.2 仅是 Debian 容器观测值，不是 YoloongPPT 产品技术选型；产品语言与运行时仍未选定。上游 npm 安装输出 6 个 high severity findings，尚未修复或替换依赖。
+- 当前 Docker 状态：短暂停止后已恢复；`docker desktop status` 为 running，Engine `27.4.0`，`DockerRootDir=/var/lib/docker`。项目 workspace 与 P02 研究容器均 Up，源码和 artifacts 的宿主挂载均在 F 盘。Docker Desktop settings 仍显示 `DataFolder=C:\ProgramData\DockerDesktop\vm-data`，但当前 `wslEngineEnabled=True`，WSL VHDX 在 `F:\DockerDesktopWSL`；项目 Docker 层与容器挂载均确认位于 F。
+- 验收边界：额外尝试的 `pptagent --help` 包入口约 60 秒未返回，已中断；官方 README 指定的 `scripts/pptagent.py doctor` 已通过 11 项检查。未向容器传入提供商凭据，未调用模型/API、生成 PPTX 或完成视觉评审。因此 `ProjectBaseline` 官方生成与审查尚未通过，`TASK-RES-P02-01` 与 `VERIFY-RES-P02-01` 保持进行中。
+- 证据：`research/P02/README.md`、`research/P02/validation/environment-main-skill.txt`、`research/P02/validation/packages-freeze-main-skill.txt`、`research/P02/validation/official-doctor-main-skill.json`、`research/P02/validation/verify-res-p02-01.json`、`research/P02/scripts/`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N17:P17`、“可执行任务”`L24:M25`、“开源项目研究对象”第 3 行。当前 P02 官网 [README](https://github.com/icip-cas/PPTAgent/blob/833cda553b343be0e486a93b0b57cac962cdd566/README.md) 固定到 main commit。
 
 ### TASK-RES-P03-01
 

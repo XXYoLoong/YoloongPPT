@@ -1,0 +1,94 @@
+{
+  "requirement_id": "RES-P02-01",
+  "task_ids": ["TASK-RES-P02-01", "VERIFY-RES-P02-01"],
+  "source_commit": "833cda553b343be0e486a93b0b57cac962cdd566",
+  "verification_state": "in_progress_pending_official_generation",
+  "scope": "PPTAgent main Skill official baseline only; no YoloongPPT runtime or backend selection.",
+  "environment": {
+    "container": "yoloongppt-p02-research",
+    "image_ref": "yoloongppt-workspace",
+    "image_id": "sha256:e3dda207b44bf716a50f24cd688236fe7b2f82e055bceda871859e4f204cf2c4",
+    "source_mount": "F:/YoloongPPT-Research/P02 -> /research (read-only)",
+    "artifact_mount": "F:/YoloongPPT-Research/P02-official-smoke -> /artifacts (read-write)",
+    "docker_data_vhdx": "F:/DockerDesktopWSL/disk/docker_data.vhdx",
+    "observed_versions_only": {
+      "python": "3.11.2",
+      "uv": "0.12.23",
+      "node": "18.20.4",
+      "npm": "9.2.0",
+      "libreoffice": "7.4.7.2",
+      "playwright": "1.62.0"
+    },
+    "product_runtime_selected": false,
+    "python_version_is_container_observation_only": true
+  },
+  "setup_case": {
+    "state": "passed",
+    "checks": {
+      "pinned_source_commit": "passed",
+      "requirements_install": "passed; 229 installed packages",
+      "uv_pip_check": "passed; all 229 installed packages compatible",
+      "official_quickstart_doctor": "passed; all 11 local checks passed",
+      "playwright_chromium_download": "passed",
+      "chromium_headless_page_smoke": "passed; title=P02 isolated browser smoke",
+      "official_installer": "passed; Codex Skill symlink registered inside container-local home",
+      "host_dependency_install": "not_performed"
+    },
+    "evidence": [
+      "research/P02/validation/environment-main-skill.txt",
+      "research/P02/validation/packages-freeze-main-skill.txt",
+      "research/P02/validation/official-doctor-main-skill.json",
+      "research/P02/scripts/official-main-skill-install.sh",
+      "research/P02/scripts/official-main-skill-post-check.sh",
+      "F:/YoloongPPT-Research/P02-official-smoke"
+    ]
+  },
+  "normal_case": {
+    "state": "not_run_provider_credentials_and_authorization_not_available",
+    "test_execution": "No model/API request and no PPTX generation were attempted.",
+    "visual_review": "not_run",
+    "provider_credential_variable_names": "none forwarded or configured in this container run",
+    "completion_boundary": "Setup and local browser smoke do not satisfy the official end-to-end generation baseline."
+  },
+  "failure_case": {
+    "state": "recovered_setup_issues_and_unverified_cli_probe",
+    "recovered_setup_issues": [
+      "Initial fasttext build lacked a C++ compiler; added build-essential in the isolated container and reran the upstream requirements unchanged.",
+      "The next fasttext build lacked Python.h; added python3-dev in the isolated container and reran the upstream requirements unchanged.",
+      "A retry initially found a partial venv; the reproducible installer now uses uv venv --clear for this task-owned environment."
+    ],
+    "cli_probe": {
+      "command": "pptagent --help (package console entry, not the official Skill Quick Start doctor command)",
+      "result": "Did not return within approximately 60 seconds; interrupted.",
+      "api_request": false,
+      "interpretation": "Unverified ancillary CLI probe; the documented scripts/pptagent.py doctor command passed and this probe is not treated as proof of an upstream functional failure."
+    },
+    "npm_install_notice": "npm install output reported 6 high-severity findings; detailed audit and remediation were not performed, and upstream locks were not modified."
+  },
+  "acceptance": {
+    "source_refs_and_license_review": "passed_static_review",
+    "isolated_dependency_setup": "passed",
+    "official_quickstart_doctor": "passed_11_checks",
+    "official_minimum_pptx_generation": "not_run",
+    "visual_review": "not_run",
+    "project_baseline": "not_passed",
+    "task_status": "in_progress"
+  },
+  "current_state_recheck": {
+    "checked_at_local": "2026-10-08 00:43:21 -04:00",
+    "earlier_read_only_recheck": "Docker service was Stopped and docker-desktop WSL was not running at 00:38; no Docker operation was attempted until storage settings were verified.",
+    "docker_desktop_status": "running",
+    "docker_engine_version": "27.4.0",
+    "docker_root_dir": "/var/lib/docker",
+    "docker_service_status": "Stopped (WSL Engine is responsive)",
+    "docker_desktop_wsl_running": true,
+    "f_drive_vhdx": "F:/DockerDesktopWSL/disk/docker_data.vhdx exists",
+    "configured_custom_wsl_directory": "F:/DockerDesktopWSL",
+    "wsl_engine_enabled": true,
+    "configured_data_folder": "C:/ProgramData/DockerDesktop/vm-data",
+    "project_workspace_container": "Up; F:/YoloongPPT -> /workspace",
+    "research_container_state": "Up; P02 source and artifacts mounts are on F:",
+    "action": "After confirming WSL Engine enabled, custom WSL directory on F:, and the Docker VHDX on F:, Docker Desktop and the project workspace were started; project Docker layers and bind mounts were observed on F:."
+  },
+  "completion_boundary": "TASK-RES-P02-01 and VERIFY-RES-P02-01 remain in progress until the official generation path is reproduced and its output is reviewed; this experiment does not select a YoloongPPT product runtime."
+}

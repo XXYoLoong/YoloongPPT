@@ -49,9 +49,19 @@ git -C F:\YoloongPPT-Research\P02 rev-parse HEAD
 - v0.2.0 与 v1.1.38 的 `pyproject.toml` 声明 Python `>=3.11`，`uv.lock` 锁依赖解算，不固定 YoloongPPT 产品运行时。v1.1.38 README 明确不支持原生 Windows，建议 WSL，并提供 `uvx pptagent generate`、Docker host/sandbox 与源码开发路径。
 - main Skill 的 `requirements.txt` 固定 `pptagent==1.1.37`，而独立 DeepPresenter tag 是 v1.1.38；这是上游 Skill 与论文 tag 的版本差异，后续最小流程必须按被研究 ref 分别记录，不能静默互换。
 
-本项目 Docker CLI 当前无法连接 `desktop-linux` 服务端：`docker version` 返回 `//./pipe/dockerDesktopLinuxEngine` 不存在。项目 `compose.yaml` 的 Debian workspace 目前只声明 bash、ca-certificates、git，并未包含 P02 环境。没有启动容器、安装 P02 依赖、执行官方最小流程或生成 PPTX；没有使用 Windows 主机安装项目依赖。
+### 隔离容器中的环境复现记录（2026-10-07 至 2026-10-08）
 
-因此源码 refs、lock/依赖文件和主许可证已核对，但 `ProjectBaseline` 验收尚未完成；`TASK-RES-P02-01` 保持进行中。Docker 服务端恢复后，应在容器内按固定快照复现官方最小流程，记录实际镜像摘要、环境输出、日志和生成产物，再关闭本任务。
+- 实验执行时本机 `desktop-linux` Docker context 可用；观察到 Docker Desktop WSL 磁盘文件 `F:\DockerDesktopWSL\disk\docker_data.vhdx`。研究容器 `yoloongppt-p02-research` 使用项目 workspace 镜像，P02 固定源码以只读方式挂载到 `/research`，实验依赖、缓存和输出写到 F 盘挂载 `/artifacts`。Windows 主机未安装 P02 依赖。
+- 按固定 main commit `833cda553b343be0e486a93b0b57cac962cdd566` 安装 Skill requirements、npm lock、Playwright Chromium，并运行官方 installer 注册 Codex Skill。注册结果仅存在容器内 `/artifacts/home/.agents/skills/pptagent`，不代表当前 Windows Codex 主机已启用该 Skill。
+- 本次容器的环境观察值：Python 3.11.2、uv 0.12.23、Node.js 18.20.4、npm 9.2.0、LibreOffice 7.4.7.2、Playwright 1.62.0；已安装 Python 包 229 个。`uv pip check` 通过，Chromium headless 页面 smoke 通过。**Python 3.11.2 是本次 Debian 镜像内的观测版本，不是 YoloongPPT 的产品运行时选型或项目要求。**产品语言/运行时仍未确定。
+- 按上游 Quick Start 执行 `scripts/pptagent.py doctor`，11 项本地检查全部通过（Python 模块/版本、LibreOffice、Node、Playwright 版本、html2pptx 脚本与运行时）。此 doctor 不会生成 PPTX，也不验证模型服务。
+- 上游 `npm ci` 输出 6 个 high severity findings；未自动修改上游 lock 或升级依赖，需后续按上游依赖和许可/安全任务核查。
+- 另一次 `pptagent --help` 包入口探测约 60 秒未返回，已中断；这不是上游 Quick Start 的 doctor 命令，也没有据此判定 Skill 功能失败。未观察到 API 请求。
+- 本次未向容器传入或配置提供商凭据，未调用模型/API，也未生成 PPTX 或完成视觉评审。因此这次只验证安装、依赖一致性、浏览器与容器内 Skill 注册，不能视为官方端到端生成流程通过。
+- 2026-10-08 复核时发现 Docker service/WSL 发行版一度停止。核实 `wslEngineEnabled=True`、`CustomWslDistroDir=F:\DockerDesktopWSL` 和 F 盘 VHDX 后，恢复 Docker Desktop；Engine 版本 `27.4.0`、`DockerRootDir=/var/lib/docker`。随后用 `scripts/project.ps1 -Action start` 启动 `yoloongppt-workspace-1`，并恢复 `yoloongppt-p02-research`；两个容器与研究数据的宿主挂载均位于 F 盘。设置中 `DataFolder=C:\ProgramData\DockerDesktop\vm-data` 仍保留；当前启用的 WSL 后端使用 F 盘 WSL 磁盘，这一点由设置与实际 VHDX/挂载路径共同确认。未在 C 盘写入项目文件、研究数据或 Docker 容器数据。
+- 可追溯证据：`research/P02/validation/environment-main-skill.txt`、`research/P02/validation/packages-freeze-main-skill.txt`、`research/P02/validation/verify-res-p02-01.json`、`research/P02/scripts/`。原始实验目录位于仓库外 `F:\YoloongPPT-Research\P02-official-smoke`，Docker 可写层和 Docker 数据盘也在 F 盘。
+
+因此源码 refs、依赖清单和上游主许可证已核对；隔离容器安装、官方 doctor 与基础浏览器 smoke 已通过，但模型驱动的生成与视觉审查仍未执行，`ProjectBaseline` 尚未通过，`TASK-RES-P02-01` 与 `VERIFY-RES-P02-01` 保持进行中。后续需通过安全凭据配置完成官方生成与结果审查，再决定是否满足验收。
 
 ## 固定来源
 
