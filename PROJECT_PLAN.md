@@ -227,7 +227,19 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 - 状态：已完成。上游 main 于 2026-10-07 指向 c3605ebc487fc6c7d4f4139761e46d7021cd656c，研究 clone 在 F:/YoloongPPT-Research/P04，detached checkout 干净；package-lock SHA-256 为 f9a2b016df533d79d7c55207c699d84d754b9178be9cb421e1c43259b48f4a68；上游许可证 MIT。
 - 上游 package.json 声明 Node >=18.0.0。Node 18.20.8 / npm 10.8.2 隔离容器完成 npm ci（219 个包）和 npm run build；官方 HTML CLI 样例在 Node 18.20.8 失败，报 Cannot use import statement outside a module。直接 CommonJS require PptxGenJS 成功；固定依赖 pptxgenjs@4.0.1 的 ESM export 指向 dist/pptxgen.es.js，但包未声明 type=module。相同官方样例在 Node 24.14.0 隔离容器成功。Node 24 仅为研究环境观测，不是产品运行时决定。
 - VERIFY-RES-P04-01：已完成正常、边界和失败三个 CLI 案例。正常样例生成 45,012 字节 PPTX；嵌套 HTML 样例生成 47,372 字节 PPTX；无输入样例按预期退出 1 并输出参数错误。两个 PPTX 的 ZIP 必需部件和文本已检查。未运行上游测试，未做 Office/LibreOffice 视觉渲染。
-- 证据：research/P04/README.md、research/P04/validation/verify-res-p04-01.json、research/P04/validation/minimal-html-poc.pptx、research/P04/validation/edge-nested-html-poc.pptx、contracts/version-manifest.catalog.json；Excel“需求主表”N27:P27、“可执行任务”L44:M45、“开源项目研究对象”K5:L5。P04-02/03 的全链路与决策分析未开始，YoloongPPT 产品语言/运行时/后端仍未选定。
+- 证据：research/P04/README.md、research/P04/validation/verify-res-p04-01.json、research/P04/validation/minimal-html-poc.pptx、research/P04/validation/edge-nested-html-poc.pptx、contracts/version-manifest.catalog.json；Excel“需求主表”N27:P27、“可执行任务”L44:M45、“开源项目研究对象”K5:L5。2026-10-08 原始 OOXML 复核确认这些 P04-01 状态单元格此前已正确填写；产品语言/运行时/后端仍未选定。
+
+### TASK-RES-P04-02
+
+- Requirement ID：RES-P04-02；P0；依赖 RES-P04-01。固定源码为 `peterfei/ai-agent-ppt` main commit `c3605ebc487fc6c7d4f4139761e46d7021cd656c`，许可 MIT；上游研究不构成 YoloongPPT 运行时或依赖选择。
+- 状态：已完成。建立 `research/P04/call-graph.md` 和 `research/P04/source-index.json`，以 bin/CLI、配置、Provider、模板、输入路由、提示词、slot、布局、适配器和写出器为节点，为每个源码节点记录文件/符号/行号；模型服务、purelayout 算法、PptxGenJS 序列化及图片 URL 请求明确标外部黑盒。未发现页面输出流水线。
+- 路由边界：CLI 先要求配置并构造 Provider；CreateCommand 内路由顺序为 HTML > images > topic/input。topic/input 走 outline、逐页 content fill、layout/slot 和 PPTXBuilder；HTML 与图片走 PureLayout、PPTAdapter 和 PptxGenJS。目录输入仅读取根 README.md/package.json；无效 layout 会跳过页面；content fill 异常静默保留原大纲；图片失败继续并仍写文件。这些均为上游源码观察。
+- 内容限制：`SLOT_MAP` 仅有 title/subtitle/code/notes/image/bulletPoints 映射，图表、时间线、比较数据没有相应 slot mapping。PPTXBuilder flatten 仅消费文本和图片。没有在此任务中把这些上游缺口改造成产品行为。
+- Docker 验证：Node 24.14.0 容器中 `npm run build` 通过；固定源与临时依赖副本的 package-lock 及关键源码 SHA-256 一致。容器使用 `--network none`，假 Provider 覆盖主题正常、content fill 错误回退、缺输入失败；未使用真实凭据或 API。
+- 结果：正常和回退路线都生成一个 slide，PPTX 含 `[Content_Types].xml`、`ppt/presentation.xml`、`ppt/slides/slide1.xml`，大小 47,127 字节，SHA-256 `EB314E726DF935D01A833E46C4F105BF24ABAD6EA81DA9144F088B26550FC61D`；缺输入在 0 次 Provider 调用时按预期报错。两个 PPTX hash 相同；当前 fixture 使用的 `bullet` layout 不含 subtitle/notes slots，因此 ContentFiller 输出字段未影响该 layout 的产物。
+- 验收边界：验证记录和脚本位于 `research/P04/validation/verify-res-p04-02.json` 与 `.mjs`。未调用真实 LLM/Vision API、未运行上游 Vitest、未做 PowerPoint/LibreOffice 视觉渲染或往返编辑；页面输出路线仅标记为未发现，未推断为产品需求不需要。
+- 矩阵回填：本任务更新 `需求主表 N28:P28`、`可执行任务 L46:M47`、`开源项目研究对象 K5:N5` 和“总览”开源项目研究完成数缓存。P04-01 状态保留原值；保持 308 个需求、453 个任务和其余任务范围不变。
+- 证据：`research/P04/call-graph.md`、`research/P04/source-index.json`、`research/P04/validation/verify-res-p04-02.mjs`、`research/P04/validation/verify-res-p04-02.json`、两个 `topic-route-*.pptx`；Excel“需求主表”N27:P28、“可执行任务”L44:M47、“开源项目研究对象”K5:N5。
 
 ### TASK-RES-P05-01
 

@@ -1,0 +1,84 @@
+{
+  "schemaVersion": "1.0",
+  "requirementId": "RES-P04-02",
+  "taskId": "TASK-RES-P04-02",
+  "verifyTaskId": "VERIFY-RES-P04-02",
+  "project": "peterfei/ai-agent-ppt",
+  "upstreamCommit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+  "runtime": "v24.14.0",
+  "isolation": {
+    "execution": "Docker container",
+    "network": "none",
+    "realCredentialsUsed": false,
+    "realModelOrApiCalls": false,
+    "outputDirectory": "research/P04/validation"
+  },
+  "normalCase": {
+    "name": "topic-normal",
+    "result": "success",
+    "providerCalls": 2,
+    "output": "topic-route-normal.pptx",
+    "artifact": {
+      "path": "research/P04/validation/topic-route-normal.pptx",
+      "bytes": 47127,
+      "sha256": "EB314E726DF935D01A833E46C4F105BF24ABAD6EA81DA9144F088B26550FC61D",
+      "zipEntryCount": 20,
+      "requiredPartsPresent": [
+        "[Content_Types].xml",
+        "ppt/presentation.xml",
+        "ppt/slides/slide1.xml"
+      ],
+      "slideText": "主题路线注入式假响应"
+    }
+  },
+  "edgeCase": {
+    "name": "content-fill-fallback",
+    "result": "success",
+    "providerCalls": 2,
+    "output": "topic-route-fill-fallback.pptx",
+    "artifact": {
+      "path": "research/P04/validation/topic-route-fill-fallback.pptx",
+      "bytes": 47127,
+      "sha256": "EB314E726DF935D01A833E46C4F105BF24ABAD6EA81DA9144F088B26550FC61D",
+      "zipEntryCount": 20,
+      "requiredPartsPresent": [
+        "[Content_Types].xml",
+        "ppt/presentation.xml",
+        "ppt/slides/slide1.xml"
+      ],
+      "slideText": "主题路线注入式假响应"
+    },
+    "observedBehavior": "ContentFiller catches the provider error, keeps original outline slide data, and PPTX generation continues."
+  },
+  "contentFillOutputEffect": {
+    "normalAndFallbackPptxHashesMatch": true,
+    "selectedLayout": "bullet",
+    "explanation": "For this layout, SlideRenderer binds title and bulletPoints only; ContentFiller output fields expandedText and speakerNotes have no slots in bullet.layout.json."
+  },
+  "failureCase": {
+    "name": "missing-input",
+    "result": "expected_failure",
+    "providerCalls": 0,
+    "error": "Provide --topic, --input, --html, or --images"
+  },
+  "acceptance": {
+    "sourceGroundedCallGraph": true,
+    "sourceIndexCoversMainRouteNodes": true,
+    "normalTopicInputProducedStructurallyValidPptx": true,
+    "contentFillFailureFallbackObserved": true,
+    "missingInputFailedBeforeProviderCall": true,
+    "noRealModelOrApiCalls": true
+  },
+  "limitations": [
+    "The provider was injected with deterministic fixture responses; no hosted model behavior was tested.",
+    "Screenshot/Vision LLM route was source-mapped but not sent to a real vision provider.",
+    "PPTX package structure and slide text were checked; no Office/LibreOffice visual render was performed.",
+    "This is a targeted research PoC, not the upstream Vitest suite or a YoloongPPT product-runtime verification."
+  ],
+  "sourceRefs": [
+    "research/P04/call-graph.md",
+    "research/P04/source-index.json",
+    "research/P04/validation/verify-res-p04-02.mjs",
+    "research/P04/validation/verify-res-p04-01.json"
+  ]
+}

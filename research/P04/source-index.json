@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "requirementId": "RES-P04-02",
+  "taskId": "TASK-RES-P04-02",
+  "project": {
+    "repository": "peterfei/ai-agent-ppt",
+    "ref": "main",
+    "commit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+    "license": "MIT",
+    "scope": "research_only; not a YoloongPPT product runtime or dependency selection"
+  },
+  "nodes": [
+    { "id": "CLI-ENTRY", "route": "all", "kind": "source", "file": "bin/ai-agent-ppt.js", "symbol": "run import and invocation", "lines": [1, 3], "purpose": "Executable CLI entry into compiled src/index.ts." },
+    { "id": "CLI-ROUTES", "route": "all", "kind": "source", "file": "src/index.ts", "symbol": "run; create action", "lines": [15, 97], "purpose": "Declares create flags, checks config, constructs provider, injects template/layout directories, and calls CreateCommand." },
+    { "id": "CONFIG", "route": "all", "kind": "source", "file": "src/utils/config-manager.ts", "symbol": "CONFIG_SCHEMA; ConfigManager.defaultConfigPath; load; save", "lines": [8, 49], "purpose": "Validates provider/API-key config and resolves ~/.ai-agent-ppt/config.json; load returns null on any read/parse error." },
+    { "id": "PROVIDER-REGISTRY", "route": "all", "kind": "source", "file": "src/core/providers/provider-registry.ts", "symbol": "PROVIDER_MAP; ProviderRegistry.create", "lines": [6, 31], "purpose": "Only deepseek and glm are constructed; other schema-accepted provider names throw not implemented." },
+    { "id": "PROVIDER-INTERFACE", "route": "all", "kind": "source", "file": "src/core/providers/provider-adapter.ts", "symbol": "ProviderAdapter.chat", "lines": [1, 13], "purpose": "Common chat API used by outline, content, and vision paths." },
+    { "id": "PROVIDER-DEEPSEEK", "route": "topic/input/images", "kind": "source", "file": "src/core/providers/deepseek-provider.ts", "symbol": "DeepSeekProvider.chat", "lines": [5, 43], "purpose": "OpenAI SDK client configured for DeepSeek endpoint; remote service remains a black box." },
+    { "id": "PROVIDER-GLM", "route": "topic/input/images", "kind": "source", "file": "src/core/providers/glm-provider.ts", "symbol": "GLMProvider.chat; mergeSystemMessages; toMessageBody", "lines": [13, 111], "purpose": "Sends OpenAI-compatible HTTP request and supports multimodal user messages; remote service remains a black box." },
+    { "id": "CREATE-ROUTER", "route": "all", "kind": "source", "file": "src/commands/create.ts", "symbol": "CreateCommand.execute", "lines": [47, 154], "purpose": "Loads template, applies html > images > topic/input precedence, runs outline/fill/layout pipeline, and writes output." },
+    { "id": "INPUT-FILE", "route": "topic/input", "kind": "source", "file": "src/commands/create.ts", "symbol": "CreateCommand.execute input selection; scanDirectory", "lines": [71, 85], "purpose": "Reads a file as UTF-8 or uses a topic; directory scan implementation is at lines 395-411 and only reads README.md/package.json." },
+    { "id": "OUTLINE", "route": "topic/input", "kind": "source", "file": "src/core/engine/outline-generator.ts", "symbol": "SYSTEM_PROMPT; OutlineGenerator.generate", "lines": [10, 80], "purpose": "Prompts for a 5-15 slide JSON outline and checks only JSON parse, title, and slides array." },
+    { "id": "OUTLINE-RETRY", "route": "topic/input", "kind": "source", "file": "src/commands/create.ts", "symbol": "CreateCommand.withRetry", "lines": [379, 392], "purpose": "Retries outline generation up to three attempts with 2/4 second delays." },
+    { "id": "CONTENT-FILL", "route": "topic/input", "kind": "source", "file": "src/core/engine/content-filler.ts", "symbol": "FILL_SYSTEM_PROMPT; ContentFiller.fill; buildSlidePrompt", "lines": [8, 73], "purpose": "Calls provider serially for slides and swallows each failure by keeping original slide data." },
+    { "id": "TEMPLATE", "route": "all", "kind": "source", "file": "src/core/template/template-manager.ts", "symbol": "TEMPLATE_SCHEMA; TemplateManager.list/get/validate", "lines": [9, 91], "purpose": "Loads and validates per-template template.json files." },
+    { "id": "LAYOUT-LOADER", "route": "topic/input", "kind": "source", "file": "src/core/engine/layout-loader.ts", "symbol": "LAYOUT_SCHEMA; LayoutLoader.load; resolveVariables", "lines": [8, 132], "purpose": "Validates JSON layout and resolves template variables; load returns null on missing or invalid layout." },
+    { "id": "SLOT-BINDING", "route": "topic/input", "kind": "source", "file": "src/core/engine/slide-renderer.ts", "symbol": "SLOT_MAP; SlideRenderer.render/renderNode", "lines": [5, 73], "purpose": "Maps title/subtitle/code/notes/image/bulletPoints to layout slots and creates StyleNode tree." },
+    { "id": "PPTX-BUILDER", "route": "topic/input", "kind": "source", "file": "src/core/engine/pptx-builder.ts", "symbol": "PPTXBuilder.build/renderSlide/flattenNode/fetchImageAsBase64", "lines": [25, 236], "purpose": "Flattens text/image nodes, adds decorations, and asks PptxGenJS to write the PPTX buffer." },
+    { "id": "HTML-ROUTE", "route": "html", "kind": "source", "file": "src/commands/create.ts", "symbol": "CreateCommand.renderFromHtml", "lines": [157, 187], "purpose": "Parses HTML at 1280x720, renders boxes through PPTAdapter, and writes a PptxGenJS buffer." },
+    { "id": "IMAGE-ROUTE", "route": "images", "kind": "source", "file": "src/commands/create.ts", "symbol": "CreateCommand.renderFromImages", "lines": [190, 377], "purpose": "Reads images, calls vision provider, converts JSON/raw text to HTML, computes boxes, continues after per-image errors, then writes PPTX." },
+    { "id": "HTML-CSS-CONVERSION", "route": "images", "kind": "source", "file": "src/commands/create.ts", "symbol": "inlineCSS; visionJSONtoHTML; escapeHTML; isLightHex", "lines": [413, 584], "purpose": "Supports a limited set of CSS selectors and transforms vision JSON into simplified HTML." },
+    { "id": "PURELAYOUT-WRAPPER", "route": "html/images", "kind": "source", "file": "src/core/engine/pure-layout.ts", "symbol": "PureLayout.parseHTML/layout; fixFlexPositions; visitLayoutNode", "lines": [70, 158], "purpose": "Parses simplified HTML and adapts npm purelayout output into LayoutBox records; additional geometry helpers are at lines 354-584." },
+    { "id": "PPT-ADAPTER", "route": "html/images", "kind": "source", "file": "src/core/engine/ppt-adapter.ts", "symbol": "RENDER_MAP; PPTAdapter.render/renderBackground; fetchImageBase64", "lines": [24, 188], "purpose": "Maps LayoutBox text/images/background to PptxGenJS slide methods." },
+    { "id": "PAGE-OUTPUT", "route": "page", "kind": "not_found", "file": null, "symbol": null, "lines": null, "purpose": "No browser/page output pipeline was found in the pinned CLI/app source; located output routes write PPTX." }
+  ],
+  "assets": {
+    "layoutsDirectory": "src/layouts/",
+    "layouts": ["bullet.layout.json", "chart.layout.json", "code.layout.json", "comparison.layout.json", "image-text.layout.json", "image.layout.json", "timeline.layout.json", "title.layout.json"],
+    "templatesDirectory": "src/templates/",
+    "templates": ["business", "education", "pitch", "report", "tech"]
+  },
+  "externalBlackBoxes": [
+    { "id": "LLM-SERVICES", "component": "DeepSeek/GLM model service", "sourceCallSites": ["src/core/providers/deepseek-provider.ts:18-40", "src/core/providers/glm-provider.ts:25-65"], "limit": "Hosted model behavior and response generation are not in the repository." },
+    { "id": "PURELAYOUT-PACKAGE", "component": "purelayout@0.3.1", "sourceCallSites": ["src/core/engine/pure-layout.ts:10", "src/core/engine/pure-layout.ts:119-135"], "limit": "The dependency's internal geometry algorithm is not source-grounded in this repository; local wrappers and flex corrections are mapped separately." },
+    { "id": "PPTXGENJS", "component": "pptxgenjs@4.0.1", "sourceCallSites": ["src/core/engine/pptx-builder.ts:52-60", "src/commands/create.ts:181-184", "src/commands/create.ts:373-376"], "limit": "Third-party OOXML serialization and package-part construction are external." },
+    { "id": "REMOTE-IMAGE-FETCH", "component": "Node fetch / remote image URL", "sourceCallSites": ["src/core/engine/pptx-builder.ts:225-236", "src/core/engine/ppt-adapter.ts:175-188"], "limit": "Remote host response, redirects, and image availability are outside the source snapshot." }
+  ],
+  "evidence": [
+    "research/P04/validation/verify-res-p04-01.json",
+    "research/P04/validation/verify-res-p04-02.json",
+    "research/P04/validation/topic-route-normal.pptx",
+    "research/P04/validation/topic-route-fill-fallback.pptx"
+  ],
+  "limitations": [
+    "The two tested topic outputs use an injected fake provider with network disabled; hosted model output is untested.",
+    "Screenshot/Vision route is mapped from source but no real vision API call was made.",
+    "PPTX structure and slide text were checked; no Office/LibreOffice visual review or round-trip edit was performed.",
+    "Node 24.14.0 is a study-container observation, not a YoloongPPT runtime choice."
+  ]
+}

@@ -68,9 +68,18 @@ Node 18.20.8 下的官方 CLI HTML 样例失败，报错为 SyntaxError: Cannot 
 
 ### 许可与结论边界
 
-固定上游仓库根许可证为 MIT。锁文件中的 pptxgenjs@4.0.1 包元数据也声明 MIT；其余传递依赖的逐包许可证清单和法律兼容性审查不属于本次完成范围。固定版本、官方流程复现和正常/边界/失败运行证据已完成。P04-02/03 的完整调用链与决策节点研究仍是独立后续任务。
+固定上游仓库根许可证为 MIT。锁文件中的 pptxgenjs@4.0.1 包元数据也声明 MIT；其余传递依赖的逐包许可证清单和法律兼容性审查不属于本次完成范围。固定版本、官方流程复现和正常/边界/失败运行证据已完成。P04-02 源码调用链现已完成；P04-03/04/05 仍是独立后续研究任务。
 
-未运行上游测试套件；没有验证截图识别、LLM 生成、广泛 HTML/CSS 支持、视觉质量、PowerPoint 编辑行为或 YoloongPPT 产品能力。候选项目结果不能外推为产品功能承诺。
+未运行上游测试套件；没有验证真实托管模型生成、截图识别、广泛 HTML/CSS 支持、视觉质量、PowerPoint 编辑行为或 YoloongPPT 产品能力。候选项目结果不能外推为产品功能承诺。
+
+## RES-P04-02 源码调用链
+
+- Requirement ID：`RES-P04-02`；Task ID：`TASK-RES-P04-02`；状态：已完成（固定源码调用链研究）。
+- [call-graph.md](call-graph.md) 追踪 CLI、配置与 Provider、topic/input、HTML、图片还原三条路径至 PPTX 写出，并明确外部黑盒、未发现的页面输出/QA/revision 节点及边界行为。
+- [source-index.json](source-index.json) 为主链路节点记录固定 commit、源文件、符号和行号；不能映射到仓库代码的服务/依赖标为外部黑盒。
+- [verify-res-p04-02.mjs](validation/verify-res-p04-02.mjs) 在禁网 Docker 中用假 Provider 复现 topic 正常路线、内容填充失败回退和缺输入失败；检查 [verify-res-p04-02.json](validation/verify-res-p04-02.json) 与两个样例 PPTX 的 ZIP 部件和文本。
+- 本次选用 `bullet` layout 时，成功填充与异常回退的 PPTX SHA-256 相同；源码显示此 layout 只消费标题和 bulletPoints，不消费填充阶段写入的 expandedText/speakerNotes。此项是固定候选源码行为观察，不是 YoloongPPT 产品结论。
+- 没有访问真实模型/API、没有运行上游 Vitest、没有用 PowerPoint/LibreOffice 渲染；Node 24.14.0 仅为研究容器观测。
 
 ## 固定来源
 
