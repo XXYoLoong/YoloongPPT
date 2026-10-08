@@ -1,0 +1,148 @@
+{
+  "schemaVersion": "1.0",
+  "requirementId": "RES-P04-01",
+  "taskId": "TASK-RES-P04-01",
+  "verifyTaskId": "VERIFY-RES-P04-01",
+  "project": "peterfei/ai-agent-ppt",
+  "upstreamCommit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+  "taskStatus": "已完成",
+  "verifyStatus": "已完成",
+  "source": {
+    "upstreamRefObserved": "refs/heads/main",
+    "refObservedAt": "2026-10-07",
+    "checkoutState": "detached_clean",
+    "packageVersion": "0.1.0",
+    "declaredNodeConstraint": ">=18.0.0",
+    "packageLockSha256": "f9a2b016df533d79d7c55207c699d84d754b9178be9cb421e1c43259b48f4a68",
+    "upstreamLicense": "MIT",
+    "pptxgenjs": {
+      "version": "4.0.1",
+      "licenseMetadata": "MIT",
+      "packageTypeField": null,
+      "exportsImport": "./dist/pptxgen.es.js",
+      "exportsRequire": "./dist/pptxgen.cjs.js"
+    },
+    "usageBoundary": "research_only; not a YoloongPPT runtime or dependency selection"
+  },
+  "storageAndIsolation": {
+    "projectWorkspace": "F:/YoloongPPT",
+    "researchClone": "F:/YoloongPPT-Research/P04",
+    "temporaryCopyAndOutput": "F:/YoloongPPT-Temp-P01-05",
+    "dockerContext": "desktop-linux",
+    "dockerDataVhdx": "F:/DockerDesktopWSL/disk/docker_data.vhdx",
+    "networkForCliRuns": "none",
+    "modelOrApiCalls": false,
+    "credentials": "No real credentials used or recorded; isolated dummy configuration only"
+  },
+  "preparation": {
+    "node18": {
+      "image": "node:18.20.8-bookworm-slim",
+      "imageDigest": "node@sha256:f9ab18e354e6855ae56ef2b290dd225c1e51a564f87584b9bd21dd651838830e",
+      "nodeVersion": "v18.20.8",
+      "npmVersion": "10.8.2",
+      "npmCi": {
+        "command": "npm ci --no-audit --no-fund",
+        "result": "passed",
+        "packagesInstalled": 219
+      },
+      "build": {
+        "command": "npm run build",
+        "result": "passed"
+      },
+      "testsRun": false
+    },
+    "node24": {
+      "image": "node:24.14.0-bookworm-slim",
+      "imageDigest": "node@sha256:d8e448a56fc63242f70026718378bd4b00f8c82e78d20eefb199224a4d8e33d8",
+      "nodeVersion": "v24.14.0",
+      "npmVersion": "11.9.0"
+    }
+  },
+  "normalCase": {
+    "description": "Official README HTML minimum example",
+    "input": "<div style=\"font-size:36px; color:blue\">Hello PPT</div>",
+    "command": "node bin/ai-agent-ppt.js create --html '<div style=\"font-size:36px; color:blue\">Hello PPT</div>' -o /poc/output/minimal-html-node24.pptx",
+    "runtime": "Node v24.14.0",
+    "network": "none",
+    "exitCode": 0,
+    "result": "Parsed 1 element; rendered one slide; saved PPTX.",
+    "artifactPath": "research/P04/validation/minimal-html-poc.pptx",
+    "artifactSha256": "D6BD31369C7F07073886A689D4F45BE7163E9FD396B5692128B5700D78045383",
+    "artifactBytes": 45012,
+    "zipEntryCount": 39,
+    "requiredPartsPresent": [
+      "[Content_Types].xml",
+      "ppt/presentation.xml",
+      "ppt/slides/slide1.xml"
+    ],
+    "slideTextVerified": "Hello PPT"
+  },
+  "edgeCase": {
+    "description": "Nested HTML and inline formatting",
+    "input": "<div style=\"font-size:24px;color:#336699\"><p>Nested <strong>formatting</strong></p><span>Edge case</span></div>",
+    "command": "node bin/ai-agent-ppt.js create --html '<div style=\"font-size:24px;color:#336699\"><p>Nested <strong>formatting</strong></p><span>Edge case</span></div>' -o /poc/output/edge-nested-html-node24.pptx",
+    "runtime": "Node v24.14.0",
+    "network": "none",
+    "exitCode": 0,
+    "result": "Parsed 4 elements; rendered one slide; saved PPTX.",
+    "artifactPath": "research/P04/validation/edge-nested-html-poc.pptx",
+    "artifactSha256": "0B142B904F7D041BEF066813AF9A10C6D778CA74C593950493EE2E866B75D3FA",
+    "artifactBytes": 47372,
+    "zipEntryCount": 39,
+    "requiredPartsPresent": [
+      "[Content_Types].xml",
+      "ppt/presentation.xml",
+      "ppt/slides/slide1.xml"
+    ],
+    "slideTextVerified": "Nested"
+  },
+  "failureCase": {
+    "description": "No topic, input, html, or images argument",
+    "command": "node bin/ai-agent-ppt.js create",
+    "runtime": "Node v24.14.0",
+    "network": "none",
+    "exitCode": 1,
+    "stderrOrOutput": "Create failed: Provide --topic, --input, --html, or --images",
+    "result": "Expected input validation error; no model request was possible."
+  },
+  "node18CompatibilityFinding": {
+    "command": "node bin/ai-agent-ppt.js create --html <official README HTML sample>",
+    "runtime": "Node v18.20.8",
+    "exitCode": 1,
+    "errorName": "SyntaxError",
+    "errorMessage": "Cannot use import statement outside a module",
+    "sourceLocation": "node_modules/pptxgenjs/dist/pptxgen.es.js:2",
+    "offendingLine": "import JSZip from 'jszip';",
+    "isolatedCommonJsRequireProbe": {
+      "command": "node -e \"const P=require('pptxgenjs'); console.log(typeof P)\"",
+      "result": "passed",
+      "output": "require.type=function; require.name=PptxGenJS"
+    },
+    "inference": "PptxGenJS 4.0.1 routes ESM imports to a .js file but has no package type field; Node 18 package rules likely classify that file as CommonJS. Node 24.14.0 ran the same sample successfully. This is an observed compatibility deviation against the upstream >=18.0.0 declaration, not a YoloongPPT runtime decision."
+  },
+  "acceptance": {
+    "sourceCommitAndLockPinned": true,
+    "upstreamLicenseRecorded": true,
+    "officialMinimumFlowReproduced": true,
+    "normalEdgeAndFailureCasesRecorded": true,
+    "pptxPackageStructureAndTextChecked": true,
+    "node18DeclaredMinimumDeviationRecorded": true,
+    "productRuntimeStillUnselected": true,
+    "visualRenderingReviewed": false,
+    "upstreamTestSuiteRun": false
+  },
+  "limitations": [
+    "PPTX evidence was checked as ZIP/XML structure and text; no Office or LibreOffice rendering or visual review was performed.",
+    "No upstream unit/integration test suite was run.",
+    "Screenshot reconstruction, LLM/provider paths, broad HTML/CSS support, and YoloongPPT product capabilities were not tested."
+  ],
+  "sourceRefs": [
+    "research/P04/README.md",
+    "research/P04/validation/minimal-html-poc.pptx",
+    "research/P04/validation/edge-nested-html-poc.pptx",
+    "contracts/version-manifest.catalog.json",
+    "https://nodejs.org/download/release/v18.20.7/docs/api/packages.html",
+    "https://nodejs.org/download/release/v22.12.0/docs/api/packages.html",
+    "https://www.npmjs.com/package/pptxgenjs/v/4.0.1"
+  ]
+}

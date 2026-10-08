@@ -2,7 +2,7 @@
   "document_type": "version_manifest",
   "contract_status": "draft",
   "requirement_id": "GOV-010",
-  "captured_at": "2026-10-07T08:52:25Z",
+  "captured_at": "2026-10-08T07:47:03Z",
   "repository_basis": {
     "commit": "0c116bcd9b6d423a669a829ffa37a5939ab658f6",
     "branch": "yoloongdevlop",
@@ -711,6 +711,60 @@
       ],
       "evidence_refs": [
         "Dockerfile: apt-get update and packages without version suffix"
+      ]
+    },
+    {
+      "resource_id": "P04-NPM-LOCK",
+      "kind": "dependency_specification",
+      "name": "ai-agent-ppt npm 锁文件",
+      "usage": "research_only",
+      "version_status": "pinned",
+      "version_kind": "sha256",
+      "version_value": "sha256:f9a2b016df533d79d7c55207c699d84d754b9178be9cb421e1c43259b48f4a68",
+      "declared_ref": "c3605ebc487fc6c7d4f4139761e46d7021cd656c:package-lock.json",
+      "tag_object_sha": null,
+      "declared_constraint": "npm lockfileVersion 2; fixed source snapshot dependency lock",
+      "unresolved_reason": null,
+      "source_url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/package-lock.json",
+      "license": {
+        "status": "not_applicable",
+        "spdx_id": null,
+        "evidence_ref": null
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P04-01"
+      ],
+      "evidence_refs": [
+        "research/P04/README.md: fixed source, package-lock hash, npm ci and Node runtime observations",
+        "research/P04/validation/verify-res-p04-01.json: isolated runtime and smoke evidence"
+      ]
+    },
+    {
+      "resource_id": "P04-PPTXGENJS",
+      "kind": "library",
+      "name": "ai-agent-ppt research dependency PptxGenJS",
+      "usage": "research_only",
+      "version_status": "pinned",
+      "version_kind": "package_version",
+      "version_value": "4.0.1",
+      "declared_ref": "c3605ebc487fc6c7d4f4139761e46d7021cd656c package-lock.json node_modules/pptxgenjs",
+      "tag_object_sha": null,
+      "declared_constraint": "ai-agent-ppt@0.1.0 declares ^4.0.0; lockfile resolves 4.0.1",
+      "unresolved_reason": null,
+      "source_url": "https://www.npmjs.com/package/pptxgenjs/v/4.0.1",
+      "license": {
+        "status": "verified",
+        "spdx_id": "MIT",
+        "evidence_ref": "locked node_modules/pptxgenjs/package.json license field"
+      },
+      "requirement_refs": [
+        "GOV-010",
+        "RES-P04-01"
+      ],
+      "evidence_refs": [
+        "research/P04/validation/verify-res-p04-01.json: Node 18 import failure, CommonJS require probe, and Node 24 HTML sample",
+        "PptxGenJS 4.0.1 package metadata: exports.import, exports.require, package type and license"
       ]
     }
   ],

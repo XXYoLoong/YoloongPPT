@@ -223,13 +223,11 @@ Codex 当前目标已登记为活动目标。需求矩阵是逐项执行与验�
 
 ### TASK-RES-P04-01
 
-- Requirement ID：RES-P04-01；P0；无前置任务。PDR 同时列出后续 `RES-P04-02` 完整调用链和 `RES-P04-03` 决策节点任务，本条不替代它们。
-- 状态：进行中。官方 `refs/heads/main` 于 2026-10-07 指向 `c3605ebc487fc6c7d4f4139761e46d7021cd656c`，与 GOV-010 的 `P04-MAIN` pinned commit 一致；研究 clone 位于仓库外 `F:\YoloongPPT-Research\P04` 并保持干净。
-- 锁与许可：npm `package-lock.json` 为 lockfileVersion 2，根包版本 0.1.0；上游 `package.json` 声明 Node `>=18.0.0`，无补丁版本 pin 或上游容器文件。根许可证为 MIT。以上仅为候选上游元数据，不是产品运行时决策。
-- 静态入口观察：CLI 入口加载配置并创建 Provider 后，才分发 HTML、图片、主题/文档路径；Provider registry 仅实际注册 DeepSeek、GLM，其他命名是预留。HTML 分支经 `PureLayout`/`PPTAdapter` 输出到 PptxGenJS，但 CLI 仍要求配置；P04-02/03 的全链路与决策分析仍未开始。
-- 环境阻塞：执行 `scripts/project.ps1 start` 失败，当前 Docker Engine pipe 不存在。未在主机安装 Node、未执行 npm 安装/构建/测试、未生成 PPTX。
-- 验收边界：refs、锁、许可证、上游运行声明和关键入口已静态核对；官方最小流程未运行，`ProjectBaseline` 尚未通过，`TASK-RES-P04-01` 保持进行中。待 Engine 恢复后在隔离容器复现并记录配置前置条件、日志和 PPTX。
-- 证据：`research/P04/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N27:P27`、“可执行任务”`L44:M44`、“开源项目研究对象”第 5 行。官方 [README](https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/README.md) 固定到 P04-MAIN commit。
+- Requirement ID：RES-P04-01；P0；无前置任务。PDR 中 RES-P04-02/03 是独立后续研究任务。
+- 状态：已完成。上游 main 于 2026-10-07 指向 c3605ebc487fc6c7d4f4139761e46d7021cd656c，研究 clone 在 F:/YoloongPPT-Research/P04，detached checkout 干净；package-lock SHA-256 为 f9a2b016df533d79d7c55207c699d84d754b9178be9cb421e1c43259b48f4a68；上游许可证 MIT。
+- 上游 package.json 声明 Node >=18.0.0。Node 18.20.8 / npm 10.8.2 隔离容器完成 npm ci（219 个包）和 npm run build；官方 HTML CLI 样例在 Node 18.20.8 失败，报 Cannot use import statement outside a module。直接 CommonJS require PptxGenJS 成功；固定依赖 pptxgenjs@4.0.1 的 ESM export 指向 dist/pptxgen.es.js，但包未声明 type=module。相同官方样例在 Node 24.14.0 隔离容器成功。Node 24 仅为研究环境观测，不是产品运行时决定。
+- VERIFY-RES-P04-01：已完成正常、边界和失败三个 CLI 案例。正常样例生成 45,012 字节 PPTX；嵌套 HTML 样例生成 47,372 字节 PPTX；无输入样例按预期退出 1 并输出参数错误。两个 PPTX 的 ZIP 必需部件和文本已检查。未运行上游测试，未做 Office/LibreOffice 视觉渲染。
+- 证据：research/P04/README.md、research/P04/validation/verify-res-p04-01.json、research/P04/validation/minimal-html-poc.pptx、research/P04/validation/edge-nested-html-poc.pptx、contracts/version-manifest.catalog.json；Excel“需求主表”N27:P27、“可执行任务”L44:M45、“开源项目研究对象”K5:L5。P04-02/03 的全链路与决策分析未开始，YoloongPPT 产品语言/运行时/后端仍未选定。
 
 ### TASK-RES-P05-01
 
