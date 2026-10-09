@@ -1,6 +1,8 @@
 # YoloongPPT
 
-AI PPT 生成系统项目。当前仓库包含 V0.3 需求基线和隔离开发环境，尚未包含可启动的产品应用。
+AI PPT 生成系统项目。当前仓库包含 V0.3 需求基线、契约、源码研究、候选后端 PoC 和隔离开发环境，尚未包含可启动的产品应用。
+
+完整交付目标与防偏离规则见 [GOAL.md](GOAL.md)，执行计划见 [PROJECT_PLAN.md](PROJECT_PLAN.md)，17 小时进度审计见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
 
 ## 需求基线
 
@@ -21,7 +23,7 @@ Windows PowerShell 管理命令：
 4. 查看日志：pwsh -NoProfile -File .\scripts\project.ps1 logs
 5. 停止：pwsh -NoProfile -File .\scripts\project.ps1 stop
 
-容器启动后会进入 /workspace。当前只有项目需求材料，因此该容器是隔离开发工作区，不是产品应用服务。应用入口、端口、运行时和生产启动命令应在架构确定及相应服务实现后补充。
+容器启动后会进入 /workspace。当前 Compose 只配置隔离开发工作区，研究 PoC 不代表产品应用服务。应用入口、端口、运行时和生产启动命令应在架构确定及相应服务实现后补充。
 
 ## Git 工作约定
 
