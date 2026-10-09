@@ -1,0 +1,84 @@
+{
+  "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+  "route": {
+    "route_status": "routed",
+    "mode": "create_from_materials",
+    "routing_reason": "调用者明确要求材料新建",
+    "protection_policy_id": "preserve_material_facts_and_sources",
+    "decision_id": "DEC-001",
+    "trace": {
+      "candidate_modes": [
+        "create_from_materials"
+      ],
+      "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+    }
+  },
+  "sources": [
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "kind": "markdown",
+      "locator": "validation/fixtures/节能试点材料.md"
+    }
+  ],
+  "constraints": {
+    "hard": [
+      {
+        "constraint_id": "ten-pages",
+        "field": "page_count",
+        "value": 10,
+        "source": {
+          "kind": "user_instruction",
+          "reference": "AC-001测试输入"
+        }
+      }
+    ],
+    "soft": [],
+    "defaults": [],
+    "conflicts": []
+  },
+  "style": null,
+  "template_ref": null,
+  "output": {
+    "formats": [
+      "pptx",
+      "pdf",
+      "png"
+    ]
+  },
+  "providers": {
+    "text": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "parameters": {
+        "temperature": 0.2,
+        "max_tokens": 12000,
+        "timeout_seconds": 180
+      }
+    }
+  },
+  "runtime_preferences": {
+    "page_count": 10
+  },
+  "raw_request": {
+    "request": {
+      "raw_text": "根据提供的节能试点材料制作10页中文演示，保留示例数据的性质、单位及来源。",
+      "attachments": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "requested_mode": "create_from_materials",
+      "requested_outputs": [
+        "pptx",
+        "pdf",
+        "png"
+      ]
+    },
+    "attachment_roles": [
+      {
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "role": "content",
+        "kind": "markdown"
+      }
+    ]
+  }
+}

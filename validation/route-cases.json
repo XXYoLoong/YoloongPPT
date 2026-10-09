@@ -1,0 +1,418 @@
+{
+  "requirement_ids": [
+    "DEC-001",
+    "GOV-002",
+    "TST-003"
+  ],
+  "cases": [
+    {
+      "case_id": "DEC-001-NORMAL-01",
+      "kind": "normal",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "仅依据主题和页数要求，从零制作一套演示文稿。",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": "create_from_scratch",
+        "route_status": "routed",
+        "protection_policy_id": "protect_scratch_scope"
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-02",
+      "kind": "normal",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "根据用户提供的研究报告制作演示文稿，并保留关键数字及来源。",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": "create_from_materials",
+        "route_status": "routed",
+        "protection_policy_id": "preserve_material_facts_and_sources"
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-03",
+      "kind": "normal",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "用新的内容参考所给图片的风格生成演示文稿。",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": "create_from_reference_style",
+        "route_status": "routed",
+        "protection_policy_id": "isolate_reference_style_from_content"
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-04",
+      "kind": "normal",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "把提供的内容放入企业 PowerPoint 模板。",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": "fill_template",
+        "route_status": "routed",
+        "protection_policy_id": "preserve_template_structure_and_locks"
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-05",
+      "kind": "normal",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "修改现有 PPT 的指定两页文案，其他内容保持原样。",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": "modify_existing_deck",
+        "route_status": "routed",
+        "protection_policy_id": "limit_edits_to_requested_targets"
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-06",
+      "kind": "normal",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "按提供的一页截图重建一页尽量可编辑的 PowerPoint。",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": "reconstruct_from_image",
+        "route_status": "routed",
+        "protection_policy_id": "preserve_image_evidence_and_uncertainty"
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-07",
+      "kind": "normal",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "整理现有 PPT 的布局，但不改事实、数据或锁定对象。",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": "beautify_existing_deck",
+        "route_status": "routed",
+        "protection_policy_id": "preserve_facts_data_and_locked_objects"
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-08",
+      "kind": "normal",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "将现有演示文稿第 4 页替换为给定的新内容，其余页面不变。",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": "create_or_replace_single_slide",
+        "route_status": "routed",
+        "protection_policy_id": "limit_change_to_one_slide"
+      }
+    },
+    {
+      "case_id": "DEC-001-BOUNDARY-01",
+      "kind": "boundary_conflict",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "用户同时要求沿用现有 PPT 模板并做完整视觉重排，但没有说明哪些品牌/对象允许改变。",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": null,
+        "route_status": "needs_clarification",
+        "protection_policy_id": null
+      }
+    },
+    {
+      "case_id": "DEC-001-negated_template",
+      "kind": "boundary",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "不要使用模板，从零制作节能演示",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": "create_from_scratch",
+        "route_status": "routed"
+      }
+    },
+    {
+      "case_id": "DEC-001-unknown_intent",
+      "kind": "boundary",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "请处理一下",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": null,
+        "route_status": "needs_clarification"
+      }
+    },
+    {
+      "case_id": "DEC-001-attachment_role_missing",
+      "kind": "boundary",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "制作演示",
+            "attachments": [
+              "asset_00b6adc7-b444-4998-ae2e-0ac37f6b9033"
+            ],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": null,
+        "route_status": "needs_clarification"
+      }
+    },
+    {
+      "case_id": "DEC-001-attachment_instruction_not_executed",
+      "kind": "boundary",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "",
+            "attachments": [
+              "asset_00b6adc7-b444-4998-ae2e-0ac37f6b9033"
+            ],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": [
+            {
+              "asset_id": "asset_00b6adc7-b444-4998-ae2e-0ac37f6b9033",
+              "role": "content",
+              "kind": "markdown"
+            }
+          ]
+        }
+      },
+      "expected": {
+        "mode": "create_from_materials",
+        "route_status": "routed"
+      }
+    },
+    {
+      "case_id": "DEC-001-explicit_mode_conflict",
+      "kind": "boundary",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "修改现有PPT的文案",
+            "attachments": [],
+            "requested_mode": "create_from_scratch",
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": null,
+        "route_status": "needs_clarification"
+      }
+    },
+    {
+      "case_id": "DEC-001-single_slide_missing_target",
+      "kind": "boundary",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "替换单页",
+            "attachments": [],
+            "requested_mode": null,
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": null,
+        "route_status": "needs_clarification"
+      }
+    },
+    {
+      "case_id": "DEC-001-single_slide_explicit",
+      "kind": "boundary",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "替换单页",
+            "attachments": [],
+            "requested_mode": "create_or_replace_single_slide",
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": [],
+          "single_slide": {
+            "action": "replace",
+            "target": "slide 4"
+          }
+        }
+      },
+      "expected": {
+        "mode": "create_or_replace_single_slide",
+        "route_status": "routed"
+      }
+    },
+    {
+      "case_id": "DEC-001-scratch_content_conflict",
+      "kind": "boundary",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "从零制作演示",
+            "attachments": [
+              "asset_00b6adc7-b444-4998-ae2e-0ac37f6b9033"
+            ],
+            "requested_mode": "create_from_scratch",
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": [
+            {
+              "asset_id": "asset_00b6adc7-b444-4998-ae2e-0ac37f6b9033",
+              "role": "content",
+              "kind": "markdown"
+            }
+          ]
+        }
+      },
+      "expected": {
+        "mode": null,
+        "route_status": "needs_clarification"
+      }
+    },
+    {
+      "case_id": "DEC-001-negated_explicit_mode",
+      "kind": "boundary",
+      "input": {
+        "raw_request": {
+          "request": {
+            "raw_text": "不要从零制作",
+            "attachments": [],
+            "requested_mode": "create_from_scratch",
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "mode": null,
+        "route_status": "needs_clarification"
+      }
+    }
+  ]
+}

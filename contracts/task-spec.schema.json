@@ -4,46 +4,120 @@
   "title": "TaskSpec（SYS-001 运行时入口）",
   "description": "只校验任务形状和已有路由/约束契约，不表示来源解析、决策或生成通过。敏感凭据只引用环境变量名。",
   "type": "object",
-  "required": ["task_id", "route", "sources", "constraints", "style", "template_ref", "output", "providers", "runtime_preferences"],
+  "required": [
+    "task_id",
+    "route",
+    "sources",
+    "constraints",
+    "style",
+    "template_ref",
+    "output",
+    "providers",
+    "runtime_preferences"
+  ],
   "properties": {
-    "task_id": {"$ref": "object-id.schema.json#/$defs/task_id"},
-    "route": {"$ref": "task-route.schema.json"},
+    "task_id": {
+      "$ref": "object-id.schema.json#/$defs/task_id"
+    },
+    "route": {
+      "$ref": "task-route.schema.json"
+    },
     "sources": {
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["source_id", "kind"],
+        "required": [
+          "source_id",
+          "kind"
+        ],
         "properties": {
-          "source_id": {"$ref": "object-id.schema.json#/$defs/source_id"},
-          "kind": {"type": "string", "minLength": 1},
+          "source_id": {
+            "$ref": "object-id.schema.json#/$defs/source_id"
+          },
+          "kind": {
+            "type": "string",
+            "minLength": 1
+          },
           "content": {},
-          "locator": {"type": "string", "minLength": 1},
-          "metadata": {"type": "object"}
+          "locator": {
+            "type": "string",
+            "minLength": 1
+          },
+          "metadata": {
+            "type": "object"
+          }
         },
-        "anyOf": [{"required": ["content"]}, {"required": ["locator"]}],
+        "anyOf": [
+          {
+            "required": [
+              "content"
+            ]
+          },
+          {
+            "required": [
+              "locator"
+            ]
+          }
+        ],
         "additionalProperties": false
       }
     },
-    "constraints": {"$ref": "constraint-set.schema.json"},
-    "style": {"type": ["object", "null"]},
-    "template_ref": {"type": ["string", "null"]},
-    "output": {"type": "object"},
+    "constraints": {
+      "$ref": "constraint-set.schema.json"
+    },
+    "style": {
+      "type": [
+        "object",
+        "null"
+      ]
+    },
+    "template_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "output": {
+      "type": "object"
+    },
     "providers": {
       "type": "object",
       "additionalProperties": {
         "type": "object",
-        "required": ["provider", "model"],
+        "required": [
+          "provider",
+          "model"
+        ],
         "properties": {
-          "provider": {"type": "string", "minLength": 1},
-          "model": {"type": "string", "minLength": 1},
-          "base_url": {"type": "string", "minLength": 1},
-          "api_key_env": {"type": "string", "pattern": "^[A-Z_][A-Z0-9_]*$"},
-          "parameters": {"type": "object"}
+          "provider": {
+            "type": "string",
+            "minLength": 1
+          },
+          "model": {
+            "type": "string",
+            "minLength": 1
+          },
+          "base_url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "api_key_env": {
+            "type": "string",
+            "pattern": "^[A-Z_][A-Z0-9_]*$"
+          },
+          "parameters": {
+            "type": "object"
+          }
         },
         "additionalProperties": false
       }
     },
-    "runtime_preferences": {"type": "object"}
+    "runtime_preferences": {
+      "type": "object"
+    },
+    "raw_request": {
+      "$ref": "route-request.schema.json#/properties/raw_request"
+    }
   },
   "additionalProperties": false
 }

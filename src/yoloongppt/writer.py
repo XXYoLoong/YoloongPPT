@@ -14,6 +14,7 @@ from pptx.oxml.xmlchemy import OxmlElement
 from pptx.util import Inches, Pt
 
 from .errors import TaskError
+from .atomic import AtomicRegistry
 
 FONT_FILE = '/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc'
 
@@ -117,6 +118,10 @@ def chart_shape(slide, element, style):
 def execute(deck, execution, destination, schemas):
     schemas.validate('deck-execution.schema.json', deck)
     schemas.validate('deck-execution.schema.json', execution)
+    registry = AtomicRegistry(schemas)
+    # Validate every binding/input before beginning writes, including later calls.
+    for call in execution['calls']:
+        registry.check_call(call)
     presentation = Presentation()
     presentation.slide_width = Inches(deck['width_inches']); presentation.slide_height = Inches(deck['height_inches'])
     presentation.core_properties.title = deck['title']
@@ -148,7 +153,8 @@ def execute(deck, execution, destination, schemas):
                 'type': element['type'], 'source_ref': element['source_refs'], 'execution_call_id': call['call_id'], 'part': str(slide.part.partname)})
             observed.update(shape_id=shape.shape_id, name=shape.name)
         completed.add(call['call_id'])
-        outputs.append({'call_id': call['call_id'], 'implementation_id': call['implementation_id'], 'backend': 'PP-05',
+        registry.check_call(call, observed)
+        outputs.append({'call_id': call['call_id'], 'capability_id': call['capability_id'], 'implementation_id': call['implementation_id'], 'backend': 'PP-05',
                         'input': call['inputs'], 'output': observed, 'warnings': [], 'duration_seconds': round(time.monotonic()-begin, 4), 'status': 'executed'})
     schemas.validate('deck-execution.schema.json', object_map)
     temporary = Path(destination).with_suffix('.tmp.pptx')

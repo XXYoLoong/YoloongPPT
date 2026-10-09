@@ -1,15 +1,21 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "TaskRoute（DEC-001 / GOV-002 草案）",
-  "description": "语言与运行时无关的路由输出草案；TaskRoute 尚未作为独立数据对象列入基线，字段需在 DEC-001 后续评审中确认。",
+  "title": "TaskRoute（DEC-001 运行时输出，后续模式执行范围分别验收）",
+  "description": "当前路由节点消费于CLI/API和生成入口；候选与保护策略不代表下游能力全支持。",
   "type": "object",
   "properties": {
     "route_status": {
       "type": "string",
-      "enum": ["routed", "needs_clarification"]
+      "enum": [
+        "routed",
+        "needs_clarification"
+      ]
     },
     "mode": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "enum": [
         "create_from_scratch",
         "create_from_materials",
@@ -27,7 +33,10 @@
       "minLength": 1
     },
     "protection_policy_id": {
-      "type": ["string", "null"],
+      "type": [
+        "string",
+        "null"
+      ],
       "enum": [
         "protect_scratch_scope",
         "preserve_material_facts_and_sources",
@@ -46,7 +55,7 @@
     },
     "trace": {
       "type": "object",
-      "description": "DEC-001 决策轨迹。字段形状为草案，需覆盖输入依据、候选路线和选择依据。",
+      "description": "候选/冲突/保护策略与实际可执行性；完整DecisionTrace另行落盘。",
       "properties": {
         "candidate_modes": {
           "type": "array",
@@ -74,7 +83,10 @@
           "type": "string"
         }
       },
-      "required": ["candidate_modes", "selection_basis"],
+      "required": [
+        "candidate_modes",
+        "selection_basis"
+      ],
       "additionalProperties": true
     }
   },
@@ -89,54 +101,226 @@
   "allOf": [
     {
       "if": {
-        "properties": { "route_status": { "const": "routed" } },
-        "required": ["route_status"]
+        "properties": {
+          "route_status": {
+            "const": "routed"
+          }
+        },
+        "required": [
+          "route_status"
+        ]
       },
       "then": {
         "properties": {
-          "mode": { "type": "string" },
-          "protection_policy_id": { "type": "string" }
+          "mode": {
+            "type": "string"
+          },
+          "protection_policy_id": {
+            "type": "string"
+          }
         }
       },
       "else": {
         "properties": {
-          "mode": { "type": "null" },
-          "protection_policy_id": { "type": "null" },
-          "trace": { "required": ["candidate_modes", "selection_basis", "conflict_summary"] }
+          "mode": {
+            "type": "null"
+          },
+          "protection_policy_id": {
+            "type": "null"
+          },
+          "trace": {
+            "required": [
+              "candidate_modes",
+              "selection_basis",
+              "conflict_summary"
+            ]
+          }
         }
       }
     },
     {
-      "if": { "properties": { "route_status": { "const": "routed" }, "mode": { "const": "create_from_scratch" } }, "required": ["route_status", "mode"] },
-      "then": { "properties": { "protection_policy_id": { "const": "protect_scratch_scope" } } }
+      "if": {
+        "properties": {
+          "route_status": {
+            "const": "routed"
+          },
+          "mode": {
+            "const": "create_from_scratch"
+          }
+        },
+        "required": [
+          "route_status",
+          "mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "protection_policy_id": {
+            "const": "protect_scratch_scope"
+          }
+        }
+      }
     },
     {
-      "if": { "properties": { "route_status": { "const": "routed" }, "mode": { "const": "create_from_materials" } }, "required": ["route_status", "mode"] },
-      "then": { "properties": { "protection_policy_id": { "const": "preserve_material_facts_and_sources" } } }
+      "if": {
+        "properties": {
+          "route_status": {
+            "const": "routed"
+          },
+          "mode": {
+            "const": "create_from_materials"
+          }
+        },
+        "required": [
+          "route_status",
+          "mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "protection_policy_id": {
+            "const": "preserve_material_facts_and_sources"
+          }
+        }
+      }
     },
     {
-      "if": { "properties": { "route_status": { "const": "routed" }, "mode": { "const": "create_from_reference_style" } }, "required": ["route_status", "mode"] },
-      "then": { "properties": { "protection_policy_id": { "const": "isolate_reference_style_from_content" } } }
+      "if": {
+        "properties": {
+          "route_status": {
+            "const": "routed"
+          },
+          "mode": {
+            "const": "create_from_reference_style"
+          }
+        },
+        "required": [
+          "route_status",
+          "mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "protection_policy_id": {
+            "const": "isolate_reference_style_from_content"
+          }
+        }
+      }
     },
     {
-      "if": { "properties": { "route_status": { "const": "routed" }, "mode": { "const": "fill_template" } }, "required": ["route_status", "mode"] },
-      "then": { "properties": { "protection_policy_id": { "const": "preserve_template_structure_and_locks" } } }
+      "if": {
+        "properties": {
+          "route_status": {
+            "const": "routed"
+          },
+          "mode": {
+            "const": "fill_template"
+          }
+        },
+        "required": [
+          "route_status",
+          "mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "protection_policy_id": {
+            "const": "preserve_template_structure_and_locks"
+          }
+        }
+      }
     },
     {
-      "if": { "properties": { "route_status": { "const": "routed" }, "mode": { "const": "modify_existing_deck" } }, "required": ["route_status", "mode"] },
-      "then": { "properties": { "protection_policy_id": { "const": "limit_edits_to_requested_targets" } } }
+      "if": {
+        "properties": {
+          "route_status": {
+            "const": "routed"
+          },
+          "mode": {
+            "const": "modify_existing_deck"
+          }
+        },
+        "required": [
+          "route_status",
+          "mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "protection_policy_id": {
+            "const": "limit_edits_to_requested_targets"
+          }
+        }
+      }
     },
     {
-      "if": { "properties": { "route_status": { "const": "routed" }, "mode": { "const": "reconstruct_from_image" } }, "required": ["route_status", "mode"] },
-      "then": { "properties": { "protection_policy_id": { "const": "preserve_image_evidence_and_uncertainty" } } }
+      "if": {
+        "properties": {
+          "route_status": {
+            "const": "routed"
+          },
+          "mode": {
+            "const": "reconstruct_from_image"
+          }
+        },
+        "required": [
+          "route_status",
+          "mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "protection_policy_id": {
+            "const": "preserve_image_evidence_and_uncertainty"
+          }
+        }
+      }
     },
     {
-      "if": { "properties": { "route_status": { "const": "routed" }, "mode": { "const": "beautify_existing_deck" } }, "required": ["route_status", "mode"] },
-      "then": { "properties": { "protection_policy_id": { "const": "preserve_facts_data_and_locked_objects" } } }
+      "if": {
+        "properties": {
+          "route_status": {
+            "const": "routed"
+          },
+          "mode": {
+            "const": "beautify_existing_deck"
+          }
+        },
+        "required": [
+          "route_status",
+          "mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "protection_policy_id": {
+            "const": "preserve_facts_data_and_locked_objects"
+          }
+        }
+      }
     },
     {
-      "if": { "properties": { "route_status": { "const": "routed" }, "mode": { "const": "create_or_replace_single_slide" } }, "required": ["route_status", "mode"] },
-      "then": { "properties": { "protection_policy_id": { "const": "limit_change_to_one_slide" } } }
+      "if": {
+        "properties": {
+          "route_status": {
+            "const": "routed"
+          },
+          "mode": {
+            "const": "create_or_replace_single_slide"
+          }
+        },
+        "required": [
+          "route_status",
+          "mode"
+        ]
+      },
+      "then": {
+        "properties": {
+          "protection_policy_id": {
+            "const": "limit_change_to_one_slide"
+          }
+        }
+      }
     }
   ],
   "additionalProperties": false

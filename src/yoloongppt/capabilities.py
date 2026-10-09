@@ -6,6 +6,7 @@ import platform
 from importlib.metadata import version
 
 from .schemas import ROOT
+from .atomic import AtomicRegistry
 
 
 class CapabilityRegistry:
@@ -42,7 +43,8 @@ class CapabilityRegistry:
                          'status': 'Partial', 'priority': 'P0',
                          'health': {'available': True, 'checked': 'runtime schema/catalog loaded'},
                          'evidence': ['ARCHITECTURE.md', 'validation/source-runtime.json' if id in {'SYS-003', 'SYS-004'} else 'validation/runtime-core.json' if id in {'SYS-001','SYS-006','SYS-007'} else 'validation/generation-runtime.json'],
-                         'reason': 'Component entry available; required generation/QA/revision E2E not yet executed.'})
+                         'reason': 'Component entry and current draft path available; complete baseline scope and system acceptance remain unfinished.'})
         return {'ok': True, 'trace_id': trace, 'operation': 'capabilities', 'core': core,
+                'atomic_registry': AtomicRegistry(self.schemas).snapshot(),
                 'ppt_catalog': copy.deepcopy(self.catalog),
                 'boundary': 'Historical draft PPT statuses do not certify the selected writer or runtime adapters. Health is separate from object support.'}

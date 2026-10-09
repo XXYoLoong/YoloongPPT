@@ -13,22 +13,33 @@ from .sources import inspect_sources
 from .tasks import validate_task
 from .writer import execute
 from .review import review, repair_references
+from .routing import route_task
+from .atomic import AtomicRegistry
 
 
 def generate(task, schemas, store, trace, checkpoint=None):
     validate_task(task, schemas, trace)
-    count, style, warnings = preflight(task)
     artifacts = RunArtifacts()
+    warnings = []
     timeline = []
     def step(component, action):
         begin = time.monotonic()
         result = action()
         timeline.append({'component': component, 'status': 'executed', 'duration_seconds': round(time.monotonic()-begin, 3)})
         artifacts.json('pipeline-trace.json', {'trace_id': trace, 'steps': timeline, 'warnings': warnings,
-                                               'decision_coverage': 'model proposal and fixed compiler subset; DEC-001–040 graph not complete'})
+                                               'decision_coverage': 'DEC-001 executed; model proposal and fixed compiler subset; DEC-002–040 graph not complete'})
         return result
     try:
         artifacts.json('task.json', task)
+        routing = step('DEC-001', lambda: route_task(task, schemas, trace))
+        artifacts.json('decision-route.json', routing['decision_trace'])
+        artifacts.json('runtime-snapshot.json', routing['decision_trace']['input']['runtime_snapshot'])
+        if routing['route']['route_status'] != 'routed':
+            raise TaskError('MODE_CLARIFICATION_REQUIRED', '模式或附件保护范围有歧义；先澄清，未调用模型或写入PPT。', 'DEC-001', ['DEC-001'])
+        task = {**task, 'route': routing['route']}
+        artifacts.json('task-effective.json', task)
+        count, style, warnings = preflight(task)
+        artifacts.json('atomic-registry.json', AtomicRegistry(schemas).snapshot())
         sources = step('SYS-003/004', lambda: inspect_sources(task, schemas, store, trace))
         artifacts.json('source-result.json', sources)
         previous_deck = None

@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SYS-007 当前原生子集能力登记，消费于planner/writer",
+  "type": "object",
+  "required": [
+    "version",
+    "capabilities"
+  ],
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "capabilities": {
+      "type": "array",
+      "minItems": 5,
+      "maxItems": 5,
+      "items": {
+        "$ref": "#/$defs/capability"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "implementation": {
+      "type": "object",
+      "required": [
+        "implementation_id",
+        "backend",
+        "project/library",
+        "platform",
+        "version",
+        "feature_flags",
+        "health",
+        "entrypoint"
+      ],
+      "properties": {
+        "implementation_id": {
+          "$ref": "object-id.schema.json#/$defs/implementation_id"
+        },
+        "backend": {
+          "const": "PP-05"
+        },
+        "project/library": {
+          "const": "python-pptx"
+        },
+        "platform": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "version": {
+          "const": "1.0.2"
+        },
+        "feature_flags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "health": {
+          "type": "object"
+        },
+        "entrypoint": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "capability": {
+      "type": "object",
+      "required": [
+        "capability_id",
+        "name",
+        "input_schema",
+        "output_schema",
+        "constraints",
+        "implementations",
+        "priority",
+        "status"
+      ],
+      "properties": {
+        "capability_id": {
+          "$ref": "object-id.schema.json#/$defs/capability_id"
+        },
+        "name": {
+          "enum": [
+            "create_slide",
+            "add_text",
+            "add_table",
+            "add_chart",
+            "add_notes"
+          ]
+        },
+        "input_schema": {
+          "type": "object"
+        },
+        "output_schema": {
+          "type": "object"
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "implementations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/implementation"
+          }
+        },
+        "priority": {
+          "const": "P0"
+        },
+        "status": {
+          "const": "Partial"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

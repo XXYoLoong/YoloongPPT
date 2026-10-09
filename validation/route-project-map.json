@@ -1,0 +1,203 @@
+{
+  "decision_id": "DEC-001",
+  "prerequisite": "RES-031",
+  "projects": [
+    {
+      "project": "P01",
+      "status": "mapped or partial upstream only",
+      "anchor_id": "P01:D:P01-DEC-01",
+      "research_file": "research/P01/project_decision_map.json",
+      "json_pointer": "/decision_nodes/0",
+      "locations": [
+        {
+          "source_file": "P01:fixed clone:skills/ppt-master/workflows/routing.md",
+          "spans": [
+            [
+              27,
+              64
+            ]
+          ]
+        },
+        {
+          "source_file": "P01:fixed clone:skills/ppt-master/SKILL.md",
+          "spans": [
+            [
+              25,
+              54
+            ]
+          ]
+        }
+      ],
+      "reuse": "abstract mechanism only; no source copied"
+    },
+    {
+      "project": "P02",
+      "status": "partial explicit command/visual-mode branch; automatic intent router Not found",
+      "research_file": "research/P02/decision-map.json",
+      "reason": "Existing reference induction/planning research does not map a DEC-001 intent router; do not invent equivalence.",
+      "reuse": "reference workflow boundary only",
+      "json_pointer": "/nodes/0",
+      "node": {
+        "id": "D01",
+        "name": "命令及视觉模式路由",
+        "source_refs": [
+          "cli:main",
+          "config:load_config"
+        ],
+        "input_schema": "command + mode",
+        "candidate_generation": "固定命令集、text/multimodal",
+        "mechanism": "显式配置分支",
+        "output_schema": "JSON结果/host instructions",
+        "constraints": "合法枚举；默认multimodal",
+        "fallback": "无自动模式切换；研究显式选host",
+        "trace": {
+          "available": [
+            "validation/verify-official-six.json"
+          ],
+          "missing": "没有结构化候选评分/所有主机内部决策trace"
+        }
+      },
+      "source_index": "research/P02/source-index.json",
+      "locations": [
+        {
+          "path": "scripts/pptagent.py",
+          "symbol": "main",
+          "start_line": 236,
+          "file_sha256": "d2ade4a4d0f2c72ffd740764b4bed44d77c2452353d918043763d0f871024daf",
+          "snapshot_commit": "833cda553b343be0e486a93b0b57cac962cdd566"
+        },
+        {
+          "path": "scripts/pptagent_runtime/config.py",
+          "symbol": "load_config",
+          "start_line": 27,
+          "file_sha256": "65e087bc47764ba653d953f9153087c63c89c269eeadaa24641e988d54d41faa",
+          "snapshot_commit": "833cda553b343be0e486a93b0b57cac962cdd566"
+        }
+      ]
+    },
+    {
+      "project": "P03",
+      "status": "mapped or partial upstream only",
+      "anchor_id": "P03:D:P03-MODE",
+      "research_file": "research/P03/decision-map.json",
+      "json_pointer": "/nodes/0",
+      "locations": [
+        {
+          "source_file": "P03:fixed clone:servers/nextjs/app/(presentation-generator)/upload/components/UploadPage.tsx",
+          "spans": [
+            [
+              309,
+              311
+            ],
+            [
+              410,
+              583
+            ]
+          ]
+        },
+        {
+          "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/presentation.py",
+          "spans": [
+            [
+              2224,
+              2465
+            ]
+          ]
+        },
+        {
+          "source_file": "P03:fixed clone:servers/fastapi/api/v2/ppt/endpoints/presentation.py",
+          "spans": [
+            [
+              229,
+              298
+            ]
+          ]
+        },
+        {
+          "source_file": "P03:fixed clone:servers/fastapi/mcp_server.py",
+          "spans": [
+            [
+              42,
+              100
+            ],
+            [
+              331,
+              365
+            ],
+            [
+              426,
+              448
+            ]
+          ]
+        }
+      ],
+      "reuse": "abstract mechanism only; no source copied"
+    },
+    {
+      "project": "P04",
+      "status": "mapped or partial upstream only",
+      "anchor_id": "P04:D:P04-ROUTE",
+      "research_file": "research/P04/decision-map.json",
+      "json_pointer": "/decisionNodes/0",
+      "locations": [
+        {
+          "source_file": "P04:fixed clone:src/index.ts",
+          "spans": [
+            [
+              15,
+              97
+            ]
+          ]
+        },
+        {
+          "source_file": "P04:fixed clone:src/commands/create.ts",
+          "spans": [
+            [
+              47,
+              85
+            ]
+          ]
+        },
+        {
+          "source_file": "P04:fixed clone:src/commands/create.ts",
+          "spans": [
+            [
+              157,
+              187
+            ]
+          ]
+        },
+        {
+          "source_file": "P04:fixed clone:src/commands/create.ts",
+          "spans": [
+            [
+              190,
+              377
+            ]
+          ]
+        }
+      ],
+      "reuse": "abstract mechanism only; no source copied"
+    },
+    {
+      "project": "P05",
+      "status": "mapped or partial upstream only",
+      "anchor_id": "P05:D:P05-D01",
+      "research_file": "research/P05/ProjectDecisionMap.json",
+      "json_pointer": "/nodes/0",
+      "locations": [
+        {
+          "source_file": "P05:fixed clone:python_backend/skill_api.py",
+          "spans": [
+            [
+              49,
+              136
+            ]
+          ]
+        }
+      ],
+      "reuse": "abstract mechanism only; no source copied"
+    }
+  ],
+  "rules": "Explicit routing and protection first; conflicting scopes require clarification; availability never replaces requested intent."
+}

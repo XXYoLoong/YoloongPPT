@@ -3,6 +3,7 @@ import json
 from pathlib import Path
 
 from .artifacts import entity
+from .atomic import AtomicRegistry
 from .errors import TaskError
 from .providers import DeepSeek
 
@@ -88,7 +89,10 @@ def plan(task, sources, schemas, artifacts, count):
     return proposal, metadata
 
 
-def compile_deck(proposal, style, trace, previous_deck=None):
+def compile_deck(proposal, style, trace, previous_deck=None, registry=None):
+    if registry is None:
+        from .schemas import SchemaRegistry
+        registry = AtomicRegistry(SchemaRegistry())
     deck = {'deck_id': previous_deck['deck_id'] if previous_deck else entity('deck'), 'title': proposal['title'], 'aspect_ratio': '16:9', 'width_inches': 13.333333,
             'height_inches': 7.5, 'style': style, 'slides': [], 'trace_id': trace}
     calls = []
@@ -135,4 +139,8 @@ def compile_deck(proposal, style, trace, previous_deck=None):
         calls.append({'call_id': notes_call, 'slide_id': slide_id, 'capability': 'add_notes', 'implementation_id': 'python-pptx.notes',
                       'backend': 'PP-05', 'deps': [page_call], 'inputs': {'text': content['notes'], 'evidence_refs': content['evidence_refs']}, 'expected_objects': []})
         previous = page_call
+    for call in calls:
+        definition, implementation = registry.select(call['capability'])
+        call['capability_id'] = definition['capability_id']
+        call['implementation_id'] = implementation['implementation_id']
     return deck, {'calls': calls, 'deps': 'each page requires its predecessor; objects require owning page', 'backend': 'PP-05'}

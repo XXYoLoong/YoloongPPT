@@ -92,6 +92,13 @@ async def inspect(request: Request):
     return await run_in_threadpool(inspect_sources, document, request.app.state.schemas, request.app.state.evidence, request.state.trace_id)
 
 
+@app.post('/route')
+async def route(request: Request):
+    from .routing import run_route
+    document = await task_body(request)
+    return await run_in_threadpool(run_route, document, request.app.state.schemas, request.state.trace_id)
+
+
 @app.post('/generate')
 async def generate(request: Request):
     from .generation import generate as generate_deck

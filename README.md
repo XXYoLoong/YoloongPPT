@@ -42,13 +42,13 @@ TaskSpec例子只校验已给出的路由与输入形状，未执行DEC-001或�
 
 `python -m yoloongppt inspect <TaskSpec.json>`或HTTP POST `/inspect`解析prompt/text/markdown来源，返回SourceBundle、结构化文档、原文证据ID与trace；`python -m yoloongppt evidence <evidence_id>`或GET `/evidence/{id}`查询同一持久证据。SQLite与原文快照位于F盘绑定的runtime/data，不进入Git。文件路径只接受工作区或运行目录内的UTF-8 .md/.markdown/.txt，其他输入明确报错。
 
-Markdown保留标题、列表、代码、表格、链接、引用与脚注结构；表格行宽不一致、重复脚注、未映射结构停止解析，原文未截断。块锚点精确回到原文，行内位置仅表示所属块范围。自然语言意图提取、优先级/事实冲突检测和其他格式仍未实现。实际输入/解析样例见[source-runtime-example.json](validation/source-runtime-example.json)，验证见[source-runtime.json](validation/source-runtime.json)。
+Markdown保留标题、列表、代码、表格、链接、引用与脚注结构；表格行宽不一致、重复脚注、未映射结构停止解析，原文未截断。块锚点精确回到原文，行内位置仅表示所属块范围。来源解析不推导意图；DEC-001另行按显式模式、调用方原文及附件角色判定。优先级/事实冲突检测和其他格式仍未实现。实际输入/解析样例见[source-runtime-example.json](validation/source-runtime-example.json)，验证见[source-runtime.json](validation/source-runtime.json)。
 
 ## 真实生成与局部修订
 
 先用 `./scripts/configure-model.ps1` 读取已授权的系统环境变量，再 `./scripts/project.ps1 start`。密钥只保存到忽略的F盘runtime/data/secrets，不通过Docker build、TaskSpec或日志传递。
 
-在app容器中执行 `python -m yoloongppt generate /workspace/validation/generation-task.json`；HTTP为POST `/generate`，输入同一TaskSpec。返回的是draft_generated和实际产物目录，不表示AC验收通过。当前只支持明确选择的材料/从零新建、中文16:9及已验证文本/表格/分类图表/备注；未知硬约束、模板、样式或运行选项明确拒绝。可用 `resume <run_id>` 复用已保存模型阶段，来源变化会拒绝复用。
+在app容器中执行 `python -m yoloongppt generate /workspace/validation/generation-task.json`；HTTP为POST `/generate`，输入同一TaskSpec。返回的是draft_generated和实际产物目录，不表示AC验收通过。生成前实际经过DEC-001核对，保存原始请求/能力快照/候选/选择/冲突与保护策略；旧TaskSpec.route作为显式断言，未伪造原文。当前后续执行只支持材料/从零新建、中文16:9及已验证文本/表格/分类图表/备注；未知硬约束、模板、样式或运行选项明确拒绝。可用 `resume <run_id>` 复用已保存模型阶段，来源变化会拒绝复用。
 
 `python -m yoloongppt revise <run_id> <request.json>`（HTTP POST `/revise/{run_id}`）目前只编辑一个标题/正文原生对象；请求字段为object_id、replacement_text数组和reason。保存原稿与修订稿，逐字节保留未选OOXML parts和实体ID，再渲染/复审。`recheck <run_id>` 或POST `/recheck/{run_id}`只恢复QA，校验并复用已有PPTX/render字节，不重新生成。
 
@@ -57,3 +57,13 @@ Markdown保留标题、列表、代码、表格、链接、引用与脚注结构
 ## Git 工作约定
 
 默认开发分支为 yoloongdevlop，远端为 origin。每个项目变更都要在 ailog/ 和 development-log/ 各创建一份同名中文摘要日志，再提交到该分支并推送到 origin/yoloongdevlop。具体约定见 AGENTS.md。
+
+## 可独立运行的模式路由与原子能力
+
+app内 `python -m yoloongppt route /workspace/validation/route-request.json` 或 HTTP POST `/route` 输入相同JSON。raw_request.request保留原文、附件ID、显式模式、输出；attachment_roles明确内容/风格/模板/已有deck/还原来源，single_slide可指定动作及目标。八种模式独立保护策略，无法唯一判断则needs_clarification，未实现的后续模式标明executable=false，不替换为新建。
+
+节点结果与完整DecisionTrace保存到F盘运行目录；`generate`也实际消费该节点。TaskSpec可附raw_request，声明路线与原文判定冲突时停止。能力快照只探测当前本地子集，外部模型/Office完整探测仍待SYS-002；节点入口可注入能力快照进行调试，其来源标为caller_provided，不能改变生成入口的实际探测。
+
+`capabilities`的atomic_registry含五项已登记的原生写入能力及稳定实现ID；执行DAG由planner实际选择，writer在任何写入前核对所有调用的绑定和输入，再校验真实输出。其他对象/后端及导入保真未升级支持状态。
+
+实物与复现：[模式路由与能力登记](validation/模式路由与能力登记.md)、[当前生成PPTX](validation/route-artifacts/deck.pptx)、[渲染PDF](validation/route-artifacts/render/deck.pdf)。39项节点/登记/真实链路核验、26项核心及31项生成修订回归通过；DEC-002–040及完整AC仍未通过。
