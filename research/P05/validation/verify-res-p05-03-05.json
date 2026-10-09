@@ -1,0 +1,114 @@
+{
+  "requirement_ids": [
+    "RES-P05-03",
+    "RES-P05-04",
+    "RES-P05-05"
+  ],
+  "task_ids": [
+    "TASK-RES-P05-03",
+    "VERIFY-RES-P05-03",
+    "TASK-RES-P05-04",
+    "VERIFY-RES-P05-04",
+    "TASK-RES-P05-05",
+    "VERIFY-RES-P05-05"
+  ],
+  "verification_state": "completed_candidate_research_with_negative_findings",
+  "source_commit": "5ae0670747885c464aa8063329a902d80a251877",
+  "coverage": {
+    "decision_groups": 14,
+    "DEC_crosswalk": 40,
+    "JS_layout_keys": 17,
+    "JS_render_functions": 15,
+    "themes": 6,
+    "parsed_fixture_layouts": 11,
+    "parsed_fixture_placeholders": 58,
+    "PPT_objects": 30,
+    "source_references_checked": 198,
+    "source_files_checked": 16
+  },
+  "normal_cases": [
+    "既有8页官方mock/JSON修订/严格QA实际结果复用",
+    "JS显式native chart/table/notes写入；chart part+embedded workbook+table实测",
+    "empty-template Python直接写入3页chart/table/notes"
+  ],
+  "boundary_cases": [
+    "12页请求实际9页，中文mock语言仍en-US",
+    "clarify8项101字→6项80字，未增加裁剪assumptions",
+    "template主题关系颜色/字体漏读，使用默认值",
+    "tech-modern不存在→business-clean警告fallback",
+    "empty-template KPI落title layout+bullet，KPI字段丢失",
+    "direct Python chart [7]→[7,0,0]；不与planner校验路径混淆"
+  ],
+  "failure_cases": [
+    {
+      "case": "已有页面template",
+      "returncode": 1,
+      "exception_type": "KeyError",
+      "actual_message": "None",
+      "reason": "r:id缺XML namespace，drop_rel(None)",
+      "evidence": "validation/template-cli.txt; validation/template-direct.txt",
+      "error_code_scope": "上游未给稳定结构化error code；此处保留真实类型/exit/reason，不冒充产品错误码"
+    },
+    {
+      "case": "missing/corrupt/wrong-extension template",
+      "exception_types": [
+        "FileNotFoundError",
+        "RuntimeError",
+        "ValueError"
+      ],
+      "evidence": "validation/maps-probes.json"
+    },
+    {
+      "case": "unsupported layout",
+      "returncode": 1,
+      "evidence": "validation/invalid-layout.txt"
+    },
+    {
+      "case": "existing strict QA",
+      "returncode": 1,
+      "issues": 27,
+      "evidence": "validation/verify-res-p05-01-02.json"
+    }
+  ],
+  "artifact_hashes_verified": [
+    {
+      "path": "outputs/maps-probes/brand-template.pptx",
+      "sha256": "ca79721b119a5707cff639322d291b4b385dbe4bee592ea5f322ad404693d95f",
+      "slides": 2,
+      "native_chart_parts": 0,
+      "native_tables": 0,
+      "notes_probe_present": false,
+      "zip_integrity": true
+    },
+    {
+      "path": "outputs/maps-probes/empty-template-objects.pptx",
+      "sha256": "a1242acf554a14fff2cadc1d3b390aaf3fbbf0f13323d4e9e4ce646738861439",
+      "slides": 3,
+      "native_chart_parts": 1,
+      "native_tables": 1,
+      "notes_probe_present": true,
+      "zip_integrity": true
+    },
+    {
+      "path": "outputs/maps-probes/empty-template.pptx",
+      "sha256": "bfedde841d40ab2f2e29bc84f104568af116321d80dce1f6949c4be2079737eb",
+      "slides": 0,
+      "native_chart_parts": 0,
+      "native_tables": 0,
+      "notes_probe_present": false,
+      "zip_integrity": true
+    },
+    {
+      "path": "outputs/maps-probes/native-objects.pptx",
+      "sha256": "5965f5055e7aa27e96b8249f3f5bed5915ebe5e34c25da6206eef55d5c2cafa7",
+      "slides": 2,
+      "native_chart_parts": 1,
+      "native_tables": 1,
+      "notes_probe_present": true,
+      "zip_integrity": true
+    }
+  ],
+  "unchanged_normal_sha256": "34de9862e65ba032f74d1d1c64bd813102245e8b53bcab43e8b506cb03899ceb",
+  "license_boundary": "AGPL3 vs Apache metadata冲突未裁定，无产品代码复用",
+  "completion_boundary": "三个强制研究映射及正常/边界/失败证据齐备；未修补上游；不代表产品DEC/PPT/AC完成。真实LLM/Tavily、HTTP/MCP运行、完整对象编辑和PowerPoint验收未执行。"
+}

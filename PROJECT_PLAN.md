@@ -30,7 +30,7 @@
 ## 2026-10-09 纠偏后的当前工作
 
 - 审计基线：需求完成 14/308、进行中 55、未开始 239；任务完成 21/453、进行中 59、未开始 373；AC 0/30 执行。数字对应审计前 HEAD `171fc08`，不自动当作后续实时进度。详情见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
-- 已收尾 TASK/VERIFY-RES-P04-04、TASK/VERIFY-RES-P04-05：5模板/8布局数据、30对象与QA/修订边界，禁网正常/边界/失败探针通过；真实发现高度截断和图表/演讲稿未消费，不代表产品能力通过。RES-P01-05 已按下述记录收尾；P05-01/02 已复现并建立调用链；下一主工作包为 P05-03/04/05。P02 模型凭据与模型发现已解阻，随后执行官方六页链路。
+- 已收尾 TASK/VERIFY-RES-P04-04、TASK/VERIFY-RES-P04-05：5模板/8布局数据、30对象与QA/修订边界，禁网正常/边界/失败探针通过；真实发现高度截断和图表/演讲稿未消费，不代表产品能力通过。RES-P01-05 已按下述记录收尾；P05-01–05 的候选研究已完成，负面发现如实保留。下一主工作包为 P02 官方六页模型生成与审查，凭据与模型发现已解阻。
 - 后续关键依赖：P02/P05 剩余研究 → RES-031 → RES-032 和决策实现；RES-033 按原依赖交付。SYS-001/SYS-007 等无研究前置的准备可独立推进，但未经过真实 E2E 不标为完成。
 - 不增加另一份需求状态台账；以下历史条目保留，若与矩阵或后来证据冲突，先核对对应原行和制品并在相关工作包修正。
 
@@ -265,6 +265,15 @@
 - 版本与许可：独立 venv 43 包、npm 113 包；官方 npm install 仅改变工作副本根 lock 元数据，原 clone 未变，解析 lock 和清单保存；7 个 npm 风险提示保留。AGPL/Apache 声明冲突仍未裁定。环境观测不构成 YoloongPPT 选型，compose 未改。
 - 证据：`research/P05/README.md`、`call_graph.md`、`source_index.json`、`validation/verify-res-p05-01-02.json`、正常/边界/修订 JSON/PPTX 与 QA 图片；Excel 主表 N32:P33、任务 L54:M57。
 - 下一动作：P05-03/04/05 复用当前运行与源码，提取决策、模板与写入/QA/修订边界。P02 已按用户授权读取 DEEPSEEK_API_KEY 并完成鉴权模型发现，deepseek-flash 报告支持 text/image；实际推理和官方生成仍待执行，TASK/VERIFY-P02-01 保持进行中。
+
+### TASK/VERIFY-RES-P05-03/04/05（2026-10-09 收尾）
+
+- 状态：三项需求、六个 TASK/VERIFY 完成候选研究；依赖 P05-02 已满足，固定源码与运行环境复用，未重新安装或重跑八页正常案例。
+- 交付：ProjectDecisionMap 14 决策组/40 DEC 对照；ProjectTemplateMap 17 JS key/15 函数、6 主题、IR、EMU placeholder/几何/容量与继承边界；ProjectCapabilityMap 30 对象及 QA/修订/已有 PPTX 编辑状态。198 个源码引用、16 文件 hash 与 4 个 PPTX hash 核验通过。
+- 实测：JS 显式 native chart/table/notes 与无页面模板 Python 直接写入通过结构核对。请求 12 页实际 9 页；clarify 静默裁剪；tech-modern warn 后 fallback；模板独立主题颜色/字体漏读；已有两页 template 删除 r:id namespace 错误导致 CLI1/KeyError(None)；无页面 template KPI 丢失；直接 Python chart 将短 series [7] 补为 [7,0,0]。规划层短 series 降级路径与直接 renderer 分开记录。
+- 证据：`research/P05/ProjectDecisionMap.json`、`ProjectTemplateMap.json`、`ProjectCapabilityMap.json`、`validation/maps-probes.json`、`validation/verify-res-p05-03-05.json` 与 `probe-boundaries.py`。本轮新对象只做结构检查，已有严格 QA27告警/低对比结论继续保留；未做真实模型/PowerPoint/完整对象编辑验收，未改上游源码或裁定许可。
+- 矩阵：主表 N34:P36、任务 L58:M63；仅21个状态/证据单元格变化，20工作表的原值/公式及功能存在性保持，30 AC仍未执行。当前需求22完成/53进行中/233未开始，任务37完成/56进行中/360未开始。
+- 下一动作：读取 RES-P02-01–05 原行及官方固定 Skill；用用户授权的 DEEPSEEK_API_KEY 在现有 F: Docker 研究环境执行真实六页内容创作→检查→render→vision review→修改→PPTX 导出，完成官方生成证据后同一源码阅读收齐 P02 剩余四项映射。模型 text/image 元数据已核验，实际图像推理仍须实测，不能以模型发现成功替代生成。
 
 ### TASK-IN-001
 

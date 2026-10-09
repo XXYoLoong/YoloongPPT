@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/evidence/probe-boundaries.py", line 67, in <module>
+    render_deck_with_template(pydeck,out/'template-objects.json',out/'template-objects.pptx',config)
+  File "/app/python_backend/pptx_renderer.py", line 107, in render_deck_with_template
+    prs.part.drop_rel(rId)
+  File "/scratch/venv/lib/python3.11/site-packages/pptx/opc/package.py", line 416, in drop_rel
+    self._rels.pop(rId)
+  File "/scratch/venv/lib/python3.11/site-packages/pptx/opc/package.py", line 592, in pop
+    return self._rels.pop(rId)
+           ^^^^^^^^^^^^^^^^^^^
+KeyError: None

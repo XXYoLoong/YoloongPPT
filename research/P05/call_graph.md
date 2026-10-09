@@ -59,4 +59,4 @@ flowchart TD
 
 正常 8 页 contact sheets 已逐页查看，并打开第 7/8 页全尺寸图：图表实际是图片；末页正文/副标题在深色背景上对比度过低。QA 报告 `highRiskSlides=[]`，没有覆盖这个人工发现的对比度问题。此结果直接限制后续选型对 QA 的信任范围。
 
-候选许可声明仍冲突（根 AGPL、部分元数据 Apache）；图谱不是代码复用/分发决定。下一项依赖本调用链的 P05-03/04/05 决策、模板数据化及能力边界研究，不能提前标为完成。
+候选许可声明仍冲突（根 AGPL、部分元数据 Apache）；图谱不是代码复用/分发决定。后续 P05-03/04/05 已完成映射及补测，见 [verify-res-p05-03-05.json](validation/verify-res-p05-03-05.json)。模板旧页删除实际失败、零页面模板可写、KPI fallback/图表补零等新增事实以该报告为准；首次调用链记录中的 template source-only 范围保留为历史。JS 分派实际为 17 个 key，详见 ProjectTemplateMap。

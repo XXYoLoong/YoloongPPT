@@ -2,9 +2,9 @@
 
 ## 对应任务与边界
 
-- Requirement ID：`RES-P05-01`
-- Task ID：`TASK/VERIFY-RES-P05-01`、`TASK/VERIFY-RES-P05-02`
-- P05-01 固定研究版本与官方最小运行，P05-02 建立调用链；P05-03/04/05 的决策、模板与对象能力研究仍待完成。
+- Requirement ID：`RES-P05-01–05`
+- Task ID：`TASK/VERIFY-RES-P05-01–05`
+- P05-01/02 固定研究版本、官方最小运行与调用链；P05-03/04/05 已交付决策、模板与对象能力映射及实际边界/失败证据。
 - 2026-10-09 已按官方无密钥 mock Quick Start 生成并修订 JSON/PPTX，再核对源码调用链。P05-01/02 及其 TASK/VERIFY 已完成候选研究；不代表产品质量或真实 AI 生成验收。
 
 ## 固定源码快照
@@ -60,7 +60,22 @@ README 的 Quick Start 声明 Python 3.10+ 和 Node.js 18+。未发现根目录 
 
 [call_graph.md](call_graph.md) 和 [source_index.json](source_index.json) 覆盖 41 个节点、40 条边、13 个固定源码文件及 Prompt/Schema/theme 资源。每个节点定位文件/函数/行号并区分实际 CLI、源码分支和外部黑盒。QA 是显式独立调用，生成不自动严格 QA；模板路线删除旧 slides 再新建；HTTP/MCP、template、真实模型与 Tavily 本轮未运行。
 
-P05-01/02 已按原候选研究验收收尾；页数、可编辑性、QA/视觉缺陷和许可矛盾继续作为限制，未声称产品通过。P05-03/04/05 下一步依据已有调用链提取决策、模板/布局及 30 对象/QA/修订状态，避免重复初始化和正常生成。
+P05-01/02 的运行记录保留其当时覆盖范围。P05-03/04/05 已按下述候选研究验收收尾；页数、可编辑性、QA/视觉缺陷和许可矛盾继续作为限制，未声称产品通过。
+
+## 决策、模板与能力边界（2026-10-09 收尾）
+
+- [ProjectDecisionMap](ProjectDecisionMap.json)：14 组结构/视觉决策，40 个统一 DEC 对照。模型规划明确标为 source-only 黑盒，未发现内容关系图或候选评分算法；输入、候选、机制、输出、fallback、源码逐组列出。
+- [ProjectTemplateMap](ProjectTemplateMap.json)：17 个 JS layout key / 15 个渲染函数、6 套完整主题 token、IR schema、几何/样式表达式、裁剪规则与继承限制；实测模板解析得到 11 布局 / 58 placeholder，保留 EMU 几何。Python 映射支持 13 schema key（另外含 blank）；4 个扩展布局未映射。
+- [ProjectCapabilityMap](ProjectCapabilityMap.json)：PPT-001–030 及写入、渲染、QA、JSON 修订、已有 PPTX 编辑逐项状态。原生对象写出只代表局部操作，没有把全类能力标为 Native。
+- [实际探针](validation/maps-probes.json)：显式 `--native-charts` 生成两页原生 chart/table/notes；零页面模板直接写出三页原生对象。ZIP、chart part 与 embedded workbook、table 和 notes 内容检查通过；本轮未做这些新页的视觉或 PowerPoint 打开验收。
+- 边界：mock 请求 12 页实际 9 页；中文 prompt 语言仍 en-US；clarify 8 项各 101 字裁为 6 项各 80 字，未新增裁剪说明；修订 tech-modern 不存在，warn 后使用 business-clean。
+- 模板失败：带 2 页的正常 PPTX 在删除旧页时使用未展开 namespace 的 `r:id`，触发 `KeyError: None`；官方 CLI 退出 1，只显示 `auto-ppt: error: None`。独立主题关系中的 accent1/heading 漏读，回到默认色/字体。无页面模板可绕开删除路径，但 KPI 回落 Title Slide + bullet，KPI 字段未写出。
+- 数据风险：直接 Python renderer 输入 3 个 category / 单值 `[7]`，实际写成 `[7,0,0]`；规划层则会把短 series 降级为 bullet。两个调用边界分别记录，不能概括为“从不补零”。
+- [核验](validation/verify-res-p05-03-05.json)：198 个源码引用及 16 文件 hash、完整 ID/资产清单与 4 个 PPTX hash 通过；正常/边界/失败与已有 QA 结果关联。没有修改固定上游来掩盖失败，没有完成产品 DEC/PPT/AC 验收。
+
+复现：在既有 F: 数据盘的 `yoloongppt-p05-research` 内运行 `/scratch/venv/bin/python /evidence/probe-boundaries.py`；主机仅使用已安装 stdlib 执行 `build-maps.py` 和 `verify-maps.py` 读取/核验材料。`build-maps.py` 读取 F: 临时目录导出的需求原行，导出程序见 `baseline-rows.py`；输出用途为 RES-031 及后续选型，非新产品契约。
+
+下一主工作包为 P02 官方模型生成与审查；P05 研究不再因负面发现反复扩展。许可证冲突留给 RES-032，真实模型/HTTP/MCP/全对象能力未验证，不影响如实完成本次研究映射。
 
 ## 历史环境阻塞
 

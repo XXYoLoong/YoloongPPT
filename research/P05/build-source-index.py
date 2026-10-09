@@ -36,7 +36,7 @@ specs=[
  ('JS-ENTRY','generate-ppt.js','buildFromFile','读取命令行 JSON/PPTX 路径，处理 nativeCharts 选项，调用 buildDeck','normal/revision'),
  ('JS-BUILD','generate-ppt.js','buildDeck','wide canvas、theme、逐页 render 与 writeFile','normal/revision'),
  ('JS-VALIDATE','generate-ppt.js','validateDeck','JS 层布局、页码和数量校验','normal'),
- ('JS-LAYOUT','generate-ppt.js','renderSlide','16 种 layout key 的固定 dispatch；notes、页脚','normal'),
+ ('JS-LAYOUT','generate-ppt.js','renderSlide','17 种 layout key 的固定 dispatch；notes、页脚','normal'),
  ('JS-VISUALS','generate-ppt.js','renderVisualsOnSlide','图片、placeholder、视觉描述的固定处理','source_only'),
  ('JS-CHART','generate-ppt.js','renderChartSlide','默认图表图片；显式 native/无 canvas 时 OOXML','normal_image_chart_only'),
  ('JS-TABLE','generate-ppt.js','renderTableSlide','PptxGenJS addTable','source_only'),

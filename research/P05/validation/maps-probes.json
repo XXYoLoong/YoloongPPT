@@ -1,0 +1,172 @@
+{
+  "requirement_ids": [
+    "RES-P05-03",
+    "RES-P05-04",
+    "RES-P05-05"
+  ],
+  "source_commit": "5ae0670747885c464aa8063329a902d80a251877",
+  "mode": "candidate mock + actual renderer + source inspection; no model/network",
+  "cases": {
+    "page_budget": {
+      "requested": 12,
+      "actual": 9,
+      "language_chinese_prompt": "en-US",
+      "mechanism": "9 predefined pages sliced after 5..12 clamp"
+    },
+    "clarify": {
+      "before_items": 8,
+      "before_chars_each": 101,
+      "after_items": 6,
+      "after_chars": [
+        80,
+        80,
+        80,
+        80,
+        80,
+        80
+      ],
+      "reported_assumptions_added": false
+    },
+    "theme_fallback": {
+      "requested_theme": "tech-modern",
+      "resolved_theme": "business-clean",
+      "reason": "tech-modern has no built-in asset; warning emitted by load_theme"
+    },
+    "template_theme": {
+      "fixture_accent1": "123456",
+      "fixture_heading": "Liberation Serif",
+      "parsed_primary": "0F766E",
+      "parsed_heading": "Aptos Display",
+      "layouts": 11,
+      "placeholders": 58,
+      "mapping_keys": [
+        "title",
+        "section",
+        "bullet",
+        "two-column",
+        "comparison",
+        "blank",
+        "agenda",
+        "timeline",
+        "process",
+        "table",
+        "chart",
+        "quote",
+        "summary",
+        "closing"
+      ],
+      "scope": "default python-pptx master/layouts plus custom theme relationship; not commercial template"
+    },
+    "template-cli": {
+      "command": [
+        "/scratch/venv/bin/python",
+        "/app/auto-ppt",
+        "generate",
+        "--mock",
+        "--prompt",
+        "Create a 5-slide deck",
+        "--template",
+        "/evidence/outputs/maps-probes/brand-template.pptx",
+        "--output-dir",
+        "/evidence/outputs/maps-probes/template-cli"
+      ],
+      "returncode": 1,
+      "log": "validation/template-cli.txt",
+      "input_existing_slides": 2,
+      "output_exists": false
+    },
+    "native-objects": {
+      "command": [
+        "node",
+        "/app/generate-ppt.js",
+        "/evidence/outputs/maps-probes/native-objects.json",
+        "/evidence/outputs/maps-probes/native-objects.pptx",
+        "--native-charts"
+      ],
+      "returncode": 0,
+      "log": "validation/native-objects.txt"
+    },
+    "template_objects": {
+      "exception_type": "KeyError",
+      "message": "None",
+      "log": "validation/template-direct.txt",
+      "output_exists": false,
+      "reason": "slide deletion uses .get(\"r:id\") without expanded XML namespace; rId=None and drop_rel raises KeyError"
+    },
+    "empty_template_objects": {
+      "chart_values": [
+        7.0,
+        0.0,
+        0.0
+      ],
+      "kpi_text_present": false,
+      "kpi_layout_name": "Title Slide",
+      "scope": "separate zero-slide template direct renderer input; no patch/workaround to upstream; bypasses planner validation"
+    },
+    "missing_template": {
+      "exception_type": "FileNotFoundError",
+      "message": "Template not found: /evidence/outputs/maps-probes/absent.pptx",
+      "expected_rejection": true
+    },
+    "corrupt_template": {
+      "exception_type": "RuntimeError",
+      "message": "Failed to parse template: Package not found at '/evidence/outputs/maps-probes/corrupt.pptx'",
+      "expected_rejection": true
+    },
+    "wrong_extension": {
+      "exception_type": "ValueError",
+      "message": "Template must be a .pptx file, got: .json",
+      "expected_rejection": true
+    },
+    "invalid-layout": {
+      "command": [
+        "node",
+        "/app/generate-ppt.js",
+        "/evidence/outputs/maps-probes/invalid-layout.json",
+        "/evidence/outputs/maps-probes/invalid-layout.pptx"
+      ],
+      "returncode": 1,
+      "log": "validation/invalid-layout.txt"
+    }
+  },
+  "artifacts": [
+    {
+      "path": "outputs/maps-probes/brand-template.pptx",
+      "sha256": "ca79721b119a5707cff639322d291b4b385dbe4bee592ea5f322ad404693d95f",
+      "slides": 2,
+      "native_chart_parts": 0,
+      "native_tables": 0,
+      "notes_probe_present": false,
+      "zip_integrity": true
+    },
+    {
+      "path": "outputs/maps-probes/empty-template-objects.pptx",
+      "sha256": "a1242acf554a14fff2cadc1d3b390aaf3fbbf0f13323d4e9e4ce646738861439",
+      "slides": 3,
+      "native_chart_parts": 1,
+      "native_tables": 1,
+      "notes_probe_present": true,
+      "zip_integrity": true
+    },
+    {
+      "path": "outputs/maps-probes/empty-template.pptx",
+      "sha256": "bfedde841d40ab2f2e29bc84f104568af116321d80dce1f6949c4be2079737eb",
+      "slides": 0,
+      "native_chart_parts": 0,
+      "native_tables": 0,
+      "notes_probe_present": false,
+      "zip_integrity": true
+    },
+    {
+      "path": "outputs/maps-probes/native-objects.pptx",
+      "sha256": "5965f5055e7aa27e96b8249f3f5bed5915ebe5e34c25da6206eef55d5c2cafa7",
+      "slides": 2,
+      "native_chart_parts": 1,
+      "native_tables": 1,
+      "notes_probe_present": true,
+      "zip_integrity": true
+    }
+  ],
+  "reused_normal_qa": "validation/verify-res-p05-01-02.json",
+  "scope": "OOXML structure/readability tested; no new visual/PowerPoint/full object editing acceptance"
+}
