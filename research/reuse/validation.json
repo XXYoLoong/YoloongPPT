@@ -1,0 +1,101 @@
+{
+  "requirement_ids": [
+    "RES-032",
+    "RES-033"
+  ],
+  "task_ids": [
+    "TASK-RES-032",
+    "TASK-RES-033"
+  ],
+  "passed": true,
+  "cases": [
+    {
+      "id": "normal",
+      "passed": true,
+      "observed": {
+        "modules": 18,
+        "assets": 35,
+        "source_files": 76,
+        "direct_eligible_files": [
+          "R01",
+          "R02"
+        ],
+        "fixture_projects": {
+          "P01": 8,
+          "P02": 7,
+          "P03": 6,
+          "P04": 6,
+          "P05": 8
+        }
+      }
+    },
+    {
+      "id": "missing_license",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    },
+    {
+      "id": "unknown_source",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    },
+    {
+      "id": "source_hash_drift",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    },
+    {
+      "id": "P05_direct_copy",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    },
+    {
+      "id": "P05_conflict_hidden",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    },
+    {
+      "id": "icons_root_license_overclaim",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    },
+    {
+      "id": "P03_execution_overclaim",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    },
+    {
+      "id": "project_fixture_missing",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    },
+    {
+      "id": "uncleared_artwork_copied",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    }
+  ],
+  "observed": {
+    "modules": 18,
+    "assets": 35,
+    "source_files": 76,
+    "direct_eligible_files": [
+      "R01",
+      "R02"
+    ],
+    "fixture_projects": {
+      "P01": 8,
+      "P02": 7,
+      "P03": 6,
+      "P04": 6,
+      "P05": 8
+    }
+  },
+  "explicit_gaps": {
+    "P03": "No generated PPTX/screenshots or successful generation golden in research; five VERIFY remain in progress. Upstream UI screenshot is source artwork, not a research export screenshot.",
+    "P04": "No research render screenshot identified in current evidence; structural PPTX and QA metadata only.",
+    "P02": "Task contract is Markdown + function checks, not full formal planner JSONSchema."
+  },
+  "boundary": "Provenance and reuse registration only. No product source/assets imported, model calls, regeneration, full upstream test execution or AC acceptance.",
+  "runtime_observation": "Host stdlib used to inspect metadata, not product runtime selection."
+}

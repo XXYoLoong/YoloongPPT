@@ -1,0 +1,585 @@
+{
+  "artifact_type": "ReuseDecisionRegistry",
+  "requirement_id": "RES-032",
+  "task_id": "TASK-RES-032",
+  "methods": {
+    "直接复用": "只复制已逐文件审核的明确来源；保留许可/版权和变化记录，确认目标接口兼容。登记不等于代码已接入。",
+    "抽象复用": "采用分层、约束或门控思路；按本项目基线独立实现，不复制源代码、Prompt、原样schema/版式或素材。",
+    "仅参考": "用于能力/风险/失败行为比较；不复制实现或资产，也不机械翻译成目标代码。",
+    "不采用": "不引入当前产品路线；不取消基线必须支持的能力，另行实现或选用已明确许可的替代。"
+  },
+  "projects": {
+    "P01": {
+      "name": "ppt-master",
+      "fixed_commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "clone": "F:\\YoloongPPT-Research\\P01",
+      "license_observed": "MIT",
+      "runtime_scope": "source + prior runtime subset; no new provider calls",
+      "remaining_verification": "Full product AC and object roundtrip remain unexecuted"
+    },
+    "P02": {
+      "name": "PPTAgent main Skill",
+      "fixed_commit": "833cda553b343be0e486a93b0b57cac962cdd566",
+      "clone": "F:\\YoloongPPT-Research\\P02",
+      "license_observed": "MIT",
+      "runtime_scope": "source + prior runtime subset; no new provider calls",
+      "remaining_verification": "Full product AC and object roundtrip remain unexecuted"
+    },
+    "P03": {
+      "name": "Presenton",
+      "fixed_commit": "35bf44290f821323e003da854f78ffcb0e918167",
+      "clone": "F:\\YoloongPPT-Research\\P03",
+      "license_observed": "Apache-2.0",
+      "runtime_scope": "source + prior runtime subset; no new provider calls",
+      "remaining_verification": "P03 five VERIFY still in progress, no generation/export evidence"
+    },
+    "P04": {
+      "name": "ai-agent-ppt",
+      "fixed_commit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "clone": "F:\\YoloongPPT-Research\\P04",
+      "license_observed": "MIT",
+      "runtime_scope": "source + prior runtime subset; no new provider calls",
+      "remaining_verification": "Full product AC and object roundtrip remain unexecuted"
+    },
+    "P05": {
+      "name": "auto-ppt-engine",
+      "fixed_commit": "5ae0670747885c464aa8063329a902d80a251877",
+      "clone": "F:\\YoloongPPT-Research\\P05",
+      "license_observed": "AGPL-3.0 file; conflicting Apache-2.0 metadata",
+      "runtime_scope": "source + prior runtime subset; no new provider calls",
+      "remaining_verification": "Full product AC and object roundtrip remain unexecuted"
+    }
+  },
+  "modules": [
+    {
+      "id": "R01",
+      "project": "P01",
+      "module": "opaque XML relationship-attribute guard",
+      "method": "直接复用",
+      "source_files": [
+        "P01:skills/ppt-master/scripts/pptx_shapes/xml_safety.py"
+      ],
+      "license_files": [
+        "P01:LICENSE",
+        "P01:skills/ppt-master/LICENSE"
+      ],
+      "license_observed": "MIT (code); third-party assets separate",
+      "obligations": "复制已审核代码时保留MIT许可与Hugo He版权。icons/sounds/geometry data的独立声明不由MIT替代。",
+      "consumer": "未来OOXML Adapter的片段关系复制安全检查（PPT-030）",
+      "reason": "单文件仅stdlib ElementTree；定位关系QName，避免把part-local关系当普通属性",
+      "limits": "只判断关系属性存在，不是XML parser沙箱、关系重绑定或全PPTX安全保证",
+      "copy_permission": "eligible only for these exact MIT files with notices and confirmed compatible target interface",
+      "dependencies": "AST inspected: stdlib imports only; no third-party package or data payload imported by this file",
+      "imports": [
+        "__future__",
+        "xml"
+      ],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R02",
+      "project": "P01",
+      "module": "root SVG canvas contract",
+      "method": "直接复用",
+      "source_files": [
+        "P01:skills/ppt-master/scripts/svg_to_pptx/canvas_contract.py"
+      ],
+      "license_files": [
+        "P01:LICENSE",
+        "P01:skills/ppt-master/LICENSE"
+      ],
+      "license_observed": "MIT (code); third-party assets separate",
+      "obligations": "复制已审核代码时保留MIT许可与Hugo He版权。icons/sounds/geometry data的独立声明不由MIT替代。",
+      "consumer": "未来SVG原生Adapter的页面尺寸/视口检查",
+      "reason": "单文件stdlib；已独立定义canvas错误；可与TaskSpec几何接口连接",
+      "limits": "源规则zero-origin与EMU范围必须能力化；不可替代用户全部比例/约束；目标语言/接口未选前不复制",
+      "copy_permission": "eligible only for these exact MIT files with notices and confirmed compatible target interface",
+      "dependencies": "AST inspected: stdlib imports only; no third-party package or data payload imported by this file",
+      "imports": [
+        "__future__",
+        "dataclasses",
+        "decimal",
+        "pathlib",
+        "re",
+        "typing",
+        "xml"
+      ],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R03",
+      "project": "P01",
+      "module": "source roles, communication/spec lock and roster",
+      "method": "抽象复用",
+      "source_files": [
+        "P01:skills/ppt-master/references/plan-core.md",
+        "P01:skills/ppt-master/workflows/routing.md"
+      ],
+      "license_files": [
+        "P01:LICENSE",
+        "P01:skills/ppt-master/LICENSE"
+      ],
+      "license_observed": "MIT (code); third-party assets separate",
+      "obligations": "复制已审核代码时保留MIT许可与Hugo He版权。icons/sounds/geometry data的独立声明不由MIT替代。",
+      "consumer": "统一来源/TaskSpec/DEC规划、页面冻结与trace",
+      "reason": "保持事实、模式、页序与确认边界，独立实现契约消费接口",
+      "limits": "不能引入上游固定确认流程来覆盖本项目默认与硬约束，也不复制Prompt",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R04",
+      "project": "P01",
+      "module": "native SVG export / edit proxy / chart parity",
+      "method": "仅参考",
+      "source_files": [
+        "P01:skills/ppt-master/scripts/tests/test_native_chart_table_parity.py",
+        "P01:skills/ppt-master/scripts/pptx_ooxml/edit_safety.py"
+      ],
+      "license_files": [
+        "P01:LICENSE",
+        "P01:skills/ppt-master/LICENSE"
+      ],
+      "license_observed": "MIT (code); third-party assets separate",
+      "obligations": "复制已审核代码时保留MIT许可与Hugo He版权。icons/sounds/geometry data的独立声明不由MIT替代。",
+      "consumer": "原生对象、roundtrip及局部修订的验收设计",
+      "reason": "已有Quick与26项selected tests说明可实现子集；完整依赖链尚未选定",
+      "limits": "不整包vendoring exporter；共享master/proxy拒绝与advisory receipt保留为测试边界",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R05",
+      "project": "P01",
+      "module": "bundled icons, sounds and branded decks",
+      "method": "不采用",
+      "source_files": [
+        "P01:skills/ppt-master/templates/icons/THIRD_PARTY_NOTICES.md",
+        "P01:skills/ppt-master/templates/sounds/THIRD_PARTY_NOTICES.md"
+      ],
+      "license_files": [
+        "P01:LICENSE",
+        "P01:skills/ppt-master/LICENSE"
+      ],
+      "license_observed": "MIT (code); third-party assets separate",
+      "obligations": "复制已审核代码时保留MIT许可与Hugo He版权。icons/sounds/geometry data的独立声明不由MIT替代。",
+      "consumer": "后续素材库必须独立许可/来源登记",
+      "reason": "包含CC BY/CC0/MIT与品牌商标等独立条件，不由根MIT统一覆盖",
+      "limits": "不复制整个库或品牌模板；媒体/图标功能仍在产品范围，另选来源",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R06",
+      "project": "P02",
+      "module": "source/render/review/build freshness gate",
+      "method": "抽象复用",
+      "source_files": [
+        "P02:skills/pptagent/scripts/pptagent_runtime/core.py"
+      ],
+      "license_files": [
+        "P02:LICENSE",
+        "P02:skills/pptagent/LICENSE"
+      ],
+      "license_observed": "MIT (main/Skill); dependency separate",
+      "obligations": "Skill复制须保留其MIT许可/版权；installed converter与所有第三方依赖单独审核，不从main MIT推导。",
+      "consumer": "QA、执行trace和RevisionPlan freshness",
+      "reason": "将输入/资源/输出hash绑定审查，独立实现任务状态与失效门控",
+      "limits": "需要产品事实/可编辑性QA，不复制源码或把六项检查当全QA",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R07",
+      "project": "P02",
+      "module": "visual review payload/config boundary",
+      "method": "抽象复用",
+      "source_files": [
+        "P02:skills/pptagent/scripts/pptagent_runtime/visual.py",
+        "P02:skills/pptagent/scripts/pptagent_runtime/config.py"
+      ],
+      "license_files": [
+        "P02:LICENSE",
+        "P02:skills/pptagent/LICENSE"
+      ],
+      "license_observed": "MIT (main/Skill); dependency separate",
+      "obligations": "Skill复制须保留其MIT许可/版权；installed converter与所有第三方依赖单独审核，不从main MIT推导。",
+      "consumer": "结构化视觉审查与模型secret注入接口",
+      "reason": "严格issue字段、pass不可含major、env name边界可独立实现",
+      "limits": "不复制Prompt；外部string slide失败需要产品明确错误，不自动吞掉",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R08",
+      "project": "P02",
+      "module": "installed HTML converter 1.1.37",
+      "method": "不采用",
+      "source_files": [
+        "P02:skills/pptagent/requirements.txt"
+      ],
+      "license_files": [
+        "P02:LICENSE",
+        "P02:skills/pptagent/LICENSE"
+      ],
+      "license_observed": "MIT (main/Skill); dependency separate",
+      "obligations": "Skill复制须保留其MIT许可/版权；installed converter与所有第三方依赖单独审核，不从main MIT推导。",
+      "consumer": "当前首条写入路线不依赖此converter",
+      "reason": "native chart缺口、inlineSVG bug、PNG降级与单独依赖许可/安全未解决",
+      "limits": "其依赖与main不是同一版本/许可证明；HTML输入/生成能力不从基线移除",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R09",
+      "project": "P02",
+      "module": "single starter and visual MCP packaging",
+      "method": "仅参考",
+      "source_files": [
+        "P02:skills/pptagent/assets/slide-template.html",
+        "P02:skills/pptagent/scripts/visual_mcp.py"
+      ],
+      "license_files": [
+        "P02:LICENSE",
+        "P02:skills/pptagent/LICENSE"
+      ],
+      "license_observed": "MIT (main/Skill); dependency separate",
+      "obligations": "Skill复制须保留其MIT许可/版权；installed converter与所有第三方依赖单独审核，不从main MIT推导。",
+      "consumer": "最小页面fixture与MCP审查分层",
+      "reason": "可参考小型工具封装；不是完整生成服务或模板族",
+      "limits": "不把其MCP两个工具当产品CLI/API/MCP交付",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R10",
+      "project": "P03",
+      "module": "template element/layout/schema separation",
+      "method": "抽象复用",
+      "source_files": [
+        "P03:servers/fastapi/templates/v2/models/elements.py",
+        "P03:servers/fastapi/templates/v2/models/layouts.py",
+        "P03:servers/fastapi/templates/v2/schema.py"
+      ],
+      "license_files": [
+        "P03:LICENSE",
+        "P03:NOTICE"
+      ],
+      "license_observed": "Apache-2.0 + NOTICE; dependencies/assets separate",
+      "obligations": "若复制Apache内容须附许可证、保留适用通知/NOTICE，并对修改作明显说明；本次只抽象/参考，不搬整应用及第三方分发物。",
+      "consumer": "模板IR、语义槽位与几何/容量接口",
+      "reason": "区分元素、layout与结构化内容，按本项目现有契约独立实现",
+      "limits": "不复制383布局/1002资产或依赖它的外部导出能力",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R11",
+      "project": "P03",
+      "module": "REST/SSE/MCP/editor service layering",
+      "method": "抽象复用",
+      "source_files": [
+        "P03:servers/fastapi/mcp_server.py",
+        "P03:servers/fastapi/services/chat/tools.py"
+      ],
+      "license_files": [
+        "P03:LICENSE",
+        "P03:NOTICE"
+      ],
+      "license_observed": "Apache-2.0 + NOTICE; dependencies/assets separate",
+      "obligations": "若复制Apache内容须附许可证、保留适用通知/NOTICE，并对修改作明显说明；本次只抽象/参考，不搬整应用及第三方分发物。",
+      "consumer": "共用任务状态的CLI/API/MCP与局部修订入口",
+      "reason": "分层与allowlist思想可用；源调用依赖DB而非PPTX原件",
+      "limits": "不复制账号/产品业务、Prompt/工具实现；保真PPTX编辑另验收",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R12",
+      "project": "P03",
+      "module": "external @presenton/export-core backend",
+      "method": "不采用",
+      "source_files": [
+        "P03:scripts/run-presentation-export.mjs",
+        "P03:servers/fastapi/services/export_task_service.py"
+      ],
+      "license_files": [
+        "P03:LICENSE",
+        "P03:NOTICE"
+      ],
+      "license_observed": "Apache-2.0 + NOTICE; dependencies/assets separate",
+      "obligations": "若复制Apache内容须附许可证、保留适用通知/NOTICE，并对修改作明显说明；本次只抽象/参考，不搬整应用及第三方分发物。",
+      "consumer": "首条执行后端需已知实现/依赖与真实对象证据",
+      "reason": "固定包装器可定位，但实际外部制品是黑盒；许可/实现/对象实物不足",
+      "limits": "不能把Apache根许可或内部元素树当外部exporter许可/完整可编辑性保证",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R13",
+      "project": "P03",
+      "module": "account/auth application subsystem",
+      "method": "不采用",
+      "source_files": [
+        "P03:servers/fastapi/api/v1/auth/router.py"
+      ],
+      "license_files": [
+        "P03:LICENSE",
+        "P03:NOTICE"
+      ],
+      "license_observed": "Apache-2.0 + NOTICE; dependencies/assets separate",
+      "obligations": "若复制Apache内容须附许可证、保留适用通知/NOTICE，并对修改作明显说明；本次只抽象/参考，不搬整应用及第三方分发物。",
+      "consumer": "GOV-009排除项",
+      "reason": "当前范围不包含账号/计费/多租户等，不复制该应用业务",
+      "limits": "产品CLI/API/MCP仍必须实现；不能把核心接口一并排除",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R14",
+      "project": "P04",
+      "module": "JSON template tokens/layout slots",
+      "method": "抽象复用",
+      "source_files": [
+        "P04:src/core/template/template-manager.ts",
+        "P04:src/core/engine/layout-loader.ts",
+        "P04:src/core/engine/slide-renderer.ts"
+      ],
+      "license_files": [
+        "P04:LICENSE"
+      ],
+      "license_observed": "MIT (code); dependencies separate",
+      "obligations": "若复制MIT代码/JSON应保留许可与peterfei版权；PureLayout等依赖、字体/图片独立审核。",
+      "consumer": "TPL/AST页面类型与布局registry",
+      "reason": "独立设计typed slots、token、适用性和几何",
+      "limits": "不沿用缺layout跳页、固定容量、未消费chart/notes的行为",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R15",
+      "project": "P04",
+      "module": "topic writer and PureLayout adapter",
+      "method": "仅参考",
+      "source_files": [
+        "P04:src/core/engine/pptx-builder.ts",
+        "P04:src/core/engine/ppt-adapter.ts"
+      ],
+      "license_files": [
+        "P04:LICENSE"
+      ],
+      "license_observed": "MIT (code); dependencies separate",
+      "obligations": "若复制MIT代码/JSON应保留许可与peterfei版权；PureLayout等依赖、字体/图片独立审核。",
+      "consumer": "原生对象写入边界/回归样例",
+      "reason": "有native text/shape子集实物；可用于抽象test oracle",
+      "limits": "不整包采用：静默bullet丢失、无QA/保真编辑；依赖许可另查",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R16",
+      "project": "P05",
+      "module": "planner/repair/schema/assets",
+      "method": "仅参考",
+      "source_files": [
+        "P05:python_backend/smart_layer.py",
+        "P05:deck-schema.json"
+      ],
+      "license_files": [
+        "P05:LICENSE",
+        "P05:package.json",
+        "P05:pyproject.toml",
+        "P05:package-lock.json"
+      ],
+      "license_observed": "Unresolved: LICENSE AGPLv3/package AGPL-3.0-only vs pyproject/lock Apache-2.0",
+      "obligations": "冲突未解决且没有确定copyleft合规方案，禁止直接复制、移植或改写翻译源代码/Prompt/schema/assets；本次仅参考研究发现，不调用其代码作为产品后端。",
+      "consumer": "来源/分页/Schema错误与裁剪的独立测试设计",
+      "reason": "保留正反例需求和观测，不采用源表达；许可冲突未解决",
+      "limits": "不得直接复制、移植或机械翻译源代码/Prompt/Schema；按本项目基线独立实现",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R17",
+      "project": "P05",
+      "module": "dual renderer/native chart/table/notes",
+      "method": "不采用",
+      "source_files": [
+        "P05:python_backend/pptx_renderer.py",
+        "P05:generate-ppt.js"
+      ],
+      "license_files": [
+        "P05:LICENSE",
+        "P05:package.json",
+        "P05:pyproject.toml",
+        "P05:package-lock.json"
+      ],
+      "license_observed": "Unresolved: LICENSE AGPLv3/package AGPL-3.0-only vs pyproject/lock Apache-2.0",
+      "obligations": "冲突未解决且没有确定copyleft合规方案，禁止直接复制、移植或改写翻译源代码/Prompt/schema/assets；本次仅参考研究发现，不调用其代码作为产品后端。",
+      "consumer": "选择其他明确许可的底层原生对象库实现同一能力",
+      "reason": "AGPL conflict、旧slide删除bug、短series补零/内容损失；不作为产品依赖",
+      "limits": "原生chart/table/notes仍必须支持，不得以不采用取消范围",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R18",
+      "project": "P05",
+      "module": "independent QA/revision mock behavior",
+      "method": "仅参考",
+      "source_files": [
+        "P05:python_backend/visual_qa.py",
+        "P05:tests/test_visual_qa.py",
+        "P05:tests/test_smart_layer.py"
+      ],
+      "license_files": [
+        "P05:LICENSE",
+        "P05:package.json",
+        "P05:pyproject.toml",
+        "P05:package-lock.json"
+      ],
+      "license_observed": "Unresolved: LICENSE AGPLv3/package AGPL-3.0-only vs pyproject/lock Apache-2.0",
+      "obligations": "冲突未解决且没有确定copyleft合规方案，禁止直接复制、移植或改写翻译源代码/Prompt/schema/assets；本次仅参考研究发现，不调用其代码作为产品后端。",
+      "consumer": "产品QA/局部修订的失效/损失测试",
+      "reason": "只参考问题类别与既有实验事实，独立编写测试",
+      "limits": "bbox不是事实/像素QA；不复制AGPL测试或mock数据为产品golden",
+      "copy_permission": "no source/asset copying under this decision",
+      "dependencies": "not copied; only conceptual/test observations retained",
+      "imports": [],
+      "implementation_state": "registry decision only; no source imported into product",
+      "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    }
+  ],
+  "third_party_boundaries": [
+    {
+      "project": "P01",
+      "kind": "icons",
+      "source_file": "P01:skills/ppt-master/templates/icons/THIRD_PARTY_NOTICES.md",
+      "declaration": "CHUNK CC BY4.0, Tabler/Phosphor MIT, Simple Icons CC0 + individual brand/trademark conditions",
+      "decision": "not adopted; per-asset review required"
+    },
+    {
+      "project": "P01",
+      "kind": "sounds",
+      "source_file": "P01:skills/ppt-master/templates/sounds/THIRD_PARTY_NOTICES.md",
+      "declaration": "Kenney CC0 sources and local transcodes",
+      "decision": "not adopted; retain per-file provenance if selected later"
+    },
+    {
+      "project": "P01",
+      "kind": "preset geometry data",
+      "source_file": "P01:skills/ppt-master/scripts/pptx_shapes/data/NOTICE.md",
+      "declaration": "Apache POI data Apache2 + OpenXML SDK list MIT; separate notices/files",
+      "decision": "not copied by the approved small helper decisions"
+    },
+    {
+      "project": "P03",
+      "kind": "bundled dependencies",
+      "source_file": "P03:NOTICE",
+      "declaration": "large package-specific notice collection, not one universal Apache grant",
+      "decision": "no dependency bundle copied; choose product dependencies separately"
+    }
+  ],
+  "legal_sources": [
+    {
+      "id": "MIT",
+      "title": "OSI MIT license",
+      "url": "https://opensource.org/license/mit",
+      "sections": [
+        "copyright/permission notice condition"
+      ],
+      "summary": "复制软件或实质部分时保留版权和许可通知。"
+    },
+    {
+      "id": "Apache-2.0",
+      "title": "ASF Apache License 2.0",
+      "url": "https://www.apache.org/licenses/LICENSE-2.0",
+      "sections": [
+        "4(a)-(d)",
+        "6"
+      ],
+      "summary": "分发条件包括许可副本、修改说明、保留适用通知/NOTICE；没有商标授权。"
+    },
+    {
+      "id": "AGPL-3.0-only",
+      "title": "SPDX AGPL v3 license text",
+      "url": "https://spdx.org/licenses/AGPL-3.0-only.html",
+      "sections": [
+        "2",
+        "5",
+        "6",
+        "13"
+      ],
+      "summary": "修改/分发covered work与网络交互有对应源代码义务；输出仅在内容构成covered work时受该许可覆盖，不能只据生成工具判断输出许可。",
+      "fetch_boundary": "GNU官方网站本次超时；改用SPDX维护文本，并与固定P05 LICENSE的第2/13条核对。"
+    }
+  ],
+  "license_interpretation": "module-scoped engineering reuse decision based on fixed declarations and license text, not blanket distribution approval or a resolution of upstream conflicting rights",
+  "product_license": "not selected; this task does not assign a product license",
+  "consumer": "architecture record, adapter/module implementation and future attribution inventory; direct-source adoption only after target interface selected"
+}
