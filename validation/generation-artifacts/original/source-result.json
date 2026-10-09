@@ -1,0 +1,2676 @@
+{
+  "ok": true,
+  "trace_id": "trace_0c15f26b-8245-4132-9b47-82efc9f0d4f0",
+  "operation": "inspect_sources",
+  "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+  "source_bundle": {
+    "record_type": "source_bundle_result",
+    "status": "partial",
+    "bundle": {
+      "model_type": "SourceBundle",
+      "sources": [
+        {
+          "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+          "input_order": 0,
+          "kind": "file",
+          "locator": "validation/fixtures/节能试点材料.md",
+          "raw_text": null,
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [
+            "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+          ],
+          "content_sha256": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+          "priority_rank": null,
+          "claims": []
+        }
+      ],
+      "source_priority_policy": {
+        "status": "unresolved",
+        "decision_id": "DEC-004",
+        "task_id": "TASK-DEC-004",
+        "precedence_source_ids": [],
+        "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+      },
+      "dedup_policy": {
+        "mode": "hash_candidates_only",
+        "keep_all_sources": true
+      },
+      "duplicate_groups": [],
+      "conflicts": []
+    },
+    "coverage": [
+      {
+        "feature": "source_identity",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "source_anchors",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "priority",
+        "status": "partial",
+        "reason": "DEC-004尚未执行。"
+      },
+      {
+        "feature": "conflict_detection",
+        "status": "unsupported",
+        "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+      },
+      {
+        "feature": "deduplication",
+        "status": "partial",
+        "reason": "仅SHA候选，不删除来源。"
+      }
+    ],
+    "errors": []
+  },
+  "documents": [
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "document": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "# 校园节能试点：示例数据与实施方案\n\n本文全部数据均为演示系统验证用的示例，不是某所学校的真实观测、投资承诺或已经实现的节能效果。请面向学校管理团队组织约10页中文汇报，保留数据性质和单位。不要把目标写成结果。\n\n## 核心建议\n\n先建立清楚的用电基线，再小范围改造与测量，确认安全和使用体验后再考虑扩大。节能需要设备、使用方式和管理流程共同配合。单看月度总量不能证明改造产生了因果效果。\n\n## 试点范围\n\n试点覆盖教学楼A、教学楼B、图书馆和体育馆。比较区间统一为一个示例月份。教学楼照明与公共区域控制作为首批工作；实验室、消防和应急照明不进入自动断电范围。范围扩大前必须重新检查安全要求。\n\n## 示例基线与目标\n\n以下表格中的基线和目标仅用于说明数据组织方法，单位统一为千瓦时。目标是计划值，尚未实现；不能作为改造后的实际测量。\n\n| 区域 | 示例月基线 | 试点月目标 |\n| --- | --- | --- |\n| 教学楼A | 12000 | 10000 |\n| 教学楼B | 9000 | 8000 |\n| 图书馆 | 8000 | 7000 |\n| 体育馆 | 6000 | 5500 |\n\n## 数据解读\n\n可用原生柱状图并列展示各区域的示例基线与目标。图表的纵轴必须标为千瓦时，系列名称必须明确区分基线和目标。总用电受开放时间、人员规模、天气和活动安排影响，不能只凭两个数值认定节能率或项目收益。本文没有提供真实节能率和投资回收期。\n\n## 改造措施\n\n照明措施包括检查空置时段、分区控制、自然采光配合和维护故障灯具。管理措施包括巡查记录、异常反馈和负责人确认。自动控制应允许人工覆盖，并保留应急照明。设备更换需要结合现有设施实际情况作出选择，不能从示例数据直接推定品牌或采购价格。\n\n## 实施安排\n\n准备阶段完成设施清单、基线记录和安全检查。试点阶段按区域逐步实施，保留原设置以便恢复。观察阶段对比相同口径的数据，并记录开放时长与活动变化。复盘阶段同时检查能耗、照明体验、安全反馈和维护负担，再决定继续、调整或停止。\n\n## 责任分工\n\n后勤团队负责设施清单、维护与安全检查。使用部门确认开放时间、特殊活动和现场体验。数据负责人统一统计口径并保留原始记录。项目协调人组织复盘，确认每项问题的处理人和关闭依据。所有角色是建议分工，不是已经设立的组织。\n\n## 风险与限制\n\n设备改造可能影响照明体验；过度自动化可能造成误关；统计口径变化可能制造虚假的节能改善。应建立人工恢复方式、特殊活动例外和一致的数据记录。缺少真实对照与现场测量时，应保持结论为待验证，不对外宣称节能效果已实现。\n\n## 验证与下一步\n\n试点结束后应检查设施安全、可用性、能耗记录与使用反馈。数据报告须追溯到原始记录，图表须保留可编辑的数据，任何估计值均须标注。下一步是确认现场范围与负责人，补齐真实基线，然后执行可恢复的试点。本文仅用于生成系统验证，不替代现场实施审批。\n",
+        "source": {
+          "kind": "asset",
+          "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+        },
+        "raw_asset_refs": [
+          "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+        ],
+        "status": "parsed",
+        "document": {
+          "model_type": "TextDocumentModel",
+          "source": {
+            "kind": "asset",
+            "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+          },
+          "blocks": [
+            {
+              "kind": "heading",
+              "block_index": 0,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 0,
+                "end_offset": 19,
+                "offset_unit": "unicode_code_point",
+                "line_start": 1,
+                "line_end": 1
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "校园节能试点：示例数据与实施方案",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 0,
+                    "end_offset": 19,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 1,
+                    "line_end": 1
+                  }
+                }
+              ],
+              "level": 1
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 1,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 20,
+                "end_offset": 107,
+                "offset_unit": "unicode_code_point",
+                "line_start": 3,
+                "line_end": 3
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "本文全部数据均为演示系统验证用的示例，不是某所学校的真实观测、投资承诺或已经实现的节能效果。请面向学校管理团队组织约10页中文汇报，保留数据性质和单位。不要把目标写成结果。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 20,
+                    "end_offset": 107,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 3,
+                    "line_end": 3
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "block_index": 2,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 108,
+                "end_offset": 116,
+                "offset_unit": "unicode_code_point",
+                "line_start": 5,
+                "line_end": 5
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "核心建议",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 108,
+                    "end_offset": 116,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 5,
+                    "line_end": 5
+                  }
+                }
+              ],
+              "level": 2
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 3,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 117,
+                "end_offset": 196,
+                "offset_unit": "unicode_code_point",
+                "line_start": 7,
+                "line_end": 7
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "先建立清楚的用电基线，再小范围改造与测量，确认安全和使用体验后再考虑扩大。节能需要设备、使用方式和管理流程共同配合。单看月度总量不能证明改造产生了因果效果。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 117,
+                    "end_offset": 196,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 7,
+                    "line_end": 7
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "block_index": 4,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 197,
+                "end_offset": 205,
+                "offset_unit": "unicode_code_point",
+                "line_start": 9,
+                "line_end": 9
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "试点范围",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 197,
+                    "end_offset": 205,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 9,
+                    "line_end": 9
+                  }
+                }
+              ],
+              "level": 2
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 5,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 206,
+                "end_offset": 299,
+                "offset_unit": "unicode_code_point",
+                "line_start": 11,
+                "line_end": 11
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "试点覆盖教学楼A、教学楼B、图书馆和体育馆。比较区间统一为一个示例月份。教学楼照明与公共区域控制作为首批工作；实验室、消防和应急照明不进入自动断电范围。范围扩大前必须重新检查安全要求。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 206,
+                    "end_offset": 299,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 11,
+                    "line_end": 11
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "block_index": 6,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 300,
+                "end_offset": 311,
+                "offset_unit": "unicode_code_point",
+                "line_start": 13,
+                "line_end": 13
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "示例基线与目标",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 300,
+                    "end_offset": 311,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 13,
+                    "line_end": 13
+                  }
+                }
+              ],
+              "level": 2
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 7,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 312,
+                "end_offset": 370,
+                "offset_unit": "unicode_code_point",
+                "line_start": 15,
+                "line_end": 15
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "以下表格中的基线和目标仅用于说明数据组织方法，单位统一为千瓦时。目标是计划值，尚未实现；不能作为改造后的实际测量。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 312,
+                    "end_offset": 370,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 15,
+                    "line_end": 15
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "table",
+              "block_index": 8,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 371,
+                "end_offset": 506,
+                "offset_unit": "unicode_code_point",
+                "line_start": 17,
+                "line_end": 22
+              },
+              "header": [
+                {
+                  "content": [
+                    {
+                      "kind": "text",
+                      "text": "区域",
+                      "source_location": {
+                        "source_ref": "raw_markdown",
+                        "start_offset": 371,
+                        "end_offset": 394,
+                        "offset_unit": "unicode_code_point",
+                        "line_start": 17,
+                        "line_end": 17
+                      }
+                    }
+                  ],
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 371,
+                    "end_offset": 394,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 17,
+                    "line_end": 17
+                  }
+                },
+                {
+                  "content": [
+                    {
+                      "kind": "text",
+                      "text": "示例月基线",
+                      "source_location": {
+                        "source_ref": "raw_markdown",
+                        "start_offset": 371,
+                        "end_offset": 394,
+                        "offset_unit": "unicode_code_point",
+                        "line_start": 17,
+                        "line_end": 17
+                      }
+                    }
+                  ],
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 371,
+                    "end_offset": 394,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 17,
+                    "line_end": 17
+                  }
+                },
+                {
+                  "content": [
+                    {
+                      "kind": "text",
+                      "text": "试点月目标",
+                      "source_location": {
+                        "source_ref": "raw_markdown",
+                        "start_offset": 371,
+                        "end_offset": 394,
+                        "offset_unit": "unicode_code_point",
+                        "line_start": 17,
+                        "line_end": 17
+                      }
+                    }
+                  ],
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 371,
+                    "end_offset": 394,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 17,
+                    "line_end": 17
+                  }
+                }
+              ],
+              "alignments": [
+                "default",
+                "default",
+                "default"
+              ],
+              "rows": [
+                [
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "教学楼A",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 414,
+                          "end_offset": 439,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 19,
+                          "line_end": 19
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 414,
+                      "end_offset": 439,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 19,
+                      "line_end": 19
+                    }
+                  },
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "12000",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 414,
+                          "end_offset": 439,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 19,
+                          "line_end": 19
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 414,
+                      "end_offset": 439,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 19,
+                      "line_end": 19
+                    }
+                  },
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "10000",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 414,
+                          "end_offset": 439,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 19,
+                          "line_end": 19
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 414,
+                      "end_offset": 439,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 19,
+                      "line_end": 19
+                    }
+                  }
+                ],
+                [
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "教学楼B",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 439,
+                          "end_offset": 462,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 20,
+                          "line_end": 20
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 439,
+                      "end_offset": 462,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 20,
+                      "line_end": 20
+                    }
+                  },
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "9000",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 439,
+                          "end_offset": 462,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 20,
+                          "line_end": 20
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 439,
+                      "end_offset": 462,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 20,
+                      "line_end": 20
+                    }
+                  },
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "8000",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 439,
+                          "end_offset": 462,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 20,
+                          "line_end": 20
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 439,
+                      "end_offset": 462,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 20,
+                      "line_end": 20
+                    }
+                  }
+                ],
+                [
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "图书馆",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 462,
+                          "end_offset": 484,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 21,
+                          "line_end": 21
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 462,
+                      "end_offset": 484,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 21,
+                      "line_end": 21
+                    }
+                  },
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "8000",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 462,
+                          "end_offset": 484,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 21,
+                          "line_end": 21
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 462,
+                      "end_offset": 484,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 21,
+                      "line_end": 21
+                    }
+                  },
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "7000",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 462,
+                          "end_offset": 484,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 21,
+                          "line_end": 21
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 462,
+                      "end_offset": 484,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 21,
+                      "line_end": 21
+                    }
+                  }
+                ],
+                [
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "体育馆",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 484,
+                          "end_offset": 506,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 22,
+                          "line_end": 22
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 484,
+                      "end_offset": 506,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 22,
+                      "line_end": 22
+                    }
+                  },
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "6000",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 484,
+                          "end_offset": 506,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 22,
+                          "line_end": 22
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 484,
+                      "end_offset": 506,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 22,
+                      "line_end": 22
+                    }
+                  },
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "5500",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 484,
+                          "end_offset": 506,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 22,
+                          "line_end": 22
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 484,
+                      "end_offset": 506,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 22,
+                      "line_end": 22
+                    }
+                  }
+                ]
+              ]
+            },
+            {
+              "kind": "heading",
+              "block_index": 9,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 507,
+                "end_offset": 515,
+                "offset_unit": "unicode_code_point",
+                "line_start": 24,
+                "line_end": 24
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "数据解读",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 507,
+                    "end_offset": 515,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 24,
+                    "line_end": 24
+                  }
+                }
+              ],
+              "level": 2
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 10,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 516,
+                "end_offset": 630,
+                "offset_unit": "unicode_code_point",
+                "line_start": 26,
+                "line_end": 26
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "可用原生柱状图并列展示各区域的示例基线与目标。图表的纵轴必须标为千瓦时，系列名称必须明确区分基线和目标。总用电受开放时间、人员规模、天气和活动安排影响，不能只凭两个数值认定节能率或项目收益。本文没有提供真实节能率和投资回收期。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 516,
+                    "end_offset": 630,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 26,
+                    "line_end": 26
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "block_index": 11,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 631,
+                "end_offset": 639,
+                "offset_unit": "unicode_code_point",
+                "line_start": 28,
+                "line_end": 28
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "改造措施",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 631,
+                    "end_offset": 639,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 28,
+                    "line_end": 28
+                  }
+                }
+              ],
+              "level": 2
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 12,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 640,
+                "end_offset": 755,
+                "offset_unit": "unicode_code_point",
+                "line_start": 30,
+                "line_end": 30
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "照明措施包括检查空置时段、分区控制、自然采光配合和维护故障灯具。管理措施包括巡查记录、异常反馈和负责人确认。自动控制应允许人工覆盖，并保留应急照明。设备更换需要结合现有设施实际情况作出选择，不能从示例数据直接推定品牌或采购价格。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 640,
+                    "end_offset": 755,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 30,
+                    "line_end": 30
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "block_index": 13,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 756,
+                "end_offset": 764,
+                "offset_unit": "unicode_code_point",
+                "line_start": 32,
+                "line_end": 32
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "实施安排",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 756,
+                    "end_offset": 764,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 32,
+                    "line_end": 32
+                  }
+                }
+              ],
+              "level": 2
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 14,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 765,
+                "end_offset": 874,
+                "offset_unit": "unicode_code_point",
+                "line_start": 34,
+                "line_end": 34
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "准备阶段完成设施清单、基线记录和安全检查。试点阶段按区域逐步实施，保留原设置以便恢复。观察阶段对比相同口径的数据，并记录开放时长与活动变化。复盘阶段同时检查能耗、照明体验、安全反馈和维护负担，再决定继续、调整或停止。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 765,
+                    "end_offset": 874,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 34,
+                    "line_end": 34
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "block_index": 15,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 875,
+                "end_offset": 883,
+                "offset_unit": "unicode_code_point",
+                "line_start": 36,
+                "line_end": 36
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "责任分工",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 875,
+                    "end_offset": 883,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 36,
+                    "line_end": 36
+                  }
+                }
+              ],
+              "level": 2
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 16,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 884,
+                "end_offset": 990,
+                "offset_unit": "unicode_code_point",
+                "line_start": 38,
+                "line_end": 38
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "后勤团队负责设施清单、维护与安全检查。使用部门确认开放时间、特殊活动和现场体验。数据负责人统一统计口径并保留原始记录。项目协调人组织复盘，确认每项问题的处理人和关闭依据。所有角色是建议分工，不是已经设立的组织。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 884,
+                    "end_offset": 990,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 38,
+                    "line_end": 38
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "block_index": 17,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 991,
+                "end_offset": 1000,
+                "offset_unit": "unicode_code_point",
+                "line_start": 40,
+                "line_end": 40
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "风险与限制",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 991,
+                    "end_offset": 1000,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 40,
+                    "line_end": 40
+                  }
+                }
+              ],
+              "level": 2
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 18,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 1001,
+                "end_offset": 1106,
+                "offset_unit": "unicode_code_point",
+                "line_start": 42,
+                "line_end": 42
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "设备改造可能影响照明体验；过度自动化可能造成误关；统计口径变化可能制造虚假的节能改善。应建立人工恢复方式、特殊活动例外和一致的数据记录。缺少真实对照与现场测量时，应保持结论为待验证，不对外宣称节能效果已实现。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 1001,
+                    "end_offset": 1106,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 42,
+                    "line_end": 42
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "heading",
+              "block_index": 19,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 1107,
+                "end_offset": 1117,
+                "offset_unit": "unicode_code_point",
+                "line_start": 44,
+                "line_end": 44
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "验证与下一步",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 1107,
+                    "end_offset": 1117,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 44,
+                    "line_end": 44
+                  }
+                }
+              ],
+              "level": 2
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 20,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 1118,
+                "end_offset": 1236,
+                "offset_unit": "unicode_code_point",
+                "line_start": 46,
+                "line_end": 46
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "试点结束后应检查设施安全、可用性、能耗记录与使用反馈。数据报告须追溯到原始记录，图表须保留可编辑的数据，任何估计值均须标注。下一步是确认现场范围与负责人，补齐真实基线，然后执行可恢复的试点。本文仅用于生成系统验证，不替代现场实施审批。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 1118,
+                    "end_offset": 1236,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 46,
+                    "line_end": 46
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans."
+    }
+  ],
+  "evidence": [
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:0:19",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 0,
+          "start_char": 0,
+          "end_char": 19,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "# 校园节能试点：示例数据与实施方案\n",
+      "content": "# 校园节能试点：示例数据与实施方案\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 0,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 0,
+          "end_offset": 19,
+          "offset_unit": "unicode_code_point",
+          "line_start": 1,
+          "line_end": 1
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "校园节能试点：示例数据与实施方案",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 0,
+              "end_offset": 19,
+              "offset_unit": "unicode_code_point",
+              "line_start": 1,
+              "line_end": 1
+            }
+          }
+        ],
+        "level": 1
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_beb36677-c4b2-44c8-93c6-ccff0f377b3c"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 1,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:20:107",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 1,
+          "start_char": 20,
+          "end_char": 107,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "本文全部数据均为演示系统验证用的示例，不是某所学校的真实观测、投资承诺或已经实现的节能效果。请面向学校管理团队组织约10页中文汇报，保留数据性质和单位。不要把目标写成结果。\n",
+      "content": "本文全部数据均为演示系统验证用的示例，不是某所学校的真实观测、投资承诺或已经实现的节能效果。请面向学校管理团队组织约10页中文汇报，保留数据性质和单位。不要把目标写成结果。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 1,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 20,
+          "end_offset": 107,
+          "offset_unit": "unicode_code_point",
+          "line_start": 3,
+          "line_end": 3
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "本文全部数据均为演示系统验证用的示例，不是某所学校的真实观测、投资承诺或已经实现的节能效果。请面向学校管理团队组织约10页中文汇报，保留数据性质和单位。不要把目标写成结果。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 20,
+              "end_offset": 107,
+              "offset_unit": "unicode_code_point",
+              "line_start": 3,
+              "line_end": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_f002b6e0-bc93-4682-9452-f1aa8373d6fa"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 2,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:108:116",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 2,
+          "start_char": 108,
+          "end_char": 116,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "## 核心建议\n",
+      "content": "## 核心建议\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 2,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 108,
+          "end_offset": 116,
+          "offset_unit": "unicode_code_point",
+          "line_start": 5,
+          "line_end": 5
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "核心建议",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 108,
+              "end_offset": 116,
+              "offset_unit": "unicode_code_point",
+              "line_start": 5,
+              "line_end": 5
+            }
+          }
+        ],
+        "level": 2
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_ec229098-0a7a-4954-94ec-6763e028d16f"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 3,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:117:196",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 3,
+          "start_char": 117,
+          "end_char": 196,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "先建立清楚的用电基线，再小范围改造与测量，确认安全和使用体验后再考虑扩大。节能需要设备、使用方式和管理流程共同配合。单看月度总量不能证明改造产生了因果效果。\n",
+      "content": "先建立清楚的用电基线，再小范围改造与测量，确认安全和使用体验后再考虑扩大。节能需要设备、使用方式和管理流程共同配合。单看月度总量不能证明改造产生了因果效果。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 3,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 117,
+          "end_offset": 196,
+          "offset_unit": "unicode_code_point",
+          "line_start": 7,
+          "line_end": 7
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "先建立清楚的用电基线，再小范围改造与测量，确认安全和使用体验后再考虑扩大。节能需要设备、使用方式和管理流程共同配合。单看月度总量不能证明改造产生了因果效果。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 117,
+              "end_offset": 196,
+              "offset_unit": "unicode_code_point",
+              "line_start": 7,
+              "line_end": 7
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_fb653380-d447-46ef-93a4-d541670407d0"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 4,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:197:205",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 4,
+          "start_char": 197,
+          "end_char": 205,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "## 试点范围\n",
+      "content": "## 试点范围\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 4,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 197,
+          "end_offset": 205,
+          "offset_unit": "unicode_code_point",
+          "line_start": 9,
+          "line_end": 9
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "试点范围",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 197,
+              "end_offset": 205,
+              "offset_unit": "unicode_code_point",
+              "line_start": 9,
+              "line_end": 9
+            }
+          }
+        ],
+        "level": 2
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_e3c959e4-7e86-488c-8319-6ee5934e2e0c"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 5,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:206:299",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 5,
+          "start_char": 206,
+          "end_char": 299,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "试点覆盖教学楼A、教学楼B、图书馆和体育馆。比较区间统一为一个示例月份。教学楼照明与公共区域控制作为首批工作；实验室、消防和应急照明不进入自动断电范围。范围扩大前必须重新检查安全要求。\n",
+      "content": "试点覆盖教学楼A、教学楼B、图书馆和体育馆。比较区间统一为一个示例月份。教学楼照明与公共区域控制作为首批工作；实验室、消防和应急照明不进入自动断电范围。范围扩大前必须重新检查安全要求。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 5,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 206,
+          "end_offset": 299,
+          "offset_unit": "unicode_code_point",
+          "line_start": 11,
+          "line_end": 11
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "试点覆盖教学楼A、教学楼B、图书馆和体育馆。比较区间统一为一个示例月份。教学楼照明与公共区域控制作为首批工作；实验室、消防和应急照明不进入自动断电范围。范围扩大前必须重新检查安全要求。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 206,
+              "end_offset": 299,
+              "offset_unit": "unicode_code_point",
+              "line_start": 11,
+              "line_end": 11
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_f5c77227-162d-4b11-810a-da4fcd977b13"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 6,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:300:311",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 6,
+          "start_char": 300,
+          "end_char": 311,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "## 示例基线与目标\n",
+      "content": "## 示例基线与目标\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 6,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 300,
+          "end_offset": 311,
+          "offset_unit": "unicode_code_point",
+          "line_start": 13,
+          "line_end": 13
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "示例基线与目标",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 300,
+              "end_offset": 311,
+              "offset_unit": "unicode_code_point",
+              "line_start": 13,
+              "line_end": 13
+            }
+          }
+        ],
+        "level": 2
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_4b154e79-e993-4c0e-a0b6-1032055ddf8a"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 7,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:312:370",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 7,
+          "start_char": 312,
+          "end_char": 370,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "以下表格中的基线和目标仅用于说明数据组织方法，单位统一为千瓦时。目标是计划值，尚未实现；不能作为改造后的实际测量。\n",
+      "content": "以下表格中的基线和目标仅用于说明数据组织方法，单位统一为千瓦时。目标是计划值，尚未实现；不能作为改造后的实际测量。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 7,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 312,
+          "end_offset": 370,
+          "offset_unit": "unicode_code_point",
+          "line_start": 15,
+          "line_end": 15
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "以下表格中的基线和目标仅用于说明数据组织方法，单位统一为千瓦时。目标是计划值，尚未实现；不能作为改造后的实际测量。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 312,
+              "end_offset": 370,
+              "offset_unit": "unicode_code_point",
+              "line_start": 15,
+              "line_end": 15
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_b5b70e95-81ea-46bb-9cdc-db32a4b177e0"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 8,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:371:506",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 8,
+          "start_char": 371,
+          "end_char": 506,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "| 区域 | 示例月基线 | 试点月目标 |\n| --- | --- | --- |\n| 教学楼A | 12000 | 10000 |\n| 教学楼B | 9000 | 8000 |\n| 图书馆 | 8000 | 7000 |\n| 体育馆 | 6000 | 5500 |\n",
+      "content": "| 区域 | 示例月基线 | 试点月目标 |\n| --- | --- | --- |\n| 教学楼A | 12000 | 10000 |\n| 教学楼B | 9000 | 8000 |\n| 图书馆 | 8000 | 7000 |\n| 体育馆 | 6000 | 5500 |\n",
+      "confidence": null,
+      "data": {
+        "kind": "table",
+        "block_index": 8,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 371,
+          "end_offset": 506,
+          "offset_unit": "unicode_code_point",
+          "line_start": 17,
+          "line_end": 22
+        },
+        "header": [
+          {
+            "content": [
+              {
+                "kind": "text",
+                "text": "区域",
+                "source_location": {
+                  "source_ref": "raw_markdown",
+                  "start_offset": 371,
+                  "end_offset": 394,
+                  "offset_unit": "unicode_code_point",
+                  "line_start": 17,
+                  "line_end": 17
+                }
+              }
+            ],
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 371,
+              "end_offset": 394,
+              "offset_unit": "unicode_code_point",
+              "line_start": 17,
+              "line_end": 17
+            }
+          },
+          {
+            "content": [
+              {
+                "kind": "text",
+                "text": "示例月基线",
+                "source_location": {
+                  "source_ref": "raw_markdown",
+                  "start_offset": 371,
+                  "end_offset": 394,
+                  "offset_unit": "unicode_code_point",
+                  "line_start": 17,
+                  "line_end": 17
+                }
+              }
+            ],
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 371,
+              "end_offset": 394,
+              "offset_unit": "unicode_code_point",
+              "line_start": 17,
+              "line_end": 17
+            }
+          },
+          {
+            "content": [
+              {
+                "kind": "text",
+                "text": "试点月目标",
+                "source_location": {
+                  "source_ref": "raw_markdown",
+                  "start_offset": 371,
+                  "end_offset": 394,
+                  "offset_unit": "unicode_code_point",
+                  "line_start": 17,
+                  "line_end": 17
+                }
+              }
+            ],
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 371,
+              "end_offset": 394,
+              "offset_unit": "unicode_code_point",
+              "line_start": 17,
+              "line_end": 17
+            }
+          }
+        ],
+        "alignments": [
+          "default",
+          "default",
+          "default"
+        ],
+        "rows": [
+          [
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "教学楼A",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 414,
+                    "end_offset": 439,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 19,
+                    "line_end": 19
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 414,
+                "end_offset": 439,
+                "offset_unit": "unicode_code_point",
+                "line_start": 19,
+                "line_end": 19
+              }
+            },
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "12000",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 414,
+                    "end_offset": 439,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 19,
+                    "line_end": 19
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 414,
+                "end_offset": 439,
+                "offset_unit": "unicode_code_point",
+                "line_start": 19,
+                "line_end": 19
+              }
+            },
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "10000",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 414,
+                    "end_offset": 439,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 19,
+                    "line_end": 19
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 414,
+                "end_offset": 439,
+                "offset_unit": "unicode_code_point",
+                "line_start": 19,
+                "line_end": 19
+              }
+            }
+          ],
+          [
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "教学楼B",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 439,
+                    "end_offset": 462,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 20,
+                    "line_end": 20
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 439,
+                "end_offset": 462,
+                "offset_unit": "unicode_code_point",
+                "line_start": 20,
+                "line_end": 20
+              }
+            },
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "9000",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 439,
+                    "end_offset": 462,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 20,
+                    "line_end": 20
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 439,
+                "end_offset": 462,
+                "offset_unit": "unicode_code_point",
+                "line_start": 20,
+                "line_end": 20
+              }
+            },
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "8000",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 439,
+                    "end_offset": 462,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 20,
+                    "line_end": 20
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 439,
+                "end_offset": 462,
+                "offset_unit": "unicode_code_point",
+                "line_start": 20,
+                "line_end": 20
+              }
+            }
+          ],
+          [
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "图书馆",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 462,
+                    "end_offset": 484,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 21,
+                    "line_end": 21
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 462,
+                "end_offset": 484,
+                "offset_unit": "unicode_code_point",
+                "line_start": 21,
+                "line_end": 21
+              }
+            },
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "8000",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 462,
+                    "end_offset": 484,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 21,
+                    "line_end": 21
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 462,
+                "end_offset": 484,
+                "offset_unit": "unicode_code_point",
+                "line_start": 21,
+                "line_end": 21
+              }
+            },
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "7000",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 462,
+                    "end_offset": 484,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 21,
+                    "line_end": 21
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 462,
+                "end_offset": 484,
+                "offset_unit": "unicode_code_point",
+                "line_start": 21,
+                "line_end": 21
+              }
+            }
+          ],
+          [
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "体育馆",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 484,
+                    "end_offset": 506,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 22,
+                    "line_end": 22
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 484,
+                "end_offset": 506,
+                "offset_unit": "unicode_code_point",
+                "line_start": 22,
+                "line_end": 22
+              }
+            },
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "6000",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 484,
+                    "end_offset": 506,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 22,
+                    "line_end": 22
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 484,
+                "end_offset": 506,
+                "offset_unit": "unicode_code_point",
+                "line_start": 22,
+                "line_end": 22
+              }
+            },
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "5500",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 484,
+                    "end_offset": 506,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 22,
+                    "line_end": 22
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 484,
+                "end_offset": 506,
+                "offset_unit": "unicode_code_point",
+                "line_start": 22,
+                "line_end": 22
+              }
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 9,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:507:515",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 9,
+          "start_char": 507,
+          "end_char": 515,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "## 数据解读\n",
+      "content": "## 数据解读\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 9,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 507,
+          "end_offset": 515,
+          "offset_unit": "unicode_code_point",
+          "line_start": 24,
+          "line_end": 24
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "数据解读",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 507,
+              "end_offset": 515,
+              "offset_unit": "unicode_code_point",
+              "line_start": 24,
+              "line_end": 24
+            }
+          }
+        ],
+        "level": 2
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_4744b9eb-d0b9-477f-8b09-16124000baba"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 10,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:516:630",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 10,
+          "start_char": 516,
+          "end_char": 630,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "可用原生柱状图并列展示各区域的示例基线与目标。图表的纵轴必须标为千瓦时，系列名称必须明确区分基线和目标。总用电受开放时间、人员规模、天气和活动安排影响，不能只凭两个数值认定节能率或项目收益。本文没有提供真实节能率和投资回收期。\n",
+      "content": "可用原生柱状图并列展示各区域的示例基线与目标。图表的纵轴必须标为千瓦时，系列名称必须明确区分基线和目标。总用电受开放时间、人员规模、天气和活动安排影响，不能只凭两个数值认定节能率或项目收益。本文没有提供真实节能率和投资回收期。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 10,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 516,
+          "end_offset": 630,
+          "offset_unit": "unicode_code_point",
+          "line_start": 26,
+          "line_end": 26
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "可用原生柱状图并列展示各区域的示例基线与目标。图表的纵轴必须标为千瓦时，系列名称必须明确区分基线和目标。总用电受开放时间、人员规模、天气和活动安排影响，不能只凭两个数值认定节能率或项目收益。本文没有提供真实节能率和投资回收期。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 516,
+              "end_offset": 630,
+              "offset_unit": "unicode_code_point",
+              "line_start": 26,
+              "line_end": 26
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 11,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:631:639",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 11,
+          "start_char": 631,
+          "end_char": 639,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "## 改造措施\n",
+      "content": "## 改造措施\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 11,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 631,
+          "end_offset": 639,
+          "offset_unit": "unicode_code_point",
+          "line_start": 28,
+          "line_end": 28
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "改造措施",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 631,
+              "end_offset": 639,
+              "offset_unit": "unicode_code_point",
+              "line_start": 28,
+              "line_end": 28
+            }
+          }
+        ],
+        "level": 2
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_e83ca342-86a9-40bc-a018-f4f2c0235e75"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 12,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:640:755",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 12,
+          "start_char": 640,
+          "end_char": 755,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "照明措施包括检查空置时段、分区控制、自然采光配合和维护故障灯具。管理措施包括巡查记录、异常反馈和负责人确认。自动控制应允许人工覆盖，并保留应急照明。设备更换需要结合现有设施实际情况作出选择，不能从示例数据直接推定品牌或采购价格。\n",
+      "content": "照明措施包括检查空置时段、分区控制、自然采光配合和维护故障灯具。管理措施包括巡查记录、异常反馈和负责人确认。自动控制应允许人工覆盖，并保留应急照明。设备更换需要结合现有设施实际情况作出选择，不能从示例数据直接推定品牌或采购价格。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 12,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 640,
+          "end_offset": 755,
+          "offset_unit": "unicode_code_point",
+          "line_start": 30,
+          "line_end": 30
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "照明措施包括检查空置时段、分区控制、自然采光配合和维护故障灯具。管理措施包括巡查记录、异常反馈和负责人确认。自动控制应允许人工覆盖，并保留应急照明。设备更换需要结合现有设施实际情况作出选择，不能从示例数据直接推定品牌或采购价格。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 640,
+              "end_offset": 755,
+              "offset_unit": "unicode_code_point",
+              "line_start": 30,
+              "line_end": 30
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_5a1bdd2f-6c7b-42ab-bb75-7c2542d6e2e1"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 13,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:756:764",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 13,
+          "start_char": 756,
+          "end_char": 764,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "## 实施安排\n",
+      "content": "## 实施安排\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 13,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 756,
+          "end_offset": 764,
+          "offset_unit": "unicode_code_point",
+          "line_start": 32,
+          "line_end": 32
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "实施安排",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 756,
+              "end_offset": 764,
+              "offset_unit": "unicode_code_point",
+              "line_start": 32,
+              "line_end": 32
+            }
+          }
+        ],
+        "level": 2
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_4b548541-cdd4-4b39-844f-b241f4aee7c0"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 14,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:765:874",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 14,
+          "start_char": 765,
+          "end_char": 874,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "准备阶段完成设施清单、基线记录和安全检查。试点阶段按区域逐步实施，保留原设置以便恢复。观察阶段对比相同口径的数据，并记录开放时长与活动变化。复盘阶段同时检查能耗、照明体验、安全反馈和维护负担，再决定继续、调整或停止。\n",
+      "content": "准备阶段完成设施清单、基线记录和安全检查。试点阶段按区域逐步实施，保留原设置以便恢复。观察阶段对比相同口径的数据，并记录开放时长与活动变化。复盘阶段同时检查能耗、照明体验、安全反馈和维护负担，再决定继续、调整或停止。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 14,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 765,
+          "end_offset": 874,
+          "offset_unit": "unicode_code_point",
+          "line_start": 34,
+          "line_end": 34
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "准备阶段完成设施清单、基线记录和安全检查。试点阶段按区域逐步实施，保留原设置以便恢复。观察阶段对比相同口径的数据，并记录开放时长与活动变化。复盘阶段同时检查能耗、照明体验、安全反馈和维护负担，再决定继续、调整或停止。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 765,
+              "end_offset": 874,
+              "offset_unit": "unicode_code_point",
+              "line_start": 34,
+              "line_end": 34
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_d449b4dc-e2a9-4fb1-a5ec-fbe282042601"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 15,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:875:883",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 15,
+          "start_char": 875,
+          "end_char": 883,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "## 责任分工\n",
+      "content": "## 责任分工\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 15,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 875,
+          "end_offset": 883,
+          "offset_unit": "unicode_code_point",
+          "line_start": 36,
+          "line_end": 36
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "责任分工",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 875,
+              "end_offset": 883,
+              "offset_unit": "unicode_code_point",
+              "line_start": 36,
+              "line_end": 36
+            }
+          }
+        ],
+        "level": 2
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_23cdd550-70f1-41f9-88a5-06c86b3c0313"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 16,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:884:990",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 16,
+          "start_char": 884,
+          "end_char": 990,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "后勤团队负责设施清单、维护与安全检查。使用部门确认开放时间、特殊活动和现场体验。数据负责人统一统计口径并保留原始记录。项目协调人组织复盘，确认每项问题的处理人和关闭依据。所有角色是建议分工，不是已经设立的组织。\n",
+      "content": "后勤团队负责设施清单、维护与安全检查。使用部门确认开放时间、特殊活动和现场体验。数据负责人统一统计口径并保留原始记录。项目协调人组织复盘，确认每项问题的处理人和关闭依据。所有角色是建议分工，不是已经设立的组织。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 16,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 884,
+          "end_offset": 990,
+          "offset_unit": "unicode_code_point",
+          "line_start": 38,
+          "line_end": 38
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "后勤团队负责设施清单、维护与安全检查。使用部门确认开放时间、特殊活动和现场体验。数据负责人统一统计口径并保留原始记录。项目协调人组织复盘，确认每项问题的处理人和关闭依据。所有角色是建议分工，不是已经设立的组织。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 884,
+              "end_offset": 990,
+              "offset_unit": "unicode_code_point",
+              "line_start": 38,
+              "line_end": 38
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_0a729c6d-3810-477e-887c-3c42842d34eb"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 17,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:991:1000",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 17,
+          "start_char": 991,
+          "end_char": 1000,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "## 风险与限制\n",
+      "content": "## 风险与限制\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 17,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 991,
+          "end_offset": 1000,
+          "offset_unit": "unicode_code_point",
+          "line_start": 40,
+          "line_end": 40
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "风险与限制",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 991,
+              "end_offset": 1000,
+              "offset_unit": "unicode_code_point",
+              "line_start": 40,
+              "line_end": 40
+            }
+          }
+        ],
+        "level": 2
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_be54dbcb-a86f-4d98-b178-d306d93aafd4"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 18,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:1001:1106",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 18,
+          "start_char": 1001,
+          "end_char": 1106,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "设备改造可能影响照明体验；过度自动化可能造成误关；统计口径变化可能制造虚假的节能改善。应建立人工恢复方式、特殊活动例外和一致的数据记录。缺少真实对照与现场测量时，应保持结论为待验证，不对外宣称节能效果已实现。\n",
+      "content": "设备改造可能影响照明体验；过度自动化可能造成误关；统计口径变化可能制造虚假的节能改善。应建立人工恢复方式、特殊活动例外和一致的数据记录。缺少真实对照与现场测量时，应保持结论为待验证，不对外宣称节能效果已实现。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 18,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 1001,
+          "end_offset": 1106,
+          "offset_unit": "unicode_code_point",
+          "line_start": 42,
+          "line_end": 42
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "设备改造可能影响照明体验；过度自动化可能造成误关；统计口径变化可能制造虚假的节能改善。应建立人工恢复方式、特殊活动例外和一致的数据记录。缺少真实对照与现场测量时，应保持结论为待验证，不对外宣称节能效果已实现。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 1001,
+              "end_offset": 1106,
+              "offset_unit": "unicode_code_point",
+              "line_start": 42,
+              "line_end": 42
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_11156959-029f-471f-939e-a89f46e544b8"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 19,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:1107:1117",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 19,
+          "start_char": 1107,
+          "end_char": 1117,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "## 验证与下一步\n",
+      "content": "## 验证与下一步\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 19,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 1107,
+          "end_offset": 1117,
+          "offset_unit": "unicode_code_point",
+          "line_start": 44,
+          "line_end": 44
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "验证与下一步",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 1107,
+              "end_offset": 1117,
+              "offset_unit": "unicode_code_point",
+              "line_start": 44,
+              "line_end": 44
+            }
+          }
+        ],
+        "level": 2
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_039f3317-cde9-4994-9908-d350156ec0f8"
+    },
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "source_hash": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 20,
+      "anchor": {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "asset_id": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+        "native_locator": "chars:1118:1236",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 20,
+          "start_char": 1118,
+          "end_char": 1236,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "试点结束后应检查设施安全、可用性、能耗记录与使用反馈。数据报告须追溯到原始记录，图表须保留可编辑的数据，任何估计值均须标注。下一步是确认现场范围与负责人，补齐真实基线，然后执行可恢复的试点。本文仅用于生成系统验证，不替代现场实施审批。\n",
+      "content": "试点结束后应检查设施安全、可用性、能耗记录与使用反馈。数据报告须追溯到原始记录，图表须保留可编辑的数据，任何估计值均须标注。下一步是确认现场范围与负责人，补齐真实基线，然后执行可恢复的试点。本文仅用于生成系统验证，不替代现场实施审批。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 20,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 1118,
+          "end_offset": 1236,
+          "offset_unit": "unicode_code_point",
+          "line_start": 46,
+          "line_end": 46
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "试点结束后应检查设施安全、可用性、能耗记录与使用反馈。数据报告须追溯到原始记录，图表须保留可编辑的数据，任何估计值均须标注。下一步是确认现场范围与负责人，补齐真实基线，然后执行可恢复的试点。本文仅用于生成系统验证，不替代现场实施审批。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 1118,
+              "end_offset": 1236,
+              "offset_unit": "unicode_code_point",
+              "line_start": 46,
+              "line_end": 46
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2",
+      "raw_asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_47d4e1c7-77cb-44e6-b1d1-88b2bd4c3226"
+    }
+  ],
+  "trace": [
+    {
+      "component": "TaskSpec",
+      "requirement_id": "SYS-001",
+      "status": "validated"
+    },
+    {
+      "component": "SchemaRegistry",
+      "requirement_id": "SYS-006",
+      "status": "validated"
+    },
+    {
+      "component": "SourceLoader",
+      "requirement_id": "SYS-003",
+      "status": "partial"
+    },
+    {
+      "component": "EvidenceStore",
+      "requirement_id": "SYS-004",
+      "status": "saved"
+    }
+  ],
+  "boundary": "Source parsing and evidence only; no fact extraction, model routing, PPTX generation or QA acceptance."
+}

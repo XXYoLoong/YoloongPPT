@@ -1,0 +1,129 @@
+{
+  "qa_id": "artifact_c0cf3363-446f-4698-b75c-c1afe45f0793",
+  "status": "partial",
+  "issues": [],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_799ca79c-6d6d-423b-a584-beb31c5ddfe0",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_75e52f03-bd0c-45ca-83d4-490200a7ec3e",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_b66fed4c-dc3f-412d-a454-7957967fd87b",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_21291243-2811-4efb-aa62-8f94e2d7ea98",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_f5110f5e-dc91-490d-b362-deb31a0c7036",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_b2ccc254-d36d-41ec-83b3-75fd9e2172b3",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_5bd1ce6b-b0e7-45cb-8982-77be6289913c",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_c8f16998-dc90-461b-a859-64844ce98618",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_65933b3f-b9f0-4fab-bc95-acdc9c9a8af0",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_37da71e8-ca19-4eb6-92b3-5f7ab556b1c5",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "model_review_executed",
+    "fact_semantic": "model_review_executed",
+    "accessibility": "not_executed",
+    "powerpoint_compatibility": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Deterministic and real image/fact model checks executed; complete decision graph, accessibility, PowerPoint compatibility and revision gates are not proven.",
+  "model_review": {
+    "checked_slide_orders": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "issues": [
+      {
+        "slide_order": 0,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "正文第三行“不要把目标写成结果”是给生成者的指令性语句，直接出现在面向学校管理团队的汇报页面上，语气与汇报对象不符，建议改为面向读者的说明，如“本材料中的目标均为计划值，不代表已实现结果”。",
+        "evidence_refs": [
+          "evidence_f002b6e0-bc93-4682-9452-f1aa8373d6fa"
+        ],
+        "issue_id": "issue_a6a0b4ae-2596-447b-bc9b-5e22b982e48a",
+        "slide_id": "slide_799ca79c-6d6d-423b-a584-beb31c5ddfe0"
+      },
+      {
+        "slide_order": 4,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "表格数值列未在单元格内重复标注单位，仅靠正文“单位统一为千瓦时”说明；在跨页或单独查看表格时单位易丢失，建议在表头或数值后标注“千瓦时”。",
+        "evidence_refs": [
+          "evidence_b5b70e95-81ea-46bb-9cdc-db32a4b177e0",
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ],
+        "issue_id": "issue_8cf3e32f-97eb-45e4-b89a-f56e1a7090a8",
+        "slide_id": "slide_f5110f5e-dc91-490d-b362-deb31a0c7036"
+      },
+      {
+        "slide_order": 5,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "柱状图纵轴刻度标签为纯数字，单位“千瓦时”仅以纵轴标题形式呈现，刻度本身未带单位；虽满足“纵轴标为千瓦时”的要求，但可读性可进一步优化。",
+        "evidence_refs": [
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28"
+        ],
+        "issue_id": "issue_92da6a6e-3e97-4c84-9f4a-e6965cb22b94",
+        "slide_id": "slide_b2ccc254-d36d-41ec-83b3-75fd9e2172b3"
+      }
+    ],
+    "summary": "已逐页检查全部10页（order 0-9）。整体事实与引用一致：示例数据性质、单位千瓦时、目标为计划值尚未实现、不宣称已实现节能效果等关键限定均在相关页面保留；表格与柱状图数值与原文一致（教学楼A 12000/10000、教学楼B 9000/8000、图书馆 8000/7000、体育馆 6000/5500），图表系列名称区分基线与目标，纵轴标注千瓦时。未发现视觉裁切、重叠、错字或严重内容缺失，未发现将目标误写为真实结果的事实性错误。仅存在少量P2级优化点：第1页出现面向生成者的指令性语句、表格与图表单位标注可更显式。限制说明：本次审查基于提供的渲染截图与文本证据，未对原始可编辑文件、字体嵌入或PowerPoint兼容性进行验证。"
+  }
+}

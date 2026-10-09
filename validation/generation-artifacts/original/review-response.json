@@ -1,0 +1,59 @@
+{
+  "checked_slide_orders": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "issues": [
+    {
+      "slide_order": 0,
+      "severity": "P2",
+      "kind": "semantic",
+      "detail": "正文第三条“不要把目标写成结果”是给汇报制作者的写作指令，而非面向学校管理团队的汇报内容，出现在正式页面中语义不当。",
+      "evidence_refs": [
+        "evidence_f002b6e0-bc93-4682-9452-f1aa8373d6fa"
+      ]
+    },
+    {
+      "slide_order": 4,
+      "severity": "P2",
+      "kind": "visual",
+      "detail": "表格中数值未标注千位分隔符，且“单位：千瓦时”仅出现在正文而非表头，读者需回看正文才能确认单位。",
+      "evidence_refs": [
+        "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+      ]
+    },
+    {
+      "slide_order": 5,
+      "severity": "P2",
+      "kind": "visual",
+      "detail": "柱状图纵轴刻度为0至14000，但未在轴旁或图内直接标注“千瓦时”，单位仅出现在正文说明中，图表独立可读性不足。",
+      "evidence_refs": [
+        "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28",
+        "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+      ]
+    },
+    {
+      "slide_order": 9,
+      "severity": "P2",
+      "kind": "semantic",
+      "detail": "页面将“责任分工、风险限制、验证下一步”三部分合并为一页，信息密度较高，但内容与引用一致，未发现事实错误。",
+      "evidence_refs": [
+        "evidence_23cdd550-70f1-41f9-88a5-06c86b3c0313",
+        "evidence_0a729c6d-3810-477e-887c-3c42842d34eb",
+        "evidence_be54dbcb-a86f-4d98-b178-d306d93aafd4",
+        "evidence_11156959-029f-471f-939e-a89f46e544b8",
+        "evidence_039f3317-cde9-4994-9908-d350156ec0f8",
+        "evidence_47d4e1c7-77cb-44e6-b1d1-88b2bd4c3226"
+      ]
+    }
+  ],
+  "summary": "已逐页检查0至9页。整体内容与引用证据一致，数据性质、单位、目标未实现等关键限定均得到保留，未发现P0级事实错误或严重不可读问题。主要问题为：第0页混入写作指令、第4页表格单位标注位置不够直观、第5页图表纵轴未直接标注单位、第9页信息密度偏高，均属P2优化项。图片无法证明可编辑性或PowerPoint兼容性，本审查不对此作出通过结论。"
+}

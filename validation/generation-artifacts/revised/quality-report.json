@@ -1,0 +1,138 @@
+{
+  "qa_id": "artifact_6fe5f724-bf50-44f6-b395-2dab4feb13d0",
+  "status": "partial",
+  "issues": [],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_ffcc8e9d-147d-4481-85e7-7828e11e76ef",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_361b32e8-4478-4e1b-b47e-f30966c99ec1",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_946e1d37-83b7-4050-b4b6-54286e778a08",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_28f5665b-7c33-4dd1-a118-a2bdbe17643d",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_ed5304ae-b317-45e9-96e3-dde64dad1856",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_639bb0fc-b0ae-4621-92ac-b64b1effc5a5",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_c1a92528-505c-4e2c-b61c-553d9a96c079",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_5df17d4e-d75b-4862-ab50-f5be71b55fd3",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "actual_model_review_with_unchanged_evidence_reuse",
+    "fact_semantic": "actual_model_review_with_unchanged_evidence_reuse",
+    "accessibility": "not_executed",
+    "powerpoint_compatibility": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Numeric membership is not semantic truth; PNG/text presence is not visual approval. Full DEC/QA/revision acceptance remains required.",
+  "model_review": {
+    "checked_slide_orders": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "fresh_checked_slide_orders": [
+      0
+    ],
+    "issues": [
+      {
+        "slide_order": 4,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "表格中数值未标注千位分隔符，且“单位：千瓦时”仅出现在正文而非表头，读者需回看正文才能确认单位。",
+        "evidence_refs": [
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ],
+        "issue_id": "issue_eeaedf22-a116-4172-82cd-b5b33a63ee8a",
+        "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d"
+      },
+      {
+        "slide_order": 5,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "柱状图纵轴刻度为0至14000，但未在轴旁或图内直接标注“千瓦时”，单位仅出现在正文说明中，图表独立可读性不足。",
+        "evidence_refs": [
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28",
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ],
+        "issue_id": "issue_1de8c824-84c9-4dd8-b673-2ba446f56a24",
+        "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175"
+      },
+      {
+        "slide_order": 9,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "页面将“责任分工、风险限制、验证下一步”三部分合并为一页，信息密度较高，但内容与引用一致，未发现事实错误。",
+        "evidence_refs": [
+          "evidence_23cdd550-70f1-41f9-88a5-06c86b3c0313",
+          "evidence_0a729c6d-3810-477e-887c-3c42842d34eb",
+          "evidence_be54dbcb-a86f-4d98-b178-d306d93aafd4",
+          "evidence_11156959-029f-471f-939e-a89f46e544b8",
+          "evidence_039f3317-cde9-4994-9908-d350156ec0f8",
+          "evidence_47d4e1c7-77cb-44e6-b1d1-88b2bd4c3226"
+        ],
+        "issue_id": "issue_1220aa65-d2d6-43b5-8652-748d44e71b73",
+        "slide_id": "slide_5df17d4e-d75b-4862-ab50-f5be71b55fd3"
+      }
+    ],
+    "summary": "本次仅复审第0页（封面页）。页面标题、三条正文与页脚均完整渲染，无裁切、重叠或错字；文字内容与所引证据一致，明确声明全部数据为演示系统验证用示例，不代表真实观测、投资承诺或已实现节能效果，并提示保留数据性质与单位、区分目标与结果，未将目标误写为结果，无事实或语义问题。限制：仅依据所附第0页图像与全套文本上下文审查，未附图的第1-9页视觉质量未重新判定。",
+    "carried_from_run": "fde2d479-966d-4ebe-9ae1-80069c2a2740"
+  }
+}

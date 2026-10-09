@@ -1,0 +1,1415 @@
+{
+  "calls": [
+    {
+      "call_id": "capability_c4297e3a-5e5c-44e4-8d28-daa9664d746f",
+      "slide_id": "slide_ffcc8e9d-147d-4481-85e7-7828e11e76ef",
+      "capability": "create_slide",
+      "implementation_id": "python-pptx.PageExecutor",
+      "backend": "PP-05",
+      "deps": [],
+      "inputs": {
+        "slide_id": "slide_ffcc8e9d-147d-4481-85e7-7828e11e76ef",
+        "order": 0
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_e5723543-d057-4273-a0de-ab7e824103f1",
+      "slide_id": "slide_ffcc8e9d-147d-4481-85e7-7828e11e76ef",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_c4297e3a-5e5c-44e4-8d28-daa9664d746f"
+      ],
+      "inputs": {
+        "object_id": "object_1baeabe3-ee1f-4d37-996e-5f06c8f48e5e",
+        "type": "text",
+        "role": "title",
+        "text": [
+          "校园节能试点：示例数据与实施方案"
+        ],
+        "bounds": [
+          0.65,
+          0.65,
+          12.0,
+          1.0
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_beb36677-c4b2-44c8-93c6-ccff0f377b3c",
+          "evidence_f002b6e0-bc93-4682-9452-f1aa8373d6fa"
+        ]
+      },
+      "expected_objects": [
+        "object_1baeabe3-ee1f-4d37-996e-5f06c8f48e5e"
+      ]
+    },
+    {
+      "call_id": "capability_b3b70d2d-933a-43d2-b094-de0adad9993a",
+      "slide_id": "slide_ffcc8e9d-147d-4481-85e7-7828e11e76ef",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_c4297e3a-5e5c-44e4-8d28-daa9664d746f"
+      ],
+      "inputs": {
+        "object_id": "object_c82aec9d-684d-4c4b-a0ed-12e40668bc6b",
+        "type": "text",
+        "role": "body",
+        "text": [
+          "本文全部数据为演示系统验证用示例，非真实观测或已实现效果。",
+          "面向学校管理团队组织约10页中文汇报，保留数据性质和单位。",
+          "不要把目标写成结果。"
+        ],
+        "bounds": [
+          0.7,
+          1.95,
+          11.8,
+          4.45
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_beb36677-c4b2-44c8-93c6-ccff0f377b3c",
+          "evidence_f002b6e0-bc93-4682-9452-f1aa8373d6fa"
+        ]
+      },
+      "expected_objects": [
+        "object_c82aec9d-684d-4c4b-a0ed-12e40668bc6b"
+      ]
+    },
+    {
+      "call_id": "capability_ba921a7a-c0d4-4b67-bfba-ad382c9c34dd",
+      "slide_id": "slide_ffcc8e9d-147d-4481-85e7-7828e11e76ef",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_c4297e3a-5e5c-44e4-8d28-daa9664d746f"
+      ],
+      "inputs": {
+        "object_id": "object_14e85797-799d-433c-bb54-3da5afee865a",
+        "type": "text",
+        "role": "footer",
+        "text": [
+          "01  /  10  ·  来源索引见备注及ObjectMap"
+        ],
+        "bounds": [
+          0.7,
+          6.8,
+          11.8,
+          0.55
+        ],
+        "font_size": 16,
+        "source_refs": []
+      },
+      "expected_objects": [
+        "object_14e85797-799d-433c-bb54-3da5afee865a"
+      ]
+    },
+    {
+      "call_id": "capability_51acf4b8-267e-496c-8667-0cdab4f797bc",
+      "slide_id": "slide_ffcc8e9d-147d-4481-85e7-7828e11e76ef",
+      "capability": "add_notes",
+      "implementation_id": "python-pptx.notes",
+      "backend": "PP-05",
+      "deps": [
+        "capability_c4297e3a-5e5c-44e4-8d28-daa9664d746f"
+      ],
+      "inputs": {
+        "text": "来源明确本文数据为演示系统验证用示例，不是某所学校的真实观测、投资承诺或已经实现的节能效果。",
+        "evidence_refs": [
+          "evidence_beb36677-c4b2-44c8-93c6-ccff0f377b3c",
+          "evidence_f002b6e0-bc93-4682-9452-f1aa8373d6fa"
+        ]
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_020c855d-dd25-4e8b-9f9d-a465a0f6f4a1",
+      "slide_id": "slide_361b32e8-4478-4e1b-b47e-f30966c99ec1",
+      "capability": "create_slide",
+      "implementation_id": "python-pptx.PageExecutor",
+      "backend": "PP-05",
+      "deps": [
+        "capability_c4297e3a-5e5c-44e4-8d28-daa9664d746f"
+      ],
+      "inputs": {
+        "slide_id": "slide_361b32e8-4478-4e1b-b47e-f30966c99ec1",
+        "order": 1
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_e2b2b3e3-ab01-4ddc-b173-382e1318beb7",
+      "slide_id": "slide_361b32e8-4478-4e1b-b47e-f30966c99ec1",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_020c855d-dd25-4e8b-9f9d-a465a0f6f4a1"
+      ],
+      "inputs": {
+        "object_id": "object_727b4995-4098-43f5-b125-f2ca6ab8914e",
+        "type": "text",
+        "role": "title",
+        "text": [
+          "核心建议：先基线，再小范围改造"
+        ],
+        "bounds": [
+          0.65,
+          0.65,
+          12.0,
+          1.0
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_ec229098-0a7a-4954-94ec-6763e028d16f",
+          "evidence_fb653380-d447-46ef-93a4-d541670407d0"
+        ]
+      },
+      "expected_objects": [
+        "object_727b4995-4098-43f5-b125-f2ca6ab8914e"
+      ]
+    },
+    {
+      "call_id": "capability_8c48db37-be2b-461f-a370-6e6277267835",
+      "slide_id": "slide_361b32e8-4478-4e1b-b47e-f30966c99ec1",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_020c855d-dd25-4e8b-9f9d-a465a0f6f4a1"
+      ],
+      "inputs": {
+        "object_id": "object_00e67d1f-abd6-4352-86f5-d21ecd72dd03",
+        "type": "text",
+        "role": "body",
+        "text": [
+          "先建立清楚的用电基线，再小范围改造与测量。",
+          "确认安全和使用体验后再考虑扩大。",
+          "节能需设备、使用方式和管理流程共同配合。",
+          "单看月度总量不能证明改造产生因果效果。"
+        ],
+        "bounds": [
+          0.7,
+          1.95,
+          11.8,
+          4.45
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_ec229098-0a7a-4954-94ec-6763e028d16f",
+          "evidence_fb653380-d447-46ef-93a4-d541670407d0"
+        ]
+      },
+      "expected_objects": [
+        "object_00e67d1f-abd6-4352-86f5-d21ecd72dd03"
+      ]
+    },
+    {
+      "call_id": "capability_3581cc44-1989-4317-bf83-a883295a8e55",
+      "slide_id": "slide_361b32e8-4478-4e1b-b47e-f30966c99ec1",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_020c855d-dd25-4e8b-9f9d-a465a0f6f4a1"
+      ],
+      "inputs": {
+        "object_id": "object_61c7d492-521e-4235-bfd0-a522c8150dc2",
+        "type": "text",
+        "role": "footer",
+        "text": [
+          "02  /  10  ·  来源索引见备注及ObjectMap"
+        ],
+        "bounds": [
+          0.7,
+          6.8,
+          11.8,
+          0.55
+        ],
+        "font_size": 16,
+        "source_refs": []
+      },
+      "expected_objects": [
+        "object_61c7d492-521e-4235-bfd0-a522c8150dc2"
+      ]
+    },
+    {
+      "call_id": "capability_d4660785-1f97-43bf-baab-f637f052acdd",
+      "slide_id": "slide_361b32e8-4478-4e1b-b47e-f30966c99ec1",
+      "capability": "add_notes",
+      "implementation_id": "python-pptx.notes",
+      "backend": "PP-05",
+      "deps": [
+        "capability_020c855d-dd25-4e8b-9f9d-a465a0f6f4a1"
+      ],
+      "inputs": {
+        "text": "原文核心建议强调基线、小范围改造、安全与体验确认，以及不能仅凭月度总量认定因果效果。",
+        "evidence_refs": [
+          "evidence_ec229098-0a7a-4954-94ec-6763e028d16f",
+          "evidence_fb653380-d447-46ef-93a4-d541670407d0"
+        ]
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_a5403f1a-d36c-46e5-a369-222df03581f8",
+      "slide_id": "slide_946e1d37-83b7-4050-b4b6-54286e778a08",
+      "capability": "create_slide",
+      "implementation_id": "python-pptx.PageExecutor",
+      "backend": "PP-05",
+      "deps": [
+        "capability_020c855d-dd25-4e8b-9f9d-a465a0f6f4a1"
+      ],
+      "inputs": {
+        "slide_id": "slide_946e1d37-83b7-4050-b4b6-54286e778a08",
+        "order": 2
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_3dc2c2f6-f0f4-4cb0-a3ad-cb3e60c43d4d",
+      "slide_id": "slide_946e1d37-83b7-4050-b4b6-54286e778a08",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a5403f1a-d36c-46e5-a369-222df03581f8"
+      ],
+      "inputs": {
+        "object_id": "object_35d7eeb7-8b45-4c1c-82c8-57782b3400ca",
+        "type": "text",
+        "role": "title",
+        "text": [
+          "试点范围：四区域与首批工作"
+        ],
+        "bounds": [
+          0.65,
+          0.65,
+          12.0,
+          1.0
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_e3c959e4-7e86-488c-8319-6ee5934e2e0c",
+          "evidence_f5c77227-162d-4b11-810a-da4fcd977b13"
+        ]
+      },
+      "expected_objects": [
+        "object_35d7eeb7-8b45-4c1c-82c8-57782b3400ca"
+      ]
+    },
+    {
+      "call_id": "capability_d05bd591-346d-4a0b-8715-53c5034afbc9",
+      "slide_id": "slide_946e1d37-83b7-4050-b4b6-54286e778a08",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a5403f1a-d36c-46e5-a369-222df03581f8"
+      ],
+      "inputs": {
+        "object_id": "object_b89e69b9-105d-4d95-a64e-cfb3b8016398",
+        "type": "text",
+        "role": "body",
+        "text": [
+          "试点覆盖教学楼A、教学楼B、图书馆和体育馆。",
+          "比较区间统一为一个示例月份。",
+          "教学楼照明与公共区域控制作为首批工作。",
+          "实验室、消防和应急照明不进入自动断电范围。",
+          "范围扩大前必须重新检查安全要求。"
+        ],
+        "bounds": [
+          0.7,
+          1.95,
+          11.8,
+          4.45
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_e3c959e4-7e86-488c-8319-6ee5934e2e0c",
+          "evidence_f5c77227-162d-4b11-810a-da4fcd977b13"
+        ]
+      },
+      "expected_objects": [
+        "object_b89e69b9-105d-4d95-a64e-cfb3b8016398"
+      ]
+    },
+    {
+      "call_id": "capability_4d41c8bd-ce4b-45b2-b7f5-c2840169f57c",
+      "slide_id": "slide_946e1d37-83b7-4050-b4b6-54286e778a08",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a5403f1a-d36c-46e5-a369-222df03581f8"
+      ],
+      "inputs": {
+        "object_id": "object_cb1f5a46-e8d7-4d6b-883b-a99ab77b6308",
+        "type": "text",
+        "role": "footer",
+        "text": [
+          "03  /  10  ·  来源索引见备注及ObjectMap"
+        ],
+        "bounds": [
+          0.7,
+          6.8,
+          11.8,
+          0.55
+        ],
+        "font_size": 16,
+        "source_refs": []
+      },
+      "expected_objects": [
+        "object_cb1f5a46-e8d7-4d6b-883b-a99ab77b6308"
+      ]
+    },
+    {
+      "call_id": "capability_51e4eaac-c732-44f0-a21d-40603c2833fb",
+      "slide_id": "slide_946e1d37-83b7-4050-b4b6-54286e778a08",
+      "capability": "add_notes",
+      "implementation_id": "python-pptx.notes",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a5403f1a-d36c-46e5-a369-222df03581f8"
+      ],
+      "inputs": {
+        "text": "原文明确试点覆盖四个区域，比较区间为一个示例月份，并列出首批工作和排除范围。",
+        "evidence_refs": [
+          "evidence_e3c959e4-7e86-488c-8319-6ee5934e2e0c",
+          "evidence_f5c77227-162d-4b11-810a-da4fcd977b13"
+        ]
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_a5c36954-fe42-4ddc-9f51-14cb73048a2c",
+      "slide_id": "slide_28f5665b-7c33-4dd1-a118-a2bdbe17643d",
+      "capability": "create_slide",
+      "implementation_id": "python-pptx.PageExecutor",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a5403f1a-d36c-46e5-a369-222df03581f8"
+      ],
+      "inputs": {
+        "slide_id": "slide_28f5665b-7c33-4dd1-a118-a2bdbe17643d",
+        "order": 3
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_6cd617f2-7fe6-4c05-aeb6-aa76b2382db1",
+      "slide_id": "slide_28f5665b-7c33-4dd1-a118-a2bdbe17643d",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a5c36954-fe42-4ddc-9f51-14cb73048a2c"
+      ],
+      "inputs": {
+        "object_id": "object_802b4c77-67b8-46bd-908d-460625f120e4",
+        "type": "text",
+        "role": "title",
+        "text": [
+          "示例基线与目标：仅说明数据组织方法"
+        ],
+        "bounds": [
+          0.65,
+          0.65,
+          12.0,
+          1.0
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_4b154e79-e993-4c0e-a0b6-1032055ddf8a",
+          "evidence_b5b70e95-81ea-46bb-9cdc-db32a4b177e0"
+        ]
+      },
+      "expected_objects": [
+        "object_802b4c77-67b8-46bd-908d-460625f120e4"
+      ]
+    },
+    {
+      "call_id": "capability_6d57d7aa-fab7-44f1-bdcc-37cb9aca9068",
+      "slide_id": "slide_28f5665b-7c33-4dd1-a118-a2bdbe17643d",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a5c36954-fe42-4ddc-9f51-14cb73048a2c"
+      ],
+      "inputs": {
+        "object_id": "object_f5be6f22-a5ae-4afb-83cc-adb6074b1a7e",
+        "type": "text",
+        "role": "body",
+        "text": [
+          "基线和目标仅用于说明数据组织方法，单位统一为千瓦时。",
+          "目标是计划值，尚未实现。",
+          "不能作为改造后的实际测量。"
+        ],
+        "bounds": [
+          0.7,
+          1.95,
+          11.8,
+          4.45
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_4b154e79-e993-4c0e-a0b6-1032055ddf8a",
+          "evidence_b5b70e95-81ea-46bb-9cdc-db32a4b177e0"
+        ]
+      },
+      "expected_objects": [
+        "object_f5be6f22-a5ae-4afb-83cc-adb6074b1a7e"
+      ]
+    },
+    {
+      "call_id": "capability_134ca166-7f57-497a-9f79-e37bdb3dcd7a",
+      "slide_id": "slide_28f5665b-7c33-4dd1-a118-a2bdbe17643d",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a5c36954-fe42-4ddc-9f51-14cb73048a2c"
+      ],
+      "inputs": {
+        "object_id": "object_bd19c0ff-720e-45b5-808d-f521fb3f276c",
+        "type": "text",
+        "role": "footer",
+        "text": [
+          "04  /  10  ·  来源索引见备注及ObjectMap"
+        ],
+        "bounds": [
+          0.7,
+          6.8,
+          11.8,
+          0.55
+        ],
+        "font_size": 16,
+        "source_refs": []
+      },
+      "expected_objects": [
+        "object_bd19c0ff-720e-45b5-808d-f521fb3f276c"
+      ]
+    },
+    {
+      "call_id": "capability_ea9f105f-a613-4316-b1fe-c74a14435b97",
+      "slide_id": "slide_28f5665b-7c33-4dd1-a118-a2bdbe17643d",
+      "capability": "add_notes",
+      "implementation_id": "python-pptx.notes",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a5c36954-fe42-4ddc-9f51-14cb73048a2c"
+      ],
+      "inputs": {
+        "text": "原文说明表格中的基线和目标仅用于说明数据组织方法，单位统一为千瓦时，目标是计划值尚未实现。",
+        "evidence_refs": [
+          "evidence_4b154e79-e993-4c0e-a0b6-1032055ddf8a",
+          "evidence_b5b70e95-81ea-46bb-9cdc-db32a4b177e0"
+        ]
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_66bcb00f-8d4c-437c-a50a-ffad4efbbf8f",
+      "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d",
+      "capability": "create_slide",
+      "implementation_id": "python-pptx.PageExecutor",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a5c36954-fe42-4ddc-9f51-14cb73048a2c"
+      ],
+      "inputs": {
+        "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d",
+        "order": 4
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_5da7b4e1-8f8a-4e82-978d-8ac03120e0e4",
+      "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_66bcb00f-8d4c-437c-a50a-ffad4efbbf8f"
+      ],
+      "inputs": {
+        "object_id": "object_5b56a111-b1e6-41c9-87a9-355fb6c8719d",
+        "type": "text",
+        "role": "title",
+        "text": [
+          "各区域示例月基线与试点月目标"
+        ],
+        "bounds": [
+          0.65,
+          0.65,
+          12.0,
+          1.0
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ]
+      },
+      "expected_objects": [
+        "object_5b56a111-b1e6-41c9-87a9-355fb6c8719d"
+      ]
+    },
+    {
+      "call_id": "capability_8bb26ec4-6f68-43dc-b1ce-62552f2e5ad7",
+      "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_66bcb00f-8d4c-437c-a50a-ffad4efbbf8f"
+      ],
+      "inputs": {
+        "object_id": "object_e23074d4-a6a0-42e9-bdf8-81a95ed733e6",
+        "type": "text",
+        "role": "body",
+        "text": [
+          "单位：千瓦时；目标为计划值，尚未实现。",
+          "数据仅用于说明数据组织方法。"
+        ],
+        "bounds": [
+          0.7,
+          1.8,
+          11.8,
+          1.15
+        ],
+        "font_size": 18,
+        "source_refs": [
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ]
+      },
+      "expected_objects": [
+        "object_e23074d4-a6a0-42e9-bdf8-81a95ed733e6"
+      ]
+    },
+    {
+      "call_id": "capability_102500dd-d8f3-4224-a49f-6de91fbfb734",
+      "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d",
+      "capability": "add_table",
+      "implementation_id": "python-pptx.table",
+      "backend": "PP-05",
+      "deps": [
+        "capability_66bcb00f-8d4c-437c-a50a-ffad4efbbf8f"
+      ],
+      "inputs": {
+        "object_id": "object_d08bd9c9-44a4-446a-82d1-f9ea72a1a371",
+        "type": "table",
+        "role": "data",
+        "data": {
+          "columns": [
+            "区域",
+            "示例月基线",
+            "试点月目标"
+          ],
+          "rows": [
+            [
+              "教学楼A",
+              "12000",
+              "10000"
+            ],
+            [
+              "教学楼B",
+              "9000",
+              "8000"
+            ],
+            [
+              "图书馆",
+              "8000",
+              "7000"
+            ],
+            [
+              "体育馆",
+              "6000",
+              "5500"
+            ]
+          ],
+          "units": "千瓦时"
+        },
+        "bounds": [
+          0.7,
+          3.05,
+          11.8,
+          3.35
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ]
+      },
+      "expected_objects": [
+        "object_d08bd9c9-44a4-446a-82d1-f9ea72a1a371"
+      ]
+    },
+    {
+      "call_id": "capability_6a44329c-70fd-4e27-97b7-c8283a72bee5",
+      "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_66bcb00f-8d4c-437c-a50a-ffad4efbbf8f"
+      ],
+      "inputs": {
+        "object_id": "object_c7f607b1-28df-49d6-924e-91c65e1a22c4",
+        "type": "text",
+        "role": "footer",
+        "text": [
+          "05  /  10  ·  来源索引见备注及ObjectMap"
+        ],
+        "bounds": [
+          0.7,
+          6.8,
+          11.8,
+          0.55
+        ],
+        "font_size": 16,
+        "source_refs": []
+      },
+      "expected_objects": [
+        "object_c7f607b1-28df-49d6-924e-91c65e1a22c4"
+      ]
+    },
+    {
+      "call_id": "capability_21a662f8-60ac-4bdd-a7b6-cb6fd955ef12",
+      "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d",
+      "capability": "add_notes",
+      "implementation_id": "python-pptx.notes",
+      "backend": "PP-05",
+      "deps": [
+        "capability_66bcb00f-8d4c-437c-a50a-ffad4efbbf8f"
+      ],
+      "inputs": {
+        "text": "表格数据来自原文，单位为千瓦时，目标为计划值，尚未实现。",
+        "evidence_refs": [
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ]
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_67708588-4a59-4bdf-862c-af00f10904bd",
+      "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175",
+      "capability": "create_slide",
+      "implementation_id": "python-pptx.PageExecutor",
+      "backend": "PP-05",
+      "deps": [
+        "capability_66bcb00f-8d4c-437c-a50a-ffad4efbbf8f"
+      ],
+      "inputs": {
+        "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175",
+        "order": 5
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_d4ebdce8-a75c-4424-9855-4ea7f33f5965",
+      "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_67708588-4a59-4bdf-862c-af00f10904bd"
+      ],
+      "inputs": {
+        "object_id": "object_c4559212-a623-4051-9f66-3c0c2d8a8c8c",
+        "type": "text",
+        "role": "title",
+        "text": [
+          "示例基线与目标对比图"
+        ],
+        "bounds": [
+          0.65,
+          0.65,
+          12.0,
+          1.0
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28",
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ]
+      },
+      "expected_objects": [
+        "object_c4559212-a623-4051-9f66-3c0c2d8a8c8c"
+      ]
+    },
+    {
+      "call_id": "capability_56ee74ae-85dc-42e2-a268-98e7fd4b9843",
+      "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_67708588-4a59-4bdf-862c-af00f10904bd"
+      ],
+      "inputs": {
+        "object_id": "object_212c9266-c2c2-413a-951b-2c76ff01fc7f",
+        "type": "text",
+        "role": "body",
+        "text": [
+          "纵轴单位：千瓦时；系列区分基线和目标。",
+          "目标为计划值，尚未实现。"
+        ],
+        "bounds": [
+          0.7,
+          1.8,
+          11.8,
+          1.15
+        ],
+        "font_size": 18,
+        "source_refs": [
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28",
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ]
+      },
+      "expected_objects": [
+        "object_212c9266-c2c2-413a-951b-2c76ff01fc7f"
+      ]
+    },
+    {
+      "call_id": "capability_d73d3491-b551-4b93-acf4-89ca3dad9384",
+      "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175",
+      "capability": "add_chart",
+      "implementation_id": "python-pptx.chart",
+      "backend": "PP-05",
+      "deps": [
+        "capability_67708588-4a59-4bdf-862c-af00f10904bd"
+      ],
+      "inputs": {
+        "object_id": "object_6970b222-c431-4e60-9852-9fc5eeb3758f",
+        "type": "chart",
+        "role": "data",
+        "data": {
+          "type": "column",
+          "categories": [
+            "教学楼A",
+            "教学楼B",
+            "图书馆",
+            "体育馆"
+          ],
+          "series": [
+            {
+              "name": "示例月基线",
+              "values": [
+                12000,
+                9000,
+                8000,
+                6000
+              ]
+            },
+            {
+              "name": "试点月目标",
+              "values": [
+                10000,
+                8000,
+                7000,
+                5500
+              ]
+            }
+          ],
+          "units": "千瓦时"
+        },
+        "bounds": [
+          0.7,
+          3.05,
+          11.8,
+          3.35
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28",
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ]
+      },
+      "expected_objects": [
+        "object_6970b222-c431-4e60-9852-9fc5eeb3758f"
+      ]
+    },
+    {
+      "call_id": "capability_d7278cbe-50b4-4947-8f71-fa3bb39fbc33",
+      "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_67708588-4a59-4bdf-862c-af00f10904bd"
+      ],
+      "inputs": {
+        "object_id": "object_a3f7ca58-7bc1-49c4-b2d3-a5baf09b3734",
+        "type": "text",
+        "role": "footer",
+        "text": [
+          "06  /  10  ·  来源索引见备注及ObjectMap"
+        ],
+        "bounds": [
+          0.7,
+          6.8,
+          11.8,
+          0.55
+        ],
+        "font_size": 16,
+        "source_refs": []
+      },
+      "expected_objects": [
+        "object_a3f7ca58-7bc1-49c4-b2d3-a5baf09b3734"
+      ]
+    },
+    {
+      "call_id": "capability_dba99ae9-d398-4c90-91c0-69e913690267",
+      "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175",
+      "capability": "add_notes",
+      "implementation_id": "python-pptx.notes",
+      "backend": "PP-05",
+      "deps": [
+        "capability_67708588-4a59-4bdf-862c-af00f10904bd"
+      ],
+      "inputs": {
+        "text": "原文建议可用原生柱状图并列展示各区域的示例基线与目标，纵轴必须标为千瓦时，系列名称必须明确区分基线和目标。",
+        "evidence_refs": [
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28",
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ]
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_203c8985-0bdb-48e6-8f6b-f2ab4677b04d",
+      "slide_id": "slide_ed5304ae-b317-45e9-96e3-dde64dad1856",
+      "capability": "create_slide",
+      "implementation_id": "python-pptx.PageExecutor",
+      "backend": "PP-05",
+      "deps": [
+        "capability_67708588-4a59-4bdf-862c-af00f10904bd"
+      ],
+      "inputs": {
+        "slide_id": "slide_ed5304ae-b317-45e9-96e3-dde64dad1856",
+        "order": 6
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_2f9233fb-10cb-47a7-814e-3789e7d6e632",
+      "slide_id": "slide_ed5304ae-b317-45e9-96e3-dde64dad1856",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_203c8985-0bdb-48e6-8f6b-f2ab4677b04d"
+      ],
+      "inputs": {
+        "object_id": "object_5c637f4a-df61-4e08-b987-c4c3d4ab725b",
+        "type": "text",
+        "role": "title",
+        "text": [
+          "数据解读：不能只凭两个数值认定节能率"
+        ],
+        "bounds": [
+          0.65,
+          0.65,
+          12.0,
+          1.0
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_4744b9eb-d0b9-477f-8b09-16124000baba",
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28"
+        ]
+      },
+      "expected_objects": [
+        "object_5c637f4a-df61-4e08-b987-c4c3d4ab725b"
+      ]
+    },
+    {
+      "call_id": "capability_fc076966-4b52-47fc-b5ab-008233f03b0b",
+      "slide_id": "slide_ed5304ae-b317-45e9-96e3-dde64dad1856",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_203c8985-0bdb-48e6-8f6b-f2ab4677b04d"
+      ],
+      "inputs": {
+        "object_id": "object_4f4e69b4-82c7-478e-835b-9ef7a17e169f",
+        "type": "text",
+        "role": "body",
+        "text": [
+          "总用电受开放时间、人员规模、天气和活动安排影响。",
+          "不能只凭两个数值认定节能率或项目收益。",
+          "本文没有提供真实节能率和投资回收期。"
+        ],
+        "bounds": [
+          0.7,
+          1.95,
+          11.8,
+          4.45
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_4744b9eb-d0b9-477f-8b09-16124000baba",
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28"
+        ]
+      },
+      "expected_objects": [
+        "object_4f4e69b4-82c7-478e-835b-9ef7a17e169f"
+      ]
+    },
+    {
+      "call_id": "capability_76513809-2fb4-409a-ba3a-547db0d597c3",
+      "slide_id": "slide_ed5304ae-b317-45e9-96e3-dde64dad1856",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_203c8985-0bdb-48e6-8f6b-f2ab4677b04d"
+      ],
+      "inputs": {
+        "object_id": "object_d089773d-16f1-48d2-87e0-0956ba2f2e5b",
+        "type": "text",
+        "role": "footer",
+        "text": [
+          "07  /  10  ·  来源索引见备注及ObjectMap"
+        ],
+        "bounds": [
+          0.7,
+          6.8,
+          11.8,
+          0.55
+        ],
+        "font_size": 16,
+        "source_refs": []
+      },
+      "expected_objects": [
+        "object_d089773d-16f1-48d2-87e0-0956ba2f2e5b"
+      ]
+    },
+    {
+      "call_id": "capability_318f8d45-3602-4763-95ce-290dcd36d390",
+      "slide_id": "slide_ed5304ae-b317-45e9-96e3-dde64dad1856",
+      "capability": "add_notes",
+      "implementation_id": "python-pptx.notes",
+      "backend": "PP-05",
+      "deps": [
+        "capability_203c8985-0bdb-48e6-8f6b-f2ab4677b04d"
+      ],
+      "inputs": {
+        "text": "原文指出总用电受多种因素影响，不能只凭两个数值认定节能率或项目收益，且本文没有提供真实节能率和投资回收期。",
+        "evidence_refs": [
+          "evidence_4744b9eb-d0b9-477f-8b09-16124000baba",
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28"
+        ]
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_485915fe-4709-4a3b-bfe2-ec050c445eaf",
+      "slide_id": "slide_639bb0fc-b0ae-4621-92ac-b64b1effc5a5",
+      "capability": "create_slide",
+      "implementation_id": "python-pptx.PageExecutor",
+      "backend": "PP-05",
+      "deps": [
+        "capability_203c8985-0bdb-48e6-8f6b-f2ab4677b04d"
+      ],
+      "inputs": {
+        "slide_id": "slide_639bb0fc-b0ae-4621-92ac-b64b1effc5a5",
+        "order": 7
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_20f6e538-6c11-40a7-9486-96acd3d74669",
+      "slide_id": "slide_639bb0fc-b0ae-4621-92ac-b64b1effc5a5",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_485915fe-4709-4a3b-bfe2-ec050c445eaf"
+      ],
+      "inputs": {
+        "object_id": "object_564a3f82-c4a6-43c6-8aa0-a388cc405436",
+        "type": "text",
+        "role": "title",
+        "text": [
+          "改造措施：照明、管理与设备选择"
+        ],
+        "bounds": [
+          0.65,
+          0.65,
+          12.0,
+          1.0
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_e83ca342-86a9-40bc-a018-f4f2c0235e75",
+          "evidence_5a1bdd2f-6c7b-42ab-bb75-7c2542d6e2e1"
+        ]
+      },
+      "expected_objects": [
+        "object_564a3f82-c4a6-43c6-8aa0-a388cc405436"
+      ]
+    },
+    {
+      "call_id": "capability_26a4c18e-626f-4542-9fe0-73e97c75f7db",
+      "slide_id": "slide_639bb0fc-b0ae-4621-92ac-b64b1effc5a5",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_485915fe-4709-4a3b-bfe2-ec050c445eaf"
+      ],
+      "inputs": {
+        "object_id": "object_b13ed328-971d-4d22-918a-a2c962bc1766",
+        "type": "text",
+        "role": "body",
+        "text": [
+          "照明措施：检查空置时段、分区控制、自然采光配合、维护故障灯具。",
+          "管理措施：巡查记录、异常反馈和负责人确认。",
+          "自动控制应允许人工覆盖，并保留应急照明。",
+          "设备更换需结合现有设施实际情况选择，不能从示例数据推定品牌或采购价格。"
+        ],
+        "bounds": [
+          0.7,
+          1.95,
+          11.8,
+          4.45
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_e83ca342-86a9-40bc-a018-f4f2c0235e75",
+          "evidence_5a1bdd2f-6c7b-42ab-bb75-7c2542d6e2e1"
+        ]
+      },
+      "expected_objects": [
+        "object_b13ed328-971d-4d22-918a-a2c962bc1766"
+      ]
+    },
+    {
+      "call_id": "capability_6ada1fb0-b2e4-45a1-949c-41f41936e071",
+      "slide_id": "slide_639bb0fc-b0ae-4621-92ac-b64b1effc5a5",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_485915fe-4709-4a3b-bfe2-ec050c445eaf"
+      ],
+      "inputs": {
+        "object_id": "object_8616426b-9933-4cfc-8634-6b1f07512ffe",
+        "type": "text",
+        "role": "footer",
+        "text": [
+          "08  /  10  ·  来源索引见备注及ObjectMap"
+        ],
+        "bounds": [
+          0.7,
+          6.8,
+          11.8,
+          0.55
+        ],
+        "font_size": 16,
+        "source_refs": []
+      },
+      "expected_objects": [
+        "object_8616426b-9933-4cfc-8634-6b1f07512ffe"
+      ]
+    },
+    {
+      "call_id": "capability_516c7420-8f8d-4f8a-9626-19d6d3c36c59",
+      "slide_id": "slide_639bb0fc-b0ae-4621-92ac-b64b1effc5a5",
+      "capability": "add_notes",
+      "implementation_id": "python-pptx.notes",
+      "backend": "PP-05",
+      "deps": [
+        "capability_485915fe-4709-4a3b-bfe2-ec050c445eaf"
+      ],
+      "inputs": {
+        "text": "原文列出照明措施、管理措施、自动控制要求，并强调设备更换不能从示例数据直接推定品牌或采购价格。",
+        "evidence_refs": [
+          "evidence_e83ca342-86a9-40bc-a018-f4f2c0235e75",
+          "evidence_5a1bdd2f-6c7b-42ab-bb75-7c2542d6e2e1"
+        ]
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_a547a3d6-a357-4ea0-b8a6-df5e5edd16ce",
+      "slide_id": "slide_c1a92528-505c-4e2c-b61c-553d9a96c079",
+      "capability": "create_slide",
+      "implementation_id": "python-pptx.PageExecutor",
+      "backend": "PP-05",
+      "deps": [
+        "capability_485915fe-4709-4a3b-bfe2-ec050c445eaf"
+      ],
+      "inputs": {
+        "slide_id": "slide_c1a92528-505c-4e2c-b61c-553d9a96c079",
+        "order": 8
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_9ef3ed86-9a7a-41c4-9522-95564a292ac4",
+      "slide_id": "slide_c1a92528-505c-4e2c-b61c-553d9a96c079",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a547a3d6-a357-4ea0-b8a6-df5e5edd16ce"
+      ],
+      "inputs": {
+        "object_id": "object_fcc88a45-87f5-4e54-89d0-bd95c09cc91b",
+        "type": "text",
+        "role": "title",
+        "text": [
+          "实施安排：准备、试点、观察、复盘"
+        ],
+        "bounds": [
+          0.65,
+          0.65,
+          12.0,
+          1.0
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_4b548541-cdd4-4b39-844f-b241f4aee7c0",
+          "evidence_d449b4dc-e2a9-4fb1-a5ec-fbe282042601"
+        ]
+      },
+      "expected_objects": [
+        "object_fcc88a45-87f5-4e54-89d0-bd95c09cc91b"
+      ]
+    },
+    {
+      "call_id": "capability_d30b178f-1e32-4382-bc1e-9ab782251bd8",
+      "slide_id": "slide_c1a92528-505c-4e2c-b61c-553d9a96c079",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a547a3d6-a357-4ea0-b8a6-df5e5edd16ce"
+      ],
+      "inputs": {
+        "object_id": "object_848972d2-5ead-4532-9ef3-b6c2c4496b58",
+        "type": "text",
+        "role": "body",
+        "text": [
+          "准备阶段：完成设施清单、基线记录和安全检查。",
+          "试点阶段：按区域逐步实施，保留原设置以便恢复。",
+          "观察阶段：对比相同口径数据，记录开放时长与活动变化。",
+          "复盘阶段：检查能耗、照明体验、安全反馈和维护负担，再决定继续、调整或停止。"
+        ],
+        "bounds": [
+          0.7,
+          1.95,
+          11.8,
+          4.45
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_4b548541-cdd4-4b39-844f-b241f4aee7c0",
+          "evidence_d449b4dc-e2a9-4fb1-a5ec-fbe282042601"
+        ]
+      },
+      "expected_objects": [
+        "object_848972d2-5ead-4532-9ef3-b6c2c4496b58"
+      ]
+    },
+    {
+      "call_id": "capability_909eb355-84b0-421f-b5e3-6a3e7067e4cd",
+      "slide_id": "slide_c1a92528-505c-4e2c-b61c-553d9a96c079",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a547a3d6-a357-4ea0-b8a6-df5e5edd16ce"
+      ],
+      "inputs": {
+        "object_id": "object_eb698908-da33-4516-8eae-28679d25dbc4",
+        "type": "text",
+        "role": "footer",
+        "text": [
+          "09  /  10  ·  来源索引见备注及ObjectMap"
+        ],
+        "bounds": [
+          0.7,
+          6.8,
+          11.8,
+          0.55
+        ],
+        "font_size": 16,
+        "source_refs": []
+      },
+      "expected_objects": [
+        "object_eb698908-da33-4516-8eae-28679d25dbc4"
+      ]
+    },
+    {
+      "call_id": "capability_addd2dd2-1fc8-4ab6-99c7-59bf4f22a735",
+      "slide_id": "slide_c1a92528-505c-4e2c-b61c-553d9a96c079",
+      "capability": "add_notes",
+      "implementation_id": "python-pptx.notes",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a547a3d6-a357-4ea0-b8a6-df5e5edd16ce"
+      ],
+      "inputs": {
+        "text": "原文按准备、试点、观察、复盘四个阶段说明实施安排，并强调保留原设置、相同口径和综合检查。",
+        "evidence_refs": [
+          "evidence_4b548541-cdd4-4b39-844f-b241f4aee7c0",
+          "evidence_d449b4dc-e2a9-4fb1-a5ec-fbe282042601"
+        ]
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_18c08156-3965-44cb-9e17-0707a5cbd406",
+      "slide_id": "slide_5df17d4e-d75b-4862-ab50-f5be71b55fd3",
+      "capability": "create_slide",
+      "implementation_id": "python-pptx.PageExecutor",
+      "backend": "PP-05",
+      "deps": [
+        "capability_a547a3d6-a357-4ea0-b8a6-df5e5edd16ce"
+      ],
+      "inputs": {
+        "slide_id": "slide_5df17d4e-d75b-4862-ab50-f5be71b55fd3",
+        "order": 9
+      },
+      "expected_objects": []
+    },
+    {
+      "call_id": "capability_461c0fc4-b01b-4170-a0af-eca7b4393794",
+      "slide_id": "slide_5df17d4e-d75b-4862-ab50-f5be71b55fd3",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_18c08156-3965-44cb-9e17-0707a5cbd406"
+      ],
+      "inputs": {
+        "object_id": "object_5b519f47-d642-40e6-bdd4-b5db90d4bc1a",
+        "type": "text",
+        "role": "title",
+        "text": [
+          "责任分工、风险限制与验证下一步"
+        ],
+        "bounds": [
+          0.65,
+          0.65,
+          12.0,
+          1.0
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_23cdd550-70f1-41f9-88a5-06c86b3c0313",
+          "evidence_0a729c6d-3810-477e-887c-3c42842d34eb",
+          "evidence_be54dbcb-a86f-4d98-b178-d306d93aafd4",
+          "evidence_11156959-029f-471f-939e-a89f46e544b8",
+          "evidence_039f3317-cde9-4994-9908-d350156ec0f8",
+          "evidence_47d4e1c7-77cb-44e6-b1d1-88b2bd4c3226"
+        ]
+      },
+      "expected_objects": [
+        "object_5b519f47-d642-40e6-bdd4-b5db90d4bc1a"
+      ]
+    },
+    {
+      "call_id": "capability_5dfab5e2-ed62-4226-9c9f-bd6c8925bdf1",
+      "slide_id": "slide_5df17d4e-d75b-4862-ab50-f5be71b55fd3",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_18c08156-3965-44cb-9e17-0707a5cbd406"
+      ],
+      "inputs": {
+        "object_id": "object_4f485133-dfa2-4bfd-94aa-ce361c6fbb95",
+        "type": "text",
+        "role": "body",
+        "text": [
+          "建议分工：后勤负责设施与安全，使用部门确认开放与体验，数据负责人统一口径，项目协调人组织复盘。",
+          "风险：设备改造可能影响照明体验，过度自动化可能误关，统计口径变化可能制造虚假改善。",
+          "应建立人工恢复、特殊活动例外和一致数据记录。",
+          "缺少真实对照与现场测量时，结论应保持待验证。",
+          "下一步：确认现场范围与负责人，补齐真实基线，执行可恢复试点。"
+        ],
+        "bounds": [
+          0.7,
+          1.95,
+          11.8,
+          4.45
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_23cdd550-70f1-41f9-88a5-06c86b3c0313",
+          "evidence_0a729c6d-3810-477e-887c-3c42842d34eb",
+          "evidence_be54dbcb-a86f-4d98-b178-d306d93aafd4",
+          "evidence_11156959-029f-471f-939e-a89f46e544b8",
+          "evidence_039f3317-cde9-4994-9908-d350156ec0f8",
+          "evidence_47d4e1c7-77cb-44e6-b1d1-88b2bd4c3226"
+        ]
+      },
+      "expected_objects": [
+        "object_4f485133-dfa2-4bfd-94aa-ce361c6fbb95"
+      ]
+    },
+    {
+      "call_id": "capability_be47b38e-88ea-4caa-b9db-5a4ada5cb9e5",
+      "slide_id": "slide_5df17d4e-d75b-4862-ab50-f5be71b55fd3",
+      "capability": "add_text",
+      "implementation_id": "python-pptx.text",
+      "backend": "PP-05",
+      "deps": [
+        "capability_18c08156-3965-44cb-9e17-0707a5cbd406"
+      ],
+      "inputs": {
+        "object_id": "object_3c83720a-d40a-4a71-9511-5513e7eaa405",
+        "type": "text",
+        "role": "footer",
+        "text": [
+          "10  /  10  ·  来源索引见备注及ObjectMap"
+        ],
+        "bounds": [
+          0.7,
+          6.8,
+          11.8,
+          0.55
+        ],
+        "font_size": 16,
+        "source_refs": []
+      },
+      "expected_objects": [
+        "object_3c83720a-d40a-4a71-9511-5513e7eaa405"
+      ]
+    },
+    {
+      "call_id": "capability_7d7f89bb-5ec2-439d-af4f-b0f8e89b5ff5",
+      "slide_id": "slide_5df17d4e-d75b-4862-ab50-f5be71b55fd3",
+      "capability": "add_notes",
+      "implementation_id": "python-pptx.notes",
+      "backend": "PP-05",
+      "deps": [
+        "capability_18c08156-3965-44cb-9e17-0707a5cbd406"
+      ],
+      "inputs": {
+        "text": "原文说明所有角色是建议分工，不是已经设立的组织；风险与限制包括照明体验、误关和统计口径变化；下一步是确认范围与负责人、补齐真实基线并执行可恢复试点。",
+        "evidence_refs": [
+          "evidence_23cdd550-70f1-41f9-88a5-06c86b3c0313",
+          "evidence_0a729c6d-3810-477e-887c-3c42842d34eb",
+          "evidence_be54dbcb-a86f-4d98-b178-d306d93aafd4",
+          "evidence_11156959-029f-471f-939e-a89f46e544b8",
+          "evidence_039f3317-cde9-4994-9908-d350156ec0f8",
+          "evidence_47d4e1c7-77cb-44e6-b1d1-88b2bd4c3226"
+        ]
+      },
+      "expected_objects": []
+    }
+  ],
+  "deps": "each page requires its predecessor; objects require owning page",
+  "backend": "PP-05"
+}

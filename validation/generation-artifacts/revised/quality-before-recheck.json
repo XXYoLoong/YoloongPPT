@@ -1,0 +1,167 @@
+{
+  "qa_id": "artifact_bbdd29e7-9068-4d4e-98f3-b47ad42d7ccd",
+  "status": "partial",
+  "issues": [],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_ffcc8e9d-147d-4481-85e7-7828e11e76ef",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_361b32e8-4478-4e1b-b47e-f30966c99ec1",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_946e1d37-83b7-4050-b4b6-54286e778a08",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_28f5665b-7c33-4dd1-a118-a2bdbe17643d",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_ed5304ae-b317-45e9-96e3-dde64dad1856",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_639bb0fc-b0ae-4621-92ac-b64b1effc5a5",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_c1a92528-505c-4e2c-b61c-553d9a96c079",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_5df17d4e-d75b-4862-ab50-f5be71b55fd3",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 1,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "model_review_executed_with_unchanged_page_evidence_reuse",
+    "fact_semantic": "model_review_executed_with_unchanged_page_evidence_reuse",
+    "accessibility": "not_executed",
+    "powerpoint_compatibility": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Numeric membership is not semantic truth; PNG/text presence is not visual approval. Full DEC/QA/revision acceptance remains required.",
+  "model_review": {
+    "checked_slide_orders": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "issues": [
+      {
+        "slide_order": 4,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "表格中数值未标注千位分隔符，且“单位：千瓦时”仅出现在正文而非表头，读者需回看正文才能确认单位。",
+        "evidence_refs": [
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ],
+        "issue_id": "issue_eeaedf22-a116-4172-82cd-b5b33a63ee8a",
+        "slide_id": "slide_3fab08e9-cdc1-4ca9-af1d-b38289de667d"
+      },
+      {
+        "slide_order": 5,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "柱状图纵轴刻度为0至14000，但未在轴旁或图内直接标注“千瓦时”，单位仅出现在正文说明中，图表独立可读性不足。",
+        "evidence_refs": [
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28",
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ],
+        "issue_id": "issue_1de8c824-84c9-4dd8-b673-2ba446f56a24",
+        "slide_id": "slide_bc1a6073-19a6-44a9-a778-707d011f6175"
+      },
+      {
+        "slide_order": 9,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "页面将“责任分工、风险限制、验证下一步”三部分合并为一页，信息密度较高，但内容与引用一致，未发现事实错误。",
+        "evidence_refs": [
+          "evidence_23cdd550-70f1-41f9-88a5-06c86b3c0313",
+          "evidence_0a729c6d-3810-477e-887c-3c42842d34eb",
+          "evidence_be54dbcb-a86f-4d98-b178-d306d93aafd4",
+          "evidence_11156959-029f-471f-939e-a89f46e544b8",
+          "evidence_039f3317-cde9-4994-9908-d350156ec0f8",
+          "evidence_47d4e1c7-77cb-44e6-b1d1-88b2bd4c3226"
+        ],
+        "issue_id": "issue_1220aa65-d2d6-43b5-8652-748d44e71b73",
+        "slide_id": "slide_5df17d4e-d75b-4862-ab50-f5be71b55fd3"
+      },
+      {
+        "slide_order": 0,
+        "severity": "P0",
+        "kind": "semantic",
+        "detail": "整套材料要求面向学校管理团队组织约10页中文汇报，但实际只渲染出1页（页码显示01/10），核心建议、试点范围、示例基线与目标、数据解读、改造措施、实施安排、责任分工、风险与限制、验证与下一步等全部主要内容缺失，属于严重内容缺失。",
+        "evidence_refs": [
+          "evidence_f002b6e0-bc93-4682-9452-f1aa8373d6fa",
+          "evidence_ec229098-0a7a-4954-94ec-6763e028d16f",
+          "evidence_e3c959e4-7e86-488c-8319-6ee5934e2e0c",
+          "evidence_4b154e79-e993-4c0e-a0b6-1032055ddf8a",
+          "evidence_4744b9eb-d0b9-477f-8b09-16124000baba",
+          "evidence_e83ca342-86a9-40bc-a018-f4f2c0235e75",
+          "evidence_4b548541-cdd4-4b39-844f-b241f4aee7c0",
+          "evidence_23cdd550-70f1-41f9-88a5-06c86b3c0313",
+          "evidence_be54dbcb-a86f-4d98-b178-d306d93aafd4",
+          "evidence_039f3317-cde9-4994-9908-d350156ec0f8"
+        ],
+        "issue_id": "issue_6f0e4f16-bdfd-4a93-bf27-4a18df634a52",
+        "slide_id": "slide_ffcc8e9d-147d-4481-85e7-7828e11e76ef"
+      },
+      {
+        "slide_order": 0,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "正文三行文字行距偏大、页面下方大面积留白，版面利用率低，可适当收紧行距或补充内容。",
+        "evidence_refs": [],
+        "issue_id": "issue_be2e6150-2d8a-4c92-893f-471b176fa0da",
+        "slide_id": "slide_ffcc8e9d-147d-4481-85e7-7828e11e76ef"
+      }
+    ],
+    "summary": "修订页实际重审；其余页复用未改内容及原审查。",
+    "fresh_checked_slide_orders": [
+      0
+    ],
+    "carried_from_run": "f40df117-e1fb-4bbf-b813-55b1ddf78603"
+  }
+}

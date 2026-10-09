@@ -1,6 +1,6 @@
 # 产品架构选择与运行边界
 
-本记录服务 SYS-001、SYS-006、SYS-007、SYS-019、SYS-020 与后续 AC-001/GOV-008。完整 308/453 范围及所有 PP/PPT/DEC/AC 仍保留；本轮仅接入任务校验和能力查询组件，E2E 未执行。
+本记录服务核心SYS与AC-001/GOV-008。完整308/453范围及所有PP/PPT/DEC/AC保留；真实模型/PPTX/render/部分QA和单文本对象修订已运行，完整DEC和系统验收尚未通过。
 
 ## 选择依据
 
@@ -13,9 +13,9 @@
 
 - 首条新建路径选择 PP-05 python-pptx 1.0.2（MIT）作为原生 text/shape/table/chart/notes 写入适配器。P05 研究已有这些对象实物，但其整应用 AGPL/声明冲突代码不复制；底层库按[官方发布](https://pypi.org/project/python-pptx/1.0.2/)独立接入。图像、模板、现有对象和高级对象分别验证，不把上游研究子集升格为产品 Native。
 - 首条渲染使用 Docker 内 LibreOffice/PDF→PNG，保存版本/hash与渲染差异；PowerPoint 打开兼容性及 live 能力使用明确 Windows/Office 边界的 Adapter。Office 不是 Linux 镜像内依赖；可运行隔离 bridge 的部署细节在对应 PP-01/08 实验验证。不得以 Linux 运行替代 AC-028 的 PowerPoint 实测，也不在 Windows 主机安装本项目 Python/Node 依赖。
-- 模型通过 provider 接口统一调用。文本首条供应商为用户授权的 DeepSeek，读取环境变量名，记录模型/参数；密钥不进入 TaskSpec、trace、Git、镜像或终端。实际模型能力和名称在调用前从配置/供应商核验；DeepSeek 文本模型不被当作视觉模型。视觉模型未配置时明确 Untested/不可运行，继续结构/事实检查，不伪造视觉通过。
+- 模型通过provider接口调用；首条为用户授权DeepSeek，系统环境变量安全同步到F盘忽略目录，读取值不进入TaskSpec/trace/Git/镜像/终端。每次实际调用核对供应商/models；本轮列表为deepseek-flash和deepseek-v4-pro，明确选用flash，未将旧deepseek-chat静默替换。按[官方视觉文档](https://api-docs.deepseek.com/guides/vision/)和实际PNG请求，flash已执行视觉/事实审查；不由“文本模型”标签推定其视觉能力。模型结果、用量、参数和hash保留，审查仍可能误判，不替代所有QA及兼容性验收。
 - 事实/来源 QA 直接消费 evidence、constraint 和 rewrite trace，视觉与几何 QA 消费实际渲染，可编辑性 QA 检查 OOXML/ObjectMap；每类独立报告。局部修订保留实体 ID、原稿、未选对象与未知 parts，按 RevisionPlan 重跑受影响节点后再次验收。
-- CLI、HTTP API、MCP 共用核心服务。当前 CLI `validate/capabilities` 与 HTTP 同义入口实际消费 TaskSpec/SchemaRegistry/CapabilityRegistry；生成、修订、渲染、持久 job、MCP、doctor 等随后按原任务实现。本轮没有返回假任务成功或空 PPTX。
+- CLI/HTTP共用核心服务：validate/inspect/evidence/capabilities/schemas/generate/resume/revise/recheck。草稿路径确实消费来源、模型、spec、DAG、对象写入、渲染和QA；单文本对象修订逐字节保留未改OOXML parts。MCP、完整jobs/取消、完整RevisionPlan与节点恢复仍按原任务实现。返回draft_generated/draft_revised，不能当成系统验收成功。
 
 ## 数据、能力与失败
 
@@ -27,6 +27,8 @@
 
 ## 待证明范围
 
-来源运行时已接入CLI/API，使用markdown-it-py 4.2.0 / mdit-py-plugins 0.6.1及mdurl 0.1.2；此前19项版本保持不变。依赖现为22项，以requirements.lock为准。SQLite保存不可变来源快照及原文/结构证据，按ID查询；新增SourceEvidence Schema直接由存储组件消费，原Schema注册现为49份。parse version绑定解析源码SHA与库版本，confidence为null；结构解析不推定事实可信、自然语言意图或多源冲突已解决。
+来源运行时使用markdown-it-py 4.2.0 / mdit-py-plugins 0.6.1及mdurl 0.1.2。新增python-pptx 1.0.2/lxml 6.1.3/Pillow 12.3.0/XlsxWriter 3.2.9，此前22项版本未变，现26项以lock为准。SQLite不可变快照/证据维持原有hash/version/ID与unknown confidence。消费Schema共52份，新增模型提案、Deck/Execution/ObjectMap及单对象修订接口；未推定语义事实真值或多源冲突解决。
 
-SYS 各组件的完整 E2E 通过条件未满足，保持进行中。PP-01–09 的 PoC、PPT-001–030 的产品实测、DEC-001–040 的可执行决策、S00–S44 的状态/断点及 AC-001–030 全部仍按原矩阵推进。下一动作是原生writer与真实模型规划接入已运行的来源/证据；不能再以编写契约本身替代输入→可编辑 PPTX→QA→局部修订。
+Docker固定安装libreoffice-impress 4:7.4.7-1+deb12u14、poppler-utils 22.12.0-2+deb12u3、fonts-noto-cjk 1:20220127+repack1-1；完整系统包版本和核心版权文件随实物证据保留。/tmp实际挂载F盘runtime/data/tmp以满足LibreOffice IPC硬编码，XDG配置/缓存亦在/runtime；镜像rootfs继续只读。真实生成及修订证据见validation/generation-artifacts，组件核验31项、核心26项、来源36项通过。
+
+相关SYS保持进行中：当前子集真实经过草稿链路，完整对象/模式、决策、QA与恢复范围未满足。PP-01–09、PPT-001–030、DEC-001–040、S00–S44和AC-001–030继续按原矩阵推进。下一动作是DEC关键节点和正式能力登记接入本实物链路，补齐AC-001完整轨迹；implementation_id当前仍为方法别名，不虚称已符合全部实体登记。

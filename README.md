@@ -1,6 +1,6 @@
 # YoloongPPT
 
-AI PPT 生成系统项目。当前已有Docker产品核心：TaskSpec校验、Schema/CapabilityRegistry、文本/Markdown来源解析与证据存储，以及CLI/API入口。生成、渲染、QA和局部修订的完整链路仍待实现，不能把核心启动作为AI PPT交付。
+AI PPT 生成系统项目。Docker内已有任务校验、文本/Markdown解析、证据存储、真实模型规划、原生PPTX写入、PDF/PNG渲染、结构及模型视觉/事实检查和单个文本对象修订，均通过CLI/API共享核心。完整DEC链、全部QA与修订范围和系统验收仍待完成。
 
 完整交付目标与防偏离规则见 [GOAL.md](GOAL.md)，执行计划见 [PROJECT_PLAN.md](PROJECT_PLAN.md)，17 小时进度审计见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
 
@@ -43,6 +43,16 @@ TaskSpec例子只校验已给出的路由与输入形状，未执行DEC-001或�
 `python -m yoloongppt inspect <TaskSpec.json>`或HTTP POST `/inspect`解析prompt/text/markdown来源，返回SourceBundle、结构化文档、原文证据ID与trace；`python -m yoloongppt evidence <evidence_id>`或GET `/evidence/{id}`查询同一持久证据。SQLite与原文快照位于F盘绑定的runtime/data，不进入Git。文件路径只接受工作区或运行目录内的UTF-8 .md/.markdown/.txt，其他输入明确报错。
 
 Markdown保留标题、列表、代码、表格、链接、引用与脚注结构；表格行宽不一致、重复脚注、未映射结构停止解析，原文未截断。块锚点精确回到原文，行内位置仅表示所属块范围。自然语言意图提取、优先级/事实冲突检测和其他格式仍未实现。实际输入/解析样例见[source-runtime-example.json](validation/source-runtime-example.json)，验证见[source-runtime.json](validation/source-runtime.json)。
+
+## 真实生成与局部修订
+
+先用 `./scripts/configure-model.ps1` 读取已授权的系统环境变量，再 `./scripts/project.ps1 start`。密钥只保存到忽略的F盘runtime/data/secrets，不通过Docker build、TaskSpec或日志传递。
+
+在app容器中执行 `python -m yoloongppt generate /workspace/validation/generation-task.json`；HTTP为POST `/generate`，输入同一TaskSpec。返回的是draft_generated和实际产物目录，不表示AC验收通过。当前只支持明确选择的材料/从零新建、中文16:9及已验证文本/表格/分类图表/备注；未知硬约束、模板、样式或运行选项明确拒绝。可用 `resume <run_id>` 复用已保存模型阶段，来源变化会拒绝复用。
+
+`python -m yoloongppt revise <run_id> <request.json>`（HTTP POST `/revise/{run_id}`）目前只编辑一个标题/正文原生对象；请求字段为object_id、replacement_text数组和reason。保存原稿与修订稿，逐字节保留未选OOXML parts和实体ID，再渲染/复审。`recheck <run_id>` 或POST `/recheck/{run_id}`只恢复QA，校验并复用已有PPTX/render字节，不重新生成。
+
+实物：[原稿](validation/generation-artifacts/original/deck.pptx)、[局部修订稿](validation/generation-artifacts/revised/deck.pptx)、[修订稿PDF](validation/generation-artifacts/revised/render/deck.pdf)、[当前HTTP真实生成](validation/generation-artifacts/http-generated/deck.pptx)。[31项组件核验](validation/generation-runtime.json)与[实物说明](validation/首条真实生成与修订链路.md)记录模型调用、真实视觉/事实审查、ObjectMap、失败及修订差异；P0为0只适用于这些已执行检查，AC-001/GOV-008仍未通过。
 
 ## Git 工作约定
 

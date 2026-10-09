@@ -1,4 +1,4 @@
-"""SYS-020: shared core API, local deployment; no generation/jobs yet."""
+"""SYS-020: shared core API, local draft generation/revision; full jobs pending."""
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
@@ -55,7 +55,8 @@ async def http_error(request, error):
 @app.get('/health')
 def health(request: Request):
     return {'ok': True, 'trace_id': request.state.trace_id, 'state': 'core_ready',
-            'generation_ready': False, 'schema_count': len(request.app.state.schemas.documents)}
+            'generation_ready': False, 'draft_generation_available': True,
+            'schema_count': len(request.app.state.schemas.documents)}
 
 
 @app.get('/capabilities')
@@ -91,6 +92,32 @@ async def inspect(request: Request):
     return await run_in_threadpool(inspect_sources, document, request.app.state.schemas, request.app.state.evidence, request.state.trace_id)
 
 
+@app.post('/generate')
+async def generate(request: Request):
+    from .generation import generate as generate_deck
+    document = await task_body(request)
+    return await run_in_threadpool(generate_deck, document, request.app.state.schemas, request.app.state.evidence, request.state.trace_id)
+
+
 @app.get('/evidence/{evidence_id}')
 def evidence(evidence_id: str, request: Request):
     return {'ok': True, 'trace_id': request.state.trace_id, 'evidence': request.app.state.evidence.get(evidence_id)}
+
+
+@app.post('/resume/{run_id}')
+async def resume(run_id: str, request: Request):
+    from .generation import resume as resume_deck
+    return await run_in_threadpool(resume_deck, run_id, request.app.state.schemas, request.app.state.evidence, request.state.trace_id)
+
+
+@app.post('/revise/{run_id}')
+async def revise(run_id: str, request: Request):
+    from .revision import revise as revise_deck
+    document = await task_body(request)
+    return await run_in_threadpool(revise_deck, run_id, document, request.app.state.schemas, request.state.trace_id)
+
+
+@app.post('/recheck/{run_id}')
+async def recheck(run_id: str, request: Request):
+    from .revision import recheck as recheck_deck
+    return await run_in_threadpool(recheck_deck, run_id, request.app.state.schemas, request.state.trace_id)

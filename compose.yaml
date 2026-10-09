@@ -12,6 +12,11 @@ services:
     volumes:
       - .:/workspace:ro
       - ./runtime/data:/runtime
+      # LibreOffice 7.4's IPC checks /tmp rather than TMPDIR.
+      - ./runtime/data/tmp:/tmp
+    environment:
+      XDG_CACHE_HOME: /runtime/cache
+      XDG_CONFIG_HOME: /runtime/config
     ports:
       - "127.0.0.1:8000:8000"
     security_opt:

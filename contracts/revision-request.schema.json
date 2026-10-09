@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/revision-request.schema.json",
+  "title": "SYS-016当前单个原生文本对象修订入口",
+  "type": "object", "required": ["object_id", "replacement_text", "reason"],
+  "properties": {
+    "object_id": {"$ref": "object-id.schema.json#/$defs/object_id"},
+    "replacement_text": {"type": "array", "minItems": 1, "maxItems": 6, "items": {"type": "string", "minLength": 1, "maxLength": 160}},
+    "reason": {"type": "string", "minLength": 1}
+  }, "additionalProperties": false
+}

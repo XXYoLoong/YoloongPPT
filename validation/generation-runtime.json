@@ -1,0 +1,347 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "id": "preflight_explicit_hard_page_budget",
+      "passed": true,
+      "observation": "Explicit ten-page hard constraint consumed."
+    },
+    {
+      "id": "unknown_hard_constraint",
+      "passed": true,
+      "observation": {
+        "error_code": "HARD_CONSTRAINT_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "conflicting_hard_constraint",
+      "passed": true,
+      "observation": {
+        "error_code": "HARD_CONSTRAINT_CONFLICT"
+      }
+    },
+    {
+      "id": "unsupported_template",
+      "passed": true,
+      "observation": {
+        "error_code": "GENERATION_TEMPLATE_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "unsupported_font",
+      "passed": true,
+      "observation": {
+        "error_code": "GENERATION_STYLE_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "unsupported_style",
+      "passed": true,
+      "observation": {
+        "error_code": "GENERATION_STYLE_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "unsupported_output",
+      "passed": true,
+      "observation": {
+        "error_code": "OUTPUT_FORMAT_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "unsupported_runtime_option",
+      "passed": true,
+      "observation": {
+        "error_code": "GENERATION_OPTION_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "unsupported_generation_mode",
+      "passed": true,
+      "observation": {
+        "error_code": "GENERATION_ROUTE_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "text_capacity_no_truncation",
+      "passed": true,
+      "observation": {
+        "error_code": "TEXT_CAPACITY_EXCEEDED"
+      }
+    },
+    {
+      "id": "checkpoint_path_rejected",
+      "passed": true,
+      "observation": {
+        "error_code": "CHECKPOINT_ID_INVALID"
+      }
+    },
+    {
+      "id": "provider_redirect_target_rejected",
+      "passed": true,
+      "observation": {
+        "error_code": "PROVIDER_UNSUPPORTED"
+      }
+    },
+    {
+      "id": "checkpoint_entity_ids_and_DAG",
+      "passed": true,
+      "observation": "IDs retained; DAG schema validates after recovery."
+    },
+    {
+      "id": "actual_ten_slide_pptx",
+      "passed": true,
+      "observation": {
+        "slides": 10
+      }
+    },
+    {
+      "id": "native_table_chart_text",
+      "passed": true,
+      "observation": {
+        "tables": 1,
+        "charts": 1,
+        "text_boxes": 30
+      }
+    },
+    {
+      "id": "embedded_chart_workbook",
+      "passed": true,
+      "observation": "Native chart has editable xlsx data."
+    },
+    {
+      "id": "real_model_not_mock",
+      "passed": true,
+      "observation": {
+        "provider": "deepseek",
+        "requested_model": "deepseek-flash",
+        "returned_model": "deepseek-flash",
+        "response_id": "1fea43ce-ccf4-4057-85c7-edd093440579",
+        "usage": {
+          "prompt_tokens": 3446,
+          "completion_tokens": 2793,
+          "total_tokens": 6239,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "prompt_cache_hit_tokens": 0,
+          "prompt_cache_miss_tokens": 3446
+        },
+        "available_models": [
+          "deepseek-flash",
+          "deepseek-v4-pro"
+        ],
+        "parameters": {
+          "model": "deepseek-flash",
+          "response_format": {
+            "type": "json_object"
+          },
+          "thinking": {
+            "type": "disabled"
+          },
+          "temperature": 0.2,
+          "max_tokens": 12000,
+          "stream": false
+        },
+        "request_sha256": "394bb9dbf7c96458982c8c828f10c6b62bcf611931a0f1750ee3bdabf6e2794c",
+        "response_content_sha256": "f6eb0c06f56fd8bea95c4ecb0576d0e3a742e70f198559e29a31cf6250036223",
+        "duration_seconds": 8.93,
+        "real_model_call": true,
+        "reused_from_run": "7d5c5b35-2b00-4322-b054-0690dd265c2d",
+        "fresh_model_call_this_run": false
+      }
+    },
+    {
+      "id": "real_visual_review",
+      "passed": true,
+      "observation": "Actual ten rendered PNGs reviewed by configured image-capable model."
+    },
+    {
+      "id": "actual_render_hashes",
+      "passed": true,
+      "observation": "One PDF plus ten actual hashed PNG pages."
+    },
+    {
+      "id": "real_object_map",
+      "passed": true,
+      "observation": {
+        "mapped_objects": 32
+      }
+    },
+    {
+      "id": "local_revision_preserves_other_parts",
+      "passed": true,
+      "observation": {
+        "changed_parts": [
+          "ppt/slides/slide1.xml"
+        ]
+      }
+    },
+    {
+      "id": "local_revision_object_map_stable",
+      "passed": true,
+      "observation": "Logical IDs/backend object IDs unchanged."
+    },
+    {
+      "id": "revised_actual_QA",
+      "passed": true,
+      "observation": "Actual revised-page review, unchanged-page evidence reuse, deterministic checks. Not full AC acceptance."
+    },
+    {
+      "id": "acceptance_not_inflated",
+      "passed": true,
+      "observation": "Full decision graph and additional gates remain unfinished."
+    },
+    {
+      "id": "API_generate_same_preflight",
+      "passed": true,
+      "observation": "Shared core rejects unsupported template before model call."
+    },
+    {
+      "id": "API_revision_unknown_object",
+      "passed": true,
+      "observation": "No mutation when target missing."
+    },
+    {
+      "id": "CLI_checkpoint_error_JSON",
+      "passed": true,
+      "observation": "Structured failure, no traceback/credentials."
+    },
+    {
+      "id": "license_files_python-pptx",
+      "passed": true,
+      "observation": {
+        "version": "1.0.2",
+        "files": [
+          {
+            "path": "python_pptx-1.0.2.dist-info/LICENSE",
+            "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132"
+          }
+        ]
+      }
+    },
+    {
+      "id": "license_files_lxml",
+      "passed": true,
+      "observation": {
+        "version": "6.1.3",
+        "files": [
+          {
+            "path": "lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+            "sha256": "8fc2b568133516e46845d2147917adeee1648e70ae9ab5ed6c5417afef4ce855"
+          },
+          {
+            "path": "lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+            "sha256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c"
+          }
+        ]
+      }
+    },
+    {
+      "id": "license_files_Pillow",
+      "passed": true,
+      "observation": {
+        "version": "12.3.0",
+        "files": [
+          {
+            "path": "pillow-12.3.0.dist-info/licenses/LICENSE",
+            "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce"
+          }
+        ]
+      }
+    },
+    {
+      "id": "license_files_XlsxWriter",
+      "passed": true,
+      "observation": {
+        "version": "3.2.9",
+        "files": [
+          {
+            "path": "xlsxwriter-3.2.9.dist-info/LICENSE.txt",
+            "sha256": "cf08b60a4ded986b58a617cb8304373bda5c4eff42fb4e30d7597b616e116e87"
+          }
+        ]
+      }
+    }
+  ],
+  "base_run_id": "f40df117-e1fb-4bbf-b813-55b1ddf78603",
+  "revised_run_id": "5e5532c1-966d-4785-bd61-5031b80707a8",
+  "scope": "Changed generation/revision components and actual artifacts; full AC-001/DEC graph not passed.",
+  "python": "3.13.16",
+  "licenses": [
+    {
+      "name": "python-pptx",
+      "version": "1.0.2",
+      "files": [
+        {
+          "path": "python_pptx-1.0.2.dist-info/LICENSE",
+          "sha256": "7652f271e46d0d533e9dc463f3b5fcbdcacf4d6a9c8d6b554d15efd0f37f6132"
+        }
+      ]
+    },
+    {
+      "name": "lxml",
+      "version": "6.1.3",
+      "files": [
+        {
+          "path": "lxml-6.1.3.dist-info/licenses/LICENSE.txt",
+          "sha256": "8fc2b568133516e46845d2147917adeee1648e70ae9ab5ed6c5417afef4ce855"
+        },
+        {
+          "path": "lxml-6.1.3.dist-info/licenses/LICENSES.txt",
+          "sha256": "388fa99f3bde4447cd5a4cbb114037be026854db6cfe89e112691c1d8abdcf3c"
+        }
+      ]
+    },
+    {
+      "name": "Pillow",
+      "version": "12.3.0",
+      "files": [
+        {
+          "path": "pillow-12.3.0.dist-info/licenses/LICENSE",
+          "sha256": "dda12a98c1979cf3d94df1cff45d27a4cb3f04a60c76f76902ac54cac03ec0ce"
+        }
+      ]
+    },
+    {
+      "name": "XlsxWriter",
+      "version": "3.2.9",
+      "files": [
+        {
+          "path": "xlsxwriter-3.2.9.dist-info/LICENSE.txt",
+          "sha256": "cf08b60a4ded986b58a617cb8304373bda5c4eff42fb4e30d7597b616e116e87"
+        }
+      ]
+    }
+  ],
+  "consumed_file_hashes": {
+    "src/yoloongppt/__init__.py": "8bdb38ff28f3a548d91af566ff0637444a48c296386952e669f73a2b9f7aa90b",
+    "src/yoloongppt/__main__.py": "de386dcf23fdcf4f481fbc0ad9f4afa3f1fe68538ca5ff03c8f4881cbacbbed0",
+    "src/yoloongppt/api.py": "624805d00196dac47be4930f90ce40a741458581014688bf926fbc4273735841",
+    "src/yoloongppt/artifacts.py": "122a72e8a81d991daf5a4237c573bbfb4a43fce0e7f4427d9aa264b1a5334e8f",
+    "src/yoloongppt/capabilities.py": "47629f3af17847c5fd4387dc9b25dccf2cf0ef76b65cbf47a677d5ec4e80c4f5",
+    "src/yoloongppt/errors.py": "877d710a888b55a173c3c376735c2796510d3b5733174fab02a37fff2d76f355",
+    "src/yoloongppt/evidence.py": "2e66c94e2a5d8eeea70006f98b525bca84930f64b70112d042ee96973e6bac3a",
+    "src/yoloongppt/generation.py": "abd61a9e12913904dedfa1f562057311aa5f7473e153cdbbe65e766f7aaad417",
+    "src/yoloongppt/jsonio.py": "7eede0b149d96093f63a9d0eaa9416b2acba2745535ef8fe76921a99323d8fb9",
+    "src/yoloongppt/markdown.py": "a4ee49169ab79914e3e9a99fcde6b5ae3af6bc9d5200199463acfcd1a32d812a",
+    "src/yoloongppt/planning.py": "9b67496caa2cc7ec1216e0455f9f125dfb23766536fb1a357ca4da3f833b7c8e",
+    "src/yoloongppt/providers.py": "269a90d1e498d54cb9f16fba8f6735ec586c1f26e8298ce784ab43d601bf7d99",
+    "src/yoloongppt/quality.py": "86cc9e95fc54757e0a6460569b8e514c1018ddc2531f571e53327c7f8e6ac07d",
+    "src/yoloongppt/rendering.py": "f5d80ff3428db5cee32dafcf91c96697afc1aeae2c5ffc59f674d4353cc3dc29",
+    "src/yoloongppt/review.py": "1f31ff8c9019077ce94b76415ec0243c97ff9e9c9acf394126ec525eb13feae2",
+    "src/yoloongppt/revision.py": "9c92bd4bd4e15d349cbb84e9a6240e7eaa2abb5427333ff0d7ad6fed6f7d4a2a",
+    "src/yoloongppt/schemas.py": "f58337c8a7199056b131b7e43f46e7d994804eab2a3889a38e9c8a6ed45071bb",
+    "src/yoloongppt/sources.py": "a21aa0bf949fe5a448317cd2e0250562cdf07bf05df80fbd240cae64da853f3c",
+    "src/yoloongppt/tasks.py": "e00553086474db58a632cfe0d3b042a53a37e8b6203694ff998b0d8dd4abcdaf",
+    "src/yoloongppt/writer.py": "8d59db7fbbdf759600eb3bdf621e51f9e8259a12b3cb45122e6da602ec5f5446",
+    "requirements.lock": "72e4a860ea06575c90b25b7041080f58cbfa1212964426ed13ecd850fb1207f5",
+    "Dockerfile.app": "6160880638641a5335cd7daacbd19dcd3bc5201791e446a3c69a9d85734a016b",
+    "compose.yaml": "5dc1ac3075e3ca27549e7e6b1157e6629fc680a899ccc875e51e128c115cbc61",
+    "contracts/generation-model.schema.json": "582ca6d8738cf5aaf6a2bba6f718fb72eae72aa55a1418b75a1d1b3c922400a2",
+    "contracts/deck-execution.schema.json": "8d732cc053b09881bbb63d4dc0429e33e54818c678704581c4c8004a60bcddc0",
+    "contracts/revision-request.schema.json": "3fa2de13eeded6c7155deeca2326f8abdcbb5034c72dd2b55c3c65186c657541",
+    "validation/generation-task.json": "28f3d81053c084fdc567ced60fedb34f009ca11f200bb3e2c10f891f2a593ed8",
+    "validation/fixtures/节能试点材料.md": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa"
+  }
+}
