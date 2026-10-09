@@ -1,0 +1,158 @@
+{
+  "requirement_id": "RES-031",
+  "task_id": "VERIFY-RES-031",
+  "passed": true,
+  "dimensions": [
+    "输入",
+    "内容理解",
+    "规划",
+    "分页",
+    "页面类型",
+    "素材",
+    "模板",
+    "布局",
+    "执行",
+    "可编辑性",
+    "QA",
+    "修订",
+    "接口",
+    "安全",
+    "许可"
+  ],
+  "projects_per_dimension": {
+    "输入": 5,
+    "内容理解": 5,
+    "规划": 5,
+    "分页": 5,
+    "页面类型": 5,
+    "素材": 5,
+    "模板": 5,
+    "布局": 5,
+    "执行": 5,
+    "可编辑性": 5,
+    "QA": 5,
+    "修订": 5,
+    "接口": 5,
+    "安全": 5,
+    "许可": 5
+  },
+  "source_files_verified": 116,
+  "source_anchors_verified": 119,
+  "research_inputs_verified": 33,
+  "tests": [
+    {
+      "name": "normal-comparison",
+      "kind": "normal",
+      "passed": true,
+      "result": "15×5 records, fixed sources/provenance and current artifact hashes match"
+    },
+    {
+      "name": "explicit-missing-and-blackbox",
+      "kind": "boundary",
+      "passed": true,
+      "result": "Not found/Unsupported with bounded source scopes accepted; P03 external exporter and host planning remain black boxes"
+    },
+    {
+      "name": "missing-dimension",
+      "kind": "failure",
+      "passed": true,
+      "error_code": "E_DIMENSION_SET",
+      "reason": "must preserve original 15 dimensions/order",
+      "scope": "mutated in-memory comparison copy; no upstream/report edited"
+    },
+    {
+      "name": "below-three-projects",
+      "kind": "failure",
+      "passed": true,
+      "error_code": "E_COVERAGE",
+      "reason": "输入",
+      "scope": "mutated in-memory comparison copy; no upstream/report edited"
+    },
+    {
+      "name": "claim-without-source",
+      "kind": "failure",
+      "passed": true,
+      "error_code": "E_SOURCE_MISSING",
+      "reason": "{'project': 'P01', 'status': 'Partial', 'finding': '文件/文本/URL作为来源；Generate/Beautify/Edit等路由由Skill指定', 'limit': 'Quick实测Markdown；其余来源转换是源码规则；无独立自然语言路由模型', 'source_anchors': [], 'runtime_evidence': ['research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json'], 'proof_level': 'source + recorded runtime subset', 'product_status': 'not implemented/accepted by this research'}",
+      "scope": "mutated in-memory comparison copy; no upstream/report edited"
+    },
+    {
+      "name": "promote-P03-source-to-runtime",
+      "kind": "failure",
+      "passed": true,
+      "error_code": "E_P03_NOTRUN",
+      "reason": "source/startup/auth gate cannot prove P03 generation/export",
+      "scope": "mutated in-memory comparison copy; no upstream/report edited"
+    },
+    {
+      "name": "alter-source-hash",
+      "kind": "failure",
+      "passed": true,
+      "error_code": "E_SOURCE_HASH",
+      "reason": "P01:fixed clone:skills/ppt-master/workflows/routing.md",
+      "scope": "mutated in-memory comparison copy; no upstream/report edited"
+    },
+    {
+      "name": "alter-prior-evidence-hash",
+      "kind": "failure",
+      "passed": true,
+      "error_code": "E_INPUT_HASH",
+      "reason": "research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json",
+      "scope": "mutated in-memory comparison copy; no upstream/report edited"
+    },
+    {
+      "name": "conceal-license-conflict",
+      "kind": "failure",
+      "passed": true,
+      "error_code": "E_LICENSE_CONFLICT",
+      "reason": "P05 declarations unresolved",
+      "scope": "mutated in-memory comparison copy; no upstream/report edited"
+    }
+  ],
+  "existing_real_artifact_checks": [
+    {
+      "project": "P01",
+      "path": "research/P01/projects/p01_hello_world_20261007/exports/p01-hello-world.pptx",
+      "sha256": "c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25",
+      "slides": 3,
+      "text_runs": 21,
+      "native_tables": 0,
+      "chart_parts": 0,
+      "scope": "ZIP/OOXML only; existing Office/visual observations remain those original reports"
+    },
+    {
+      "project": "P02",
+      "path": "research/P02/outputs/official-six/answer.pptx",
+      "sha256": "eb90a46c983c15c09d02de5bccdd171b33ed39c22d12e7a9f912580ecd7b7b1b",
+      "slides": 6,
+      "text_runs": 30,
+      "native_tables": 0,
+      "chart_parts": 0,
+      "scope": "ZIP/OOXML only; existing Office/visual observations remain those original reports"
+    },
+    {
+      "project": "P04",
+      "path": "research/P04/validation/template-normal.pptx",
+      "sha256": "e82c7d0f4ac91bdeadb9b985c91e0fcc736a09d5bc8d7abfed499fcf3fb7297d",
+      "slides": 1,
+      "text_runs": 3,
+      "native_tables": 0,
+      "chart_parts": 0,
+      "scope": "ZIP/OOXML only; existing Office/visual observations remain those original reports"
+    },
+    {
+      "project": "P05",
+      "path": "research/P05/outputs/maps-probes/native-objects.pptx",
+      "sha256": "5965f5055e7aa27e96b8249f3f5bed5915ebe5e34c25da6206eef55d5c2cafa7",
+      "slides": 2,
+      "text_runs": 17,
+      "native_tables": 1,
+      "chart_parts": 1,
+      "scope": "ZIP/OOXML only; existing Office/visual observations remain those original reports"
+    }
+  ],
+  "P03_status": "five VERIFY still in progress; only startup/source/historical auth gate, not generation/export",
+  "runtime_reexecution": "none; reused fixed matching evidence and inspected artifacts",
+  "product_acceptance": "all 30 AC unexecuted; no architecture/runtime or code reuse approval",
+  "reproduction": "tool-bundled stdlib Python research/cross-project/build-matrix.py then verify-matrix.py; TEMP/TMP/TMPDIR on F:; fixed clones and evidence must already exist"
+}

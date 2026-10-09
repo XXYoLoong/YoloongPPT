@@ -1,0 +1,1332 @@
+{
+  "artifact_type": "CrossProjectMatrix",
+  "requirement_id": "RES-031",
+  "task_ids": [
+    "TASK-RES-031",
+    "VERIFY-RES-031"
+  ],
+  "scope": "原15维度×5固定项目；证据结论不是产品架构/技术栈/全能力或复用许可批准",
+  "status_definition": {
+    "Observed": "实际制品/运行仅证明所述子集",
+    "Partial": "源码/部分运行存在，但没有完整维度能力证据",
+    "Unsupported": "追踪路线缺失能力或明确拒绝",
+    "Not found": "固定追踪源码未发现独立实现；主机/模型黑盒不算该算法已实现"
+  },
+  "projects": {
+    "P01": {
+      "name": "ppt-master",
+      "fixed_commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "clone": "F:\\YoloongPPT-Research\\P01",
+      "license_observed": "MIT",
+      "runtime_scope": "source + prior runtime subset; no new provider calls",
+      "remaining_verification": "Full product AC and object roundtrip remain unexecuted"
+    },
+    "P02": {
+      "name": "PPTAgent main Skill",
+      "fixed_commit": "833cda553b343be0e486a93b0b57cac962cdd566",
+      "clone": "F:\\YoloongPPT-Research\\P02",
+      "license_observed": "MIT",
+      "runtime_scope": "source + prior runtime subset; no new provider calls",
+      "remaining_verification": "Full product AC and object roundtrip remain unexecuted"
+    },
+    "P03": {
+      "name": "Presenton",
+      "fixed_commit": "35bf44290f821323e003da854f78ffcb0e918167",
+      "clone": "F:\\YoloongPPT-Research\\P03",
+      "license_observed": "Apache-2.0",
+      "runtime_scope": "source + prior runtime subset; no new provider calls",
+      "remaining_verification": "P03 five VERIFY still in progress, no generation/export evidence"
+    },
+    "P04": {
+      "name": "ai-agent-ppt",
+      "fixed_commit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "clone": "F:\\YoloongPPT-Research\\P04",
+      "license_observed": "MIT",
+      "runtime_scope": "source + prior runtime subset; no new provider calls",
+      "remaining_verification": "Full product AC and object roundtrip remain unexecuted"
+    },
+    "P05": {
+      "name": "auto-ppt-engine",
+      "fixed_commit": "5ae0670747885c464aa8063329a902d80a251877",
+      "clone": "F:\\YoloongPPT-Research\\P05",
+      "license_observed": "AGPL-3.0 file; conflicting Apache-2.0 metadata",
+      "runtime_scope": "source + prior runtime subset; no new provider calls",
+      "remaining_verification": "Full product AC and object roundtrip remain unexecuted"
+    }
+  },
+  "dimensions": [
+    {
+      "dimension": "输入",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "文件/文本/URL作为来源；Generate/Beautify/Edit等路由由Skill指定",
+          "limit": "Quick实测Markdown；其余来源转换是源码规则；无独立自然语言路由模型",
+          "source_anchors": [
+            "P01:D:P01-DEC-01",
+            "P01:D:P01-DEC-02",
+            "P01:S:source_intake"
+          ],
+          "runtime_evidence": [
+            "research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "CLI任务仅slides/aspect_ratio/language；用户内容与HTML由主机准备",
+          "limit": "不是完整TaskSpec或文档输入解析器",
+          "source_anchors": [
+            "P02:D:D02",
+            "P02:D:D03"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/verify-official-six.json",
+            "research/P02/validation/workflow-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "Web/REST接收prompt、files、slides_markdown、语言、页数、模板",
+          "limit": "启动与历史HTTP428有记录；输入生成分支未运行",
+          "source_anchors": [
+            "P03:D:P03-REQUEST",
+            "P03:D:P03-SOURCES",
+            "P03:D:P03-MARKDOWN"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/smoke.json",
+            "research/P03/validation/verify-res-p03-02.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "CLI按html>images>topic/input分流；单文件UTF-8、目录仅README/package",
+          "limit": "没有SourceBundle角色/优先级；真实模型路径未运行",
+          "source_anchors": [
+            "P04:D:P04-ROUTE",
+            "P04:D:P04-INPUT"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-02.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "CLI/JSON接收prompt、source、template、旧deck JSON；来源excerpt限5000字符",
+          "limit": "不是所有入口共享校验；不是任意PPTX保真输入",
+          "source_anchors": [
+            "P05:D:P05-D01",
+            "P05:D:P05-D02"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/baseline-run.json",
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "复用多来源与任务模式边界；产品必须统一TaskSpec及原文/位置，不把简化CLI字段当完整解析。"
+    },
+    {
+      "dimension": "内容理解",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "通信契约、reading mode、来源事实/限定词由主机按Prompt处理",
+          "limit": "没有独立事实冲突求解器；Quick transient plan不保存内部推理",
+          "source_anchors": [
+            "P01:D:P01-DEC-02",
+            "P01:D:P01-DEC-04",
+            "P01:D:P01-DEC-05"
+          ],
+          "runtime_evidence": [],
+          "proof_level": "source-only; no runtime support claim",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Not found",
+          "finding": "固定CLI未实现独立内容理解/事实模型；Skill委托主机创作",
+          "limit": "真模型HTML输出不证明有可定位的理解算法或事实QA",
+          "source_anchors": [
+            "P02:D:D03"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/author-prompts.json",
+            "research/P02/validation/author-response.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "loader/search构造context；outline结构化输出；Smart要求来源事实",
+          "limit": "无typed fact/assumption或来源冲突解决；模型未执行",
+          "source_anchors": [
+            "P03:D:P03-SOURCES",
+            "P03:D:P03-OUTLINE",
+            "P03:D:P03-FACTS"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-03.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "LLM大纲Prompt与逐页扩写；只检查title与slides数组",
+          "limit": "扩写失败保留原页；speakerNotes和chartData未被写入消费",
+          "source_anchors": [
+            "P04:D:P04-OUTLINE",
+            "P04:D:P04-CONTENT-FILL"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-04-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "mock关键词推断；真实模型可按Schema规划；source trust/priority只是metadata",
+          "limit": "实测中文仍en-US；没有句级证据和冲突求解",
+          "source_anchors": [
+            "P05:D:P05-D02",
+            "P05:D:P05-D03",
+            "P05:D:P05-D05"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "所有项目均缺少已验证的全事实/冲突闭环；产品以可追溯SourceEvidence和FactConstraints执行，不以Prompt句子充当保证。"
+    },
+    {
+      "dimension": "规划",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "Default三方向→用户确认→DesignSpec/spec_lock；Quick主机瞬时规划",
+          "limit": "Default未执行；用户确认协议不能替代确定性候选评分",
+          "source_anchors": [
+            "P01:D:P01-DEC-04",
+            "P01:D:P01-DEC-06",
+            "P01:S:strategist_and_confirmation"
+          ],
+          "runtime_evidence": [],
+          "proof_level": "source-only; no runtime support claim",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Not found",
+          "finding": "内容、结构、页面用途由主机决定；CLI没有Planner编排函数",
+          "limit": "内部候选和评分黑盒；author-six.py是研究调用，不是上游Planner",
+          "source_anchors": [
+            "P02:D:D03"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/author-run.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "Standard outline→layout→schema内容；Smart直接HTML/流式页面",
+          "limit": "无完整统一OutlineSpec/关系图/DecisionTrace；生成未运行",
+          "source_anchors": [
+            "P03:D:P03-OUTLINE",
+            "P03:D:P03-LAYOUT",
+            "P03:D:P03-SMART"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-03.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "先LLM生成JSON outline，再按页扩写和固定layout加载",
+          "limit": "模型内部选择未知；扩写失败静默保留；仅大纲重试3次",
+          "source_anchors": [
+            "P04:D:P04-OUTLINE",
+            "P04:D:P04-OUTLINE-RETRY",
+            "P04:D:P04-CONTENT-FILL"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-02.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "JSON deck规划、Schema校验与有限repair；mock固定roster",
+          "limit": "真实模型未运行；mock不等于AI规划验收",
+          "source_anchors": [
+            "P05:D:P05-D04",
+            "P05:D:P05-D05"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/baseline-run.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "可参考P01确认/锁定、P03分阶段结构、P05校验repair；主机和模型内部候选不伪造为可解释trace。"
+    },
+    {
+      "dimension": "分页",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "page budget/section roster由主机规划；锁定ID/顺序后需修订或重确认",
+          "limit": "没有确定性内容容量到页数求解；3页Quick实物是子集",
+          "source_anchors": [
+            "P01:D:P01-DEC-08",
+            "P01:D:P01-DEC-10"
+          ],
+          "runtime_evidence": [
+            "research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "slides须正整数；HTML序号连续且数量匹配，严格构建检查",
+          "limit": "没有自动预算/拆页；容量不符需改源；六页footer曾转换失败",
+          "source_anchors": [
+            "P02:D:D02",
+            "P02:D:D06",
+            "P02:D:D15"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/workflow-probes.json",
+            "research/P02/validation/footer-revision.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "请求count、标题/TOC规则；slides_markdown逐项映射一页",
+          "limit": "outline超数会裁剪；没章节预算；运行被历史认证门禁挡住",
+          "source_anchors": [
+            "P03:D:P03-PAGE-TOC",
+            "P03:D:P03-MARKDOWN",
+            "P03:D:P03-OUTLINE"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-03.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "Prompt建议5–15页；按outline页与layout遍历导出",
+          "limit": "缺layout跳页；60条bullet只写4条，56条无遗漏报告",
+          "source_anchors": [
+            "P04:D:P04-OUTLINE",
+            "P04:D:P04-LAYOUT-LOAD",
+            "P04:D:P04-TOPIC-RENDER"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-04-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "请求页数钳制5–12；mock roster实测最多9页；JSON修订可改页数",
+          "limit": "1页请求实际5、12实际9；clarify101字裁80字无新增说明",
+          "source_anchors": [
+            "P05:D:P05-D04",
+            "P05:D:P05-D07"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/baseline-run.json",
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "保留硬页数与完整内容约束；上游钳制/跳页/静默裁剪均不直接沿用，需显式失败或授权重分配。"
+    },
+    {
+      "dimension": "页面类型",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "page brief以单页intent驱动关系、拓扑、chart/table等表达",
+          "limit": "目录和Prompt定义类型，不是实际跑过全部类型的分类器",
+          "source_anchors": [
+            "P01:D:P01-DEC-09",
+            "P01:D:P01-DEC-11",
+            "P01:D:P01-DEC-17"
+          ],
+          "runtime_evidence": [],
+          "proof_level": "source-only; no runtime support claim",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Not found",
+          "finding": "只有通用claim/evidence starter；页面类型由主机写HTML",
+          "limit": "无正式page-type枚举、分类器或页面类型到模板的选择函数",
+          "source_anchors": [
+            "P02:D:D03",
+            "P02:D:D04"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/verify-official-six.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "Standard由template layout描述与Schema选型；Smart按Prompt生成",
+          "limit": "默认JSON无显式page-type/applicability字段；关键词标签只是候选",
+          "source_anchors": [
+            "P03:D:P03-LAYOUT",
+            "P03:D:P03-SMART",
+            "P03:S:template-layout-model"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-04.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "8个layout名称由Prompt给出，对应8个JSON版式",
+          "limit": "没有完整类型推断与适用性评分；名称无效会跳过",
+          "source_anchors": [
+            "P04:D:P04-LAYOUT-CHOICE",
+            "P04:D:P04-LAYOUT-LOAD"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-04-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "JS17个layout key/15渲染函数；Python映射13 key另有blank",
+          "limit": "kpi/swot/image-text/funnel未映射，回layout0/bullet且字段损失",
+          "source_anchors": [
+            "P05:D:P05-D08",
+            "P05:D:P05-D10"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "用语义intent与能力匹配连接页面类型；layout名称/HTML自由创作不替代类型分类与验收。"
+    },
+    {
+      "dimension": "素材",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "image necessity/source/job由计划规定；准备icon pool、fit/crop规则",
+          "limit": "允许来源与missing asset处理有Prompt，但不是已验证的所有素材获取",
+          "source_anchors": [
+            "P01:D:P01-DEC-12",
+            "P01:D:P01-DEC-13",
+            "P01:D:P01-DEC-16"
+          ],
+          "runtime_evidence": [],
+          "proof_level": "source-only; no runtime support claim",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "主机准备本地assets；review renderer仅允许跟踪file资源",
+          "limit": "无素材搜索/必要性算法；复杂样式PNG；converter独立goto没有同一路由保护",
+          "source_anchors": [
+            "P02:D:D09",
+            "P02:D:D12"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "图片URL/生成、icon搜索、目标尺寸来自template",
+          "limit": "图片失败可placeholder.jpg，icon无结果placeholder.svg；真实资产生成未跑",
+          "source_anchors": [
+            "P03:D:P03-ASSETS"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-05.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "images/Vision路径与图片下载；错误会warn并跳过图片",
+          "limit": "topic image布局不保证真实资产；未实跑Vision",
+          "source_anchors": [
+            "P04:D:P04-IMAGE-ANALYSIS",
+            "P04:D:P04-IMAGE-ASSET"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-02.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "视觉类型固定分类与定位；URL/文件图像加载；图表可PNG/native",
+          "limit": "没有搜索/必要性算法；图像下载失败可建议文本；image-text是示意框",
+          "source_anchors": [
+            "P05:D:P05-D11",
+            "P05:D:P05-D12"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "素材获取、来源许可、几何fit与native/fallback分开；下载失败和图片替代必须可追溯。"
+    },
+    {
+      "dimension": "模板",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "Brand/Style/Layout/Deck分层；typed slot及flat/structured输出规则",
+          "limit": "模板真值和完整metadata须显式；不是自动解析所有PPTX母版",
+          "source_anchors": [
+            "P01:D:P01-DEC-07",
+            "P01:D:P01-DEC-19",
+            "P01:D:P01-DEC-20"
+          ],
+          "runtime_evidence": [
+            "research/P01/validation/verify-res-p01-04.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "唯一generic starter三槽、四种token和CSS继承；三种canvas",
+          "limit": "非原生Master/Layout；不解析模板PPTX；只有16:9实测",
+          "source_anchors": [
+            "P02:D:D04",
+            "P02:D:D05"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "16个默认模板、383布局；component/merged variants、theme、capacity模型",
+          "limit": "没有显式parent/extends；容量认证路径与静态模板不同；导出黑盒",
+          "source_anchors": [
+            "P03:D:P03-TEMPLATE",
+            "P03:S:template-storage-and-schema",
+            "P03:S:template-capacity-pipeline"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-04.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "5个template JSON颜色/字体/spacing/slideSize，Zod校验",
+          "limit": "不是PPTX母版/主题保真；缺模板拒绝",
+          "source_anchors": [
+            "P04:D:P04-TEMPLATE"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-04-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "6个theme token；PPTX解析11布局/58placeholder；template路线python-pptx",
+          "limit": "带旧slide模板KeyError(None)；独立theme关系漏读；无页模板仅子集可用",
+          "source_anchors": [
+            "P05:D:P05-D08",
+            "P05:D:P05-D09"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "数据化槽位/几何/token后按能力路由；单starter、内部template JSON与原生PPTX母版不同，不能等同。"
+    },
+    {
+      "dimension": "布局",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "先语义拓扑再SVG几何；文本fit/样式锁；typed槽位导出约束",
+          "limit": "主机做几何；没有确定性全局评分器；不保证所有复杂PPT对象可原生化",
+          "source_anchors": [
+            "P01:D:P01-DEC-15",
+            "P01:D:P01-DEC-17",
+            "P01:D:P01-DEC-18",
+            "P01:D:P01-DEC-20"
+          ],
+          "runtime_evidence": [
+            "research/P01/validation/verify-res-p01-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "Chromium computed DOM→inch IR；字体CDP/CSS识别；严格尺寸/底部阈值",
+          "limit": "单行宽+2%补偿；inlineSVG前置className错误；不是语义布局搜索",
+          "source_anchors": [
+            "P02:D:D05",
+            "P02:D:D06",
+            "P02:D:D07",
+            "P02:D:D08"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/maps-probes.json",
+            "research/P02/validation/footer-revision.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "有序layout顺序；无序LLM映射；Standard schema槽位；SmartHTML",
+          "limit": "非法索引随机替换，非评分；Smart安全启发式不是浏览器实测overflow",
+          "source_anchors": [
+            "P03:D:P03-LAYOUT",
+            "P03:D:P03-SLOTS",
+            "P03:D:P03-SMART"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-03.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "topic writer固定元素几何；HTML走PureLayout包装器/CSS子集",
+          "limit": "topic不执行flex；父子背景等语义有差异，长文本无完整容量求解",
+          "source_anchors": [
+            "P04:D:P04-TOPIC-RENDER",
+            "P04:D:P04-HTML-STRUCTURE",
+            "P04:D:P04-PPT-ADAPTER"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-02.json",
+            "research/P04/validation/verify-res-p04-04-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "固定英寸坐标/简单算式和shrinkText；template slot映射",
+          "limit": "timeline最多5/process4、未记录损失；无候选检索/评分/容量测量",
+          "source_anchors": [
+            "P05:D:P05-D08",
+            "P05:D:P05-D10"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "原生对象路线需对象类型/样式/几何契约与容量实测；不得复制各项目的固定容量常量作为产品政策。"
+    },
+    {
+      "dimension": "执行",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Observed",
+          "finding": "Quick SVG经原生builder输出3页文字/形状PPTX，并有PowerPoint只读渲染证据",
+          "limit": "不是全对象/Default/全编辑路径实测；主体规划是host",
+          "source_anchors": [
+            "P01:S:preview_and_native_export",
+            "P01:D:P01-DEC-19",
+            "P01:D:P01-DEC-20"
+          ],
+          "runtime_evidence": [
+            "research/P01/validation/verify-res-p01-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Observed",
+          "finding": "真实DeepSeek6页HTML→固定1.1.37→PptxGenJS→LO/PDF→严格final complete",
+          "limit": "不是产品API；非native chart；外部visual JSON失败后显式走官方host审查",
+          "source_anchors": [
+            "P02:D:D15",
+            "P02:D:D16",
+            "P02:D:D17"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/verify-official-six.json",
+            "research/P02/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "Web/FastAPI/SSE→DB slides→export service→@presenton/export-core1.0.34",
+          "limit": "仅启动200和历史428；最终导出实现黑盒，未生成PPTX",
+          "source_anchors": [
+            "P03:D:P03-EXPORT",
+            "P03:S:export-task-service",
+            "P03:S:export-core"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/smoke.json",
+            "research/P03/validation/verify-res-p03-02.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Observed",
+          "finding": "HTML/topic结构探针→PptxGenJS原生text/shape；实际PPTX存在",
+          "limit": "无真实模型/Vision/PowerPoint渲染；包装器转换子集",
+          "source_anchors": [
+            "P04:D:P04-PPT-ADAPTER",
+            "P04:D:P04-TOPIC-RENDER"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-02.json",
+            "research/P04/validation/verify-res-p04-04-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Observed",
+          "finding": "官方mock8页→JS PPTX；template可走Python；实际原生chart/table/notes子集",
+          "limit": "不是真AI生成；旧页模板失败；语言/数量/QA/低对比问题保留",
+          "source_anchors": [
+            "P05:D:P05-D01",
+            "P05:D:P05-D12",
+            "P05:D:P05-D14"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/baseline-run.json",
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "已有P01原生SVG、P02HTML原生子集、P04结构写出、P05native chart/table/notes证据；选型需RES-032许可与依赖审核，不预选环境语言。"
+    },
+    {
+      "dimension": "可编辑性",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "实物Quick原生文本/形状；native chart/table parity与6项edit测试共26项通过",
+          "limit": "unsupported对象proxy；共享结构/atomic proxy修改拒绝；非全roundtrip",
+          "source_anchors": [
+            "P01:D:P01-DEC-20",
+            "P01:D:P01-DEC-21",
+            "P01:S:revision"
+          ],
+          "runtime_evidence": [
+            "research/P01/validation/verify-res-p01-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "6页各5原生文字shape；新实验原生表格，gradient为PNG",
+          "limit": "placeholder不消费；inlineSVG失败；无普通PPTX读改身份保存",
+          "source_anchors": [
+            "P02:D:D10",
+            "P02:D:D11",
+            "P02:D:D15"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/verify-official-six.json",
+            "research/P02/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "内部元素树含text/shape/table/chart/group/notes等，可在DB编辑",
+          "limit": "全部最终OOXML由外部export-core黑盒；没有对象实物/保真编辑验证",
+          "source_anchors": [
+            "P03:S:template-element-model",
+            "P03:S:chat-edit-tools",
+            "P03:D:P03-EXPORT"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-05.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "text/shape/image写入，chartData和speakerNotes未消费",
+          "limit": "chart layout名称不等于原生chart；无普通PPTX读取/身份保真编辑",
+          "source_anchors": [
+            "P04:D:P04-SLOT-BINDING",
+            "P04:D:P04-PPT-ADAPTER"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-04-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "显式native charts、embedded workbook/table/notes实际写出",
+          "limit": "默认chart可能PNG；短series直接renderer补零；无任意PPTX原位编辑",
+          "source_anchors": [
+            "P05:D:P05-D08",
+            "P05:D:P05-D12",
+            "P05:D:P05-D13"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "OOXML对象存在、可打开、可交互编辑与保真往返分别验收；PNG回退与proxy须显式状态，不宣称全编辑。"
+    },
+    {
+      "dimension": "QA",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "SVG QualityChecker/preflight/postflight；selected parity/edit tests有证据",
+          "limit": "不同路线门控不同；edit receipt not-provided/stale仍exit0导出，不能当强阻断",
+          "source_anchors": [
+            "P01:D:P01-DEC-23",
+            "P01:S:svg_quality_gate"
+          ],
+          "runtime_evidence": [
+            "research/P01/validation/verify-res-p01-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "HTML逐页/导出deck真看图、hash审查和6个strict检查；资源变更失效",
+          "limit": "只视觉/结构count/aspect；无事实或全面可编辑性QA；外部JSON集成未通过",
+          "source_anchors": [
+            "P02:D:D13",
+            "P02:D:D14",
+            "P02:D:D16",
+            "P02:D:D17"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/verify-official-six.json",
+            "research/P02/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "输入/schema与SmartHTML safety/parser局部检查",
+          "limit": "Standard全deck事实/语义/视觉门禁Not found；没有生成QA实物",
+          "source_anchors": [
+            "P03:D:P03-SMART",
+            "P03:D:P03-FACTS",
+            "P03:D:P03-REVISION"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-05.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Unsupported",
+          "finding": "tracked包装器只有解析/schema/output错误；没有真实生成后QA门控",
+          "limit": "源scope：Create/PureLayout/PPTAdapter；Pptx文件存在不表示视觉/事实通过",
+          "source_anchors": [
+            "P04:D:P04-OUTLINE",
+            "P04:D:P04-PPT-ADAPTER"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-04-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "独立qa-visual与quality-score，LO/PDF/JPEG+bbox heuristic",
+          "limit": "生成不自动QA；strict实际27issues exit1；暗底低对比未标高风险；非事实/像素QA",
+          "source_anchors": [
+            "P05:D:P05-D14"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/baseline-run.json",
+            "research/P05/outputs/normal-qa/visual-qa-report.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "采用源码/渲染/审查hash绑定的可追溯门控思路；产品还必须事实与可编辑性QA，advisory receipt不能冒充strict gate。"
+    },
+    {
+      "dimension": "修订",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "主机改计划/SVG重QA导出；native edit source-backed proxy有局部保留测试",
+          "limit": "Default确认边界；复杂对象/共享master修改拒绝，非任意原件编辑",
+          "source_anchors": [
+            "P01:D:P01-DEC-24",
+            "P01:S:revision"
+          ],
+          "runtime_evidence": [
+            "research/P01/validation/verify-res-p01-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "六页footer源修订、重渲染/审查/重建完成；旧源审查失效",
+          "limit": "全量新建，不是局部PPTX对象改写；没有自动repair agent",
+          "source_anchors": [
+            "P02:D:D13",
+            "P02:D:D16"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/footer-revision.json",
+            "research/P02/validation/verify-official-six.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "REST edit/derive与chat tools更新DB slide/component，模板导入另一路",
+          "limit": "无QA→RevisionPlan→保真原PPTX闭环；没有运行编辑实测",
+          "source_anchors": [
+            "P03:D:P03-REVISION",
+            "P03:S:edit-derive-api",
+            "P03:S:chat-edit-tools"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-05.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Unsupported",
+          "finding": "固定CLI/Create流程没有旧PPTX读改或QA驱动修订入口",
+          "limit": "source scope已追踪CLI/PPTAdapter；逐页扩写不是修订闭环",
+          "source_anchors": [
+            "P04:S:CLI-ROUTES",
+            "P04:S:CREATE-ROUTER",
+            "P04:D:P04-CONTENT-FILL"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-04-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "旧deck JSON+指令重规划/重写；mock8→6页实物",
+          "limit": "不是旧PPTX原位改写；clarify裁剪无说明；theme缺失回退",
+          "source_anchors": [
+            "P05:D:P05-D07",
+            "P05:D:P05-D09"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/baseline-run.json",
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "以局部对象范围/稳定身份/前后diff验收；JSON或HTML全量重建不自动满足普通PPTX保真编辑要求。"
+    },
+    {
+      "dimension": "接口",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "Agent Skill与项目、source、QA、导出/原生edit脚本CLI",
+          "limit": "固定调用链未见独立生成REST/API/MCP服务；host协议承担入口",
+          "source_anchors": [
+            "P01:S:route",
+            "P01:S:project_setup",
+            "P01:S:preview_and_native_export"
+          ],
+          "runtime_evidence": [],
+          "proof_level": "source-only; no runtime support claim",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "官方CLI及两个visual MCP tools：review_slides/review_deck",
+          "limit": "MCP只源码定位、非生成服务；没有完整产品CLI/API/MCP统一入口",
+          "source_anchors": [
+            "P02:S:mcp",
+            "P02:D:D01"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/verify-official-six.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "Next.js UI、FastAPI v1/v2、SSE/jobs、OpenAPI allowlist FastMCP",
+          "limit": "原范围排除的账号/SaaS功能不引入产品；生成接口尚未运行",
+          "source_anchors": [
+            "P03:D:P03-MODE",
+            "P03:D:P03-MCP",
+            "P03:S:direct-rest-v1",
+            "P03:S:smart-rest-v2"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/smoke.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "命令行Create及库内engine/wrapper函数",
+          "limit": "tracked源码没有独立HTTP/MCP/统一cancel/resume；provider前置有配置要求",
+          "source_anchors": [
+            "P04:S:CLI-ROUTES",
+            "P04:S:CREATE-ROUTER"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-02.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "CLI、JSON handler、POST /skill、MCP create_deck/revise_deck",
+          "limit": "HTTP/MCP仅源码；CLI mock通过不等于所有接口真实模型验证",
+          "source_anchors": [
+            "P05:S:ENTRY-CLI",
+            "P05:S:ENTRY-HTTP",
+            "P05:S:ENTRY-MCP-CREATE",
+            "P05:S:ENTRY-MCP-REVISE"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/baseline-run.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "CLI/API/MCP共用任务与状态接口；只参考P03/P05接口分层，账号/计费等GOV-009排除项不复制。"
+    },
+    {
+      "dimension": "安全",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "workflow限定来源、模板根、proxy编辑边界及显式no-AI/editable-only约束",
+          "limit": "Prompt/文件规则不是主机代码执行沙箱；依赖/网络安全未全面审计",
+          "source_anchors": [
+            "P01:D:P01-DEC-07",
+            "P01:D:P01-DEC-12",
+            "P01:D:P01-DEC-24"
+          ],
+          "runtime_evidence": [
+            "research/P01/validation/verify-res-p01-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "review renderer拒绝非跟踪file和远程URL；配置从环境取密钥",
+          "limit": "converter独立goto无同一路由防护；本地JS非全面沙箱；npm6 high提示未消除",
+          "source_anchors": [
+            "P02:D:D12",
+            "P02:D:D13",
+            "P02:S:config"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/maps-probes.json",
+            "research/P02/validation/environment-main-skill.txt"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "SmartHTML清理/限制与export输出路径校验；HTTP认证门禁",
+          "limit": "实际仅历史428；不是全面SSRF/沙箱/提示注入保证",
+          "source_anchors": [
+            "P03:S:smart-prompt-and-validation",
+            "P03:S:export-task-service"
+          ],
+          "runtime_evidence": [
+            "research/P03/validation/verify-res-p03-02.json"
+          ],
+          "proof_level": "source + startup/auth-gate history; no generation/export",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "Zod模板/layout结构校验与HTML/CSS净化包装器",
+          "limit": "无统一untrusted运行沙箱证明；下载warn后跳图；仅局部源码措施",
+          "source_anchors": [
+            "P04:D:P04-TEMPLATE",
+            "P04:D:P04-LAYOUT-LOAD",
+            "P04:D:P04-HTML-CSS",
+            "P04:D:P04-IMAGE-ASSET"
+          ],
+          "runtime_evidence": [
+            "research/P04/validation/verify-res-p04-04-05.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "request/schema与文件存在性校验；图片MIME/尺寸/URL局部规则",
+          "limit": "不是完整网络/执行隔离；安装7漏洞提示；来源与裁剪风险仍在",
+          "source_anchors": [
+            "P05:S:REQUEST-JSON",
+            "P05:S:CLI-INPUT",
+            "P05:D:P05-D11"
+          ],
+          "runtime_evidence": [
+            "research/P05/validation/environment.json",
+            "research/P05/validation/maps-probes.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "隔离执行、资源路径/URL准入、secret注入及Prompt trust boundaries需产品级设计，局部sanitize不能当全面安全证明。"
+    },
+    {
+      "dimension": "许可",
+      "comparisons": [
+        {
+          "project": "P01",
+          "status": "Partial",
+          "finding": "固定根LICENSE为MIT",
+          "limit": "第三方代码/模板/图标/字体许可仍须逐项审核，不推定根许可证覆盖一切",
+          "source_anchors": [
+            "P01:L:LICENSE"
+          ],
+          "runtime_evidence": [],
+          "proof_level": "source-only; no runtime support claim",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P02",
+          "status": "Partial",
+          "finding": "固定根及Skill LICENSE为MIT；实际converter来自pptagent1.1.37",
+          "limit": "main许可不替代全部第三方依赖许可或资产分发审核",
+          "source_anchors": [
+            "P02:L:LICENSE",
+            "P02:L:skills/pptagent/LICENSE",
+            "P02:D:D15"
+          ],
+          "runtime_evidence": [
+            "research/P02/validation/converter-source.json"
+          ],
+          "proof_level": "source + recorded runtime subset",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P03",
+          "status": "Partial",
+          "finding": "固定根LICENSE为Apache-2.0并有NOTICE",
+          "limit": "外部export-core/全部依赖/素材许可未逐项确认；账号功能不因此进入范围",
+          "source_anchors": [
+            "P03:L:LICENSE",
+            "P03:L:NOTICE",
+            "P03:D:P03-EXPORT"
+          ],
+          "runtime_evidence": [],
+          "proof_level": "source-only; no runtime support claim",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P04",
+          "status": "Partial",
+          "finding": "固定根LICENSE为MIT",
+          "limit": "依赖PureLayout/PptxGenJS/字体/素材分别审核，尚非复用合规决定",
+          "source_anchors": [
+            "P04:L:LICENSE",
+            "P04:D:P04-PPT-ADAPTER"
+          ],
+          "runtime_evidence": [],
+          "proof_level": "source-only; no runtime support claim",
+          "product_status": "not implemented/accepted by this research"
+        },
+        {
+          "project": "P05",
+          "status": "Partial",
+          "finding": "LICENSE AGPLv3、package.json AGPL-3.0-only，pyproject/lock根metadata Apache-2.0",
+          "limit": "声明冲突未解决；本比较不授权直接复制或裁定许可，交RES-032",
+          "source_anchors": [
+            "P05:L:LICENSE",
+            "P05:L:package.json",
+            "P05:L:pyproject.toml",
+            "P05:L:package-lock.json"
+          ],
+          "runtime_evidence": [],
+          "proof_level": "source-only; no runtime support claim",
+          "product_status": "not implemented/accepted by this research"
+        }
+      ],
+      "implementation_consequence": "RES-032按模块和资产来源登记四种复用方式；P05冲突未解决前不得直接复制。比较文件只记录固定声明，不作法律裁定。"
+    }
+  ],
+  "source_catalog": "source-catalog.json",
+  "input_manifest": "input-manifest.json",
+  "consumers": [
+    "RES-032模块复用/许可决定",
+    "RES-033测试资产来源索引",
+    "后续架构与DEC实现；不得将比较标记冒充产品验收"
+  ],
+  "missing_evidence": [
+    "P03五个VERIFY进行中；仅startup/source/历史428，不是generation成功",
+    "所有项目全对象/全系统AC未验证",
+    "P05许可证冲突未解决",
+    "P02 external visual JSON与inline SVG失败未消除"
+  ],
+  "overall": "没有单一候选有全部需求证据；以明确来源和损失边界组合选择，拒绝静默裁剪/补零/随机替代与把黑盒输出当可编辑保证"
+}
