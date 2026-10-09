@@ -6,7 +6,7 @@
   ],
   "artifact": "research/P01/project_capability_map.json",
   "source_commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
-  "verification_state": "in_progress_blocked_by_docker_engine",
+  "verification_state": "completed_selected_research_scope",
   "normal_case": {
     "state": "passed_reused_prior_evidence",
     "evidence": "research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json",
@@ -32,29 +32,71 @@
       "pptx_sha256": "c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25",
       "microsoft_powerpoint_16_read_only_render": "passed; all three 1920x1080 slides were visually reviewed"
     },
-    "scope_limit": "既有 normal smoke 只證明 Quick 的基本多頁文字/shape 生成、PPTX 讀取和外部 PowerPoint 渲染，不證明 P01-05 的 table/chart/media/motion/edit round-trip 能力。"
+    "scope_limit": "既有正常烟测只证明 Quick 基本多页文字/形状生成、PPTX 读取和外部 PowerPoint 渲染；原文件哈希本次再次匹配，不重复生成或渲染，不证明全对象能力。"
   },
   "boundary_case": {
-    "state": "source_contract_reviewed_tests_not_executed",
-    "actual_source_findings": [
-      "Edit Native 只處理確認 plan 中的頁面；未變頁可原樣 passthrough，選定頁可在限制內原位編輯。",
-      "繼承 Master/Layout 形狀不可編輯/刪除；source proxy 不可編輯；round-trip 不允許改 slide size 或新增 Master/Layout 結構。",
-      "未標記的 native chart/table 不會按 payload 更新；unsupported-table 編輯會退化為 shapes 並產生 checker 警告。",
-      "delivery-only 二次 round-trip 必須以已交付 PPTX 作為新來源，並要求 rebuilt=0。"
+    "state": "passed",
+    "evidence": [
+      "research/P01/validation/p01-boundary-tests.json",
+      "research/P01/validation/p01-boundary-tests.txt"
     ],
-    "reproducible_test_candidates_not_run": [
-      "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py::test_b2_inherited_deletion_and_edit_fail",
-      "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py::test_b3_proxy_ancestor_change_is_rejected",
-      "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py::test_b5_page_plan_resets_custom_show_selection",
-      "skills/ppt-master/scripts/tests/test_edit_native_batch_c.py::test_c2_roundtrip_quality_receipt_tracks_authoring_and_page_plan"
+    "tests_run": 26,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "selected_scope": "6 项既有 PPT 编辑测试 + native_chart_table_parity 模块的 20 项测试，非上游全量回归。",
+    "actual_results": [
+      "custom show 页面计划重置通过；OLE/未知 graphicFrame 识别为 proxy。",
+      "ChartEx 系列、标题；图表/表格 projection warnings 与 preflight 对齐；文本默认值、合并 blankness、边框、payload 保留和行高：所选断言通过。",
+      "round-trip quality receipt 随 page_plan/SVG 改动标记 stale；重跑 QA 后 passed；not-provided/stale 仍以返回码 0 导出。不能将 receipt 新鲜性报告称为强制阻断。"
     ],
-    "source_evidence": [
-      "skills/ppt-master/workflows/edit-native-pptx.md:107-129,145-169,173-175",
-      "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py:341-395,465-473",
-      "skills/ppt-master/scripts/tests/test_edit_native_batch_c.py:122-170"
+    "source_only_limits_not_tested": [
+      "slide size、新增 Master/Layout、delivery-only 二次 round-trip 的所有边界未在本轮逐项运行。",
+      "hyperlink 与 semantic text contract 测试未运行；没有模型调用、最终 Office 图表/表格渲染或产品 AC 验收。"
     ]
   },
   "failure_case": {
+    "state": "passed_expected_rejections",
+    "evidence": "research/P01/validation/p01-boundary-tests.json; passed_ids 与固定源码 assertRaisesRegex 对照",
+    "expected_and_observed": [
+      {
+        "case": "test_b2_inherited_deletion_and_edit_fail",
+        "operations": "master/layout × delete/edit（4 个 subtests）",
+        "exception": "RuntimeError",
+        "message_regex": "{scope}:77.*shared structure"
+      },
+      {
+        "case": "test_b3_proxy_ancestor_change_is_rejected",
+        "exception": "RuntimeError",
+        "message_regex": "edits source-backed proxy.*slide:90"
+      },
+      {
+        "case": "test_b7_diagram_is_atomic_proxy",
+        "operations": "跨页 adopt / 修改 opacity",
+        "exceptions": [
+          "ValueError: Cannot adopt source proxy",
+          "RuntimeError: edits source-backed proxy"
+        ]
+      }
+    ],
+    "interpretation": "失败输入被上游明确拒绝是预期通过；不是测试运行失败。没有修改固定上游源码。"
+  },
+  "static_validation": {
+    "capability_ids_expected": 30,
+    "capability_status_values": [
+      "Native",
+      "Partial",
+      "Fallback",
+      "Unsupported"
+    ],
+    "capabilities_with_source_evidence": "30/30",
+    "quality_assurance_records": 5,
+    "revision_records": 3,
+    "project_product_status_claimed": false,
+    "docker_compose_modified": false
+  },
+  "completion_boundary": "30 项 PPT 对象及 5 项 QA/3 项 Revision 均有固定源码状态和限制；正常证据复用且哈希匹配，选定边界/失败验证 26/26 通过。RES-P01-05 与 TASK/VERIFY 已完成候选研究，不代表产品实现、全对象保真或 AC 通过。",
+  "historical_environment_blocker": {
     "state": "blocked_before_test_execution",
     "blocker": "Docker Desktop cannot provide a responsive Engine in this session. The Desktop start command reported that its C-drive log file could not be written because the disk has no space; the service could not be opened by the current session. No test ran, so this is an environment blocker rather than a PPT Master failure result.",
     "diagnostics": [
@@ -80,21 +122,7 @@
       "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py::test_b2_inherited_deletion_and_edit_fail",
       "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py::test_b7_diagram_is_atomic_proxy",
       "skills/ppt-master/scripts/tests/test_native_chart_table_parity.py"
-    ]
-  },
-  "static_validation": {
-    "capability_ids_expected": 30,
-    "capability_status_values": [
-      "Native",
-      "Partial",
-      "Fallback",
-      "Unsupported"
     ],
-    "capabilities_with_source_evidence": "30/30",
-    "quality_assurance_records": 5,
-    "revision_records": 3,
-    "project_product_status_claimed": false,
-    "docker_compose_modified": false
-  },
-  "completion_boundary": "ProjectCapabilityMap has source-level status for PPT-001–PPT-030 plus QA, Revision, and existing-PPTX edit limits. TASK-RES-P01-05 and VERIFY-RES-P01-05 remain in progress until the selected Docker-based boundary/failure tests can be executed and recorded."
+    "resolved_by": "research/P04/validation/environment-recovery.json; subsequent selected test run exited 0"
+  }
 }

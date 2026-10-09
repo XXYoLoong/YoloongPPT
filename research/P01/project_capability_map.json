@@ -118,7 +118,7 @@
       "id": "SRC-PROXY-TESTS",
       "path": "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py",
       "lines": "341-395,646-681",
-      "claim": "源码含继承 shape 删除/编辑失败、proxy ancestor 变更拒绝、SmartArt 和 OLE/未知 graphicFrame proxy 测试；本任务未执行。"
+      "claim": "继承 shape 删除/编辑失败、proxy ancestor 变更拒绝、SmartArt 和 OLE/未知 graphicFrame proxy 的选定测试已通过，见 validation/p01-boundary-tests.json；其余同文件测试未执行。"
     },
     {
       "id": "SRC-DELIVERY-CHECK",
@@ -136,13 +136,13 @@
       "id": "SRC-EDIT-QA",
       "path": "skills/ppt-master/scripts/tests/test_edit_native_batch_c.py",
       "lines": "122-170",
-      "claim": "源码包含 round-trip quality receipt 和语义文本 contract 测试；本任务未执行。"
+      "claim": "已执行 c2 round-trip quality receipt：缺失/过期均允许导出并报告 not-provided/stale，重跑 QA 后 passed；c3 语义文本 contract 未执行。见 validation/p01-boundary-tests.json。"
     },
     {
       "id": "SRC-P01-01-SMOKE",
       "path": "research/P01/projects/p01_hello_world_20261007/validation/verify-res-p01-01.json",
       "lines": "JSON report",
-      "claim": "已执行的既有三页 Quick smoke：PPTX/ZIP/读取检查通过，40 个可编辑形状、17 个文本形状，图片/图表/notes/transitions/timing 均为 0；PowerPoint 16.0 主机只读渲染与视觉复核通过。"
+      "claim": "已执行的既有三页 Quick smoke：PPTX/ZIP/读取检查通过，30 个可编辑形状（7/16/7）、17 个文本形状，图片/图表/notes/transitions/timing 均为 0；PowerPoint 16.0 主机只读渲染与视觉复核通过。"
     }
   ],
   "capabilities": [
@@ -391,7 +391,7 @@
     {
       "id": "QA-SVG",
       "status": "Native",
-      "scope": "导出前 SVG 结构、文本容量/边界和页面质量检查；round-trip checker 可将错误写入 quality_gate 并让导出 fail-closed。",
+      "scope": "导出前 SVG 结构、文本容量/边界和页面质量检查；源码记录错误阻断条件，但实际 receipt 测试中 not-provided/stale 仍允许导出。状态标记不代表严格强制 freshness gate。",
       "evidence": ["SRC-SVG-QA", "SRC-EDIT"]
     },
     {

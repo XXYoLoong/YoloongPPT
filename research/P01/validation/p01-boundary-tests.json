@@ -1,0 +1,63 @@
+{
+  "requirement_id": "RES-P01-05",
+  "source_commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+  "source_test_sha256": {
+    "skills/ppt-master/scripts/tests/test_edit_native_batch_b.py": "564c26d82ef3421b41d27d9427ef9f58506177d90fb22ad688824cd1207e1939",
+    "skills/ppt-master/scripts/tests/test_edit_native_batch_c.py": "bf3a30233b27fbc50aa6f7c2401842160471b149558f294f97e3c2f9a16330b4",
+    "skills/ppt-master/scripts/tests/test_native_chart_table_parity.py": "2ba154f4e09d3160e1ec134a14e997bbdc9ea48eec66ac8e831c0348c7df1113"
+  },
+  "environment": {
+    "python_observed": "3.11.2",
+    "network": "Docker --network none",
+    "runtime_scope": "candidate research only, not product selection",
+    "image_id": "sha256:9cc4943354564a8d71825420752552f989afc8c85a66c7d396df0d0f6a5dab56",
+    "dependencies_reused": "F:/YoloongPPT-Research/temp/p01-20261007-180750/site-packages; 88 previously recorded packages; no installation",
+    "temporary_directory": "F:/YoloongPPT-Temp-P01-05/p01-boundary-scratch mounted at /scratch",
+    "docker_data_vhdx": "F:/DockerDesktopWSL/disk/docker_data.vhdx",
+    "source_mount": "read-only; fixed clone HEAD checked before execution"
+  },
+  "selected": [
+    "tests.test_edit_native_batch_b.EditNativeBatchBTests.test_b2_inherited_deletion_and_edit_fail",
+    "tests.test_edit_native_batch_b.EditNativeBatchBTests.test_b3_proxy_ancestor_change_is_rejected",
+    "tests.test_edit_native_batch_b.EditNativeBatchBTests.test_b5_page_plan_resets_custom_show_selection",
+    "tests.test_edit_native_batch_b.EditNativeBatchBTests.test_b7_diagram_is_atomic_proxy",
+    "tests.test_edit_native_batch_b.EditNativeBatchBTests.test_b7_ole_and_unknown_graphic_frames_are_proxies",
+    "tests.test_edit_native_batch_c.EditNativeBatchCTests.test_c2_roundtrip_quality_receipt_tracks_authoring_and_page_plan",
+    "tests.test_native_chart_table_parity"
+  ],
+  "tests_run": 26,
+  "passed_ids": [
+    "tests.test_edit_native_batch_b.EditNativeBatchBTests.test_b2_inherited_deletion_and_edit_fail",
+    "tests.test_edit_native_batch_b.EditNativeBatchBTests.test_b3_proxy_ancestor_change_is_rejected",
+    "tests.test_edit_native_batch_b.EditNativeBatchBTests.test_b5_page_plan_resets_custom_show_selection",
+    "tests.test_edit_native_batch_b.EditNativeBatchBTests.test_b7_diagram_is_atomic_proxy",
+    "tests.test_edit_native_batch_b.EditNativeBatchBTests.test_b7_ole_and_unknown_graphic_frames_are_proxies",
+    "tests.test_edit_native_batch_c.EditNativeBatchCTests.test_c2_roundtrip_quality_receipt_tracks_authoring_and_page_plan",
+    "tests.test_native_chart_table_parity.NativeChartExTests.test_chart_ex_series_families_do_not_hardcode_series_one",
+    "tests.test_native_chart_table_parity.NativeChartExTests.test_chart_title_contains_text_and_supplies_series_name",
+    "tests.test_native_chart_table_parity.NativeChartExTests.test_chart_without_title_omits_title_element_and_uses_payload_name",
+    "tests.test_native_chart_table_parity.NativeProjectionCheckerTests.test_checker_surfaces_projection_findings_as_warnings",
+    "tests.test_native_chart_table_parity.NativeProjectionCheckerTests.test_explicit_chart_text_axis_and_grid_colors_use_role_inference",
+    "tests.test_native_chart_table_parity.NativeProjectionCheckerTests.test_formatted_chart_labels_warning_names_data_label_number_format",
+    "tests.test_native_chart_table_parity.NativeProjectionCheckerTests.test_native_export_preflight_collects_the_same_findings",
+    "tests.test_native_chart_table_parity.NativeProjectionCheckerTests.test_projection_helpers_report_each_diagnosed_page",
+    "tests.test_native_chart_table_parity.NativeProjectionCheckerTests.test_table_parity_accepts_positioned_tspan_lines_for_paragraphs",
+    "tests.test_native_chart_table_parity.NativeProjectionCheckerTests.test_table_parity_accepts_uniform_run_level_bold_and_color",
+    "tests.test_native_chart_table_parity.NativeTableBorderTests.test_diagonal_borders_require_explicit_cell_overrides",
+    "tests.test_native_chart_table_parity.NativeTableBorderTests.test_legacy_uniform_border_is_cardinal_only",
+    "tests.test_native_chart_table_parity.NativeTableFillAndTextDefaultsTests.test_body_text_color_parity_warns_when_no_layer_carries_it",
+    "tests.test_native_chart_table_parity.NativeTableFillAndTextDefaultsTests.test_first_column_in_body_text_colour_is_carried_by_style",
+    "tests.test_native_chart_table_parity.NativeTableFillAndTextDefaultsTests.test_header_align_parity_reads_the_centred_export_default",
+    "tests.test_native_chart_table_parity.NativeTableFillAndTextDefaultsTests.test_paragraph_cells_inherit_run_defaults_like_plain_text",
+    "tests.test_native_chart_table_parity.NativeTableFillAndTextDefaultsTests.test_plain_text_cell_inherits_run_defaults",
+    "tests.test_native_chart_table_parity.NativeTableMergeTests.test_merge_blankness_uses_authored_cells_before_defaults",
+    "tests.test_native_chart_table_parity.NativeTablePayloadRoundTripTest.test_marker_validation_keeps_original_table_payload",
+    "tests.test_native_chart_table_parity.TableRowHeightTests.test_vertical_padding_shrinks_to_the_authored_row_height"
+  ],
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "successful": true,
+  "normal_pptx_sha256_reused": "c39b6b596b6c6df0c69d8bdc2886eac5d1339cab5f148833951f1370095acd25",
+  "scope": "Selected upstream boundaries and negative cases; not full upstream suite, real model, Office or product AC acceptance"
+}
