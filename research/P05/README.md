@@ -3,9 +3,9 @@
 ## 对应任务与边界
 
 - Requirement ID：`RES-P05-01`
-- Task ID：`TASK-RES-P05-01`
-- 本记录只处理固定研究版本、锁文件、上游运行条件和许可证；P05-02 至 P05-05 的调用链、决策节点、模板/中间表示与写入/QA/修订边界仍是独立任务。
-- 矩阵要求先运行官方最小示例，再做静态阅读。本次先尝试项目隔离容器启动；Docker Engine 不可用后才登记静态元数据。官方示例未执行，因此本任务保持进行中，`VERIFY-RES-P05-01` 保持未开始。
+- Task ID：`TASK/VERIFY-RES-P05-01`、`TASK/VERIFY-RES-P05-02`
+- P05-01 固定研究版本与官方最小运行，P05-02 建立调用链；P05-03/04/05 的决策、模板与对象能力研究仍待完成。
+- 2026-10-09 已按官方无密钥 mock Quick Start 生成并修订 JSON/PPTX，再核对源码调用链。P05-01/02 及其 TASK/VERIFY 已完成候选研究；不代表产品质量或真实 AI 生成验收。
 
 ## 固定源码快照
 
@@ -38,13 +38,33 @@ README 的 Quick Start 声明 Python 3.10+ 和 Node.js 18+。未发现根目录 
 
 同一固定快照的声明相互矛盾：根 `LICENSE` 是 AGPL v3；`package.json` 声明 `AGPL-3.0-only`；`pyproject.toml` 与 `package-lock.json` 根包元数据声明 `Apache-2.0`；需求矩阵登记为 `AGPL-3.0`。本任务不替上游解释或裁定该冲突。版本清单将 P05 许可证标为 `not_assessed`，依赖复用与分发前需先取得可追溯的上游/法律确认。
 
-## 官方最小流程与容器阻塞
+## 官方最小流程与实际结果
 
-固定快照 README 的无 API key Quick Start 为：安装 `npm install && pip install .`，然后运行 `./auto-ppt generate --mock --prompt ... --source examples/inputs/sample-source-brief.md`。本任务未在宿主机安装这些依赖。
+固定快照 README 的无 API key Quick Start 为 `npm install && pip install .` 后运行 `./auto-ppt generate --mock --prompt ... --source examples/inputs/sample-source-brief.md`。独立研究容器 `yoloongppt-p05-research` 复用已有系统工具，源码工作副本、依赖、缓存、临时文件与产物均在 F 盘；Python 包安装到独立 venv，Windows 未安装项目依赖。安装后断开 bridge 网络，运行 [run-baseline.py](run-baseline.py)。实际命令与返回码见 [baseline-run.json](validation/baseline-run.json)。
 
-项目隔离容器命令 `scripts/project.ps1 start` 实际执行失败：Docker Desktop Linux Engine 管道 `//./pipe/dockerDesktopLinuxEngine` 不存在，`docker desktop status` 为 `stopped`。Docker CLI 为 `27.4.0`、Docker Desktop 为 `4.37.1`、desktop CLI 插件为 `v0.1.0`、WSL 为 `2.7.14.0`，均只是当次环境观测。Linux 引擎已选中；默认与 `desktop-linux` 两个 context 都无法连接。WSL 内部 `docker-desktop` 发行版可启动并执行 `/bin/echo`，但未发现 `dockerd`，Engine 仍不可用。WSL 输出 `Unknown key 'automount.crossDistro' in /etc/wsl.conf:3`；探针仍能执行，当前没有证据证明这条警告是 Engine 阻塞根因。Docker Desktop CLI 启动、重启、停止、重新选择 Linux 引擎及 WSL 重置后，`docker info` 仍未返回 Server 版本；启动辅助 Windows 服务也因当前权限被拒绝。没有运行上游 npm/pip 安装、测试、构建或生成 PPTX。
+| 探针 | 实际结果 |
+|---|---|
+| 官方正常 8 页 + sample source | JSON/PPTX 生成成功、8 页；ZIP 与 python-pptx 读取通过 |
+| 请求 1 页 | 返回成功但实际 5 页；源码钳制改变请求 |
+| 缺少来源文件 | CLI 1，明确文件不存在；未生成失败用例 PPTX |
+| mock 修订压缩至 6 页 | 8→6 页 JSON 与新 PPTX；不是已有 PPTX 原位编辑 |
+| `qa-visual --strict` | 8 张图导出；27 告警；CLI 1，严格 QA 未通过 |
 
-因此，refs、锁文件摘要、上游运行声明和许可证差异已静态登记；`ProjectBaseline` 验收未通过。Docker Engine 恢复后，应先在项目隔离容器按官方 Quick Start 执行 mock 生成，保留实际日志与 JSON/PPTX，再完成 VERIFY；本记录不把上游 README 截图或声明当作本项目验证结果。
+8 页 contact sheets 逐页查看，并复核图表/末页原图。末页正文与副标题对比度过低，QA 没有标为 high-risk；图表是图片而非可编辑原生 chart。保留实际产物及失败结论，不修补固定上游来伪造研究通过。
+
+正常 [PPTX](outputs/normal/py-generated-deck.pptx) SHA-256 `34de9862e65ba032f74d1d1c64bd813102245e8b53bcab43e8b506cb03899ceb`；修订 [PPTX](outputs/revision/py-revised-deck.pptx) 为 `e6554ebf18e3fc3e8fa91fac28c056925ce0f5d9294a328bd671e15fb4e2f897`。完整产物清单及哈希见 [verify-res-p05-01-02.json](validation/verify-res-p05-01-02.json)。
+
+安装观测：Python 3.11.2、Node 18.20.4、npm 9.2.0；43 个 Python 发行包、113 个 npm 包；只描述候选实验。官方 npm install 更新工作副本 lock 的根包元数据 0.7.8→0.8.0，固定 clone 保持原样，前后 hash、实际 lock 和依赖清单均保存。安装报告 7 个漏洞提示（3 moderate、4 high），未自动修复或认证安全。详细复现配置见 [environment.json](validation/environment.json) 与 [install-research.sh](install-research.sh)；产品架构/语言/运行时仍未选定。
+
+## 调用链与研究状态
+
+[call_graph.md](call_graph.md) 和 [source_index.json](source_index.json) 覆盖 41 个节点、40 条边、13 个固定源码文件及 Prompt/Schema/theme 资源。每个节点定位文件/函数/行号并区分实际 CLI、源码分支和外部黑盒。QA 是显式独立调用，生成不自动严格 QA；模板路线删除旧 slides 再新建；HTTP/MCP、template、真实模型与 Tavily 本轮未运行。
+
+P05-01/02 已按原候选研究验收收尾；页数、可编辑性、QA/视觉缺陷和许可矛盾继续作为限制，未声称产品通过。P05-03/04/05 下一步依据已有调用链提取决策、模板/布局及 30 对象/QA/修订状态，避免重复初始化和正常生成。
+
+## 历史环境阻塞
+
+2026-10-07 的 Docker Engine pipe 缺失与恢复失败曾阻止官方示例运行；2026-10-09 全局 WSL/Docker 已按用户授权恢复，见 `research/P04/validation/environment-recovery.json`。旧阻塞不再是当前状态。本次研究容器启动首次因继承 ENTRYPOINT sleep 与重复参数退出 1；仅重建本任务的空容器并显式 entrypoint 后恢复，记录在 environment.json。
 
 ## 固定来源
 

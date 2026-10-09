@@ -1,0 +1,173 @@
+{
+  "requirement_ids": [
+    "RES-P05-01",
+    "RES-P05-02"
+  ],
+  "task_ids": [
+    "TASK-RES-P05-01",
+    "VERIFY-RES-P05-01",
+    "TASK-RES-P05-02",
+    "VERIFY-RES-P05-02"
+  ],
+  "source_commit": "5ae0670747885c464aa8063329a902d80a251877",
+  "verification_state": "completed_candidate_research_with_reported_findings",
+  "normal_case": {
+    "state": "official_mock_reproduced",
+    "evidence": "validation/baseline-run.json; validation/normal.txt",
+    "slides": 8,
+    "pptx_readable_and_zip_integrity": true,
+    "renderer": "pptxgenjs; no model calls"
+  },
+  "boundary_case": {
+    "state": "observed_request_alteration",
+    "request": 1,
+    "actual_slides": 5,
+    "returncode": 0,
+    "source": "source_index.json COUNT / MOCK",
+    "evidence": "outputs/boundary/py-generated-deck.json; validation/boundary.txt",
+    "interpretation": "candidate silently clamps page request; not satisfaction of product hard constraints"
+  },
+  "failure_case": {
+    "state": "passed_expected_input_rejection",
+    "returncode": 1,
+    "actual_error": "Source file not found: /app/examples/inputs/does-not-exist.md. Check --source or remove it from the command.",
+    "evidence": "validation/failure.txt",
+    "failure_pptx_generated": false
+  },
+  "revision_case": {
+    "state": "passed_mock_json_revision",
+    "before_slides": 8,
+    "after_slides": 6,
+    "returncode": 0,
+    "evidence": "validation/revision.txt; outputs/revision/py-revised-deck.json",
+    "scope": "deck JSON rewritten and PPTX regenerated; not in-place existing-PPTX editing"
+  },
+  "qa_case": {
+    "state": "strict_qa_failed_as_reported",
+    "returncode": 1,
+    "images_exported": 8,
+    "issues": {
+      "edge_margin": 8,
+      "overlap_candidate": 19
+    },
+    "high_risk_slides": [],
+    "evidence": "outputs/normal-qa/visual-qa-report.json; validation/visual_qa.txt"
+  },
+  "manual_visual_review": {
+    "state": "reviewed_with_readability_issue",
+    "reviewed": [
+      "outputs/normal-qa/contact-1.png",
+      "outputs/normal-qa/contact-2.png",
+      "outputs/normal-qa/images/slide-7.jpg",
+      "outputs/normal-qa/images/slide-8.jpg"
+    ],
+    "coverage": "8 normal slides via contact sheets; chart and closing at full resolution",
+    "finding": "Slide 8 body/subtitle has low contrast against dark background. JS closing renderer uses theme headerBg/border as text colors. QA reports no high-risk slide and lacks a contrast detector.",
+    "scope": "LibreOffice raster rendering, not PowerPoint or full editability/semantic/fact verification"
+  },
+  "source_validation": {
+    "nodes": 41,
+    "edges": 40,
+    "source_files_sha256_matched": 13,
+    "resources": 9,
+    "all_edge_nodes_resolve": true,
+    "evidence": "source_index.json; build-source-index.py",
+    "runtime_trace_scope": "source call graph with CLI execution evidence, not function instrumentation"
+  },
+  "environment": "validation/environment.json; validation/python-freeze.txt; validation/npm-tree.json; validation/package-lock.resolved.json",
+  "license_boundary": "AGPL root/package.json vs Apache pyproject/original npm lock metadata unresolved; no reuse/distribution decision made",
+  "known_dependency_notice": "npm install 7 findings (3 moderate,4 high); no audit fix or safety certification",
+  "artifact_inventory": [
+    {
+      "path": "outputs/boundary/py-generated-deck.json",
+      "sha256": "f614b064bfc20aee55f36105b62a64c291fe96d64df27cc45178a6ef84266825",
+      "bytes": 4946
+    },
+    {
+      "path": "outputs/boundary/py-generated-deck.pptx",
+      "sha256": "d95c99dd71b2ed20d83d26d2833d60e51bec046a7995a1e6ea7e0376f0c2939c",
+      "bytes": 102820
+    },
+    {
+      "path": "outputs/normal/py-generated-deck.json",
+      "sha256": "9f173d3d738a4082f86edb8b4251c9ca8b8a276029ad86b91fb355ec712b5642",
+      "bytes": 10542
+    },
+    {
+      "path": "outputs/normal/py-generated-deck.pptx",
+      "sha256": "34de9862e65ba032f74d1d1c64bd813102245e8b53bcab43e8b506cb03899ceb",
+      "bytes": 173101
+    },
+    {
+      "path": "outputs/normal-qa/contact-1.png",
+      "sha256": "7cc708a8587b5a5fd7f2af504b8b3ccaa4403b225def5e7c5efe7510e2a216f9",
+      "bytes": 191113
+    },
+    {
+      "path": "outputs/normal-qa/contact-2.png",
+      "sha256": "a1b790b8343eb78a05d618e24dabb16bd5ae2b7c3317afed7bec8dd69df7db32",
+      "bytes": 129924
+    },
+    {
+      "path": "outputs/normal-qa/images/py-generated-deck.pdf",
+      "sha256": "d51e0e3aeddeb37606821ba311ccc3c5d310c73a73c148b66accb62351ad441e",
+      "bytes": 66824
+    },
+    {
+      "path": "outputs/normal-qa/images/slide-1.jpg",
+      "sha256": "1292691d56c9db5b8c1528d598d0f711349e7dae5c9b105a6cd7ac57a65ee07a",
+      "bytes": 68276
+    },
+    {
+      "path": "outputs/normal-qa/images/slide-2.jpg",
+      "sha256": "6185d92cec4818e94c0a822a5ac99584dfedca8f19193d5d2ed9e34f5f3b0b21",
+      "bytes": 70401
+    },
+    {
+      "path": "outputs/normal-qa/images/slide-3.jpg",
+      "sha256": "88d467798abfd0d4f9bd1699aed32aa3006476e49dab4334f4d4c934647ee9d6",
+      "bytes": 125147
+    },
+    {
+      "path": "outputs/normal-qa/images/slide-4.jpg",
+      "sha256": "3dce9ba1c42af54ea605385bef42b41b13ad6edfb7d0962030673332a7ff2183",
+      "bytes": 109778
+    },
+    {
+      "path": "outputs/normal-qa/images/slide-5.jpg",
+      "sha256": "b6769bf7c0bb8c88285a31a596f52bacaee4482d83a2bb74dea33354be1632e8",
+      "bytes": 89472
+    },
+    {
+      "path": "outputs/normal-qa/images/slide-6.jpg",
+      "sha256": "8630c62f2f48c3e1452a965ce68df6f8b6e46d9725fe250cc9964ff44e81674e",
+      "bytes": 64884
+    },
+    {
+      "path": "outputs/normal-qa/images/slide-7.jpg",
+      "sha256": "09f655ae67612c75552e4ed880a443d0596559b0a04ee293a385a7c8117a1a82",
+      "bytes": 94889
+    },
+    {
+      "path": "outputs/normal-qa/images/slide-8.jpg",
+      "sha256": "5e729f617ed5461c618c66d08591c281879155f31fdab827070b7540c6f7771f",
+      "bytes": 63892
+    },
+    {
+      "path": "outputs/normal-qa/visual-qa-report.json",
+      "sha256": "0d9d9a8cd7b8870ea9db39e9026291a3d68659ea8c71d69368297b21b5ce19ea",
+      "bytes": 6191
+    },
+    {
+      "path": "outputs/revision/py-revised-deck.json",
+      "sha256": "8f2749846a678b73912feb5a96b0155e87b227fcca681a652117d67726d93318",
+      "bytes": 8375
+    },
+    {
+      "path": "outputs/revision/py-revised-deck.pptx",
+      "sha256": "e6554ebf18e3fc3e8fa91fac28c056925ce0f5d9294a328bd671e15fb4e2f897",
+      "bytes": 126612
+    }
+  ],
+  "completion_boundary": "Official documented mock generation reproducible; source graph covers entry, source, planner/prompt/schema, theme/template/layout, render/export, QA and JSON revision with branches/black boxes. Research complete with negative findings retained. P05-03/04/05, real model, template/HTTP/MCP runtime and all product AC remain unverified."
+}

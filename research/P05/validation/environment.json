@@ -1,0 +1,31 @@
+{
+  "source_commit": "5ae0670747885c464aa8063329a902d80a251877",
+  "container": "yoloongppt-p05-research",
+  "image_id": "sha256:080a15ab85a5501ded8d7ee31664b7de02b75c46712b966aa284155194dc723d",
+  "image_origin": "snapshot of previously installed P02 research system tools; independent P05 venv/npm dependencies",
+  "docker_data_vhdx": "F:/DockerDesktopWSL/disk/docker_data.vhdx",
+  "work": "F:/YoloongPPT-Research/P05-official-smoke/work -> /app",
+  "scratch": "F:/YoloongPPT-Research/P05-official-smoke/scratch -> /scratch",
+  "evidence": "F:/YoloongPPT/research/P05 -> /evidence",
+  "observed_versions_only": {
+    "python": "3.11.2",
+    "node": "18.20.4",
+    "npm": "9.2.0",
+    "poppler": "22.12.0"
+  },
+  "python_dependencies": "43 installed distributions; validation/python-freeze.txt",
+  "npm_dependencies": "113 installed packages, npm-tree.json",
+  "npm_audit_notice": "7 findings: 3 moderate, 4 high; upstream dependencies not fixed or certified safe",
+  "source_copy_differences": [
+    "package-lock.json"
+  ],
+  "original_npm_lock_sha256": "596b9c9236cdf4868bbe7198a389e05a9a4b486ca489d32415639b681da5edcf",
+  "resolved_npm_lock_sha256": "e2057687ad8ff05e6b65800cbddbe755cbaa80655ebb13dc64afcaff5b83a8cb",
+  "npm_lock_change_reason": "official npm install updates copied root metadata from 0.7.8 to 0.8.0; original pinned clone unchanged",
+  "product_selection": false,
+  "runtime_network": "bridge disconnected after installation; no model calls",
+  "setup_recovery": "snapshot inherited ENTRYPOINT sleep; first duplicate sleep argument exited 1. Task-owned empty container recreated with explicit entrypoint and infinity argument.",
+  "npm_lock_changed_package_entries": [
+    ""
+  ]
+}

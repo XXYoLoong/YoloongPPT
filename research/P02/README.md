@@ -45,7 +45,7 @@ git -C F:\YoloongPPT-Research\P02 rev-parse HEAD
 ## 官方运行环境与最小流程
 
 - 固定 main README 的 Skill 安装说明要求 Claude Code、Codex CLI 或 OpenCode，Linux（含 WSL）或 macOS、`uv`、npm 与可从 PATH 调用的 LibreOffice；macOS 转换器还要求 Chrome。README 示例使用 `uv venv --python 3.12`，这是该上游快照的安装示例，不是 YoloongPPT 的技术选型。
-- main Skill 运行路径还要安装 `skills/pptagent/requirements.txt`、Playwright Chromium，并通过官方 installer 注册所选 agent；生成与视觉评审流程可能需要配置外部模型/API 凭据。没有读取或记录任何凭据。
+- main Skill 运行路径还要安装 `skills/pptagent/requirements.txt`、Playwright Chromium，并通过官方 installer 注册所选 agent；生成与视觉评审流程可能需要配置外部模型/API 凭据。初次安装未配置凭据；2026-10-09 经用户授权读取系统变量名称 DEEPSEEK_API_KEY 并仅传入执行进程，未输出或落盘其值。
 - v0.2.0 与 v1.1.38 的 `pyproject.toml` 声明 Python `>=3.11`，`uv.lock` 锁依赖解算，不固定 YoloongPPT 产品运行时。v1.1.38 README 明确不支持原生 Windows，建议 WSL，并提供 `uvx pptagent generate`、Docker host/sandbox 与源码开发路径。
 - main Skill 的 `requirements.txt` 固定 `pptagent==1.1.37`，而独立 DeepPresenter tag 是 v1.1.38；这是上游 Skill 与论文 tag 的版本差异，后续最小流程必须按被研究 ref 分别记录，不能静默互换。
 
@@ -61,7 +61,7 @@ git -C F:\YoloongPPT-Research\P02 rev-parse HEAD
 - 2026-10-08 复核时发现 Docker service/WSL 发行版一度停止。核实 `wslEngineEnabled=True`、`CustomWslDistroDir=F:\DockerDesktopWSL` 和 F 盘 VHDX 后，恢复 Docker Desktop；Engine 版本 `27.4.0`、`DockerRootDir=/var/lib/docker`。随后用 `scripts/project.ps1 -Action start` 启动 `yoloongppt-workspace-1`，并恢复 `yoloongppt-p02-research`；两个容器与研究数据的宿主挂载均位于 F 盘。设置中 `DataFolder=C:\ProgramData\DockerDesktop\vm-data` 仍保留；当前启用的 WSL 后端使用 F 盘 WSL 磁盘，这一点由设置与实际 VHDX/挂载路径共同确认。未在 C 盘写入项目文件、研究数据或 Docker 容器数据。
 - 可追溯证据：`research/P02/validation/environment-main-skill.txt`、`research/P02/validation/packages-freeze-main-skill.txt`、`research/P02/validation/verify-res-p02-01.json`、`research/P02/scripts/`。原始实验目录位于仓库外 `F:\YoloongPPT-Research\P02-official-smoke`，Docker 可写层和 Docker 数据盘也在 F 盘。
 
-因此源码 refs、依赖清单和上游主许可证已核对；隔离容器安装、官方 doctor 与基础浏览器 smoke 已通过，但模型驱动的生成与视觉审查仍未执行，`ProjectBaseline` 尚未通过，`TASK-RES-P02-01` 与 `VERIFY-RES-P02-01` 保持进行中。后续需通过安全凭据配置完成官方生成与结果审查，再决定是否满足验收。
+因此源码 refs、依赖清单和上游主许可证已核对；隔离容器安装、官方 doctor 与基础浏览器 smoke 已通过，但模型驱动的生成与视觉审查仍未执行，`ProjectBaseline` 尚未通过，`TASK-RES-P02-01` 与 `VERIFY-RES-P02-01` 保持进行中。2026-10-09 已使用系统 DEEPSEEK_API_KEY 完成鉴权 /models 查询：deepseek-flash 报告 text/image 输入，deepseek-v4-pro 仅 text。见 validation/deepseek-models.json；查询不等于推理或生成通过。下一步按官方 main Skill 六页 HTML、review-slides、build、review-deck、finalize 执行，模型使用范围以实际响应判定。官方接口说明见 [DeepSeek 模型列表](https://api-docs.deepseek.com/api/list-models/)。
 
 ## 固定来源
 

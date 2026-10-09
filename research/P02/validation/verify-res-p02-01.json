@@ -1,6 +1,9 @@
 {
   "requirement_id": "RES-P02-01",
-  "task_ids": ["TASK-RES-P02-01", "VERIFY-RES-P02-01"],
+  "task_ids": [
+    "TASK-RES-P02-01",
+    "VERIFY-RES-P02-01"
+  ],
   "source_commit": "833cda553b343be0e486a93b0b57cac962cdd566",
   "verification_state": "in_progress_pending_official_generation",
   "scope": "PPTAgent main Skill official baseline only; no YoloongPPT runtime or backend selection.",
@@ -44,10 +47,10 @@
     ]
   },
   "normal_case": {
-    "state": "not_run_provider_credentials_and_authorization_not_available",
-    "test_execution": "No model/API request and no PPTX generation were attempted.",
+    "state": "not_run_generation_pending_after_authenticated_provider_discovery",
+    "test_execution": "No model inference or PPTX generation yet; authenticated DeepSeek GET /models passed on 2026-10-09.",
     "visual_review": "not_run",
-    "provider_credential_variable_names": "none forwarded or configured in this container run",
+    "provider_credential_variable_names": "DEEPSEEK_API_KEY forwarded only to docker exec process; no key persisted",
     "completion_boundary": "Setup and local browser smoke do not satisfy the official end-to-end generation baseline."
   },
   "failure_case": {
@@ -90,5 +93,12 @@
     "research_container_state": "Up; P02 source and artifacts mounts are on F:",
     "action": "After confirming WSL Engine enabled, custom WSL directory on F:, and the Docker VHDX on F:, Docker Desktop and the project workspace were started; project Docker layers and bind mounts were observed on F:."
   },
-  "completion_boundary": "TASK-RES-P02-01 and VERIFY-RES-P02-01 remain in progress until the official generation path is reproduced and its output is reviewed; this experiment does not select a YoloongPPT product runtime."
+  "completion_boundary": "TASK-RES-P02-01 and VERIFY-RES-P02-01 remain in progress until the official generation path is reproduced and its output is reviewed; this experiment does not select a YoloongPPT product runtime.",
+  "provider_discovery": {
+    "state": "passed",
+    "evidence": "research/P02/validation/deepseek-models.json",
+    "selected_candidate": "deepseek-flash / DeepSeek-V4.1-Flash; provider reports text and image inputs",
+    "next_action": "official main Skill: author six slide HTML sources, review-slides, build, review-deck, finalize; use authenticated model and inspect actual images",
+    "scope": "model listing is not inference/visual review or generation acceptance"
+  }
 }

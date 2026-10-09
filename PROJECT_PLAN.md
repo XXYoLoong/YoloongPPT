@@ -30,7 +30,7 @@
 ## 2026-10-09 纠偏后的当前工作
 
 - 审计基线：需求完成 14/308、进行中 55、未开始 239；任务完成 21/453、进行中 59、未开始 373；AC 0/30 执行。数字对应审计前 HEAD `171fc08`，不自动当作后续实时进度。详情见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
-- 已收尾 TASK/VERIFY-RES-P04-04、TASK/VERIFY-RES-P04-05：5模板/8布局数据、30对象与QA/修订边界，禁网正常/边界/失败探针通过；真实发现高度截断和图表/演讲稿未消费，不代表产品能力通过。RES-P01-05 已按下述记录收尾；下一主工作包为 P02/P05 剩余研究。
+- 已收尾 TASK/VERIFY-RES-P04-04、TASK/VERIFY-RES-P04-05：5模板/8布局数据、30对象与QA/修订边界，禁网正常/边界/失败探针通过；真实发现高度截断和图表/演讲稿未消费，不代表产品能力通过。RES-P01-05 已按下述记录收尾；P05-01/02 已复现并建立调用链；下一主工作包为 P05-03/04/05。P02 模型凭据与模型发现已解阻，随后执行官方六页链路。
 - 后续关键依赖：P02/P05 剩余研究 → RES-031 → RES-032 和决策实现；RES-033 按原依赖交付。SYS-001/SYS-007 等无研究前置的准备可独立推进，但未经过真实 E2E 不标为完成。
 - 不增加另一份需求状态台账；以下历史条目保留，若与矩阵或后来证据冲突，先核对对应原行和制品并在相关工作包修正。
 
@@ -256,15 +256,15 @@
 - 矩阵回填：本任务更新 `需求主表 N28:P28`、`可执行任务 L46:M47`、`开源项目研究对象 K5:N5` 和“总览”开源项目研究完成数缓存。P04-01 状态保留原值；保持 308 个需求、453 个任务和其余任务范围不变。
 - 证据：`research/P04/call-graph.md`、`research/P04/source-index.json`、`research/P04/validation/verify-res-p04-02.mjs`、`research/P04/validation/verify-res-p04-02.json`、两个 `topic-route-*.pptx`；Excel“需求主表”N27:P28、“可执行任务”L44:M47、“开源项目研究对象”K5:N5。
 
-### TASK-RES-P05-01
+### TASK/VERIFY-RES-P05-01/02（2026-10-09 收尾）
 
-- Requirement ID：RES-P05-01；P0；无前置任务。PDR 中的 RES-P05-02 至 RES-P05-05 是独立后续任务。
-- 状态：进行中。上游 `main` 与 annotated tag `v0.8.0` 均固定到 commit `5ae0670747885c464aa8063329a902d80a251877`；tag object 为 `923300ac557b0c09ec73f4a1f681233be2940452`，研究 clone 在仓库外 `F:\YoloongPPT-Research\P05`。
-- 上游运行声明：README 为 Python 3.10+、Node.js 18+；`pyproject.toml` 要求 Python `>=3.10`，npm `package.json` 要求 Node `>=18`；上游 Dockerfile 使用 `python:3.12-slim` 和 NodeSource 20.x。YoloongPPT 仍未选择语言/运行时，Python 3.11.2 不是本项目要求。
-- 锁与许可证：有 npm lockfileVersion 3；Python `requirements.txt` 只有下限约束，无完整 Python 锁。根 LICENSE/package.json 声明 AGPL v3，pyproject/package-lock 元数据声明 Apache-2.0，且上游包版本 0.7.8/0.8.0 不一致；许可证标为未评估，不静默裁定。
-- 环境阻塞：`scripts/project.ps1 start` 和 Docker Desktop/WSL 恢复尝试后，`desktop-linux` Engine pipe 仍不存在，项目容器未启动。没有在宿主机安装依赖；官方 Quick Start、测试、构建和 PPTX 生成均未执行。
-- 验收边界：源码 refs、锁文件摘要、上游运行声明与许可差异已静态记录；`ProjectBaseline` 仍未通过，`TASK-RES-P05-01` 保持进行中，`VERIFY-RES-P05-01` 保持未开始；P05-02 至 P05-05 与 AC-001–AC-030 状态未因此改变。
-- 证据：`research/P05/README.md`、`contracts/version-manifest.catalog.json`；Excel“需求主表”`N32:P32`、“可执行任务”`L54:M55`、“开源项目研究对象”第 6 行。
+- Requirement ID：RES-P05-01/02；固定 commit `5ae0670747885c464aa8063329a902d80a251877` 与既有 refs 不变；P05-02 的 P05-01 前置已满足。
+- 状态：两项需求及四个 TASK/VERIFY 已完成候选研究。官方无密钥 mock 生成 8 页，修订 6 页；正常/边界 PPTX 可读取、ZIP 完整，缺失来源以 CLI 1 明确拒绝。
+- 实际限制：请求 1 页实际 5 页；默认图表为图片；严格 QA 返回 1，8 张渲染图和27告警；人工复核发现末页对比度过低，QA 未标 high-risk。没有真实模型、template/HTTP/MCP 运行或产品 AC 通过。
+- 源码调用链：41 节点/40 边/13 文件哈希，覆盖入口、source、planner/Prompt/Schema、template/theme/layout、renderer/export、独立 QA 和 JSON revision；实际 CLI 与源码/外部边界明确区分。
+- 版本与许可：独立 venv 43 包、npm 113 包；官方 npm install 仅改变工作副本根 lock 元数据，原 clone 未变，解析 lock 和清单保存；7 个 npm 风险提示保留。AGPL/Apache 声明冲突仍未裁定。环境观测不构成 YoloongPPT 选型，compose 未改。
+- 证据：`research/P05/README.md`、`call_graph.md`、`source_index.json`、`validation/verify-res-p05-01-02.json`、正常/边界/修订 JSON/PPTX 与 QA 图片；Excel 主表 N32:P33、任务 L54:M57。
+- 下一动作：P05-03/04/05 复用当前运行与源码，提取决策、模板与写入/QA/修订边界。P02 已按用户授权读取 DEEPSEEK_API_KEY 并完成鉴权模型发现，deepseek-flash 报告支持 text/image；实际推理和官方生成仍待执行，TASK/VERIFY-P02-01 保持进行中。
 
 ### TASK-IN-001
 

@@ -1,0 +1,676 @@
+{
+  "artifact_type": "CallGraph + SourceIndex",
+  "requirement_id": "RES-P05-02",
+  "source_commit": "5ae0670747885c464aa8063329a902d80a251877",
+  "source_sha256": {
+    "auto_ppt_cli.py": "bbe807e3cdcd6f3bd413121c29ce17040f87198eee146cefc624876fb79a8186",
+    "py-skill-server.py": "e2b841148d6d0d36895cd5fe018d577e83ed4623a751a59afb2037c058557dcd",
+    "mcp_server.py": "94dc6d0d13c5d10bb03af76473dd9c647b29f62856691efa3965df06cb72ba4e",
+    "python_backend/skill_api.py": "5cde3d572a6251d10e54c7d2953690210705223c65eb4ff490d4b5072094aa20",
+    "python_backend/source_loader.py": "2c4fa10fbf3f34cf0cad9a2dc9d06219a64b4024ebf4a4e37c0fee45209ec498",
+    "python_backend/smart_layer.py": "2facc9d6265a3c4762d1a7b42d2f9df91d8dd7ee3972f76d2d14ddfc0d58df78",
+    "python_backend/llm_provider.py": "4a3ad22d1b50837731c31fba4e689845803f5c7de63c577c356e4a39d45dfbb8",
+    "python_backend/template_engine.py": "1136f1321100d464b98fc34a18575c4a0532aad4109fa56974c680443d82d796",
+    "python_backend/pptx_renderer.py": "7b996083cd8e1f3f9b842c2d449f50439b9fa299af9891e78926a4e01c15fbde",
+    "python_backend/js_renderer.py": "e58eec4f16869c2a91470dc3b7a3a0df1a3746cb9b677518457d5a87eb4e87f7",
+    "generate-ppt.js": "c360ab01fa0f5f233ea0a319fe95d4cadbd79b8c0f9b048b22160432095a855c",
+    "python_backend/visual_qa.py": "355b86346c521a3a5c33cb14373652a4e33f48cd0b24f284fe794054b49da61e",
+    "python_backend/quality_scorer.py": "afdf6ce10d5c88922b7c21912ca0fef20318574bcc9a354559d13ae497d1da65"
+  },
+  "resources": [
+    {
+      "path": "SKILL.md",
+      "sha256": "725e3feb67eb872baeff949cd3826cf134023a66c5791b3df6f93c9cedc23af0",
+      "kind": "upstream prompt instructions (data, not agent authority)",
+      "evidence_state": "source_inspected; deck schema and dark-executive theme consumed by normal CLI"
+    },
+    {
+      "path": "deck-schema.json",
+      "sha256": "3016259432e704af745ef26e521309ebbfdaeda333e25b4529a13fffefe66c94",
+      "kind": "schema",
+      "evidence_state": "source_inspected; deck schema and dark-executive theme consumed by normal CLI"
+    },
+    {
+      "path": "assets/themes/business-clean.json",
+      "sha256": "028c3dfe3792873cffe32fb80c9212b22868910eaf8c11c7c5aba4dd3e7e84b6",
+      "kind": "theme tokens",
+      "evidence_state": "source_inspected; deck schema and dark-executive theme consumed by normal CLI"
+    },
+    {
+      "path": "assets/themes/corporate-blue.json",
+      "sha256": "9b49ae60ad4da7afb19a8b5a7e61e0c216c0a8938b6ee51b6f3ed07bb20dff8d",
+      "kind": "theme tokens",
+      "evidence_state": "source_inspected; deck schema and dark-executive theme consumed by normal CLI"
+    },
+    {
+      "path": "assets/themes/dark-executive.json",
+      "sha256": "b7eef4b330011ed25989b1603e589d213a26b30435ec3644f693b55a9f8e52e1",
+      "kind": "theme tokens",
+      "evidence_state": "source_inspected; deck schema and dark-executive theme consumed by normal CLI"
+    },
+    {
+      "path": "assets/themes/minimal.json",
+      "sha256": "d8a2619212bf9ec25a5feaaf404cbe7958f2e181768d5579e95164a915d32740",
+      "kind": "theme tokens",
+      "evidence_state": "source_inspected; deck schema and dark-executive theme consumed by normal CLI"
+    },
+    {
+      "path": "assets/themes/tech.json",
+      "sha256": "cad810eb6f4bceb9e7a229767d959497a8e2858b2cfa77e7fb7e4dc9c2197728",
+      "kind": "theme tokens",
+      "evidence_state": "source_inspected; deck schema and dark-executive theme consumed by normal CLI"
+    },
+    {
+      "path": "assets/themes/theme-schema.json",
+      "sha256": "c8210c40076c0da5ec501845899c152420a50174093836c45e4b83442c881da4",
+      "kind": "schema",
+      "evidence_state": "source_inspected; deck schema and dark-executive theme consumed by normal CLI"
+    },
+    {
+      "path": "assets/themes/warm-modern.json",
+      "sha256": "16c59ca26a6bdcd0ba9f614012ba95652035dd03a648321b8433ee544027ebae",
+      "kind": "theme tokens",
+      "evidence_state": "source_inspected; deck schema and dark-executive theme consumed by normal CLI"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ENTRY-CLI",
+      "path": "auto_ppt_cli.py",
+      "symbol": "main",
+      "line_start": 489,
+      "line_end": 513,
+      "claim": "CLI 调用与显式 QA/score 分流",
+      "evidence_state": "normal/boundary/failure/revision/visual_qa"
+    },
+    {
+      "id": "CLI-REQUEST",
+      "path": "auto_ppt_cli.py",
+      "symbol": "build_request",
+      "line_start": 186,
+      "line_end": 213,
+      "claim": "create/revise 参数与输出路径",
+      "evidence_state": "normal/revision"
+    },
+    {
+      "id": "CLI-INPUT",
+      "path": "auto_ppt_cli.py",
+      "symbol": "validate_runtime_inputs",
+      "line_start": 150,
+      "line_end": 183,
+      "claim": "来源、template、deck 文件存在性",
+      "evidence_state": "failure"
+    },
+    {
+      "id": "ENTRY-HTTP",
+      "path": "py-skill-server.py",
+      "symbol": "SkillRequestHandler.do_POST",
+      "line_start": 36,
+      "line_end": 52,
+      "claim": "POST /skill 调用 handler",
+      "evidence_state": "not_run"
+    },
+    {
+      "id": "ENTRY-MCP-CREATE",
+      "path": "mcp_server.py",
+      "symbol": "create_deck",
+      "line_start": 43,
+      "line_end": 76,
+      "claim": "MCP create_deck",
+      "evidence_state": "not_run"
+    },
+    {
+      "id": "ENTRY-MCP-REVISE",
+      "path": "mcp_server.py",
+      "symbol": "revise_deck",
+      "line_start": 80,
+      "line_end": 117,
+      "claim": "MCP revise_deck",
+      "evidence_state": "not_run"
+    },
+    {
+      "id": "ENTRY-JSON",
+      "path": "python_backend/skill_api.py",
+      "symbol": "main",
+      "line_start": 139,
+      "line_end": 142,
+      "claim": "JSON skill request/response",
+      "evidence_state": "not_run"
+    },
+    {
+      "id": "REQUEST-JSON",
+      "path": "python_backend/skill_api.py",
+      "symbol": "load_request",
+      "line_start": 30,
+      "line_end": 41,
+      "claim": "JSON entry 的 action/prompt 校验；不冒充所有入口共享校验",
+      "evidence_state": "not_run"
+    },
+    {
+      "id": "HANDLER",
+      "path": "python_backend/skill_api.py",
+      "symbol": "handle_skill_request",
+      "line_start": 49,
+      "line_end": 136,
+      "claim": "上下文、来源、JSON 旧 deck、双 renderer 路由与 response",
+      "evidence_state": "normal/revision"
+    },
+    {
+      "id": "SOURCES",
+      "path": "python_backend/source_loader.py",
+      "symbol": "load_source_contexts",
+      "line_start": 237,
+      "line_end": 264,
+      "claim": "加载来源元数据、文本与 truncation 标记",
+      "evidence_state": "normal"
+    },
+    {
+      "id": "SOURCE-CONTEXT",
+      "path": "python_backend/source_loader.py",
+      "symbol": "_build_context_text",
+      "line_start": 216,
+      "line_end": 234,
+      "claim": "5000 字符 excerpt 容量及 metadata",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "PLANNER",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "execute_planning_flow",
+      "line_start": 981,
+      "line_end": 1050,
+      "claim": "mock/模型、schema、repair 与 chart normalization 主流程",
+      "evidence_state": "normal/revision"
+    },
+    {
+      "id": "MOCK",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "build_mock_deck",
+      "line_start": 213,
+      "line_end": 338,
+      "claim": "离线固定页型及启发式内容",
+      "evidence_state": "normal/boundary"
+    },
+    {
+      "id": "COUNT",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "clamp_slide_count",
+      "line_start": 98,
+      "line_end": 103,
+      "claim": "请求页数钳制至 5–12，固定 mock roster 另限最大 9",
+      "evidence_state": "boundary"
+    },
+    {
+      "id": "SYSTEM-PROMPT",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "build_system_prompt",
+      "line_start": 341,
+      "line_end": 391,
+      "claim": "读取根 SKILL.md 与 JSON Schema 组成模型 system prompt",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "CREATE-PROMPT",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "build_create_prompt",
+      "line_start": 405,
+      "line_end": 423,
+      "claim": "创建 prompt/context/research/数值提示",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "REVISE-PROMPT",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "build_revise_prompt",
+      "line_start": 426,
+      "line_end": 454,
+      "claim": "旧 deck JSON + 自然语言修订",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "REPAIR-PROMPT",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "build_repair_prompt",
+      "line_start": 457,
+      "line_end": 469,
+      "claim": "JSON/schema 失败后有限模型修复",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "MODEL",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "request_deck_json",
+      "line_start": 978,
+      "line_end": 979,
+      "claim": "provider.chat 外部模型边界",
+      "evidence_state": "not_run_external_black_box"
+    },
+    {
+      "id": "PROVIDER",
+      "path": "python_backend/llm_provider.py",
+      "symbol": "get_default_provider",
+      "line_start": 291,
+      "line_end": 309,
+      "claim": "按环境/模型名选择 provider",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "RESEARCH",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "maybe_run_research",
+      "line_start": 933,
+      "line_end": 965,
+      "claim": "可选 Tavily 网络检索",
+      "evidence_state": "not_run_external_black_box"
+    },
+    {
+      "id": "SCHEMA",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "create_validator",
+      "line_start": 69,
+      "line_end": 73,
+      "claim": "deck-schema.json 的 JSON Schema validator",
+      "evidence_state": "normal/boundary/revision"
+    },
+    {
+      "id": "CHART-NORMALIZE",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "validate_chart_slides",
+      "line_start": 605,
+      "line_end": 641,
+      "claim": "数字格式修复或 chart→bullet，记录 assumptions",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "MOCK-REVISION",
+      "path": "python_backend/smart_layer.py",
+      "symbol": "apply_heuristic_revision",
+      "line_start": 888,
+      "line_end": 930,
+      "claim": "页数/结论/执行/受众等 mock 修订，重排页码",
+      "evidence_state": "revision"
+    },
+    {
+      "id": "THEME",
+      "path": "python_backend/template_engine.py",
+      "symbol": "resolve_theme",
+      "line_start": 404,
+      "line_end": 426,
+      "claim": "template / named theme / default",
+      "evidence_state": "normal"
+    },
+    {
+      "id": "TEMPLATE",
+      "path": "python_backend/template_engine.py",
+      "symbol": "parse_template",
+      "line_start": 90,
+      "line_end": 134,
+      "claim": "PPTX master/layout/placeholder/theme 解析",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "PY-RENDER",
+      "path": "python_backend/pptx_renderer.py",
+      "symbol": "render_deck_with_template",
+      "line_start": 74,
+      "line_end": 121,
+      "claim": "模板路线：移除所有旧 slides，再从 deck JSON 新建",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "PY-LAYOUT",
+      "path": "python_backend/pptx_renderer.py",
+      "symbol": "_render_slide",
+      "line_start": 133,
+      "line_end": 155,
+      "claim": "布局 dispatch、notes、页面新建",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "JS-BRIDGE",
+      "path": "python_backend/js_renderer.py",
+      "symbol": "render_deck_via_node",
+      "line_start": 13,
+      "line_end": 38,
+      "claim": "JSON 落盘与 Node 子进程，120 秒超时",
+      "evidence_state": "normal/revision"
+    },
+    {
+      "id": "JS-ENTRY",
+      "path": "generate-ppt.js",
+      "symbol": "buildFromFile",
+      "line_start": 1140,
+      "line_end": 1165,
+      "claim": "读取命令行 JSON/PPTX 路径，处理 nativeCharts 选项，调用 buildDeck",
+      "evidence_state": "normal/revision"
+    },
+    {
+      "id": "JS-BUILD",
+      "path": "generate-ppt.js",
+      "symbol": "buildDeck",
+      "line_start": 1114,
+      "line_end": 1139,
+      "claim": "wide canvas、theme、逐页 render 与 writeFile",
+      "evidence_state": "normal/revision"
+    },
+    {
+      "id": "JS-VALIDATE",
+      "path": "generate-ppt.js",
+      "symbol": "validateDeck",
+      "line_start": 143,
+      "line_end": 182,
+      "claim": "JS 层布局、页码和数量校验",
+      "evidence_state": "normal"
+    },
+    {
+      "id": "JS-LAYOUT",
+      "path": "generate-ppt.js",
+      "symbol": "renderSlide",
+      "line_start": 1035,
+      "line_end": 1113,
+      "claim": "16 种 layout key 的固定 dispatch；notes、页脚",
+      "evidence_state": "normal"
+    },
+    {
+      "id": "JS-VISUALS",
+      "path": "generate-ppt.js",
+      "symbol": "renderVisualsOnSlide",
+      "line_start": 406,
+      "line_end": 460,
+      "claim": "图片、placeholder、视觉描述的固定处理",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "JS-CHART",
+      "path": "generate-ppt.js",
+      "symbol": "renderChartSlide",
+      "line_start": 720,
+      "line_end": 806,
+      "claim": "默认图表图片；显式 native/无 canvas 时 OOXML",
+      "evidence_state": "normal_image_chart_only"
+    },
+    {
+      "id": "JS-TABLE",
+      "path": "generate-ppt.js",
+      "symbol": "renderTableSlide",
+      "line_start": 616,
+      "line_end": 652,
+      "claim": "PptxGenJS addTable",
+      "evidence_state": "source_only"
+    },
+    {
+      "id": "JS-CLOSING",
+      "path": "generate-ppt.js",
+      "symbol": "renderClosingSlide",
+      "line_start": 1011,
+      "line_end": 1034,
+      "claim": "closingBg + headerBg 正文造成实测低对比度",
+      "evidence_state": "visual_review_issue"
+    },
+    {
+      "id": "QA",
+      "path": "python_backend/visual_qa.py",
+      "symbol": "run_visual_qa",
+      "line_start": 188,
+      "line_end": 229,
+      "claim": "独立 CLI QA：导出图片 + OOXML bbox heuristic",
+      "evidence_state": "visual_qa"
+    },
+    {
+      "id": "QA-RENDER",
+      "path": "python_backend/visual_qa.py",
+      "symbol": "_export_images",
+      "line_start": 64,
+      "line_end": 108,
+      "claim": "soffice→PDF→pdftoppm JPEG，缺工具时 notes",
+      "evidence_state": "visual_qa_external_renderer"
+    },
+    {
+      "id": "QA-HEURISTIC",
+      "path": "python_backend/visual_qa.py",
+      "symbol": "analyze_visual_quality",
+      "line_start": 111,
+      "line_end": 185,
+      "claim": "边缘/包围盒重叠/空页/文本页，非事实或像素审查",
+      "evidence_state": "visual_qa"
+    },
+    {
+      "id": "QUALITY-SCORE",
+      "path": "python_backend/quality_scorer.py",
+      "symbol": "score_deck",
+      "line_start": 215,
+      "line_end": 261,
+      "claim": "JSON 内容 heuristic，独立 score 入口",
+      "evidence_state": "source_only"
+    }
+  ],
+  "edges": [
+    {
+      "from": "ENTRY-HTTP",
+      "to": "HANDLER",
+      "type": "calls"
+    },
+    {
+      "from": "ENTRY-MCP-CREATE",
+      "to": "HANDLER",
+      "type": "calls"
+    },
+    {
+      "from": "ENTRY-MCP-REVISE",
+      "to": "HANDLER",
+      "type": "calls"
+    },
+    {
+      "from": "ENTRY-JSON",
+      "to": "REQUEST-JSON",
+      "type": "calls"
+    },
+    {
+      "from": "ENTRY-JSON",
+      "to": "HANDLER",
+      "type": "calls"
+    },
+    {
+      "from": "ENTRY-CLI",
+      "to": "CLI-INPUT",
+      "type": "calls"
+    },
+    {
+      "from": "ENTRY-CLI",
+      "to": "CLI-REQUEST",
+      "type": "calls"
+    },
+    {
+      "from": "ENTRY-CLI",
+      "to": "HANDLER",
+      "type": "calls"
+    },
+    {
+      "from": "HANDLER",
+      "to": "SOURCES",
+      "type": "calls"
+    },
+    {
+      "from": "SOURCES",
+      "to": "SOURCE-CONTEXT",
+      "type": "calls"
+    },
+    {
+      "from": "HANDLER",
+      "to": "PLANNER",
+      "type": "calls"
+    },
+    {
+      "from": "PLANNER",
+      "to": "SCHEMA",
+      "type": "calls"
+    },
+    {
+      "from": "PLANNER",
+      "to": "RESEARCH",
+      "type": "conditional",
+      "condition": "research_enabled"
+    },
+    {
+      "from": "PLANNER",
+      "to": "MOCK",
+      "type": "conditional",
+      "condition": "mock/create"
+    },
+    {
+      "from": "MOCK",
+      "to": "COUNT",
+      "type": "calls"
+    },
+    {
+      "from": "PLANNER",
+      "to": "MOCK-REVISION",
+      "type": "conditional",
+      "condition": "mock/revise and existing deck JSON"
+    },
+    {
+      "from": "PLANNER",
+      "to": "SYSTEM-PROMPT",
+      "type": "conditional",
+      "condition": "not mock; create/revise prompt selected by mode"
+    },
+    {
+      "from": "PLANNER",
+      "to": "CREATE-PROMPT",
+      "type": "conditional",
+      "condition": "not mock; create/revise prompt selected by mode"
+    },
+    {
+      "from": "PLANNER",
+      "to": "REVISE-PROMPT",
+      "type": "conditional",
+      "condition": "not mock; create/revise prompt selected by mode"
+    },
+    {
+      "from": "PLANNER",
+      "to": "PROVIDER",
+      "type": "conditional",
+      "condition": "not mock; create/revise prompt selected by mode"
+    },
+    {
+      "from": "PLANNER",
+      "to": "MODEL",
+      "type": "conditional",
+      "condition": "not mock; create/revise prompt selected by mode"
+    },
+    {
+      "from": "PLANNER",
+      "to": "REPAIR-PROMPT",
+      "type": "conditional",
+      "condition": "model JSON/schema failure within bounded retries"
+    },
+    {
+      "from": "PLANNER",
+      "to": "CHART-NORMALIZE",
+      "type": "calls"
+    },
+    {
+      "from": "HANDLER",
+      "to": "TEMPLATE",
+      "type": "conditional",
+      "condition": "template path selected"
+    },
+    {
+      "from": "HANDLER",
+      "to": "PY-RENDER",
+      "type": "conditional",
+      "condition": "template path selected"
+    },
+    {
+      "from": "PY-RENDER",
+      "to": "PY-LAYOUT",
+      "type": "calls"
+    },
+    {
+      "from": "HANDLER",
+      "to": "THEME",
+      "type": "conditional",
+      "condition": "no template path"
+    },
+    {
+      "from": "HANDLER",
+      "to": "JS-BRIDGE",
+      "type": "conditional",
+      "condition": "no template path"
+    },
+    {
+      "from": "JS-BRIDGE",
+      "to": "JS-ENTRY",
+      "type": "calls"
+    },
+    {
+      "from": "JS-ENTRY",
+      "to": "JS-BUILD",
+      "type": "calls"
+    },
+    {
+      "from": "JS-BUILD",
+      "to": "JS-VALIDATE",
+      "type": "calls"
+    },
+    {
+      "from": "JS-BUILD",
+      "to": "JS-LAYOUT",
+      "type": "calls"
+    },
+    {
+      "from": "JS-LAYOUT",
+      "to": "JS-VISUALS",
+      "type": "conditional",
+      "condition": "matching layout; visuals on eligible layout"
+    },
+    {
+      "from": "JS-LAYOUT",
+      "to": "JS-CHART",
+      "type": "conditional",
+      "condition": "matching layout; visuals on eligible layout"
+    },
+    {
+      "from": "JS-LAYOUT",
+      "to": "JS-TABLE",
+      "type": "conditional",
+      "condition": "matching layout; visuals on eligible layout"
+    },
+    {
+      "from": "JS-LAYOUT",
+      "to": "JS-CLOSING",
+      "type": "conditional",
+      "condition": "matching layout; visuals on eligible layout"
+    },
+    {
+      "from": "ENTRY-CLI",
+      "to": "QA",
+      "type": "conditional",
+      "condition": "explicit qa-visual command; not automatic generation gate"
+    },
+    {
+      "from": "QA",
+      "to": "QA-RENDER",
+      "type": "calls"
+    },
+    {
+      "from": "QA",
+      "to": "QA-HEURISTIC",
+      "type": "calls"
+    },
+    {
+      "from": "ENTRY-CLI",
+      "to": "QUALITY-SCORE",
+      "type": "conditional",
+      "condition": "explicit score command"
+    }
+  ],
+  "external_black_boxes": [
+    "LLM provider service (not run in these mock probes)",
+    "Tavily service (not run)",
+    "LibreOffice PDF renderer and pdftoppm rasterizer (executed, not product selection)",
+    "PptxGenJS/chartjs-node-canvas/python-pptx dependencies, resolved versions recorded; upstream internal implementation not expanded"
+  ],
+  "runtime_evidence": "validation/baseline-run.json; per-case logs; outputs/normal-qa/visual-qa-report.json",
+  "scope": "Source call graph plus observed CLI flow, not function-level runtime instrumentation. HTTP/MCP/template/real-model branches are source-only or explicit black boxes."
+}
