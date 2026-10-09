@@ -61,7 +61,7 @@ git -C F:\YoloongPPT-Research\P02 rev-parse HEAD
 - 2026-10-08 复核时发现 Docker service/WSL 发行版一度停止。核实 `wslEngineEnabled=True`、`CustomWslDistroDir=F:\DockerDesktopWSL` 和 F 盘 VHDX 后，恢复 Docker Desktop；Engine 版本 `27.4.0`、`DockerRootDir=/var/lib/docker`。随后用 `scripts/project.ps1 -Action start` 启动 `yoloongppt-workspace-1`，并恢复 `yoloongppt-p02-research`；两个容器与研究数据的宿主挂载均位于 F 盘。设置中 `DataFolder=C:\ProgramData\DockerDesktop\vm-data` 仍保留；当前启用的 WSL 后端使用 F 盘 WSL 磁盘，这一点由设置与实际 VHDX/挂载路径共同确认。未在 C 盘写入项目文件、研究数据或 Docker 容器数据。
 - 可追溯证据：`research/P02/validation/environment-main-skill.txt`、`research/P02/validation/packages-freeze-main-skill.txt`、`research/P02/validation/verify-res-p02-01.json`、`research/P02/scripts/`。原始实验目录位于仓库外 `F:\YoloongPPT-Research\P02-official-smoke`，Docker 可写层和 Docker 数据盘也在 F 盘。
 
-上述安装记录是当时的历史范围。2026-10-09 已完成下述真实模型创作与官方主机审查流程，`TASK-RES-P02-01` 与 `VERIFY-RES-P02-01` 按候选研究验收收尾；P02-02/03/04/05 仍待交付源码映射。DeepSeek /models 查询只作为发现证据，实际推理结果单独保留。
+上述安装记录是当时的历史范围。2026-10-09 已完成下述真实模型创作与官方主机审查流程，`TASK-RES-P02-01` 与 `VERIFY-RES-P02-01` 按候选研究验收收尾；随后 P02-02/03/04/05 的源码映射已完成，见后续章节。DeepSeek /models 查询只作为发现证据，实际推理结果单独保留。
 
 ## 六页官方生成与审查（2026-10-09 收尾）
 
@@ -85,7 +85,32 @@ git -C F:\YoloongPPT-Research\P02 rev-parse HEAD
 
 复现使用既有F盘容器与固定Skill。新建独立workspace后按官方init，复制已保存的六份真实模型HTML（或用相同公开prompt重新调用授权模型），执行review-slides；必须实际看每页再record-slide-review，build后review-deck并看contact，再record-deck-review与finalize。脚本official-six-step.py保存本次命令/日志；verify-six.py核对当前实物并在独立副本测试过期源门控，脚本中的副本目录应首次不存在。不能重用本次pass标记去认可不同输入。
 
-本任务执行脚本使用HOME=/artifacts/home、TMPDIR=/artifacts/tmp、PLAYWRIGHT_BROWSERS_PATH=/artifacts/cache/ms-playwright，所有挂载和Docker可写数据都在F盘；产品代码/compose未改变。下一工作包复用这些实物与当前已读源码，建立P02调用链、决策、模板和能力边界，明确main Skill与1.1.37依赖的职责；不再重复安装或整个生成流程。
+本任务执行脚本使用HOME=/artifacts/home、TMPDIR=/artifacts/tmp、PLAYWRIGHT_BROWSERS_PATH=/artifacts/cache/ms-playwright，所有挂载和Docker可写数据都在F盘；产品代码/compose未改变。后续四份映射已复用这些实物与固定源码，明确main Skill与1.1.37依赖的职责，没有重复安装或调用模型生成。
+
+## 调用链、决策、模板与能力（RES-P02-02/03/04/05）
+
+四项候选研究按原验收完成；TASK/VERIFY 分别绑定产物与 [核验报告](validation/verify-maps.json)。映射描述固定main及它实际安装的1.1.37依赖；不把独立v0.2.0/v1.1.38论文路线混入运行结论。主机承担内容规划/创作，内部候选与模型推理明确为外部黑盒。
+
+| 交付 | 内容 |
+|---|---|
+| [CallGraph](call-graph.md) / [SourceIndex](source-index.json) | 21个节点覆盖入口、Agent/Planner、Prompt、Schema、template/layout、render/export、QA/revision；13文件hash与64个可定位范围，依赖与main来源分开 |
+| [ProjectDecisionMap](decision-map.md) | 17个节点逐项保存input/candidates/mechanism/output/constraints/fallback/trace/source；DEC-001–040全量crosswalk，缺失/partial明确，不回填DEC产品状态 |
+| [ProjectTemplateMap](template-map.md) | 唯一generic starter三槽、四个不同token、继承CSS、三种画布、DOM-IR/task/state、容量阈值及实测几何；无模板族评分或原生母版解析 |
+| [ProjectCapabilityMap](capability-map.md) | PPT-001–030及QA/revision/已有PPT编辑全部有状态、源码与运行/source-only证据；没有将底层库潜在能力写成路线支持 |
+
+新增 [对象实验PPTX](outputs/maps-probes/objects.pptx) 与 [5个正常/边界/失败用例](validation/maps-probes.json)：
+
+- 第一页为原生3×2表格、4个文字/矩形shape；第二页为1个文字shape与1张渐变PNG。两张HTML预览实际查看，没有明显裁切或重叠；该实验是转换结构测试，未冒充官方完整主机审查/交付。
+- 库返回chart-slot的id与inch坐标；官方CLI不消费该返回值，实物无chart或原生p:ph。placeholder坐标不能当作原生图表能力。
+- 内联SVG真实报 `el.className.includes is not a function`：SVGAnimatedString在提取早期被当作字符串，尚未进入源码中的PNG回退分支。保留首次日志与独立错误JSON；没有改上游或宣称SVG已支持。外链SVG栅格化仅源码定位，未实测。
+- 在真实完整任务的独立副本新增共享asset后，六页review和build_current失效；原六页PPTX SHA不变。非本地资源在core.open_slide被拒绝；converter独立goto没有同一路由防护，不能把准入规则扩大为全面沙箱。
+- 合法issue字段下，pass+major实际被拒绝。研究核验脚本曾误计ZIP目录项、遗漏suggested_fix，已修正并只重做相应断言；没有重复生成或掩盖候选失败。
+
+正常模型/官方导出、footer容量失败/修订、外部视觉JSON失败继续复用前述真实证据。所有引用、固定源码/执行副本hash、对象实物及正常hash已核对；[机器映射](call-graph.json)、[决策JSON](decision-map.json)、[模板JSON](template-map.json)、[能力JSON](capability-map.json) 保存详细属性。
+
+复现新增实验：先确认Docker数据盘与全部挂载在F盘；在首次不存在的 `outputs/maps-probes` 运行容器中的 `scripts/probe-maps.py`（调用probe-maps.js）。JS仅在研究进程内暴露私有DOM reader，官方转换调用不变，固定依赖文件没有修改；再次完整复现需使用新的实验输出位置，已完成报告禁止覆盖。`scripts/build-maps.py` 与 `scripts/verify-maps.py` 可用工具自带stdlib Python生成/核对索引，不安装产品依赖。MCP会话、所有对象round-trip、Microsoft PowerPoint、事实/可编辑性全QA及产品AC尚未执行。
+
+五个项目的研究交付已满足后续RES-031的依赖；下一步横向对照与许可复用决策，不再延长P02研究来替代产品实现。
 
 ## 固定来源
 

@@ -1,0 +1,531 @@
+{
+  "requirement_id": "RES-P02-02",
+  "scope": "source graph with runtime evidence references, not full dynamic call tracing",
+  "nodes": [
+    {
+      "id": "entry",
+      "name": "CLI入口",
+      "owner": "main",
+      "source_refs": [
+        "cli:main",
+        "cli:make_parser"
+      ],
+      "input": "command/config/workspace",
+      "output": "JSON结果与exit0/1/2",
+      "mechanism": "argparse命令分派；exception→2，ok=false→1",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/workflow-probes.json"
+      ],
+      "limit": ""
+    },
+    {
+      "id": "task",
+      "name": "任务与配置",
+      "owner": "main",
+      "source_refs": [
+        "cli:init_workspace",
+        "core:load_task",
+        "config:load_config"
+      ],
+      "input": "slides/aspect/language/config",
+      "output": "task.json + normalized config",
+      "mechanism": "正整数页数；3种比例；strict/best-effort与text/multimodal",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/workflow-probes.json"
+      ],
+      "limit": "仅小型任务配置，不是完整TaskSpec；不推断页数/用户用途"
+    },
+    {
+      "id": "host",
+      "name": "主机Agent/Planner/内容创作",
+      "owner": "external host",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ],
+      "input": "用户材料/任务约束/本地素材",
+      "output": "每页HTML",
+      "mechanism": "Skill要求主机规划并创作；上游CLI没有内容生成或Planner函数",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/author-prompts.json",
+        "validation/author-response.json"
+      ],
+      "limit": "内部候选、推理、评分不可观察；author-six.py是研究模型调用，不属于上游Planner"
+    },
+    {
+      "id": "prompt",
+      "name": "Prompt与Schema",
+      "owner": "main + host",
+      "source_refs": [
+        "visual:module",
+        "core:load_task",
+        "skill:resource",
+        "text-contract:resource"
+      ],
+      "input": "task/HTML/images",
+      "output": "task contract、visual JSON、state v1",
+      "mechanism": "资源描述约束；函数直接字段校验",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/visual-slides-traced-01.json"
+      ],
+      "limit": "没有完整规划/模板/页面JSON Schema或结构化策略trace；不保留隐藏推理"
+    },
+    {
+      "id": "scaffold",
+      "name": "模板初始化",
+      "owner": "main",
+      "source_refs": [
+        "core:scaffold",
+        "starter:resource"
+      ],
+      "input": "task + 4 distinct replacement tokens",
+      "output": "assets/slide-template.html与slideNN.html",
+      "mechanism": "单一通用模板、保持既有页面",
+      "evidence": [
+        "validation/verify-official-six.json"
+      ],
+      "limit": "没有模板族选择/引用PPTX解析"
+    },
+    {
+      "id": "snapshot",
+      "name": "源与共享资源快照",
+      "owner": "main",
+      "source_refs": [
+        "core:input_snapshot",
+        "core:load_state",
+        "core:save_state"
+      ],
+      "input": "task/slides/assets字节",
+      "output": "hash快照与原子状态文件",
+      "mechanism": "所有assets与slides非HTML资源一起hash",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/maps-probes.json"
+      ],
+      "limit": "资源依赖按整体；未使用资源也会使审查过期"
+    },
+    {
+      "id": "render",
+      "name": "HTML预览",
+      "owner": "main + dependency",
+      "source_refs": [
+        "core:render_slides",
+        "core:open_slide",
+        "webview:module"
+      ],
+      "input": "HTML、允许的本地资源、固定canvas",
+      "output": "逐页JPG和渲染hash",
+      "mechanism": "Chromium；阻断未跟踪与非file请求；等字体",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/maps-probes.json"
+      ],
+      "limit": "不是全面JS沙箱；converter自身goto没有同一路由防护"
+    },
+    {
+      "id": "slide-review",
+      "name": "逐页视觉审查",
+      "owner": "main + host/provider",
+      "source_refs": [
+        "cli:review_slides",
+        "visual:review_images",
+        "visual:validate_review",
+        "core:record_slide_review"
+      ],
+      "input": "新鲜HTML JPG + context",
+      "output": "review record",
+      "mechanism": "主机图像审查或OpenAI-compatible POST；严格JSON校验",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/visual-slides-traced-01.json",
+        "validation/maps-probes.json"
+      ],
+      "limit": "真实external返回字符串slide失败；官方默认host路线已通过；没有事实QA"
+    },
+    {
+      "id": "build-gate",
+      "name": "构建门控",
+      "owner": "main",
+      "source_refs": [
+        "core:build",
+        "core:review_gaps",
+        "config:node_environment"
+      ],
+      "input": "HTML数量与fresh pass review",
+      "output": "Node converter invocation",
+      "mechanism": "strict门控、固定output answer.pptx、当前driver PATH",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/workflow-probes.json",
+        "validation/maps-probes.json"
+      ],
+      "limit": ""
+    },
+    {
+      "id": "dimension",
+      "name": "尺寸与容量检查",
+      "owner": "dependency",
+      "source_refs": [
+        "converter:getBodyDimensions",
+        "converter:adaptLayout",
+        "converter:validateTextBoxPosition"
+      ],
+      "input": "computed body/scroll/文字bounds",
+      "output": "匹配layout或错误",
+      "mechanism": "1px overflow、0.1in layout、font>12pt时bottom>=0.5in",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/footer-revision.json"
+      ],
+      "limit": "是候选写入器的规则，不是产品容量策略或普遍PowerPoint限制"
+    },
+    {
+      "id": "font",
+      "name": "字体识别",
+      "owner": "dependency",
+      "source_refs": [
+        "converter:html2pptx",
+        "converter:font-family"
+      ],
+      "input": "DOM/CSS/CDP actual-font",
+      "output": "fontFace",
+      "mechanism": "CDP glyph count dominant font；否则CSS首个非generic或MicrosoftYaHei",
+      "evidence": [
+        "validation/verify-official-six.json"
+      ],
+      "limit": "逐段mixed字体精度/PowerPoint替换未验证；CDP错误会静默忽略"
+    },
+    {
+      "id": "ir",
+      "name": "DOM到中间对象",
+      "owner": "dependency",
+      "source_refs": [
+        "converter:extractSlideData"
+      ],
+      "input": "computed CSS + DOM tree",
+      "output": "background/elements/placeholders/errors",
+      "mechanism": "DOM位置px→inch、字体px→pt、processed dedupe",
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "limit": "私有reader只在研究进程内暴露；pre-CDP IR；无page-type/slot语义schema"
+    },
+    {
+      "id": "assets",
+      "name": "素材与降级",
+      "owner": "dependency",
+      "source_refs": [
+        "converter:rasterizeGradients",
+        "converter:html2pptx"
+      ],
+      "input": "CSS gradient/bg/image/SVG",
+      "output": "PNG或错误",
+      "mechanism": "浏览器栅格化复杂样式；strict检查missing asset",
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "limit": "渐变实测PNG；inline SVG在前置className检查失败；无统一fallback trace"
+    },
+    {
+      "id": "native",
+      "name": "对象写入",
+      "owner": "dependency",
+      "source_refs": [
+        "converter:addBackground",
+        "converter:addElements"
+      ],
+      "input": "IR",
+      "output": "PptxGenJS原生text/shape/line/table/image",
+      "mechanism": "顺序调用addText/addShape/addTable/addImage",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/maps-probes.json"
+      ],
+      "limit": "对象子集，不含原生chart；slot coordinates不等于placeholder对象"
+    },
+    {
+      "id": "placeholder",
+      "name": "占位坐标未消费",
+      "owner": "dependency",
+      "source_refs": [
+        "converter:placeholder-extract",
+        "converter-cli:module"
+      ],
+      "input": "class placeholder + nonzero bounds",
+      "output": "id/x/y/w/h",
+      "mechanism": "库返回coords；官方CLI仅转换每页，忽略返回placeholder",
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "limit": "没有chart生成，也没有原生placeholder绑定"
+    },
+    {
+      "id": "export",
+      "name": "PPTX写出",
+      "owner": "dependency + main",
+      "source_refs": [
+        "converter-cli:module",
+        "core:build",
+        "core:pptx_info"
+      ],
+      "input": "converted slides",
+      "output": "answer.pptx + count/aspect/hash",
+      "mechanism": "writeFile + ZIP结构/页数/比例检查",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/maps-probes.json"
+      ],
+      "limit": "新建文件；没有普通PPTX读取或原位保真编辑入口"
+    },
+    {
+      "id": "deck-render",
+      "name": "导出渲染",
+      "owner": "main",
+      "source_refs": [
+        "core:render_deck",
+        "core:_contact_sheets"
+      ],
+      "input": "answer.pptx",
+      "output": "PDF/逐页JPG/contact",
+      "mechanism": "LibreOffice隔离profile→PyMuPDF→每4页contact",
+      "evidence": [
+        "validation/verify-official-six.json"
+      ],
+      "limit": "非Microsoft PowerPoint；仅contact hash参与deck review freshness"
+    },
+    {
+      "id": "deck-review",
+      "name": "整稿视觉审查",
+      "owner": "main + host/provider",
+      "source_refs": [
+        "cli:review_deck",
+        "core:record_deck_review",
+        "visual:review_images"
+      ],
+      "input": "当前PPTX与contact",
+      "output": "deck review",
+      "mechanism": "主机查看或外部图片JSON审查",
+      "evidence": [
+        "validation/verify-official-six.json"
+      ],
+      "limit": "没有事实/可编辑性/对象身份QA；非自动修订"
+    },
+    {
+      "id": "finalize",
+      "name": "终止门控",
+      "owner": "main",
+      "source_refs": [
+        "core:finalize"
+      ],
+      "input": "当前源码、PPTX、各review/hash",
+      "output": "final-report.json",
+      "mechanism": "6 checks；strict全部通过；best-effort需用户接受draft",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/workflow-probes.json",
+        "validation/maps-probes.json"
+      ],
+      "limit": "本研究strict；未授权best-effort，不以draft冲销需求"
+    },
+    {
+      "id": "revision",
+      "name": "源修订与重建",
+      "owner": "host + main",
+      "source_refs": [
+        "skill:resource",
+        "core:input_snapshot",
+        "core:build",
+        "core:finalize"
+      ],
+      "input": "issues + HTML/source edit",
+      "output": "重新渲染/审查/全量新PPTX",
+      "mechanism": "主机修改HTML；旧状态过期；fresh build后再deck审查",
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/footer-revision.json",
+        "validation/maps-probes.json"
+      ],
+      "limit": "无局部PPTX对象保真编辑、自动repair agent或稳定对象ID"
+    },
+    {
+      "id": "mcp",
+      "name": "视觉MCP封装",
+      "owner": "main",
+      "source_refs": [
+        "mcp:module"
+      ],
+      "input": "text-mode配置/现有workspace",
+      "output": "review_slides/review_deck两个tools",
+      "mechanism": "FastMCP、asyncLock、子进程调用CLI、非zero报ToolError",
+      "evidence": [],
+      "limit": "仅源码定位，未运行MCP会话；不是完整生成API/MCP"
+    }
+  ],
+  "edges": [
+    {
+      "from": "entry",
+      "to": "task",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "task",
+      "to": "host",
+      "kind": "external handoff"
+    },
+    {
+      "from": "host",
+      "to": "prompt",
+      "kind": "external handoff"
+    },
+    {
+      "from": "task",
+      "to": "scaffold",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "host",
+      "to": "snapshot",
+      "kind": "external handoff"
+    },
+    {
+      "from": "scaffold",
+      "to": "snapshot",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "snapshot",
+      "to": "render",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "render",
+      "to": "slide-review",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "slide-review",
+      "to": "build-gate",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "build-gate",
+      "to": "dimension",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "dimension",
+      "to": "font",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "font",
+      "to": "ir",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "ir",
+      "to": "assets",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "ir",
+      "to": "placeholder",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "assets",
+      "to": "native",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "native",
+      "to": "export",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "export",
+      "to": "deck-render",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "deck-render",
+      "to": "deck-review",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "deck-review",
+      "to": "finalize",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "slide-review",
+      "to": "revision",
+      "kind": "external handoff"
+    },
+    {
+      "from": "deck-review",
+      "to": "revision",
+      "kind": "external handoff"
+    },
+    {
+      "from": "revision",
+      "to": "snapshot",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "mcp",
+      "to": "slide-review",
+      "kind": "data/control dependency"
+    },
+    {
+      "from": "mcp",
+      "to": "deck-review",
+      "kind": "data/control dependency"
+    }
+  ],
+  "phase_coverage": {
+    "entry": [
+      "entry"
+    ],
+    "Agent/Planner": [
+      "host"
+    ],
+    "Prompt": [
+      "prompt"
+    ],
+    "Schema": [
+      "task",
+      "prompt",
+      "snapshot"
+    ],
+    "template": [
+      "scaffold"
+    ],
+    "layout": [
+      "dimension",
+      "font",
+      "ir"
+    ],
+    "render": [
+      "render",
+      "assets",
+      "native",
+      "deck-render"
+    ],
+    "export": [
+      "export"
+    ],
+    "QA": [
+      "slide-review",
+      "deck-review",
+      "finalize"
+    ],
+    "revision": [
+      "revision"
+    ]
+  }
+}

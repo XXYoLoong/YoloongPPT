@@ -1,0 +1,12 @@
+Browser console: Unsafe attempt to load URL file:///workspace/research/P02/outputs/maps-probes/native-table.html from frame with URL file:///workspace/research/P02/outputs/maps-probes/native-table.html. 'file:' URLs are treated as unique security origins.
+
+
+STDERR:
+page.evaluate: TypeError: el.className.includes is not a function
+    at eval (eval at evaluate (:311:30), <anonymous>:838:40)
+    at NodeList.forEach (<anonymous>)
+    at eval (eval at evaluate (:311:30), <anonymous>:814:36)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at Object.extractSlideData (/artifacts/main-skill/.venv/lib/python3.11/site-packages/deeppresenter/html2pptx/html2pptx.js:709:21)
+    at /workspace/research/P02/scripts/probe-maps.js:25:48

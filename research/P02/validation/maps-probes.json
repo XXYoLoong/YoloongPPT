@@ -1,0 +1,170 @@
+{
+  "scope": "main Skill + installed pptagent1.1.37; research only",
+  "cases": [
+    {
+      "id": "native-and-raster",
+      "kind": "normal/boundary",
+      "passed": true,
+      "objects": [
+        {
+          "slide": 1,
+          "text_shapes": 4,
+          "pictures": 0,
+          "native_tables": 1,
+          "charts": 0,
+          "native_placeholders": 0,
+          "text": [
+            "原生表格与文字",
+            "对象",
+            "检查",
+            "文字",
+            "可编辑",
+            "表格",
+            "原生单元格",
+            "结构边界",
+            "表格",
+            "矩形与列表"
+          ]
+        },
+        {
+          "slide": 2,
+          "text_shapes": 1,
+          "pictures": 1,
+          "native_tables": 0,
+          "charts": 0,
+          "native_placeholders": 0,
+          "text": [
+            "渐变与坐标占位"
+          ]
+        }
+      ],
+      "media": {
+        "ppt/media/image-2-1.png": "2d87c64cc174c71a4dc561f479a6c35b6e3c908157f880f3f06d5673d5d7399b"
+      },
+      "placeholder": [
+        {
+          "id": "chart-slot",
+          "x": 6.666666666666667,
+          "y": 4.791666666666667,
+          "w": 5.416666666666667,
+          "h": 1.3541666666666667
+        }
+      ],
+      "evidence": [
+        "outputs/maps-probes/objects.pptx",
+        "outputs/maps-probes/dom-ir.json",
+        "validation/maps-converter.txt"
+      ],
+      "limit": "library probe; not host-reviewed complete delivery or PowerPoint round-trip"
+    },
+    {
+      "id": "inline-svg-rejected",
+      "kind": "failure",
+      "passed": true,
+      "result": {
+        "rejected": true,
+        "error": "/workspace/research/P02/outputs/maps-probes/svg-failure.html: page.evaluate: TypeError: el.className.includes is not a function\n    at eval (eval at evaluate (:311:30), <anonymous>:838:40)\n    at NodeList.forEach (<anonymous>)\n    at eval (eval at evaluate (:311:30), <anonymous>:814:36)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)",
+        "stack": "Error: /workspace/research/P02/outputs/maps-probes/svg-failure.html: page.evaluate: TypeError: el.className.includes is not a function\n    at eval (eval at evaluate (:311:30), <anonymous>:838:40)\n    at NodeList.forEach (<anonymous>)\n    at eval (eval at evaluate (:311:30), <anonymous>:814:36)\n    at UtilityScript.evaluate (<anonymous>:313:16)\n    at UtilityScript.<anonymous> (<anonymous>:1:44)\n    at html2pptx (/artifacts/main-skill/.venv/lib/python3.11/site-packages/deeppresenter/html2pptx/html2pptx.js:2981:13)\n    at async /workspace/research/P02/scripts/probe-maps.js:34:9"
+      },
+      "evidence": [
+        "outputs/maps-probes/svg-failure.html",
+        "outputs/maps-probes/svg-failure.json",
+        "validation/maps-converter-attempt1.txt"
+      ],
+      "limit": "source has rasterization branch but this inline SVG fails first; no upstream patch"
+    },
+    {
+      "id": "shared-resource-invalidation",
+      "kind": "failure",
+      "passed": true,
+      "gaps": [
+        "slides/slide01.html: missing or stale review",
+        "slides/slide02.html: missing or stale review",
+        "slides/slide03.html: missing or stale review",
+        "slides/slide04.html: missing or stale review",
+        "slides/slide05.html: missing or stale review",
+        "slides/slide06.html: missing or stale review"
+      ],
+      "final": {
+        "ok": false,
+        "schema_version": "pptagent.standalone.final.v1",
+        "complete": false,
+        "delivery_ready": false,
+        "checks": {
+          "slide_html_count": true,
+          "slide_reviews_current": false,
+          "answer_exists": true,
+          "pptx_structure": true,
+          "build_current": false,
+          "deck_review_current": true
+        },
+        "artifact": "answer.pptx",
+        "artifact_sha256": "eb90a46c983c15c09d02de5bccdd171b33ed39c22d12e7a9f912580ecd7b7b1b",
+        "slides": 6,
+        "aspect_ratio": "16:9"
+      },
+      "reason": "whole assets snapshot invalidates all slide reviews even unused new asset",
+      "evidence": [
+        "outputs/maps-probes/shared-resource/final-report.json"
+      ]
+    },
+    {
+      "id": "remote-resource-block",
+      "kind": "failure",
+      "passed": true,
+      "exception": "ValueError",
+      "message": "untracked render resources; place dependencies in assets/: ['https://example.invalid/p02-probe.png']",
+      "evidence": [
+        "outputs/maps-probes/remote-resource/slides/slide01.html"
+      ],
+      "limit": "core review renderer route; library converter independently lacks this route guard"
+    },
+    {
+      "id": "review-contradiction",
+      "kind": "boundary",
+      "passed": true,
+      "exception": "ValueError",
+      "message": "a review with blocker or major issues cannot pass",
+      "probe_correction": "first harness omitted suggested_fix; only corrected validator assertion rerun"
+    }
+  ],
+  "normal_unchanged_sha256": "eb90a46c983c15c09d02de5bccdd171b33ed39c22d12e7a9f912580ecd7b7b1b",
+  "artifacts": {
+    "outputs/maps-probes/dom-ir.json": "00a86c3650fe0cc6521b7fd8393d38eb75d71e7558ac8fc312252c270c624bd7",
+    "outputs/maps-probes/native-table.html": "e827968af5e7711be312ce3ac5bdc1ec1147b42f4074d1964a0ea6b8285590e7",
+    "outputs/maps-probes/native-table.png": "a8e2ab34754dba43192fbeecfd3dbaafccf31145aaec5e5f40ff7959592a8f16",
+    "outputs/maps-probes/objects.pptx": "b2acdb0ae9434315704557db4eae7af4d0c216c004807eb0ef5052bc99c84d7a",
+    "outputs/maps-probes/raster-slot.html": "942b666c94b3fa7c59780cd11d643008e43c065f92781f7b8917105b1adbfa9f",
+    "outputs/maps-probes/raster-slot.png": "fc30294836e9a76b3dd5fc970cff2af7e263b562820ca0f8783246d559e76e44",
+    "outputs/maps-probes/svg-failure.html": "f852070a39b9db4c1f22aea4a14271f60b25ee1734e9aad4fa60a87d251c1128",
+    "outputs/maps-probes/svg-failure.json": "d903ed93da8fdb7049ef70609cae8e4ff0909316c8f96107c687545284c86be5",
+    "outputs/maps-probes/remote-resource/task.json": "d81caf32d1e538c7cceee4f1caecd0d1abb59da8cf9b30166640de3638d0dc06",
+    "outputs/maps-probes/remote-resource/slides/slide01.html": "3b34789ace8e0ef9efcc33cbc53e93f314cef54d1330c96eab5f82107729cd46",
+    "outputs/maps-probes/shared-resource/answer.pptx": "eb90a46c983c15c09d02de5bccdd171b33ed39c22d12e7a9f912580ecd7b7b1b",
+    "outputs/maps-probes/shared-resource/final-report.json": "dcbd603d20fdc51d8b1b7924cb309d2a8765188cd2db93511ec247476a5ae99a",
+    "outputs/maps-probes/shared-resource/task.json": "9ee3a717d342fe671cabb02383a33d2dbade8878d18a22a5a3c9fc9cfaa80bee",
+    "outputs/maps-probes/shared-resource/workspace-state.json": "46c2077985a5217476f573c34d51de9c3b398a779b4ec7aa20784663dd666507",
+    "outputs/maps-probes/shared-resource/assets/shared.css": "1f46ee95270edc1afc3068cb2645bfd4e937017a5eecd03a8bc85c18b62a7f69",
+    "outputs/maps-probes/shared-resource/qa/deck/answer.pdf": "f76439de56b32d8d35489e52a0e5dd5119ea1eff7d071710144023a02b2076d4",
+    "outputs/maps-probes/shared-resource/qa/deck/contact-01.jpg": "c253451055604ba0a950465c6b534784146b7bc0674ebbf80de7d39eec4d6f7d",
+    "outputs/maps-probes/shared-resource/qa/deck/contact-02.jpg": "7bad103dea9df153dbc56bda3e42646431476d7841111b019d711c090f548ea0",
+    "outputs/maps-probes/shared-resource/qa/deck/page-01.jpg": "4a3836b632dc96beb3a6770d57bed91a3a78eb73d48fbfb564f794cec2226747",
+    "outputs/maps-probes/shared-resource/qa/deck/page-02.jpg": "afa5eced83c9a8acbffb011d3a167245a239d7540ebcce92e5f305d87fc3ad37",
+    "outputs/maps-probes/shared-resource/qa/deck/page-03.jpg": "1644603d6a4e464a82f53898f1ccd30e3a5ffdfc0d64536ec5b8d71aa7fad0b0",
+    "outputs/maps-probes/shared-resource/qa/deck/page-04.jpg": "6d8a09ebe3a5b42fc847210f97d7e35ec61e9ecf0b0b18786ee43670eee2b995",
+    "outputs/maps-probes/shared-resource/qa/deck/page-05.jpg": "8df3fc0f3819c28fc25ddea5f9ae443b772cf5701b7c3b3748f3cc8db2c712e7",
+    "outputs/maps-probes/shared-resource/qa/deck/page-06.jpg": "00c61319500272ccb9584cc5a2de39fd331718a3bbccb2b89644f5f0b1eb5526",
+    "outputs/maps-probes/shared-resource/qa/slides/slide01.jpg": "d2722e8777014d4cf223a7612789c83ccac7a612078c78f552eff5c0875464d2",
+    "outputs/maps-probes/shared-resource/qa/slides/slide02.jpg": "91f878ef0a283f54800843b28aa75293969f1005b27c74960278b6af4ed5fc35",
+    "outputs/maps-probes/shared-resource/qa/slides/slide03.jpg": "9add387c728f9aaed85b034245bf7627eace4f900634a476d7a92871ecc315f2",
+    "outputs/maps-probes/shared-resource/qa/slides/slide04.jpg": "f95e1a5a147a4324c851bdf0c4fa1619e99d8e48f2f0d538354210ecae4a9444",
+    "outputs/maps-probes/shared-resource/qa/slides/slide05.jpg": "d3dfc38e07a229c893d91f7e53461a82404e97c89ad201f826e1c2e894a4cc9b",
+    "outputs/maps-probes/shared-resource/qa/slides/slide06.jpg": "58c8367246de5b8d58927cc4191c6f64fca330a50e543822100d8a60151dabbd",
+    "outputs/maps-probes/shared-resource/slides/slide01.html": "c966d9c210fdecc85feb2b81b0b405013d634fd0ae7d2ba3ded8f41f4e6f2c5f",
+    "outputs/maps-probes/shared-resource/slides/slide02.html": "1014d46d2ca1a23162282d2f29b32fce0d4f04770bd8838dda8076fefaec2fa7",
+    "outputs/maps-probes/shared-resource/slides/slide03.html": "888124b814e2b4d7f1dd580bb981d3ca820e9e5fd89605547caf87a3d6803db6",
+    "outputs/maps-probes/shared-resource/slides/slide04.html": "1068086750546a789439f972949ebd1e3c0a482b5ea46f8c95579339f3c0ed78",
+    "outputs/maps-probes/shared-resource/slides/slide05.html": "034e20194e7ab51c0f0646543bef2a83d5b6198a27de0aee2a35eba03a616aed",
+    "outputs/maps-probes/shared-resource/slides/slide06.html": "dc5ad9d3cd218d353dfb344845488b6ff28f48e194d333a0743f9c4bec95d8e8"
+  }
+}

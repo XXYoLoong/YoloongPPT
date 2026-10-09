@@ -1,0 +1,991 @@
+{
+  "requirement_id": "RES-P02-03",
+  "nodes": [
+    {
+      "id": "D01",
+      "name": "命令及视觉模式路由",
+      "source_refs": [
+        "cli:main",
+        "config:load_config"
+      ],
+      "input_schema": "command + mode",
+      "candidate_generation": "固定命令集、text/multimodal",
+      "mechanism": "显式配置分支",
+      "output_schema": "JSON结果/host instructions",
+      "constraints": "合法枚举；默认multimodal",
+      "fallback": "无自动模式切换；研究显式选host",
+      "trace": {
+        "available": [
+          "validation/verify-official-six.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D02",
+      "name": "任务规范与画布",
+      "source_refs": [
+        "core:load_task",
+        "cli:init_workspace"
+      ],
+      "input_schema": "slides:int,aspect_ratio:str,language:str",
+      "candidate_generation": "用户指定、3种ASPECTS",
+      "mechanism": "字段类型/枚举检查",
+      "output_schema": "3字段task",
+      "constraints": "slides>=1",
+      "fallback": "非法输入抛错，不推断预算",
+      "trace": {
+        "available": [
+          "validation/workflow-probes.json",
+          "validation/verify-official-six.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D03",
+      "name": "内容/结构/页面类型规划",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ],
+      "input_schema": "用户任务与材料；无CLI schema",
+      "candidate_generation": "主机生成，候选不可观察",
+      "mechanism": "Skill文字要求，host负责",
+      "output_schema": "slide HTML",
+      "constraints": "静态HTML和任务页数",
+      "fallback": "无上游Planner fallback实现",
+      "trace": {
+        "available": [
+          "validation/verify-official-six.json",
+          "validation/author-prompts.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D04",
+      "name": "模板初始化",
+      "source_refs": [
+        "core:scaffold",
+        "starter:resource"
+      ],
+      "input_schema": "task + starter tokens",
+      "candidate_generation": "一个generic starter；既有HTML",
+      "mechanism": "只补缺页，替换tokens",
+      "output_schema": "HTML文件",
+      "constraints": "禁止覆盖既有slide",
+      "fallback": "不存在模板库检索/评分",
+      "trace": {
+        "available": [
+          "validation/verify-official-six.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D05",
+      "name": "布局与几何",
+      "source_refs": [
+        "converter:extractSlideData",
+        "converter:adaptLayout"
+      ],
+      "input_schema": "CSS computed DOM / body",
+      "candidate_generation": "浏览器布局结果，不生成候选",
+      "mechanism": "getBoundingClientRect；inch换算；锁layout",
+      "output_schema": "IR positions + layout",
+      "constraints": "locked size误差<=0.1in",
+      "fallback": "strict报错；库auto布局分支非官方main自动选型",
+      "trace": {
+        "available": [
+          "validation/maps-probes.json",
+          "validation/verify-official-six.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D06",
+      "name": "容量与安全边距",
+      "source_refs": [
+        "converter:getBodyDimensions",
+        "converter:validateTextBoxPosition"
+      ],
+      "input_schema": "scroll/body/text bounds",
+      "candidate_generation": "接受或拒绝；无自动拆页",
+      "mechanism": "1px overflow；>12pt正文需0.5in bottom",
+      "output_schema": "errors[]",
+      "constraints": "不是字数容量/fit搜索",
+      "fallback": "strict拒绝；研究修HTMLfooter后全链重跑",
+      "trace": {
+        "available": [
+          "validation/footer-revision.json",
+          "validation/verify-official-six.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D07",
+      "name": "文本格式与字体",
+      "source_refs": [
+        "converter:font-family",
+        "converter:html2pptx",
+        "converter:addElements"
+      ],
+      "input_schema": "CSS/font/CDP/text geometry",
+      "candidate_generation": "actual font/CSS/non-generic/MicrosoftYaHei",
+      "mechanism": "CDP glyph主字体；rich runs；单行宽+2%补偿",
+      "output_schema": "native text options",
+      "constraints": "px*.75pt、inch geometry",
+      "fallback": "CDP错误忽略；fallback字体无统一trace",
+      "trace": {
+        "available": [
+          "validation/verify-official-six.json",
+          "validation/maps-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D08",
+      "name": "颜色/背景/效果",
+      "source_refs": [
+        "converter:addBackground",
+        "converter:rasterizeGradients",
+        "converter:addElements"
+      ],
+      "input_schema": "computed color/gradient/shadow",
+      "candidate_generation": "native solid/shadow或PNG",
+      "mechanism": "按CSS类型选择写入分支",
+      "output_schema": "fill/text/image",
+      "constraints": "复杂样式栅格化失去对象可编辑性",
+      "fallback": "gradient实测fallback；inlineSVG前置失败",
+      "trace": {
+        "available": [
+          "validation/maps-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D09",
+      "name": "图片适配",
+      "source_refs": [
+        "converter:rasterizeGradients",
+        "converter:extractSlideData"
+      ],
+      "input_schema": "IMG src/object-fit/filter/bounds",
+      "candidate_generation": "native image或PNG flatten",
+      "mechanism": "按复杂样式检查",
+      "output_schema": "image IR",
+      "constraints": "必须有本地asset；main review禁未跟踪资源",
+      "fallback": "strict missing报错；soft依赖分支可跳图但main不启用",
+      "trace": {
+        "available": [
+          "validation/maps-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D10",
+      "name": "表格对象映射",
+      "source_refs": [
+        "converter:table-extract",
+        "converter:addElements"
+      ],
+      "input_schema": "TABLE/tr/td/th computed CSS",
+      "candidate_generation": "native table，非必要性推断",
+      "mechanism": "cells/runs/span/border/fill/colW/rowH",
+      "output_schema": "addTable rows/options",
+      "constraints": "支持CSS子集；未全对象roundtrip",
+      "fallback": "空表/转换错误严格拒绝",
+      "trace": {
+        "available": [
+          "validation/maps-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D11",
+      "name": "占位符/图表坐标",
+      "source_refs": [
+        "converter:placeholder-extract",
+        "converter-cli:module"
+      ],
+      "input_schema": "class placeholder + bbox",
+      "candidate_generation": "仅坐标slot",
+      "mechanism": "返回id/x/y/w/h但CLI忽略",
+      "output_schema": "placeholders[]",
+      "constraints": "不是native ph/chart",
+      "fallback": "没有官方chart消费路径",
+      "trace": {
+        "available": [
+          "validation/maps-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D12",
+      "name": "资源准入与字体就绪",
+      "source_refs": [
+        "core:open_slide",
+        "core:render_slides"
+      ],
+      "input_schema": "URL + snapshot resources",
+      "candidate_generation": "跟踪的file或拒绝",
+      "mechanism": "route检查；fonts.ready",
+      "output_schema": "rendered images或ValueError",
+      "constraints": "仅review renderer route保证",
+      "fallback": "不尝试联网下载",
+      "trace": {
+        "available": [
+          "validation/maps-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D13",
+      "name": "源与审查有效性",
+      "source_refs": [
+        "core:input_snapshot",
+        "core:render_current",
+        "core:review_gaps"
+      ],
+      "input_schema": "task/slides/resources/image hashes",
+      "candidate_generation": "current/missing/stale/not-passing",
+      "mechanism": "hash和完整快照相等",
+      "output_schema": "review gaps",
+      "constraints": "共享asset整体失效",
+      "fallback": "重新render/review；不能改state假通过",
+      "trace": {
+        "available": [
+          "validation/verify-official-six.json",
+          "validation/maps-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D14",
+      "name": "视觉质量判定",
+      "source_refs": [
+        "visual:module",
+        "cli:review_slides",
+        "core:record_slide_review"
+      ],
+      "input_schema": "images/context/review payload",
+      "candidate_generation": "pass/fail/unjudgeable；severity",
+      "mechanism": "host看图或外部model；严格字段检查",
+      "output_schema": "review {verdict,summary,issues,ok}",
+      "constraints": "major/blocker不能pass；slide正整数",
+      "fallback": "外部JSON失败抛错，无自动修JSON；主机路线需明确选择",
+      "trace": {
+        "available": [
+          "validation/verify-official-six.json",
+          "validation/visual-slides-traced-01.json",
+          "validation/maps-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D15",
+      "name": "导出与后端路径",
+      "source_refs": [
+        "core:build",
+        "converter-cli:module",
+        "config:node_environment"
+      ],
+      "input_schema": "fresh HTML/reviews/aspect",
+      "candidate_generation": "固定Chromium→PptxGenJS，不比较PP01–09",
+      "mechanism": "strict构建门控与writeFile",
+      "output_schema": "PPTX与source/artifact hashes",
+      "constraints": "数量/比例须一致",
+      "fallback": "strict converter error，无自动换后端",
+      "trace": {
+        "available": [
+          "validation/verify-official-six.json",
+          "validation/workflow-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D16",
+      "name": "整稿QA与修订",
+      "source_refs": [
+        "core:render_deck",
+        "core:record_deck_review",
+        "skill:resource"
+      ],
+      "input_schema": "PPTX/contact + visual issues",
+      "candidate_generation": "pass/fail/主机改源重建",
+      "mechanism": "LO渲染、review、source invalidation",
+      "output_schema": "deck review + new build",
+      "constraints": "无事实校验、自动局部编辑",
+      "fallback": "人工/主机修HTML；非原位PPTX修改",
+      "trace": {
+        "available": [
+          "validation/verify-official-six.json",
+          "validation/footer-revision.json",
+          "validation/maps-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    },
+    {
+      "id": "D17",
+      "name": "交付终止",
+      "source_refs": [
+        "core:finalize"
+      ],
+      "input_schema": "6 bool checks + delivery mode",
+      "candidate_generation": "strict完成或best-effort draft",
+      "mechanism": "all checks /显式mode",
+      "output_schema": "final-report",
+      "constraints": "当前研究仅strict；draft未授权",
+      "fallback": "reject incomplete，保留原因",
+      "trace": {
+        "available": [
+          "validation/verify-official-six.json",
+          "validation/workflow-probes.json",
+          "validation/maps-probes.json"
+        ],
+        "missing": "没有结构化候选评分/所有主机内部决策trace"
+      }
+    }
+  ],
+  "dec_crosswalk": [
+    {
+      "id": "DEC-001",
+      "name": "任务模式路由",
+      "baseline_input": "RawTaskRequest + RuntimeCapabilitySnapshot",
+      "baseline_output": "TaskRoute",
+      "nodes": [
+        "D01",
+        "D03"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "cli:main",
+        "config:load_config",
+        "contract:resource",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-002",
+      "name": "输入约束归一化",
+      "baseline_input": "ValidatedInputs",
+      "baseline_output": "PresentationContext",
+      "nodes": [
+        "D02"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "cli:init_workspace",
+        "core:load_task"
+      ]
+    },
+    {
+      "id": "DEC-003",
+      "name": "来源加载策略",
+      "baseline_input": "SourceBundle",
+      "baseline_output": "SourceRoleMap",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-004",
+      "name": "来源优先级/冲突",
+      "baseline_input": "SourceEvidence",
+      "baseline_output": "EvidenceResolution",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-005",
+      "name": "事实/假设边界",
+      "baseline_input": "SourceEvidence",
+      "baseline_output": "FactConstraints + Assumptions",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-006",
+      "name": "受众判定",
+      "baseline_input": "PresentationContext",
+      "baseline_output": "AudienceProfile",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-007",
+      "name": "用途与场景",
+      "baseline_input": "PresentationContext",
+      "baseline_output": "PresentationScenario",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-008",
+      "name": "语言/语气",
+      "baseline_input": "AudienceProfile + user constraints",
+      "baseline_output": "LanguageStyleSpec",
+      "nodes": [
+        "D02",
+        "D03"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "cli:init_workspace",
+        "contract:resource",
+        "core:load_task",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-009",
+      "name": "核心论点",
+      "baseline_input": "EvidenceGraph",
+      "baseline_output": "DeckThesis",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-010",
+      "name": "内容关系图",
+      "baseline_input": "EvidenceGraph",
+      "baseline_output": "ContentGraph",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-011",
+      "name": "故事线",
+      "baseline_input": "DeckThesis + ContentGraph",
+      "baseline_output": "StorylineSpec",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-012",
+      "name": "章节/大纲",
+      "baseline_input": "StorylineSpec",
+      "baseline_output": "OutlineSpec",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-013",
+      "name": "总页数预算",
+      "baseline_input": "OutlineSpec + constraints",
+      "baseline_output": "PageBudget",
+      "nodes": [
+        "D02"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "cli:init_workspace",
+        "core:load_task"
+      ]
+    },
+    {
+      "id": "DEC-014",
+      "name": "章节页数分配",
+      "baseline_input": "OutlineSpec + PageBudget",
+      "baseline_output": "SectionBudget",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-015",
+      "name": "分页",
+      "baseline_input": "OutlineSpec + SectionBudget",
+      "baseline_output": "PagePlan",
+      "nodes": [
+        "D03"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-016",
+      "name": "单页目标",
+      "baseline_input": "PagePlan",
+      "baseline_output": "SlideIntent",
+      "nodes": [
+        "D03"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-017",
+      "name": "页面类型",
+      "baseline_input": "SlideIntent",
+      "baseline_output": "SlideType",
+      "nodes": [
+        "D03",
+        "D04"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "core:scaffold",
+        "skill:resource",
+        "starter:resource"
+      ]
+    },
+    {
+      "id": "DEC-018",
+      "name": "内容容量",
+      "baseline_input": "SlideIntent + candidate layouts",
+      "baseline_output": "ContentBudget",
+      "nodes": [
+        "D06"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "converter:getBodyDimensions",
+        "converter:validateTextBoxPosition"
+      ]
+    },
+    {
+      "id": "DEC-019",
+      "name": "标题与层级文案",
+      "baseline_input": "SlideIntent + LanguageStyleSpec",
+      "baseline_output": "SlideContentSpec",
+      "nodes": [
+        "D03",
+        "D07"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "converter:addElements",
+        "converter:font-family",
+        "converter:html2pptx",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-020",
+      "name": "压缩/扩写/拆分",
+      "baseline_input": "ContentBudget + source content",
+      "baseline_output": "ContentRewritePlan",
+      "nodes": [
+        "D03",
+        "D06"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "converter:getBodyDimensions",
+        "converter:validateTextBoxPosition",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-021",
+      "name": "来源展示位置",
+      "baseline_input": "CitationPolicy + SlideContentSpec",
+      "baseline_output": "CitationPlacement",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-022",
+      "name": "主视觉表达",
+      "baseline_input": "SlideIntent + ContentGraph",
+      "baseline_output": "VisualExpressionSpec",
+      "nodes": [
+        "D03"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-023",
+      "name": "图片必要性",
+      "baseline_input": "VisualExpressionSpec",
+      "baseline_output": "ImageRequirementSpec",
+      "nodes": [
+        "D03"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-024",
+      "name": "素材来源策略",
+      "baseline_input": "ImageRequirementSpec + AssetInventory",
+      "baseline_output": "AssetPlan",
+      "nodes": [
+        "D03",
+        "D12"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "core:open_slide",
+        "core:render_slides",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-025",
+      "name": "表格必要性",
+      "baseline_input": "Structured data",
+      "baseline_output": "TableSpec",
+      "nodes": [
+        "D03",
+        "D10"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "converter:addElements",
+        "converter:table-extract",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-026",
+      "name": "图表必要性与类型",
+      "baseline_input": "DataEvidence",
+      "baseline_output": "ChartSpec",
+      "nodes": [
+        "D03",
+        "D11"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "converter-cli:module",
+        "converter:placeholder-extract",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-027",
+      "name": "流程/关系图类型",
+      "baseline_input": "ContentGraph",
+      "baseline_output": "DiagramSpec",
+      "nodes": [
+        "D03"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-028",
+      "name": "模板族选择",
+      "baseline_input": "DesignContext + constraints",
+      "baseline_output": "TemplateCandidates",
+      "nodes": [
+        "D04"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "core:scaffold",
+        "starter:resource"
+      ]
+    },
+    {
+      "id": "DEC-029",
+      "name": "全局风格",
+      "baseline_input": "Template/StyleReference",
+      "baseline_output": "DesignTokens",
+      "nodes": [
+        "D03",
+        "D04",
+        "D08"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "converter:addBackground",
+        "converter:addElements",
+        "converter:rasterizeGradients",
+        "core:scaffold",
+        "skill:resource",
+        "starter:resource"
+      ]
+    },
+    {
+      "id": "DEC-030",
+      "name": "版式候选检索",
+      "baseline_input": "SlideSpec draft + LayoutRegistry",
+      "baseline_output": "LayoutCandidates",
+      "nodes": [
+        "D03",
+        "D04"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "core:scaffold",
+        "skill:resource",
+        "starter:resource"
+      ]
+    },
+    {
+      "id": "DEC-031",
+      "name": "版式评分与选择",
+      "baseline_input": "LayoutCandidates",
+      "baseline_output": "SelectedLayout",
+      "nodes": [
+        "D03",
+        "D05"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "contract:resource",
+        "converter:adaptLayout",
+        "converter:extractSlideData",
+        "skill:resource"
+      ]
+    },
+    {
+      "id": "DEC-032",
+      "name": "槽位映射",
+      "baseline_input": "SelectedLayout",
+      "baseline_output": "SlotBindingSpec",
+      "nodes": [
+        "D11"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "converter-cli:module",
+        "converter:placeholder-extract"
+      ]
+    },
+    {
+      "id": "DEC-033",
+      "name": "几何布局",
+      "baseline_input": "SlotBinding + actual content",
+      "baseline_output": "ElementLayoutSpec",
+      "nodes": [
+        "D05"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "converter:adaptLayout",
+        "converter:extractSlideData"
+      ]
+    },
+    {
+      "id": "DEC-034",
+      "name": "字体与文本适配",
+      "baseline_input": "Text + geometry + tokens",
+      "baseline_output": "TypographySpec",
+      "nodes": [
+        "D07"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "converter:addElements",
+        "converter:font-family",
+        "converter:html2pptx"
+      ]
+    },
+    {
+      "id": "DEC-035",
+      "name": "颜色/背景/效果",
+      "baseline_input": "DesignTokens + element roles",
+      "baseline_output": "VisualStyleSpec",
+      "nodes": [
+        "D08"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "converter:addBackground",
+        "converter:addElements",
+        "converter:rasterizeGradients"
+      ]
+    },
+    {
+      "id": "DEC-036",
+      "name": "图片裁切与适配",
+      "baseline_input": "Asset + slot geometry",
+      "baseline_output": "ImageFitSpec",
+      "nodes": [
+        "D09"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "converter:extractSlideData",
+        "converter:rasterizeGradients"
+      ]
+    },
+    {
+      "id": "DEC-037",
+      "name": "动画/切换/备注",
+      "baseline_input": "Scenario + SlideIntent",
+      "baseline_output": "EnhancementSpec",
+      "nodes": [],
+      "status": "not_evidenced",
+      "reason": "主机或模型可能承担；固定CLI无显式节点，不能由生成结果推断实现",
+      "source_refs": [
+        "skill:resource",
+        "contract:resource"
+      ]
+    },
+    {
+      "id": "DEC-038",
+      "name": "预执行与后端选择",
+      "baseline_input": "SlideSpec + CapabilityRegistry",
+      "baseline_output": "AdapterPlan + Preflight",
+      "nodes": [
+        "D15"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "config:node_environment",
+        "converter-cli:module",
+        "core:build"
+      ]
+    },
+    {
+      "id": "DEC-039",
+      "name": "质量问题与回退",
+      "baseline_input": "QualityIssues",
+      "baseline_output": "RevisionPlan",
+      "nodes": [
+        "D14",
+        "D16"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "cli:review_slides",
+        "core:record_deck_review",
+        "core:record_slide_review",
+        "core:render_deck",
+        "skill:resource",
+        "visual:module"
+      ]
+    },
+    {
+      "id": "DEC-040",
+      "name": "终止与轨迹",
+      "baseline_input": "All traces",
+      "baseline_output": "CompletionDecision + DecisionTrace",
+      "nodes": [
+        "D13",
+        "D17"
+      ],
+      "status": "partial",
+      "reason": "候选仅包含相关职责/规则；未实现该DEC完整schema、候选与独立验收",
+      "source_refs": [
+        "core:finalize",
+        "core:input_snapshot",
+        "core:render_current",
+        "core:review_gaps"
+      ]
+    }
+  ],
+  "boundary": "仅研究映射，不修改DEC状态，不把主机模型内部逻辑当作源码算法"
+}

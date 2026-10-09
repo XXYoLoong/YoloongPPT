@@ -30,11 +30,19 @@
 ## 2026-10-09 纠偏后的当前工作
 
 - 审计基线：需求完成 14/308、进行中 55、未开始 239；任务完成 21/453、进行中 59、未开始 373；AC 0/30 执行。数字对应审计前 HEAD `171fc08`，不自动当作后续实时进度。详情见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
-- 已收尾 TASK/VERIFY-RES-P04-04、TASK/VERIFY-RES-P04-05、RES-P01-05 和 P05-01–05 候选研究。P02-01 已完成真实DeepSeek六页HTML创作、官方主机审查/导出/finalize；外部text-mode JSON接口失败、footer修订与source失效门控如实留证。下一主工作包为 P02-02/03/04/05 四份源码映射，复用本次实物和已读源码，不重复安装/生成。
-- 后续关键依赖：P02/P05 剩余研究 → RES-031 → RES-032 和决策实现；RES-033 按原依赖交付。SYS-001/SYS-007 等无研究前置的准备可独立推进，但未经过真实 E2E 不标为完成。
+- P01–P05 各五项候选研究已按矩阵原验收收尾。P02-01 的真实DeepSeek六页创作/主机审查/严格导出已通过；P02-02/03/04/05 的调用链、决策、模板与能力映射复用实物完成，SVG失败、渐变PNG回退、占位坐标未消费及外部JSON接口失败均保留，不提升为全能力。
+- 下一主工作包：RES-031，消费五个项目的映射，形成逐个DEC的横向对照、候选/机制/保留理由和差异；接着按依赖推进 RES-032 许可复用决策与 RES-033 需求映射。此后记录有证据的架构并接入产品入口，避免继续复制研究材料。SYS-001/SYS-007 等独立准备未经过真实 E2E 不标为完成。
 - 不增加另一份需求状态台账；以下历史条目保留，若与矩阵或后来证据冲突，先核对对应原行和制品并在相关工作包修正。
 
 ## 当前进度
+
+### TASK/VERIFY-RES-P02-02/03/04/05（2026-10-09 收尾）
+
+- 状态：四条候选研究需求及八个 TASK/VERIFY 已完成；Excel 需求 N18:P21、任务 L26:M33 回填。全仓库需求完成27/308、进行中52、未开始229；任务完成47/453、进行中54、未开始352；30个产品AC仍未执行。
+- 产物：`research/P02/source-index.json`、`call-graph.json/md`、`decision-map.json/md`、`template-map.json/md`、`capability-map.json/md`。13个源码文件、64个位置引用、21个调用节点、17个候选决策节点；40个DEC与30个PPT对象完整对应。
+- 实测：两页转换对象PPTX，一张原生表格、一张渐变PNG；占位坐标返回但PPTX无原生placeholder/chart。内联SVG因className.includes报错；共享asset变更使六页review与build失效；外部资源渲染拒绝；pass+major被validator拒绝。原六页模型产物hash与strict complete保持不变。
+- 验证边界：固定main Skill及requirements的1.1.37依赖分开索引；历史tag未作为运行版本。主机规划明确黑盒，私有DOM reader仅研究进程内暴露。MCP仅源码研究；没有产品集成、Microsoft PowerPoint打开、事实QA或普通PPTX保真编辑验收。
+- 证据：`research/P02/validation/verify-maps.json`、`maps-probes.json`、原六页 `verify-official-six.json`；新增实验未调用模型、未修改固定上游。
 
 ### TASK/VERIFY-RES-P04-04/05（2026-10-09 收尾）
 

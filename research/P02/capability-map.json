@@ -1,0 +1,495 @@
+{
+  "requirement_id": "RES-P02-05",
+  "scope": "main Skill + actual 1.1.37 converter entry; statuses describe whole baseline object capability, not PptxGenJS potential",
+  "status_definition": {
+    "Native": "原生路径满足对象能力范围，需匹配证据",
+    "Partial": "包含原生或样式子集，未满足完整对象操作/保真范围",
+    "Fallback": "主要边界需非原生转换并保留原因",
+    "Unsupported": "官方路线缺失/拒绝；source-only absence is not exhaustive third-party inability"
+  },
+  "objects": [
+    {
+      "id": "PPT-001",
+      "name": "演示文稿生命周期",
+      "baseline_scope": "create/open/save/save-as/close/copy/merge；读取文档属性与 slide size。",
+      "status": "Partial",
+      "reason": "新建/写出PPTX与count/ratio/zip检查；无普通PPTX打开后保真save/metadata编辑",
+      "source_refs": [
+        "core:build",
+        "core:pptx_info",
+        "converter-cli:module"
+      ],
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/maps-probes.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-002",
+      "name": "Slide 管理",
+      "baseline_scope": "add/delete/duplicate/move/reorder/hide/select；读取 slide id/name/layout/master。",
+      "status": "Partial",
+      "reason": "按连续HTML新建slide；没有导入、删除/复制/任意重排既有PPTX对象的完整接口",
+      "source_refs": [
+        "core:slide_files",
+        "converter:html2pptx"
+      ],
+      "evidence": [
+        "validation/verify-official-six.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-003",
+      "name": "Sections/Custom Show",
+      "baseline_scope": "读取/创建/修改 sections 和 custom slide shows；不支持时保留/报告。",
+      "status": "Unsupported",
+      "reason": "官方路线无section/custom-show调用",
+      "source_refs": [
+        "converter-cli:module"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-004",
+      "name": "Slide Master",
+      "baseline_scope": "读取/创建/引用 master；继承背景、字体、颜色、headers/footers、timing/transition。",
+      "status": "Unsupported",
+      "reason": "generic HTML不解析/保留/编辑Slide Master",
+      "source_refs": [
+        "core:scaffold",
+        "converter-cli:module"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-005",
+      "name": "Slide Layout",
+      "baseline_scope": "读取/创建/引用 layout；placeholder inheritance 和 layout type/name。",
+      "status": "Unsupported",
+      "reason": "canvas layout指页面尺寸，不是原生Slide Layout管理",
+      "source_refs": [
+        "converter:adaptLayout",
+        "core:scaffold"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-006",
+      "name": "Theme",
+      "baseline_scope": "theme fonts/colors/effects/color map；应用/保留/替换策略。",
+      "status": "Partial",
+      "reason": "CSS字体/色彩写成局部style；未映射原生Theme/theme inheritance",
+      "source_refs": [
+        "converter:extractSlideData",
+        "starter:resource"
+      ],
+      "evidence": [
+        "validation/verify-official-six.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-007",
+      "name": "Placeholder",
+      "baseline_scope": "title/body/picture/chart/table/footer/date/slide number 等 placeholder 类型、idx、bounds、format。",
+      "status": "Unsupported",
+      "reason": "placeholder仅coords，官方CLI不消费；没有原生p:ph",
+      "source_refs": [
+        "converter:placeholder-extract",
+        "converter-cli:module"
+      ],
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-008",
+      "name": "文本框",
+      "baseline_scope": "创建/读取/修改 TextFrame/TextRange；autofit/wrap/margins/vertical anchor。",
+      "status": "Partial",
+      "reason": "addText实测原生可编辑文字；CSS支持子集与2%补偿，无完整编辑/roundtrip",
+      "source_refs": [
+        "converter:addElements"
+      ],
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/maps-probes.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-009",
+      "name": "字符/段落",
+      "baseline_scope": "runs、font、size、bold/italic/underline/color、paragraph alignment、indent、bullet/numbering、spacing、tabs。",
+      "status": "Partial",
+      "reason": "rich runs/bullets/paragraph样式源码映射；列表实测；未全字符/段落属性或roundtrip",
+      "source_refs": [
+        "converter:extractSlideData",
+        "converter:addElements"
+      ],
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-010",
+      "name": "语言与文字方向",
+      "baseline_scope": "CJK、RTL、混合字体、vertical text、fallback、缺失字体处理。",
+      "status": "Partial",
+      "reason": "中文正文已写出；旋转/writing-mode有代码；language只是HTML属性，未验证bidi/语言OOXML",
+      "source_refs": [
+        "converter:extractSlideData",
+        "core:load_task"
+      ],
+      "evidence": [
+        "validation/verify-official-six.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-011",
+      "name": "AutoShape",
+      "baseline_scope": "矩形/圆/箭头/callout/banner 等；fill/stroke/radius/adjustments/rotation。",
+      "status": "Partial",
+      "reason": "rectangle/roundRect shape与样式；非全AutoShape形状集合",
+      "source_refs": [
+        "converter:addElements"
+      ],
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-012",
+      "name": "Line/Connector/Freeform",
+      "baseline_scope": "线条、箭头、connector、freeform path；连接点与 reroute。",
+      "status": "Partial",
+      "reason": "line addShape；未见native connector attachment/freeform路径",
+      "source_refs": [
+        "converter:addElements"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-013",
+      "name": "Group/Z-order",
+      "baseline_scope": "group/ungroup、parent-child、z-order、lock/selection。",
+      "status": "Partial",
+      "reason": "DOM顺序写入对应堆叠；没有原生Group结构/稳定组关系",
+      "source_refs": [
+        "converter:extractSlideData",
+        "converter:addElements"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-014",
+      "name": "图片",
+      "baseline_scope": "add/replace/read/crop/contain/cover/rotate/transparency/alt-text/compress/link vs embed。",
+      "status": "Partial",
+      "reason": "addImage与复杂CSS PNG路径；渐变PNG图对象实测，不等于所有图片裁切/替换保真",
+      "source_refs": [
+        "converter:rasterizeGradients",
+        "converter:addElements"
+      ],
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-015",
+      "name": "SVG/Icon",
+      "baseline_scope": "SVG 原生或可编辑路径/矢量；色彩替换；fallback bitmap。",
+      "status": "Unsupported",
+      "reason": "内联SVG实测className.includes失败；代码拟做PNG而非原生SVG；外链SVG回退未测",
+      "source_refs": [
+        "converter:className-bug",
+        "converter:svg-extract",
+        "converter:rasterizeGradients"
+      ],
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-016",
+      "name": "Table",
+      "baseline_scope": "row/column/cell text、merge、border、fill、font、alignment、row height/col width、header、分页策略。",
+      "status": "Partial",
+      "reason": "实测原生3x2表格和正文；代码映射span/runs/borders，未全表操作或roundtrip",
+      "source_refs": [
+        "converter:table-extract",
+        "converter:addElements"
+      ],
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-017",
+      "name": "Chart",
+      "baseline_scope": "数据绑定、series/categories、axis、legend、title、labels、combo/error bars/date axis 等；native/image fallback。",
+      "status": "Unsupported",
+      "reason": "addChart只有顶部文档示例，官方CLI不消费coords，没有native chart路径",
+      "source_refs": [
+        "converter:placeholder-extract",
+        "converter-cli:module"
+      ],
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-018",
+      "name": "Equation",
+      "baseline_scope": "Office equation/OMML/MathML/LaTeX 转换；native equation 与 image fallback。",
+      "status": "Unsupported",
+      "reason": "没有native Equation/OMML写入路径；普通文本不能算公式对象",
+      "source_refs": [
+        "converter:addElements"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-019",
+      "name": "SmartArt",
+      "baseline_scope": "读取/保留 SmartArt；创建能力需单独验证；不能支持时必须保留或降级为 shapes 并报告。",
+      "status": "Unsupported",
+      "reason": "没有native SmartArt数据/关系路径",
+      "source_refs": [
+        "converter:addElements"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-020",
+      "name": "Audio/Video/GIF",
+      "baseline_scope": "embedded/link、poster、autoplay/loop 等可用能力和兼容性。",
+      "status": "Unsupported",
+      "reason": "没有音频/视频/动画GIF嵌入路径；不推断底层库潜在能力",
+      "source_refs": [
+        "converter:addElements"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-021",
+      "name": "OLE/Embedded Object",
+      "baseline_scope": "读取/保留嵌入对象；默认不执行其内容；修改能力状态明确。",
+      "status": "Unsupported",
+      "reason": "没有OLE/embedded object写入路径",
+      "source_refs": [
+        "converter:addElements"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-022",
+      "name": "Hyperlink/Action",
+      "baseline_scope": "URL、邮件、文件、slide jump、action button、tooltip。",
+      "status": "Unsupported",
+      "reason": "写入器未把DOM href映射到hyperlink/action；文本呈现不算链接动作",
+      "source_refs": [
+        "converter:extractSlideData",
+        "converter:addElements"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-023",
+      "name": "Speaker Notes",
+      "baseline_scope": "读取/写入 notes，保留 notes master/layout 与来源/演讲稿。",
+      "status": "Unsupported",
+      "reason": "没有addNotes或notes master处理；HTML讲稿不算Speaker Notes",
+      "source_refs": [
+        "converter-cli:module",
+        "converter:addElements"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-024",
+      "name": "Comments",
+      "baseline_scope": "读取/写入 classic/modern comments（能力取决于 backend），保留作者/位置。",
+      "status": "Unsupported",
+      "reason": "没有comment/author/thread写入路径",
+      "source_refs": [
+        "converter-cli:module"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-025",
+      "name": "Headers/Footers/日期/页码",
+      "baseline_scope": "master/layout/slide footer、date/time、slide number 的继承与覆盖。",
+      "status": "Partial",
+      "reason": "可用普通HTML正文放页码/footer；无原生动态日期/header/footer字段",
+      "source_refs": [
+        "starter:resource",
+        "converter:addElements"
+      ],
+      "evidence": [
+        "validation/verify-official-six.json",
+        "validation/footer-revision.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-026",
+      "name": "Transitions",
+      "baseline_scope": "读取/写入/保留 transition、duration、advance 等；unsupported 保留。",
+      "status": "Unsupported",
+      "reason": "无transition接口",
+      "source_refs": [
+        "converter-cli:module"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-027",
+      "name": "Animations",
+      "baseline_scope": "读取/写入/保留 timing tree、entrance/emphasis/exit/motion/trigger/sequence；backend 能力分级。",
+      "status": "Unsupported",
+      "reason": "无animation timing接口",
+      "source_refs": [
+        "converter-cli:module"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-028",
+      "name": "Effects",
+      "baseline_scope": "gradient、shadow、glow、reflection、transparency、line dash、3D/effects；按 backend 标 Native/Partial。",
+      "status": "Fallback",
+      "reason": "solid/shadow有局部native映射；gradient实测PNG，复杂filter/rounded image源码栅格化，不保留原生效果",
+      "source_refs": [
+        "converter:rasterizeGradients",
+        "converter:addElements"
+      ],
+      "evidence": [
+        "validation/maps-probes.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-029",
+      "name": "Accessibility",
+      "baseline_scope": "alt text、reading order、language、table semantics、contrast 相关字段。",
+      "status": "Unsupported",
+      "reason": "未映射altText/reading order/accessibility元数据",
+      "source_refs": [
+        "converter:extractSlideData",
+        "converter:addElements"
+      ],
+      "evidence": [],
+      "validation": "source-only; not runtime proved",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    },
+    {
+      "id": "PPT-030",
+      "name": "Object identity/metadata",
+      "baseline_scope": "shape id/name、tags/custom XML/extension data；round-trip 对象映射。",
+      "status": "Unsupported",
+      "reason": "没有稳定源对象ID/原位编辑身份追踪；新建PPTX生成器ID不等于产品identity",
+      "source_refs": [
+        "core:build",
+        "converter:addElements"
+      ],
+      "evidence": [
+        "validation/verify-official-six.json"
+      ],
+      "validation": "runtime subset",
+      "round_trip": "Untested; Microsoft PowerPoint/identity-preserving import-save not executed"
+    }
+  ],
+  "quality_revision": [
+    {
+      "capability": "visual HTML + exported deck QA",
+      "status": "Partial",
+      "evidence": [
+        "validation/verify-official-six.json"
+      ],
+      "reason": "真实host审查及freshness门控通过，external JSON集成失败；非事实/可编辑性全QA"
+    },
+    {
+      "capability": "fact/source/editability QA",
+      "status": "Unsupported",
+      "source_refs": [
+        "visual:module",
+        "core:pptx_info"
+      ],
+      "reason": "visual prompt只看可见影响；ZIP/页数/比例检查不等于事实或对象可编辑性QA"
+    },
+    {
+      "capability": "revision",
+      "status": "Partial",
+      "evidence": [
+        "validation/footer-revision.json",
+        "validation/verify-official-six.json",
+        "validation/maps-probes.json"
+      ],
+      "reason": "主机修HTML、全量重新render/review/build；无自动repair或原位保真PPTX编辑"
+    },
+    {
+      "capability": "existing PPTX edit",
+      "status": "Unsupported",
+      "source_refs": [
+        "cli:make_parser",
+        "converter-cli:module"
+      ],
+      "reason": "入口无普通PPTX导入/修改接口；library options.slide只接受新生成器中的slide对象"
+    }
+  ],
+  "not_product_acceptance": "AC-001–030未执行；未批准产品架构、语言或运行时，能力缺口不能冲销产品需求"
+}

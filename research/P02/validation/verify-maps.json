@@ -1,0 +1,76 @@
+{
+  "requirements": [
+    "RES-P02-02",
+    "RES-P02-03",
+    "RES-P02-04",
+    "RES-P02-05"
+  ],
+  "passed": true,
+  "source_files_verified": 13,
+  "source_refs_verified": 64,
+  "call_graph_nodes": 21,
+  "phase_coverage": {
+    "entry": [
+      "entry"
+    ],
+    "Agent/Planner": [
+      "host"
+    ],
+    "Prompt": [
+      "prompt"
+    ],
+    "Schema": [
+      "task",
+      "prompt",
+      "snapshot"
+    ],
+    "template": [
+      "scaffold"
+    ],
+    "layout": [
+      "dimension",
+      "font",
+      "ir"
+    ],
+    "render": [
+      "render",
+      "assets",
+      "native",
+      "deck-render"
+    ],
+    "export": [
+      "export"
+    ],
+    "QA": [
+      "slide-review",
+      "deck-review",
+      "finalize"
+    ],
+    "revision": [
+      "revision"
+    ]
+  },
+  "decision_nodes": 17,
+  "DEC_crosswalk": 40,
+  "PPT_objects": 30,
+  "normal_evidence": "validation/verify-official-six.json",
+  "boundary_failure_evidence": [
+    "validation/maps-probes.json",
+    "validation/footer-revision.json",
+    "validation/workflow-probes.json",
+    "validation/visual-slides-traced-01.json"
+  ],
+  "new_probe_cases": 5,
+  "actual_normal_pptx_sha256": "eb90a46c983c15c09d02de5bccdd171b33ed39c22d12e7a9f912580ecd7b7b1b",
+  "normal_final_complete": true,
+  "source_and_artifact_hashes_verified": true,
+  "visual_probe_previews": "two HTML PNGs actually viewed; no obvious clipping/overlap; no fake host review",
+  "limitations": [
+    "source graph is not full dynamic tracing",
+    "main Skill host planning is external",
+    "inline SVG converter bug unpatched",
+    "external visual JSON integration unpassed",
+    "MCP session not executed",
+    "all Microsoft PowerPoint/roundtrip and product AC unexecuted"
+  ]
+}
