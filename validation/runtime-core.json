@@ -13,10 +13,10 @@
       "passed": true,
       "observed": {
         "ok": true,
-        "trace_id": "trace_9af28526-92c0-4744-8cf8-89019b02ceb6",
+        "trace_id": "trace_1663c962-c67a-40d2-90c0-312402a7d0a3",
         "state": "core_ready",
         "generation_ready": false,
-        "schema_count": 48
+        "schema_count": 49
       }
     },
     {
@@ -24,7 +24,7 @@
       "passed": true,
       "observed": {
         "ok": true,
-        "trace_id": "trace_a426d7be-eaf7-49c9-823b-6db17583a4bd",
+        "trace_id": "trace_c9fce452-e4e4-4055-9f96-d86500285d77",
         "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
         "operation": "validate_task",
         "validation_scope": "schema and identity only; not execution/QA/E2E",
@@ -103,7 +103,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_e4c8cd2c-d22e-465e-967c-ecd7cbbe2ab2",
+        "trace_id": "trace_db9c4b08-a39b-436e-aef2-ca9356514e28",
         "error": {
           "code": "TASK_SCHEMA_INVALID",
           "message": "输入不符合Schema；字段路径见details。",
@@ -127,7 +127,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_e9be0035-2f54-49d9-b0dc-a224e4bd76ca",
+        "trace_id": "trace_a07bf80f-1596-4c18-b185-9ab8d927a1bf",
         "error": {
           "code": "TASK_SCHEMA_INVALID",
           "message": "输入不符合Schema；字段路径见details。",
@@ -151,7 +151,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_081a8949-355f-45a7-886e-338438db5ec3",
+        "trace_id": "trace_837d17e0-7745-45f9-9abe-7e377c3b1a82",
         "error": {
           "code": "SOURCE_ID_DUPLICATE",
           "message": "不同来源不能复用同一source_id。",
@@ -174,7 +174,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_5b6887f9-c772-4e50-9b97-32c18b084dbf",
+        "trace_id": "trace_a3366ac5-7a84-4da0-946e-4dccfd4f681e",
         "error": {
           "code": "TASK_SCHEMA_INVALID",
           "message": "输入不符合Schema；字段路径见details。",
@@ -198,7 +198,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_28f52964-2595-421c-b7c2-85c857d75937",
+        "trace_id": "trace_5648a9f0-e349-47db-b711-8c94e0da7bd0",
         "error": {
           "code": "PROVIDER_CREDENTIAL_LITERAL",
           "message": "供应商凭据只允许引用环境变量名。",
@@ -220,7 +220,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_459081c6-e9a3-46b0-b427-e227ba58e0b7",
+        "trace_id": "trace_dec28b0e-d2bd-4608-b4bd-6b3898e7e1dc",
         "error": {
           "code": "INPUT_JSON_INVALID",
           "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
@@ -239,7 +239,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_8a093ac3-1776-4088-b8cc-eb86317fdaaa",
+        "trace_id": "trace_96af8c8f-4988-4ed3-825c-9bfa4c8b94da",
         "error": {
           "code": "INPUT_JSON_INVALID",
           "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
@@ -258,7 +258,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_b7a04a2c-12e2-4809-8e8f-0fa7d060be8c",
+        "trace_id": "trace_ad573475-6c0b-4de9-94a9-55333d7749c4",
         "error": {
           "code": "INPUT_JSON_INVALID",
           "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
@@ -277,7 +277,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_dd0bda62-d56f-44d0-bac4-6c5b52574f34",
+        "trace_id": "trace_f1a6911f-5687-45e1-b423-4e76520d7073",
         "error": {
           "code": "INPUT_JSON_INVALID",
           "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
@@ -296,7 +296,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_e6ed71be-a3e6-4dd2-b850-23f64ce1fc25",
+        "trace_id": "trace_325b607e-6a6c-4049-8454-a673da3f873b",
         "error": {
           "code": "REQUEST_TOO_LARGE",
           "message": "JSON任务超过4MiB入口限制；未执行任务。",
@@ -314,7 +314,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_30acafb8-5da1-4a51-9992-6b6f97a7e8b1",
+        "trace_id": "trace_b8b6798e-3d09-4ca2-b0a0-3e2f6d9d797c",
         "error": {
           "code": "HTTP_REQUEST_REJECTED",
           "message": "不存在该接口或请求方法不受支持。",
@@ -332,7 +332,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_283ab39b-a238-4688-9f7b-d89bbc4a49b4",
+        "trace_id": "trace_45f8b4cc-19ad-49ee-91ec-e62d12e45788",
         "error": {
           "code": "CLI_ARGUMENT_INVALID",
           "message": "命令或参数无效；使用--help查看已实现命令。",
@@ -349,7 +349,7 @@
       "id": "capability_registration",
       "passed": true,
       "observed": {
-        "core_entries": 3,
+        "core_entries": 5,
         "ppt_entries": 30,
         "backends": 9,
         "PPT_status_unchanged": true
@@ -364,7 +364,7 @@
       "id": "schema_hash_registry",
       "passed": true,
       "observed": {
-        "schemas": 48
+        "schemas": 49
       }
     }
   ],
@@ -386,6 +386,9 @@
     "idna": "3.20",
     "jsonschema": "4.26.0",
     "jsonschema-specifications": "2025.9.1",
+    "markdown-it-py": "4.2.0",
+    "mdit-py-plugins": "0.6.1",
+    "mdurl": "0.1.2",
     "opentelemetry-api": "1.45.1",
     "pydantic": "2.14.0",
     "pydantic_core": "2.50.0",
@@ -397,18 +400,21 @@
     "uvicorn": "0.54.0"
   },
   "consumed_files": {
-    "src/yoloongppt/api.py": "0ece3e404821027126b9635303f3040d43ff1a702ed9536984f54b5db83d2111",
-    "src/yoloongppt/capabilities.py": "93ec89d7d751cbe95c4e26056a3995eb84dc58dc89a8f857b20161c86fccda3b",
+    "src/yoloongppt/api.py": "a61a1b691e2c25476b5bac77fdd05a272fbd0c6949be6dbcbd766fc81b05ec89",
+    "src/yoloongppt/capabilities.py": "67f694fe09ea208eb59f81807ae0a676c366fb6e3117e6b4b6cf024cd6d55b51",
     "src/yoloongppt/errors.py": "877d710a888b55a173c3c376735c2796510d3b5733174fab02a37fff2d76f355",
+    "src/yoloongppt/evidence.py": "2e66c94e2a5d8eeea70006f98b525bca84930f64b70112d042ee96973e6bac3a",
     "src/yoloongppt/jsonio.py": "7eede0b149d96093f63a9d0eaa9416b2acba2745535ef8fe76921a99323d8fb9",
+    "src/yoloongppt/markdown.py": "a4ee49169ab79914e3e9a99fcde6b5ae3af6bc9d5200199463acfcd1a32d812a",
     "src/yoloongppt/schemas.py": "f58337c8a7199056b131b7e43f46e7d994804eab2a3889a38e9c8a6ed45071bb",
+    "src/yoloongppt/sources.py": "a21aa0bf949fe5a448317cd2e0250562cdf07bf05df80fbd240cae64da853f3c",
     "src/yoloongppt/tasks.py": "e00553086474db58a632cfe0d3b042a53a37e8b6203694ff998b0d8dd4abcdaf",
     "src/yoloongppt/__init__.py": "8bdb38ff28f3a548d91af566ff0637444a48c296386952e669f73a2b9f7aa90b",
-    "src/yoloongppt/__main__.py": "90dcec1ac05bb48e2b82fbdbd2ddabada1417bd66d55abe5c7f6d9b513ccdedb",
+    "src/yoloongppt/__main__.py": "6cc8a0dc5613e2d5f54713c58a0aa8a5c40593ec37e5405ee6894dcf57b0a246",
     "contracts/task-spec.schema.json": "02be2bc16d568d96b0a722b28be0643d12dc82307d8eb8ce366692d266609498",
     "contracts/capability-status.catalog.json": "cad7b23742d7b6d77a59f85bde9bf0d111bdb25bd62af1c3afe1079112e29f02",
-    "requirements.lock": "a7e8b86a0d8e9b5fcc34985f985e9d9cabeb476fdbf978588319db6a402f280d",
-    "runtime/dependencies.json": "3953a04660995e94bfe3a55c332914ea55c1b48e37c083f8affa1ad10b80dfe7",
+    "requirements.lock": "d6ba217324f2ac1f834f2cf7c712ef34a285aa9962ff46317dc8b21b39e7a034",
+    "runtime/dependencies.json": "21367a97cadfcec2551ba351faa2415e33dab203cef550c4689dabcdae61ce49",
     "Dockerfile.app": "88bc4d44864e2ecdc56d66c74c7e6d80825a0a70bc36fa7fda7cd486458730b7",
     "compose.yaml": "c51942282ca71e63e33a3ededce668c2ee32d14d5964de55d029a57973580b4e"
   }

@@ -9,6 +9,8 @@ from .errors import TaskError, internal_error, trace_id
 from .jsonio import load_json
 from .schemas import SchemaRegistry
 from .tasks import validate_task
+from .sources import inspect_sources
+from .evidence import EvidenceStore
 
 
 class CLIParser(argparse.ArgumentParser):
@@ -23,19 +25,23 @@ def main():
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('capabilities')
     sub.add_parser('schemas')
-    validate = sub.add_parser('validate')
-    validate.add_argument('task', help='TaskSpec JSON path or - for stdin')
+    for command in ['validate', 'inspect']:
+        task = sub.add_parser(command)
+        task.add_argument('task', help='TaskSpec JSON path or - for stdin')
+    sub.add_parser('evidence').add_argument('evidence_id')
     args = parser.parse_args()
     trace = trace_id()
     try:
         registry = SchemaRegistry()
-        if args.command == 'validate':
+        if args.command in {'validate', 'inspect'}:
             try:
                 raw = sys.stdin.buffer.read() if args.task == '-' else Path(args.task).read_bytes()
             except OSError:
                 raise TaskError('INPUT_NOT_FOUND', '无法读取任务输入文件。', 'CLI', ['SYS-019', 'SYS-001']) from None
             document = load_json(raw, 'CLI')
-            result = validate_task(document, registry, trace)
+            result = validate_task(document, registry, trace) if args.command == 'validate' else inspect_sources(document, registry, EvidenceStore(), trace)
+        elif args.command == 'evidence':
+            result = {'ok': True, 'trace_id': trace, 'evidence': EvidenceStore().get(args.evidence_id)}
         elif args.command == 'capabilities':
             result = CapabilityRegistry(registry).list(trace)
         else:

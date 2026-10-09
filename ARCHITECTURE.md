@@ -27,4 +27,6 @@
 
 ## 待证明范围
 
-SYS 各组件的完整 E2E 通过条件未满足，保持进行中。PP-01–09 的 PoC、PPT-001–030 的产品实测、DEC-001–040 的可执行决策、S00–S44 的状态/断点及 AC-001–030 全部仍按原矩阵推进。下一动作是 SourceLoader/证据与真实新建 writer 接入；不能再以编写契约本身替代输入→可编辑 PPTX→QA→局部修订。
+来源运行时已接入CLI/API，使用markdown-it-py 4.2.0 / mdit-py-plugins 0.6.1及mdurl 0.1.2；此前19项版本保持不变。依赖现为22项，以requirements.lock为准。SQLite保存不可变来源快照及原文/结构证据，按ID查询；新增SourceEvidence Schema直接由存储组件消费，原Schema注册现为49份。parse version绑定解析源码SHA与库版本，confidence为null；结构解析不推定事实可信、自然语言意图或多源冲突已解决。
+
+SYS 各组件的完整 E2E 通过条件未满足，保持进行中。PP-01–09 的 PoC、PPT-001–030 的产品实测、DEC-001–040 的可执行决策、S00–S44 的状态/断点及 AC-001–030 全部仍按原矩阵推进。下一动作是原生writer与真实模型规划接入已运行的来源/证据；不能再以编写契约本身替代输入→可编辑 PPTX→QA→局部修订。

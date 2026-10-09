@@ -233,12 +233,16 @@
       "properties": {
         "kind": { "const": "code_block" },
         "block_index": { "type": "integer", "minimum": 0 },
-        "fence_char": { "type": "string", "enum": ["backtick", "tilde"] },
-        "fence_length": { "type": "integer", "minimum": 3 },
+        "fence_char": { "type": ["string", "null"], "enum": ["backtick", "tilde", null], "description": "缩进代码无围栏，必须为null，不伪造围栏。" },
+        "fence_length": { "type": ["integer", "null"], "minimum": 3 },
         "language": { "type": ["string", "null"] },
         "literal": { "type": "string" },
         "source_location": { "$ref": "#/$defs/source_location" }
       },
+      "allOf": [
+        { "if": { "properties": { "fence_char": { "type": "null" } }, "required": ["fence_char"] }, "then": { "properties": { "fence_length": { "type": "null" } } } },
+        { "if": { "properties": { "fence_char": { "type": "string" } }, "required": ["fence_char"] }, "then": { "properties": { "fence_length": { "type": "integer", "minimum": 3 } } } }
+      ],
       "additionalProperties": false
     },
     "table_block": {

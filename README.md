@@ -1,6 +1,6 @@
 # YoloongPPT
 
-AI PPT 生成系统项目。当前已有Docker产品核心：TaskSpec校验、SchemaRegistry、CapabilityRegistry及CLI/API入口。生成、渲染、QA和局部修订的完整链路仍待实现，不能把核心启动作为AI PPT交付。
+AI PPT 生成系统项目。当前已有Docker产品核心：TaskSpec校验、Schema/CapabilityRegistry、文本/Markdown来源解析与证据存储，以及CLI/API入口。生成、渲染、QA和局部修订的完整链路仍待实现，不能把核心启动作为AI PPT交付。
 
 完整交付目标与防偏离规则见 [GOAL.md](GOAL.md)，执行计划见 [PROJECT_PLAN.md](PROJECT_PLAN.md)，17 小时进度审计见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
 
@@ -37,6 +37,12 @@ Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/validate -ContentType 
 ```
 
 TaskSpec例子只校验已给出的路由与输入形状，未执行DEC-001或生成。失败返回结构化错误/trace，不回显输入值；能力目录保留30×9未验证状态，组件health不替代PPT对象支持。实际Docker组件核验见[validation/runtime-core.json](validation/runtime-core.json)。
+
+## 来源解析与证据
+
+`python -m yoloongppt inspect <TaskSpec.json>`或HTTP POST `/inspect`解析prompt/text/markdown来源，返回SourceBundle、结构化文档、原文证据ID与trace；`python -m yoloongppt evidence <evidence_id>`或GET `/evidence/{id}`查询同一持久证据。SQLite与原文快照位于F盘绑定的runtime/data，不进入Git。文件路径只接受工作区或运行目录内的UTF-8 .md/.markdown/.txt，其他输入明确报错。
+
+Markdown保留标题、列表、代码、表格、链接、引用与脚注结构；表格行宽不一致、重复脚注、未映射结构停止解析，原文未截断。块锚点精确回到原文，行内位置仅表示所属块范围。自然语言意图提取、优先级/事实冲突检测和其他格式仍未实现。实际输入/解析样例见[source-runtime-example.json](validation/source-runtime-example.json)，验证见[source-runtime.json](validation/source-runtime.json)。
 
 ## Git 工作约定
 

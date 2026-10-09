@@ -4,12 +4,15 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 from starlette.exceptions import HTTPException
+from starlette.concurrency import run_in_threadpool
 
 from .capabilities import CapabilityRegistry
 from .errors import TaskError, internal_error, trace_id
 from .jsonio import load_json
 from .schemas import SchemaRegistry
 from .tasks import validate_task
+from .evidence import EvidenceStore
+from .sources import inspect_sources
 
 MAX_BODY_BYTES = 4 * 1024 * 1024
 
@@ -18,6 +21,7 @@ MAX_BODY_BYTES = 4 * 1024 * 1024
 async def lifespan(app):
     app.state.schemas = SchemaRegistry()
     app.state.capabilities = CapabilityRegistry(app.state.schemas)
+    app.state.evidence = EvidenceStore()
     yield
 
 
@@ -66,6 +70,11 @@ def schemas(request: Request):
 
 @app.post('/validate')
 async def validate(request: Request):
+    document = await task_body(request)
+    return validate_task(document, request.app.state.schemas, request.state.trace_id)
+
+
+async def task_body(request):
     body = bytearray()
     async for chunk in request.stream():
         body.extend(chunk)
@@ -73,4 +82,15 @@ async def validate(request: Request):
             raise TaskError('REQUEST_TOO_LARGE', 'JSON任务超过4MiB入口限制；未执行任务。',
                             'HTTP API', ['SYS-020'], status=413)
     document = load_json(body, 'HTTP API')
-    return validate_task(document, request.app.state.schemas, request.state.trace_id)
+    return document
+
+
+@app.post('/inspect')
+async def inspect(request: Request):
+    document = await task_body(request)
+    return await run_in_threadpool(inspect_sources, document, request.app.state.schemas, request.app.state.evidence, request.state.trace_id)
+
+
+@app.get('/evidence/{evidence_id}')
+def evidence(evidence_id: str, request: Request):
+    return {'ok': True, 'trace_id': request.state.trace_id, 'evidence': request.app.state.evidence.get(evidence_id)}

@@ -90,8 +90,8 @@ result = json.loads(cli.stdout)
 record('undefined_CLI_command', cli.returncode != 0 and result['error']['code'] == 'CLI_ARGUMENT_INVALID', result)
 status, cap = call('/capabilities')
 catalog = json.loads((ROOT / 'contracts/capability-status.catalog.json').read_text(encoding='utf-8'))
-record('capability_registration', status == 200 and len(cap['core']) == 3 and cap['ppt_catalog'] == catalog,
-       {'core_entries': 3, 'ppt_entries': len(catalog['capabilities']), 'backends': len(catalog['backend_versions']), 'PPT_status_unchanged': True})
+record('capability_registration', status == 200 and {c['capability_id'] for c in cap['core']} == {'SYS-001','SYS-003','SYS-004','SYS-006','SYS-007'} and cap['ppt_catalog'] == catalog,
+       {'core_entries': 5, 'ppt_entries': len(catalog['capabilities']), 'backends': len(catalog['backend_versions']), 'PPT_status_unchanged': True})
 schemas = SchemaRegistry()
 schemas.documents['blocked.schema.json'] = {'$schema': 'https://json-schema.org/draft/2020-12/schema', '$ref': 'https://blocked.invalid/never-fetch.json'}
 try:

@@ -17,16 +17,19 @@ class CapabilityRegistry:
     def list(self, trace):
         core = []
         for id, impl in [('SYS-001', 'yoloongppt.tasks.validate_task'),
+                         ('SYS-003', 'yoloongppt.sources.inspect_sources'),
+                         ('SYS-004', 'yoloongppt.evidence.EvidenceStore'),
                          ('SYS-006', 'yoloongppt.schemas.SchemaRegistry'),
                          ('SYS-007', 'yoloongppt.capabilities.CapabilityRegistry')]:
             core.append({'capability_id': id, 'implementation': impl, 'backend': 'python-core',
                          'platform': platform.system() + '/' + platform.machine(),
                          'dependencies': {'python': platform.python_version(), 'jsonschema': version('jsonschema')},
                          'version': hashlib.sha256((ROOT / 'src/yoloongppt' / {
-                             'SYS-001': 'tasks.py', 'SYS-006': 'schemas.py', 'SYS-007': 'capabilities.py'}[id]).read_bytes()).hexdigest(),
+                             'SYS-001': 'tasks.py', 'SYS-003': 'sources.py', 'SYS-004': 'evidence.py',
+                             'SYS-006': 'schemas.py', 'SYS-007': 'capabilities.py'}[id]).read_bytes()).hexdigest(),
                          'status': 'Partial', 'priority': 'P0',
                          'health': {'available': True, 'checked': 'runtime schema/catalog loaded'},
-                         'evidence': ['ARCHITECTURE.md', 'validation/runtime-core.json'],
+                         'evidence': ['ARCHITECTURE.md', 'validation/source-runtime.json' if id in {'SYS-003', 'SYS-004'} else 'validation/runtime-core.json'],
                          'reason': 'Component entry available; required generation/QA/revision E2E not yet executed.'})
         return {'ok': True, 'trace_id': trace, 'operation': 'capabilities', 'core': core,
                 'ppt_catalog': copy.deepcopy(self.catalog),

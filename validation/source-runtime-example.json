@@ -1,0 +1,1202 @@
+{
+  "ok": true,
+  "trace_id": "trace_86745c32-252e-4ee1-b79f-ecc5d31c987c",
+  "operation": "inspect_sources",
+  "task_id": "task_f2b83056-44ce-472d-9b9e-c5293e02d3b9",
+  "source_bundle": {
+    "record_type": "source_bundle_result",
+    "status": "partial",
+    "bundle": {
+      "model_type": "SourceBundle",
+      "sources": [
+        {
+          "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+          "input_order": 0,
+          "kind": "text",
+          "locator": null,
+          "raw_text": "# 光伏原理\n\n用于课堂的 [来源](https://example.org/solar) 与脚注[^source]。\n\n- 组件把光能转成电能\n  - 保留层级\n\n```text\n组件输出直流电\n```\n\n| 指标 | 数值 |\n| --- | --- |\n| 效率 | 20% |\n\n> 引用原文\n[^source]: 示例出处",
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [],
+          "content_sha256": "bcb8d14e62d6f335d2d991d167d5c107a68b17a41c2ffb66bc50fab9389e12fc",
+          "priority_rank": null,
+          "claims": []
+        }
+      ],
+      "source_priority_policy": {
+        "status": "unresolved",
+        "decision_id": "DEC-004",
+        "task_id": "TASK-DEC-004",
+        "precedence_source_ids": [],
+        "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+      },
+      "dedup_policy": {
+        "mode": "hash_candidates_only",
+        "keep_all_sources": true
+      },
+      "duplicate_groups": [],
+      "conflicts": []
+    },
+    "coverage": [
+      {
+        "feature": "source_identity",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "source_anchors",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "priority",
+        "status": "partial",
+        "reason": "DEC-004尚未执行。"
+      },
+      {
+        "feature": "conflict_detection",
+        "status": "unsupported",
+        "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+      },
+      {
+        "feature": "deduplication",
+        "status": "partial",
+        "reason": "仅SHA候选，不删除来源。"
+      }
+    ],
+    "errors": []
+  },
+  "documents": [
+    {
+      "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+      "document": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "# 光伏原理\n\n用于课堂的 [来源](https://example.org/solar) 与脚注[^source]。\n\n- 组件把光能转成电能\n  - 保留层级\n\n```text\n组件输出直流电\n```\n\n| 指标 | 数值 |\n| --- | --- |\n| 效率 | 20% |\n\n> 引用原文\n[^source]: 示例出处",
+        "source": {
+          "kind": "raw_text",
+          "source_ref": "raw_markdown"
+        },
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "document": {
+          "model_type": "TextDocumentModel",
+          "source": {
+            "kind": "raw_text",
+            "source_ref": "raw_markdown"
+          },
+          "blocks": [
+            {
+              "kind": "heading",
+              "block_index": 0,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 0,
+                "end_offset": 7,
+                "offset_unit": "unicode_code_point",
+                "line_start": 1,
+                "line_end": 1
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "光伏原理",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 0,
+                    "end_offset": 7,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 1,
+                    "line_end": 1
+                  }
+                }
+              ],
+              "level": 1
+            },
+            {
+              "kind": "paragraph",
+              "block_index": 1,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 8,
+                "end_offset": 60,
+                "offset_unit": "unicode_code_point",
+                "line_start": 3,
+                "line_end": 3
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "用于课堂的 ",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 8,
+                    "end_offset": 60,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 3,
+                    "line_end": 3
+                  }
+                },
+                {
+                  "kind": "link",
+                  "label": [
+                    {
+                      "kind": "text",
+                      "text": "来源",
+                      "source_location": {
+                        "source_ref": "raw_markdown",
+                        "start_offset": 8,
+                        "end_offset": 60,
+                        "offset_unit": "unicode_code_point",
+                        "line_start": 3,
+                        "line_end": 3
+                      }
+                    }
+                  ],
+                  "destination": "https://example.org/solar",
+                  "title": null,
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 8,
+                    "end_offset": 60,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 3,
+                    "line_end": 3
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": " 与脚注",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 8,
+                    "end_offset": 60,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 3,
+                    "line_end": 3
+                  }
+                },
+                {
+                  "kind": "citation",
+                  "raw_marker": "[^source]",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 8,
+                    "end_offset": 60,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 3,
+                    "line_end": 3
+                  }
+                },
+                {
+                  "kind": "text",
+                  "text": "。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 8,
+                    "end_offset": 60,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 3,
+                    "line_end": 3
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "list",
+              "block_index": 2,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 61,
+                "end_offset": 83,
+                "offset_unit": "unicode_code_point",
+                "line_start": 5,
+                "line_end": 7
+              },
+              "list_kind": "unordered",
+              "start_number": null,
+              "items": [
+                {
+                  "marker": "-",
+                  "ordinal": null,
+                  "blocks": [
+                    {
+                      "kind": "paragraph",
+                      "block_index": 3,
+                      "source_location": {
+                        "source_ref": "raw_markdown",
+                        "start_offset": 61,
+                        "end_offset": 73,
+                        "offset_unit": "unicode_code_point",
+                        "line_start": 5,
+                        "line_end": 5
+                      },
+                      "content": [
+                        {
+                          "kind": "text",
+                          "text": "组件把光能转成电能",
+                          "source_location": {
+                            "source_ref": "raw_markdown",
+                            "start_offset": 61,
+                            "end_offset": 73,
+                            "offset_unit": "unicode_code_point",
+                            "line_start": 5,
+                            "line_end": 5
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "kind": "list",
+                      "block_index": 4,
+                      "source_location": {
+                        "source_ref": "raw_markdown",
+                        "start_offset": 73,
+                        "end_offset": 83,
+                        "offset_unit": "unicode_code_point",
+                        "line_start": 6,
+                        "line_end": 7
+                      },
+                      "list_kind": "unordered",
+                      "start_number": null,
+                      "items": [
+                        {
+                          "marker": "-",
+                          "ordinal": null,
+                          "blocks": [
+                            {
+                              "kind": "paragraph",
+                              "block_index": 5,
+                              "source_location": {
+                                "source_ref": "raw_markdown",
+                                "start_offset": 73,
+                                "end_offset": 82,
+                                "offset_unit": "unicode_code_point",
+                                "line_start": 6,
+                                "line_end": 6
+                              },
+                              "content": [
+                                {
+                                  "kind": "text",
+                                  "text": "保留层级",
+                                  "source_location": {
+                                    "source_ref": "raw_markdown",
+                                    "start_offset": 73,
+                                    "end_offset": 82,
+                                    "offset_unit": "unicode_code_point",
+                                    "line_start": 6,
+                                    "line_end": 6
+                                  }
+                                }
+                              ]
+                            }
+                          ],
+                          "source_location": {
+                            "source_ref": "raw_markdown",
+                            "start_offset": 73,
+                            "end_offset": 83,
+                            "offset_unit": "unicode_code_point",
+                            "line_start": 6,
+                            "line_end": 7
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 61,
+                    "end_offset": 83,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 5,
+                    "line_end": 7
+                  }
+                }
+              ]
+            },
+            {
+              "kind": "code_block",
+              "block_index": 6,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 83,
+                "end_offset": 103,
+                "offset_unit": "unicode_code_point",
+                "line_start": 8,
+                "line_end": 10
+              },
+              "fence_char": "backtick",
+              "fence_length": 3,
+              "language": "text",
+              "literal": "组件输出直流电\n"
+            },
+            {
+              "kind": "table",
+              "block_index": 7,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 104,
+                "end_offset": 143,
+                "offset_unit": "unicode_code_point",
+                "line_start": 12,
+                "line_end": 14
+              },
+              "header": [
+                {
+                  "content": [
+                    {
+                      "kind": "text",
+                      "text": "指标",
+                      "source_location": {
+                        "source_ref": "raw_markdown",
+                        "start_offset": 104,
+                        "end_offset": 116,
+                        "offset_unit": "unicode_code_point",
+                        "line_start": 12,
+                        "line_end": 12
+                      }
+                    }
+                  ],
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 104,
+                    "end_offset": 116,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 12,
+                    "line_end": 12
+                  }
+                },
+                {
+                  "content": [
+                    {
+                      "kind": "text",
+                      "text": "数值",
+                      "source_location": {
+                        "source_ref": "raw_markdown",
+                        "start_offset": 104,
+                        "end_offset": 116,
+                        "offset_unit": "unicode_code_point",
+                        "line_start": 12,
+                        "line_end": 12
+                      }
+                    }
+                  ],
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 104,
+                    "end_offset": 116,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 12,
+                    "line_end": 12
+                  }
+                }
+              ],
+              "alignments": [
+                "default",
+                "default"
+              ],
+              "rows": [
+                [
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "效率",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 130,
+                          "end_offset": 143,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 14,
+                          "line_end": 14
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 130,
+                      "end_offset": 143,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 14,
+                      "line_end": 14
+                    }
+                  },
+                  {
+                    "content": [
+                      {
+                        "kind": "text",
+                        "text": "20%",
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 130,
+                          "end_offset": 143,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 14,
+                          "line_end": 14
+                        }
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 130,
+                      "end_offset": 143,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 14,
+                      "line_end": 14
+                    }
+                  }
+                ]
+              ]
+            },
+            {
+              "kind": "blockquote",
+              "block_index": 8,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 144,
+                "end_offset": 151,
+                "offset_unit": "unicode_code_point",
+                "line_start": 16,
+                "line_end": 16
+              },
+              "blocks": [
+                {
+                  "kind": "paragraph",
+                  "block_index": 9,
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 144,
+                    "end_offset": 151,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 16,
+                    "line_end": 16
+                  },
+                  "content": [
+                    {
+                      "kind": "text",
+                      "text": "引用原文",
+                      "source_location": {
+                        "source_ref": "raw_markdown",
+                        "start_offset": 144,
+                        "end_offset": 151,
+                        "offset_unit": "unicode_code_point",
+                        "line_start": 16,
+                        "line_end": 16
+                      }
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "kind": "footnote_definition",
+              "block_index": 10,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 151,
+                "end_offset": 166,
+                "offset_unit": "unicode_code_point",
+                "line_start": 17,
+                "line_end": 17
+              },
+              "label": "source",
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "示例出处",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 151,
+                    "end_offset": 166,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 17,
+                    "line_end": 17
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans."
+    }
+  ],
+  "evidence": [
+    {
+      "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+      "source_hash": "bcb8d14e62d6f335d2d991d167d5c107a68b17a41c2ffb66bc50fab9389e12fc",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+        "asset_id": null,
+        "native_locator": "chars:0:7",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 0,
+          "start_char": 0,
+          "end_char": 7,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "# 光伏原理\n",
+      "content": "# 光伏原理\n",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "block_index": 0,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 0,
+          "end_offset": 7,
+          "offset_unit": "unicode_code_point",
+          "line_start": 1,
+          "line_end": 1
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "光伏原理",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 0,
+              "end_offset": 7,
+              "offset_unit": "unicode_code_point",
+              "line_start": 1,
+              "line_end": 1
+            }
+          }
+        ],
+        "level": 1
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_b16f6277-2e75-4299-810d-58882ff35e0a"
+    },
+    {
+      "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+      "source_hash": "bcb8d14e62d6f335d2d991d167d5c107a68b17a41c2ffb66bc50fab9389e12fc",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 1,
+      "anchor": {
+        "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+        "asset_id": null,
+        "native_locator": "chars:8:60",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 1,
+          "start_char": 8,
+          "end_char": 60,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "用于课堂的 [来源](https://example.org/solar) 与脚注[^source]。\n",
+      "content": "用于课堂的 [来源](https://example.org/solar) 与脚注[^source]。\n",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 1,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 8,
+          "end_offset": 60,
+          "offset_unit": "unicode_code_point",
+          "line_start": 3,
+          "line_end": 3
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "用于课堂的 ",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 8,
+              "end_offset": 60,
+              "offset_unit": "unicode_code_point",
+              "line_start": 3,
+              "line_end": 3
+            }
+          },
+          {
+            "kind": "link",
+            "label": [
+              {
+                "kind": "text",
+                "text": "来源",
+                "source_location": {
+                  "source_ref": "raw_markdown",
+                  "start_offset": 8,
+                  "end_offset": 60,
+                  "offset_unit": "unicode_code_point",
+                  "line_start": 3,
+                  "line_end": 3
+                }
+              }
+            ],
+            "destination": "https://example.org/solar",
+            "title": null,
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 8,
+              "end_offset": 60,
+              "offset_unit": "unicode_code_point",
+              "line_start": 3,
+              "line_end": 3
+            }
+          },
+          {
+            "kind": "text",
+            "text": " 与脚注",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 8,
+              "end_offset": 60,
+              "offset_unit": "unicode_code_point",
+              "line_start": 3,
+              "line_end": 3
+            }
+          },
+          {
+            "kind": "citation",
+            "raw_marker": "[^source]",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 8,
+              "end_offset": 60,
+              "offset_unit": "unicode_code_point",
+              "line_start": 3,
+              "line_end": 3
+            }
+          },
+          {
+            "kind": "text",
+            "text": "。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 8,
+              "end_offset": 60,
+              "offset_unit": "unicode_code_point",
+              "line_start": 3,
+              "line_end": 3
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_605dcaac-5a09-4cbe-a696-38e5392a1217"
+    },
+    {
+      "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+      "source_hash": "bcb8d14e62d6f335d2d991d167d5c107a68b17a41c2ffb66bc50fab9389e12fc",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 2,
+      "anchor": {
+        "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+        "asset_id": null,
+        "native_locator": "chars:61:83",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 2,
+          "start_char": 61,
+          "end_char": 83,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "- 组件把光能转成电能\n  - 保留层级\n\n",
+      "content": "- 组件把光能转成电能\n  - 保留层级\n\n",
+      "confidence": null,
+      "data": {
+        "kind": "list",
+        "block_index": 2,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 61,
+          "end_offset": 83,
+          "offset_unit": "unicode_code_point",
+          "line_start": 5,
+          "line_end": 7
+        },
+        "list_kind": "unordered",
+        "start_number": null,
+        "items": [
+          {
+            "marker": "-",
+            "ordinal": null,
+            "blocks": [
+              {
+                "kind": "paragraph",
+                "block_index": 3,
+                "source_location": {
+                  "source_ref": "raw_markdown",
+                  "start_offset": 61,
+                  "end_offset": 73,
+                  "offset_unit": "unicode_code_point",
+                  "line_start": 5,
+                  "line_end": 5
+                },
+                "content": [
+                  {
+                    "kind": "text",
+                    "text": "组件把光能转成电能",
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 61,
+                      "end_offset": 73,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 5,
+                      "line_end": 5
+                    }
+                  }
+                ]
+              },
+              {
+                "kind": "list",
+                "block_index": 4,
+                "source_location": {
+                  "source_ref": "raw_markdown",
+                  "start_offset": 73,
+                  "end_offset": 83,
+                  "offset_unit": "unicode_code_point",
+                  "line_start": 6,
+                  "line_end": 7
+                },
+                "list_kind": "unordered",
+                "start_number": null,
+                "items": [
+                  {
+                    "marker": "-",
+                    "ordinal": null,
+                    "blocks": [
+                      {
+                        "kind": "paragraph",
+                        "block_index": 5,
+                        "source_location": {
+                          "source_ref": "raw_markdown",
+                          "start_offset": 73,
+                          "end_offset": 82,
+                          "offset_unit": "unicode_code_point",
+                          "line_start": 6,
+                          "line_end": 6
+                        },
+                        "content": [
+                          {
+                            "kind": "text",
+                            "text": "保留层级",
+                            "source_location": {
+                              "source_ref": "raw_markdown",
+                              "start_offset": 73,
+                              "end_offset": 82,
+                              "offset_unit": "unicode_code_point",
+                              "line_start": 6,
+                              "line_end": 6
+                            }
+                          }
+                        ]
+                      }
+                    ],
+                    "source_location": {
+                      "source_ref": "raw_markdown",
+                      "start_offset": 73,
+                      "end_offset": 83,
+                      "offset_unit": "unicode_code_point",
+                      "line_start": 6,
+                      "line_end": 7
+                    }
+                  }
+                ]
+              }
+            ],
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 61,
+              "end_offset": 83,
+              "offset_unit": "unicode_code_point",
+              "line_start": 5,
+              "line_end": 7
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_1890467a-4ba1-4278-b0c8-0006d8d09da9"
+    },
+    {
+      "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+      "source_hash": "bcb8d14e62d6f335d2d991d167d5c107a68b17a41c2ffb66bc50fab9389e12fc",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 3,
+      "anchor": {
+        "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+        "asset_id": null,
+        "native_locator": "chars:83:103",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 3,
+          "start_char": 83,
+          "end_char": 103,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "```text\n组件输出直流电\n```\n",
+      "content": "```text\n组件输出直流电\n```\n",
+      "confidence": null,
+      "data": {
+        "kind": "code_block",
+        "block_index": 6,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 83,
+          "end_offset": 103,
+          "offset_unit": "unicode_code_point",
+          "line_start": 8,
+          "line_end": 10
+        },
+        "fence_char": "backtick",
+        "fence_length": 3,
+        "language": "text",
+        "literal": "组件输出直流电\n"
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_a26707f3-a54b-4215-a2c4-a33db0f88836"
+    },
+    {
+      "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+      "source_hash": "bcb8d14e62d6f335d2d991d167d5c107a68b17a41c2ffb66bc50fab9389e12fc",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 4,
+      "anchor": {
+        "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+        "asset_id": null,
+        "native_locator": "chars:104:143",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 4,
+          "start_char": 104,
+          "end_char": 143,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "| 指标 | 数值 |\n| --- | --- |\n| 效率 | 20% |\n",
+      "content": "| 指标 | 数值 |\n| --- | --- |\n| 效率 | 20% |\n",
+      "confidence": null,
+      "data": {
+        "kind": "table",
+        "block_index": 7,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 104,
+          "end_offset": 143,
+          "offset_unit": "unicode_code_point",
+          "line_start": 12,
+          "line_end": 14
+        },
+        "header": [
+          {
+            "content": [
+              {
+                "kind": "text",
+                "text": "指标",
+                "source_location": {
+                  "source_ref": "raw_markdown",
+                  "start_offset": 104,
+                  "end_offset": 116,
+                  "offset_unit": "unicode_code_point",
+                  "line_start": 12,
+                  "line_end": 12
+                }
+              }
+            ],
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 104,
+              "end_offset": 116,
+              "offset_unit": "unicode_code_point",
+              "line_start": 12,
+              "line_end": 12
+            }
+          },
+          {
+            "content": [
+              {
+                "kind": "text",
+                "text": "数值",
+                "source_location": {
+                  "source_ref": "raw_markdown",
+                  "start_offset": 104,
+                  "end_offset": 116,
+                  "offset_unit": "unicode_code_point",
+                  "line_start": 12,
+                  "line_end": 12
+                }
+              }
+            ],
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 104,
+              "end_offset": 116,
+              "offset_unit": "unicode_code_point",
+              "line_start": 12,
+              "line_end": 12
+            }
+          }
+        ],
+        "alignments": [
+          "default",
+          "default"
+        ],
+        "rows": [
+          [
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "效率",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 130,
+                    "end_offset": 143,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 14,
+                    "line_end": 14
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 130,
+                "end_offset": 143,
+                "offset_unit": "unicode_code_point",
+                "line_start": 14,
+                "line_end": 14
+              }
+            },
+            {
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "20%",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 130,
+                    "end_offset": 143,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 14,
+                    "line_end": 14
+                  }
+                }
+              ],
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 130,
+                "end_offset": 143,
+                "offset_unit": "unicode_code_point",
+                "line_start": 14,
+                "line_end": 14
+              }
+            }
+          ]
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_5a425ac4-4017-4074-bac3-93c9bda242dd"
+    },
+    {
+      "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+      "source_hash": "bcb8d14e62d6f335d2d991d167d5c107a68b17a41c2ffb66bc50fab9389e12fc",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 5,
+      "anchor": {
+        "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+        "asset_id": null,
+        "native_locator": "chars:144:151",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 5,
+          "start_char": 144,
+          "end_char": 151,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "> 引用原文\n",
+      "content": "> 引用原文\n",
+      "confidence": null,
+      "data": {
+        "kind": "blockquote",
+        "block_index": 8,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 144,
+          "end_offset": 151,
+          "offset_unit": "unicode_code_point",
+          "line_start": 16,
+          "line_end": 16
+        },
+        "blocks": [
+          {
+            "kind": "paragraph",
+            "block_index": 9,
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 144,
+              "end_offset": 151,
+              "offset_unit": "unicode_code_point",
+              "line_start": 16,
+              "line_end": 16
+            },
+            "content": [
+              {
+                "kind": "text",
+                "text": "引用原文",
+                "source_location": {
+                  "source_ref": "raw_markdown",
+                  "start_offset": 144,
+                  "end_offset": 151,
+                  "offset_unit": "unicode_code_point",
+                  "line_start": 16,
+                  "line_end": 16
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_20a2aa75-440e-4ac7-abbf-6f65abb1e0e9"
+    },
+    {
+      "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+      "source_hash": "bcb8d14e62d6f335d2d991d167d5c107a68b17a41c2ffb66bc50fab9389e12fc",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:markdown",
+      "segment_index": 6,
+      "anchor": {
+        "source_id": "source_87499fe8-1fc5-4b18-9018-a4b7bfd33a47",
+        "asset_id": null,
+        "native_locator": "chars:151:166",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 6,
+          "start_char": 151,
+          "end_char": 166,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "[^source]: 示例出处",
+      "content": "[^source]: 示例出处",
+      "confidence": null,
+      "data": {
+        "kind": "footnote_definition",
+        "block_index": 10,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 151,
+          "end_offset": 166,
+          "offset_unit": "unicode_code_point",
+          "line_start": 17,
+          "line_end": 17
+        },
+        "label": "source",
+        "content": [
+          {
+            "kind": "text",
+            "text": "示例出处",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 151,
+              "end_offset": 166,
+              "offset_unit": "unicode_code_point",
+              "line_start": 17,
+              "line_end": 17
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "markdown",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Markdown blocks retain raw Unicode ranges; inline locations are containing-block ranges, not exact lexical spans.",
+      "evidence_id": "evidence_21de8b24-06bd-4a45-a4ea-a7633da9ccab"
+    }
+  ],
+  "trace": [
+    {
+      "component": "TaskSpec",
+      "requirement_id": "SYS-001",
+      "status": "validated"
+    },
+    {
+      "component": "SchemaRegistry",
+      "requirement_id": "SYS-006",
+      "status": "validated"
+    },
+    {
+      "component": "SourceLoader",
+      "requirement_id": "SYS-003",
+      "status": "partial"
+    },
+    {
+      "component": "EvidenceStore",
+      "requirement_id": "SYS-004",
+      "status": "saved"
+    }
+  ],
+  "boundary": "Source parsing and evidence only; no fact extraction, model routing, PPTX generation or QA acceptance."
+}

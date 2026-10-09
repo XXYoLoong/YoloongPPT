@@ -1,0 +1,289 @@
+{
+  "requirement_ids": [
+    "SYS-003",
+    "SYS-004",
+    "IN-001",
+    "IN-002",
+    "IN-014",
+    "IN-015",
+    "IN-016"
+  ],
+  "passed": true,
+  "cases": [
+    {
+      "id": "original_Markdown_fixture",
+      "passed": true,
+      "observed": {
+        "block_kinds": [
+          "heading",
+          "paragraph",
+          "list",
+          "code_block",
+          "table",
+          "blockquote",
+          "footnote_definition"
+        ],
+        "raw_text_preserved": true
+      }
+    },
+    {
+      "id": "table_values_preserved",
+      "passed": true,
+      "observed": {
+        "data": "20%",
+        "rows": 1,
+        "columns": 2
+      }
+    },
+    {
+      "id": "nested_list_preserved",
+      "passed": true,
+      "observed": "Nested list remains structural."
+    },
+    {
+      "id": "plain_text_document",
+      "passed": true,
+      "observed": "Plain text is a TextDocumentModel; no Markdown inference."
+    },
+    {
+      "id": "inline_link_citation_preserved",
+      "passed": true,
+      "observed": "Link and footnote reference retained."
+    },
+    {
+      "id": "anchor_raw_roundtrip",
+      "passed": true,
+      "observed": {
+        "segments": 7,
+        "offset_unit": "unicode_code_points"
+      }
+    },
+    {
+      "id": "stable_evidence_replay",
+      "passed": true,
+      "observed": "IDs remain identical on replay."
+    },
+    {
+      "id": "lookup_by_ID",
+      "passed": true,
+      "observed": "Stored raw text/anchor/hash/parser version round-trip."
+    },
+    {
+      "id": "canonical_SourceEvidence",
+      "passed": true,
+      "observed": "Canonical content/data/asset_ref/confidence/metadata retained; no inferred truth confidence."
+    },
+    {
+      "id": "immutable_old_snapshot",
+      "passed": true,
+      "observed": "Old evidence retained, changed source snapshot stored separately."
+    },
+    {
+      "id": "duplicate_sources_kept",
+      "passed": true,
+      "observed": "Hash candidates only; no source removal or claim of no semantic conflicts."
+    },
+    {
+      "id": "unused_footnote",
+      "passed": true,
+      "observed": {
+        "raw_preserved": true,
+        "kind": "footnote_definition"
+      }
+    },
+    {
+      "id": "indented_code",
+      "passed": true,
+      "observed": {
+        "raw_preserved": true,
+        "kind": "code_block"
+      }
+    },
+    {
+      "id": "CRLF_and_emoji",
+      "passed": true,
+      "observed": {
+        "raw_preserved": true,
+        "kind": "heading"
+      }
+    },
+    {
+      "id": "UTF8_BOM",
+      "passed": true,
+      "observed": {
+        "raw_preserved": true,
+        "kind": "heading"
+      }
+    },
+    {
+      "id": "empty",
+      "passed": true,
+      "observed": "INPUT_EMPTY"
+    },
+    {
+      "id": "unsupported_DOCX",
+      "passed": true,
+      "observed": "INPUT_UNSUPPORTED"
+    },
+    {
+      "id": "binary_disguised",
+      "passed": true,
+      "observed": "INPUT_FORMAT_DISGUISED"
+    },
+    {
+      "id": "table_extra_cells",
+      "passed": true,
+      "observed": "MARKDOWN_TABLE_WIDTH_MISMATCH"
+    },
+    {
+      "id": "table_missing_cells",
+      "passed": true,
+      "observed": "MARKDOWN_TABLE_WIDTH_MISMATCH"
+    },
+    {
+      "id": "footnote_duplicate",
+      "passed": true,
+      "observed": "MARKDOWN_FOOTNOTE_DUPLICATE"
+    },
+    {
+      "id": "unsupported_rule",
+      "passed": true,
+      "observed": "MARKDOWN_BLOCK_UNSUPPORTED"
+    },
+    {
+      "id": "concurrent_file_replay",
+      "passed": true,
+      "observed": "Transaction resolves stable asset/evidence IDs for concurrent identical input."
+    },
+    {
+      "id": "source_origin_identity_conflict",
+      "passed": true,
+      "observed": "SOURCE_ID_ORIGIN_CHANGED"
+    },
+    {
+      "id": "missing_file",
+      "passed": true,
+      "observed": "INPUT_NOT_FOUND"
+    },
+    {
+      "id": "outside_root",
+      "passed": true,
+      "observed": "SOURCE_PATH_OUTSIDE_ROOT"
+    },
+    {
+      "id": "wrong_suffix",
+      "passed": true,
+      "observed": "INPUT_UNSUPPORTED"
+    },
+    {
+      "id": "non_UTF8_file",
+      "passed": true,
+      "observed": "INPUT_ENCODING_UNSUPPORTED"
+    },
+    {
+      "id": "ambiguous_input",
+      "passed": true,
+      "observed": "SOURCE_LOCATION_AMBIGUOUS"
+    },
+    {
+      "id": "HTTP_inspect",
+      "passed": true,
+      "observed": {
+        "evidence_count": 7,
+        "task_id": "task_f2b83056-44ce-472d-9b9e-c5293e02d3b9"
+      }
+    },
+    {
+      "id": "CLI_HTTP_same_evidence",
+      "passed": true,
+      "observed": "Same persistent evidence from both product entries."
+    },
+    {
+      "id": "HTTP_evidence_lookup",
+      "passed": true,
+      "observed": "ID query returns the same versioned evidence."
+    },
+    {
+      "id": "HTTP_missing_evidence",
+      "passed": true,
+      "observed": "EVIDENCE_NOT_FOUND"
+    },
+    {
+      "id": "license_markdown-it-py",
+      "passed": true,
+      "observed": [
+        {
+          "path": "markdown_it_py-4.2.0.dist-info/licenses/LICENSE",
+          "sha256": "4a2260d6e2cd0f5a151a1e86dbfe7d3ed552b1e2beabf9941c1ba5c49cbce484"
+        },
+        {
+          "path": "markdown_it_py-4.2.0.dist-info/licenses/LICENSE.markdown-it",
+          "sha256": "792c48c5a849a15fdf9e37e8bcf9e6d1dd13b32b46c642a748a0a46a9919d473"
+        }
+      ]
+    },
+    {
+      "id": "license_mdit-py-plugins",
+      "passed": true,
+      "observed": [
+        {
+          "path": "mdit_py_plugins-0.6.1.dist-info/licenses/LICENSE",
+          "sha256": "4a2260d6e2cd0f5a151a1e86dbfe7d3ed552b1e2beabf9941c1ba5c49cbce484"
+        },
+        {
+          "path": "mdit_py_plugins/admon/LICENSE",
+          "sha256": "699355a44cb248631a4cde542029b593b7e6663823b0518338e85fd65360bac3"
+        },
+        {
+          "path": "mdit_py_plugins/container/LICENSE",
+          "sha256": "c91339910d300f163edcaddbfb3909f1cffae19a496b7fe3935a9a4073dc305a"
+        },
+        {
+          "path": "mdit_py_plugins/deflist/LICENSE",
+          "sha256": "81d61236a5f25294b2dad0c866d4ad6a40b865148b28df9a71f49ba771a6c54b"
+        },
+        {
+          "path": "mdit_py_plugins/footnote/LICENSE",
+          "sha256": "81d61236a5f25294b2dad0c866d4ad6a40b865148b28df9a71f49ba771a6c54b"
+        },
+        {
+          "path": "mdit_py_plugins/front_matter/LICENSE",
+          "sha256": "9e1bc1fafae020b5c33cc9cb745c707a5addf109cd814f0dac2d41424b83554a"
+        },
+        {
+          "path": "mdit_py_plugins/texmath/LICENSE",
+          "sha256": "012a56cf9e23a2917336178cca417ab4c88fc64ad7086d621d6a8b956593629f"
+        }
+      ]
+    },
+    {
+      "id": "license_mdurl",
+      "passed": true,
+      "observed": [
+        {
+          "path": "mdurl-0.1.2.dist-info/LICENSE",
+          "sha256": "7c605df6e28667a9603118e98274f64a49ce3eed0d26fccce9534a345e0ef955"
+        }
+      ]
+    }
+  ],
+  "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1",
+  "files": {
+    "src/yoloongppt/api.py": "a61a1b691e2c25476b5bac77fdd05a272fbd0c6949be6dbcbd766fc81b05ec89",
+    "src/yoloongppt/capabilities.py": "67f694fe09ea208eb59f81807ae0a676c366fb6e3117e6b4b6cf024cd6d55b51",
+    "src/yoloongppt/errors.py": "877d710a888b55a173c3c376735c2796510d3b5733174fab02a37fff2d76f355",
+    "src/yoloongppt/evidence.py": "2e66c94e2a5d8eeea70006f98b525bca84930f64b70112d042ee96973e6bac3a",
+    "src/yoloongppt/jsonio.py": "7eede0b149d96093f63a9d0eaa9416b2acba2745535ef8fe76921a99323d8fb9",
+    "src/yoloongppt/markdown.py": "a4ee49169ab79914e3e9a99fcde6b5ae3af6bc9d5200199463acfcd1a32d812a",
+    "src/yoloongppt/schemas.py": "f58337c8a7199056b131b7e43f46e7d994804eab2a3889a38e9c8a6ed45071bb",
+    "src/yoloongppt/sources.py": "a21aa0bf949fe5a448317cd2e0250562cdf07bf05df80fbd240cae64da853f3c",
+    "src/yoloongppt/tasks.py": "e00553086474db58a632cfe0d3b042a53a37e8b6203694ff998b0d8dd4abcdaf",
+    "src/yoloongppt/__init__.py": "8bdb38ff28f3a548d91af566ff0637444a48c296386952e669f73a2b9f7aa90b",
+    "src/yoloongppt/__main__.py": "6cc8a0dc5613e2d5f54713c58a0aa8a5c40593ec37e5405ee6894dcf57b0a246",
+    "requirements.lock": "d6ba217324f2ac1f834f2cf7c712ef34a285aa9962ff46317dc8b21b39e7a034",
+    "contracts/source-bundle.schema.json": "90dd4487e16e93744942b18b823bfd807e3eb4aa059d59f6bc3319a2ce3a30d9",
+    "contracts/text-document.schema.json": "5838db9a14b413f00989f2e5bb68f5975036cfd83864b34d4b47aa253849579a",
+    "contracts/source-evidence.schema.json": "479361fd7b924ac3ed2df2fe5f3463fa81876345ed16c78bf302163ac66a8715"
+  },
+  "boundary": "Source component checks only. IN-001 semantic intent extraction remains pending; inline locations are containing block; remaining formats, fact/conflict extraction, generation/QA/revision/E2E not accepted."
+}
