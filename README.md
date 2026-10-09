@@ -1,6 +1,6 @@
 # YoloongPPT
 
-AI PPT 生成系统项目。当前仓库包含 V0.3 需求基线、契约、源码研究、候选后端 PoC 和隔离开发环境，尚未包含可启动的产品应用。
+AI PPT 生成系统项目。当前已有Docker产品核心：TaskSpec校验、SchemaRegistry、CapabilityRegistry及CLI/API入口。生成、渲染、QA和局部修订的完整链路仍待实现，不能把核心启动作为AI PPT交付。
 
 完整交付目标与防偏离规则见 [GOAL.md](GOAL.md)，执行计划见 [PROJECT_PLAN.md](PROJECT_PLAN.md)，17 小时进度审计见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
 
@@ -13,17 +13,30 @@ AI PPT 生成系统项目。当前仓库包含 V0.3 需求基线、契约、源�
 
 ## Docker 隔离开发环境
 
-需要 Docker Desktop 和 Docker Compose。当前容器只提供通用命令行工作区（Debian、Bash、Git）；源码目录挂载到容器供编辑。项目语言和运行时尚未选定，后续依据需求与架构决策添加，不能把某个基础镜像中偶然出现的版本当作项目要求。
+需要 Docker Desktop 和 Docker Compose。workspace提供通用编辑工作区；app使用已选Python 3.13.16核心，运行依赖只安装在镜像内。选型依据、版本与未验证能力见[ARCHITECTURE.md](ARCHITECTURE.md)，不从主机工具版本推导。
 
 Windows PowerShell 管理命令：
 
 1. 启动：pwsh -NoProfile -File .\scripts\project.ps1 start
-2. 进入容器：pwsh -NoProfile -File .\scripts\project.ps1 shell
+2. 进入应用容器：pwsh -NoProfile -File .\scripts\project.ps1 shell（通用工作区使用 -Service workspace）
 3. 查看状态：pwsh -NoProfile -File .\scripts\project.ps1 status
 4. 查看日志：pwsh -NoProfile -File .\scripts\project.ps1 logs
 5. 停止：pwsh -NoProfile -File .\scripts\project.ps1 stop
 
-容器启动后会进入 /workspace。当前 Compose 只配置隔离开发工作区，研究 PoC 不代表产品应用服务。应用入口、端口、运行时和生产启动命令应在架构确定及相应服务实现后补充。
+启动脚本先核验Docker数据盘在非C盘，再管理本项目两个服务；HTTP仅绑定127.0.0.1:8000，临时/运行产物位于F盘runtime/data。`/health`返回core_ready，同时明确generation_ready=false。
+
+已实现命令与API：
+
+```powershell
+docker --context desktop-linux compose exec -T app python -m yoloongppt validate validation/core-task.json
+docker --context desktop-linux compose exec -T app python -m yoloongppt capabilities
+docker --context desktop-linux compose exec -T app python -m yoloongppt schemas
+Invoke-RestMethod http://127.0.0.1:8000/health
+Invoke-RestMethod http://127.0.0.1:8000/capabilities
+Invoke-RestMethod -Method Post -Uri http://127.0.0.1:8000/validate -ContentType 'application/json; charset=utf-8' -Body ([System.IO.File]::ReadAllBytes('F:/YoloongPPT/validation/core-task.json'))
+```
+
+TaskSpec例子只校验已给出的路由与输入形状，未执行DEC-001或生成。失败返回结构化错误/trace，不回显输入值；能力目录保留30×9未验证状态，组件health不替代PPT对象支持。实际Docker组件核验见[validation/runtime-core.json](validation/runtime-core.json)。
 
 ## Git 工作约定
 

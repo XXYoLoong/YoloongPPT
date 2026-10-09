@@ -1,0 +1,415 @@
+{
+  "requirement_ids": [
+    "SYS-001",
+    "SYS-006",
+    "SYS-007",
+    "SYS-019",
+    "SYS-020"
+  ],
+  "passed": true,
+  "cases": [
+    {
+      "id": "health",
+      "passed": true,
+      "observed": {
+        "ok": true,
+        "trace_id": "trace_9af28526-92c0-4744-8cf8-89019b02ceb6",
+        "state": "core_ready",
+        "generation_ready": false,
+        "schema_count": 48
+      }
+    },
+    {
+      "id": "HTTP_TaskSpec_valid",
+      "passed": true,
+      "observed": {
+        "ok": true,
+        "trace_id": "trace_a426d7be-eaf7-49c9-823b-6db17583a4bd",
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "operation": "validate_task",
+        "validation_scope": "schema and identity only; not execution/QA/E2E",
+        "task_sha256": "47d5493cf029f3f7f9a7f0fe537389d571c086f3f5dc4aae2b8ebff19d8734a6",
+        "schema_version": {
+          "schema": "task-spec.schema.json",
+          "sha256": "02be2bc16d568d96b0a722b28be0643d12dc82307d8eb8ce366692d266609498"
+        },
+        "mode": "create_from_scratch",
+        "source_count": 1,
+        "trace": [
+          {
+            "component": "TaskSpec",
+            "requirement_id": "SYS-001",
+            "status": "validated"
+          },
+          {
+            "component": "SchemaRegistry",
+            "requirement_id": "SYS-006",
+            "status": "validated"
+          }
+        ]
+      }
+    },
+    {
+      "id": "CLI_API_shared_core",
+      "passed": true,
+      "observed": {
+        "task_id_preserved": true,
+        "same_hash": true,
+        "input_chinese": true
+      }
+    },
+    {
+      "id": "pre_routed_create_from_scratch",
+      "passed": true,
+      "observed": "Pre-routed shape validated only; DEC-001 routing algorithm not executed."
+    },
+    {
+      "id": "pre_routed_create_from_materials",
+      "passed": true,
+      "observed": "Pre-routed shape validated only; DEC-001 routing algorithm not executed."
+    },
+    {
+      "id": "pre_routed_create_from_reference_style",
+      "passed": true,
+      "observed": "Pre-routed shape validated only; DEC-001 routing algorithm not executed."
+    },
+    {
+      "id": "pre_routed_fill_template",
+      "passed": true,
+      "observed": "Pre-routed shape validated only; DEC-001 routing algorithm not executed."
+    },
+    {
+      "id": "pre_routed_modify_existing_deck",
+      "passed": true,
+      "observed": "Pre-routed shape validated only; DEC-001 routing algorithm not executed."
+    },
+    {
+      "id": "pre_routed_reconstruct_from_image",
+      "passed": true,
+      "observed": "Pre-routed shape validated only; DEC-001 routing algorithm not executed."
+    },
+    {
+      "id": "pre_routed_beautify_existing_deck",
+      "passed": true,
+      "observed": "Pre-routed shape validated only; DEC-001 routing algorithm not executed."
+    },
+    {
+      "id": "pre_routed_create_or_replace_single_slide",
+      "passed": true,
+      "observed": "Pre-routed shape validated only; DEC-001 routing algorithm not executed."
+    },
+    {
+      "id": "missing_route",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_e4c8cd2c-d22e-465e-967c-ecd7cbbe2ab2",
+        "error": {
+          "code": "TASK_SCHEMA_INVALID",
+          "message": "输入不符合Schema；字段路径见details。",
+          "component": "SchemaRegistry",
+          "requirement_ids": [
+            "SYS-001",
+            "SYS-006"
+          ],
+          "details": [
+            {
+              "pointer": "/",
+              "keyword": "required"
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "wrong_protection_policy",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_e9be0035-2f54-49d9-b0dc-a224e4bd76ca",
+        "error": {
+          "code": "TASK_SCHEMA_INVALID",
+          "message": "输入不符合Schema；字段路径见details。",
+          "component": "SchemaRegistry",
+          "requirement_ids": [
+            "SYS-001",
+            "SYS-006"
+          ],
+          "details": [
+            {
+              "pointer": "/route/protection_policy_id",
+              "keyword": "const"
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "duplicate_source_identity",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_081a8949-355f-45a7-886e-338438db5ec3",
+        "error": {
+          "code": "SOURCE_ID_DUPLICATE",
+          "message": "不同来源不能复用同一source_id。",
+          "component": "TaskSpec",
+          "requirement_ids": [
+            "SYS-001",
+            "GOV-007"
+          ],
+          "details": [
+            {
+              "pointer": "/sources"
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "provider_literal_secret",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_5b6887f9-c772-4e50-9b97-32c18b084dbf",
+        "error": {
+          "code": "TASK_SCHEMA_INVALID",
+          "message": "输入不符合Schema；字段路径见details。",
+          "component": "SchemaRegistry",
+          "requirement_ids": [
+            "SYS-001",
+            "SYS-006"
+          ],
+          "details": [
+            {
+              "pointer": "/providers/text",
+              "keyword": "additionalProperties"
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "nested_provider_secret",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_28f52964-2595-421c-b7c2-85c857d75937",
+        "error": {
+          "code": "PROVIDER_CREDENTIAL_LITERAL",
+          "message": "供应商凭据只允许引用环境变量名。",
+          "component": "TaskSpec",
+          "requirement_ids": [
+            "SYS-001"
+          ],
+          "details": [
+            {
+              "pointer": "/providers"
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "duplicate_JSON_key",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_459081c6-e9a3-46b0-b427-e227ba58e0b7",
+        "error": {
+          "code": "INPUT_JSON_INVALID",
+          "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
+          "component": "HTTP API",
+          "requirement_ids": [
+            "SYS-001",
+            "SYS-020"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "NaN",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_8a093ac3-1776-4088-b8cc-eb86317fdaaa",
+        "error": {
+          "code": "INPUT_JSON_INVALID",
+          "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
+          "component": "HTTP API",
+          "requirement_ids": [
+            "SYS-001",
+            "SYS-020"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "non_UTF8",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_b7a04a2c-12e2-4809-8e8f-0fa7d060be8c",
+        "error": {
+          "code": "INPUT_JSON_INVALID",
+          "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
+          "component": "HTTP API",
+          "requirement_ids": [
+            "SYS-001",
+            "SYS-020"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "bad_JSON",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_dd0bda62-d56f-44d0-bac4-6c5b52574f34",
+        "error": {
+          "code": "INPUT_JSON_INVALID",
+          "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
+          "component": "HTTP API",
+          "requirement_ids": [
+            "SYS-001",
+            "SYS-020"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "HTTP_body_limit",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_e6ed71be-a3e6-4dd2-b850-23f64ce1fc25",
+        "error": {
+          "code": "REQUEST_TOO_LARGE",
+          "message": "JSON任务超过4MiB入口限制；未执行任务。",
+          "component": "HTTP API",
+          "requirement_ids": [
+            "SYS-020"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "undefined_API_route",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_30acafb8-5da1-4a51-9992-6b6f97a7e8b1",
+        "error": {
+          "code": "HTTP_REQUEST_REJECTED",
+          "message": "不存在该接口或请求方法不受支持。",
+          "component": "HTTP API",
+          "requirement_ids": [
+            "SYS-020"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "undefined_CLI_command",
+      "passed": true,
+      "observed": {
+        "ok": false,
+        "trace_id": "trace_283ab39b-a238-4688-9f7b-d89bbc4a49b4",
+        "error": {
+          "code": "CLI_ARGUMENT_INVALID",
+          "message": "命令或参数无效；使用--help查看已实现命令。",
+          "component": "CLI",
+          "requirement_ids": [
+            "SYS-019"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "id": "capability_registration",
+      "passed": true,
+      "observed": {
+        "core_entries": 3,
+        "ppt_entries": 30,
+        "backends": 9,
+        "PPT_status_unchanged": true
+      }
+    },
+    {
+      "id": "offline_reference_only",
+      "passed": true,
+      "observed": "SCHEMA_REFERENCE_UNRESOLVED"
+    },
+    {
+      "id": "schema_hash_registry",
+      "passed": true,
+      "observed": {
+        "schemas": 48
+      }
+    }
+  ],
+  "runtime": {
+    "python": "3.13.16",
+    "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.36"
+  },
+  "task_schema_sha256": "02be2bc16d568d96b0a722b28be0643d12dc82307d8eb8ce366692d266609498",
+  "scope": "Docker core component and real CLI/HTTP checks; no model, generation, render, QA, revision or AC E2E acceptance.",
+  "status": "All five requirements/tasks remain in progress until their original E2E acceptance is satisfied.",
+  "installed_versions": {
+    "annotated-doc": "0.0.5",
+    "annotated-types": "0.8.0",
+    "anyio": "4.15.1",
+    "attrs": "26.1.0",
+    "click": "8.5.0",
+    "fastapi": "0.143.0",
+    "h11": "0.16.0",
+    "idna": "3.20",
+    "jsonschema": "4.26.0",
+    "jsonschema-specifications": "2025.9.1",
+    "opentelemetry-api": "1.45.1",
+    "pydantic": "2.14.0",
+    "pydantic_core": "2.50.0",
+    "referencing": "0.37.0",
+    "rpds-py": "2026.9.1",
+    "starlette": "1.7.0",
+    "typing-inspection": "0.4.4",
+    "typing_extensions": "4.16.0",
+    "uvicorn": "0.54.0"
+  },
+  "consumed_files": {
+    "src/yoloongppt/api.py": "0ece3e404821027126b9635303f3040d43ff1a702ed9536984f54b5db83d2111",
+    "src/yoloongppt/capabilities.py": "93ec89d7d751cbe95c4e26056a3995eb84dc58dc89a8f857b20161c86fccda3b",
+    "src/yoloongppt/errors.py": "877d710a888b55a173c3c376735c2796510d3b5733174fab02a37fff2d76f355",
+    "src/yoloongppt/jsonio.py": "7eede0b149d96093f63a9d0eaa9416b2acba2745535ef8fe76921a99323d8fb9",
+    "src/yoloongppt/schemas.py": "f58337c8a7199056b131b7e43f46e7d994804eab2a3889a38e9c8a6ed45071bb",
+    "src/yoloongppt/tasks.py": "e00553086474db58a632cfe0d3b042a53a37e8b6203694ff998b0d8dd4abcdaf",
+    "src/yoloongppt/__init__.py": "8bdb38ff28f3a548d91af566ff0637444a48c296386952e669f73a2b9f7aa90b",
+    "src/yoloongppt/__main__.py": "90dcec1ac05bb48e2b82fbdbd2ddabada1417bd66d55abe5c7f6d9b513ccdedb",
+    "contracts/task-spec.schema.json": "02be2bc16d568d96b0a722b28be0643d12dc82307d8eb8ce366692d266609498",
+    "contracts/capability-status.catalog.json": "cad7b23742d7b6d77a59f85bde9bf0d111bdb25bd62af1c3afe1079112e29f02",
+    "requirements.lock": "a7e8b86a0d8e9b5fcc34985f985e9d9cabeb476fdbf978588319db6a402f280d",
+    "runtime/dependencies.json": "3953a04660995e94bfe3a55c332914ea55c1b48e37c083f8affa1ad10b80dfe7",
+    "Dockerfile.app": "88bc4d44864e2ecdc56d66c74c7e6d80825a0a70bc36fa7fda7cd486458730b7",
+    "compose.yaml": "c51942282ca71e63e33a3ededce668c2ee32d14d5964de55d029a57973580b4e"
+  }
+}

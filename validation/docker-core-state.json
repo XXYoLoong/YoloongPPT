@@ -1,0 +1,29 @@
+{
+  "image_id": "sha256:9aafbfb474513dcf48ac1cdb56427e24535310c0d8edb1c7b7d587373e1c3e0d",
+  "user": "10001:10001",
+  "read_only": true,
+  "health": "healthy",
+  "ports": {
+    "8000/tcp": [
+      {
+        "HostIp": "127.0.0.1",
+        "HostPort": "8000"
+      }
+    ]
+  },
+  "mounts": [
+    {
+      "Source": "F:\\YoloongPPT",
+      "Destination": "/workspace",
+      "RW": false
+    },
+    {
+      "Source": "F:\\YoloongPPT\\runtime\\data",
+      "Destination": "/runtime",
+      "RW": true
+    }
+  ],
+  "docker_data_disk": "F:\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+  "tmp_bind": "/runtime/tmp",
+  "tmp_host": "F:\\YoloongPPT\\runtime\\data\\tmp"
+}

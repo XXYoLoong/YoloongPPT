@@ -1,7 +1,9 @@
 param(
     [Parameter(Mandatory = $true)]
     [ValidateSet('start', 'stop', 'restart', 'status', 'logs', 'shell')]
-    [string]$Action
+    [string]$Action,
+    [ValidateSet('app', 'workspace')]
+    [string]$Service = 'app'
 )
 
 $ErrorActionPreference = 'Stop'
@@ -16,6 +18,8 @@ New-Item -ItemType Directory -Force -Path $projectTempRoot | Out-Null
 $env:TEMP = $projectTempRoot
 $env:TMP = $projectTempRoot
 $env:TMPDIR = $projectTempRoot
+$runtimeTemp = Join-Path $projectRoot 'runtime\data\tmp'
+New-Item -ItemType Directory -Force -Path $runtimeTemp | Out-Null
 
 $dockerSettingsPath = Join-Path $env:APPDATA 'Docker\settings.json'
 if (-not (Test-Path -LiteralPath $dockerSettingsPath)) {
@@ -72,22 +76,22 @@ Push-Location $projectRoot
 try {
     switch ($Action) {
         'start' {
-            & $dockerPath --context $dockerContext compose up -d --build workspace
+            & $dockerPath --context $dockerContext compose up -d --build workspace app
         }
         'stop' {
             & $dockerPath --context $dockerContext compose down
         }
         'restart' {
-            & $dockerPath --context $dockerContext compose up -d --build --force-recreate workspace
+            & $dockerPath --context $dockerContext compose up -d --build --force-recreate workspace app
         }
         'status' {
             & $dockerPath --context $dockerContext compose ps
         }
         'logs' {
-            & $dockerPath --context $dockerContext compose logs --follow workspace
+            & $dockerPath --context $dockerContext compose logs --follow workspace app
         }
         'shell' {
-            & $dockerPath --context $dockerContext compose exec workspace bash
+            & $dockerPath --context $dockerContext compose exec $Service sh
         }
     }
 
