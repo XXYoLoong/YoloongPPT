@@ -1,0 +1,243 @@
+{
+  "schema_version": "pptagent.standalone.state.v1",
+  "renders": {
+    "slides": {
+      "slides/slide01.html": {
+        "inputs": {
+          "task": {
+            "slides": 6,
+            "aspect_ratio": "16:9",
+            "language": "zh"
+          },
+          "files": {
+            "slides/slide01.html": "63672c229b0207094c44293eef534708d091246f7a6e0db43f6901e22fbd488f"
+          }
+        },
+        "images": {
+          "qa/slides/slide01.jpg": "0229d07706112359f0f59ef49a5396dbe5800511e3196e4453028b4dab635d29"
+        }
+      },
+      "slides/slide02.html": {
+        "inputs": {
+          "task": {
+            "slides": 6,
+            "aspect_ratio": "16:9",
+            "language": "zh"
+          },
+          "files": {
+            "slides/slide02.html": "961b8d44f8d07a1ca970ac4947aac93a0333f98fdcc9f6a82118d66665a77396"
+          }
+        },
+        "images": {
+          "qa/slides/slide02.jpg": "51866570727768fb36c4e6ca16ec832c58c9f6ae56eb20df2ec5bab64290d5eb"
+        }
+      },
+      "slides/slide03.html": {
+        "inputs": {
+          "task": {
+            "slides": 6,
+            "aspect_ratio": "16:9",
+            "language": "zh"
+          },
+          "files": {
+            "slides/slide03.html": "d0a642886b7298a65faf561c1db4f366254e416d7838a921a8a586187f0eb3c9"
+          }
+        },
+        "images": {
+          "qa/slides/slide03.jpg": "f714331cfd8c1a3ceb1e11bb90bd37d99282f255e8122f54a3e3f3eded15727f"
+        }
+      },
+      "slides/slide04.html": {
+        "inputs": {
+          "task": {
+            "slides": 6,
+            "aspect_ratio": "16:9",
+            "language": "zh"
+          },
+          "files": {
+            "slides/slide04.html": "79d1bdce7368013386cf655122ecb29d1a9a35253af0dcb6b0f54c8a31edc3c7"
+          }
+        },
+        "images": {
+          "qa/slides/slide04.jpg": "d35abc2377dcb4380d064947a3f9111349dd9bff9b3fb6602873998e7cb6a583"
+        }
+      },
+      "slides/slide05.html": {
+        "inputs": {
+          "task": {
+            "slides": 6,
+            "aspect_ratio": "16:9",
+            "language": "zh"
+          },
+          "files": {
+            "slides/slide05.html": "797fcfa01946d2d9e4bc2c2e7b4b3b4007882d15c542f1140d84b7d9b49dfbe6"
+          }
+        },
+        "images": {
+          "qa/slides/slide05.jpg": "7bba458216722403bd747b0356ec4ea848062a2734ba77ab9387d52b60a7cebe"
+        }
+      },
+      "slides/slide06.html": {
+        "inputs": {
+          "task": {
+            "slides": 6,
+            "aspect_ratio": "16:9",
+            "language": "zh"
+          },
+          "files": {
+            "slides/slide06.html": "f956ece168310ccb69f7ba1d59d09162f51d24ff18c36337b242c252d57450b1"
+          }
+        },
+        "images": {
+          "qa/slides/slide06.jpg": "78ed0171d0c4db6b8963a6d6e39f3fe59e89075e8921d6af29ac0043b4d68547"
+        }
+      }
+    },
+    "deck": {}
+  },
+  "reviews": {
+    "slides": {
+      "slides/slide01.html": {
+        "verdict": "pass",
+        "summary": "Title, body, source and footer are readable with no clipping/overlap. Large middle gap and weak emphasis are minor composition limitations.",
+        "issues": [
+          {
+            "severity": "minor",
+            "slide": 1,
+            "description": "Large empty middle area and isolated source label.",
+            "suggested_fix": "Group source with footer and split the lead statement for emphasis."
+          }
+        ],
+        "ok": true,
+        "review_mode": "host",
+        "render": {
+          "inputs": {
+            "task": {
+              "slides": 6,
+              "aspect_ratio": "16:9",
+              "language": "zh"
+            },
+            "files": {
+              "slides/slide01.html": "63672c229b0207094c44293eef534708d091246f7a6e0db43f6901e22fbd488f"
+            }
+          },
+          "images": {
+            "qa/slides/slide01.jpg": "0229d07706112359f0f59ef49a5396dbe5800511e3196e4453028b4dab635d29"
+          }
+        }
+      },
+      "slides/slide02.html": {
+        "verdict": "pass",
+        "summary": "Requirement/task counts and chain/acceptance IDs are readable; body wraps safely to two lines with clear source/footer separation.",
+        "issues": [],
+        "ok": true,
+        "review_mode": "host",
+        "render": {
+          "inputs": {
+            "task": {
+              "slides": 6,
+              "aspect_ratio": "16:9",
+              "language": "zh"
+            },
+            "files": {
+              "slides/slide02.html": "961b8d44f8d07a1ca970ac4947aac93a0333f98fdcc9f6a82118d66665a77396"
+            }
+          },
+          "images": {
+            "qa/slides/slide02.jpg": "51866570727768fb36c4e6ca16ec832c58c9f6ae56eb20df2ec5bab64290d5eb"
+          }
+        }
+      },
+      "slides/slide03.html": {
+        "verdict": "pass",
+        "summary": "Full text-to-PPTX flow fits on a single readable line. Header, source and footer do not overlap; text flow is a simple diagram substitute.",
+        "issues": [],
+        "ok": true,
+        "review_mode": "host",
+        "render": {
+          "inputs": {
+            "task": {
+              "slides": 6,
+              "aspect_ratio": "16:9",
+              "language": "zh"
+            },
+            "files": {
+              "slides/slide03.html": "d0a642886b7298a65faf561c1db4f366254e416d7838a921a8a586187f0eb3c9"
+            }
+          },
+          "images": {
+            "qa/slides/slide03.jpg": "f714331cfd8c1a3ceb1e11bb90bd37d99282f255e8122f54a3e3f3eded15727f"
+          }
+        }
+      },
+      "slides/slide04.html": {
+        "verdict": "pass",
+        "summary": "QA and revision steps are fully visible and readable, source labels are legible, with no clipping or overlap.",
+        "issues": [],
+        "ok": true,
+        "review_mode": "host",
+        "render": {
+          "inputs": {
+            "task": {
+              "slides": 6,
+              "aspect_ratio": "16:9",
+              "language": "zh"
+            },
+            "files": {
+              "slides/slide04.html": "79d1bdce7368013386cf655122ecb29d1a9a35253af0dcb6b0f54c8a31edc3c7"
+            }
+          },
+          "images": {
+            "qa/slides/slide04.jpg": "d35abc2377dcb4380d064947a3f9111349dd9bff9b3fb6602873998e7cb6a583"
+          }
+        }
+      },
+      "slides/slide05.html": {
+        "verdict": "pass",
+        "summary": "P05 risk statements wrap to two lines without clipping/overlap; language accurately states risks rather than completed fixes.",
+        "issues": [],
+        "ok": true,
+        "review_mode": "host",
+        "render": {
+          "inputs": {
+            "task": {
+              "slides": 6,
+              "aspect_ratio": "16:9",
+              "language": "zh"
+            },
+            "files": {
+              "slides/slide05.html": "797fcfa01946d2d9e4bc2c2e7b4b3b4007882d15c542f1140d84b7d9b49dfbe6"
+            }
+          },
+          "images": {
+            "qa/slides/slide05.jpg": "7bba458216722403bd747b0356ec4ea848062a2734ba77ab9387d52b60a7cebe"
+          }
+        }
+      },
+      "slides/slide06.html": {
+        "verdict": "pass",
+        "summary": "All environment, branch and next-step text is visible over two lines; long branch identifier fits. Source/footer remain separate.",
+        "issues": [],
+        "ok": true,
+        "review_mode": "host",
+        "render": {
+          "inputs": {
+            "task": {
+              "slides": 6,
+              "aspect_ratio": "16:9",
+              "language": "zh"
+            },
+            "files": {
+              "slides/slide06.html": "f956ece168310ccb69f7ba1d59d09162f51d24ff18c36337b242c252d57450b1"
+            }
+          },
+          "images": {
+            "qa/slides/slide06.jpg": "78ed0171d0c4db6b8963a6d6e39f3fe59e89075e8921d6af29ac0043b4d68547"
+          }
+        }
+      }
+    },
+    "deck": {}
+  },
+  "build": {}
+}

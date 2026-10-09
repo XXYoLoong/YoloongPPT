@@ -1,0 +1,19 @@
+{
+  "phase": "build",
+  "command": [
+    "/artifacts/main-skill/.venv/bin/python",
+    "/artifacts/main-skill/scripts/pptagent.py",
+    "--config",
+    "/workspace/research/P02/config-host-review.yaml",
+    "build",
+    "--workspace",
+    "/workspace/research/P02/outputs/official-six"
+  ],
+  "returncode": 2,
+  "elapsed_seconds": 15.28,
+  "log": "validation/official-six-build-host.txt",
+  "result": {
+    "ok": false,
+    "error": "RuntimeError: Error: /workspace/research/P02/outputs/official-six/slides/slide01.html: Text box \"P02 官方 Skill 研究复现 · 第 1 页\" ends too close to bottom edge (0.40\" from bottom, minimum 0.5\" required)\n    at html2pptx (/artifacts/main-skill/.venv/lib/python3.11/site-packages/deeppresenter/html2pptx/html2pptx.js:2981:13)\n    at async run (/artifacts/main-skill/.venv/lib/python3.11/site-packages/deeppresenter/html2pptx/html2pptx_cli.js:117:5)\n"
+  }
+}

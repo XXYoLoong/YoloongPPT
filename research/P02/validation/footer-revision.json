@@ -1,0 +1,44 @@
+{
+  "reason": "official converter rejects footer at0.40in bottom margin; requires0.5in",
+  "evidence": "validation/official-six-build-host.json",
+  "change_type": "research example HTML revision, no upstream library/validator edit",
+  "changes": [
+    {
+      "path": "outputs/official-six/slides/slide01.html",
+      "before_sha256": "63672c229b0207094c44293eef534708d091246f7a6e0db43f6901e22fbd488f",
+      "after_sha256": "c966d9c210fdecc85feb2b81b0b405013d634fd0ae7d2ba3ded8f41f4e6f2c5f",
+      "change": "footer top 660px ->620px; content unchanged"
+    },
+    {
+      "path": "outputs/official-six/slides/slide02.html",
+      "before_sha256": "961b8d44f8d07a1ca970ac4947aac93a0333f98fdcc9f6a82118d66665a77396",
+      "after_sha256": "1014d46d2ca1a23162282d2f29b32fce0d4f04770bd8838dda8076fefaec2fa7",
+      "change": "footer top 660px ->620px; content unchanged"
+    },
+    {
+      "path": "outputs/official-six/slides/slide03.html",
+      "before_sha256": "d0a642886b7298a65faf561c1db4f366254e416d7838a921a8a586187f0eb3c9",
+      "after_sha256": "888124b814e2b4d7f1dd580bb981d3ca820e9e5fd89605547caf87a3d6803db6",
+      "change": "footer top 660px ->620px; content unchanged"
+    },
+    {
+      "path": "outputs/official-six/slides/slide04.html",
+      "before_sha256": "79d1bdce7368013386cf655122ecb29d1a9a35253af0dcb6b0f54c8a31edc3c7",
+      "after_sha256": "1068086750546a789439f972949ebd1e3c0a482b5ea46f8c95579339f3c0ed78",
+      "change": "footer top 660px ->620px; content unchanged"
+    },
+    {
+      "path": "outputs/official-six/slides/slide05.html",
+      "before_sha256": "797fcfa01946d2d9e4bc2c2e7b4b3b4007882d15c542f1140d84b7d9b49dfbe6",
+      "after_sha256": "034e20194e7ab51c0f0646543bef2a83d5b6198a27de0aee2a35eba03a616aed",
+      "change": "footer top 660px ->620px; content unchanged"
+    },
+    {
+      "path": "outputs/official-six/slides/slide06.html",
+      "before_sha256": "f956ece168310ccb69f7ba1d59d09162f51d24ff18c36337b242c252d57450b1",
+      "after_sha256": "dc5ad9d3cd218d353dfb344845488b6ff28f48e194d333a0743f9c4bec95d8e8",
+      "change": "footer top 660px ->620px; content unchanged"
+    }
+  ],
+  "next_required": "fresh render and host review before rebuild; old review state not forged"
+}

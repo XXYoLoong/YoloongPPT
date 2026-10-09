@@ -1,0 +1,106 @@
+{
+  "requirement_id": "RES-P02-01",
+  "scope": "expected real CLI failures; no model calls or forged workspace-state/review records",
+  "cases": [
+    {
+      "case": "reject-zero",
+      "arguments": [
+        "init",
+        "--workspace",
+        "/workspace/research/P02/outputs/workflow-probes/zero",
+        "--slides",
+        "0"
+      ],
+      "returncode": 2,
+      "result": {
+        "ok": false,
+        "error": "ValueError: slides must be positive"
+      },
+      "log": "validation/workflow-reject-zero.txt"
+    },
+    {
+      "case": "init-one",
+      "arguments": [
+        "init",
+        "--workspace",
+        "/workspace/research/P02/outputs/workflow-probes/one",
+        "--slides",
+        "1",
+        "--language",
+        "zh",
+        "--aspect-ratio",
+        "16:9"
+      ],
+      "returncode": 0,
+      "result": {
+        "ok": true,
+        "workspace": "/workspace/research/P02/outputs/workflow-probes/one",
+        "task": {
+          "slides": 1,
+          "aspect_ratio": "16:9",
+          "language": "zh"
+        }
+      },
+      "log": "validation/workflow-init-one.txt"
+    },
+    {
+      "case": "build-unreviewed",
+      "arguments": [
+        "build",
+        "--workspace",
+        "/workspace/research/P02/outputs/workflow-probes/one"
+      ],
+      "returncode": 2,
+      "result": {
+        "ok": false,
+        "error": "ValueError: missing or stale slide renders; run review-slides first"
+      },
+      "log": "validation/workflow-build-unreviewed.txt"
+    },
+    {
+      "case": "finalize-incomplete",
+      "arguments": [
+        "finalize",
+        "--workspace",
+        "/workspace/research/P02/outputs/workflow-probes/one"
+      ],
+      "returncode": 1,
+      "result": {
+        "ok": false,
+        "schema_version": "pptagent.standalone.final.v1",
+        "complete": false,
+        "delivery_ready": false,
+        "checks": {
+          "slide_html_count": true,
+          "slide_reviews_current": false,
+          "answer_exists": false,
+          "pptx_structure": false,
+          "build_current": false,
+          "deck_review_current": false
+        },
+        "artifact": null,
+        "artifact_sha256": null,
+        "slides": 0,
+        "aspect_ratio": "unknown"
+      },
+      "log": "validation/workflow-finalize-incomplete.txt"
+    },
+    {
+      "case": "init-existing",
+      "arguments": [
+        "init",
+        "--workspace",
+        "/workspace/research/P02/outputs/workflow-probes/one",
+        "--slides",
+        "1"
+      ],
+      "returncode": 2,
+      "result": {
+        "ok": false,
+        "error": "FileExistsError: refusing to replace /workspace/research/P02/outputs/workflow-probes/one/task.json; pass --force"
+      },
+      "log": "validation/workflow-init-existing.txt"
+    }
+  ],
+  "credential_values_persisted": false
+}

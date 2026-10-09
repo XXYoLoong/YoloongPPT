@@ -1,0 +1,29 @@
+{
+  "phase": "review-slides",
+  "command": [
+    "/artifacts/main-skill/.venv/bin/python",
+    "/artifacts/main-skill/scripts/pptagent.py",
+    "--config",
+    "/workspace/research/P02/config-host-review.yaml",
+    "review-slides",
+    "--workspace",
+    "/workspace/research/P02/outputs/official-six"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 23.01,
+  "log": "validation/official-six-slides-host-v2.txt",
+  "result": {
+    "ok": true,
+    "renders": [
+      "qa/slides/slide01.jpg",
+      "qa/slides/slide02.jpg",
+      "qa/slides/slide03.jpg",
+      "qa/slides/slide04.jpg",
+      "qa/slides/slide05.jpg",
+      "qa/slides/slide06.jpg"
+    ],
+    "count": 6,
+    "review_mode": "host",
+    "instruction": "Inspect every render with the host image viewer, then call record-slide-review for each current slide."
+  }
+}

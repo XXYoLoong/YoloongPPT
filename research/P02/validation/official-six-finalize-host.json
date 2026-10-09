@@ -1,0 +1,33 @@
+{
+  "phase": "finalize",
+  "command": [
+    "/artifacts/main-skill/.venv/bin/python",
+    "/artifacts/main-skill/scripts/pptagent.py",
+    "--config",
+    "/workspace/research/P02/config-host-review.yaml",
+    "finalize",
+    "--workspace",
+    "/workspace/research/P02/outputs/official-six"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 0.98,
+  "log": "validation/official-six-finalize-host.txt",
+  "result": {
+    "ok": true,
+    "schema_version": "pptagent.standalone.final.v1",
+    "complete": true,
+    "delivery_ready": true,
+    "checks": {
+      "slide_html_count": true,
+      "slide_reviews_current": true,
+      "answer_exists": true,
+      "pptx_structure": true,
+      "build_current": true,
+      "deck_review_current": true
+    },
+    "artifact": "answer.pptx",
+    "artifact_sha256": "eb90a46c983c15c09d02de5bccdd171b33ed39c22d12e7a9f912580ecd7b7b1b",
+    "slides": 6,
+    "aspect_ratio": "16:9"
+  }
+}

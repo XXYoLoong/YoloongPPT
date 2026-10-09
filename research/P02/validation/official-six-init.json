@@ -1,0 +1,30 @@
+{
+  "phase": "init",
+  "command": [
+    "/artifacts/main-skill/.venv/bin/python",
+    "/artifacts/main-skill/scripts/pptagent.py",
+    "--config",
+    "/workspace/research/P02/config-deepseek.yaml",
+    "init",
+    "--workspace",
+    "/workspace/research/P02/outputs/official-six",
+    "--slides",
+    "6",
+    "--language",
+    "zh",
+    "--aspect-ratio",
+    "16:9"
+  ],
+  "returncode": 0,
+  "elapsed_seconds": 1.06,
+  "log": "validation/official-six-init.txt",
+  "result": {
+    "ok": true,
+    "workspace": "/workspace/research/P02/outputs/official-six",
+    "task": {
+      "slides": 6,
+      "aspect_ratio": "16:9",
+      "language": "zh"
+    }
+  }
+}

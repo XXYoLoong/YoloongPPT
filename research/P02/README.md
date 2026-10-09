@@ -3,7 +3,7 @@
 ## 任务与范围
 
 - Requirement ID：`RES-P02-01`
-- Task ID：`TASK-RES-P02-01`
+- Task ID：`TASK-RES-P02-01`、`VERIFY-RES-P02-01`
 - 研究目的：固定上游源码 refs，记录依赖锁、环境条件和许可证，并复现官方最小流程。
 - 本文只记录 PPTAgent / DeepPresenter 上游；不把其运行时、语言或后端选为 YoloongPPT 产品架构。
 
@@ -61,7 +61,31 @@ git -C F:\YoloongPPT-Research\P02 rev-parse HEAD
 - 2026-10-08 复核时发现 Docker service/WSL 发行版一度停止。核实 `wslEngineEnabled=True`、`CustomWslDistroDir=F:\DockerDesktopWSL` 和 F 盘 VHDX 后，恢复 Docker Desktop；Engine 版本 `27.4.0`、`DockerRootDir=/var/lib/docker`。随后用 `scripts/project.ps1 -Action start` 启动 `yoloongppt-workspace-1`，并恢复 `yoloongppt-p02-research`；两个容器与研究数据的宿主挂载均位于 F 盘。设置中 `DataFolder=C:\ProgramData\DockerDesktop\vm-data` 仍保留；当前启用的 WSL 后端使用 F 盘 WSL 磁盘，这一点由设置与实际 VHDX/挂载路径共同确认。未在 C 盘写入项目文件、研究数据或 Docker 容器数据。
 - 可追溯证据：`research/P02/validation/environment-main-skill.txt`、`research/P02/validation/packages-freeze-main-skill.txt`、`research/P02/validation/verify-res-p02-01.json`、`research/P02/scripts/`。原始实验目录位于仓库外 `F:\YoloongPPT-Research\P02-official-smoke`，Docker 可写层和 Docker 数据盘也在 F 盘。
 
-因此源码 refs、依赖清单和上游主许可证已核对；隔离容器安装、官方 doctor 与基础浏览器 smoke 已通过，但模型驱动的生成与视觉审查仍未执行，`ProjectBaseline` 尚未通过，`TASK-RES-P02-01` 与 `VERIFY-RES-P02-01` 保持进行中。2026-10-09 已使用系统 DEEPSEEK_API_KEY 完成鉴权 /models 查询：deepseek-flash 报告 text/image 输入，deepseek-v4-pro 仅 text。见 validation/deepseek-models.json；查询不等于推理或生成通过。下一步按官方 main Skill 六页 HTML、review-slides、build、review-deck、finalize 执行，模型使用范围以实际响应判定。官方接口说明见 [DeepSeek 模型列表](https://api-docs.deepseek.com/api/list-models/)。
+上述安装记录是当时的历史范围。2026-10-09 已完成下述真实模型创作与官方主机审查流程，`TASK-RES-P02-01` 与 `VERIFY-RES-P02-01` 按候选研究验收收尾；P02-02/03/04/05 仍待交付源码映射。DeepSeek /models 查询只作为发现证据，实际推理结果单独保留。
+
+## 六页官方生成与审查（2026-10-09 收尾）
+
+固定 main Skill 的角色是主机创作 HTML，CLI 负责渲染、原生转换、状态/审查门控。此次用用户授权的 `DEEPSEEK_API_KEY` 调用 `deepseek-flash` 生成六页中文 HTML（非 mock），保留公开内容、提示、请求 ID、usage 与 hash；不保存私有 reasoning 或密钥值。模型创作 8.32 秒、3,056 completion tokens；内容来自已有矩阵/目标与 P05 研究事实，不含联网推测。API 请求格式按官方 [Chat Completions](https://api-docs.deepseek.com/api/create-chat-completion/) 和 [JSON Output](https://api-docs.deepseek.com/guides/json_mode/)；图像输入按 [Vision](https://api-docs.deepseek.com/guides/vision/)。
+
+| 环节 | 实际结果与范围 |
+|---|---|
+| init + 模型创作 | 6页/16:9/中文；author-run.json、author-response.json、author-prompts.json |
+| 外部 text-mode review-slides | 两次退出2；真实图像请求有响应，但 issue.slide 返回字符串 `"01"`，违反原正整数校验；响应记录保留。没有强转、删除issue或放宽validator |
+| 官方默认 multimodal 路线 | 显式切换 config-host-review.yaml；主机逐页查看六张HTML JPG，再经官方 record-slide-review记录。外部JSON接口仍未通过 |
+| 首次 build | 退出2：footer距底0.40英寸，小于写入器0.5英寸；HTML可见不等于转换有效 |
+| 源码修订与重新审查 | 六页footer top660→620px；旧渲染/状态保存source-v1，所有六页重新渲染和逐页查看，再记录当前review；固定上游未修改 |
+| 第二次 build + review-deck | 6页PPTX写出；LibreOffice→PDF→PyMuPDF6张JPG；查看两张contact覆盖六页，并复核第2/6页原图，无可见裁切/重叠 |
+| finalize | 严格模式complete=true，六个check均真；仅是上游Skill候选研究，不代表产品验收 |
+| 结构/失效边界 | 每页5个原生文字shape；每页5项HTML正文全部在OOXML a:t中；在真实完整任务副本修改一页HTML后finalize退出1，build_current与slide_reviews_current为false，原正常任务不变 |
+| 输入/失败门控 | zero slides/init overwrite/missing render→退出2；无PPTX的finalize→退出1。真实错误及日志见workflow-probes.json |
+
+产物：[answer.pptx](outputs/official-six/answer.pptx)，SHA-256 `eb90a46c983c15c09d02de5bccdd171b33ed39c22d12e7a9f912580ecd7b7b1b`；[final-report.json](outputs/official-six/final-report.json)、[完整核验](validation/verify-official-six.json)。版式单一/空白多的minor限制保留；没验证图片、原生chart/table/全部对象、PowerPoint打开、历史tag运行或产品AC。HTML源修订是全量重建，不是保真原位PPTX编辑。
+
+实际转换依赖是requirements固定的pptagent1.1.37，未替换为论文tag1.1.38。installed converter及webview源码hash见converter-source.json。系统Node观测18.20.4，但官方node_environment将Playwright driver置于PATH前端，**实际build使用Node24.18.1**；这是候选环境记录，仍不构成产品技术选型。
+
+复现使用既有F盘容器与固定Skill。新建独立workspace后按官方init，复制已保存的六份真实模型HTML（或用相同公开prompt重新调用授权模型），执行review-slides；必须实际看每页再record-slide-review，build后review-deck并看contact，再record-deck-review与finalize。脚本official-six-step.py保存本次命令/日志；verify-six.py核对当前实物并在独立副本测试过期源门控，脚本中的副本目录应首次不存在。不能重用本次pass标记去认可不同输入。
+
+本任务执行脚本使用HOME=/artifacts/home、TMPDIR=/artifacts/tmp、PLAYWRIGHT_BROWSERS_PATH=/artifacts/cache/ms-playwright，所有挂载和Docker可写数据都在F盘；产品代码/compose未改变。下一工作包复用这些实物与当前已读源码，建立P02调用链、决策、模板和能力边界，明确main Skill与1.1.37依赖的职责；不再重复安装或整个生成流程。
 
 ## 固定来源
 

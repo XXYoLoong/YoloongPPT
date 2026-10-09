@@ -1,0 +1,16 @@
+{
+  "phase": "review-slides",
+  "command": [
+    "/artifacts/main-skill/.venv/bin/python",
+    "/workspace/research/P02/scripts/trace-official-cli.py",
+    "review-slides",
+    "slides-traced"
+  ],
+  "returncode": 2,
+  "elapsed_seconds": 26.71,
+  "log": "validation/official-six-slides-traced.txt",
+  "result": {
+    "ok": false,
+    "error": "ValueError: each issue must identify a positive slide number"
+  }
+}

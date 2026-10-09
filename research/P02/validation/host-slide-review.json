@@ -1,0 +1,13 @@
+{
+  "reviewer": "Codex host image viewer, six individual 1280x720 rendered JPGs inspected",
+  "scope": "HTML rendered appearance; no PowerPoint/export/fact QA claim",
+  "common_minor": "Six pages use a similar sparse text layout; the model did not realize all requested layout variety. Retained as an authoring limitation, not an absence of readability.",
+  "reviews": [
+    {"slide": 1, "verdict": "pass", "summary": "Title, body, source and footer are readable with no clipping/overlap. Large middle gap and weak emphasis are minor composition limitations.", "issues": [{"severity":"minor","slide":1,"description":"Large empty middle area and isolated source label.","suggested_fix":"Group source with footer and split the lead statement for emphasis."}]},
+    {"slide": 2, "verdict": "pass", "summary": "Requirement/task counts and chain/acceptance IDs are readable; body wraps safely to two lines with clear source/footer separation.", "issues": []},
+    {"slide": 3, "verdict": "pass", "summary": "Full text-to-PPTX flow fits on a single readable line. Header, source and footer do not overlap; text flow is a simple diagram substitute.", "issues": []},
+    {"slide": 4, "verdict": "pass", "summary": "QA and revision steps are fully visible and readable, source labels are legible, with no clipping or overlap.", "issues": []},
+    {"slide": 5, "verdict": "pass", "summary": "P05 risk statements wrap to two lines without clipping/overlap; language accurately states risks rather than completed fixes.", "issues": []},
+    {"slide": 6, "verdict": "pass", "summary": "All environment, branch and next-step text is visible over two lines; long branch identifier fits. Source/footer remain separate.", "issues": []}
+  ]
+}

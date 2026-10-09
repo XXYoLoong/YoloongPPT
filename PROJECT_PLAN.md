@@ -30,7 +30,7 @@
 ## 2026-10-09 纠偏后的当前工作
 
 - 审计基线：需求完成 14/308、进行中 55、未开始 239；任务完成 21/453、进行中 59、未开始 373；AC 0/30 执行。数字对应审计前 HEAD `171fc08`，不自动当作后续实时进度。详情见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
-- 已收尾 TASK/VERIFY-RES-P04-04、TASK/VERIFY-RES-P04-05：5模板/8布局数据、30对象与QA/修订边界，禁网正常/边界/失败探针通过；真实发现高度截断和图表/演讲稿未消费，不代表产品能力通过。RES-P01-05 已按下述记录收尾；P05-01–05 的候选研究已完成，负面发现如实保留。下一主工作包为 P02 官方六页模型生成与审查，凭据与模型发现已解阻。
+- 已收尾 TASK/VERIFY-RES-P04-04、TASK/VERIFY-RES-P04-05、RES-P01-05 和 P05-01–05 候选研究。P02-01 已完成真实DeepSeek六页HTML创作、官方主机审查/导出/finalize；外部text-mode JSON接口失败、footer修订与source失效门控如实留证。下一主工作包为 P02-02/03/04/05 四份源码映射，复用本次实物和已读源码，不重复安装/生成。
 - 后续关键依赖：P02/P05 剩余研究 → RES-031 → RES-032 和决策实现；RES-033 按原依赖交付。SYS-001/SYS-007 等无研究前置的准备可独立推进，但未经过真实 E2E 不标为完成。
 - 不增加另一份需求状态台账；以下历史条目保留，若与矩阵或后来证据冲突，先核对对应原行和制品并在相关工作包修正。
 
@@ -274,6 +274,16 @@
 - 证据：`research/P05/ProjectDecisionMap.json`、`ProjectTemplateMap.json`、`ProjectCapabilityMap.json`、`validation/maps-probes.json`、`validation/verify-res-p05-03-05.json` 与 `probe-boundaries.py`。本轮新对象只做结构检查，已有严格 QA27告警/低对比结论继续保留；未做真实模型/PowerPoint/完整对象编辑验收，未改上游源码或裁定许可。
 - 矩阵：主表 N34:P36、任务 L58:M63；仅21个状态/证据单元格变化，20工作表的原值/公式及功能存在性保持，30 AC仍未执行。当前需求22完成/53进行中/233未开始，任务37完成/56进行中/360未开始。
 - 下一动作：读取 RES-P02-01–05 原行及官方固定 Skill；用用户授权的 DEEPSEEK_API_KEY 在现有 F: Docker 研究环境执行真实六页内容创作→检查→render→vision review→修改→PPTX 导出，完成官方生成证据后同一源码阅读收齐 P02 剩余四项映射。模型 text/image 元数据已核验，实际图像推理仍须实测，不能以模型发现成功替代生成。
+
+### TASK/VERIFY-RES-P02-01（2026-10-09 收尾）
+
+- 状态：候选基线研究完成，固定main 833cda553b343be0e486a93b0b57cac962cdd566、两个paper tag与原安装环境复用；resolve依赖pptagent1.1.37保持，不替换为tag1.1.38，环境版本仍非产品选型。
+- 真模型：DeepSeek系统环境变量按授权传入docker exec进程，公开prompt生成6页1280×720中文HTML；API文本推理通过。官方text-mode图像请求实际响应，但两次issue.slide="01"类型不合规→退出2。保持validator，显式使用官方默认multimodal主机审查；该外部JSON接口仍Partial。
+- 官方链路：init→review-slides→逐页查看/record→build→review-deck→查看两contact及第2/6原图/record→finalize。首次footer0.40in违反0.5in限制；六页源footer660→620px后fresh render/review/build；最终strict complete=true，六check真。
+- 实物：answer.pptx SHA eb90a46c983c15c09d02de5bccdd171b33ed39c22d12e7a9f912580ecd7b7b1b，6页各5原生文字shape，每页5项HTML文字都在a:t中；6张导出图、2contact、原/修订源与状态/日志保留。构建实际Node24.18.1（Playwright driver PATH），系统Node18.20.4只作为环境观测。
+- 边界/失败：0页/未渲染build/已有task覆盖均拒绝2，无输出finalize拒绝1；真实完整副本改一页源后finalize拒绝1，review_current/build_current为false；原任务不变。没运行PowerPoint打开、历史tag、完整对象或产品AC，版式较单一的minor问题保留。
+- 证据：research/P02/validation/verify-official-six.json、author-run.json、visual-slides-traced-01.json、workflow-probes.json、footer-revision.json、outputs/official-six/final-report.json与PPTX。主表N17:P17、任务L24:M25仅7格更新，其他内容/公式/工作表功能保持，AC30未执行。
+- 下一动作：按已读main Skill源码及实际1.1.37 converter定位调用链/Prompt/Schema/决策/模板/30对象和QA/revision边界；补测仅限缺失证据，交付RES-P02-02/03/04/05，之后进入RES-031横向比较。
 
 ### TASK-IN-001
 
