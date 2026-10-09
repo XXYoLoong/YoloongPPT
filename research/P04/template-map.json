@@ -1,0 +1,1194 @@
+{
+  "project": "P04",
+  "commit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+  "license": "MIT © peterfei；上游 LICENSE hash 7e5fa1c85294d445491eeb8cc1f72d8fb53d619d0613604831d499c60d63afb2",
+  "scope": "候选上游研究；不更新 YoloongPPT 产品 CapabilityStatus",
+  "source_modules": [
+    {
+      "path": "src/core/template/template-manager.ts",
+      "sha256": "5ad5179bb922368c07f5f43bb49b96b2811f9145c87469b7686a556330aaf1fc",
+      "lines": [
+        1,
+        91
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/template/template-manager.ts"
+    },
+    {
+      "path": "src/core/engine/layout-loader.ts",
+      "sha256": "df6b416f53f12a38dee14eef029cd4038c56e5cacd7451edb399e5ecff59d74d",
+      "lines": [
+        1,
+        133
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/engine/layout-loader.ts"
+    },
+    {
+      "path": "src/core/engine/slide-renderer.ts",
+      "sha256": "6f3502c59aadf0a547c27090e13e676bb46c9b1891a66b55b217e8167f451d6a",
+      "lines": [
+        1,
+        73
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/engine/slide-renderer.ts"
+    },
+    {
+      "path": "src/core/engine/pptx-builder.ts",
+      "sha256": "4d3a72da5cc1a142b2226df94ef6d17cab0d9f44e1e854a85bd8d5c53f81c1e1",
+      "lines": [
+        1,
+        279
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/engine/pptx-builder.ts"
+    },
+    {
+      "path": "src/core/engine/ppt-adapter.ts",
+      "sha256": "d703956c1c1f2faac6c7e9d9e16645a7bd042f7428a126ec0afe24f372da62a4",
+      "lines": [
+        1,
+        188
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/engine/ppt-adapter.ts"
+    },
+    {
+      "path": "src/core/engine/pure-layout.ts",
+      "sha256": "c051e2e6e23742fd83e383086002bddb170ced23a47ee78ddb5ba123328bbc26",
+      "lines": [
+        1,
+        584
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/engine/pure-layout.ts"
+    },
+    {
+      "path": "src/types/config.ts",
+      "sha256": "c4393d806588de762fe56b6ebf97da00635486af2ab0fdc76e4149ec0b412dfb",
+      "lines": [
+        1,
+        115
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/types/config.ts"
+    },
+    {
+      "path": "src/commands/create.ts",
+      "sha256": "1729875ba1e88ed0b2e5f13e6b80c31da7d0e20fe918388df3f9be5db65d91b8",
+      "lines": [
+        1,
+        588
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/commands/create.ts"
+    }
+  ],
+  "requirement_id": "RES-P04-04",
+  "templates": [
+    {
+      "id": "business",
+      "source": {
+        "path": "src/templates/business/template.json",
+        "sha256": "4ad11c6a98ed774c487c2cb1401b09ae3d4f40fa351a713a9ddbe483fb88bbf1",
+        "lines": [
+          1,
+          26
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/templates/business/template.json"
+      },
+      "definition": {
+        "name": "business",
+        "description": "Business presentation template with professional blue theme",
+        "colors": {
+          "primary": "#1B3A5C",
+          "secondary": "#2C5F8A",
+          "accent": "#D4A843",
+          "background": "#FFFFFF",
+          "text": "#2D2D2D",
+          "codeBg": "#F5F5F5"
+        },
+        "fonts": {
+          "title": "Arial",
+          "body": "Arial",
+          "code": "Courier New",
+          "fallback": "sans-serif"
+        },
+        "spacing": {
+          "titleSize": "40pt",
+          "subtitleSize": "26pt",
+          "bodySize": "18pt",
+          "lineHeight": "1.6",
+          "paragraphSpacing": "14pt"
+        },
+        "slideSize": {
+          "width": 13.33,
+          "height": 7.5
+        }
+      },
+      "applicability": "可供 CLI --template 选择的颜色/字体/尺寸配置，不是导入 PPTX master/layout",
+      "inheritance": "没有 extends 或父模板；调用端把配置作为 vars 传给 LayoutLoader/SlideRenderer",
+      "capacity": "模板无最大字数、项目数或内容预算字段；PPTXBuilder 按 slideSize 估算高度并停止写入"
+    },
+    {
+      "id": "education",
+      "source": {
+        "path": "src/templates/education/template.json",
+        "sha256": "23e37cdc5942e9750a5e191ca581b39559cb590806098b13b23941930e67ef38",
+        "lines": [
+          1,
+          26
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/templates/education/template.json"
+      },
+      "definition": {
+        "name": "education",
+        "description": "Education presentation template with structured clear layout",
+        "colors": {
+          "primary": "#2B5797",
+          "secondary": "#3A7BD5",
+          "accent": "#E74C3C",
+          "background": "#FFFFFF",
+          "text": "#333333",
+          "codeBg": "#F8F8F8"
+        },
+        "fonts": {
+          "title": "Arial",
+          "body": "Arial",
+          "code": "Courier New",
+          "fallback": "sans-serif"
+        },
+        "spacing": {
+          "titleSize": "38pt",
+          "subtitleSize": "24pt",
+          "bodySize": "18pt",
+          "lineHeight": "1.7",
+          "paragraphSpacing": "14pt"
+        },
+        "slideSize": {
+          "width": 13.33,
+          "height": 7.5
+        }
+      },
+      "applicability": "可供 CLI --template 选择的颜色/字体/尺寸配置，不是导入 PPTX master/layout",
+      "inheritance": "没有 extends 或父模板；调用端把配置作为 vars 传给 LayoutLoader/SlideRenderer",
+      "capacity": "模板无最大字数、项目数或内容预算字段；PPTXBuilder 按 slideSize 估算高度并停止写入"
+    },
+    {
+      "id": "pitch",
+      "source": {
+        "path": "src/templates/pitch/template.json",
+        "sha256": "01e4c8f40206cb60e5fcd3df10741be79cae1bc99bb6ce8eb2290ed8f5517005",
+        "lines": [
+          1,
+          26
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/templates/pitch/template.json"
+      },
+      "definition": {
+        "name": "pitch",
+        "description": "Pitch deck template with minimal impactful design",
+        "colors": {
+          "primary": "#1A1A1A",
+          "secondary": "#4A4A4A",
+          "accent": "#FF6B35",
+          "background": "#FFFFFF",
+          "text": "#1A1A1A",
+          "codeBg": "#F0F0F0"
+        },
+        "fonts": {
+          "title": "Arial",
+          "body": "Arial",
+          "code": "Courier New",
+          "fallback": "sans-serif"
+        },
+        "spacing": {
+          "titleSize": "48pt",
+          "subtitleSize": "30pt",
+          "bodySize": "20pt",
+          "lineHeight": "1.5",
+          "paragraphSpacing": "16pt"
+        },
+        "slideSize": {
+          "width": 13.33,
+          "height": 7.5
+        }
+      },
+      "applicability": "可供 CLI --template 选择的颜色/字体/尺寸配置，不是导入 PPTX master/layout",
+      "inheritance": "没有 extends 或父模板；调用端把配置作为 vars 传给 LayoutLoader/SlideRenderer",
+      "capacity": "模板无最大字数、项目数或内容预算字段；PPTXBuilder 按 slideSize 估算高度并停止写入"
+    },
+    {
+      "id": "report",
+      "source": {
+        "path": "src/templates/report/template.json",
+        "sha256": "75ea3f6aeafd35885d874c7370e8726c9a79e0217379b04bde3e702883648096",
+        "lines": [
+          1,
+          26
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/templates/report/template.json"
+      },
+      "definition": {
+        "name": "report",
+        "description": "Report presentation template with data-driven professional style",
+        "colors": {
+          "primary": "#2C3E50",
+          "secondary": "#34495E",
+          "accent": "#27AE60",
+          "background": "#FFFFFF",
+          "text": "#2C3E50",
+          "codeBg": "#ECF0F1"
+        },
+        "fonts": {
+          "title": "Arial",
+          "body": "Arial",
+          "code": "Courier New",
+          "fallback": "sans-serif"
+        },
+        "spacing": {
+          "titleSize": "36pt",
+          "subtitleSize": "24pt",
+          "bodySize": "17pt",
+          "lineHeight": "1.6",
+          "paragraphSpacing": "12pt"
+        },
+        "slideSize": {
+          "width": 13.33,
+          "height": 7.5
+        }
+      },
+      "applicability": "可供 CLI --template 选择的颜色/字体/尺寸配置，不是导入 PPTX master/layout",
+      "inheritance": "没有 extends 或父模板；调用端把配置作为 vars 传给 LayoutLoader/SlideRenderer",
+      "capacity": "模板无最大字数、项目数或内容预算字段；PPTXBuilder 按 slideSize 估算高度并停止写入"
+    },
+    {
+      "id": "tech",
+      "source": {
+        "path": "src/templates/tech/template.json",
+        "sha256": "d7888400a2d0c43b7868d734abb0c67f89cc92861017f1b9dc75573080922f39",
+        "lines": [
+          1,
+          26
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/templates/tech/template.json"
+      },
+      "definition": {
+        "name": "tech",
+        "description": "Technology presentation template with dark theme",
+        "colors": {
+          "primary": "#1a1a2e",
+          "secondary": "#16213e",
+          "accent": "#0f3460",
+          "background": "#ffffff",
+          "text": "#333333",
+          "codeBg": "#1e1e1e"
+        },
+        "fonts": {
+          "title": "Arial",
+          "body": "Arial",
+          "code": "Courier New",
+          "fallback": "sans-serif"
+        },
+        "spacing": {
+          "titleSize": "44pt",
+          "subtitleSize": "28pt",
+          "bodySize": "18pt",
+          "lineHeight": "1.5",
+          "paragraphSpacing": "12pt"
+        },
+        "slideSize": {
+          "width": 13.33,
+          "height": 7.5
+        }
+      },
+      "applicability": "可供 CLI --template 选择的颜色/字体/尺寸配置，不是导入 PPTX master/layout",
+      "inheritance": "没有 extends 或父模板；调用端把配置作为 vars 传给 LayoutLoader/SlideRenderer",
+      "capacity": "模板无最大字数、项目数或内容预算字段；PPTXBuilder 按 slideSize 估算高度并停止写入"
+    }
+  ],
+  "layouts": [
+    {
+      "id": "bullet",
+      "source": {
+        "path": "src/layouts/bullet.layout.json",
+        "sha256": "fbce1e4a60cf8facd2ef21d9f82daeee179323e74d68435f6f5c8a2558427dd1",
+        "lines": [
+          1,
+          36
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/layouts/bullet.layout.json"
+      },
+      "definition": {
+        "name": "bullet",
+        "description": "Bullet points slide with title and indented list",
+        "root": {
+          "tagName": "div",
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "width": "100%",
+            "height": "100%",
+            "padding": "50px 70px"
+          },
+          "children": [
+            {
+              "tagName": "h2",
+              "slot": "title",
+              "style": {
+                "fontSize": "34pt",
+                "fontWeight": "bold",
+                "color": "{{colors.primary}}",
+                "marginBottom": "36px"
+              }
+            },
+            {
+              "tagName": "ul",
+              "slot": "bulletPoints",
+              "style": {
+                "fontSize": "20pt",
+                "lineHeight": "2.0",
+                "color": "{{colors.text}}",
+                "paddingLeft": "30px"
+              }
+            }
+          ]
+        }
+      },
+      "slots": [
+        {
+          "node_path": "root.children[0]",
+          "name": "title",
+          "tag": "h2",
+          "geometry_and_style": {
+            "fontSize": "34pt",
+            "fontWeight": "bold",
+            "color": "{{colors.primary}}",
+            "marginBottom": "36px"
+          }
+        },
+        {
+          "node_path": "root.children[1]",
+          "name": "bulletPoints",
+          "tag": "ul",
+          "geometry_and_style": {
+            "fontSize": "20pt",
+            "lineHeight": "2.0",
+            "color": "{{colors.text}}",
+            "paddingLeft": "30px"
+          }
+        }
+      ],
+      "tokens": [
+        "colors.primary",
+        "colors.text"
+      ],
+      "geometry": {
+        "declared": "CSS 属性，根 100%/100% 与 px padding；完整原值在 definition 中",
+        "topic_execution": "PPTXBuilder 扁平化后按 inch 游标顺序排布，不执行 flex 列布局",
+        "html_execution": "单独 PureLayout 按 1280x720 计算 px，PPTAdapter 按 slideHeight/720 转 inch"
+      },
+      "capacity": {
+        "declared_limit": null,
+        "runtime": "margin=0.8inch, top=0.9inch, bottom=height-0.5；字符宽度估计/CJK启发式；shrinkText；高度耗尽 break，无 ContentBudget/拆页报告"
+      },
+      "inheritance": "变量替换；topic 扁平化时祖先 style 与本节点 style 合并。无 PPT placeholder/master inheritance。未知变量保留原占位符。",
+      "applicability": {
+        "declared_page_type": "bullet",
+        "actual_consumed_slots": [
+          "title",
+          "bulletPoints"
+        ],
+        "limits": "chartData/timelineData/comparisonItems 没有 SLOT_MAP 提取器；名称不证明原生图表、时间线或两栏布局。"
+      }
+    },
+    {
+      "id": "chart",
+      "source": {
+        "path": "src/layouts/chart.layout.json",
+        "sha256": "0b8bbfccba26ea441b5019691ef7c49aa1720f215170740f6bd938c290042927",
+        "lines": [
+          1,
+          36
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/layouts/chart.layout.json"
+      },
+      "definition": {
+        "name": "chart",
+        "description": "Chart slide with title and description area",
+        "root": {
+          "tagName": "div",
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "width": "100%",
+            "height": "100%",
+            "padding": "50px 70px"
+          },
+          "children": [
+            {
+              "tagName": "h2",
+              "slot": "title",
+              "style": {
+                "fontSize": "34pt",
+                "fontWeight": "bold",
+                "color": "{{colors.primary}}",
+                "marginBottom": "30px"
+              }
+            },
+            {
+              "tagName": "ul",
+              "slot": "bulletPoints",
+              "style": {
+                "fontSize": "20pt",
+                "lineHeight": "2.0",
+                "color": "{{colors.text}}",
+                "paddingLeft": "30px"
+              }
+            }
+          ]
+        }
+      },
+      "slots": [
+        {
+          "node_path": "root.children[0]",
+          "name": "title",
+          "tag": "h2",
+          "geometry_and_style": {
+            "fontSize": "34pt",
+            "fontWeight": "bold",
+            "color": "{{colors.primary}}",
+            "marginBottom": "30px"
+          }
+        },
+        {
+          "node_path": "root.children[1]",
+          "name": "bulletPoints",
+          "tag": "ul",
+          "geometry_and_style": {
+            "fontSize": "20pt",
+            "lineHeight": "2.0",
+            "color": "{{colors.text}}",
+            "paddingLeft": "30px"
+          }
+        }
+      ],
+      "tokens": [
+        "colors.primary",
+        "colors.text"
+      ],
+      "geometry": {
+        "declared": "CSS 属性，根 100%/100% 与 px padding；完整原值在 definition 中",
+        "topic_execution": "PPTXBuilder 扁平化后按 inch 游标顺序排布，不执行 flex 列布局",
+        "html_execution": "单独 PureLayout 按 1280x720 计算 px，PPTAdapter 按 slideHeight/720 转 inch"
+      },
+      "capacity": {
+        "declared_limit": null,
+        "runtime": "margin=0.8inch, top=0.9inch, bottom=height-0.5；字符宽度估计/CJK启发式；shrinkText；高度耗尽 break，无 ContentBudget/拆页报告"
+      },
+      "inheritance": "变量替换；topic 扁平化时祖先 style 与本节点 style 合并。无 PPT placeholder/master inheritance。未知变量保留原占位符。",
+      "applicability": {
+        "declared_page_type": "chart",
+        "actual_consumed_slots": [
+          "title",
+          "bulletPoints"
+        ],
+        "limits": "chartData/timelineData/comparisonItems 没有 SLOT_MAP 提取器；名称不证明原生图表、时间线或两栏布局。"
+      }
+    },
+    {
+      "id": "code",
+      "source": {
+        "path": "src/layouts/code.layout.json",
+        "sha256": "9f541fc65af5a4e6357b808e873c3aeba8132c5cb55b6541dcd7e14d59803640",
+        "lines": [
+          1,
+          50
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/layouts/code.layout.json"
+      },
+      "definition": {
+        "name": "code",
+        "description": "Code slide with title and dark code block",
+        "root": {
+          "tagName": "div",
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "width": "100%",
+            "height": "100%",
+            "padding": "50px 70px"
+          },
+          "children": [
+            {
+              "tagName": "h2",
+              "slot": "title",
+              "style": {
+                "fontSize": "32pt",
+                "fontWeight": "bold",
+                "color": "{{colors.primary}}",
+                "marginBottom": "24px"
+              }
+            },
+            {
+              "tagName": "pre",
+              "slot": "code",
+              "style": {
+                "fontSize": "14pt",
+                "fontFamily": "Courier New",
+                "backgroundColor": "{{colors.codeBg}}",
+                "color": "#D4D4D4",
+                "padding": "24px 30px",
+                "borderRadius": "8px",
+                "lineHeight": "1.6"
+              }
+            },
+            {
+              "tagName": "ul",
+              "slot": "bulletPoints",
+              "style": {
+                "fontSize": "18pt",
+                "lineHeight": "1.8",
+                "color": "{{colors.text}}",
+                "marginTop": "24px",
+                "paddingLeft": "30px"
+              }
+            }
+          ]
+        }
+      },
+      "slots": [
+        {
+          "node_path": "root.children[0]",
+          "name": "title",
+          "tag": "h2",
+          "geometry_and_style": {
+            "fontSize": "32pt",
+            "fontWeight": "bold",
+            "color": "{{colors.primary}}",
+            "marginBottom": "24px"
+          }
+        },
+        {
+          "node_path": "root.children[1]",
+          "name": "code",
+          "tag": "pre",
+          "geometry_and_style": {
+            "fontSize": "14pt",
+            "fontFamily": "Courier New",
+            "backgroundColor": "{{colors.codeBg}}",
+            "color": "#D4D4D4",
+            "padding": "24px 30px",
+            "borderRadius": "8px",
+            "lineHeight": "1.6"
+          }
+        },
+        {
+          "node_path": "root.children[2]",
+          "name": "bulletPoints",
+          "tag": "ul",
+          "geometry_and_style": {
+            "fontSize": "18pt",
+            "lineHeight": "1.8",
+            "color": "{{colors.text}}",
+            "marginTop": "24px",
+            "paddingLeft": "30px"
+          }
+        }
+      ],
+      "tokens": [
+        "colors.codeBg",
+        "colors.primary",
+        "colors.text"
+      ],
+      "geometry": {
+        "declared": "CSS 属性，根 100%/100% 与 px padding；完整原值在 definition 中",
+        "topic_execution": "PPTXBuilder 扁平化后按 inch 游标顺序排布，不执行 flex 列布局",
+        "html_execution": "单独 PureLayout 按 1280x720 计算 px，PPTAdapter 按 slideHeight/720 转 inch"
+      },
+      "capacity": {
+        "declared_limit": null,
+        "runtime": "margin=0.8inch, top=0.9inch, bottom=height-0.5；字符宽度估计/CJK启发式；shrinkText；高度耗尽 break，无 ContentBudget/拆页报告"
+      },
+      "inheritance": "变量替换；topic 扁平化时祖先 style 与本节点 style 合并。无 PPT placeholder/master inheritance。未知变量保留原占位符。",
+      "applicability": {
+        "declared_page_type": "code",
+        "actual_consumed_slots": [
+          "title",
+          "code",
+          "bulletPoints"
+        ],
+        "limits": "chartData/timelineData/comparisonItems 没有 SLOT_MAP 提取器；名称不证明原生图表、时间线或两栏布局。"
+      }
+    },
+    {
+      "id": "comparison",
+      "source": {
+        "path": "src/layouts/comparison.layout.json",
+        "sha256": "456c48733814a742d35034f2e04f25e205cb58fd1466cbe2ca3e74517503faa9",
+        "lines": [
+          1,
+          36
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/layouts/comparison.layout.json"
+      },
+      "definition": {
+        "name": "comparison",
+        "description": "Two-column comparison layout for pros/cons or options",
+        "root": {
+          "tagName": "div",
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "width": "100%",
+            "height": "100%",
+            "padding": "50px 70px"
+          },
+          "children": [
+            {
+              "tagName": "h2",
+              "slot": "title",
+              "style": {
+                "fontSize": "34pt",
+                "fontWeight": "bold",
+                "color": "{{colors.primary}}",
+                "marginBottom": "36px"
+              }
+            },
+            {
+              "tagName": "ul",
+              "slot": "bulletPoints",
+              "style": {
+                "fontSize": "20pt",
+                "lineHeight": "2.0",
+                "color": "{{colors.text}}",
+                "paddingLeft": "30px"
+              }
+            }
+          ]
+        }
+      },
+      "slots": [
+        {
+          "node_path": "root.children[0]",
+          "name": "title",
+          "tag": "h2",
+          "geometry_and_style": {
+            "fontSize": "34pt",
+            "fontWeight": "bold",
+            "color": "{{colors.primary}}",
+            "marginBottom": "36px"
+          }
+        },
+        {
+          "node_path": "root.children[1]",
+          "name": "bulletPoints",
+          "tag": "ul",
+          "geometry_and_style": {
+            "fontSize": "20pt",
+            "lineHeight": "2.0",
+            "color": "{{colors.text}}",
+            "paddingLeft": "30px"
+          }
+        }
+      ],
+      "tokens": [
+        "colors.primary",
+        "colors.text"
+      ],
+      "geometry": {
+        "declared": "CSS 属性，根 100%/100% 与 px padding；完整原值在 definition 中",
+        "topic_execution": "PPTXBuilder 扁平化后按 inch 游标顺序排布，不执行 flex 列布局",
+        "html_execution": "单独 PureLayout 按 1280x720 计算 px，PPTAdapter 按 slideHeight/720 转 inch"
+      },
+      "capacity": {
+        "declared_limit": null,
+        "runtime": "margin=0.8inch, top=0.9inch, bottom=height-0.5；字符宽度估计/CJK启发式；shrinkText；高度耗尽 break，无 ContentBudget/拆页报告"
+      },
+      "inheritance": "变量替换；topic 扁平化时祖先 style 与本节点 style 合并。无 PPT placeholder/master inheritance。未知变量保留原占位符。",
+      "applicability": {
+        "declared_page_type": "comparison",
+        "actual_consumed_slots": [
+          "title",
+          "bulletPoints"
+        ],
+        "limits": "chartData/timelineData/comparisonItems 没有 SLOT_MAP 提取器；名称不证明原生图表、时间线或两栏布局。"
+      }
+    },
+    {
+      "id": "image-text",
+      "source": {
+        "path": "src/layouts/image-text.layout.json",
+        "sha256": "b3c0b14404adba29416e1023645c9e1e18918470e6e1501d5722dacb9e75d440",
+        "lines": [
+          1,
+          56
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/layouts/image-text.layout.json"
+      },
+      "definition": {
+        "name": "image-text",
+        "description": "Image on left, text content on right",
+        "root": {
+          "tagName": "div",
+          "style": {
+            "display": "flex",
+            "flexDirection": "row",
+            "width": "100%",
+            "height": "100%",
+            "padding": "40px 50px"
+          },
+          "children": [
+            {
+              "tagName": "img",
+              "slot": "image",
+              "style": {
+                "width": "45%",
+                "height": "100%",
+                "objectFit": "cover",
+                "borderRadius": "8px",
+                "marginRight": "30px"
+              }
+            },
+            {
+              "tagName": "div",
+              "style": {
+                "display": "flex",
+                "flexDirection": "column",
+                "flex": "1"
+              },
+              "children": [
+                {
+                  "tagName": "h2",
+                  "slot": "title",
+                  "style": {
+                    "fontSize": "30pt",
+                    "fontWeight": "bold",
+                    "color": "{{colors.primary}}",
+                    "marginBottom": "24px"
+                  }
+                },
+                {
+                  "tagName": "ul",
+                  "slot": "bulletPoints",
+                  "style": {
+                    "fontSize": "18pt",
+                    "lineHeight": "1.8",
+                    "color": "{{colors.text}}"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      },
+      "slots": [
+        {
+          "node_path": "root.children[0]",
+          "name": "image",
+          "tag": "img",
+          "geometry_and_style": {
+            "width": "45%",
+            "height": "100%",
+            "objectFit": "cover",
+            "borderRadius": "8px",
+            "marginRight": "30px"
+          }
+        },
+        {
+          "node_path": "root.children[1].children[0]",
+          "name": "title",
+          "tag": "h2",
+          "geometry_and_style": {
+            "fontSize": "30pt",
+            "fontWeight": "bold",
+            "color": "{{colors.primary}}",
+            "marginBottom": "24px"
+          }
+        },
+        {
+          "node_path": "root.children[1].children[1]",
+          "name": "bulletPoints",
+          "tag": "ul",
+          "geometry_and_style": {
+            "fontSize": "18pt",
+            "lineHeight": "1.8",
+            "color": "{{colors.text}}"
+          }
+        }
+      ],
+      "tokens": [
+        "colors.primary",
+        "colors.text"
+      ],
+      "geometry": {
+        "declared": "CSS 属性，根 100%/100% 与 px padding；完整原值在 definition 中",
+        "topic_execution": "PPTXBuilder 扁平化后按 inch 游标顺序排布，不执行 flex 列布局",
+        "html_execution": "单独 PureLayout 按 1280x720 计算 px，PPTAdapter 按 slideHeight/720 转 inch"
+      },
+      "capacity": {
+        "declared_limit": null,
+        "runtime": "margin=0.8inch, top=0.9inch, bottom=height-0.5；字符宽度估计/CJK启发式；shrinkText；高度耗尽 break，无 ContentBudget/拆页报告"
+      },
+      "inheritance": "变量替换；topic 扁平化时祖先 style 与本节点 style 合并。无 PPT placeholder/master inheritance。未知变量保留原占位符。",
+      "applicability": {
+        "declared_page_type": "image-text",
+        "actual_consumed_slots": [
+          "image",
+          "title",
+          "bulletPoints"
+        ],
+        "limits": "chartData/timelineData/comparisonItems 没有 SLOT_MAP 提取器；名称不证明原生图表、时间线或两栏布局。"
+      }
+    },
+    {
+      "id": "image",
+      "source": {
+        "path": "src/layouts/image.layout.json",
+        "sha256": "787af6df88448607dcdb26f53115b706b7bedcc7dfbca0781786e0fbc019e15b",
+        "lines": [
+          1,
+          39
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/layouts/image.layout.json"
+      },
+      "definition": {
+        "name": "image",
+        "description": "Full-screen background image with centered text overlay",
+        "backgroundImage": "{{imageUrl}}",
+        "root": {
+          "tagName": "div",
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "width": "100%",
+            "height": "100%",
+            "padding": "60px"
+          },
+          "children": [
+            {
+              "tagName": "h1",
+              "slot": "title",
+              "style": {
+                "fontSize": "44pt",
+                "fontWeight": "bold",
+                "color": "#ffffff",
+                "textAlign": "center",
+                "marginBottom": "20px"
+              }
+            },
+            {
+              "tagName": "p",
+              "slot": "subtitle",
+              "style": {
+                "fontSize": "24pt",
+                "color": "#ffffff",
+                "textAlign": "center"
+              }
+            }
+          ]
+        }
+      },
+      "slots": [
+        {
+          "node_path": "root.children[0]",
+          "name": "title",
+          "tag": "h1",
+          "geometry_and_style": {
+            "fontSize": "44pt",
+            "fontWeight": "bold",
+            "color": "#ffffff",
+            "textAlign": "center",
+            "marginBottom": "20px"
+          }
+        },
+        {
+          "node_path": "root.children[1]",
+          "name": "subtitle",
+          "tag": "p",
+          "geometry_and_style": {
+            "fontSize": "24pt",
+            "color": "#ffffff",
+            "textAlign": "center"
+          }
+        }
+      ],
+      "tokens": [
+        "imageUrl"
+      ],
+      "geometry": {
+        "declared": "CSS 属性，根 100%/100% 与 px padding；完整原值在 definition 中",
+        "topic_execution": "PPTXBuilder 扁平化后按 inch 游标顺序排布，不执行 flex 列布局",
+        "html_execution": "单独 PureLayout 按 1280x720 计算 px，PPTAdapter 按 slideHeight/720 转 inch"
+      },
+      "capacity": {
+        "declared_limit": null,
+        "runtime": "margin=0.8inch, top=0.9inch, bottom=height-0.5；字符宽度估计/CJK启发式；shrinkText；高度耗尽 break，无 ContentBudget/拆页报告"
+      },
+      "inheritance": "变量替换；topic 扁平化时祖先 style 与本节点 style 合并。无 PPT placeholder/master inheritance。未知变量保留原占位符。",
+      "applicability": {
+        "declared_page_type": "image",
+        "actual_consumed_slots": [
+          "title",
+          "subtitle"
+        ],
+        "limits": "chartData/timelineData/comparisonItems 没有 SLOT_MAP 提取器；名称不证明原生图表、时间线或两栏布局。"
+      }
+    },
+    {
+      "id": "timeline",
+      "source": {
+        "path": "src/layouts/timeline.layout.json",
+        "sha256": "e21a846794d74af66b65616009bc5f9a6b7267d4a74a6307efafaa140e5277fd",
+        "lines": [
+          1,
+          36
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/layouts/timeline.layout.json"
+      },
+      "definition": {
+        "name": "timeline",
+        "description": "Timeline layout for chronological events",
+        "root": {
+          "tagName": "div",
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "width": "100%",
+            "height": "100%",
+            "padding": "50px 70px"
+          },
+          "children": [
+            {
+              "tagName": "h2",
+              "slot": "title",
+              "style": {
+                "fontSize": "34pt",
+                "fontWeight": "bold",
+                "color": "{{colors.primary}}",
+                "marginBottom": "36px"
+              }
+            },
+            {
+              "tagName": "ul",
+              "slot": "bulletPoints",
+              "style": {
+                "fontSize": "20pt",
+                "lineHeight": "2.2",
+                "color": "{{colors.text}}",
+                "paddingLeft": "30px"
+              }
+            }
+          ]
+        }
+      },
+      "slots": [
+        {
+          "node_path": "root.children[0]",
+          "name": "title",
+          "tag": "h2",
+          "geometry_and_style": {
+            "fontSize": "34pt",
+            "fontWeight": "bold",
+            "color": "{{colors.primary}}",
+            "marginBottom": "36px"
+          }
+        },
+        {
+          "node_path": "root.children[1]",
+          "name": "bulletPoints",
+          "tag": "ul",
+          "geometry_and_style": {
+            "fontSize": "20pt",
+            "lineHeight": "2.2",
+            "color": "{{colors.text}}",
+            "paddingLeft": "30px"
+          }
+        }
+      ],
+      "tokens": [
+        "colors.primary",
+        "colors.text"
+      ],
+      "geometry": {
+        "declared": "CSS 属性，根 100%/100% 与 px padding；完整原值在 definition 中",
+        "topic_execution": "PPTXBuilder 扁平化后按 inch 游标顺序排布，不执行 flex 列布局",
+        "html_execution": "单独 PureLayout 按 1280x720 计算 px，PPTAdapter 按 slideHeight/720 转 inch"
+      },
+      "capacity": {
+        "declared_limit": null,
+        "runtime": "margin=0.8inch, top=0.9inch, bottom=height-0.5；字符宽度估计/CJK启发式；shrinkText；高度耗尽 break，无 ContentBudget/拆页报告"
+      },
+      "inheritance": "变量替换；topic 扁平化时祖先 style 与本节点 style 合并。无 PPT placeholder/master inheritance。未知变量保留原占位符。",
+      "applicability": {
+        "declared_page_type": "timeline",
+        "actual_consumed_slots": [
+          "title",
+          "bulletPoints"
+        ],
+        "limits": "chartData/timelineData/comparisonItems 没有 SLOT_MAP 提取器；名称不证明原生图表、时间线或两栏布局。"
+      }
+    },
+    {
+      "id": "title",
+      "source": {
+        "path": "src/layouts/title.layout.json",
+        "sha256": "ccb7ac806cacb07e0c6b1070b230656cc88b66aed56a87706fffca05ce17170a",
+        "lines": [
+          1,
+          38
+        ],
+        "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/layouts/title.layout.json"
+      },
+      "definition": {
+        "name": "title",
+        "description": "Full-screen centered title slide",
+        "root": {
+          "tagName": "div",
+          "style": {
+            "display": "flex",
+            "flexDirection": "column",
+            "alignItems": "center",
+            "justifyContent": "center",
+            "width": "100%",
+            "height": "100%",
+            "padding": "80px 80px"
+          },
+          "children": [
+            {
+              "tagName": "h1",
+              "slot": "title",
+              "style": {
+                "fontSize": "44pt",
+                "fontWeight": "bold",
+                "color": "{{colors.primary}}",
+                "textAlign": "center",
+                "marginBottom": "16px"
+              }
+            },
+            {
+              "tagName": "p",
+              "slot": "subtitle",
+              "style": {
+                "fontSize": "22pt",
+                "color": "{{colors.secondary}}",
+                "textAlign": "center"
+              }
+            }
+          ]
+        }
+      },
+      "slots": [
+        {
+          "node_path": "root.children[0]",
+          "name": "title",
+          "tag": "h1",
+          "geometry_and_style": {
+            "fontSize": "44pt",
+            "fontWeight": "bold",
+            "color": "{{colors.primary}}",
+            "textAlign": "center",
+            "marginBottom": "16px"
+          }
+        },
+        {
+          "node_path": "root.children[1]",
+          "name": "subtitle",
+          "tag": "p",
+          "geometry_and_style": {
+            "fontSize": "22pt",
+            "color": "{{colors.secondary}}",
+            "textAlign": "center"
+          }
+        }
+      ],
+      "tokens": [
+        "colors.primary",
+        "colors.secondary"
+      ],
+      "geometry": {
+        "declared": "CSS 属性，根 100%/100% 与 px padding；完整原值在 definition 中",
+        "topic_execution": "PPTXBuilder 扁平化后按 inch 游标顺序排布，不执行 flex 列布局",
+        "html_execution": "单独 PureLayout 按 1280x720 计算 px，PPTAdapter 按 slideHeight/720 转 inch"
+      },
+      "capacity": {
+        "declared_limit": null,
+        "runtime": "margin=0.8inch, top=0.9inch, bottom=height-0.5；字符宽度估计/CJK启发式；shrinkText；高度耗尽 break，无 ContentBudget/拆页报告"
+      },
+      "inheritance": "变量替换；topic 扁平化时祖先 style 与本节点 style 合并。无 PPT placeholder/master inheritance。未知变量保留原占位符。",
+      "applicability": {
+        "declared_page_type": "title",
+        "actual_consumed_slots": [
+          "title",
+          "subtitle"
+        ],
+        "limits": "chartData/timelineData/comparisonItems 没有 SLOT_MAP 提取器；名称不证明原生图表、时间线或两栏布局。"
+      }
+    }
+  ],
+  "intermediate_representations": [
+    {
+      "name": "TemplateConfig",
+      "source": "src/types/config.ts",
+      "fields": [
+        "name",
+        "description",
+        "colors",
+        "fonts",
+        "spacing",
+        "slideSize"
+      ]
+    },
+    {
+      "name": "Outline/OutlineSlide/SlideContent",
+      "source": "src/types/config.ts",
+      "fields": [
+        "title",
+        "slides",
+        "layout",
+        "bulletPoints",
+        "notes",
+        "chartData",
+        "codeSnippet",
+        "timelineData",
+        "comparisonItems",
+        "imageUrl",
+        "expandedText",
+        "speakerNotes"
+      ],
+      "limits": "类型中有字段不代表输出实现；chartData/timelineData/comparisonItems未消费"
+    },
+    {
+      "name": "LayoutDefinition/LayoutNode/StyleNode",
+      "source": "src/core/engine/layout-loader.ts",
+      "fields": [
+        "name",
+        "description",
+        "backgroundImage",
+        "root",
+        "tagName",
+        "slot",
+        "src",
+        "style",
+        "children"
+      ]
+    },
+    {
+      "name": "LayoutBox",
+      "source": "src/core/engine/pure-layout.ts",
+      "fields": [
+        "tagName",
+        "x",
+        "y",
+        "w",
+        "h",
+        "text",
+        "src",
+        "fontSizePt",
+        "color",
+        "fontWeight",
+        "textAlign",
+        "fontFamily",
+        "lineHeight",
+        "background",
+        "borderRadius"
+      ],
+      "limits": "HTML 路线中间表示；不是含稳定对象ID、源证据、decision/QA trace 的产品 SlideSpec"
+    }
+  ]
+}

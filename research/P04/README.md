@@ -68,7 +68,7 @@ Node 18.20.8 下的官方 CLI HTML 样例失败，报错为 SyntaxError: Cannot 
 
 ### 许可与结论边界
 
-固定上游仓库根许可证为 MIT。锁文件中的 pptxgenjs@4.0.1 包元数据也声明 MIT；其余传递依赖的逐包许可证清单和法律兼容性审查不属于本次完成范围。固定版本、官方流程复现和正常/边界/失败运行证据已完成。P04-02 源码调用链与 P04-03 决策节点图已完成；P04-04/05 仍是独立后续研究任务。
+固定上游仓库根许可证为 MIT。锁文件中的 pptxgenjs@4.0.1 包元数据也声明 MIT；其余传递依赖的逐包许可证清单和法律兼容性审查不属于本次完成范围。固定版本、官方流程复现和正常/边界/失败运行证据已完成。P04-02 源码调用链与 P04-03 决策节点图已完成；P04-04/05 的后续研究结果见文末。
 
 未运行上游测试套件；没有验证真实托管模型生成、截图识别、广泛 HTML/CSS 支持、视觉质量、PowerPoint 编辑行为或 YoloongPPT 产品能力。候选项目结果不能外推为产品功能承诺。
 
@@ -80,6 +80,14 @@ Node 18.20.8 下的官方 CLI HTML 样例失败，报错为 SyntaxError: Cannot 
 - [verify-res-p04-02.mjs](validation/verify-res-p04-02.mjs) 在禁网 Docker 中用假 Provider 复现 topic 正常路线、内容填充失败回退和缺输入失败；检查 [verify-res-p04-02.json](validation/verify-res-p04-02.json) 与两个样例 PPTX 的 ZIP 部件和文本。
 - 本次选用 `bullet` layout 时，成功填充与异常回退的 PPTX SHA-256 相同；源码显示此 layout 只消费标题和 bulletPoints，不消费填充阶段写入的 expandedText/speakerNotes。此项是固定候选源码行为观察，不是 YoloongPPT 产品结论。
 - 没有访问真实模型/API、没有运行上游 Vitest、没有用 PowerPoint/LibreOffice 渲染；Node 24.14.0 仅为研究容器观测。
+
+## RES-P04-04/05 模板与能力边界研究（2026-10-09）
+
+- [template-capability-map.md](template-capability-map.md) 解释 5 个模板、8 个布局及双几何路线；[template-map.json](template-map.json) 保留资产原值、slots、geometry、capacity、tokens、inheritance、中间表示和固定源码哈希。
+- [capability-map.json](capability-map.json) 对齐 PPT-001–030 和写入/渲染/QA/修订/既有编辑边界。chart/timeline/comparison 名称不等于原生对象；包装器没有对应数据消费，不能外推库能力。
+- [verify-res-p04-04-05.json](validation/verify-res-p04-04-05.json) 是 Docker 禁网运行结果：21 个源码/资产哈希匹配，5模板/8布局加载通过；正常文本输出、未知变量/slot、损坏布局、缺失资源、输出路径失败均有证据；60条长bullet仅写4条、56条静默遗漏，chartData与演讲稿内容未写入。
+- PptxGenJS 会创建空 charts 目录和默认 notes 部件；这不表示有 chart 对象或演讲稿。验证按实际非目录部件和内容判定。
+- TASK/VERIFY-RES-P04-04、TASK/VERIFY-RES-P04-05 已满足本次候选研究验收。未调用真实模型/Vision、未进行 Office/LibreOffice 渲染或 PowerPoint 编辑审阅，未更新产品能力与 AC 验收。
 
 ## 固定来源
 

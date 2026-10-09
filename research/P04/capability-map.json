@@ -1,0 +1,536 @@
+{
+  "project": "P04",
+  "commit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+  "license": "MIT © peterfei；上游 LICENSE hash 7e5fa1c85294d445491eeb8cc1f72d8fb53d619d0613604831d499c60d63afb2",
+  "scope": "候选上游研究；不更新 YoloongPPT 产品 CapabilityStatus",
+  "source_modules": [
+    {
+      "path": "src/core/template/template-manager.ts",
+      "sha256": "5ad5179bb922368c07f5f43bb49b96b2811f9145c87469b7686a556330aaf1fc",
+      "lines": [
+        1,
+        91
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/template/template-manager.ts"
+    },
+    {
+      "path": "src/core/engine/layout-loader.ts",
+      "sha256": "df6b416f53f12a38dee14eef029cd4038c56e5cacd7451edb399e5ecff59d74d",
+      "lines": [
+        1,
+        133
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/engine/layout-loader.ts"
+    },
+    {
+      "path": "src/core/engine/slide-renderer.ts",
+      "sha256": "6f3502c59aadf0a547c27090e13e676bb46c9b1891a66b55b217e8167f451d6a",
+      "lines": [
+        1,
+        73
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/engine/slide-renderer.ts"
+    },
+    {
+      "path": "src/core/engine/pptx-builder.ts",
+      "sha256": "4d3a72da5cc1a142b2226df94ef6d17cab0d9f44e1e854a85bd8d5c53f81c1e1",
+      "lines": [
+        1,
+        279
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/engine/pptx-builder.ts"
+    },
+    {
+      "path": "src/core/engine/ppt-adapter.ts",
+      "sha256": "d703956c1c1f2faac6c7e9d9e16645a7bd042f7428a126ec0afe24f372da62a4",
+      "lines": [
+        1,
+        188
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/engine/ppt-adapter.ts"
+    },
+    {
+      "path": "src/core/engine/pure-layout.ts",
+      "sha256": "c051e2e6e23742fd83e383086002bddb170ced23a47ee78ddb5ba123328bbc26",
+      "lines": [
+        1,
+        584
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/engine/pure-layout.ts"
+    },
+    {
+      "path": "src/types/config.ts",
+      "sha256": "c4393d806588de762fe56b6ebf97da00635486af2ab0fdc76e4149ec0b412dfb",
+      "lines": [
+        1,
+        115
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/types/config.ts"
+    },
+    {
+      "path": "src/commands/create.ts",
+      "sha256": "1729875ba1e88ed0b2e5f13e6b80c31da7d0e20fe918388df3f9be5db65d91b8",
+      "lines": [
+        1,
+        588
+      ],
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/commands/create.ts"
+    }
+  ],
+  "requirement_id": "RES-P04-05",
+  "ppt_objects": [
+    {
+      "requirement_id": "PPT-001",
+      "name": "演示文稿生命周期",
+      "baseline_requirement": "create/open/save/save-as/close/copy/merge；读取文档属性与 slide size。",
+      "status": "Partial",
+      "reason": "new PptxGenJS + writeFile 创建/保存新文件；没有打开已有PPTX、复制/合并/安全保存入口",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-002",
+      "name": "Slide 管理",
+      "baseline_requirement": "add/delete/duplicate/move/reorder/hide/select；读取 slide id/name/layout/master。",
+      "status": "Partial",
+      "reason": "addSlide 和 slideCount；没有 delete/move/reorder/hide/select 或读取原 slide 身份",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-003",
+      "name": "Sections/Custom Show",
+      "baseline_requirement": "读取/创建/修改 sections 和 custom slide shows；不支持时保留/报告。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-004",
+      "name": "Slide Master",
+      "baseline_requirement": "读取/创建/引用 master；继承背景、字体、颜色、headers/footers、timing/transition。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-005",
+      "name": "Slide Layout",
+      "baseline_requirement": "读取/创建/引用 layout；placeholder inheritance 和 layout type/name。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-006",
+      "name": "Theme",
+      "baseline_requirement": "theme fonts/colors/effects/color map；应用/保留/替换策略。",
+      "status": "Partial",
+      "reason": "模板颜色与字体应用到文本/装饰；没有读取/替换/保留既有 OOXML theme",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-007",
+      "name": "Placeholder",
+      "baseline_requirement": "title/body/picture/chart/table/footer/date/slide number 等 placeholder 类型、idx、bounds、format。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-008",
+      "name": "文本框",
+      "baseline_requirement": "创建/读取/修改 TextFrame/TextRange；autofit/wrap/margins/vertical anchor。",
+      "status": "Partial",
+      "reason": "addText 输出文本框；wrap/shrinkText；没有读取/修改既有 TextFrame",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-009",
+      "name": "字符/段落",
+      "baseline_requirement": "runs、font、size、bold/italic/underline/color、paragraph alignment、indent、bullet/numbering、spacing、tabs。",
+      "status": "Partial",
+      "reason": "单一文本串的 fontSize/color/bold/align；没有完整 runs、tabs、编号/段落格式往返",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-010",
+      "name": "语言与文字方向",
+      "baseline_requirement": "CJK、RTL、混合字体、vertical text、fallback、缺失字体处理。",
+      "status": "Partial",
+      "reason": "CJK 估计字符宽度；有 font fallback 配置但 builder 不使用 fallback；没有 RTL/竖排/缺字体诊断",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-011",
+      "name": "AutoShape",
+      "baseline_requirement": "矩形/圆/箭头/callout/banner 等；fill/stroke/radius/adjustments/rotation。",
+      "status": "Partial",
+      "reason": "PPTXBuilder 仅用 rect 装饰条；没有完整 AutoShape/adjustments/rotation 往返",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-012",
+      "name": "Line/Connector/Freeform",
+      "baseline_requirement": "线条、箭头、connector、freeform path；连接点与 reroute。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-013",
+      "name": "Group/Z-order",
+      "baseline_requirement": "group/ungroup、parent-child、z-order、lock/selection。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-014",
+      "name": "图片",
+      "baseline_requirement": "add/replace/read/crop/contain/cover/rotate/transparency/alt-text/compress/link vs embed。",
+      "status": "Partial",
+      "reason": "addImage/背景图写入与有限路径/data输入；没有裁切/替换原对象/alt-text/压缩/读回证据",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-015",
+      "name": "SVG/Icon",
+      "baseline_requirement": "SVG 原生或可编辑路径/矢量；色彩替换；fallback bitmap。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-016",
+      "name": "Table",
+      "baseline_requirement": "row/column/cell text、merge、border、fill、font、alignment、row height/col width、header、分页策略。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-017",
+      "name": "Chart",
+      "baseline_requirement": "数据绑定、series/categories、axis、legend、title、labels、combo/error bars/date axis 等；native/image fallback。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-018",
+      "name": "Equation",
+      "baseline_requirement": "Office equation/OMML/MathML/LaTeX 转换；native equation 与 image fallback。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-019",
+      "name": "SmartArt",
+      "baseline_requirement": "读取/保留 SmartArt；创建能力需单独验证；不能支持时必须保留或降级为 shapes 并报告。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-020",
+      "name": "Audio/Video/GIF",
+      "baseline_requirement": "embedded/link、poster、autoplay/loop 等可用能力和兼容性。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-021",
+      "name": "OLE/Embedded Object",
+      "baseline_requirement": "读取/保留嵌入对象；默认不执行其内容；修改能力状态明确。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-022",
+      "name": "Hyperlink/Action",
+      "baseline_requirement": "URL、邮件、文件、slide jump、action button、tooltip。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-023",
+      "name": "Speaker Notes",
+      "baseline_requirement": "读取/写入 notes，保留 notes master/layout 与来源/演讲稿。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-024",
+      "name": "Comments",
+      "baseline_requirement": "读取/写入 classic/modern comments（能力取决于 backend），保留作者/位置。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-025",
+      "name": "Headers/Footers/日期/页码",
+      "baseline_requirement": "master/layout/slide footer、date/time、slide number 的继承与覆盖。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-026",
+      "name": "Transitions",
+      "baseline_requirement": "读取/写入/保留 transition、duration、advance 等；unsupported 保留。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-027",
+      "name": "Animations",
+      "baseline_requirement": "读取/写入/保留 timing tree、entrance/emphasis/exit/motion/trigger/sequence；backend 能力分级。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-028",
+      "name": "Effects",
+      "baseline_requirement": "gradient、shadow、glow、reflection、transparency、line dash、3D/effects；按 backend 标 Native/Partial。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-029",
+      "name": "Accessibility",
+      "baseline_requirement": "alt text、reading order、language、table semantics、contrast 相关字段。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    },
+    {
+      "requirement_id": "PPT-030",
+      "name": "Object identity/metadata",
+      "baseline_requirement": "shape id/name、tags/custom XML/extension data；round-trip 对象映射。",
+      "status": "Unsupported",
+      "reason": "固定上游包装器未发现此能力的创建/读取/修改/保留执行路径；不评价下游 PptxGenJS 库独立能力。",
+      "evidence": [
+        "src/core/engine/pptx-builder.ts",
+        "src/core/engine/ppt-adapter.ts",
+        "src/commands/create.ts"
+      ],
+      "verification_scope": "源码包装器范围；文字/形状创建有已有PPTX包证据，其余不宣称Office可编辑/视觉验证"
+    }
+  ],
+  "system_boundaries": [
+    {
+      "id": "write",
+      "status": "Partial",
+      "reason": "新建PPTX输出；writeFile覆盖目标，无原文件事务保护；没有读取已有PPTX"
+    },
+    {
+      "id": "layout_render",
+      "status": "Partial",
+      "reason": "StyleNode/LayoutBox 到PPTX元素API；不等于Office/LibreOffice栅格渲染"
+    },
+    {
+      "id": "raster_render",
+      "status": "Unsupported",
+      "reason": "固定src未发现PowerPoint/LibreOffice/图片导出入口"
+    },
+    {
+      "id": "qa",
+      "status": "Unsupported",
+      "reason": "固定src未发现结构/视觉/事实/可编辑性QA及QA驱动修复链；研究侧ZIP检查不能算上游QA"
+    },
+    {
+      "id": "revision",
+      "status": "Unsupported",
+      "reason": "固定src未发现读已有deck、对象定位、局部修改与保护未改页链"
+    },
+    {
+      "id": "notes",
+      "status": "Unsupported",
+      "reason": "speakerNotes类型和notes slot不是addNotes；未发现演讲稿内容写入notes的包装器调用，不以库默认notes部件证明支持"
+    },
+    {
+      "id": "fallback",
+      "status": "Fallback",
+      "reason": "content filler异常继续原内容；未知layout按bullet；无统一可追溯FallbackRecord/最终报告"
+    },
+    {
+      "id": "overflow",
+      "status": "Partial",
+      "reason": "高度耗尽break、shrinkText与字符估计；没有超限内容报告和拆页策略"
+    },
+    {
+      "id": "source_trace",
+      "status": "Unsupported",
+      "reason": "未发现source/evidence/decision/object/QA稳定ID贯通"
+    },
+    {
+      "id": "interfaces",
+      "status": "Partial",
+      "reason": "CLI入口；包装器未提供产品API/MCP/live edit"
+    },
+    {
+      "id": "image_fetch_security",
+      "status": "Partial",
+      "reason": "fetch 10秒timeout并失败返回null；未发现SSRF/内网URL拦截与下载大小预算"
+    }
+  ],
+  "selection_implications": [
+    "可参考模板tokens/slots加载和基本元素写出；不能直接承诺原生chart/timeline/comparison",
+    "需自行实施内容预算、完整QA和修订、追溯及安全下载",
+    "不把JSON样式模板与PPTX母版保真混同",
+    "真实模型/Vision、Office打开及视觉质量仍无此工作包验证"
+  ]
+}

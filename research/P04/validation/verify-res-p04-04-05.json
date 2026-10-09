@@ -1,0 +1,74 @@
+{
+  "requirement_ids": [
+    "RES-P04-04",
+    "RES-P04-05"
+  ],
+  "task_ids": [
+    "TASK-RES-P04-04",
+    "VERIFY-RES-P04-04",
+    "TASK-RES-P04-05",
+    "VERIFY-RES-P04-05"
+  ],
+  "commit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+  "environment": {
+    "node": "v24.14.0",
+    "network": "Docker --network none",
+    "scope": "research runtime observation, not product selection"
+  },
+  "source_hashes_verified": 21,
+  "templates": 5,
+  "layouts": 8,
+  "ppt_object_records": 30,
+  "cases": {
+    "normal": "5 templates and 8 layouts match source; native text PPTX package produced",
+    "boundary": {
+      "unresolved_variable": "preserved",
+      "unknown_slot": "empty children",
+      "chart_data": "not consumed; no chart parts",
+      "speaker_notes": "requested content not written",
+      "overflow": {
+        "requested": 60,
+        "written": 4,
+        "omitted": 56,
+        "reported_by_upstream": false
+      }
+    },
+    "failure": {
+      "missing_template": "null",
+      "missing_layout": "null",
+      "invalid_schema": "null",
+      "outputFailure": {
+        "code": "EEXIST",
+        "message": "output parent is a file"
+      }
+    }
+  },
+  "outputs": [
+    {
+      "path": "validation/template-normal.pptx",
+      "sha256": "e82c7d0f4ac91bdeadb9b985c91e0fcc736a09d5bc8d7abfed499fcf3fb7297d",
+      "bytes": 47934
+    },
+    {
+      "path": "validation/chart-boundary.pptx",
+      "sha256": "3b28786c090ce78a8a576e7def2e28938c25182d8941203f0ff29800783596e9",
+      "bytes": 47128
+    },
+    {
+      "path": "validation/overflow-boundary.pptx",
+      "sha256": "6b5e0f8a8070e89e7e91c206cbeaaa535d8cc890a1213df683a8455c21bb8d2a",
+      "bytes": 50342
+    }
+  ],
+  "reused_evidence": [
+    "validation/minimal-html-poc.pptx",
+    "validation/edge-nested-html-poc.pptx",
+    "validation/topic-route-normal.pptx",
+    "validation/verify-res-p04-02.json"
+  ],
+  "limitations": [
+    "No real model/Vision calls",
+    "No Office/LibreOffice raster rendering or editability review",
+    "No product runtime/CapabilityStatus or AC acceptance"
+  ]
+}

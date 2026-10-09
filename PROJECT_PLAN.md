@@ -30,11 +30,18 @@
 ## 2026-10-09 纠偏后的当前工作
 
 - 审计基线：需求完成 14/308、进行中 55、未开始 239；任务完成 21/453、进行中 59、未开始 373；AC 0/30 执行。数字对应审计前 HEAD `171fc08`，不自动当作后续实时进度。详情见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
-- 下一主工作包：TASK/VERIFY-RES-P04-04、TASK/VERIFY-RES-P04-05，完成模板/布局数据与写入/QA/修订边界，复用既有固定源码与实验结果，补齐原验收缺口；不重新初始化项目。
+- 已收尾 TASK/VERIFY-RES-P04-04、TASK/VERIFY-RES-P04-05：5模板/8布局数据、30对象与QA/修订边界，禁网正常/边界/失败探针通过；真实发现高度截断和图表/演讲稿未消费，不代表产品能力通过。下一主工作包为 RES-P01-05 的剩余边界/失败验收。
 - 后续关键依赖：RES-P01-05、P02/P05 剩余研究 → RES-031 → RES-032 和决策实现；RES-033 按原依赖交付。SYS-001/SYS-007 等无研究前置的准备可独立推进，但未经过真实 E2E 不标为完成。
 - 不增加另一份需求状态台账；以下历史条目保留，若与矩阵或后来证据冲突，先核对对应原行和制品并在相关工作包修正。
 
 ## 当前进度
+
+### TASK/VERIFY-RES-P04-04/05（2026-10-09 收尾）
+
+- 状态：两条候选研究需求及四个 TASK/VERIFY 已完成；Excel 主表 N30:P31、任务 L50:M53 回填，其他任务/AC 未改。
+- 证据：`research/P04/template-map.json`、`capability-map.json`、`template-capability-map.md`、`validation/verify-res-p04-04-05.json`；5模板/8布局原值与21份固定源码哈希对照，3份实际PPTX产物及正常/边界/失败结果。
+- 关键结论：topic writer不执行flex布局；60条长bullet写4条、56条无报告遗漏；chartData与speakerNotes未消费；包装器缺真实QA、局部修订和既有PPT读改链。仅候选研究，无真实模型/Office/产品AC验证。
+- 环境解阻：获用户授权重启全局WSL。常规Docker重启/WSL shutdown及服务停止挂起，管理员定点终止并重启WslService后恢复发行版枚举、Ubuntu内核和Docker API，项目workspace已启动；数据位置保持F盘。未删除、重建或改密码。
 
 ### TASK-GOV-001
 

@@ -1,0 +1,29 @@
+{
+  "recorded": "2026-10-09T12:05:46.5295737-04:00",
+  "authorization": "用户允许重启全部WSL并修复环境",
+  "initial_failure": "Docker API 500/no route to host; WSL distro commands stalled",
+  "normal_recovery": "Docker restart deadline; normal WslService restart stop failed",
+  "force_recovery": {
+    "started": "2026-10-09T11:55:48.8819166-04:00",
+    "operation": "Stop hung wslservice process and start WslService; no data deletion",
+    "result": "passed",
+    "old_service_pid": 39912,
+    "service": "Running",
+    "new_service_pid": 38816,
+    "probe_pid": 27348,
+    "probe_exit_code": 0,
+    "distributions": "  NAME              STATE           VERSION\r\n* Ubuntu            Running         2\r\n  docker-desktop    Stopped         2\r\n",
+    "error_output": "",
+    "finished": "2026-10-09T11:55:53.4339095-04:00"
+  },
+  "docker_server": "27.4.0",
+  "ubuntu_kernel": "6.18.40.1-microsoft-standard-WSL2",
+  "storage": {
+    "docker_data": "F:\\DockerDesktopWSL\\disk\\docker_data.vhdx",
+    "docker_distro": "F:\\DockerDesktopWSL\\main",
+    "ubuntu": "F:\\WSL\\Ubuntu"
+  },
+  "project_workspace": "yoloongppt-workspace-1 started",
+  "credentials": "未使用或设置凭据",
+  "limitations": "恢复当前响应和实际容器工作，不声称已查明最初挂起诱因或保证永不复发"
+}
