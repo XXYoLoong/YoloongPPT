@@ -11,29 +11,37 @@ DEFAULT_STYLE = {'font': 'Noto Sans CJK SC', 'background': 'F6F4EE', 'foreground
                  'accent': '147C80', 'title_size': 30, 'body_size': 22, 'minimum_size': 16}
 
 
-def preflight(task):
+def preflight(task, context=None, schemas=None):
     if task['route']['route_status'] != 'routed' or task['route']['mode'] not in {'create_from_materials', 'create_from_scratch'}:
         raise TaskError('GENERATION_ROUTE_UNSUPPORTED', '当前生成入口只支持材料/从零新建，未替换其他模式。', 'Preflight', ['SYS-011'])
     if task['template_ref'] is not None:
         raise TaskError('GENERATION_TEMPLATE_UNSUPPORTED', '模板导入尚未接入；不会替换为通用版式。', 'Preflight', ['SYS-011'])
-    if task['constraints']['conflicts']:
-        raise TaskError('HARD_CONSTRAINT_CONFLICT', '任务存在未解决硬约束冲突，停止执行。', 'Preflight', ['GOV-003'])
     prefs = task['runtime_preferences']
     if set(prefs) - {'page_count'} or set(task['output']) - {'formats'}:
         raise TaskError('GENERATION_OPTION_UNSUPPORTED', '当前运行参数只支持page_count，输出只支持formats；未知参数未忽略。', 'Preflight', ['SYS-011'])
-    formats = task['output'].get('formats', ['pptx', 'pdf', 'png'])
-    if not isinstance(formats, list) or not formats or set(formats) - {'pptx', 'pdf', 'png'}:
+    if context is None:
+        from .context import normalize
+        from .errors import trace_id
+        if schemas is None:
+            from .schemas import SchemaRegistry
+            schemas = SchemaRegistry()
+        context = normalize(task, schemas, trace_id())['context']
+    if context['constraints']['conflicts'] or any(i['code'] in {'HARD_CONSTRAINT_CONFLICT','PREFERENCE_CONFLICT'} for i in context['issues']):
+        raise TaskError('HARD_CONSTRAINT_CONFLICT', '约束或同优先级偏好存在冲突，停止执行。', 'Preflight', ['GOV-003','DEC-002'], context['issues'])
+    if any(i['code']=='HARD_CONSTRAINT_UNSUPPORTED' for i in context['issues']):
+        raise TaskError('HARD_CONSTRAINT_UNSUPPORTED', '硬约束字段未登记，原请求保留且停止执行。', 'Preflight', ['GOV-003','DEC-002'], context['issues'])
+    if any(i['code']=='OUTPUT_REQUIREMENT_CONFLICT' for i in context['issues']):
+        raise TaskError('OUTPUT_FORMAT_UNSUPPORTED', '原始请求的输出格式未包含在有效输出中或不可用。', 'Preflight', ['DEC-002','SYS-013'], context['issues'])
+    if context['issues']:
+        raise TaskError('CONSTRAINT_INPUT_INVALID', '约束身份或输入未解决。', 'Preflight', ['DEC-002'], context['issues'])
+    formats = context['values']['output_formats']
+    if not isinstance(formats, list) or not formats or any(not isinstance(v,str) or v not in {'pptx', 'pdf', 'png'} for v in formats):
         raise TaskError('OUTPUT_FORMAT_UNSUPPORTED', '当前生成输出支持pptx/pdf/png。', 'Preflight', ['SYS-013'])
-    values = {'page_count': prefs.get('page_count', 10), 'language': 'zh-CN', 'aspect_ratio': '16:9', 'minimum_font_size': 16}
-    seen = {}
-    for constraint in task['constraints']['hard']:
-        field = constraint['field']
-        if field not in values:
-            raise TaskError('HARD_CONSTRAINT_UNSUPPORTED', '硬约束字段尚未实现；不会静默忽略。', 'Preflight', ['GOV-003'], [{'field': field}])
-        if field in seen and seen[field] != constraint['value']:
-            raise TaskError('HARD_CONSTRAINT_CONFLICT', '同字段硬约束值冲突。', 'Preflight', ['GOV-003'], [{'field': field}])
-        seen[field] = constraint['value']
-        values[field] = constraint['value']
+    values = context['values']
+    if values['template'] is not None:
+        raise TaskError('GENERATION_TEMPLATE_UNSUPPORTED', '归一化模板要求未接入，未替换模板。', 'Preflight', ['DEC-002','SYS-011'])
+    if any(values[k] is not None for k in ['brand','audience','scenario','duration','tone']) or values['citation_policy'] != 'notes':
+        raise TaskError('HARD_CONSTRAINT_UNSUPPORTED', '已保存的上下文要求尚未由完整后续节点执行；未静默忽略。', 'Preflight', ['DEC-002','GOV-003'])
     count = values['page_count']
     if type(count) is not int or not 1 <= count <= 30 or values['language'] != 'zh-CN' or values['aspect_ratio'] != '16:9' or values['minimum_font_size'] != 16:
         raise TaskError('GENERATION_CONSTRAINT_UNSUPPORTED', '当前支持1–30页、zh-CN、16:9、最低16pt；其他值未替换。', 'Preflight', ['GOV-003', 'SYS-011'])
@@ -45,11 +53,7 @@ def preflight(task):
         raise TaskError('GENERATION_STYLE_UNSUPPORTED', '当前颜色需六位hex，字号需使用已验证容量配置。', 'Preflight', ['SYS-010'])
     if set(task['providers']) != {'text'}:
         raise TaskError('GENERATION_PROVIDER_UNSUPPORTED', '当前生成入口需且仅使用providers.text；其他配置未忽略。', 'Preflight', ['SYS-005'])
-    warnings = [{'code': 'SOFT_PREFERENCE_NOT_APPLIED', 'constraint_id': c['constraint_id'], 'field': c['field']}
-                for c in task['constraints']['soft']]
-    warnings += [{'code': 'TASK_DEFAULT_NOT_APPLIED', 'constraint_id': c['constraint_id'], 'field': c['field']}
-                 for c in task['constraints']['defaults']]
-    return count, style, warnings
+    return count, style, context['warnings']
 
 
 def plan(task, sources, schemas, artifacts, count):

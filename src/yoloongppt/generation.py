@@ -15,6 +15,8 @@ from .writer import execute
 from .review import review, repair_references
 from .routing import route_task
 from .atomic import AtomicRegistry
+from .context import normalize
+from .source_roles import assign, fact_input
 
 
 def generate(task, schemas, store, trace, checkpoint=None):
@@ -27,7 +29,7 @@ def generate(task, schemas, store, trace, checkpoint=None):
         result = action()
         timeline.append({'component': component, 'status': 'executed', 'duration_seconds': round(time.monotonic()-begin, 3)})
         artifacts.json('pipeline-trace.json', {'trace_id': trace, 'steps': timeline, 'warnings': warnings,
-                                               'decision_coverage': 'DEC-001 executed; model proposal and fixed compiler subset; DEC-002–040 graph not complete'})
+                                               'decision_coverage': 'DEC-001/002/003 executed; DEC-004–040 graph not complete'})
         return result
     try:
         artifacts.json('task.json', task)
@@ -37,20 +39,35 @@ def generate(task, schemas, store, trace, checkpoint=None):
         if routing['route']['route_status'] != 'routed':
             raise TaskError('MODE_CLARIFICATION_REQUIRED', '模式或附件保护范围有歧义；先澄清，未调用模型或写入PPT。', 'DEC-001', ['DEC-001'])
         task = {**task, 'route': routing['route']}
+        normalized = step('DEC-002', lambda: normalize(task, schemas, trace))
+        artifacts.json('decision-context.json', normalized['decision_trace'])
+        artifacts.json('presentation-context.json', normalized['context'])
+        count, style, warnings = preflight(task, normalized['context'], schemas)
+        task = {**task, 'constraints': normalized['context']['constraints']}
         artifacts.json('task-effective.json', task)
-        count, style, warnings = preflight(task)
         artifacts.json('atomic-registry.json', AtomicRegistry(schemas).snapshot())
         sources = step('SYS-003/004', lambda: inspect_sources(task, schemas, store, trace))
         artifacts.json('source-result.json', sources)
+        roles = step('DEC-003', lambda: assign({'task':task,'source_bundle':sources['source_bundle']}, schemas, trace))
+        artifacts.json('decision-source-roles.json', roles['decision_trace'])
+        artifacts.json('source-role-map.json', roles['source_role_map'])
+        if roles['source_role_map']['status'] != 'assigned':
+            raise TaskError('SOURCE_ROLES_UNRESOLVED', '来源身份/角色有冲突或无法对应加载结果；未调用模型。', 'DEC-003', ['DEC-003'], roles['source_role_map']['issues'])
+        sources = fact_input(sources, roles['source_role_map'])
+        if not sources['evidence']:
+            raise TaskError('FACT_SOURCE_MISSING', '当前生成路径没有已选事实/指令依据，未把风格或模板当事实。', 'DEC-003', ['DEC-003'])
+        artifacts.json('fact-source-result.json', sources)
         previous_deck = None
         if checkpoint:
-            old = json.loads((checkpoint/'source-result.json').read_text(encoding='utf-8'))
+            old = json.loads((checkpoint/('fact-source-result.json' if (checkpoint/'fact-source-result.json').exists() else 'source-result.json')).read_text(encoding='utf-8'))
             identity = lambda result: [(e['evidence_id'], e['source_hash'], e['parser_version']) for e in result['evidence']]
             if identity(old) != identity(sources):
                 raise TaskError('CHECKPOINT_SOURCE_CHANGED', '来源或解析版本变化，断点不能复用旧模型响应。', 'Generation', ['SYS-005'])
             response_path = checkpoint/'model-response-effective.json' if (checkpoint/'model-response-effective.json').is_file() else checkpoint/'model-response.json'
             proposal = json.loads(response_path.read_text(encoding='utf-8'))
             schemas.validate('generation-model.schema.json', proposal)
+            if len(proposal['slides']) != count:
+                raise TaskError('CHECKPOINT_CONSTRAINT_CHANGED', '当前归一化页数与模型断点不符，不能复用。', 'Generation', ['DEC-002','SYS-005'])
             model = json.loads((checkpoint/'model-call.json').read_text(encoding='utf-8'))
             model = {**model, 'reused_from_run': checkpoint.name, 'fresh_model_call_this_run': False}
             artifacts.json('model-response.json', json.loads((checkpoint/'model-response.json').read_text(encoding='utf-8')))

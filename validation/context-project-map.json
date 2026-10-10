@@ -1,0 +1,508 @@
+{
+  "requirement_ids": [
+    "DEC-002",
+    "DEC-003"
+  ],
+  "prerequisite": "RES-031",
+  "mapping": {
+    "DEC-002": [
+      {
+        "project": "P03",
+        "anchor_id": "P03:D:P03-REQUEST",
+        "research_file": "research/P03/decision-map.json",
+        "json_pointer": "/nodes/1",
+        "locations": [
+          {
+            "source_file": "P03:fixed clone:servers/nextjs/app/(presentation-generator)/services/api/presentation-generation.ts",
+            "spans": [
+              [
+                23,
+                102
+              ],
+              [
+                172,
+                275
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/presentation.py",
+            "spans": [
+              [
+                2563,
+                3228
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support"
+      },
+      {
+        "project": "P04",
+        "anchor_id": "P04:D:P04-INPUT",
+        "research_file": "research/P04/decision-map.json",
+        "json_pointer": "/decisionNodes/1",
+        "locations": [
+          {
+            "source_file": "P04:fixed clone:src/commands/create.ts",
+            "spans": [
+              [
+                71,
+                85
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/commands/create.ts",
+            "spans": [
+              [
+                395,
+                411
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/commands/create.ts",
+            "spans": [
+              [
+                87,
+                97
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/core/engine/outline-generator.ts",
+            "spans": [
+              [
+                48,
+                65
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/types/config.ts",
+            "spans": [
+              [
+                36,
+                40
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support"
+      },
+      {
+        "project": "P05",
+        "anchor_id": "P05:D:P05-D01",
+        "research_file": "research/P05/ProjectDecisionMap.json",
+        "json_pointer": "/nodes/0",
+        "locations": [
+          {
+            "source_file": "P05:fixed clone:python_backend/skill_api.py",
+            "spans": [
+              [
+                49,
+                136
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support"
+      },
+      {
+        "project": "P05",
+        "anchor_id": "P05:D:P05-D05",
+        "research_file": "research/P05/ProjectDecisionMap.json",
+        "json_pointer": "/nodes/4",
+        "locations": [
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                341,
+                391
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                405,
+                423
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                426,
+                454
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                644,
+                664
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                981,
+                1050
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                457,
+                469
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support"
+      },
+      {
+        "project": "P04",
+        "anchor_id": "P04:D:P04-TEMPLATE",
+        "research_file": "research/P04/decision-map.json",
+        "json_pointer": "/decisionNodes/4",
+        "locations": [
+          {
+            "source_file": "P04:fixed clone:src/commands/create.ts",
+            "spans": [
+              [
+                47,
+                57
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/core/template/template-manager.ts",
+            "spans": [
+              [
+                9,
+                90
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/templates/business/template.json",
+            "spans": [
+              [
+                1,
+                26
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/templates/education/template.json",
+            "spans": [
+              [
+                1,
+                26
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/templates/pitch/template.json",
+            "spans": [
+              [
+                1,
+                26
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/templates/report/template.json",
+            "spans": [
+              [
+                1,
+                26
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/templates/tech/template.json",
+            "spans": [
+              [
+                1,
+                26
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support"
+      },
+      {
+        "project": "P01",
+        "status": "Not found exact unified node in indexed map",
+        "research_file": "research/P01/project_decision_map.json",
+        "reason": "Explicit boundary; do not fabricate equivalence or copy upstream code."
+      },
+      {
+        "project": "P02",
+        "status": "partial explicit configuration/material workflow; no unified node trace",
+        "research_file": "research/P02/decision-map.json",
+        "reason": "Explicit boundary; do not fabricate equivalence or copy upstream code.",
+        "json_pointer": "/nodes/1",
+        "node": {
+          "id": "D02",
+          "name": "任务规范与画布",
+          "source_refs": [
+            "core:load_task",
+            "cli:init_workspace"
+          ],
+          "input_schema": "slides:int,aspect_ratio:str,language:str",
+          "candidate_generation": "用户指定、3种ASPECTS",
+          "mechanism": "字段类型/枚举检查",
+          "output_schema": "3字段task",
+          "constraints": "slides>=1",
+          "fallback": "非法输入抛错，不推断预算",
+          "trace": {
+            "available": [
+              "validation/workflow-probes.json",
+              "validation/verify-official-six.json"
+            ],
+            "missing": "没有结构化候选评分/所有主机内部决策trace"
+          }
+        },
+        "source_index": "research/P02/source-index.json"
+      }
+    ],
+    "DEC-003": [
+      {
+        "project": "P01",
+        "anchor_id": "P01:D:P01-DEC-02",
+        "research_file": "research/P01/project_decision_map.json",
+        "json_pointer": "/decision_nodes/1",
+        "locations": [
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/workflows/generate-pptx.md",
+            "spans": [
+              [
+                32,
+                49
+              ]
+            ]
+          },
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/scripts/source_to_md.py",
+            "spans": [
+              [
+                282,
+                282
+              ],
+              [
+                574,
+                574
+              ]
+            ]
+          },
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/scripts/source_to_md/_dispatcher.py",
+            "spans": [
+              [
+                60,
+                60
+              ]
+            ]
+          },
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/references/plan-core.md",
+            "spans": [
+              [
+                54,
+                68
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support"
+      },
+      {
+        "project": "P03",
+        "anchor_id": "P03:D:P03-SOURCES",
+        "research_file": "research/P03/decision-map.json",
+        "json_pointer": "/nodes/2",
+        "locations": [
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/files.py",
+            "spans": [
+              [
+                80,
+                184
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/utils/llm_calls/generate_presentation_outlines.py",
+            "spans": [
+              [
+                66,
+                404
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/presentation.py",
+            "spans": [
+              [
+                2563,
+                3228
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/presentation.py",
+            "spans": [
+              [
+                1874,
+                2221
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support"
+      },
+      {
+        "project": "P04",
+        "anchor_id": "P04:D:P04-INPUT",
+        "research_file": "research/P04/decision-map.json",
+        "json_pointer": "/decisionNodes/1",
+        "locations": [
+          {
+            "source_file": "P04:fixed clone:src/commands/create.ts",
+            "spans": [
+              [
+                71,
+                85
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/commands/create.ts",
+            "spans": [
+              [
+                395,
+                411
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/commands/create.ts",
+            "spans": [
+              [
+                87,
+                97
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/core/engine/outline-generator.ts",
+            "spans": [
+              [
+                48,
+                65
+              ]
+            ]
+          },
+          {
+            "source_file": "P04:fixed clone:src/types/config.ts",
+            "spans": [
+              [
+                36,
+                40
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support"
+      },
+      {
+        "project": "P05",
+        "anchor_id": "P05:D:P05-D02",
+        "research_file": "research/P05/ProjectDecisionMap.json",
+        "json_pointer": "/nodes/1",
+        "locations": [
+          {
+            "source_file": "P05:fixed clone:python_backend/source_loader.py",
+            "spans": [
+              [
+                237,
+                264
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                200,
+                210
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                186,
+                197
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:generate-ppt.js",
+            "spans": [
+              [
+                1035,
+                1113
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support"
+      },
+      {
+        "project": "P02",
+        "status": "partial template source initialization; unified fact/style/asset role resolver Not found",
+        "research_file": "research/P02/decision-map.json",
+        "reason": "Explicit boundary; do not fabricate equivalence or copy upstream code.",
+        "json_pointer": "/nodes/3",
+        "node": {
+          "id": "D04",
+          "name": "模板初始化",
+          "source_refs": [
+            "core:scaffold",
+            "starter:resource"
+          ],
+          "input_schema": "task + starter tokens",
+          "candidate_generation": "一个generic starter；既有HTML",
+          "mechanism": "只补缺页，替换tokens",
+          "output_schema": "HTML文件",
+          "constraints": "禁止覆盖既有slide",
+          "fallback": "不存在模板库检索/评分",
+          "trace": {
+            "available": [
+              "validation/verify-official-six.json"
+            ],
+            "missing": "没有结构化候选评分/所有主机内部决策trace"
+          }
+        },
+        "source_index": "research/P02/source-index.json"
+      }
+    ]
+  },
+  "reuse": "abstract mechanism only; no copied source"
+}

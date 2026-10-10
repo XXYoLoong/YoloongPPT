@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DEC-002当前消费的PresentationContext；归一化与后端执行支持分开",
+  "type": "object",
+  "required": [
+    "audience",
+    "scenario",
+    "duration",
+    "language",
+    "tone",
+    "aspect_ratio",
+    "page_target",
+    "citation_policy",
+    "template",
+    "brand",
+    "status",
+    "values",
+    "constraints",
+    "issues",
+    "warnings",
+    "trace_id"
+  ],
+  "properties": {
+    "audience": {},
+    "scenario": {},
+    "duration": {},
+    "language": {},
+    "tone": {},
+    "aspect_ratio": {},
+    "page_target": {},
+    "citation_policy": {},
+    "template": {},
+    "brand": {},
+    "status": {
+      "enum": [
+        "normalized",
+        "needs_clarification"
+      ]
+    },
+    "values": {
+      "type": "object"
+    },
+    "constraints": {
+      "$ref": "constraint-set.schema.json"
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "trace_id": {
+      "$ref": "object-id.schema.json#/$defs/trace_id"
+    }
+  },
+  "additionalProperties": false
+}

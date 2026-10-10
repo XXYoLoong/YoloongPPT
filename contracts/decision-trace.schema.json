@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DEC-002/003消费的节点候选与完整轨迹",
+  "type": "object",
+  "required": [
+    "trace_id",
+    "node_id",
+    "input",
+    "candidates",
+    "selected",
+    "rules",
+    "output",
+    "duration",
+    "error"
+  ],
+  "properties": {
+    "trace_id": {
+      "$ref": "object-id.schema.json#/$defs/trace_id"
+    },
+    "node_id": {
+      "enum": [
+        "DEC-002",
+        "DEC-003"
+      ]
+    },
+    "input": {
+      "type": "object"
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/candidate"
+      }
+    },
+    "selected": {
+      "type": "array",
+      "items": {
+        "$ref": "object-id.schema.json#/$defs/candidate_id"
+      }
+    },
+    "rules": {
+      "type": "object"
+    },
+    "output": {
+      "type": "object"
+    },
+    "duration": {
+      "type": "number",
+      "minimum": 0
+    },
+    "error": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "required": [
+        "node_id",
+        "candidate_id",
+        "value",
+        "score",
+        "reasons",
+        "evidence_refs",
+        "constraints"
+      ],
+      "properties": {
+        "node_id": {
+          "enum": [
+            "DEC-002",
+            "DEC-003"
+          ]
+        },
+        "candidate_id": {
+          "$ref": "object-id.schema.json#/$defs/candidate_id"
+        },
+        "value": {},
+        "score": {
+          "type": "number"
+        },
+        "reasons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object"
+          }
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

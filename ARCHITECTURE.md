@@ -15,7 +15,7 @@
 - 首条渲染使用 Docker 内 LibreOffice/PDF→PNG，保存版本/hash与渲染差异；PowerPoint 打开兼容性及 live 能力使用明确 Windows/Office 边界的 Adapter。Office 不是 Linux 镜像内依赖；可运行隔离 bridge 的部署细节在对应 PP-01/08 实验验证。不得以 Linux 运行替代 AC-028 的 PowerPoint 实测，也不在 Windows 主机安装本项目 Python/Node 依赖。
 - 模型通过provider接口调用；首条为用户授权DeepSeek，系统环境变量安全同步到F盘忽略目录，读取值不进入TaskSpec/trace/Git/镜像/终端。每次实际调用核对供应商/models；本轮列表为deepseek-flash和deepseek-v4-pro，明确选用flash，未将旧deepseek-chat静默替换。按[官方视觉文档](https://api-docs.deepseek.com/guides/vision/)和实际PNG请求，flash已执行视觉/事实审查；不由“文本模型”标签推定其视觉能力。模型结果、用量、参数和hash保留，审查仍可能误判，不替代所有QA及兼容性验收。
 - 事实/来源 QA 直接消费 evidence、constraint 和 rewrite trace，视觉与几何 QA 消费实际渲染，可编辑性 QA 检查 OOXML/ObjectMap；每类独立报告。局部修订保留实体 ID、原稿、未选对象与未知 parts，按 RevisionPlan 重跑受影响节点后再次验收。
-- CLI/HTTP共用核心服务：validate/inspect/evidence/capabilities/schemas/route/generate/resume/revise/recheck。草稿路径确实消费来源、模型、spec、DAG、对象写入、渲染和QA；单文本对象修订逐字节保留未改OOXML parts。MCP、完整jobs/取消、完整RevisionPlan与节点恢复仍按原任务实现。返回draft_generated/draft_revised，不能当成系统验收成功。
+- CLI/HTTP共用核心服务：validate/inspect/evidence/capabilities/schemas/route/context/source-roles/generate/resume/revise/recheck。草稿路径确实消费来源、模型、spec、DAG、对象写入、渲染和QA；单文本对象修订逐字节保留未改OOXML parts。MCP、完整jobs/取消、完整RevisionPlan与节点恢复仍按原任务实现。返回draft_generated/draft_revised，不能当成系统验收成功。
 
 ## 数据、能力与失败
 
@@ -27,10 +27,12 @@
 
 ## 待证明范围
 
-来源运行时使用markdown-it-py 4.2.0 / mdit-py-plugins 0.6.1及mdurl 0.1.2。新增python-pptx 1.0.2/lxml 6.1.3/Pillow 12.3.0/XlsxWriter 3.2.9，此前22项版本未变，现26项以lock为准。SQLite不可变快照/证据维持原有hash/version/ID与unknown confidence。消费Schema共55份，新增模型提案、Deck/Execution/ObjectMap及单对象修订接口；未推定语义事实真值或多源冲突解决。
+来源运行时使用markdown-it-py 4.2.0 / mdit-py-plugins 0.6.1及mdurl 0.1.2。python-pptx 1.0.2/lxml 6.1.3/Pillow 12.3.0/XlsxWriter 3.2.9已接入，26项以lock为准，本包未改依赖或镜像。SQLite不可变快照/证据维持原有hash/version/ID与unknown confidence。消费Schema共58份，新增实际消费的PresentationContext、SourceRoleMap及DEC-002/003 DecisionTrace；未推定语义事实真值或多源冲突解决。
 
 Docker固定安装libreoffice-impress 4:7.4.7-1+deb12u14、poppler-utils 22.12.0-2+deb12u3、fonts-noto-cjk 1:20220127+repack1-1；完整系统包版本和核心版权文件随实物证据保留。/tmp实际挂载F盘runtime/data/tmp以满足LibreOffice IPC硬编码，XDG配置/缓存亦在/runtime；镜像rootfs继续只读。真实生成及修订证据见validation/generation-artifacts，组件核验31项、核心26项、来源36项通过。
 
-相关SYS保持进行中：当前子集真实经过草稿链路，完整对象/模式、决策、QA与恢复范围未满足。PP-01–09、PPT-001–030、DEC-001–040、S00–S44和AC-001–030继续按原矩阵推进。DEC-001已有独立CLI/HTTP入口、八模式候选/冲突与DecisionTrace，并接入真实生成。五项原生写入能力已登记稳定capability_id/implementation_id，planner选择后writer逐项校验绑定/输入/输出，runtime health只反映精确依赖与平台。完整AtomicCapability范围、其他后端和DEC-002–040继续实现；下一工作包为DEC-002/003的约束及来源角色归一化，补齐AC-001完整轨迹。
+相关SYS保持进行中：当前子集真实经过草稿链路，完整对象/模式、决策、QA与恢复范围未满足。PP-01–09、PPT-001–030、DEC-001–040、S00–S44和AC-001–030继续按原矩阵推进。DEC-001–003已有独立CLI/HTTP入口、候选/冲突与轨迹，并接入真实生成。DEC-002明确硬约束/偏好/默认值及输出要求，DEC-003按来源角色过滤模型/QA事实集合；原材料完整保留，修订/复查沿用事实快照，缺失或污染时阻断。五项原生写入能力登记稳定capability_id/implementation_id，planner选择后writer逐项校验绑定/输入/输出，runtime health只反映精确依赖与平台。完整AtomicCapability范围、其他后端和DEC-004–040继续实现；下一工作包定位DEC-004/005来源优先级、事实与假设，补齐AC-001完整轨迹。
 
 实际新增证据：validation/route-runtime.json（39项）及validation/route-artifacts/（10页真实HTTP生成，33份hash证据）。SYS-002当前探测仅为本地写入依赖、平台、字体、渲染器；Office/API set/模型未在此处探测，全部Runtime Doctor未完成。旧来源36项证据来自前次版本，不冒称本包重复执行；来源解析代码与依赖未变。
+
+本包新增validation/context-runtime.json的40项检查、context-artifacts的8页真实HTTP产物及36份文件hash；当前核心26项、生成修订31项回归通过。前次模式39项和来源36项保留历史版本及hash，不冒称本包重新运行。真实生成快照早于本包追加的输出/修订拒绝校验；实物字节未重写，新增拒绝校验在当前代码单独验证。

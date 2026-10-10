@@ -25,7 +25,7 @@ def main():
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('capabilities')
     sub.add_parser('schemas')
-    for command in ['validate', 'inspect', 'generate', 'route']:
+    for command in ['validate', 'inspect', 'generate', 'route', 'context', 'source-roles']:
         task = sub.add_parser(command)
         task.add_argument('task', help='TaskSpec JSON path or - for stdin')
     sub.add_parser('evidence').add_argument('evidence_id')
@@ -37,13 +37,19 @@ def main():
     trace = trace_id()
     try:
         registry = SchemaRegistry()
-        if args.command in {'validate', 'inspect', 'generate', 'route'}:
+        if args.command in {'validate', 'inspect', 'generate', 'route', 'context', 'source-roles'}:
             try:
                 raw = sys.stdin.buffer.read() if args.task == '-' else Path(args.task).read_bytes()
             except OSError:
                 raise TaskError('INPUT_NOT_FOUND', '无法读取任务输入文件。', 'CLI', ['SYS-019', 'SYS-001']) from None
             document = load_json(raw, 'CLI')
-            if args.command == 'route':
+            if args.command == 'context':
+                from .context import run_context
+                result = run_context(document, registry, trace)
+            elif args.command == 'source-roles':
+                from .source_roles import run_roles
+                result = run_roles(document, registry, trace)
+            elif args.command == 'route':
                 from .routing import run_route
                 result = run_route(document, registry, trace)
             elif args.command == 'generate':

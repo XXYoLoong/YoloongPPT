@@ -106,6 +106,18 @@ async def generate(request: Request):
     return await run_in_threadpool(generate_deck, document, request.app.state.schemas, request.app.state.evidence, request.state.trace_id)
 
 
+@app.post('/context')
+async def context(request: Request):
+    from .context import run_context
+    return await run_in_threadpool(run_context, await task_body(request), request.app.state.schemas, request.state.trace_id)
+
+
+@app.post('/source-roles')
+async def source_roles(request: Request):
+    from .source_roles import run_roles
+    return await run_in_threadpool(run_roles, await task_body(request), request.app.state.schemas, request.state.trace_id)
+
+
 @app.get('/evidence/{evidence_id}')
 def evidence(evidence_id: str, request: Request):
     return {'ok': True, 'trace_id': request.state.trace_id, 'evidence': request.app.state.evidence.get(evidence_id)}

@@ -1,0 +1,45 @@
+{
+  "status": "assigned",
+  "source_roles": [
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "asset_refs": [
+        "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+      ],
+      "role": "fact",
+      "candidate_refs": [
+        "candidate_bf2f5881-befe-45a5-bf14-f9ed6d1ea156"
+      ],
+      "loading_strategy": {
+        "kind": "markdown",
+        "locator": "validation/fixtures/节能试点材料.md",
+        "fact_input": true
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    },
+    {
+      "source_id": "source_05d8ef7b-ea22-4403-83f0-79b66dbf7ab5",
+      "asset_refs": [],
+      "role": "style",
+      "candidate_refs": [
+        "candidate_1a9a4713-0be0-443a-bad4-b234b9d83fba"
+      ],
+      "loading_strategy": {
+        "kind": "markdown",
+        "locator": null,
+        "fact_input": false
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    }
+  ],
+  "fact_source_ids": [
+    "source_398713db-1e7b-4d83-8b05-e82ba9b823a2"
+  ],
+  "preserved_source_ids": [
+    "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+    "source_05d8ef7b-ea22-4403-83f0-79b66dbf7ab5"
+  ],
+  "issues": [],
+  "trace_id": "trace_7c927d93-53af-42c7-b4e9-878a054f54cf",
+  "fallback": "No guessing unknown roles or treating style/template/assets as factual evidence; preserve sources and clarify."
+}

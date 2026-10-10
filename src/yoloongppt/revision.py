@@ -17,6 +17,22 @@ from .rendering import render
 from .review import review
 from .writer import capacity
 
+DECISION_FILES = ['fact-source-result.json','task-effective.json','decision-route.json','decision-context.json',
+                  'presentation-context.json','decision-source-roles.json','source-role-map.json']
+
+
+def revision_sources(prior):
+    """Revisions keep the parent's factual boundary, including QA-only recovery."""
+    if (prior/'source-role-map.json').is_file() and not (prior/'fact-source-result.json').is_file():
+        raise TaskError('FACT_SOURCE_SNAPSHOT_MISSING', '已判定角色的原版本缺少事实快照，不能退回全部来源。', 'RevisionEngine', ['DEC-003','SYS-016'])
+    name='fact-source-result.json' if (prior/'fact-source-result.json').is_file() else 'source-result.json'
+    result=json.loads((prior/name).read_text(encoding='utf-8'))
+    if (prior/'source-role-map.json').is_file():
+        roles=json.loads((prior/'source-role-map.json').read_text(encoding='utf-8'))
+        if roles['status']!='assigned' or any(e['source_id'] not in roles['fact_source_ids'] for e in result['evidence']):
+            raise TaskError('FACT_SOURCE_ROLE_MISMATCH', '事实快照与原角色判定不符，停止复审。', 'RevisionEngine', ['DEC-003','SYS-016'])
+    return result
+
 
 def revise(run_id, request, schemas, trace):
     schemas.validate('revision-request.schema.json', request)
@@ -29,7 +45,7 @@ def revise(run_id, request, schemas, trace):
     if not all((prior/n).is_file() for n in names):
         raise TaskError('REVISION_BASE_INCOMPLETE', '原版本缺少实际产物、规格、对象映射或QA。', 'RevisionEngine', ['SYS-016'])
     load = lambda n: json.loads((prior/n).read_text(encoding='utf-8'))
-    deck = load('deck-spec.json'); object_map = load('object-map.json'); sources = load('source-result.json'); task = load('task.json')
+    deck = load('deck-spec.json'); object_map = load('object-map.json'); sources = revision_sources(prior); task = load('task-effective.json') if (prior/'task-effective.json').is_file() else load('task.json')
     schemas.validate('deck-execution.schema.json', deck); schemas.validate('deck-execution.schema.json', object_map)
     candidates = [(s, e) for s in deck['slides'] for e in s['elements'] if e['object_id'] == request['object_id']]
     if len(candidates) != 1:
@@ -73,7 +89,9 @@ def revise(run_id, request, schemas, trace):
         changed = [n for n in original.namelist() if original.read(n) != edited.read(n)]
         if changed != [selected_part]:
             raise TaskError('REVISION_SCOPE_CHANGED', '修订没有保持指定part边界。', 'RevisionEngine', ['SYS-016'])
-    for name, value in [('task.json', task), ('deck-spec.json', deck), ('source-result.json', sources), ('object-map.json', object_map)]:artifacts.json(name, value)
+    for name, value in [('task.json', task), ('deck-spec.json', deck), ('source-result.json', load('source-result.json')), ('object-map.json', object_map)]:artifacts.json(name, value)
+    for name in DECISION_FILES:
+        if (prior/name).is_file():artifacts.json(name,load(name))
     renders = render(artifacts.path/'deck.pptx', deck, artifacts.path)
     artifacts.json('render-report.json', renders)
     quality = check(deck, artifacts.path/'deck.pptx', object_map, sources, renders, artifacts.path)
@@ -121,10 +139,10 @@ def recheck(run_id, schemas, trace):
     artifacts = RunArtifacts()
     for name in required:shutil.copyfile(prior/name, artifacts.path/name)
     shutil.copytree(prior/'render', artifacts.path/'render')
-    for name in ['revision-history.json', 'revision-request.json']:
+    for name in ['revision-history.json', 'revision-request.json',*DECISION_FILES]:
         if (prior/name).is_file():shutil.copyfile(prior/name, artifacts.path/name)
     load = lambda n: json.loads((prior/n).read_text(encoding='utf-8'))
-    deck = load('deck-spec.json'); task = load('task.json'); sources = load('source-result.json'); renders = load('render-report.json')
+    deck = load('deck-spec.json'); task = load('task-effective.json') if (prior/'task-effective.json').is_file() else load('task.json'); sources = revision_sources(prior); renders = load('render-report.json')
     schemas.validate('deck-execution.schema.json', deck)
     for a in renders['artifacts']:
         if sha256(artifacts.path/a['path']) != a['hash']:

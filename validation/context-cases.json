@@ -1,0 +1,1799 @@
+{
+  "requirement_ids": [
+    "DEC-002",
+    "DEC-003"
+  ],
+  "cases": [
+    {
+      "id": "DEC-002-normal-hard",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "ten-pages",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "AC-001测试输入"
+              }
+            }
+          ],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {
+          "page_count": 10
+        }
+      },
+      "expected": {
+        "status": "normalized",
+        "page_target": 10
+      }
+    },
+    {
+      "id": "DEC-002-normal-soft",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [
+            {
+              "constraint_id": "prefer8",
+              "field": "page_count",
+              "value": 8,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "fixture explicit input"
+              },
+              "disposition": "applied"
+            }
+          ],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {}
+      },
+      "expected": {
+        "status": "normalized",
+        "page_target": 8
+      }
+    },
+    {
+      "id": "DEC-002-normal-default",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [
+            {
+              "constraint_id": "default6",
+              "field": "page_count",
+              "value": 6,
+              "source": {
+                "kind": "system_default",
+                "reference": "fixture explicit input"
+              },
+              "used": false
+            }
+          ],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {}
+      },
+      "expected": {
+        "status": "normalized",
+        "page_target": 6
+      }
+    },
+    {
+      "id": "DEC-002-normal-raw",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {},
+        "raw_request": {
+          "request": {
+            "raw_text": "制作9页中文16:9演示",
+            "attachments": [],
+            "requested_mode": "create_from_materials",
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "status": "normalized",
+        "page_target": 9
+      }
+    },
+    {
+      "id": "DEC-002-hard-conflict",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "ten-pages",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "AC-001测试输入"
+              }
+            },
+            {
+              "constraint_id": "second",
+              "field": "page_count",
+              "value": 11,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "fixture explicit input"
+              }
+            }
+          ],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {
+          "page_count": 10
+        }
+      },
+      "expected": {
+        "status": "needs_clarification"
+      }
+    },
+    {
+      "id": "DEC-002-soft-degrade",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "ten-pages",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "AC-001测试输入"
+              }
+            }
+          ],
+          "soft": [
+            {
+              "constraint_id": "language",
+              "field": "language",
+              "value": "英文",
+              "source": {
+                "kind": "user_instruction",
+                "reference": "fixture explicit input"
+              },
+              "disposition": "applied"
+            }
+          ],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {
+          "page_count": 10
+        }
+      },
+      "expected": {
+        "status": "normalized",
+        "language": "zh-CN"
+      }
+    },
+    {
+      "id": "DEC-002-soft-overridden",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "ten-pages",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "AC-001测试输入"
+              }
+            }
+          ],
+          "soft": [
+            {
+              "constraint_id": "prefer7",
+              "field": "page_count",
+              "value": 7,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "fixture explicit input"
+              },
+              "disposition": "applied"
+            }
+          ],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {
+          "page_count": 10
+        }
+      },
+      "expected": {
+        "status": "normalized",
+        "page_target": 10
+      }
+    },
+    {
+      "id": "DEC-002-unknown-hard",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "ten-pages",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "AC-001测试输入"
+              }
+            },
+            {
+              "constraint_id": "unknown",
+              "field": "unregistered",
+              "value": 1,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "fixture explicit input"
+              }
+            }
+          ],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {
+          "page_count": 10
+        }
+      },
+      "expected": {
+        "status": "needs_clarification"
+      }
+    },
+    {
+      "id": "DEC-002-duplicate-id",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "ten-pages",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "AC-001测试输入"
+              }
+            },
+            {
+              "constraint_id": "ten-pages",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "AC-001测试输入"
+              }
+            }
+          ],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {
+          "page_count": 10
+        }
+      },
+      "expected": {
+        "status": "needs_clarification"
+      }
+    },
+    {
+      "id": "DEC-002-template-brand",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "ten-pages",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "AC-001测试输入"
+              }
+            },
+            {
+              "constraint_id": "brand",
+              "field": "brand",
+              "value": {
+                "name": "示例品牌"
+              },
+              "source": {
+                "kind": "user_instruction",
+                "reference": "fixture explicit input"
+              }
+            },
+            {
+              "constraint_id": "template",
+              "field": "template",
+              "value": "asset-template",
+              "source": {
+                "kind": "user_instruction",
+                "reference": "fixture explicit input"
+              }
+            }
+          ],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {
+          "page_count": 10
+        }
+      },
+      "expected": {
+        "status": "normalized",
+        "brand": {
+          "name": "示例品牌"
+        },
+        "template": "asset-template"
+      }
+    },
+    {
+      "id": "DEC-002-negative",
+      "node": "DEC-002",
+      "input": {
+        "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_materials",
+          "routing_reason": "调用者明确要求材料新建",
+          "protection_policy_id": "preserve_material_facts_and_sources",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_materials"
+            ],
+            "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+            "kind": "markdown",
+            "locator": "validation/fixtures/节能试点材料.md"
+          }
+        ],
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "ten-pages",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "AC-001测试输入"
+              }
+            }
+          ],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "providers": {
+          "text": {
+            "provider": "deepseek",
+            "model": "deepseek-flash",
+            "api_key_env": "DEEPSEEK_API_KEY",
+            "parameters": {
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "timeout_seconds": 180
+            }
+          }
+        },
+        "runtime_preferences": {
+          "page_count": 10
+        },
+        "raw_request": {
+          "request": {
+            "raw_text": "不要12页，制作10页中文演示",
+            "attachments": [],
+            "requested_mode": "create_from_materials",
+            "requested_outputs": [
+              "pptx"
+            ]
+          },
+          "attachment_roles": []
+        }
+      },
+      "expected": {
+        "status": "normalized",
+        "page_target": 10
+      }
+    },
+    {
+      "id": "DEC-003-normal-fact",
+      "node": "DEC-003",
+      "input": {
+        "task": {
+          "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+          "route": {
+            "route_status": "routed",
+            "mode": "create_from_materials",
+            "routing_reason": "调用者明确要求材料新建",
+            "protection_policy_id": "preserve_material_facts_and_sources",
+            "decision_id": "DEC-001",
+            "trace": {
+              "candidate_modes": [
+                "create_from_materials"
+              ],
+              "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+            }
+          },
+          "sources": [
+            {
+              "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+              "kind": "markdown",
+              "locator": "validation/fixtures/节能试点材料.md",
+              "metadata": {
+                "source_role": "fact"
+              }
+            }
+          ],
+          "constraints": {
+            "hard": [
+              {
+                "constraint_id": "ten-pages",
+                "field": "page_count",
+                "value": 10,
+                "source": {
+                  "kind": "user_instruction",
+                  "reference": "AC-001测试输入"
+                }
+              }
+            ],
+            "soft": [],
+            "defaults": [],
+            "conflicts": []
+          },
+          "style": null,
+          "template_ref": null,
+          "output": {
+            "formats": [
+              "pptx",
+              "pdf",
+              "png"
+            ]
+          },
+          "providers": {
+            "text": {
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "api_key_env": "DEEPSEEK_API_KEY",
+              "parameters": {
+                "temperature": 0.2,
+                "max_tokens": 12000,
+                "timeout_seconds": 180
+              }
+            }
+          },
+          "runtime_preferences": {
+            "page_count": 10
+          }
+        },
+        "source_bundle": {
+          "record_type": "source_bundle_result",
+          "status": "partial",
+          "bundle": {
+            "model_type": "SourceBundle",
+            "sources": [
+              {
+                "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+                "input_order": 0,
+                "kind": "file",
+                "locator": "validation/fixtures/节能试点材料.md",
+                "raw_text": null,
+                "locator_redaction": "not_required",
+                "display_name": null,
+                "raw_asset_refs": [
+                  "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+                ],
+                "content_sha256": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+                "priority_rank": null,
+                "claims": []
+              }
+            ],
+            "source_priority_policy": {
+              "status": "unresolved",
+              "decision_id": "DEC-004",
+              "task_id": "TASK-DEC-004",
+              "precedence_source_ids": [],
+              "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+            },
+            "dedup_policy": {
+              "mode": "hash_candidates_only",
+              "keep_all_sources": true
+            },
+            "duplicate_groups": [],
+            "conflicts": []
+          },
+          "coverage": [
+            {
+              "feature": "source_identity",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "source_anchors",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "priority",
+              "status": "partial",
+              "reason": "DEC-004尚未执行。"
+            },
+            {
+              "feature": "conflict_detection",
+              "status": "unsupported",
+              "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+            },
+            {
+              "feature": "deduplication",
+              "status": "partial",
+              "reason": "仅SHA候选，不删除来源。"
+            }
+          ],
+          "errors": []
+        }
+      },
+      "expected": {
+        "status": "assigned",
+        "fact_count": 1
+      }
+    },
+    {
+      "id": "DEC-003-normal-style",
+      "node": "DEC-003",
+      "input": {
+        "task": {
+          "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+          "route": {
+            "route_status": "routed",
+            "mode": "create_from_materials",
+            "routing_reason": "调用者明确要求材料新建",
+            "protection_policy_id": "preserve_material_facts_and_sources",
+            "decision_id": "DEC-001",
+            "trace": {
+              "candidate_modes": [
+                "create_from_materials"
+              ],
+              "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+            }
+          },
+          "sources": [
+            {
+              "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+              "kind": "markdown",
+              "locator": "validation/fixtures/节能试点材料.md",
+              "metadata": {
+                "source_role": "fact"
+              }
+            },
+            {
+              "source_id": "source_b43719b8-9f7f-4dbd-96eb-a3dae4aeaea7",
+              "kind": "markdown",
+              "locator": "validation/fixtures/节能试点材料.md",
+              "metadata": {
+                "source_role": "style"
+              }
+            }
+          ],
+          "constraints": {
+            "hard": [
+              {
+                "constraint_id": "ten-pages",
+                "field": "page_count",
+                "value": 10,
+                "source": {
+                  "kind": "user_instruction",
+                  "reference": "AC-001测试输入"
+                }
+              }
+            ],
+            "soft": [],
+            "defaults": [],
+            "conflicts": []
+          },
+          "style": null,
+          "template_ref": null,
+          "output": {
+            "formats": [
+              "pptx",
+              "pdf",
+              "png"
+            ]
+          },
+          "providers": {
+            "text": {
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "api_key_env": "DEEPSEEK_API_KEY",
+              "parameters": {
+                "temperature": 0.2,
+                "max_tokens": 12000,
+                "timeout_seconds": 180
+              }
+            }
+          },
+          "runtime_preferences": {
+            "page_count": 10
+          }
+        },
+        "source_bundle": {
+          "record_type": "source_bundle_result",
+          "status": "partial",
+          "bundle": {
+            "model_type": "SourceBundle",
+            "sources": [
+              {
+                "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+                "input_order": 0,
+                "kind": "file",
+                "locator": "validation/fixtures/节能试点材料.md",
+                "raw_text": null,
+                "locator_redaction": "not_required",
+                "display_name": null,
+                "raw_asset_refs": [
+                  "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+                ],
+                "content_sha256": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+                "priority_rank": null,
+                "claims": []
+              },
+              {
+                "source_id": "source_b43719b8-9f7f-4dbd-96eb-a3dae4aeaea7",
+                "input_order": 0,
+                "kind": "file",
+                "locator": "validation/fixtures/节能试点材料.md",
+                "raw_text": null,
+                "locator_redaction": "not_required",
+                "display_name": null,
+                "raw_asset_refs": [
+                  "asset_3f5d9c56-bfa7-408e-b160-a5ddc73bcdc7"
+                ],
+                "content_sha256": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+                "priority_rank": null,
+                "claims": []
+              }
+            ],
+            "source_priority_policy": {
+              "status": "unresolved",
+              "decision_id": "DEC-004",
+              "task_id": "TASK-DEC-004",
+              "precedence_source_ids": [],
+              "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+            },
+            "dedup_policy": {
+              "mode": "hash_candidates_only",
+              "keep_all_sources": true
+            },
+            "duplicate_groups": [],
+            "conflicts": []
+          },
+          "coverage": [
+            {
+              "feature": "source_identity",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "source_anchors",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "priority",
+              "status": "partial",
+              "reason": "DEC-004尚未执行。"
+            },
+            {
+              "feature": "conflict_detection",
+              "status": "unsupported",
+              "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+            },
+            {
+              "feature": "deduplication",
+              "status": "partial",
+              "reason": "仅SHA候选，不删除来源。"
+            }
+          ],
+          "errors": []
+        }
+      },
+      "expected": {
+        "status": "assigned",
+        "fact_count": 1
+      }
+    },
+    {
+      "id": "DEC-003-normal-template-assets",
+      "node": "DEC-003",
+      "input": {
+        "task": {
+          "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+          "route": {
+            "route_status": "routed",
+            "mode": "create_from_materials",
+            "routing_reason": "调用者明确要求材料新建",
+            "protection_policy_id": "preserve_material_facts_and_sources",
+            "decision_id": "DEC-001",
+            "trace": {
+              "candidate_modes": [
+                "create_from_materials"
+              ],
+              "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+            }
+          },
+          "sources": [
+            {
+              "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+              "kind": "markdown",
+              "locator": "validation/fixtures/节能试点材料.md",
+              "metadata": {
+                "source_role": "fact"
+              }
+            },
+            {
+              "source_id": "source_e305211a-d33c-4c53-9114-e115a6bc03d4",
+              "kind": "markdown",
+              "locator": "validation/fixtures/节能试点材料.md",
+              "metadata": {
+                "source_role": "template"
+              }
+            },
+            {
+              "source_id": "source_c2fe52f1-73c6-4bf1-8d75-b0b434ed2264",
+              "kind": "markdown",
+              "locator": "validation/fixtures/节能试点材料.md",
+              "metadata": {
+                "source_role": "asset"
+              }
+            }
+          ],
+          "constraints": {
+            "hard": [
+              {
+                "constraint_id": "ten-pages",
+                "field": "page_count",
+                "value": 10,
+                "source": {
+                  "kind": "user_instruction",
+                  "reference": "AC-001测试输入"
+                }
+              }
+            ],
+            "soft": [],
+            "defaults": [],
+            "conflicts": []
+          },
+          "style": null,
+          "template_ref": null,
+          "output": {
+            "formats": [
+              "pptx",
+              "pdf",
+              "png"
+            ]
+          },
+          "providers": {
+            "text": {
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "api_key_env": "DEEPSEEK_API_KEY",
+              "parameters": {
+                "temperature": 0.2,
+                "max_tokens": 12000,
+                "timeout_seconds": 180
+              }
+            }
+          },
+          "runtime_preferences": {
+            "page_count": 10
+          }
+        },
+        "source_bundle": {
+          "record_type": "source_bundle_result",
+          "status": "partial",
+          "bundle": {
+            "model_type": "SourceBundle",
+            "sources": [
+              {
+                "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+                "input_order": 0,
+                "kind": "file",
+                "locator": "validation/fixtures/节能试点材料.md",
+                "raw_text": null,
+                "locator_redaction": "not_required",
+                "display_name": null,
+                "raw_asset_refs": [
+                  "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+                ],
+                "content_sha256": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+                "priority_rank": null,
+                "claims": []
+              },
+              {
+                "source_id": "source_e305211a-d33c-4c53-9114-e115a6bc03d4",
+                "input_order": 0,
+                "kind": "file",
+                "locator": "validation/fixtures/节能试点材料.md",
+                "raw_text": null,
+                "locator_redaction": "not_required",
+                "display_name": null,
+                "raw_asset_refs": [
+                  "asset_47e19198-4078-4ea8-b0ab-0845e653b11b"
+                ],
+                "content_sha256": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+                "priority_rank": null,
+                "claims": []
+              },
+              {
+                "source_id": "source_c2fe52f1-73c6-4bf1-8d75-b0b434ed2264",
+                "input_order": 0,
+                "kind": "file",
+                "locator": "validation/fixtures/节能试点材料.md",
+                "raw_text": null,
+                "locator_redaction": "not_required",
+                "display_name": null,
+                "raw_asset_refs": [
+                  "asset_29feb236-c7d9-4f6d-9d01-5a88d79c11fc"
+                ],
+                "content_sha256": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+                "priority_rank": null,
+                "claims": []
+              }
+            ],
+            "source_priority_policy": {
+              "status": "unresolved",
+              "decision_id": "DEC-004",
+              "task_id": "TASK-DEC-004",
+              "precedence_source_ids": [],
+              "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+            },
+            "dedup_policy": {
+              "mode": "hash_candidates_only",
+              "keep_all_sources": true
+            },
+            "duplicate_groups": [],
+            "conflicts": []
+          },
+          "coverage": [
+            {
+              "feature": "source_identity",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "source_anchors",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "priority",
+              "status": "partial",
+              "reason": "DEC-004尚未执行。"
+            },
+            {
+              "feature": "conflict_detection",
+              "status": "unsupported",
+              "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+            },
+            {
+              "feature": "deduplication",
+              "status": "partial",
+              "reason": "仅SHA候选，不删除来源。"
+            }
+          ],
+          "errors": []
+        }
+      },
+      "expected": {
+        "status": "assigned",
+        "fact_count": 1
+      }
+    },
+    {
+      "id": "DEC-003-conflict",
+      "node": "DEC-003",
+      "input": {
+        "task": {
+          "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+          "route": {
+            "route_status": "routed",
+            "mode": "create_from_materials",
+            "routing_reason": "调用者明确要求材料新建",
+            "protection_policy_id": "preserve_material_facts_and_sources",
+            "decision_id": "DEC-001",
+            "trace": {
+              "candidate_modes": [
+                "create_from_materials"
+              ],
+              "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+            }
+          },
+          "sources": [
+            {
+              "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+              "kind": "markdown",
+              "locator": "validation/fixtures/节能试点材料.md",
+              "metadata": {
+                "source_role": [
+                  "fact",
+                  "style"
+                ]
+              }
+            }
+          ],
+          "constraints": {
+            "hard": [
+              {
+                "constraint_id": "ten-pages",
+                "field": "page_count",
+                "value": 10,
+                "source": {
+                  "kind": "user_instruction",
+                  "reference": "AC-001测试输入"
+                }
+              }
+            ],
+            "soft": [],
+            "defaults": [],
+            "conflicts": []
+          },
+          "style": null,
+          "template_ref": null,
+          "output": {
+            "formats": [
+              "pptx",
+              "pdf",
+              "png"
+            ]
+          },
+          "providers": {
+            "text": {
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "api_key_env": "DEEPSEEK_API_KEY",
+              "parameters": {
+                "temperature": 0.2,
+                "max_tokens": 12000,
+                "timeout_seconds": 180
+              }
+            }
+          },
+          "runtime_preferences": {
+            "page_count": 10
+          }
+        },
+        "source_bundle": {
+          "record_type": "source_bundle_result",
+          "status": "partial",
+          "bundle": {
+            "model_type": "SourceBundle",
+            "sources": [
+              {
+                "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+                "input_order": 0,
+                "kind": "file",
+                "locator": "validation/fixtures/节能试点材料.md",
+                "raw_text": null,
+                "locator_redaction": "not_required",
+                "display_name": null,
+                "raw_asset_refs": [
+                  "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+                ],
+                "content_sha256": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+                "priority_rank": null,
+                "claims": []
+              }
+            ],
+            "source_priority_policy": {
+              "status": "unresolved",
+              "decision_id": "DEC-004",
+              "task_id": "TASK-DEC-004",
+              "precedence_source_ids": [],
+              "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+            },
+            "dedup_policy": {
+              "mode": "hash_candidates_only",
+              "keep_all_sources": true
+            },
+            "duplicate_groups": [],
+            "conflicts": []
+          },
+          "coverage": [
+            {
+              "feature": "source_identity",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "source_anchors",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "priority",
+              "status": "partial",
+              "reason": "DEC-004尚未执行。"
+            },
+            {
+              "feature": "conflict_detection",
+              "status": "unsupported",
+              "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+            },
+            {
+              "feature": "deduplication",
+              "status": "partial",
+              "reason": "仅SHA候选，不删除来源。"
+            }
+          ],
+          "errors": []
+        }
+      },
+      "expected": {
+        "status": "needs_clarification",
+        "fact_count": 0
+      }
+    },
+    {
+      "id": "DEC-003-unbound-attachment",
+      "node": "DEC-003",
+      "input": {
+        "task": {
+          "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+          "route": {
+            "route_status": "routed",
+            "mode": "create_from_materials",
+            "routing_reason": "调用者明确要求材料新建",
+            "protection_policy_id": "preserve_material_facts_and_sources",
+            "decision_id": "DEC-001",
+            "trace": {
+              "candidate_modes": [
+                "create_from_materials"
+              ],
+              "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+            }
+          },
+          "sources": [
+            {
+              "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+              "kind": "markdown",
+              "locator": "validation/fixtures/节能试点材料.md",
+              "metadata": {
+                "source_role": "style"
+              }
+            }
+          ],
+          "constraints": {
+            "hard": [
+              {
+                "constraint_id": "ten-pages",
+                "field": "page_count",
+                "value": 10,
+                "source": {
+                  "kind": "user_instruction",
+                  "reference": "AC-001测试输入"
+                }
+              }
+            ],
+            "soft": [],
+            "defaults": [],
+            "conflicts": []
+          },
+          "style": null,
+          "template_ref": null,
+          "output": {
+            "formats": [
+              "pptx",
+              "pdf",
+              "png"
+            ]
+          },
+          "providers": {
+            "text": {
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "api_key_env": "DEEPSEEK_API_KEY",
+              "parameters": {
+                "temperature": 0.2,
+                "max_tokens": 12000,
+                "timeout_seconds": 180
+              }
+            }
+          },
+          "runtime_preferences": {
+            "page_count": 10
+          },
+          "raw_request": {
+            "request": {
+              "raw_text": "",
+              "attachments": [],
+              "requested_mode": "create_from_materials",
+              "requested_outputs": [
+                "pptx"
+              ]
+            },
+            "attachment_roles": [
+              {
+                "asset_id": "asset_ffffffff-ffff-4fff-afff-ffffffffffff",
+                "role": "content",
+                "kind": "markdown"
+              }
+            ]
+          }
+        },
+        "source_bundle": {
+          "record_type": "source_bundle_result",
+          "status": "partial",
+          "bundle": {
+            "model_type": "SourceBundle",
+            "sources": [
+              {
+                "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+                "input_order": 0,
+                "kind": "file",
+                "locator": "validation/fixtures/节能试点材料.md",
+                "raw_text": null,
+                "locator_redaction": "not_required",
+                "display_name": null,
+                "raw_asset_refs": [
+                  "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+                ],
+                "content_sha256": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+                "priority_rank": null,
+                "claims": []
+              }
+            ],
+            "source_priority_policy": {
+              "status": "unresolved",
+              "decision_id": "DEC-004",
+              "task_id": "TASK-DEC-004",
+              "precedence_source_ids": [],
+              "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+            },
+            "dedup_policy": {
+              "mode": "hash_candidates_only",
+              "keep_all_sources": true
+            },
+            "duplicate_groups": [],
+            "conflicts": []
+          },
+          "coverage": [
+            {
+              "feature": "source_identity",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "source_anchors",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "priority",
+              "status": "partial",
+              "reason": "DEC-004尚未执行。"
+            },
+            {
+              "feature": "conflict_detection",
+              "status": "unsupported",
+              "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+            },
+            {
+              "feature": "deduplication",
+              "status": "partial",
+              "reason": "仅SHA候选，不删除来源。"
+            }
+          ],
+          "errors": []
+        }
+      },
+      "expected": {
+        "status": "needs_clarification"
+      }
+    },
+    {
+      "id": "DEC-003-unknown-role",
+      "node": "DEC-003",
+      "input": {
+        "task": {
+          "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+          "route": {
+            "route_status": "routed",
+            "mode": "create_from_materials",
+            "routing_reason": "调用者明确要求材料新建",
+            "protection_policy_id": "preserve_material_facts_and_sources",
+            "decision_id": "DEC-001",
+            "trace": {
+              "candidate_modes": [
+                "create_from_materials"
+              ],
+              "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+            }
+          },
+          "sources": [
+            {
+              "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+              "kind": "markdown",
+              "locator": "validation/fixtures/节能试点材料.md",
+              "metadata": {
+                "source_role": "unknown"
+              }
+            }
+          ],
+          "constraints": {
+            "hard": [
+              {
+                "constraint_id": "ten-pages",
+                "field": "page_count",
+                "value": 10,
+                "source": {
+                  "kind": "user_instruction",
+                  "reference": "AC-001测试输入"
+                }
+              }
+            ],
+            "soft": [],
+            "defaults": [],
+            "conflicts": []
+          },
+          "style": null,
+          "template_ref": null,
+          "output": {
+            "formats": [
+              "pptx",
+              "pdf",
+              "png"
+            ]
+          },
+          "providers": {
+            "text": {
+              "provider": "deepseek",
+              "model": "deepseek-flash",
+              "api_key_env": "DEEPSEEK_API_KEY",
+              "parameters": {
+                "temperature": 0.2,
+                "max_tokens": 12000,
+                "timeout_seconds": 180
+              }
+            }
+          },
+          "runtime_preferences": {
+            "page_count": 10
+          }
+        },
+        "source_bundle": {
+          "record_type": "source_bundle_result",
+          "status": "partial",
+          "bundle": {
+            "model_type": "SourceBundle",
+            "sources": [
+              {
+                "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+                "input_order": 0,
+                "kind": "file",
+                "locator": "validation/fixtures/节能试点材料.md",
+                "raw_text": null,
+                "locator_redaction": "not_required",
+                "display_name": null,
+                "raw_asset_refs": [
+                  "asset_37a793eb-2964-46dd-8e2d-fb687f1784d2"
+                ],
+                "content_sha256": "04d7b2e3bf9f328fe10abda2f544bf434c6af9a2f144fb12e11914f389f72daa",
+                "priority_rank": null,
+                "claims": []
+              }
+            ],
+            "source_priority_policy": {
+              "status": "unresolved",
+              "decision_id": "DEC-004",
+              "task_id": "TASK-DEC-004",
+              "precedence_source_ids": [],
+              "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+            },
+            "dedup_policy": {
+              "mode": "hash_candidates_only",
+              "keep_all_sources": true
+            },
+            "duplicate_groups": [],
+            "conflicts": []
+          },
+          "coverage": [
+            {
+              "feature": "source_identity",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "source_anchors",
+              "status": "complete",
+              "reason": null
+            },
+            {
+              "feature": "priority",
+              "status": "partial",
+              "reason": "DEC-004尚未执行。"
+            },
+            {
+              "feature": "conflict_detection",
+              "status": "unsupported",
+              "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+            },
+            {
+              "feature": "deduplication",
+              "status": "partial",
+              "reason": "仅SHA候选，不删除来源。"
+            }
+          ],
+          "errors": []
+        }
+      },
+      "expected": {
+        "status": "needs_clarification"
+      }
+    }
+  ]
+}

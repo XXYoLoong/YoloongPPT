@@ -66,4 +66,14 @@ app内 `python -m yoloongppt route /workspace/validation/route-request.json` 或
 
 `capabilities`的atomic_registry含五项已登记的原生写入能力及稳定实现ID；执行DAG由planner实际选择，writer在任何写入前核对所有调用的绑定和输入，再校验真实输出。其他对象/后端及导入保真未升级支持状态。
 
-实物与复现：[模式路由与能力登记](validation/模式路由与能力登记.md)、[当前生成PPTX](validation/route-artifacts/deck.pptx)、[渲染PDF](validation/route-artifacts/render/deck.pdf)。39项节点/登记/真实链路核验、26项核心及31项生成修订回归通过；DEC-002–040及完整AC仍未通过。
+实物与复现：[模式路由与能力登记](validation/模式路由与能力登记.md)、[该次生成PPTX](validation/route-artifacts/deck.pptx)、[渲染PDF](validation/route-artifacts/render/deck.pdf)。39项模式节点/登记核验是前次版本证据；当前核心26项及生成修订31项回归通过，完整AC仍未通过。
+
+## 约束归一化与来源分流
+
+容器内 `python -m yoloongppt context /workspace/validation/context-generation-task.json` 或 POST `/context` 消费TaskSpec；`source-roles <input.json>` 或 POST `/source-roles` 消费包含task与已解析source_bundle的JSON。两节点可独立运行，并保存输入、候选、选择、规则、输出、时长和错误。
+
+DEC-002按硬约束、偏好、调用方默认、系统默认的顺序选择，同级不同值阻断；原始请求中明确的页数、比例、语言、输出要求也参与处理。当前原文识别是有界规则，非任意自然语言理解。模板、品牌等值可归一化保留，但尚未支持的执行要求明确拒绝。输出要求不能静默忽略，偏好无法满足须保存原因。
+
+DEC-003绑定真实source_id/asset_ref，保留事实、模板、风格、素材、已有deck及还原来源六种角色。来源解析仍限原有文本/Markdown范围；角色分类不等于模板/图片/其他格式解析已实现。生成、QA及后续修订/复查只消费事实集合，全部原材料另行保存；角色冲突和身份未绑定在模型调用前阻断。
+
+[40项检查与说明](validation/约束归一化与来源分流.md)、[本次8页原生PPTX](validation/context-artifacts/deck.pptx)、[PDF](validation/context-artifacts/render/deck.pdf)记录真实DeepSeek调用和三节点轨迹。已执行QA的P0为0；DEC-004–040及全部QA/AC仍未完成。

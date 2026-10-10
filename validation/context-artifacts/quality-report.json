@@ -1,0 +1,107 @@
+{
+  "qa_id": "artifact_3aa58ed2-9a68-4606-a05b-a038fb6cb06b",
+  "status": "partial",
+  "issues": [],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_9a0a4e00-886a-4668-814f-ab1aa50ea4ef",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_9063a640-3186-41f1-ac9c-00a12823a573",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_4a6c94d6-61f9-4c76-b248-a685380f324b",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_3db4c233-3ce4-4878-823d-011dd3073bfa",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_804d0dea-66ca-4f5b-ae60-9ad91eb164e4",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_a758dc29-a8db-4ecf-ab46-ec1f00892130",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_d2a83b38-da51-4591-9747-2579eef093d5",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_ec4417a2-a540-41f6-9eb9-75a589db9abc",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "model_review_executed",
+    "fact_semantic": "model_review_executed",
+    "accessibility": "not_executed",
+    "powerpoint_compatibility": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Deterministic and real image/fact model checks executed; complete decision graph, accessibility, PowerPoint compatibility and revision gates are not proven.",
+  "model_review": {
+    "checked_slide_orders": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "issues": [
+      {
+        "slide_order": 3,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "柱状图纵轴刻度标签为0、2000、4000、6000、8000、10000、12000、14000，但纵轴标题“千瓦时”为竖排文字，与刻度标签间距较近，在部分渲染环境下可能显得拥挤；图表本身数据与表格一致，系列区分清晰。",
+        "evidence_refs": [
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28",
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ],
+        "issue_id": "issue_c8ffea64-d316-4f27-9522-48cdaf70e1b7",
+        "slide_id": "slide_3db4c233-3ce4-4878-823d-011dd3073bfa"
+      },
+      {
+        "slide_order": 2,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "表格中“示例月基线”和“试点月目标”列的数字未标注单位，仅靠标题“单位：千瓦时”说明；虽符合原文，但逐行阅读时单位归属不够直观。",
+        "evidence_refs": [
+          "evidence_b5b70e95-81ea-46bb-9cdc-db32a4b177e0",
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ],
+        "issue_id": "issue_b3e6d53b-5978-4c31-a048-b769062cee8c",
+        "slide_id": "slide_4a6c94d6-61f9-4c76-b248-a685380f324b"
+      }
+    ],
+    "summary": "已逐页检查全部8页。各页标题、正文、表格与图表内容均与所引用证据一致，未发现事实性错误、严重内容缺失或不可读问题。示例数据均明确标注为示例/计划值，未误写为真实结果；单位统一为千瓦时；风险与限制、验证下一步等关键内容均有覆盖。仅存在两处轻微视觉/可读性优化点（图表纵轴标题与刻度间距、表格数字单位就近标注），不影响理解。审查限于所提供渲染图与文本证据，未验证PowerPoint兼容性或可编辑性。"
+  }
+}
