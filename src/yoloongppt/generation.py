@@ -84,6 +84,7 @@ def generate(task, schemas, store, trace, checkpoint=None):
             proposal, model = step('SYS-005 partial content planner', lambda: plan(task, sources, schemas, artifacts, count))
         deck, execution = step('SYS-010/011', lambda: compile_deck(proposal, style, trace, previous_deck))
         artifacts.json('deck-spec.json', deck); artifacts.json('execution-plan.json', execution)
+        artifacts.json('layout-selection.json',{'scope':'DEC-030/031/033/034 subset; full nodes incomplete','slides':[{'slide_id':s['slide_id'],**s['layout']} for s in deck['slides']]})
         object_map, calls = step('SYS-012/013', lambda: execute(deck, execution, artifacts.path/'deck.pptx', schemas))
         artifacts.json('object-map.json', object_map); artifacts.json('execution-trace.json', calls)
         renders = step('SYS-014', lambda: render(artifacts.path/'deck.pptx', deck, artifacts.path))

@@ -55,7 +55,8 @@ def revise(run_id, request, schemas, trace):
         raise TaskError('REVISION_OBJECT_UNSUPPORTED', '当前只支持标题/正文原生文本对象修订，其他对象未替换。', 'RevisionEngine', ['SYS-016'])
     if element['role'] == 'title' and (len(request['replacement_text']) != 1 or len(request['replacement_text'][0]) > 60):
         raise TaskError('REVISION_TITLE_INVALID', '标题需一个不超过60字的文本项。', 'RevisionEngine', ['SYS-016'])
-    capacity(request['replacement_text'], element['bounds'], element['font_size'])
+    formatting=element.get('format',{});page_style=spec['style']
+    capacity(request['replacement_text'], element['bounds'], element['font_size'],padding=formatting.get('margin',0.12),paragraph_spacing=formatting.get('paragraph_spacing',10))
     old_text = copy.deepcopy(element['text'])
     element['text'] = request['replacement_text']
     if element['role'] == 'title':spec['content']['title'] = request['replacement_text'][0]
@@ -70,12 +71,12 @@ def revise(run_id, request, schemas, trace):
     shape = matches[0]; shape.text_frame.clear()
     for n, text in enumerate(request['replacement_text']):
         p = shape.text_frame.paragraphs[0] if n == 0 else shape.text_frame.add_paragraph()
-        p.text = text; p.space_after = Pt(10); p.line_spacing = 1.15
-        p.font.name = deck['style']['font']; p.font.size = Pt(element['font_size']); p.font.bold = element['role'] == 'title'
-        p.font.color.rgb = RGBColor.from_string(deck['style']['accent'] if element['role'] == 'title' else deck['style']['foreground'])
+        p.text = text; p.space_after = Pt(formatting.get('paragraph_spacing',10)); p.line_spacing = 1.15
+        p.font.name = page_style['font']; p.font.size = Pt(element['font_size']); p.font.bold = formatting.get('bold',element['role'] == 'title')
+        p.font.color.rgb = RGBColor.from_string(formatting.get('color',page_style['accent'] if element['role'] == 'title' else page_style['foreground']))
         default = p._p.get_or_add_pPr().find('{http://schemas.openxmlformats.org/drawingml/2006/main}defRPr')
         if default is not None:
-            ea = OxmlElement('a:ea'); ea.set('typeface', deck['style']['font']); default.append(ea)
+            ea = OxmlElement('a:ea'); ea.set('typeface', page_style['font']); default.append(ea)
     artifacts = RunArtifacts()
     artifacts.json('revision-request.json', request)
     expanded = artifacts.path/'revision-expanded.pptx'

@@ -1,0 +1,118 @@
+{
+  "qa_id": "artifact_38c27722-8859-4f03-9817-4b4939e51b5f",
+  "status": "partial",
+  "issues": [],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_6a5fc792-d957-4c96-aa42-becac85e65f5",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_9e574e48-7cac-409f-becd-84a0ea3b2d11",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_3c0200c8-695e-4fe0-9ecd-c96c4997f548",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_2a1a6ea8-b4c4-42b8-a6fa-96194d881365",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_6e96ced1-8ac8-4feb-a358-ee571eec399f",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_1b690045-8e0c-4b94-85a2-fb486f599d9f",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_2e625730-78e2-4782-87d2-11939b8f5be2",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_001d1484-ae80-4c6c-8a2b-5cfe96943979",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_80e58aa0-f8d4-4cda-8bd9-99d39cb40212",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_cc90ef38-f11f-42a2-b775-b8dd9f45420c",
+      "kind": "structure/editability/geometry/source_numeric/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "model_review_executed",
+    "fact_semantic": "model_review_executed",
+    "accessibility": "not_executed",
+    "powerpoint_compatibility": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Deterministic and real image/fact model checks executed; complete decision graph, accessibility, PowerPoint compatibility and revision gates are not proven.",
+  "model_review": {
+    "checked_slide_orders": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
+    "issues": [
+      {
+        "slide_order": 3,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "表格中“教学楼A”行的单元格高度明显大于其他行，行高不一致，视觉上略显不整齐，但不影响数据读取。",
+        "evidence_refs": [
+          "evidence_bafc9cf6-7c57-4f39-ae66-1d3bc486e1a3"
+        ],
+        "issue_id": "issue_c8380e6a-577f-461c-a824-a7d67a89d31f",
+        "slide_id": "slide_2a1a6ea8-b4c4-42b8-a6fa-96194d881365"
+      },
+      {
+        "slide_order": 4,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "柱状图纵轴标签“千瓦时”为竖排文字，与常规横排轴标题相比可读性略低，但单位信息完整、系列区分清晰。",
+        "evidence_refs": [
+          "evidence_f409bfbb-aeaf-4a1c-b098-7d76b15c9b28"
+        ],
+        "issue_id": "issue_110a7812-1a2e-4d61-ba79-49da08528d80",
+        "slide_id": "slide_6e96ced1-8ac8-4feb-a358-ee571eec399f"
+      }
+    ],
+    "summary": "已逐页检查全部10页（序0-9）。整体质量良好：数据性质（示例、非真实观测、非已实现效果）在开篇、表格页、图表页、数据解读页和收尾页反复明确；表格与柱状图数值、单位（千瓦时）与引用证据一致；目标均标注为计划值，未误写为结果；安全边界、因果限制、责任分工为建议角色等关键限定均保留。未发现事实错误、严重裁切、重叠或内容缺失。仅有两处P2级视觉优化点：第4页表格行高不一致、第5页纵轴标题竖排可读性略低。限制说明：本审查基于提供的渲染截图与文本证据，无法验证字体嵌入、动画、可编辑性等PowerPoint兼容性属性。",
+    "type": "json_object"
+  }
+}

@@ -33,6 +33,7 @@ def render(pptx, deck, root):
         raise TaskError('RENDER_OUTPUT_MISSING', 'LibreOffice未产生PDF。', 'Renderer', ['SYS-014'], status=500)
     process(['pdftoppm', '-png', '-r', '120', str(pdf), str(folder/'slide')])
     process(['pdftotext', '-layout', str(pdf), str(folder/'deck.txt')])
+    process(['pdftotext', '-bbox', str(pdf), str(folder/'deck-bbox.xhtml')])
     images = sorted(folder.glob('slide-*.png'))
     if len(images) != len(deck['slides']):
         raise TaskError('RENDER_PAGE_COUNT_MISMATCH', '实际渲染页数与DeckSpec不同。', 'Renderer', ['SYS-014'], status=500)
@@ -48,4 +49,4 @@ def render(pptx, deck, root):
     shutil.rmtree(profile, ignore_errors=True)
     return {'artifacts': artifacts, 'renderer_version': lo.strip(), 'poppler_version': poppler.splitlines()[0],
             'stdout': out.strip(), 'stderr': err.strip(), 'powerpoint_compatibility': 'not_tested',
-            'render_text_path': 'render/deck.txt'}
+            'render_text_path': 'render/deck.txt','render_bbox_path':'render/deck-bbox.xhtml'}

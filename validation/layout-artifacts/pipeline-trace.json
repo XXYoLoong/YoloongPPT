@@ -1,0 +1,62 @@
+{
+  "trace_id": "trace_9a70817b-bc8d-4673-8dc7-3e8940de3446",
+  "steps": [
+    {
+      "component": "DEC-001",
+      "status": "executed",
+      "duration_seconds": 0.051
+    },
+    {
+      "component": "DEC-002",
+      "status": "executed",
+      "duration_seconds": 0.008
+    },
+    {
+      "component": "SYS-003/004",
+      "status": "executed",
+      "duration_seconds": 0.073
+    },
+    {
+      "component": "DEC-003",
+      "status": "executed",
+      "duration_seconds": 0.008
+    },
+    {
+      "component": "SYS-005 partial content planner",
+      "status": "checkpoint_reused",
+      "previous_run_id": "038ff02e-c86e-4611-90c2-93ebdd17c214"
+    },
+    {
+      "component": "SYS-010/011",
+      "status": "executed",
+      "duration_seconds": 1.724
+    },
+    {
+      "component": "SYS-012/013",
+      "status": "executed",
+      "duration_seconds": 0.599
+    },
+    {
+      "component": "SYS-014",
+      "status": "executed",
+      "duration_seconds": 10.651
+    },
+    {
+      "component": "SYS-015",
+      "status": "executed",
+      "duration_seconds": 0.335
+    },
+    {
+      "component": "SYS-015 reference repair",
+      "status": "executed",
+      "duration_seconds": 8.084
+    },
+    {
+      "component": "SYS-015 actual visual/fact review",
+      "status": "executed",
+      "duration_seconds": 2.887
+    }
+  ],
+  "warnings": [],
+  "decision_coverage": "DEC-001/002/003 executed; DEC-004–040 graph not complete"
+}

@@ -45,21 +45,25 @@ def capacity(texts, bounds, size, padding=0.12, paragraph_spacing=10):
 
 
 def text_shape(slide, element, style):
-    measurement = capacity(element['text'], element['bounds'], element['font_size'])
+    formatting=element.get('format',{})
+    measurement = capacity(element['text'], element['bounds'], element['font_size'],padding=formatting.get('margin',0.12),paragraph_spacing=formatting.get('paragraph_spacing',10))
     shape = slide.shapes.add_textbox(*(Inches(x) for x in element['bounds']))
     frame = shape.text_frame
     frame.word_wrap = True
     frame.auto_size = MSO_AUTO_SIZE.NONE
-    frame.margin_left = frame.margin_right = Inches(0.12)
-    frame.margin_top = frame.margin_bottom = Inches(0.12)
+    frame.margin_left = frame.margin_right = Inches(formatting.get('margin',0.12))
+    frame.margin_top = frame.margin_bottom = Inches(formatting.get('margin',0.12))
+    if 'fill' in formatting:shape.fill.solid();shape.fill.fore_color.rgb=RGBColor.from_string(formatting['fill'])
+    if 'border' in formatting:shape.line.color.rgb=RGBColor.from_string(formatting['border']);shape.line.width=Pt(0.7)
+    else:shape.line.fill.background()
     for n, text in enumerate(element['text']):
         p = frame.paragraphs[0] if n == 0 else frame.add_paragraph()
         p.text = text
-        p.space_after = Pt(10)
+        p.space_after = Pt(formatting.get('paragraph_spacing',10))
         p.line_spacing = 1.15
         p.font.name = style['font']; p.font.size = Pt(element['font_size'])
-        p.font.bold = element['role'] == 'title'
-        p.font.color.rgb = RGBColor.from_string(style['accent'] if element['role'] == 'title' else style['foreground'])
+        p.font.bold = formatting.get('bold',element['role'] == 'title')
+        p.font.color.rgb = RGBColor.from_string(formatting.get('color',style['accent'] if element['role'] == 'title' else style['foreground']))
         # Explicit East Asian typeface; do not rely on the host's theme fallback.
         props = p._p.get_or_add_pPr()
         default = props.find('{http://schemas.openxmlformats.org/drawingml/2006/main}defRPr')
@@ -134,7 +138,7 @@ def execute(deck, execution, destination, schemas):
         begin = time.monotonic(); spec = specs[call['slide_id']]
         if call['capability'] == 'create_slide':
             slide = presentation.slides.add_slide(presentation.slide_layouts[6])
-            slide.background.fill.solid(); slide.background.fill.fore_color.rgb = RGBColor.from_string(deck['style']['background'])
+            slide.background.fill.solid(); slide.background.fill.fore_color.rgb = RGBColor.from_string(spec['style']['background'])
             slides[call['slide_id']] = slide
             observed = {'native_slide_id': slide.slide_id, 'part': str(slide.part.partname), 'order': spec['order']}
         elif call['capability'] == 'add_notes':
@@ -146,7 +150,7 @@ def execute(deck, execution, destination, schemas):
             function = {'add_text': text_shape, 'add_table': table_shape, 'add_chart': chart_shape}.get(call['capability'])
             if function is None:
                 raise TaskError('EXECUTION_CAPABILITY_UNSUPPORTED', '执行能力未实现。', 'PageExecutor', ['SYS-012'])
-            shape, observed = function(slide, element, deck['style'])
+            shape, observed = function(slide, element, spec['style'])
             shape.name = element['object_id']
             object_map['objects'].append({'logical_object_id': element['object_id'], 'slide_id': call['slide_id'],
                 'backend_object_id': f'{slide.part.partname}#{shape.shape_id}', 'shape_id': shape.shape_id, 'name': shape.name,

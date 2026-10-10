@@ -36,3 +36,5 @@ Docker固定安装libreoffice-impress 4:7.4.7-1+deb12u14、poppler-utils 22.12.0
 实际新增证据：validation/route-runtime.json（39项）及validation/route-artifacts/（10页真实HTTP生成，33份hash证据）。SYS-002当前探测仅为本地写入依赖、平台、字体、渲染器；Office/API set/模型未在此处探测，全部Runtime Doctor未完成。旧来源36项证据来自前次版本，不冒称本包重复执行；来源解析代码与依赖未变。
 
 本包新增validation/context-runtime.json的40项检查、context-artifacts的8页真实HTTP产物及36份文件hash；当前核心26项、生成修订31项回归通过。前次模式39项和来源36项保留历史版本及hash，不冒称本包重新运行。真实生成快照早于本包追加的输出/修订拒绝校验；实物字节未重写，新增拒绝校验在当前代码单独验证。
+
+后续已将七类原生版式目录接入SYS-010/012/013，选择前测容量并保存候选/理由；槽位与每页样式由统一规格消费。SYS-014生成PDF字词坐标，SYS-015按原生对象边界核对实际文字，删除字词反例继续检出。validation/layout-runtime.json的23项及layout-artifacts的十页真实断点恢复产物有效；新增引用修正与视觉/事实复审实际调用模型，当前执行P0=0。49份hash及初次P0=9记录保留，核心26与生成修订31已按当前源码回归。40节点、39模式和36来源报告为各自版本历史证据。

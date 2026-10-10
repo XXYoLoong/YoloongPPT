@@ -1,0 +1,218 @@
+{
+  "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+  "route": {
+    "route_status": "routed",
+    "mode": "create_from_materials",
+    "routing_reason": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+    "protection_policy_id": "preserve_material_facts_and_sources",
+    "decision_id": "DEC-001",
+    "trace": {
+      "candidate_modes": [
+        "create_from_materials"
+      ],
+      "selection_basis": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+      "conflict_summary": "",
+      "trace_id": "trace_9a70817b-bc8d-4673-8dc7-3e8940de3446",
+      "negated_signals": [],
+      "executable": true,
+      "fallback": "No alternate mode substitution; clarify scope or expose missing implementation."
+    }
+  },
+  "sources": [
+    {
+      "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+      "kind": "markdown",
+      "locator": "validation/fixtures/节能试点材料.md"
+    }
+  ],
+  "constraints": {
+    "hard": [
+      {
+        "constraint_id": "ten-pages",
+        "field": "page_count",
+        "value": 10,
+        "source": {
+          "kind": "user_instruction",
+          "reference": "AC-001测试输入"
+        }
+      }
+    ],
+    "soft": [
+      {
+        "constraint_id": "candidate_f6872c03-e909-4d4b-9427-64543969a4c7",
+        "field": "page_count",
+        "value": 10,
+        "source": {
+          "kind": "user_instruction",
+          "reference": "runtime_preferences.page_count"
+        },
+        "disposition": "applied",
+        "applied_value": 10,
+        "handling_reason": "Selected by DEC-002 and within current execution subset."
+      }
+    ],
+    "defaults": [
+      {
+        "constraint_id": "system_default.page_count",
+        "field": "page_count",
+        "value": 10,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": false,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.language",
+        "field": "language",
+        "value": "zh-CN",
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.aspect_ratio",
+        "field": "aspect_ratio",
+        "value": "16:9",
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.minimum_font_size",
+        "field": "minimum_font_size",
+        "value": 16,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.template",
+        "field": "template",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.brand",
+        "field": "brand",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.output_formats",
+        "field": "output_formats",
+        "value": [
+          "pptx",
+          "pdf",
+          "png"
+        ],
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": false,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.audience",
+        "field": "audience",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.scenario",
+        "field": "scenario",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.duration",
+        "field": "duration",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.tone",
+        "field": "tone",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.citation_policy",
+        "field": "citation_policy",
+        "value": "notes",
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      }
+    ],
+    "conflicts": []
+  },
+  "style": null,
+  "template_ref": null,
+  "output": {
+    "formats": [
+      "pptx",
+      "pdf",
+      "png"
+    ]
+  },
+  "providers": {
+    "text": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "parameters": {
+        "temperature": 0.2,
+        "max_tokens": 12000,
+        "timeout_seconds": 180
+      }
+    }
+  },
+  "runtime_preferences": {
+    "page_count": 10
+  }
+}

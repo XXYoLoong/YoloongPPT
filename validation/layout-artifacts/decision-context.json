@@ -1,0 +1,748 @@
+{
+  "trace_id": "trace_9a70817b-bc8d-4673-8dc7-3e8940de3446",
+  "node_id": "DEC-002",
+  "input": {
+    "task_id": "task_89453e1f-2e50-41b3-a54b-c4b39e9d43b4",
+    "route": {
+      "route_status": "routed",
+      "mode": "create_from_materials",
+      "routing_reason": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+      "protection_policy_id": "preserve_material_facts_and_sources",
+      "decision_id": "DEC-001",
+      "trace": {
+        "candidate_modes": [
+          "create_from_materials"
+        ],
+        "selection_basis": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+        "conflict_summary": "",
+        "trace_id": "trace_9a70817b-bc8d-4673-8dc7-3e8940de3446",
+        "negated_signals": [],
+        "executable": true,
+        "fallback": "No alternate mode substitution; clarify scope or expose missing implementation."
+      }
+    },
+    "sources": [
+      {
+        "source_id": "source_398713db-1e7b-4d83-8b05-e82ba9b823a2",
+        "kind": "markdown",
+        "locator": "validation/fixtures/节能试点材料.md"
+      }
+    ],
+    "constraints": {
+      "hard": [
+        {
+          "constraint_id": "ten-pages",
+          "field": "page_count",
+          "value": 10,
+          "source": {
+            "kind": "user_instruction",
+            "reference": "AC-001测试输入"
+          }
+        }
+      ],
+      "soft": [],
+      "defaults": [],
+      "conflicts": []
+    },
+    "style": null,
+    "template_ref": null,
+    "output": {
+      "formats": [
+        "pptx",
+        "pdf",
+        "png"
+      ]
+    },
+    "providers": {
+      "text": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "parameters": {
+          "temperature": 0.2,
+          "max_tokens": 12000,
+          "timeout_seconds": 180
+        }
+      }
+    },
+    "runtime_preferences": {
+      "page_count": 10
+    }
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_a1abb2ee-a6d6-42f9-983d-2857ee7ef476",
+      "value": {
+        "field": "page_count",
+        "value": 10,
+        "level": "hard"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "source": "ten-pages",
+          "kind": "hard",
+          "original_constraint": {
+            "constraint_id": "ten-pages",
+            "field": "page_count",
+            "value": 10,
+            "source": {
+              "kind": "user_instruction",
+              "reference": "AC-001测试输入"
+            }
+          }
+        }
+      ],
+      "evidence_refs": [
+        "ten-pages"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_f6872c03-e909-4d4b-9427-64543969a4c7",
+      "value": {
+        "field": "page_count",
+        "value": 10,
+        "level": "soft"
+      },
+      "score": 0.7,
+      "reasons": [
+        {
+          "source": "runtime_preferences.page_count",
+          "kind": "soft"
+        }
+      ],
+      "evidence_refs": [
+        "runtime_preferences.page_count"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": false,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_ef070b83-0a03-42de-82be-c6efc3437dcf",
+      "value": {
+        "field": "output_formats",
+        "value": [
+          "pdf",
+          "png",
+          "pptx"
+        ],
+        "level": "hard"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "source": "TaskSpec.output.formats",
+          "kind": "hard"
+        }
+      ],
+      "evidence_refs": [
+        "TaskSpec.output.formats"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_7772c11b-8ed0-4dd0-b088-e2f9e0230041",
+      "value": {
+        "field": "page_count",
+        "value": 10,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.page_count",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.page_count"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": false,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_247ebafd-b510-48b1-b180-e8322d6312bf",
+      "value": {
+        "field": "language",
+        "value": "zh-CN",
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.language",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.language"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_783bb1d7-f18c-4a97-b7ac-790da7851fdc",
+      "value": {
+        "field": "aspect_ratio",
+        "value": "16:9",
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.aspect_ratio",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.aspect_ratio"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_8dfd76b4-e923-49be-82ec-03f9237ffd61",
+      "value": {
+        "field": "minimum_font_size",
+        "value": 16,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.minimum_font_size",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.minimum_font_size"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_5b846771-62ad-4c90-9b2f-62cd3c1f7364",
+      "value": {
+        "field": "template",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.template",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.template"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_e48e5c8e-72d6-43a4-9217-fd2be12b83c8",
+      "value": {
+        "field": "brand",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.brand",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.brand"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_67bdf5de-3c28-46c7-a62b-fbea7e13e0ea",
+      "value": {
+        "field": "output_formats",
+        "value": [
+          "pdf",
+          "png",
+          "pptx"
+        ],
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.output_formats",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.output_formats"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": false,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_d540bcfe-dcd7-4ac8-a604-68ec4b91e951",
+      "value": {
+        "field": "audience",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.audience",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.audience"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_bb8b1523-d1e5-4f8e-807e-362efd9b1f84",
+      "value": {
+        "field": "scenario",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.scenario",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.scenario"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_62852f0f-9d01-4348-ab31-8fdded6f8017",
+      "value": {
+        "field": "duration",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.duration",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.duration"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_07acf291-5058-46b5-b47c-f7a80fe75a8d",
+      "value": {
+        "field": "tone",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.tone",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.tone"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_e4fa9ffd-bdff-421b-a262-95f5f99f61dd",
+      "value": {
+        "field": "citation_policy",
+        "value": "notes",
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.citation_policy",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.citation_policy"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_5b846771-62ad-4c90-9b2f-62cd3c1f7364",
+    "candidate_62852f0f-9d01-4348-ab31-8fdded6f8017",
+    "candidate_d540bcfe-dcd7-4ac8-a604-68ec4b91e951",
+    "candidate_783bb1d7-f18c-4a97-b7ac-790da7851fdc",
+    "candidate_07acf291-5058-46b5-b47c-f7a80fe75a8d",
+    "candidate_e4fa9ffd-bdff-421b-a262-95f5f99f61dd",
+    "candidate_bb8b1523-d1e5-4f8e-807e-362efd9b1f84",
+    "candidate_a1abb2ee-a6d6-42f9-983d-2857ee7ef476",
+    "candidate_e48e5c8e-72d6-43a4-9217-fd2be12b83c8",
+    "candidate_247ebafd-b510-48b1-b180-e8322d6312bf",
+    "candidate_8dfd76b4-e923-49be-82ec-03f9237ffd61",
+    "candidate_ef070b83-0a03-42de-82be-c6efc3437dcf"
+  ],
+  "rules": {
+    "version": "DEC-002-1",
+    "mechanism": "Canonical aliases; bounded raw instruction extraction; explicit hard/soft/default precedence; no arbitrary tie breaking.",
+    "source_sha256": "e881610f43e179bf3fd97d07902ed8b96e10f651853075cbdd1a62e238015976",
+    "fallback": "Conflict blocks; unsupported soft/default explicitly falls back to known system default."
+  },
+  "output": {
+    "status": "normalized",
+    "audience": null,
+    "scenario": null,
+    "duration": null,
+    "language": "zh-CN",
+    "tone": null,
+    "aspect_ratio": "16:9",
+    "page_target": 10,
+    "citation_policy": "notes",
+    "template": null,
+    "brand": null,
+    "values": {
+      "template": null,
+      "duration": null,
+      "audience": null,
+      "aspect_ratio": "16:9",
+      "tone": null,
+      "citation_policy": "notes",
+      "scenario": null,
+      "page_count": 10,
+      "brand": null,
+      "language": "zh-CN",
+      "minimum_font_size": 16,
+      "output_formats": [
+        "pdf",
+        "png",
+        "pptx"
+      ]
+    },
+    "constraints": {
+      "hard": [
+        {
+          "constraint_id": "ten-pages",
+          "field": "page_count",
+          "value": 10,
+          "source": {
+            "kind": "user_instruction",
+            "reference": "AC-001测试输入"
+          }
+        }
+      ],
+      "soft": [
+        {
+          "constraint_id": "candidate_f6872c03-e909-4d4b-9427-64543969a4c7",
+          "field": "page_count",
+          "value": 10,
+          "source": {
+            "kind": "user_instruction",
+            "reference": "runtime_preferences.page_count"
+          },
+          "disposition": "applied",
+          "applied_value": 10,
+          "handling_reason": "Selected by DEC-002 and within current execution subset."
+        }
+      ],
+      "defaults": [
+        {
+          "constraint_id": "system_default.page_count",
+          "field": "page_count",
+          "value": 10,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": false,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.language",
+          "field": "language",
+          "value": "zh-CN",
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.aspect_ratio",
+          "field": "aspect_ratio",
+          "value": "16:9",
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.minimum_font_size",
+          "field": "minimum_font_size",
+          "value": 16,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.template",
+          "field": "template",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.brand",
+          "field": "brand",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.output_formats",
+          "field": "output_formats",
+          "value": [
+            "pptx",
+            "pdf",
+            "png"
+          ],
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": false,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.audience",
+          "field": "audience",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.scenario",
+          "field": "scenario",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.duration",
+          "field": "duration",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.tone",
+          "field": "tone",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.citation_policy",
+          "field": "citation_policy",
+          "value": "notes",
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        }
+      ],
+      "conflicts": []
+    },
+    "issues": [],
+    "warnings": [],
+    "trace_id": "trace_9a70817b-bc8d-4673-8dc7-3e8940de3446"
+  },
+  "duration": 0.006627,
+  "error": null
+}

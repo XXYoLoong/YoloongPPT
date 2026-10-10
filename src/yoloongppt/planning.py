@@ -119,17 +119,26 @@ def compile_deck(proposal, style, trace, previous_deck=None, registry=None):
                   'text': [f'{order+1:02d}  /  {len(proposal["slides"]):02d}  ·  来源索引见备注及ObjectMap'],
                   'bounds': [0.7, 6.8, 11.8, 0.55], 'font_size': 16, 'source_refs': []}
         elements.append(footer)
+        layout_selection=None
+        page_style=style
+        # Legacy checkpoints retain their proven slots and IDs. New generation
+        # consumes the native catalog; its slots remain stable across recovery.
+        if prior is None or prior['layout'].get('design_version')=='native-editorial-1':
+            from .layouts import choose
+            previous_kind=deck['slides'][-1]['layout'].get('selected_layout') if deck['slides'] else None
+            elements,page_style,layout_selection=choose(content,order,len(proposal['slides']),style,previous_kind,registry)
         if prior:
             for element in elements:
-                prior_matches = [e for e in prior['elements'] if e['role'] == element['role'] and e['type'] == element['type']]
+                prior_matches = [e for e in prior['elements'] if e['role'] == element['role'] and e['type'] == element['type'] and e.get('slot_key')==element.get('slot_key')]
                 if len(prior_matches) != 1:
                     raise TaskError('CHECKPOINT_OBJECT_MISMATCH', '断点对象结构与当前规划不一致。', 'SlideCompiler', ['SYS-010'])
                 element['object_id'] = prior_matches[0]['object_id']
         slide = {'slide_id': slide_id, 'order': order, 'intent': {'goal': content['goal'], 'core_message': content['title']},
                  'content': content, 'assets': [], 'layout': {'kind': content['kind'], 'master': 'library-default-blank'},
-                 'bindings': [], 'elements': elements, 'style': style,
+                 'bindings': [], 'elements': elements, 'style': page_style,
                  'enhancements': {'notes': content['notes']}, 'source_refs': content['evidence_refs']}
         deck['slides'].append(slide)
+        if layout_selection:slide['layout'].update(design_version='native-editorial-1',selected_layout=layout_selection['selected_layout'],selection_trace=layout_selection)
         page_call = entity('capability')
         calls.append({'call_id': page_call, 'slide_id': slide_id, 'capability': 'create_slide',
                       'implementation_id': 'python-pptx.PageExecutor', 'backend': 'PP-05', 'deps': [previous] if previous else [],

@@ -34,6 +34,9 @@ def check(deck, pptx, object_map, sources, renders, root):
     lookup = {e['evidence_id']: e for e in sources['evidence']}
     shape_lookup = {o['logical_object_id']: o for o in object_map['objects']}
     pages_text = (Path(root)/renders['render_text_path']).read_text(encoding='utf-8').split('\f')
+    bbox_pages=None
+    if renders.get('render_bbox_path'):
+        bbox_pages=ET.parse(Path(root)/renders['render_bbox_path']).findall('.//{http://www.w3.org/1999/xhtml}page')
     for index, spec in enumerate(deck['slides']):
         if index >= len(presentation.slides):break
         slide = presentation.slides[index]
@@ -66,6 +69,16 @@ def check(deck, pptx, object_map, sources, renders, root):
                 if element['role'] != 'footer' and element['text']:
                     clean = lambda s: re.sub(r'\s+', '', s)
                     rendered = clean(pages_text[index]) if index < len(pages_text) else ''
+                    if bbox_pages is not None:
+                        # Filter actual PDF words to the owning native object's
+                        # box before checking sequence; columns otherwise interleave.
+                        x,y,w,h=element['bounds'];page=bbox_pages[index]
+                        words=[]
+                        for word in page.findall('{http://www.w3.org/1999/xhtml}word'):
+                            left=float(word.attrib['xMin']);right=float(word.attrib['xMax']);top=float(word.attrib['yMin']);bottom=float(word.attrib['yMax'])
+                            cx=(left+right)/2;cy=(top+bottom)/2
+                            if x*72-1<=cx<=(x+w)*72+1 and y*72-1<=cy<=(y+h)*72+1:words.append(word.text or '')
+                        rendered=clean(''.join(words))
                     if any(clean(t) not in rendered for t in element['text']):issue('RENDER_TEXT_MISSING', spec['slide_id'], element['object_id'])
             elif element['type'] == 'table':
                 rows = [element['data']['columns'], *element['data']['rows']]

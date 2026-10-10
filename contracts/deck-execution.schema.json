@@ -76,6 +76,41 @@
         },
         "data": {
           "type": "object"
+        },
+        "slot_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "format": {
+          "type": "object",
+          "properties": {
+            "color": {
+              "type": "string",
+              "pattern": "^[0-9A-Fa-f]{6}$"
+            },
+            "fill": {
+              "type": "string",
+              "pattern": "^[0-9A-Fa-f]{6}$"
+            },
+            "border": {
+              "type": "string",
+              "pattern": "^[0-9A-Fa-f]{6}$"
+            },
+            "bold": {
+              "type": "boolean"
+            },
+            "margin": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            },
+            "paragraph_spacing": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 30
+            }
+          },
+          "additionalProperties": false
         }
       },
       "additionalProperties": false
