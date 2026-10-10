@@ -31,7 +31,7 @@
 
 Docker固定安装libreoffice-impress 4:7.4.7-1+deb12u14、poppler-utils 22.12.0-2+deb12u3、fonts-noto-cjk 1:20220127+repack1-1；完整系统包版本和核心版权文件随实物证据保留。/tmp实际挂载F盘runtime/data/tmp以满足LibreOffice IPC硬编码，XDG配置/缓存亦在/runtime；镜像rootfs继续只读。真实生成及修订证据见validation/generation-artifacts，组件核验31项、核心26项、来源36项通过。
 
-相关SYS保持进行中：当前子集真实经过草稿链路，完整对象/模式、决策、QA与恢复范围未满足。PP-01–09、PPT-001–030、DEC-001–040、S00–S44和AC-001–030继续按原矩阵推进。DEC-001–003已有独立CLI/HTTP入口、候选/冲突与轨迹，并接入真实生成。DEC-002明确硬约束/偏好/默认值及输出要求，DEC-003按来源角色过滤模型/QA事实集合；原材料完整保留，修订/复查沿用事实快照，缺失或污染时阻断。五项原生写入能力登记稳定capability_id/implementation_id，planner选择后writer逐项校验绑定/输入/输出，runtime health只反映精确依赖与平台。完整AtomicCapability范围、其他后端和DEC-004–040继续实现；下一工作包定位DEC-004/005来源优先级、事实与假设，补齐AC-001完整轨迹。
+相关SYS保持进行中：当前子集真实经过草稿链路，完整对象/模式、决策、QA与恢复范围未满足。PP-01–09、PPT-001–030、DEC-001–040、S00–S44和AC-001–030继续按原矩阵推进。DEC-001–005已有独立CLI/HTTP入口、候选/冲突与轨迹，并接入真实生成。DEC-002明确硬约束/偏好/默认值及输出要求，DEC-003按来源角色过滤模型/QA事实集合；原材料完整保留，修订/复查沿用事实快照，缺失或污染时阻断。五项原生写入能力登记稳定capability_id/implementation_id，planner选择后writer逐项校验绑定/输入/输出，runtime health只反映精确依赖与平台。完整AtomicCapability范围、DEC-004/005逐字来源校验、明确优先级/选择、未决阻断、事实/假设边界及可引用投影已接入真实生成和修订；事实解释阶段恢复核对来源/hash，复用原解释并重跑决策。完整事实语义/抽取、其他后端和DEC-006–040继续实现；下一工作包定位DEC-006–011受众/场景/表达与论点，继续补齐AC-001完整轨迹。
 
 实际新增证据：validation/route-runtime.json（39项）及validation/route-artifacts/（10页真实HTTP生成，33份hash证据）。SYS-002当前探测仅为本地写入依赖、平台、字体、渲染器；Office/API set/模型未在此处探测，全部Runtime Doctor未完成。旧来源36项证据来自前次版本，不冒称本包重复执行；来源解析代码与依赖未变。
 

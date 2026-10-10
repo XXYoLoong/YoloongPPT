@@ -1,0 +1,333 @@
+{
+  "ok": true,
+  "trace_id": "trace_566ed5ee-9805-4386-b9e1-968b0b117a23",
+  "operation": "inspect_sources",
+  "task_id": "task_a5007f54-314a-467a-9baa-beb762d6a2f2",
+  "source_bundle": {
+    "record_type": "source_bundle_result",
+    "status": "partial",
+    "bundle": {
+      "model_type": "SourceBundle",
+      "sources": [
+        {
+          "source_id": "source_5a685037-804b-4c76-871d-41082dca4ff0",
+          "input_order": 0,
+          "kind": "text",
+          "locator": null,
+          "raw_text": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [],
+          "content_sha256": "aef1fbb96782da2a5d6ea0a62e92149df017a055ba417a99ff48b98cc10fef35",
+          "priority_rank": null,
+          "claims": []
+        },
+        {
+          "source_id": "source_a7986e16-c36f-46d9-8fdf-a12aaff57db4",
+          "input_order": 1,
+          "kind": "text",
+          "locator": null,
+          "raw_text": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [],
+          "content_sha256": "10a5fdc1e463166f5b4f6867f8520158173da9b0014d288d58f696352be8bb4e",
+          "priority_rank": null,
+          "claims": []
+        }
+      ],
+      "source_priority_policy": {
+        "status": "unresolved",
+        "decision_id": "DEC-004",
+        "task_id": "TASK-DEC-004",
+        "precedence_source_ids": [],
+        "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+      },
+      "dedup_policy": {
+        "mode": "hash_candidates_only",
+        "keep_all_sources": true
+      },
+      "duplicate_groups": [],
+      "conflicts": []
+    },
+    "coverage": [
+      {
+        "feature": "source_identity",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "source_anchors",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "priority",
+        "status": "partial",
+        "reason": "DEC-004尚未执行。"
+      },
+      {
+        "feature": "conflict_detection",
+        "status": "unsupported",
+        "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+      },
+      {
+        "feature": "deduplication",
+        "status": "partial",
+        "reason": "仅SHA候选，不删除来源。"
+      }
+    ],
+    "errors": []
+  },
+  "documents": [
+    {
+      "source_id": "source_5a685037-804b-4c76-871d-41082dca4ff0",
+      "document": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+        "source": {
+          "kind": "raw_text",
+          "source_ref": "raw_markdown"
+        },
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "document": {
+          "model_type": "TextDocumentModel",
+          "source": {
+            "kind": "raw_text",
+            "source_ref": "raw_markdown"
+          },
+          "blocks": [
+            {
+              "kind": "paragraph",
+              "block_index": 0,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 0,
+                "end_offset": 65,
+                "offset_unit": "unicode_code_point",
+                "line_start": 1,
+                "line_end": 1
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 0,
+                    "end_offset": 65,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 1,
+                    "line_end": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted."
+    },
+    {
+      "source_id": "source_a7986e16-c36f-46d9-8fdf-a12aaff57db4",
+      "document": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+        "source": {
+          "kind": "raw_text",
+          "source_ref": "raw_markdown"
+        },
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "document": {
+          "model_type": "TextDocumentModel",
+          "source": {
+            "kind": "raw_text",
+            "source_ref": "raw_markdown"
+          },
+          "blocks": [
+            {
+              "kind": "paragraph",
+              "block_index": 0,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 0,
+                "end_offset": 65,
+                "offset_unit": "unicode_code_point",
+                "line_start": 1,
+                "line_end": 1
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 0,
+                    "end_offset": 65,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 1,
+                    "line_end": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted."
+    }
+  ],
+  "evidence": [
+    {
+      "source_id": "source_5a685037-804b-4c76-871d-41082dca4ff0",
+      "source_hash": "aef1fbb96782da2a5d6ea0a62e92149df017a055ba417a99ff48b98cc10fef35",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:text",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_5a685037-804b-4c76-871d-41082dca4ff0",
+        "asset_id": null,
+        "native_locator": "chars:0:65",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 0,
+          "start_char": 0,
+          "end_char": 65,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+      "content": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 0,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 0,
+          "end_offset": 65,
+          "offset_unit": "unicode_code_point",
+          "line_start": 1,
+          "line_end": 1
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 0,
+              "end_offset": 65,
+              "offset_unit": "unicode_code_point",
+              "line_start": 1,
+              "line_end": 1
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "text",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted.",
+      "evidence_id": "evidence_9bebbb3b-0cb4-41fa-a5da-c8ad4500025a"
+    },
+    {
+      "source_id": "source_a7986e16-c36f-46d9-8fdf-a12aaff57db4",
+      "source_hash": "10a5fdc1e463166f5b4f6867f8520158173da9b0014d288d58f696352be8bb4e",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:text",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_a7986e16-c36f-46d9-8fdf-a12aaff57db4",
+        "asset_id": null,
+        "native_locator": "chars:0:65",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 0,
+          "start_char": 0,
+          "end_char": 65,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+      "content": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 0,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 0,
+          "end_offset": 65,
+          "offset_unit": "unicode_code_point",
+          "line_start": 1,
+          "line_end": 1
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 0,
+              "end_offset": 65,
+              "offset_unit": "unicode_code_point",
+              "line_start": 1,
+              "line_end": 1
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "text",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted.",
+      "evidence_id": "evidence_c5dfeb81-b469-46af-898c-e651a04e83a7"
+    }
+  ],
+  "trace": [
+    {
+      "component": "TaskSpec",
+      "requirement_id": "SYS-001",
+      "status": "validated"
+    },
+    {
+      "component": "SchemaRegistry",
+      "requirement_id": "SYS-006",
+      "status": "validated"
+    },
+    {
+      "component": "SourceLoader",
+      "requirement_id": "SYS-003",
+      "status": "partial"
+    },
+    {
+      "component": "EvidenceStore",
+      "requirement_id": "SYS-004",
+      "status": "saved"
+    }
+  ],
+  "boundary": "Source parsing and evidence only; no fact extraction, model routing, PPTX generation or QA acceptance.",
+  "selection": {
+    "producer": "DEC-003",
+    "fact_source_ids": [
+      "source_5a685037-804b-4c76-871d-41082dca4ff0",
+      "source_a7986e16-c36f-46d9-8fdf-a12aaff57db4"
+    ],
+    "all_sources_preserved_in": "source-result.json"
+  }
+}

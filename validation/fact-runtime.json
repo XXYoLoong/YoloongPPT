@@ -1,0 +1,199 @@
+{
+  "passed": true,
+  "cases": [
+    {
+      "id": "conflict_no_default_priority",
+      "passed": true,
+      "actual": "All two values retained; no caller selection."
+    },
+    {
+      "id": "priority_selects_8",
+      "passed": true,
+      "actual": "Caller priority only."
+    },
+    {
+      "id": "explicit_selection_9",
+      "passed": true,
+      "actual": "Explicit source selection retained."
+    },
+    {
+      "id": "one_uncontested_fact",
+      "passed": true,
+      "actual": "No invented priority."
+    },
+    {
+      "id": "large_numeric_identity_exact",
+      "passed": true,
+      "actual": "No Decimal-context rounding merges different source numbers."
+    },
+    {
+      "id": "uncontested_selection_without_claim_rejected",
+      "passed": true,
+      "actual": "FACT_SELECTION_AMBIGUOUS"
+    },
+    {
+      "id": "supported_fact_bound",
+      "passed": true,
+      "actual": "FactConstraintSet consumes resolved selected claim."
+    },
+    {
+      "id": "unresolved_boundary_blocks",
+      "passed": true,
+      "actual": "Unresolved value cannot be used."
+    },
+    {
+      "id": "required_missing_asks",
+      "passed": true,
+      "actual": "Required missing blocks before content model."
+    },
+    {
+      "id": "explicit_assumption_registered",
+      "passed": true,
+      "actual": "Explicit assumption ID/value/user_visible preserved."
+    },
+    {
+      "id": "assumption_identity_stable",
+      "passed": true,
+      "actual": "Same fact/rule/value gives stable typed ID across recovery."
+    },
+    {
+      "id": "explicit_placeholder",
+      "passed": true,
+      "actual": "Missing value remains absent."
+    },
+    {
+      "id": "explicit_exact_inference",
+      "passed": true,
+      "actual": "Exact rational arithmetic, recorded assumption; no source invention."
+    },
+    {
+      "id": "infer_unused_value_rejected",
+      "passed": true,
+      "actual": "TASK_SCHEMA_INVALID"
+    },
+    {
+      "id": "placeholder_unused_value_rejected",
+      "passed": true,
+      "actual": "TASK_SCHEMA_INVALID"
+    },
+    {
+      "id": "fabricated_quote_rejected",
+      "passed": true,
+      "actual": "FACT_QUOTE_UNGROUNDED"
+    },
+    {
+      "id": "unauthorized_numeric_change",
+      "passed": true,
+      "actual": "FACT_NUMBER_TRANSFORM_UNAUTHORIZED"
+    },
+    {
+      "id": "invented_period_rejected",
+      "passed": true,
+      "actual": "FACT_SCOPE_UNGROUNDED"
+    },
+    {
+      "id": "coverage_omission_rejected",
+      "passed": true,
+      "actual": "FACT_COVERAGE_INCOMPLETE"
+    },
+    {
+      "id": "shared_literal_split_per_source",
+      "passed": true,
+      "actual": "Each original source independently grounds full literal assertion."
+    },
+    {
+      "id": "shared_numeric_not_grounded_each_source",
+      "passed": true,
+      "actual": "FACT_VALUE_UNGROUNDED"
+    },
+    {
+      "id": "same_source_scope_quote_attached",
+      "passed": true,
+      "actual": "Exact same-source 2026年 scope attached; model output not rewritten."
+    },
+    {
+      "id": "date_literal_inside_full_claim",
+      "passed": true,
+      "actual": "Exact year text normalization preserves original precision."
+    },
+    {
+      "id": "date_precision_invention_rejected",
+      "passed": true,
+      "actual": "FACT_DATE_TRANSFORM_UNAUTHORIZED"
+    },
+    {
+      "id": "tampered_resolution_rejected",
+      "passed": true,
+      "actual": "FACT_RESOLUTION_CHANGED"
+    },
+    {
+      "id": "implicit_rounding_rejected",
+      "passed": true,
+      "actual": "INFERENCE_PRECISION_UNSUPPORTED"
+    },
+    {
+      "id": "loser_value_not_factual_input",
+      "passed": true,
+      "actual": "Original raw 9% remains in immutable evidence, excluded only in explicit projection."
+    },
+    {
+      "id": "full_original_evidence_retained",
+      "passed": true,
+      "actual": "No source record rewritten or deleted."
+    },
+    {
+      "id": "copy_model_does_not_receive_rejected_values",
+      "passed": true,
+      "actual": "Full conflict retained for audit/reviewer; usable-fact projection excludes competing values."
+    },
+    {
+      "id": "missing_projection_no_raw_fallback",
+      "passed": true,
+      "actual": "FACT_PROJECTION_INCOMPLETE"
+    },
+    {
+      "id": "grounded_selection_resolves_missing_proposal",
+      "passed": true,
+      "actual": "DEC-004 actual selected value supersedes same-key/kind missing proposal; proposal retained in trace."
+    },
+    {
+      "id": "CLI_resolve-evidence",
+      "passed": true,
+      "actual": {
+        "run_id": "f14ffaac-aa27-4894-a3aa-c4868faa10cb"
+      }
+    },
+    {
+      "id": "HTTP_resolve-evidence",
+      "passed": true,
+      "actual": {
+        "run_id": "77c34441-8071-4d59-aabb-524b3f47b144"
+      }
+    },
+    {
+      "id": "CLI_fact-boundaries",
+      "passed": true,
+      "actual": {
+        "run_id": "5f6928c6-ce4b-4283-970c-2f24927c6e75"
+      }
+    },
+    {
+      "id": "HTTP_fact-boundaries",
+      "passed": true,
+      "actual": {
+        "run_id": "ba9304df-015e-4432-8dc2-e21a2bdceb0f"
+      }
+    }
+  ],
+  "source_sha256": {
+    "src/yoloongppt/facts.py": "f3bfa3925abb76e445badb8f0ba20766896df8d62b564bbb8db9f7deee1300d2",
+    "src/yoloongppt/generation.py": "8b7195069328a7d22e644f6dadbc0252acdfc4f72d70ad5fa0f61c764e8525e6",
+    "src/yoloongppt/planning.py": "100c3e02c978b7c6ba10a006b5a4de6abf3e682caeea11fdfd43f1b48c434826",
+    "src/yoloongppt/quality.py": "cd54c54fa5a94f04adc525805f70f513235dc4308898d56f899859b64f474ea2",
+    "src/yoloongppt/review.py": "016adc3a9b89ec599a7c299b65f5996bab70ca8840a23f0be60cd1b7f1256d60",
+    "src/yoloongppt/revision.py": "6fe379bd6ee2b0f874a9b3e7da4438868c0064d4a3561f06f0ba1c2ff83b11d6",
+    "src/yoloongppt/api.py": "7434dd73181be86217ff81d4786007615d76a79a0b57ab0445e26a280ed885a8",
+    "src/yoloongppt/__main__.py": "14e5874f0f92726085fb2810afa4009217c7c70069936a4d26b571824f64b324"
+  },
+  "scope": "DEC-004/005 exact-grounding, explicit decision rules and consumed facts projection. Full semantic extraction, graph and system acceptance unproven."
+}

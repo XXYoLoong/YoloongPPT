@@ -13,11 +13,11 @@
       "passed": true,
       "observed": {
         "ok": true,
-        "trace_id": "trace_3dbb8d90-01db-4679-81f4-b1fa263142cc",
+        "trace_id": "trace_2d589b5d-b40a-4eb3-a66d-5865afe8a9aa",
         "state": "core_ready",
         "generation_ready": false,
         "draft_generation_available": true,
-        "schema_count": 58
+        "schema_count": 62
       }
     },
     {
@@ -25,14 +25,14 @@
       "passed": true,
       "observed": {
         "ok": true,
-        "trace_id": "trace_9e0398c2-e56a-4b28-992e-7c3ebe0f3695",
+        "trace_id": "trace_0fa6ae0c-decc-43bd-b9fc-8ea55d45b50f",
         "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
         "operation": "validate_task",
         "validation_scope": "schema and identity only; not execution/QA/E2E",
         "task_sha256": "47d5493cf029f3f7f9a7f0fe537389d571c086f3f5dc4aae2b8ebff19d8734a6",
         "schema_version": {
           "schema": "task-spec.schema.json",
-          "sha256": "5cf3c098da41bfba72b1626e8649ceeb7c6627bff8a509668058f5624a1a1024"
+          "sha256": "e107163822a6c50eec88df8937016dd45338e020c5e944df7d3ac2c4b8d89f02"
         },
         "mode": "create_from_scratch",
         "source_count": 1,
@@ -104,7 +104,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_aeae67c8-9f45-406e-bbd6-4a4e583ac191",
+        "trace_id": "trace_ec624948-60a7-4c3e-9af3-36ed02446785",
         "error": {
           "code": "TASK_SCHEMA_INVALID",
           "message": "输入不符合Schema；字段路径见details。",
@@ -128,7 +128,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_ea14b121-3977-4ded-b04c-651174d62935",
+        "trace_id": "trace_f5c63933-a45d-47fe-97eb-b92e9a531faf",
         "error": {
           "code": "TASK_SCHEMA_INVALID",
           "message": "输入不符合Schema；字段路径见details。",
@@ -152,7 +152,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_2be087c5-9dea-4418-a19f-ea04d6949f72",
+        "trace_id": "trace_29ab34c8-ba1c-431f-8100-e483a805402d",
         "error": {
           "code": "SOURCE_ID_DUPLICATE",
           "message": "不同来源不能复用同一source_id。",
@@ -175,7 +175,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_d4d00b1b-08c2-4af3-b804-f865865c2c92",
+        "trace_id": "trace_e72c66d6-7305-4981-85e3-ba5e62951f3c",
         "error": {
           "code": "TASK_SCHEMA_INVALID",
           "message": "输入不符合Schema；字段路径见details。",
@@ -199,7 +199,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_bf0ff503-ff8a-4e06-9475-3fb345bf6709",
+        "trace_id": "trace_74e6418a-18bd-4107-af8b-7ac349b78945",
         "error": {
           "code": "PROVIDER_CREDENTIAL_LITERAL",
           "message": "供应商凭据只允许引用环境变量名。",
@@ -221,7 +221,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_522b68e8-1d31-48dd-9029-10c4e5038a3a",
+        "trace_id": "trace_dc1f72fe-ad8f-42a9-9870-bc29377dbe3b",
         "error": {
           "code": "INPUT_JSON_INVALID",
           "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
@@ -240,7 +240,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_a248eff6-faaf-425d-8a4b-7f3c2f073b11",
+        "trace_id": "trace_66420546-0d34-40c3-a640-5094a40097f9",
         "error": {
           "code": "INPUT_JSON_INVALID",
           "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
@@ -259,7 +259,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_14a731b0-01ba-42e4-a1a6-0622a28d4a74",
+        "trace_id": "trace_bbe51361-12b6-4735-803e-3135ef742eb5",
         "error": {
           "code": "INPUT_JSON_INVALID",
           "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
@@ -278,7 +278,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_fd99a9d8-7183-494e-a3bb-6e3c2daf097d",
+        "trace_id": "trace_29d14fda-bc5e-4c5f-b9d3-d3abdac170bd",
         "error": {
           "code": "INPUT_JSON_INVALID",
           "message": "任务必须是合法UTF-8 JSON，键不得重复、数值不得为NaN/Infinity。",
@@ -297,7 +297,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_0ef5cbfe-3ce8-4ae7-b517-e0b420dd2d04",
+        "trace_id": "trace_554043ac-c51f-408c-a062-9c2b47c79cca",
         "error": {
           "code": "REQUEST_TOO_LARGE",
           "message": "JSON任务超过4MiB入口限制；未执行任务。",
@@ -315,7 +315,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_08f2fcf6-b7cf-4005-93de-5833f5c04aaf",
+        "trace_id": "trace_6a1fbc21-1a01-468d-8a11-5915f90cc454",
         "error": {
           "code": "HTTP_REQUEST_REJECTED",
           "message": "不存在该接口或请求方法不受支持。",
@@ -333,7 +333,7 @@
       "passed": true,
       "observed": {
         "ok": false,
-        "trace_id": "trace_a67b5289-8cc0-45eb-9557-04457f16d617",
+        "trace_id": "trace_2416e985-f4f4-4dcf-b6ae-a9fa4f8c2774",
         "error": {
           "code": "CLI_ARGUMENT_INVALID",
           "message": "命令或参数无效；使用--help查看已实现命令。",
@@ -365,7 +365,7 @@
       "id": "schema_hash_registry",
       "passed": true,
       "observed": {
-        "schemas": 58
+        "schemas": 62
       }
     }
   ],
@@ -373,7 +373,7 @@
     "python": "3.13.16",
     "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.36"
   },
-  "task_schema_sha256": "5cf3c098da41bfba72b1626e8649ceeb7c6627bff8a509668058f5624a1a1024",
+  "task_schema_sha256": "e107163822a6c50eec88df8937016dd45338e020c5e944df7d3ac2c4b8d89f02",
   "scope": "Docker core component and real CLI/HTTP checks; no model, generation, render, QA, revision or AC E2E acceptance.",
   "status": "All five requirements/tasks remain in progress until their original E2E acceptance is satisfied.",
   "installed_versions": {
@@ -405,23 +405,24 @@
     "xlsxwriter": "3.2.9"
   },
   "consumed_files": {
-    "src/yoloongppt/api.py": "5d6de87f104c3791a9c71ad8597c95d5b0fb1fc001470a928d5353164aecbd7d",
+    "src/yoloongppt/api.py": "7434dd73181be86217ff81d4786007615d76a79a0b57ab0445e26a280ed885a8",
     "src/yoloongppt/artifacts.py": "122a72e8a81d991daf5a4237c573bbfb4a43fce0e7f4427d9aa264b1a5334e8f",
     "src/yoloongppt/atomic.py": "992342eac300d4b64c3e815b5a5465dbd2f147133b37bd34fac2c400771bb0bd",
     "src/yoloongppt/capabilities.py": "dec12d838d8c53ed04695dfad173229d37aaa52857162f377ba997a34bd9a10d",
     "src/yoloongppt/context.py": "e881610f43e179bf3fd97d07902ed8b96e10f651853075cbdd1a62e238015976",
     "src/yoloongppt/errors.py": "877d710a888b55a173c3c376735c2796510d3b5733174fab02a37fff2d76f355",
     "src/yoloongppt/evidence.py": "2e66c94e2a5d8eeea70006f98b525bca84930f64b70112d042ee96973e6bac3a",
-    "src/yoloongppt/generation.py": "9e130cccde6ac91683511356a11401eb15e450074f798f9885795a21be6cdf79",
+    "src/yoloongppt/facts.py": "f3bfa3925abb76e445badb8f0ba20766896df8d62b564bbb8db9f7deee1300d2",
+    "src/yoloongppt/generation.py": "8b7195069328a7d22e644f6dadbc0252acdfc4f72d70ad5fa0f61c764e8525e6",
     "src/yoloongppt/jsonio.py": "7eede0b149d96093f63a9d0eaa9416b2acba2745535ef8fe76921a99323d8fb9",
     "src/yoloongppt/layouts.py": "c1bfe831094eecde539e45dfeaca297af0cfb1cad176271f4f0473327681afad",
     "src/yoloongppt/markdown.py": "a4ee49169ab79914e3e9a99fcde6b5ae3af6bc9d5200199463acfcd1a32d812a",
-    "src/yoloongppt/planning.py": "de6b066d4970f96117679a9514e22686abc90697a085b57f6c87540abe58a9a5",
+    "src/yoloongppt/planning.py": "100c3e02c978b7c6ba10a006b5a4de6abf3e682caeea11fdfd43f1b48c434826",
     "src/yoloongppt/providers.py": "269a90d1e498d54cb9f16fba8f6735ec586c1f26e8298ce784ab43d601bf7d99",
-    "src/yoloongppt/quality.py": "26131dfc5cf693bc1fe22691b922f3e0e183c9c36726c01be8c594cb43fccad9",
+    "src/yoloongppt/quality.py": "cd54c54fa5a94f04adc525805f70f513235dc4308898d56f899859b64f474ea2",
     "src/yoloongppt/rendering.py": "59831608a7d5d7ef22613a70c7203407d6190afd5e9bc40361b65923f8cc14c6",
-    "src/yoloongppt/review.py": "1f31ff8c9019077ce94b76415ec0243c97ff9e9c9acf394126ec525eb13feae2",
-    "src/yoloongppt/revision.py": "56cfeea220920109aacb1874ca8b345667ab44cb7e83580b0aecfc0300115b91",
+    "src/yoloongppt/review.py": "016adc3a9b89ec599a7c299b65f5996bab70ca8840a23f0be60cd1b7f1256d60",
+    "src/yoloongppt/revision.py": "6fe379bd6ee2b0f874a9b3e7da4438868c0064d4a3561f06f0ba1c2ff83b11d6",
     "src/yoloongppt/routing.py": "c5cd66cb20e33de813403623db7f5f935a5433494ae048f2838091e6ed967438",
     "src/yoloongppt/schemas.py": "f58337c8a7199056b131b7e43f46e7d994804eab2a3889a38e9c8a6ed45071bb",
     "src/yoloongppt/sources.py": "a21aa0bf949fe5a448317cd2e0250562cdf07bf05df80fbd240cae64da853f3c",
@@ -429,8 +430,8 @@
     "src/yoloongppt/tasks.py": "e00553086474db58a632cfe0d3b042a53a37e8b6203694ff998b0d8dd4abcdaf",
     "src/yoloongppt/writer.py": "9fddcc9cbe4d6fa22233a7e2711b7155a1b2379fcac61385003ac97b94b87a18",
     "src/yoloongppt/__init__.py": "8bdb38ff28f3a548d91af566ff0637444a48c296386952e669f73a2b9f7aa90b",
-    "src/yoloongppt/__main__.py": "419566870552f9de57b7cf6528b7ea725e4af3165b17c559cfe743a0c62bd459",
-    "contracts/task-spec.schema.json": "5cf3c098da41bfba72b1626e8649ceeb7c6627bff8a509668058f5624a1a1024",
+    "src/yoloongppt/__main__.py": "14e5874f0f92726085fb2810afa4009217c7c70069936a4d26b571824f64b324",
+    "contracts/task-spec.schema.json": "e107163822a6c50eec88df8937016dd45338e020c5e944df7d3ac2c4b8d89f02",
     "contracts/capability-status.catalog.json": "cad7b23742d7b6d77a59f85bde9bf0d111bdb25bd62af1c3afe1079112e29f02",
     "requirements.lock": "72e4a860ea06575c90b25b7041080f58cbfa1212964426ed13ecd850fb1207f5",
     "runtime/dependencies.json": "b6cb1a89372f2a9a9993044548751070afa8e83011849ac01750c6a5d0660912",

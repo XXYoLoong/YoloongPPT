@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "来源事实解释与逐字证据引用（DEC-004/005）",
+  "type": "object",
+  "properties": {
+    "coverage": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "evidence_id": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          },
+          "classification": {
+            "enum": [
+              "facts",
+              "instructions",
+              "context",
+              "ambiguous"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "evidence_id",
+          "classification",
+          "reason"
+        ],
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "claims": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fact_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fact_kind": {
+            "enum": [
+              "person",
+              "organization",
+              "product",
+              "amount",
+              "percentage",
+              "date",
+              "unit",
+              "metric",
+              "quote",
+              "citation"
+            ]
+          },
+          "value": {
+            "$ref": "fact-constraint-set.schema.json#/$defs/fact_value"
+          },
+          "provenance": {
+            "enum": [
+              "fact",
+              "explicit_assumption"
+            ]
+          },
+          "quotes": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "evidence_id": {
+                  "$ref": "object-id.schema.json#/$defs/evidence_id"
+                },
+                "quote": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "evidence_id",
+                "quote"
+              ],
+              "additionalProperties": false
+            },
+            "minItems": 1
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "fact_key",
+          "fact_kind",
+          "value",
+          "provenance",
+          "quotes",
+          "reason"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "missing": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fact_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fact_kind": {
+            "enum": [
+              "person",
+              "organization",
+              "product",
+              "amount",
+              "percentage",
+              "date",
+              "unit",
+              "metric",
+              "quote",
+              "citation"
+            ]
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "evidence_refs": {
+            "type": "array",
+            "items": {
+              "$ref": "object-id.schema.json#/$defs/evidence_id"
+            },
+            "uniqueItems": true
+          }
+        },
+        "required": [
+          "fact_key",
+          "fact_kind",
+          "required",
+          "reason",
+          "evidence_refs"
+        ],
+        "additionalProperties": false
+      }
+    }
+  },
+  "required": [
+    "coverage",
+    "claims",
+    "missing"
+  ],
+  "additionalProperties": false
+}

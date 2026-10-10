@@ -17,6 +17,7 @@ from .routing import route_task
 from .atomic import AtomicRegistry
 from .context import normalize
 from .source_roles import assign, fact_input
+from .facts import interpret,resolve,boundaries,project
 
 
 def generate(task, schemas, store, trace, checkpoint=None):
@@ -29,7 +30,7 @@ def generate(task, schemas, store, trace, checkpoint=None):
         result = action()
         timeline.append({'component': component, 'status': 'executed', 'duration_seconds': round(time.monotonic()-begin, 3)})
         artifacts.json('pipeline-trace.json', {'trace_id': trace, 'steps': timeline, 'warnings': warnings,
-                                               'decision_coverage': 'DEC-001/002/003 executed; DEC-004–040 graph not complete'})
+                                               'decision_coverage': 'DEC-001–005 executed when reached; DEC-006–040 graph not complete'})
         return result
     try:
         artifacts.json('task.json', task)
@@ -57,8 +58,32 @@ def generate(task, schemas, store, trace, checkpoint=None):
         if not sources['evidence']:
             raise TaskError('FACT_SOURCE_MISSING', '当前生成路径没有已选事实/指令依据，未把风格或模板当事实。', 'DEC-003', ['DEC-003'])
         artifacts.json('fact-source-result.json', sources)
-        previous_deck = None
         if checkpoint:
+            if not (checkpoint/'fact-interpretation.json').is_file() or not (checkpoint/'fact-model-call.json').is_file():
+                raise TaskError('FACT_CHECKPOINT_MISSING','旧断点缺少事实解释及真实模型记录，不能未经重算复用内容。','Generation',['DEC-004','DEC-005','SYS-005'])
+            old=json.loads((checkpoint/'fact-source-result.json').read_text(encoding='utf-8'))
+            identity=lambda result:[(e['evidence_id'],e['source_hash'],e['parser_version']) for e in result['evidence']]
+            if identity(old)!=identity(sources):raise TaskError('CHECKPOINT_SOURCE_CHANGED','事实来源或解析版本变化，不能复用事实解释。','Generation',['DEC-004','SYS-005'])
+            manifest=json.loads((checkpoint/'manifest.json').read_text(encoding='utf-8'))
+            from .artifacts import sha256
+            for name in ['fact-interpretation.json','fact-source-result.json','fact-model-request.json','fact-model-response.json','fact-model-call.json']:
+                entries=[a for a in manifest['artifacts'] if a['path']==name]
+                if len(entries)!=1 or sha256(checkpoint/name)!=entries[0]['hash']:raise TaskError('FACT_CHECKPOINT_CHANGED','事实解释断点产物改变，不能复用。','Generation',['DEC-004','SYS-005'])
+                if name.startswith('fact-model-'):artifacts.json(name,json.loads((checkpoint/name).read_text(encoding='utf-8')))
+            interpretation=json.loads((checkpoint/'fact-interpretation.json').read_text(encoding='utf-8'))
+            artifacts.json('fact-checkpoint.json',{'reused_from_run':checkpoint.name,'fresh_fact_model_call':False})
+        else:
+            interpretation=step('FactInterpreter DEC-004/005',lambda:interpret(task,sources,schemas,artifacts))
+        artifacts.json('fact-interpretation.json',interpretation)
+        decision_input={'trace_id':trace,'evidence':sources['evidence'],'interpretation':interpretation,'policy':task.get('evidence_policy',{})}
+        resolution=step('DEC-004',lambda:resolve(decision_input,schemas))
+        artifacts.json('decision-evidence.json',resolution['decision_trace']);artifacts.json('evidence-resolution.json',resolution['resolution'])
+        boundary=step('DEC-005',lambda:boundaries({**decision_input,'resolution':resolution['resolution']},schemas))
+        artifacts.json('decision-fact-boundary.json',boundary['decision_trace']);artifacts.json('fact-boundary.json',boundary['boundaries'])
+        sources=project(sources,resolution['resolution'],boundary['boundaries'],interpretation)
+        artifacts.json('approved-source-result.json',sources)
+        previous_deck = None
+        if checkpoint and (checkpoint/'model-response.json').is_file():
             old = json.loads((checkpoint/('fact-source-result.json' if (checkpoint/'fact-source-result.json').exists() else 'source-result.json')).read_text(encoding='utf-8'))
             identity = lambda result: [(e['evidence_id'], e['source_hash'], e['parser_version']) for e in result['evidence']]
             if identity(old) != identity(sources):
@@ -133,8 +158,8 @@ def resume(run_id, schemas, store, trace):
     except ValueError:
         raise TaskError('CHECKPOINT_ID_INVALID', '断点ID必须为标准UUID。', 'Generation', ['SYS-005']) from None
     folder = Path('/runtime/runs')/run_id
-    required = ['task.json', 'source-result.json', 'model-response.json', 'model-request.json', 'model-call.json']
+    required = ['task.json', 'source-result.json','fact-source-result.json','fact-interpretation.json','fact-model-request.json','fact-model-response.json','fact-model-call.json']
     if not all((folder/name).is_file() for name in required):
-        raise TaskError('CHECKPOINT_INCOMPLETE', '没有可恢复的模型阶段断点。', 'Generation', ['SYS-005'])
+        raise TaskError('CHECKPOINT_INCOMPLETE', '没有可恢复的事实解释阶段断点。', 'Generation', ['SYS-005'])
     task = json.loads((folder/'task.json').read_text(encoding='utf-8'))
     return generate(task, schemas, store, trace, folder)

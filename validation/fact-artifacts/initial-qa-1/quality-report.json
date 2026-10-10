@@ -1,0 +1,182 @@
+{
+  "qa_id": "artifact_ca192b2a-625b-408a-80be-8f8531aac15c",
+  "status": "partial",
+  "issues": [
+    {
+      "issue_id": "issue_6ddfa7d2-43be-4187-96b5-652a5ed80e2e",
+      "code": "FACT_NUMBER_UNSUPPORTED",
+      "slide_id": "slide_cb515d6b-8a0f-49da-8d5b-fcfb50541bc2",
+      "severity": "P0",
+      "detail": {
+        "numbers_not_found_in_cited_evidence": [
+          "2",
+          "458",
+          "5777",
+          "8158",
+          "9%"
+        ]
+      }
+    },
+    {
+      "issue_id": "issue_acb7a507-d2cb-4250-b9f2-b22eb76e1b88",
+      "code": "FACT_NUMBER_UNSUPPORTED",
+      "slide_id": "slide_baffd198-e30d-4d1d-913f-77dbaf07e59c",
+      "severity": "P0",
+      "detail": {
+        "numbers_not_found_in_cited_evidence": [
+          "2",
+          "458",
+          "5777",
+          "8158"
+        ]
+      }
+    },
+    {
+      "issue_id": "issue_4249b165-c519-4aea-99ba-fdf73b6394b2",
+      "code": "FACT_NUMBER_UNSUPPORTED",
+      "slide_id": "slide_9225ffd5-8735-4fbd-a402-6030d4e3ba75",
+      "severity": "P0",
+      "detail": {
+        "numbers_not_found_in_cited_evidence": [
+          "2",
+          "4",
+          "458",
+          "5777",
+          "8",
+          "8158"
+        ]
+      }
+    },
+    {
+      "issue_id": "issue_ef76cccb-a78b-4b8f-a777-34dddb224018",
+      "code": "FACT_NUMBER_UNSUPPORTED",
+      "slide_id": "slide_cabb6149-3bf0-42d0-ab10-902ec68a0b40",
+      "severity": "P0",
+      "detail": {
+        "numbers_not_found_in_cited_evidence": [
+          "2",
+          "4",
+          "458",
+          "5777",
+          "8",
+          "8158"
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_cb515d6b-8a0f-49da-8d5b-fcfb50541bc2",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_baffd198-e30d-4d1d-913f-77dbaf07e59c",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_9225ffd5-8735-4fbd-a402-6030d4e3ba75",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_cabb6149-3bf0-42d0-ab10-902ec68a0b40",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 4,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "model_review_executed",
+    "fact_semantic": "model_review_executed",
+    "accessibility": "not_executed",
+    "powerpoint_compatibility": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Deterministic and real image/fact model checks executed; complete decision graph, accessibility, PowerPoint compatibility and revision gates are not proven.",
+  "model_review": {
+    "checked_slide_orders": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "issues": [
+      {
+        "slide_order": 0,
+        "severity": "P1",
+        "kind": "fact",
+        "detail": "标题与正文将“能耗降低8%”作为2026年试点结果直接陈述，但该数值在事实约束中状态为conflicting（8%与9%冲突），resolution_status为user_selected，且assumption_ref为null。页面未标注该值为用户选定值或存在冲突来源，读者会将其误读为无争议的确定事实。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "issue_id": "issue_a716e4b2-14f5-46f0-a214-b1b6d4600332",
+        "slide_id": "slide_cb515d6b-8a0f-49da-8d5b-fcfb50541bc2"
+      },
+      {
+        "slide_order": 0,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "标题“2026年试点结果：能耗降低8%”与正文“2026年试点结果显示能耗降低8%”重复，信息密度低。",
+        "evidence_refs": [],
+        "issue_id": "issue_59880452-0de7-41b1-a4b0-77fe30f6824f",
+        "slide_id": "slide_cb515d6b-8a0f-49da-8d5b-fcfb50541bc2"
+      },
+      {
+        "slide_order": 1,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "标题“结果口径：同一学校、同一年度、同一口径”与正文“试点结果限定为同一学校、同一年度、同一口径”几乎完全重复，未提供增量信息。",
+        "evidence_refs": [],
+        "issue_id": "issue_cd7d7424-3eb7-4866-8133-0f9e7e990e16",
+        "slide_id": "slide_baffd198-e30d-4d1d-913f-77dbaf07e59c"
+      },
+      {
+        "slide_order": 2,
+        "severity": "P1",
+        "kind": "fact",
+        "detail": "标题“责任部门：总务处”将总务处定性为“责任部门”，但证据仅显示“总务处”字样，未说明其职责或是否为责任部门；正文也承认“原文未说明总务处的具体职责分工”。标题的定性超出证据支持范围。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "issue_id": "issue_604d8642-ae49-43e7-8d9c-6e9ef8783d8d",
+        "slide_id": "slide_9225ffd5-8735-4fbd-a402-6030d4e3ba75"
+      },
+      {
+        "slide_order": 2,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "两个文本框内容极短，却占据大面积空白卡片区域，版面利用率低、视觉失衡。",
+        "evidence_refs": [],
+        "issue_id": "issue_2565e86e-03b7-4b8a-8fb1-d513c418ad10",
+        "slide_id": "slide_9225ffd5-8735-4fbd-a402-6030d4e3ba75"
+      },
+      {
+        "slide_order": 3,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "右侧深色文本框内容仅两行，却占据大块深色矩形，留白过多，视觉上显得空洞。",
+        "evidence_refs": [],
+        "issue_id": "issue_c9ae5fb0-ee8c-4dbc-ab85-9b1845fc7189",
+        "slide_id": "slide_cabb6149-3bf0-42d0-ab10-902ec68a0b40"
+      }
+    ],
+    "summary": "已检查全部4页（order 0-3）。核心事实边界总体遵守：未采用被否决的9%，未补造学校名称、基线、时间表等缺失信息。主要问题：第0页将冲突数值8%以确定事实呈现且未标注为用户选定/存在冲突（P1）；第2页标题将总务处定性为“责任部门”超出证据支持（P1）。另有若干重复表述与版面留白问题（P2）。限制：本次审查仅基于给定证据文本与渲染页面，未验证图片中是否存在其他未列出的文字或图表；语义提取完整性未被证明。assumption_refs为空，未决冲突不能作为无争议事实。",
+    "type": "json_object"
+  }
+}

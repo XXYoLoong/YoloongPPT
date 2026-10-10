@@ -1,0 +1,439 @@
+{
+  "requirement_ids": [
+    "DEC-004",
+    "DEC-005"
+  ],
+  "prerequisite": "RES-031",
+  "mapping": {
+    "DEC-004": [
+      {
+        "project": "P01",
+        "anchor_id": "P01:D:P01-DEC-02",
+        "research_file": "research/P01/project_decision_map.json",
+        "json_pointer": "/decision_nodes/1",
+        "locations": [
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/workflows/generate-pptx.md",
+            "spans": [
+              [
+                32,
+                49
+              ]
+            ]
+          },
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/scripts/source_to_md.py",
+            "spans": [
+              [
+                282,
+                282
+              ],
+              [
+                574,
+                574
+              ]
+            ]
+          },
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/scripts/source_to_md/_dispatcher.py",
+            "spans": [
+              [
+                60,
+                60
+              ]
+            ]
+          },
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/references/plan-core.md",
+            "spans": [
+              [
+                54,
+                68
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support",
+        "mechanism": "Read or convert supported formats, preserve source identities, research only identified factual gaps, and keep claims sourced.",
+        "research_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e"
+      },
+      {
+        "project": "P02",
+        "status": "not_found_in_fixed_catalog",
+        "anchor_id": null,
+        "reason": "Existing fixed-version source research contains no independently grounded conflict resolver/fact boundary mapping for this node; do not invent counterpart."
+      },
+      {
+        "project": "P03",
+        "anchor_id": "P03:D:P03-SOURCES",
+        "research_file": "research/P03/decision-map.json",
+        "json_pointer": "/nodes/2",
+        "locations": [
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/files.py",
+            "spans": [
+              [
+                80,
+                184
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/utils/llm_calls/generate_presentation_outlines.py",
+            "spans": [
+              [
+                66,
+                404
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/presentation.py",
+            "spans": [
+              [
+                2563,
+                3228
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/presentation.py",
+            "spans": [
+              [
+                1874,
+                2221
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support",
+        "mechanism": "Document loaders and web-search routing build prompt context; Smart may add community context. No source conflict resolver, audience classifier or scenario classifier found.",
+        "research_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad"
+      },
+      {
+        "project": "P04",
+        "status": "not_found_in_fixed_catalog",
+        "anchor_id": null,
+        "reason": "Existing fixed-version source research contains no independently grounded conflict resolver/fact boundary mapping for this node; do not invent counterpart."
+      },
+      {
+        "project": "P05",
+        "anchor_id": "P05:D:P05-D02",
+        "research_file": "research/P05/ProjectDecisionMap.json",
+        "json_pointer": "/nodes/1",
+        "locations": [
+          {
+            "source_file": "P05:fixed clone:python_backend/source_loader.py",
+            "spans": [
+              [
+                237,
+                264
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                200,
+                210
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                186,
+                197
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:generate-ppt.js",
+            "spans": [
+              [
+                1035,
+                1113
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support",
+        "mechanism": "来源按输入顺序加载提供 context；trust/priority仅metadata，不是事实冲突求解；来源引用分配不证明句级事实",
+        "research_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88"
+      }
+    ],
+    "DEC-005": [
+      {
+        "project": "P01",
+        "anchor_id": "P01:D:P01-DEC-02",
+        "research_file": "research/P01/project_decision_map.json",
+        "json_pointer": "/decision_nodes/1",
+        "locations": [
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/workflows/generate-pptx.md",
+            "spans": [
+              [
+                32,
+                49
+              ]
+            ]
+          },
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/scripts/source_to_md.py",
+            "spans": [
+              [
+                282,
+                282
+              ],
+              [
+                574,
+                574
+              ]
+            ]
+          },
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/scripts/source_to_md/_dispatcher.py",
+            "spans": [
+              [
+                60,
+                60
+              ]
+            ]
+          },
+          {
+            "source_file": "P01:fixed clone:skills/ppt-master/references/plan-core.md",
+            "spans": [
+              [
+                54,
+                68
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support",
+        "mechanism": "Read or convert supported formats, preserve source identities, research only identified factual gaps, and keep claims sourced.",
+        "research_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e"
+      },
+      {
+        "project": "P02",
+        "status": "not_found_in_fixed_catalog",
+        "anchor_id": null,
+        "reason": "Existing fixed-version source research contains no independently grounded conflict resolver/fact boundary mapping for this node; do not invent counterpart."
+      },
+      {
+        "project": "P03",
+        "anchor_id": "P03:D:P03-SOURCES",
+        "research_file": "research/P03/decision-map.json",
+        "json_pointer": "/nodes/2",
+        "locations": [
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/files.py",
+            "spans": [
+              [
+                80,
+                184
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/utils/llm_calls/generate_presentation_outlines.py",
+            "spans": [
+              [
+                66,
+                404
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/presentation.py",
+            "spans": [
+              [
+                2563,
+                3228
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/api/v1/ppt/endpoints/presentation.py",
+            "spans": [
+              [
+                1874,
+                2221
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support",
+        "mechanism": "Document loaders and web-search routing build prompt context; Smart may add community context. No source conflict resolver, audience classifier or scenario classifier found.",
+        "research_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad"
+      },
+      {
+        "project": "P03",
+        "anchor_id": "P03:D:P03-FACTS",
+        "research_file": "research/P03/decision-map.json",
+        "json_pointer": "/nodes/11",
+        "locations": [
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/utils/llm_calls/generate_smart_presentation.py",
+            "spans": [
+              [
+                63,
+                208
+              ],
+              [
+                308,
+                518
+              ],
+              [
+                525,
+                733
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/utils/llm_calls/generate_presentation_outlines.py",
+            "spans": [
+              [
+                66,
+                404
+              ]
+            ]
+          },
+          {
+            "source_file": "P03:fixed clone:servers/fastapi/models/sql/slide.py",
+            "spans": [
+              [
+                9,
+                45
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support",
+        "mechanism": "Smart prompt instructs use of source facts and not invent citations; no typed fact/assumption contract or citation-placement planner found.",
+        "research_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad"
+      },
+      {
+        "project": "P04",
+        "status": "not_found_in_fixed_catalog",
+        "anchor_id": null,
+        "reason": "Existing fixed-version source research contains no independently grounded conflict resolver/fact boundary mapping for this node; do not invent counterpart."
+      },
+      {
+        "project": "P05",
+        "anchor_id": "P05:D:P05-D02",
+        "research_file": "research/P05/ProjectDecisionMap.json",
+        "json_pointer": "/nodes/1",
+        "locations": [
+          {
+            "source_file": "P05:fixed clone:python_backend/source_loader.py",
+            "spans": [
+              [
+                237,
+                264
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                200,
+                210
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                186,
+                197
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:generate-ppt.js",
+            "spans": [
+              [
+                1035,
+                1113
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support",
+        "mechanism": "来源按输入顺序加载提供 context；trust/priority仅metadata，不是事实冲突求解；来源引用分配不证明句级事实",
+        "research_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88"
+      },
+      {
+        "project": "P05",
+        "anchor_id": "P05:D:P05-D05",
+        "research_file": "research/P05/ProjectDecisionMap.json",
+        "json_pointer": "/nodes/4",
+        "locations": [
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                341,
+                391
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                405,
+                423
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                426,
+                454
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                644,
+                664
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                981,
+                1050
+              ]
+            ]
+          },
+          {
+            "source_file": "P05:fixed clone:python_backend/smart_layer.py",
+            "spans": [
+              [
+                457,
+                469
+              ]
+            ]
+          }
+        ],
+        "status": "upstream mapped/partial mechanism, not product support",
+        "mechanism": "system/create/revise prompts；数值密度≥3才提示chart；模型选择布局等不可解释黑盒；初次+最多2次repair",
+        "research_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88"
+      }
+    ]
+  },
+  "scope": "Reuse fixed source catalog. Upstream not_found/partial is comparison evidence, not a claim of upstream implementation or product acceptance."
+}

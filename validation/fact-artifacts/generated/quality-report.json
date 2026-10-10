@@ -1,0 +1,116 @@
+{
+  "qa_id": "artifact_43e46222-33af-43f8-9443-0d3beda7b967",
+  "status": "partial",
+  "issues": [],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_2dcc20f2-7150-445c-acd2-d525cebce3f9",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_954896df-ccbb-4e37-bfc5-7ec9aab40aad",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_3bc3af69-89e7-4a8e-b239-b2229c446faa",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_a8d1f0b2-18a6-468f-98ef-584b442f3e6e",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "model_review_executed",
+    "fact_semantic": "model_review_executed",
+    "accessibility": "not_executed",
+    "powerpoint_compatibility": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Deterministic and real image/fact model checks executed; complete decision graph, accessibility, PowerPoint compatibility and revision gates are not proven.",
+  "model_review": {
+    "checked_slide_orders": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "issues": [
+      {
+        "slide_order": 0,
+        "severity": "P1",
+        "kind": "fact",
+        "detail": "封面将“2026年能耗降低8%”作为标题结论呈现，但事实边界显示该数值存在冲突（8%与9%），resolution_status为user_selected，属于调用方优先级选定而非来源一致确认。正文虽标注【已选来源】，但未向读者披露存在冲突值，可能使读者误认为8%为无争议事实。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "issue_id": "issue_a71d72dc-f432-4e06-9d77-dafe5844dbe0",
+        "slide_id": "slide_2dcc20f2-7150-445c-acd2-d525cebce3f9"
+      },
+      {
+        "slide_order": 1,
+        "severity": "P1",
+        "kind": "fact",
+        "detail": "表格“结果”列直接写“降低能耗8%”，同样未标注该值系在8%/9%冲突中经用户选定，与封面一致地隐藏了冲突来源，削弱可核对性。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "issue_id": "issue_437574d5-2a65-4371-b2c6-74f472ede8ca",
+        "slide_id": "slide_954896df-ccbb-4e37-bfc5-7ec9aab40aad"
+      },
+      {
+        "slide_order": 1,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "表头行（项目/年度/结果/口径）为深色块且高度较大，与下方数据行之间留白明显，表头与数据行视觉上被拉开，读表时易产生表头与数据错位感。",
+        "evidence_refs": [],
+        "issue_id": "issue_4d69acff-e194-436a-8ddd-9c1dd6ab59b1",
+        "slide_id": "slide_954896df-ccbb-4e37-bfc5-7ec9aab40aad"
+      },
+      {
+        "slide_order": 2,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "“责任主体明确，便于后续监测与复核落实”为对原文的推断性延伸，原文仅给出“项目由总务处负责”，未直接表述该因果，属轻度外推。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "issue_id": "issue_3b663648-df41-4798-9ef7-437281a1313e",
+        "slide_id": "slide_3bc3af69-89e7-4a8e-b239-b2229c446faa"
+      },
+      {
+        "slide_order": 3,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "“以持续监测与记录复核支撑试点结论的可信度”为对原文“下一步继续监测能耗并复核记录”的推断性解读，原文未直接给出该目的表述。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "issue_id": "issue_7276348e-aef0-4ef9-905d-6cad52912575",
+        "slide_id": "slide_a8d1f0b2-18a6-468f-98ef-584b442f3e6e"
+      }
+    ],
+    "summary": "已逐页检查4页（0-3）。主要问题：8%数值在事实边界中为冲突值（8% vs 9%），经用户选定后使用，但封面与表格均未披露该冲突，存在将选定值呈现为无争议事实的风险（P1）。另有表头与数据行视觉分离（P2）及两处对原文的推断性延伸表述（P2）。未发现视觉裁切、重叠、错字或表格不可读问题；未发现示例/目标被误写为真实结果；未发现假设未标注（本deck assumption_refs为空）。限制：图片仅能证明渲染呈现，不能证明事实来源一致性或PowerPoint兼容性；语义提取完整性未被证明。"
+  }
+}

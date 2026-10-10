@@ -9,11 +9,14 @@ from PIL import Image
 from pptx import Presentation
 
 from .artifacts import entity
+from .facts import approved_text
 
 NUMBER = re.compile(r'(?<![0-9A-Za-z_.])-?\d+(?:\.\d+)?%?')
 
 
 def numbers(text):
+    # Typed provenance IDs are metadata, not asserted quantities.
+    text=re.sub(r'\b[a-z_]+_[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\b','',text)
     return set(NUMBER.findall(text))
 
 
@@ -41,13 +44,33 @@ def check(deck, pptx, object_map, sources, renders, root):
         if index >= len(presentation.slides):break
         slide = presentation.slides[index]
         refs = spec['source_refs']
-        raw = '\n'.join(lookup[r]['raw_text'] for r in refs)
+        raw = '\n'.join(approved_text(sources,lookup[r]) for r in refs)
         content = spec['content']
-        displayed = '\n'.join([content['title'], *content['body'], content['notes']])
+        assumption_values=sources.get('fact_boundary',{}).get('assumption_values',{})
+        aids=content.get('assumption_refs',[])
+        if set(aids)-set(assumption_values):issue('ASSUMPTION_REFERENCE_UNKNOWN',spec['slide_id'],{'assumption_refs':aids})
+        if aids and not any('【假设】' in t or '【推算】' in t or '【来源明确假设】' in t for t in content['body']):
+            issue('ASSUMPTION_NOT_VISIBLE',spec['slide_id'],'假设/推算未在可见正文标明。')
+        raw+='\n'+'\n'.join(assumption_values[a]['raw_text'] for a in aids if a in assumption_values)
+        displayed = '\n'.join([content['title'], *content['body']])
         if content['table']:
             displayed += '\n' + '\n'.join(' '.join(row) for row in [content['table']['columns'], *content['table']['rows']])
         new_numbers = numbers(displayed) - numbers(raw)
         if new_numbers:issue('FACT_NUMBER_UNSUPPORTED', spec['slide_id'], {'numbers_not_found_in_cited_evidence': sorted(new_numbers)})
+        note_numbers=numbers(content['notes'])-numbers(raw)
+        # Auditing an explicitly rejected value in a negative clause is valid
+        # provenance, never permission to put that value in presentation copy.
+        rejected=set()
+        for group in sources.get('evidence_resolution',{}).get('groups',[]):
+            if group['conflicting']:
+                chosen=next(c for c in group['claims'] if c['claim_id']==group['selected_claim_id'])
+                for c in group['claims']:
+                    if c['value']!=chosen['value']:rejected|=numbers(c['value']['raw_text'])
+        audited=set()
+        for clause in re.split('[。；\n]',content['notes']):
+            if re.search(r'不采用(?:冲突值)?|未采用(?:冲突值)?|已否决|已排除',clause):audited|=numbers(clause)&rejected
+        unsupported_notes=note_numbers-audited
+        if unsupported_notes:issue('FACT_NOTE_NUMBER_UNSUPPORTED',spec['slide_id'],{'numbers':sorted(unsupported_notes)})
         if content['chart']:
             for series in content['chart']['series']:
                 for value in series['values']:
@@ -91,12 +114,16 @@ def check(deck, pptx, object_map, sources, renders, root):
                     if not workbooks:issue('CHART_WORKBOOK_MISSING', spec['slide_id'], element['object_id'])
         notes = slide.notes_slide.notes_text_frame.text
         if content['notes'] not in notes or any(r not in notes for r in refs):issue('NOTES_OR_REFERENCES_MISSING', spec['slide_id'], '备注/证据引用缺失。')
-        checks.append({'slide_id': spec['slide_id'], 'kind': 'structure/editability/geometry/source_numeric/render_text', 'status': 'executed'})
+        checks.append({'slide_id': spec['slide_id'], 'kind': 'structure/editability/geometry/selected_source_numeric/visible_assumption/render_text', 'status': 'executed'})
     for artifact in renders['artifacts']:
         if artifact['type'] == 'png':
             with Image.open(Path(root)/artifact['path']) as image:
                 colors = image.convert('RGB').resize((160, 90)).getcolors(14400)
                 if colors is not None and len(colors) < 4:issue('RENDER_BLANK', artifact['slide_id'], '实际渲染缺少可见内容。')
+    visible='\n'.join(t for slide in deck['slides'] for t in slide['content']['body'])
+    for action in sources.get('fact_boundary',{}).get('actions',[]):
+        if action['mode']=='placeholder' and action['label'] not in visible:
+            issue('PLACEHOLDER_NOT_VISIBLE',None,{'fact_key':action['fact_key'],'label':action['label']})
     return {'qa_id': str(entity('artifact')), 'status': 'partial', 'issues': issues, 'checks': checks,
             'p0_issue_count': sum(i['severity'] == 'P0' for i in issues),
             'coverage': {'structure': 'partial', 'editability': 'partial', 'geometry': 'partial', 'fact_numeric': 'partial',

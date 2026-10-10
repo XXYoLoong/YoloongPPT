@@ -1,0 +1,57 @@
+{
+  "ok": true,
+  "trace_id": "trace_f521b2e3-75e7-422f-a23a-06992a30b137",
+  "task_id": "task_ebbf4542-e8cd-4ae0-946a-0bf1983a08f2",
+  "run_id": "c747e330-82f1-4d5a-be80-37b59ca4e89c",
+  "operation": "generate",
+  "state": "draft_generated",
+  "artifact_root": "/runtime/runs/c747e330-82f1-4d5a-be80-37b59ca4e89c",
+  "pptx": "/runtime/runs/c747e330-82f1-4d5a-be80-37b59ca4e89c/deck.pptx",
+  "slide_count": 4,
+  "model": {
+    "provider": "deepseek",
+    "requested_model": "deepseek-flash",
+    "returned_model": "deepseek-flash",
+    "response_id": "3cf289ef-36bf-41b8-8028-8f46af6242e1",
+    "usage": {
+      "prompt_tokens": 5099,
+      "completion_tokens": 839,
+      "total_tokens": 5938,
+      "prompt_tokens_details": {
+        "cached_tokens": 1024
+      },
+      "prompt_cache_hit_tokens": 1024,
+      "prompt_cache_miss_tokens": 4075
+    },
+    "available_models": [
+      "deepseek-flash",
+      "deepseek-v4-pro"
+    ],
+    "parameters": {
+      "model": "deepseek-flash",
+      "response_format": {
+        "type": "json_object"
+      },
+      "thinking": {
+        "type": "disabled"
+      },
+      "temperature": 0.2,
+      "max_tokens": 12000,
+      "stream": false
+    },
+    "request_sha256": "8ee120707de59b931af544f912b1e444a38c0ce705a7e9843542bd1c9b48e65d",
+    "response_content_sha256": "fb9352067bbb0529f96e4c2828f4bb17f10ff64ac7d14fff4c5cba031742d378",
+    "duration_seconds": 3.54,
+    "real_model_call": true
+  },
+  "qa": {
+    "status": "partial",
+    "p0_issue_count": 4,
+    "acceptance": {
+      "AC-001": "not_passed",
+      "GOV-008": "not_passed"
+    }
+  },
+  "warnings": [],
+  "boundary": "Actual model/PPTX/render/deterministic and image/fact model QA; complete DEC graph, QA coverage, revision scope and system acceptance unfinished."
+}

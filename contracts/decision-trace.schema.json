@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "DEC-002/003消费的节点候选与完整轨迹",
+  "title": "DEC-002–005 节点候选与决策轨迹",
   "type": "object",
   "required": [
     "trace_id",
@@ -20,7 +20,9 @@
     "node_id": {
       "enum": [
         "DEC-002",
-        "DEC-003"
+        "DEC-003",
+        "DEC-004",
+        "DEC-005"
       ]
     },
     "input": {
@@ -72,7 +74,9 @@
         "node_id": {
           "enum": [
             "DEC-002",
-            "DEC-003"
+            "DEC-003",
+            "DEC-004",
+            "DEC-005"
           ]
         },
         "candidate_id": {

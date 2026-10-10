@@ -1,0 +1,60 @@
+{
+  "checked_slide_orders": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "issues": [
+    {
+      "slide_order": 0,
+      "severity": "P1",
+      "kind": "fact",
+      "detail": "标题与正文将“能耗降低8%”作为2026年试点结果直接陈述，但该数值在事实约束中状态为conflicting（8%与9%冲突），resolution_status为user_selected，且assumption_ref为null。页面未标注该值为用户选定值或存在冲突来源，读者会将其误读为无争议的确定事实。",
+      "evidence_refs": [
+        "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+        "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+      ]
+    },
+    {
+      "slide_order": 0,
+      "severity": "P2",
+      "kind": "semantic",
+      "detail": "标题“2026年试点结果：能耗降低8%”与正文“2026年试点结果显示能耗降低8%”重复，信息密度低。",
+      "evidence_refs": []
+    },
+    {
+      "slide_order": 1,
+      "severity": "P2",
+      "kind": "semantic",
+      "detail": "标题“结果口径：同一学校、同一年度、同一口径”与正文“试点结果限定为同一学校、同一年度、同一口径”几乎完全重复，未提供增量信息。",
+      "evidence_refs": []
+    },
+    {
+      "slide_order": 2,
+      "severity": "P1",
+      "kind": "fact",
+      "detail": "标题“责任部门：总务处”将总务处定性为“责任部门”，但证据仅显示“总务处”字样，未说明其职责或是否为责任部门；正文也承认“原文未说明总务处的具体职责分工”。标题的定性超出证据支持范围。",
+      "evidence_refs": [
+        "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+        "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+      ]
+    },
+    {
+      "slide_order": 2,
+      "severity": "P2",
+      "kind": "visual",
+      "detail": "两个文本框内容极短，却占据大面积空白卡片区域，版面利用率低、视觉失衡。",
+      "evidence_refs": []
+    },
+    {
+      "slide_order": 3,
+      "severity": "P2",
+      "kind": "visual",
+      "detail": "右侧深色文本框内容仅两行，却占据大块深色矩形，留白过多，视觉上显得空洞。",
+      "evidence_refs": []
+    }
+  ],
+  "summary": "已检查全部4页（order 0-3）。核心事实边界总体遵守：未采用被否决的9%，未补造学校名称、基线、时间表等缺失信息。主要问题：第0页将冲突数值8%以确定事实呈现且未标注为用户选定/存在冲突（P1）；第2页标题将总务处定性为“责任部门”超出证据支持（P1）。另有若干重复表述与版面留白问题（P2）。限制：本次审查仅基于给定证据文本与渲染页面，未验证图片中是否存在其他未列出的文字或图表；语义提取完整性未被证明。assumption_refs为空，未决冲突不能作为无争议事实。",
+  "type": "json_object"
+}

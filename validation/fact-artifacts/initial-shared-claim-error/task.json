@@ -1,0 +1,86 @@
+{
+  "task_id": "task_9423f5fa-a68f-4530-b748-fc37c9c08952",
+  "route": {
+    "route_status": "routed",
+    "mode": "create_from_materials",
+    "routing_reason": "调用者明确要求材料新建",
+    "protection_policy_id": "preserve_material_facts_and_sources",
+    "decision_id": "DEC-001",
+    "trace": {
+      "candidate_modes": [
+        "create_from_materials"
+      ],
+      "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+    }
+  },
+  "sources": [
+    {
+      "source_id": "source_f0a4e93e-c7ae-4cd9-8e4d-830f28cca795",
+      "kind": "text",
+      "content": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+      "metadata": {
+        "source_role": "fact"
+      }
+    },
+    {
+      "source_id": "source_62e440f8-0759-473e-98d7-8fee27bcfd22",
+      "kind": "text",
+      "content": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+      "metadata": {
+        "source_role": "fact"
+      }
+    }
+  ],
+  "constraints": {
+    "hard": [],
+    "soft": [
+      {
+        "constraint_id": "user-eight-pages",
+        "field": "page_count",
+        "value": 4,
+        "source": {
+          "kind": "user_instruction",
+          "reference": "fixture explicit input"
+        },
+        "disposition": "applied"
+      }
+    ],
+    "defaults": [],
+    "conflicts": []
+  },
+  "style": null,
+  "template_ref": null,
+  "output": {
+    "formats": [
+      "pptx",
+      "pdf",
+      "png"
+    ]
+  },
+  "providers": {
+    "text": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "parameters": {
+        "temperature": 0.2,
+        "max_tokens": 12000,
+        "timeout_seconds": 180
+      }
+    }
+  },
+  "runtime_preferences": {},
+  "raw_request": {
+    "request": {
+      "raw_text": "根据材料制作4页中文演示；保留原始数值、单位与来源，数值分歧使用明确的来源优先级。",
+      "attachments": [],
+      "requested_mode": "create_from_materials",
+      "requested_outputs": [
+        "pptx",
+        "pdf",
+        "png"
+      ]
+    },
+    "attachment_roles": []
+  }
+}

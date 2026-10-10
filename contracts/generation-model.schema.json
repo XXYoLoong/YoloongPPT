@@ -3,45 +3,285 @@
   "$id": "https://yoloongppt.local/contracts/generation-model.schema.json",
   "title": "当前模型规划接口；直接由planner消费，非完整DEC验收",
   "type": "object",
-  "required": ["title", "main_takeaway", "storyline", "slides"],
+  "required": [
+    "title",
+    "main_takeaway",
+    "storyline",
+    "slides"
+  ],
   "properties": {
-    "title": {"type": "string", "minLength": 1, "maxLength": 60},
-    "main_takeaway": {"type": "string", "minLength": 1},
-    "storyline": {"type": "object", "required": ["pattern", "rationale"], "properties": {"pattern": {"type": "string"}, "rationale": {"type": "string"}}, "additionalProperties": false},
-    "slides": {"type": "array", "minItems": 1, "maxItems": 30, "items": {"$ref": "#/$defs/slide"}}
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 60
+    },
+    "main_takeaway": {
+      "type": "string",
+      "minLength": 1
+    },
+    "storyline": {
+      "type": "object",
+      "required": [
+        "pattern",
+        "rationale"
+      ],
+      "properties": {
+        "pattern": {
+          "type": "string"
+        },
+        "rationale": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "slides": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 30,
+      "items": {
+        "$ref": "#/$defs/slide"
+      }
+    }
   },
   "additionalProperties": false,
   "$defs": {
-    "refs": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"$ref": "object-id.schema.json#/$defs/evidence_id"}},
+    "refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "object-id.schema.json#/$defs/evidence_id"
+      }
+    },
     "slide": {
-      "type": "object", "required": ["title", "goal", "kind", "body", "notes", "evidence_refs", "rationale", "table", "chart"],
+      "type": "object",
+      "required": [
+        "title",
+        "goal",
+        "kind",
+        "body",
+        "notes",
+        "evidence_refs",
+        "rationale",
+        "table",
+        "chart"
+      ],
       "properties": {
-        "title": {"type": "string", "minLength": 1, "maxLength": 60},
-        "goal": {"type": "string", "minLength": 1},
-        "kind": {"enum": ["text", "table", "chart"]},
-        "body": {"type": "array", "maxItems": 6, "items": {"type": "string", "minLength": 1, "maxLength": 160}},
-        "notes": {"type": "string"}, "evidence_refs": {"$ref": "#/$defs/refs"},
-        "rationale": {"type": "string", "minLength": 1},
-        "table": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/table"}]},
-        "chart": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/chart"}]}
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 60
+        },
+        "goal": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "enum": [
+            "text",
+            "table",
+            "chart"
+          ]
+        },
+        "body": {
+          "type": "array",
+          "maxItems": 6,
+          "items": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 160
+          }
+        },
+        "notes": {
+          "type": "string"
+        },
+        "evidence_refs": {
+          "$ref": "#/$defs/refs"
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "table": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/table"
+            }
+          ]
+        },
+        "chart": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/chart"
+            }
+          ]
+        },
+        "assumption_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          }
+        }
       },
       "allOf": [
-        {"if": {"properties": {"kind": {"const": "text"}}}, "then": {"properties": {"table": {"type": "null"}, "chart": {"type": "null"}}}},
-        {"if": {"properties": {"kind": {"const": "table"}}}, "then": {"properties": {"table": {"type": "object"}, "chart": {"type": "null"}}}},
-        {"if": {"properties": {"kind": {"const": "chart"}}}, "then": {"properties": {"chart": {"type": "object"}, "table": {"type": "null"}}}}
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "text"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "table": {
+                "type": "null"
+              },
+              "chart": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "table"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "table": {
+                "type": "object"
+              },
+              "chart": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "chart"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "chart": {
+                "type": "object"
+              },
+              "table": {
+                "type": "null"
+              }
+            }
+          }
+        }
       ],
       "additionalProperties": false
     },
-    "table": {"type": "object", "required": ["columns", "rows", "units"], "properties": {
-      "columns": {"type": "array", "minItems": 1, "maxItems": 6, "items": {"type": "string"}},
-      "rows": {"type": "array", "minItems": 1, "maxItems": 8, "items": {"type": "array", "minItems": 1, "maxItems": 6, "items": {"type": "string"}}},
-      "units": {"type": "string"}
-    }, "additionalProperties": false},
-    "chart": {"type": "object", "required": ["type", "categories", "series", "units"], "properties": {
-      "type": {"enum": ["column", "bar", "line"]},
-      "categories": {"type": "array", "minItems": 1, "maxItems": 12, "items": {"type": "string"}},
-      "series": {"type": "array", "minItems": 1, "maxItems": 4, "items": {"type": "object", "required": ["name", "values"], "properties": {"name": {"type": "string"}, "values": {"type": "array", "minItems": 1, "maxItems": 12, "items": {"type": "number"}}}, "additionalProperties": false}},
-      "units": {"type": "string"}
-    }, "additionalProperties": false}
+    "table": {
+      "type": "object",
+      "required": [
+        "columns",
+        "rows",
+        "units"
+      ],
+      "properties": {
+        "columns": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 6,
+          "items": {
+            "type": "string"
+          }
+        },
+        "rows": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {
+            "type": "array",
+            "minItems": 1,
+            "maxItems": 6,
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "units": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "chart": {
+      "type": "object",
+      "required": [
+        "type",
+        "categories",
+        "series",
+        "units"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "column",
+            "bar",
+            "line"
+          ]
+        },
+        "categories": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 12,
+          "items": {
+            "type": "string"
+          }
+        },
+        "series": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4,
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "values"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "values": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 12,
+                "items": {
+                  "type": "number"
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "units": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
   }
 }

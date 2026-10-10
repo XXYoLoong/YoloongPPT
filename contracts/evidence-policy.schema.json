@@ -1,0 +1,208 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "调用方明确来源优先级与缺失处理策略",
+  "type": "object",
+  "properties": {
+    "source_precedence": {
+      "type": "array",
+      "items": {
+        "$ref": "object-id.schema.json#/$defs/source_id"
+      },
+      "uniqueItems": true
+    },
+    "conflict_selections": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fact_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_id": {
+            "$ref": "object-id.schema.json#/$defs/source_id"
+          }
+        },
+        "required": [
+          "fact_key",
+          "source_id"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "missing_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "fact_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "fact_kind": {
+            "enum": [
+              "person",
+              "organization",
+              "product",
+              "amount",
+              "percentage",
+              "date",
+              "unit",
+              "metric",
+              "quote",
+              "citation"
+            ]
+          },
+          "mode": {
+            "enum": [
+              "infer",
+              "assume",
+              "placeholder",
+              "ask",
+              "fail"
+            ]
+          },
+          "reason": {
+            "type": "string",
+            "minLength": 1
+          },
+          "required": {
+            "type": "boolean"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "$ref": "fact-constraint-set.schema.json#/$defs/fact_value"
+          },
+          "method": {
+            "enum": [
+              "sum",
+              "difference",
+              "ratio"
+            ]
+          },
+          "premises": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minItems": 1,
+            "uniqueItems": true
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "fact_key",
+          "fact_kind",
+          "mode",
+          "reason"
+        ],
+        "additionalProperties": false,
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "mode": {
+                  "const": "assume"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "value"
+              ],
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "method"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "premises"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "unit"
+                    ]
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mode": {
+                  "const": "infer"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "method",
+                "premises"
+              ],
+              "not": {
+                "required": [
+                  "value"
+                ]
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "mode": {
+                  "enum": [
+                    "placeholder",
+                    "ask",
+                    "fail"
+                  ]
+                }
+              }
+            },
+            "then": {
+              "not": {
+                "anyOf": [
+                  {
+                    "required": [
+                      "value"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "method"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "premises"
+                    ]
+                  },
+                  {
+                    "required": [
+                      "unit"
+                    ]
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "required": [],
+  "additionalProperties": false
+}

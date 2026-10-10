@@ -1,0 +1,146 @@
+{
+  "coverage": [
+    {
+      "evidence_id": "evidence_58d4b435-c9da-4a67-8bf2-aefb378cf7c7",
+      "classification": "facts",
+      "reason": "包含学校节能试点的具体数值事实：2026年降低能耗8%，以及责任部门、后续动作等上下文。"
+    },
+    {
+      "evidence_id": "evidence_de45e604-563f-48d8-af33-bf0caaaaf93e",
+      "classification": "facts",
+      "reason": "包含学校节能试点的具体数值事实：2026年降低能耗9%，以及责任部门、后续动作等上下文。"
+    }
+  ],
+  "claims": [
+    {
+      "fact_key": "school_energy_saving_pilot_energy_reduction_2026",
+      "fact_kind": "percentage",
+      "value": {
+        "raw_text": "2026年降低能耗8%",
+        "normalized_text": "2026年降低能耗8%",
+        "numeric_value": "8",
+        "date_value": "2026",
+        "date_precision": "year",
+        "unit": "%",
+        "currency": null,
+        "percentage_base": "能耗",
+        "period": "2026年",
+        "qualifier": "学校节能试点",
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_58d4b435-c9da-4a67-8bf2-aefb378cf7c7",
+          "quote": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。"
+        }
+      ],
+      "reason": "来源明确给出2026年学校节能试点降低能耗8%。"
+    },
+    {
+      "fact_key": "school_energy_saving_pilot_energy_reduction_2026",
+      "fact_kind": "percentage",
+      "value": {
+        "raw_text": "2026年降低能耗9%",
+        "normalized_text": "2026年降低能耗9%",
+        "numeric_value": "9",
+        "date_value": "2026",
+        "date_precision": "year",
+        "unit": "%",
+        "currency": null,
+        "percentage_base": "能耗",
+        "period": "2026年",
+        "qualifier": "学校节能试点",
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_de45e604-563f-48d8-af33-bf0caaaaf93e",
+          "quote": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。"
+        }
+      ],
+      "reason": "来源明确给出2026年学校节能试点降低能耗9%。"
+    },
+    {
+      "fact_key": "school_energy_saving_pilot_responsible_department",
+      "fact_kind": "organization",
+      "value": {
+        "raw_text": "总务处",
+        "normalized_text": "总务处",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": "学校节能试点",
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_58d4b435-c9da-4a67-8bf2-aefb378cf7c7",
+          "quote": "项目由总务处负责"
+        },
+        {
+          "evidence_id": "evidence_de45e604-563f-48d8-af33-bf0caaaaf93e",
+          "quote": "项目由总务处负责"
+        }
+      ],
+      "reason": "两个来源均说明项目由总务处负责。"
+    },
+    {
+      "fact_key": "school_energy_saving_pilot_next_step",
+      "fact_kind": "quote",
+      "value": {
+        "raw_text": "下一步继续监测能耗并复核记录",
+        "normalized_text": "下一步继续监测能耗并复核记录",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": "学校节能试点",
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_58d4b435-c9da-4a67-8bf2-aefb378cf7c7",
+          "quote": "下一步继续监测能耗并复核记录"
+        },
+        {
+          "evidence_id": "evidence_de45e604-563f-48d8-af33-bf0caaaaf93e",
+          "quote": "下一步继续监测能耗并复核记录"
+        }
+      ],
+      "reason": "两个来源均说明下一步继续监测能耗并复核记录。"
+    }
+  ],
+  "missing": [
+    {
+      "fact_key": "school_energy_saving_pilot_school_name",
+      "fact_kind": "organization",
+      "required": true,
+      "reason": "原文只称“同一学校”，未给出学校名称。",
+      "evidence_refs": [
+        "evidence_58d4b435-c9da-4a67-8bf2-aefb378cf7c7",
+        "evidence_de45e604-563f-48d8-af33-bf0caaaaf93e"
+      ]
+    },
+    {
+      "fact_key": "school_energy_saving_pilot_energy_reduction_2026_source_priority",
+      "fact_kind": "citation",
+      "required": true,
+      "reason": "调用方要求数值分歧使用明确的来源优先级，但材料未说明该优先级。",
+      "evidence_refs": [
+        "evidence_58d4b435-c9da-4a67-8bf2-aefb378cf7c7",
+        "evidence_de45e604-563f-48d8-af33-bf0caaaaf93e"
+      ]
+    }
+  ]
+}

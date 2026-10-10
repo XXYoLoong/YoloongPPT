@@ -1,0 +1,442 @@
+{
+  "trace_id": "trace_e1eef78a-8e87-4cfd-a89f-624a7c56596f",
+  "node_id": "DEC-003",
+  "input": {
+    "task": {
+      "task_id": "task_afa04a71-3bde-47b8-82c6-8c79836041fb",
+      "route": {
+        "route_status": "routed",
+        "mode": "create_from_materials",
+        "routing_reason": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+        "protection_policy_id": "preserve_material_facts_and_sources",
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "create_from_materials"
+          ],
+          "selection_basis": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+          "conflict_summary": "",
+          "trace_id": "trace_e1eef78a-8e87-4cfd-a89f-624a7c56596f",
+          "negated_signals": [],
+          "executable": true,
+          "fallback": "No alternate mode substitution; clarify scope or expose missing implementation."
+        }
+      },
+      "sources": [
+        {
+          "source_id": "source_d9df27cb-5c44-436b-9b6f-3eb7fec3411b",
+          "kind": "text",
+          "content": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+          "metadata": {
+            "source_role": "fact"
+          }
+        },
+        {
+          "source_id": "source_2b50dd1c-eb75-4eb9-baf8-e64757785064",
+          "kind": "text",
+          "content": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+          "metadata": {
+            "source_role": "fact"
+          }
+        }
+      ],
+      "constraints": {
+        "hard": [
+          {
+            "constraint_id": "candidate_9585d729-5331-4f22-bfd8-23ce3f8c1e8a",
+            "field": "page_count",
+            "value": 4,
+            "source": {
+              "kind": "user_instruction",
+              "reference": "raw_text:6:8"
+            }
+          },
+          {
+            "constraint_id": "candidate_6d0211e3-6af8-41be-8d9e-ca53d7fc7590",
+            "field": "language",
+            "value": "zh-CN",
+            "source": {
+              "kind": "user_instruction",
+              "reference": "raw_text:8:10"
+            }
+          }
+        ],
+        "soft": [
+          {
+            "constraint_id": "user-eight-pages",
+            "field": "page_count",
+            "value": 4,
+            "source": {
+              "kind": "user_instruction",
+              "reference": "fixture explicit input"
+            },
+            "disposition": "applied",
+            "applied_value": 4,
+            "handling_reason": "Selected by DEC-002 and within current execution subset."
+          }
+        ],
+        "defaults": [
+          {
+            "constraint_id": "system_default.page_count",
+            "field": "page_count",
+            "value": 10,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": false,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.language",
+            "field": "language",
+            "value": "zh-CN",
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": false,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.aspect_ratio",
+            "field": "aspect_ratio",
+            "value": "16:9",
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.minimum_font_size",
+            "field": "minimum_font_size",
+            "value": 16,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.template",
+            "field": "template",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.brand",
+            "field": "brand",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.output_formats",
+            "field": "output_formats",
+            "value": [
+              "pptx",
+              "pdf",
+              "png"
+            ],
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": false,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.audience",
+            "field": "audience",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.scenario",
+            "field": "scenario",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.duration",
+            "field": "duration",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.tone",
+            "field": "tone",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.citation_policy",
+            "field": "citation_policy",
+            "value": "notes",
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          }
+        ],
+        "conflicts": []
+      },
+      "style": null,
+      "template_ref": null,
+      "output": {
+        "formats": [
+          "pptx",
+          "pdf",
+          "png"
+        ]
+      },
+      "providers": {
+        "text": {
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "api_key_env": "DEEPSEEK_API_KEY",
+          "parameters": {
+            "temperature": 0.2,
+            "max_tokens": 12000,
+            "timeout_seconds": 180
+          }
+        }
+      },
+      "runtime_preferences": {},
+      "raw_request": {
+        "request": {
+          "raw_text": "根据材料制作4页中文演示；保留原始数值、单位与来源，数值分歧使用明确的来源优先级。",
+          "attachments": [],
+          "requested_mode": "create_from_materials",
+          "requested_outputs": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "attachment_roles": []
+      },
+      "evidence_policy": {
+        "source_precedence": [
+          "source_d9df27cb-5c44-436b-9b6f-3eb7fec3411b",
+          "source_2b50dd1c-eb75-4eb9-baf8-e64757785064"
+        ]
+      }
+    },
+    "source_bundle": {
+      "record_type": "source_bundle_result",
+      "status": "partial",
+      "bundle": {
+        "model_type": "SourceBundle",
+        "sources": [
+          {
+            "source_id": "source_d9df27cb-5c44-436b-9b6f-3eb7fec3411b",
+            "input_order": 0,
+            "kind": "text",
+            "locator": null,
+            "raw_text": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+            "locator_redaction": "not_required",
+            "display_name": null,
+            "raw_asset_refs": [],
+            "content_sha256": "aef1fbb96782da2a5d6ea0a62e92149df017a055ba417a99ff48b98cc10fef35",
+            "priority_rank": null,
+            "claims": []
+          },
+          {
+            "source_id": "source_2b50dd1c-eb75-4eb9-baf8-e64757785064",
+            "input_order": 1,
+            "kind": "text",
+            "locator": null,
+            "raw_text": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+            "locator_redaction": "not_required",
+            "display_name": null,
+            "raw_asset_refs": [],
+            "content_sha256": "10a5fdc1e463166f5b4f6867f8520158173da9b0014d288d58f696352be8bb4e",
+            "priority_rank": null,
+            "claims": []
+          }
+        ],
+        "source_priority_policy": {
+          "status": "unresolved",
+          "decision_id": "DEC-004",
+          "task_id": "TASK-DEC-004",
+          "precedence_source_ids": [],
+          "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+        },
+        "dedup_policy": {
+          "mode": "hash_candidates_only",
+          "keep_all_sources": true
+        },
+        "duplicate_groups": [],
+        "conflicts": []
+      },
+      "coverage": [
+        {
+          "feature": "source_identity",
+          "status": "complete",
+          "reason": null
+        },
+        {
+          "feature": "source_anchors",
+          "status": "complete",
+          "reason": null
+        },
+        {
+          "feature": "priority",
+          "status": "partial",
+          "reason": "DEC-004尚未执行。"
+        },
+        {
+          "feature": "conflict_detection",
+          "status": "unsupported",
+          "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+        },
+        {
+          "feature": "deduplication",
+          "status": "partial",
+          "reason": "仅SHA候选，不删除来源。"
+        }
+      ],
+      "errors": []
+    }
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-003",
+      "candidate_id": "candidate_06d9391b-3da4-4af1-9522-d8cfbd5b2e27",
+      "value": {
+        "source_id": "source_d9df27cb-5c44-436b-9b6f-3eb7fec3411b",
+        "role": "fact",
+        "original_role": "fact"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "basis": "TaskSpec.sources.metadata.source_role"
+        }
+      ],
+      "evidence_refs": [
+        "source_d9df27cb-5c44-436b-9b6f-3eb7fec3411b"
+      ],
+      "constraints": [
+        {
+          "preserve_source": true,
+          "exclude_nonfact_from_content_model": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-003",
+      "candidate_id": "candidate_3a81a416-3fd8-4442-96de-4d1367ddf9dc",
+      "value": {
+        "source_id": "source_2b50dd1c-eb75-4eb9-baf8-e64757785064",
+        "role": "fact",
+        "original_role": "fact"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "basis": "TaskSpec.sources.metadata.source_role"
+        }
+      ],
+      "evidence_refs": [
+        "source_2b50dd1c-eb75-4eb9-baf8-e64757785064"
+      ],
+      "constraints": [
+        {
+          "preserve_source": true,
+          "exclude_nonfact_from_content_model": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_06d9391b-3da4-4af1-9522-d8cfbd5b2e27",
+    "candidate_3a81a416-3fd8-4442-96de-4d1367ddf9dc"
+  ],
+  "rules": {
+    "version": "DEC-003-1",
+    "mechanism": "Explicit source metadata and loaded asset bindings; unique role required; bounded textual-source default for material/scratch route.",
+    "source_sha256": "485496eb6344444790770b897931b7bb42eb37713a3af4898582dd81310614c0"
+  },
+  "output": {
+    "status": "assigned",
+    "source_roles": [
+      {
+        "source_id": "source_d9df27cb-5c44-436b-9b6f-3eb7fec3411b",
+        "asset_refs": [],
+        "role": "fact",
+        "candidate_refs": [
+          "candidate_06d9391b-3da4-4af1-9522-d8cfbd5b2e27"
+        ],
+        "loading_strategy": {
+          "kind": "text",
+          "locator": null,
+          "fact_input": true
+        },
+        "reason": "Explicit role or bounded content-source default; original input retained."
+      },
+      {
+        "source_id": "source_2b50dd1c-eb75-4eb9-baf8-e64757785064",
+        "asset_refs": [],
+        "role": "fact",
+        "candidate_refs": [
+          "candidate_3a81a416-3fd8-4442-96de-4d1367ddf9dc"
+        ],
+        "loading_strategy": {
+          "kind": "text",
+          "locator": null,
+          "fact_input": true
+        },
+        "reason": "Explicit role or bounded content-source default; original input retained."
+      }
+    ],
+    "fact_source_ids": [
+      "source_d9df27cb-5c44-436b-9b6f-3eb7fec3411b",
+      "source_2b50dd1c-eb75-4eb9-baf8-e64757785064"
+    ],
+    "preserved_source_ids": [
+      "source_d9df27cb-5c44-436b-9b6f-3eb7fec3411b",
+      "source_2b50dd1c-eb75-4eb9-baf8-e64757785064"
+    ],
+    "issues": [],
+    "trace_id": "trace_e1eef78a-8e87-4cfd-a89f-624a7c56596f",
+    "fallback": "No guessing unknown roles or treating style/template/assets as factual evidence; preserve sources and clarify."
+  },
+  "duration": 0.008265,
+  "error": null
+}

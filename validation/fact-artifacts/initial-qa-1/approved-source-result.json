@@ -1,0 +1,1081 @@
+{
+  "ok": true,
+  "trace_id": "trace_cd56a124-0b08-4c66-b3ec-191d0d4f88ce",
+  "operation": "inspect_sources",
+  "task_id": "task_ebbf4542-e8cd-4ae0-946a-0bf1983a08f2",
+  "source_bundle": {
+    "record_type": "source_bundle_result",
+    "status": "partial",
+    "bundle": {
+      "model_type": "SourceBundle",
+      "sources": [
+        {
+          "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+          "input_order": 0,
+          "kind": "text",
+          "locator": null,
+          "raw_text": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [],
+          "content_sha256": "aef1fbb96782da2a5d6ea0a62e92149df017a055ba417a99ff48b98cc10fef35",
+          "priority_rank": null,
+          "claims": []
+        },
+        {
+          "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+          "input_order": 1,
+          "kind": "text",
+          "locator": null,
+          "raw_text": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [],
+          "content_sha256": "10a5fdc1e463166f5b4f6867f8520158173da9b0014d288d58f696352be8bb4e",
+          "priority_rank": null,
+          "claims": []
+        }
+      ],
+      "source_priority_policy": {
+        "status": "unresolved",
+        "decision_id": "DEC-004",
+        "task_id": "TASK-DEC-004",
+        "precedence_source_ids": [],
+        "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+      },
+      "dedup_policy": {
+        "mode": "hash_candidates_only",
+        "keep_all_sources": true
+      },
+      "duplicate_groups": [],
+      "conflicts": []
+    },
+    "coverage": [
+      {
+        "feature": "source_identity",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "source_anchors",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "priority",
+        "status": "partial",
+        "reason": "DEC-004尚未执行。"
+      },
+      {
+        "feature": "conflict_detection",
+        "status": "unsupported",
+        "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+      },
+      {
+        "feature": "deduplication",
+        "status": "partial",
+        "reason": "仅SHA候选，不删除来源。"
+      }
+    ],
+    "errors": []
+  },
+  "documents": [
+    {
+      "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+      "document": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+        "source": {
+          "kind": "raw_text",
+          "source_ref": "raw_markdown"
+        },
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "document": {
+          "model_type": "TextDocumentModel",
+          "source": {
+            "kind": "raw_text",
+            "source_ref": "raw_markdown"
+          },
+          "blocks": [
+            {
+              "kind": "paragraph",
+              "block_index": 0,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 0,
+                "end_offset": 65,
+                "offset_unit": "unicode_code_point",
+                "line_start": 1,
+                "line_end": 1
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 0,
+                    "end_offset": 65,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 1,
+                    "line_end": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted."
+    },
+    {
+      "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+      "document": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+        "source": {
+          "kind": "raw_text",
+          "source_ref": "raw_markdown"
+        },
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "document": {
+          "model_type": "TextDocumentModel",
+          "source": {
+            "kind": "raw_text",
+            "source_ref": "raw_markdown"
+          },
+          "blocks": [
+            {
+              "kind": "paragraph",
+              "block_index": 0,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 0,
+                "end_offset": 65,
+                "offset_unit": "unicode_code_point",
+                "line_start": 1,
+                "line_end": 1
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 0,
+                    "end_offset": 65,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 1,
+                    "line_end": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted."
+    }
+  ],
+  "evidence": [
+    {
+      "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+      "source_hash": "aef1fbb96782da2a5d6ea0a62e92149df017a055ba417a99ff48b98cc10fef35",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:text",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+        "asset_id": null,
+        "native_locator": "chars:0:65",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 0,
+          "start_char": 0,
+          "end_char": 65,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+      "content": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 0,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 0,
+          "end_offset": 65,
+          "offset_unit": "unicode_code_point",
+          "line_start": 1,
+          "line_end": 1
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 0,
+              "end_offset": 65,
+              "offset_unit": "unicode_code_point",
+              "line_start": 1,
+              "line_end": 1
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "text",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted.",
+      "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd"
+    },
+    {
+      "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+      "source_hash": "10a5fdc1e463166f5b4f6867f8520158173da9b0014d288d58f696352be8bb4e",
+      "parser_version": "text-1:60f7b37af648ddd82b127335b498877ea60331d39f47d285da6ed42d1b22e40c:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:text",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+        "asset_id": null,
+        "native_locator": "chars:0:65",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 0,
+          "start_char": 0,
+          "end_char": 65,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+      "content": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 0,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 0,
+          "end_offset": 65,
+          "offset_unit": "unicode_code_point",
+          "line_start": 1,
+          "line_end": 1
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。项目由总务处负责，下一步继续监测能耗并复核记录。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 0,
+              "end_offset": 65,
+              "offset_unit": "unicode_code_point",
+              "line_start": 1,
+              "line_end": 1
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "text",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted.",
+      "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+    }
+  ],
+  "trace": [
+    {
+      "component": "TaskSpec",
+      "requirement_id": "SYS-001",
+      "status": "validated"
+    },
+    {
+      "component": "SchemaRegistry",
+      "requirement_id": "SYS-006",
+      "status": "validated"
+    },
+    {
+      "component": "SourceLoader",
+      "requirement_id": "SYS-003",
+      "status": "partial"
+    },
+    {
+      "component": "EvidenceStore",
+      "requirement_id": "SYS-004",
+      "status": "saved"
+    }
+  ],
+  "boundary": "Source parsing and evidence only; no fact extraction, model routing, PPTX generation or QA acceptance.",
+  "selection": {
+    "producer": "DEC-003",
+    "fact_source_ids": [
+      "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+      "source_bc854ea8-f098-4da6-900a-ebe86f188e8b"
+    ],
+    "all_sources_preserved_in": "source-result.json"
+  },
+  "approved_texts": {
+    "evidence_48325ac1-5777-458e-8158-2c56de26e3bd": "8%；%；2026年；同一学校、同一年度、同一口径的试点结果\n总务处\n下一步继续监测能耗并复核记录",
+    "evidence_43906f30-8a0e-4f40-a808-b42947f564b9": "总务处\n下一步继续监测能耗并复核记录"
+  },
+  "instruction_context": [],
+  "fact_boundary": {
+    "status": "ready",
+    "fact_constraints": {
+      "record_type": "fact_constraint_set",
+      "requirement_id": "CNT-001",
+      "task_id": "TASK-CNT-001",
+      "status": "partial",
+      "numbers": [
+        {
+          "fact_id": "fact.cdb88b7de854a19ebc2a15e6",
+          "fact_kind": "percentage",
+          "status": "conflicting",
+          "claims": [
+            {
+              "claim_id": "claim.eeb7ff29a8db6268396f2809",
+              "value": {
+                "raw_text": "8%",
+                "normalized_text": null,
+                "numeric_value": "8",
+                "date_value": null,
+                "date_precision": null,
+                "unit": "%",
+                "currency": null,
+                "percentage_base": null,
+                "period": "2026年",
+                "qualifier": "同一学校、同一年度、同一口径的试点结果",
+                "citation_uri": null
+              },
+              "evidence_refs": [
+                {
+                  "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+                  "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                  "source_anchor": {
+                    "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                    "asset_id": null,
+                    "native_locator": "chars:0:65",
+                    "locator": {
+                      "kind": "text_span",
+                      "segment_index": 0,
+                      "start_char": 0,
+                      "end_char": 65,
+                      "offset_unit": "unicode_code_points"
+                    },
+                    "locator_status": "located",
+                    "reason": null
+                  }
+                }
+              ]
+            },
+            {
+              "claim_id": "claim.e73d26afdcf92968f7da747e",
+              "value": {
+                "raw_text": "9%",
+                "normalized_text": null,
+                "numeric_value": "9",
+                "date_value": null,
+                "date_precision": null,
+                "unit": "%",
+                "currency": null,
+                "percentage_base": null,
+                "period": "2026年",
+                "qualifier": "同一学校、同一年度、同一口径的试点结果",
+                "citation_uri": null
+              },
+              "evidence_refs": [
+                {
+                  "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9",
+                  "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                  "source_anchor": {
+                    "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                    "asset_id": null,
+                    "native_locator": "chars:0:65",
+                    "locator": {
+                      "kind": "text_span",
+                      "segment_index": 0,
+                      "start_char": 0,
+                      "end_char": 65,
+                      "offset_unit": "unicode_code_points"
+                    },
+                    "locator_status": "located",
+                    "reason": null
+                  }
+                }
+              ]
+            }
+          ],
+          "resolution_status": "user_selected",
+          "selected_claim_id": "claim.eeb7ff29a8db6268396f2809",
+          "assumption_ref": null,
+          "related_fact_ids": [],
+          "allowed_transformations": []
+        }
+      ],
+      "quotes": [
+        {
+          "fact_id": "fact.dacb129bcc40d0fef858788c",
+          "fact_kind": "quote",
+          "status": "supported",
+          "claims": [
+            {
+              "claim_id": "claim.1d8b0e69bacf2e6bbf0673e1",
+              "value": {
+                "raw_text": "下一步继续监测能耗并复核记录",
+                "normalized_text": null,
+                "numeric_value": null,
+                "date_value": null,
+                "date_precision": null,
+                "unit": null,
+                "currency": null,
+                "percentage_base": null,
+                "period": null,
+                "qualifier": null,
+                "citation_uri": null
+              },
+              "evidence_refs": [
+                {
+                  "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+                  "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                  "source_anchor": {
+                    "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                    "asset_id": null,
+                    "native_locator": "chars:0:65",
+                    "locator": {
+                      "kind": "text_span",
+                      "segment_index": 0,
+                      "start_char": 0,
+                      "end_char": 65,
+                      "offset_unit": "unicode_code_points"
+                    },
+                    "locator_status": "located",
+                    "reason": null
+                  }
+                }
+              ]
+            },
+            {
+              "claim_id": "claim.1515ff9778b5b8049a110a11",
+              "value": {
+                "raw_text": "下一步继续监测能耗并复核记录",
+                "normalized_text": null,
+                "numeric_value": null,
+                "date_value": null,
+                "date_precision": null,
+                "unit": null,
+                "currency": null,
+                "percentage_base": null,
+                "period": null,
+                "qualifier": null,
+                "citation_uri": null
+              },
+              "evidence_refs": [
+                {
+                  "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9",
+                  "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                  "source_anchor": {
+                    "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                    "asset_id": null,
+                    "native_locator": "chars:0:65",
+                    "locator": {
+                      "kind": "text_span",
+                      "segment_index": 0,
+                      "start_char": 0,
+                      "end_char": 65,
+                      "offset_unit": "unicode_code_points"
+                    },
+                    "locator_status": "located",
+                    "reason": null
+                  }
+                }
+              ]
+            }
+          ],
+          "resolution_status": "not_applicable",
+          "selected_claim_id": null,
+          "assumption_ref": null,
+          "related_fact_ids": [],
+          "allowed_transformations": []
+        }
+      ],
+      "metrics": [],
+      "units": [],
+      "dates": [],
+      "entities": [
+        {
+          "fact_id": "fact.7be8ad9cbe4f2c74cd5abcc5",
+          "fact_kind": "organization",
+          "status": "supported",
+          "claims": [
+            {
+              "claim_id": "claim.5f7e3148fb0277ebb2861da8",
+              "value": {
+                "raw_text": "总务处",
+                "normalized_text": null,
+                "numeric_value": null,
+                "date_value": null,
+                "date_precision": null,
+                "unit": null,
+                "currency": null,
+                "percentage_base": null,
+                "period": null,
+                "qualifier": null,
+                "citation_uri": null
+              },
+              "evidence_refs": [
+                {
+                  "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+                  "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                  "source_anchor": {
+                    "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                    "asset_id": null,
+                    "native_locator": "chars:0:65",
+                    "locator": {
+                      "kind": "text_span",
+                      "segment_index": 0,
+                      "start_char": 0,
+                      "end_char": 65,
+                      "offset_unit": "unicode_code_points"
+                    },
+                    "locator_status": "located",
+                    "reason": null
+                  }
+                }
+              ]
+            },
+            {
+              "claim_id": "claim.9782da5bfeeb7b1cf5f9d5bb",
+              "value": {
+                "raw_text": "总务处",
+                "normalized_text": null,
+                "numeric_value": null,
+                "date_value": null,
+                "date_precision": null,
+                "unit": null,
+                "currency": null,
+                "percentage_base": null,
+                "period": null,
+                "qualifier": null,
+                "citation_uri": null
+              },
+              "evidence_refs": [
+                {
+                  "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9",
+                  "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                  "source_anchor": {
+                    "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                    "asset_id": null,
+                    "native_locator": "chars:0:65",
+                    "locator": {
+                      "kind": "text_span",
+                      "segment_index": 0,
+                      "start_char": 0,
+                      "end_char": 65,
+                      "offset_unit": "unicode_code_points"
+                    },
+                    "locator_status": "located",
+                    "reason": null
+                  }
+                }
+              ]
+            }
+          ],
+          "resolution_status": "not_applicable",
+          "selected_claim_id": null,
+          "assumption_ref": null,
+          "related_fact_ids": [],
+          "allowed_transformations": []
+        }
+      ],
+      "citations": [],
+      "assumption_refs": [],
+      "forbidden_inference": [
+        "DO_NOT_INVENT_MISSING_FACTS",
+        "DO_NOT_SELECT_UNRESOLVED_CONFLICTS",
+        "DO_NOT_CHANGE_ENTITY_IDENTITY",
+        "DO_NOT_CHANGE_NUMBER_SIGN_OR_PRECISION",
+        "DO_NOT_CHANGE_UNIT_CURRENCY_OR_DENOMINATOR",
+        "DO_NOT_CHANGE_DATE_PRECISION_PERIOD_OR_TIMEZONE",
+        "DO_NOT_DROP_QUALIFIER_OR_SCOPE",
+        "DO_NOT_INVENT_OR_REASSIGN_CITATIONS"
+      ],
+      "errors": []
+    },
+    "assumptions": [],
+    "assumption_values": {},
+    "actions": [
+      {
+        "fact_key": "school_energy_saving_pilot_2026_energy_reduction",
+        "mode": "already_supported",
+        "reason": "两个来源对同一学校、同一年度、同一口径的试点结果给出冲突数值（8%与9%），需要根据来源优先级确定唯一值。",
+        "resolution_basis": "DEC-004 selected same key/kind existing fact",
+        "fact_id": "fact.cdb88b7de854a19ebc2a15e6"
+      }
+    ],
+    "issues": []
+  },
+  "evidence_resolution": {
+    "status": "ready",
+    "groups": [
+      {
+        "fact_id": "fact.cdb88b7de854a19ebc2a15e6",
+        "fact_key": "school_energy_saving_pilot_2026_energy_reduction",
+        "fact_kind": "percentage",
+        "claims": [
+          {
+            "fact_key": "school_energy_saving_pilot_2026_energy_reduction",
+            "fact_kind": "percentage",
+            "value": {
+              "raw_text": "8%",
+              "normalized_text": null,
+              "numeric_value": "8",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "%",
+              "currency": null,
+              "percentage_base": null,
+              "period": "2026年",
+              "qualifier": "同一学校、同一年度、同一口径的试点结果",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+                "quote": "学校节能试点：2026年降低能耗8%。这是同一学校、同一年度、同一口径的试点结果。"
+              }
+            ],
+            "reason": "来源明确给出2026年降低能耗8%，单位%和期间2026年逐字出现。",
+            "claim_id": "claim.eeb7ff29a8db6268396f2809",
+            "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+                "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                "source_anchor": {
+                  "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                  "asset_id": null,
+                  "native_locator": "chars:0:65",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 65,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          },
+          {
+            "fact_key": "school_energy_saving_pilot_2026_energy_reduction",
+            "fact_kind": "percentage",
+            "value": {
+              "raw_text": "9%",
+              "normalized_text": null,
+              "numeric_value": "9",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "%",
+              "currency": null,
+              "percentage_base": null,
+              "period": "2026年",
+              "qualifier": "同一学校、同一年度、同一口径的试点结果",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9",
+                "quote": "学校节能试点：2026年降低能耗9%。这是同一学校、同一年度、同一口径的试点结果。"
+              }
+            ],
+            "reason": "来源明确给出2026年降低能耗9%，单位%和期间2026年逐字出现。",
+            "claim_id": "claim.e73d26afdcf92968f7da747e",
+            "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9",
+                "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                "source_anchor": {
+                  "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                  "asset_id": null,
+                  "native_locator": "chars:0:65",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 65,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.eeb7ff29a8db6268396f2809",
+        "basis": "caller_supplied_priority",
+        "conflicting": true
+      },
+      {
+        "fact_id": "fact.7be8ad9cbe4f2c74cd5abcc5",
+        "fact_key": "school_energy_saving_pilot_responsible_department",
+        "fact_kind": "organization",
+        "claims": [
+          {
+            "fact_key": "school_energy_saving_pilot_responsible_department",
+            "fact_kind": "organization",
+            "value": {
+              "raw_text": "总务处",
+              "normalized_text": null,
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": null,
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+                "quote": "项目由总务处负责"
+              }
+            ],
+            "reason": "两个来源均明确项目由总务处负责。",
+            "claim_id": "claim.5f7e3148fb0277ebb2861da8",
+            "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+                "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                "source_anchor": {
+                  "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                  "asset_id": null,
+                  "native_locator": "chars:0:65",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 65,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          },
+          {
+            "fact_key": "school_energy_saving_pilot_responsible_department",
+            "fact_kind": "organization",
+            "value": {
+              "raw_text": "总务处",
+              "normalized_text": null,
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": null,
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9",
+                "quote": "项目由总务处负责"
+              }
+            ],
+            "reason": "两个来源均明确项目由总务处负责。",
+            "claim_id": "claim.9782da5bfeeb7b1cf5f9d5bb",
+            "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9",
+                "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                "source_anchor": {
+                  "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                  "asset_id": null,
+                  "native_locator": "chars:0:65",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 65,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.5f7e3148fb0277ebb2861da8",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.dacb129bcc40d0fef858788c",
+        "fact_key": "school_energy_saving_pilot_next_step",
+        "fact_kind": "quote",
+        "claims": [
+          {
+            "fact_key": "school_energy_saving_pilot_next_step",
+            "fact_kind": "quote",
+            "value": {
+              "raw_text": "下一步继续监测能耗并复核记录",
+              "normalized_text": null,
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": null,
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+                "quote": "下一步继续监测能耗并复核记录"
+              }
+            ],
+            "reason": "两个来源均明确下一步继续监测能耗并复核记录。",
+            "claim_id": "claim.1d8b0e69bacf2e6bbf0673e1",
+            "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+                "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                "source_anchor": {
+                  "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+                  "asset_id": null,
+                  "native_locator": "chars:0:65",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 65,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          },
+          {
+            "fact_key": "school_energy_saving_pilot_next_step",
+            "fact_kind": "quote",
+            "value": {
+              "raw_text": "下一步继续监测能耗并复核记录",
+              "normalized_text": null,
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": null,
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9",
+                "quote": "下一步继续监测能耗并复核记录"
+              }
+            ],
+            "reason": "两个来源均明确下一步继续监测能耗并复核记录。",
+            "claim_id": "claim.1515ff9778b5b8049a110a11",
+            "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9",
+                "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                "source_anchor": {
+                  "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+                  "asset_id": null,
+                  "native_locator": "chars:0:65",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 65,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.1d8b0e69bacf2e6bbf0673e1",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      }
+    ],
+    "conflicts": [
+      {
+        "record_type": "evidence_conflict",
+        "requirement_id": "CNT-003",
+        "task_id": "TASK-CNT-003",
+        "conflict_id": "object_c2805a62-29a8-446b-9cbb-2b8c94f394d1",
+        "source_ref": {
+          "source_record_type": "fact_constraint",
+          "requirement_id": "CNT-001",
+          "task_id": "TASK-CNT-001",
+          "fact_id": "fact.cdb88b7de854a19ebc2a15e6"
+        },
+        "topic": {
+          "fact_key": "school_energy_saving_pilot_2026_energy_reduction",
+          "fact_kind": "percentage"
+        },
+        "evidence_refs": [
+          {
+            "claim_id": "claim.eeb7ff29a8db6268396f2809",
+            "evidence_id": "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+            "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+            "source_anchor": {
+              "source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+              "asset_id": null,
+              "native_locator": "chars:0:65",
+              "locator": {
+                "kind": "text_span",
+                "segment_index": 0,
+                "start_char": 0,
+                "end_char": 65,
+                "offset_unit": "unicode_code_points"
+              },
+              "locator_status": "located",
+              "reason": null
+            }
+          },
+          {
+            "claim_id": "claim.e73d26afdcf92968f7da747e",
+            "evidence_id": "evidence_43906f30-8a0e-4f40-a808-b42947f564b9",
+            "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+            "source_anchor": {
+              "source_id": "source_bc854ea8-f098-4da6-900a-ebe86f188e8b",
+              "asset_id": null,
+              "native_locator": "chars:0:65",
+              "locator": {
+                "kind": "text_span",
+                "segment_index": 0,
+                "start_char": 0,
+                "end_char": 65,
+                "offset_unit": "unicode_code_points"
+              },
+              "locator_status": "located",
+              "reason": null
+            }
+          }
+        ],
+        "values": [
+          {
+            "claim_id": "claim.eeb7ff29a8db6268396f2809",
+            "source_value": {
+              "raw_text": "8%",
+              "normalized_text": null,
+              "numeric_value": "8",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "%",
+              "currency": null,
+              "percentage_base": null,
+              "period": "2026年",
+              "qualifier": "同一学校、同一年度、同一口径的试点结果",
+              "citation_uri": null
+            }
+          },
+          {
+            "claim_id": "claim.e73d26afdcf92968f7da747e",
+            "source_value": {
+              "raw_text": "9%",
+              "normalized_text": null,
+              "numeric_value": "9",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "%",
+              "currency": null,
+              "percentage_base": null,
+              "period": "2026年",
+              "qualifier": "同一学校、同一年度、同一口径的试点结果",
+              "citation_uri": null
+            }
+          }
+        ],
+        "resolution": {
+          "status": "user_selected",
+          "basis": "caller_supplied_priority",
+          "decision_ref": "DEC-004",
+          "source_priority_policy": {
+            "status": "caller_supplied",
+            "decision_id": "DEC-004",
+            "task_id": "TASK-DEC-004",
+            "precedence_source_ids": [
+              "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+              "source_bc854ea8-f098-4da6-900a-ebe86f188e8b"
+            ],
+            "unresolved_reason": null
+          },
+          "selected_source_id": "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+          "selected_claim_id": "claim.eeb7ff29a8db6268396f2809",
+          "merge_summary": null,
+          "unresolved_reason": null
+        },
+        "error_ref": {
+          "error_id": "ERR-008",
+          "reason_code": "SOURCE_CONFLICT"
+        }
+      }
+    ],
+    "issues": [],
+    "preserved_evidence_ids": [
+      "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+      "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+    ],
+    "source_priority_policy": {
+      "status": "caller_supplied",
+      "decision_id": "DEC-004",
+      "task_id": "TASK-DEC-004",
+      "precedence_source_ids": [
+        "source_b215ba85-108d-46d3-9456-a4078fdb7d29",
+        "source_bc854ea8-f098-4da6-900a-ebe86f188e8b"
+      ],
+      "unresolved_reason": null
+    }
+  },
+  "projection_scope": "All original evidence retained. Planner/QA factual inputs contain selected exact values/scopes; losing values excluded explicitly by DEC-004, not source deletion. Semantic extraction completeness is not proven."
+}

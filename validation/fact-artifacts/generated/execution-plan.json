@@ -1,0 +1,688 @@
+{
+  "calls": [
+    {
+      "call_id": "capability_59cf8928-dab8-44db-8ec8-1da9c9331490",
+      "slide_id": "slide_2dcc20f2-7150-445c-acd2-d525cebce3f9",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [],
+      "inputs": {
+        "slide_id": "slide_2dcc20f2-7150-445c-acd2-d525cebce3f9",
+        "order": 0
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_33b2a806-4979-4086-8bfa-04dcab1d4b2b",
+      "slide_id": "slide_2dcc20f2-7150-445c-acd2-d525cebce3f9",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_59cf8928-dab8-44db-8ec8-1da9c9331490"
+      ],
+      "inputs": {
+        "object_id": "object_21e0e651-ac3b-4aba-9df7-9319e48606e5",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "学校节能试点：",
+          "2026年能耗降低8%"
+        ],
+        "bounds": [
+          0.7,
+          1.35,
+          6.4,
+          3.65
+        ],
+        "font_size": 40,
+        "source_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd"
+        ],
+        "format": {
+          "color": "F6F4EE",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_21e0e651-ac3b-4aba-9df7-9319e48606e5"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_06a8497a-2c42-4a81-8519-65d2764e2a0e",
+      "slide_id": "slide_2dcc20f2-7150-445c-acd2-d525cebce3f9",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_59cf8928-dab8-44db-8ec8-1da9c9331490"
+      ],
+      "inputs": {
+        "object_id": "object_8669013c-077d-43d8-a15d-feda4bc37782",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "【已选来源】2026年学校节能试点降低能耗8%。",
+          "口径限定：同一学校、同一年度、同一口径的试点结果。"
+        ],
+        "bounds": [
+          7.65,
+          1.42,
+          4.9,
+          4.9
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd"
+        ],
+        "format": {
+          "color": "F6F4EE",
+          "paragraph_spacing": 16,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_8669013c-077d-43d8-a15d-feda4bc37782"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_8cf036cd-3a7f-4cb3-8acd-96a668b17e33",
+      "slide_id": "slide_2dcc20f2-7150-445c-acd2-d525cebce3f9",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_59cf8928-dab8-44db-8ec8-1da9c9331490"
+      ],
+      "inputs": {
+        "object_id": "object_e611dd17-c5d1-4f3e-9ceb-7698242c4c03",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "01 / 04"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "F6F4EE",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_e611dd17-c5d1-4f3e-9ceb-7698242c4c03"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_7e0a715f-87d0-4b05-9a87-bd747d01ad79",
+      "slide_id": "slide_2dcc20f2-7150-445c-acd2-d525cebce3f9",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_59cf8928-dab8-44db-8ec8-1da9c9331490"
+      ],
+      "inputs": {
+        "text": "结论先行。8%为试点结果，限定为同一学校、同一年度、同一口径，不能外推为全校或长期成效。该值由调用方优先级选定，正文已标注【已选来源】。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    },
+    {
+      "call_id": "capability_510b33fd-d7dd-4f8a-9b07-6a73dcdb5c7c",
+      "slide_id": "slide_954896df-ccbb-4e37-bfc5-7ec9aab40aad",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [
+        "capability_59cf8928-dab8-44db-8ec8-1da9c9331490"
+      ],
+      "inputs": {
+        "slide_id": "slide_954896df-ccbb-4e37-bfc5-7ec9aab40aad",
+        "order": 1
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_b9f53b18-5327-4a11-a204-0b21830b9a0d",
+      "slide_id": "slide_954896df-ccbb-4e37-bfc5-7ec9aab40aad",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_510b33fd-d7dd-4f8a-9b07-6a73dcdb5c7c"
+      ],
+      "inputs": {
+        "object_id": "object_c63df31e-21e7-4eb9-a38f-ad6a00c86b9c",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "试点结果一览"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_c63df31e-21e7-4eb9-a38f-ad6a00c86b9c"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_0993c562-daed-413d-9a53-2d9ebce950d7",
+      "slide_id": "slide_954896df-ccbb-4e37-bfc5-7ec9aab40aad",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_510b33fd-d7dd-4f8a-9b07-6a73dcdb5c7c"
+      ],
+      "inputs": {
+        "object_id": "object_28f78751-9473-43db-ab4f-26cd7a8bb921",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "仅列原文明确给出的项目、结果与口径。"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "expected_objects": [
+        "object_28f78751-9473-43db-ab4f-26cd7a8bb921"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_4637c0bf-f43f-4701-bd46-2f244c00ef3a",
+      "slide_id": "slide_954896df-ccbb-4e37-bfc5-7ec9aab40aad",
+      "capability": "add_table",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "deps": [
+        "capability_510b33fd-d7dd-4f8a-9b07-6a73dcdb5c7c"
+      ],
+      "inputs": {
+        "object_id": "object_e7ff07cb-d9ab-4a28-b099-f2593e5f11f2",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "项目",
+            "年度",
+            "结果",
+            "口径"
+          ],
+          "rows": [
+            [
+              "学校节能试点",
+              "2026年",
+              "降低能耗8%",
+              "同一学校、同一年度、同一口径的试点结果"
+            ]
+          ],
+          "units": "能耗降低幅度：%"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd"
+        ]
+      },
+      "expected_objects": [
+        "object_e7ff07cb-d9ab-4a28-b099-f2593e5f11f2"
+      ],
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55"
+    },
+    {
+      "call_id": "capability_86903b1c-8ae9-44f1-bd31-42956a2f8959",
+      "slide_id": "slide_954896df-ccbb-4e37-bfc5-7ec9aab40aad",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_510b33fd-d7dd-4f8a-9b07-6a73dcdb5c7c"
+      ],
+      "inputs": {
+        "object_id": "object_ad2a1b39-63bb-44c2-bc95-d3e5c2372b08",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "02 / 04"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_ad2a1b39-63bb-44c2-bc95-d3e5c2372b08"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_bed34b87-794b-441f-99f7-288946d433b6",
+      "slide_id": "slide_954896df-ccbb-4e37-bfc5-7ec9aab40aad",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_510b33fd-d7dd-4f8a-9b07-6a73dcdb5c7c"
+      ],
+      "inputs": {
+        "text": "表格数据全部来自原文：项目为学校节能试点，结果为2026年降低能耗8%，口径为同一学校、同一年度、同一口径的试点结果。未添加任何原文没有的统计项。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    },
+    {
+      "call_id": "capability_12b3a354-17bf-4636-8cac-2d6b00bd162d",
+      "slide_id": "slide_3bc3af69-89e7-4a8e-b239-b2229c446faa",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [
+        "capability_510b33fd-d7dd-4f8a-9b07-6a73dcdb5c7c"
+      ],
+      "inputs": {
+        "slide_id": "slide_3bc3af69-89e7-4a8e-b239-b2229c446faa",
+        "order": 2
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_7289a994-5cc3-4513-aced-adf741677cfe",
+      "slide_id": "slide_3bc3af69-89e7-4a8e-b239-b2229c446faa",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_12b3a354-17bf-4636-8cac-2d6b00bd162d"
+      ],
+      "inputs": {
+        "object_id": "object_31e2f85f-97e8-4e2a-8674-446d60f1d9f1",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "责任分工：总务处负责"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_31e2f85f-97e8-4e2a-8674-446d60f1d9f1"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_f2271f19-b9bc-427c-89ea-2a0f37fa125f",
+      "slide_id": "slide_3bc3af69-89e7-4a8e-b239-b2229c446faa",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_12b3a354-17bf-4636-8cac-2d6b00bd162d"
+      ],
+      "inputs": {
+        "object_id": "object_f7893490-90d1-440c-ba3a-a8c633eb5bd7",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body.0",
+        "text": [
+          "项目由总务处负责。"
+        ],
+        "bounds": [
+          0.7,
+          2.05,
+          5.82,
+          1.85
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "format": {
+          "color": "192C32",
+          "fill": "FFFFFF",
+          "border": "D6DFDA",
+          "margin": 0.22,
+          "paragraph_spacing": 14
+        }
+      },
+      "expected_objects": [
+        "object_f7893490-90d1-440c-ba3a-a8c633eb5bd7"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_9961d212-54be-4a59-9cc8-a5a0c92d24bc",
+      "slide_id": "slide_3bc3af69-89e7-4a8e-b239-b2229c446faa",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_12b3a354-17bf-4636-8cac-2d6b00bd162d"
+      ],
+      "inputs": {
+        "object_id": "object_cb306953-889d-4a1b-90eb-a72c6b90bd0f",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body.1",
+        "text": [
+          "责任主体明确，便于后续监测与复核落实。"
+        ],
+        "bounds": [
+          6.8500000000000005,
+          2.05,
+          5.82,
+          1.85
+        ],
+        "font_size": 22,
+        "source_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "format": {
+          "color": "192C32",
+          "fill": "FFFFFF",
+          "border": "D6DFDA",
+          "margin": 0.22,
+          "paragraph_spacing": 14
+        }
+      },
+      "expected_objects": [
+        "object_cb306953-889d-4a1b-90eb-a72c6b90bd0f"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_4b6e4384-e8ed-4f1a-a0ea-2775e9e1e471",
+      "slide_id": "slide_3bc3af69-89e7-4a8e-b239-b2229c446faa",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_12b3a354-17bf-4636-8cac-2d6b00bd162d"
+      ],
+      "inputs": {
+        "object_id": "object_84601d8b-08e0-426f-9fe8-55a6422605ef",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "03 / 04"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_84601d8b-08e0-426f-9fe8-55a6422605ef"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_9772b9bc-3c4f-4dab-b654-bb4d6748edce",
+      "slide_id": "slide_3bc3af69-89e7-4a8e-b239-b2229c446faa",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_12b3a354-17bf-4636-8cac-2d6b00bd162d"
+      ],
+      "inputs": {
+        "text": "责任部门信息来自原文“总务处”“项目由总务处负责”，两处证据一致，无冲突。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    },
+    {
+      "call_id": "capability_8c2eb2c7-fcb0-4db8-b651-fc57c4b35221",
+      "slide_id": "slide_a8d1f0b2-18a6-468f-98ef-584b442f3e6e",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [
+        "capability_12b3a354-17bf-4636-8cac-2d6b00bd162d"
+      ],
+      "inputs": {
+        "slide_id": "slide_a8d1f0b2-18a6-468f-98ef-584b442f3e6e",
+        "order": 3
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_2027713a-e758-4106-8aba-d1c382d7efb7",
+      "slide_id": "slide_a8d1f0b2-18a6-468f-98ef-584b442f3e6e",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_8c2eb2c7-fcb0-4db8-b651-fc57c4b35221"
+      ],
+      "inputs": {
+        "object_id": "object_5e96bf76-54c0-4720-956f-aeee10bebd00",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "下一步：继续监测并复核记录"
+        ],
+        "bounds": [
+          0.7,
+          1.28,
+          5.1,
+          4.55
+        ],
+        "font_size": 36,
+        "source_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_5e96bf76-54c0-4720-956f-aeee10bebd00"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_d4518b55-ebce-43cc-b381-351c3f7ffe81",
+      "slide_id": "slide_a8d1f0b2-18a6-468f-98ef-584b442f3e6e",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_8c2eb2c7-fcb0-4db8-b651-fc57c4b35221"
+      ],
+      "inputs": {
+        "object_id": "object_9c532e6a-d61a-48bd-9e57-cb6c5b65c9fa",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "下一步继续监测能耗并复核记录。",
+          "以持续监测与记录复核支撑试点结论的可信度。"
+        ],
+        "bounds": [
+          6.4,
+          1.24,
+          6.2,
+          4.95
+        ],
+        "font_size": 23,
+        "source_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "format": {
+          "color": "F6F4EE",
+          "fill": "192C32",
+          "margin": 0.28,
+          "paragraph_spacing": 16
+        }
+      },
+      "expected_objects": [
+        "object_9c532e6a-d61a-48bd-9e57-cb6c5b65c9fa"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_b528e0cb-0803-434e-8bd4-1d152efd6225",
+      "slide_id": "slide_a8d1f0b2-18a6-468f-98ef-584b442f3e6e",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_8c2eb2c7-fcb0-4db8-b651-fc57c4b35221"
+      ],
+      "inputs": {
+        "object_id": "object_81826680-6f69-4e5d-9822-6ef40890eb43",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "04 / 04"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_81826680-6f69-4e5d-9822-6ef40890eb43"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_c637ca6c-80e0-494d-be85-19340d4ca553",
+      "slide_id": "slide_a8d1f0b2-18a6-468f-98ef-584b442f3e6e",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_8c2eb2c7-fcb0-4db8-b651-fc57c4b35221"
+      ],
+      "inputs": {
+        "text": "后续动作为原文原话“下一步继续监测能耗并复核记录”，未添加时间表、指标或承诺。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    }
+  ],
+  "deps": "each page requires its predecessor; objects require owning page",
+  "backend": "PP-05"
+}

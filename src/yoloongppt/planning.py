@@ -6,6 +6,7 @@ from .artifacts import entity
 from .atomic import AtomicRegistry
 from .errors import TaskError
 from .providers import DeepSeek
+from .facts import approved_text,planner_boundary
 
 DEFAULT_STYLE = {'font': 'Noto Sans CJK SC', 'background': 'F6F4EE', 'foreground': '192C32',
                  'accent': '147C80', 'title_size': 30, 'body_size': 22, 'minimum_size': 16}
@@ -58,9 +59,9 @@ def preflight(task, context=None, schemas=None):
 
 def plan(task, sources, schemas, artifacts, count):
     schema = schemas.documents['generation-model.schema.json']
-    evidence = [{'evidence_id': e['evidence_id'], 'source_id': e['source_id'], 'text': e['raw_text']}
+    evidence = [{'evidence_id': e['evidence_id'], 'source_id': e['source_id'], 'text': approved_text(sources,e)}
                 for e in sources['evidence']]
-    # Source text is data, not system instructions. Send full evidence, never slice.
+    # DEC-004 projection is explicit; original sources remain in the snapshot.
     source_json = json.dumps(evidence, ensure_ascii=False)
     if len(source_json.encode('utf-8')) > 512 * 1024:
         raise TaskError('MODEL_CONTEXT_LIMIT', '来源超过当前512KiB模型入口预算；没有静默裁剪。', 'ContentPlanner', ['SYS-005'])
@@ -71,9 +72,18 @@ def plan(task, sources, schemas, artifacts, count):
               '表格只用原文实际数据，最多6列8数据行；有合适的数值数据时生成原生图表，不把表格/图表变成文字或图片。'
               'table/chart页body最多2项，title建议30字以内。notes保留解释和来源；不要用增加图表/页数的手段捏造内容。'
               'schema='+json.dumps(schema, ensure_ascii=False))
+    if 'fact_boundary' in sources:
+        system+=('只有sources已选事实可用于内容；instruction_context仅用于理解需求，不证明数字或事实。'
+                 'fact_boundary中的未决/缺失项不能补值。assumption_values是明确假设/推算，使用时在页body可见地写【假设】或【推算】，'
+                 '并在该页assumption_refs中引用真实assumption_id；不得把假设当实际。placeholder在正文写对应label，不造数据。'
+                 '存在user_selected冲突时，在使用该值的页正文写【已选来源】，备注说明调用方优先级；不要把选择误称无争议。'
+                 'notes用自然文字解释，不自行嵌入UUID来源ID，ID已由evidence_refs和写入器保存。'
+                 '所有原文完整保存，此输入是显式冲突决策后的值与限定，不要重新选择被否决值。')
     user = {'instruction': f'请将来源材料组织成恰好{count}页中文演示。', 'constraints': task['constraints'],
             'sources': evidence, 'example_shape': {'title': '标题', 'main_takeaway': '要点',
             'storyline': {'pattern': '结论先行', 'rationale': '有原文支持'}, 'slides': []}}
+    if 'fact_boundary' in sources:
+        user.update(fact_boundary=planner_boundary(sources),instruction_context=sources['instruction_context'],projection_scope=sources['projection_scope'])
     messages = [{'role': 'system', 'content': system}, {'role': 'user', 'content': json.dumps(user, ensure_ascii=False)}]
     artifacts.json('model-request.json', {'messages': messages, 'provider': task['providers']['text']})
     proposal, metadata = DeepSeek(task['providers']['text']).complete(messages)
@@ -84,6 +94,8 @@ def plan(task, sources, schemas, artifacts, count):
         raise TaskError('MODEL_PAGE_COUNT_MISMATCH', '模型页数未满足硬预算；未补空页或删页。', 'ContentPlanner', ['SYS-005'])
     known = {e['evidence_id'] for e in sources['evidence']}
     for slide in proposal['slides']:
+        if set(slide.get('assumption_refs',[]))-set(sources.get('fact_boundary',{}).get('assumption_values',{})):
+            raise TaskError('MODEL_ASSUMPTION_UNKNOWN','模型引用不存在的假设。','ContentPlanner',['DEC-005'])
         if set(slide['evidence_refs']) - known:
             raise TaskError('MODEL_EVIDENCE_UNKNOWN', '模型引用不存在的证据；未伪造来源。', 'ContentPlanner', ['SYS-004', 'SYS-005'])
         if slide['table'] and any(len(row) != len(slide['table']['columns']) for row in slide['table']['rows']):

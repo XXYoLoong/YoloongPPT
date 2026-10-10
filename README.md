@@ -76,7 +76,7 @@ DEC-002按硬约束、偏好、调用方默认、系统默认的顺序选择，�
 
 DEC-003绑定真实source_id/asset_ref，保留事实、模板、风格、素材、已有deck及还原来源六种角色。来源解析仍限原有文本/Markdown范围；角色分类不等于模板/图片/其他格式解析已实现。生成、QA及后续修订/复查只消费事实集合，全部原材料另行保存；角色冲突和身份未绑定在模型调用前阻断。
 
-[40项检查与说明](validation/约束归一化与来源分流.md)、[本次8页原生PPTX](validation/context-artifacts/deck.pptx)、[PDF](validation/context-artifacts/render/deck.pdf)记录真实DeepSeek调用和三节点轨迹。已执行QA的P0为0；DEC-004–040及全部QA/AC仍未完成。
+[40项检查与说明](validation/约束归一化与来源分流.md)、[本次8页原生PPTX](validation/context-artifacts/deck.pptx)、[PDF](validation/context-artifacts/render/deck.pdf)记录真实DeepSeek调用和三节点轨迹。这是当时三节点版本的QA记录；当前新增事实决策见下文，全部QA/AC仍未完成。
 
 ## 当前页面编译与真实产物
 
@@ -85,3 +85,11 @@ SYS-010/012/013现在消费七类原生版式目录：开场、宽栏正文、�
 多栏QA按实际PDF字词坐标核对每个对象，独立删除PDF词反例仍检出缺字；旧单栏产物保持既有检查兼容。[23项组件核验](validation/layout-runtime.json)、[本版10页PPTX](validation/layout-artifacts/deck.pptx)、[PDF](validation/layout-artifacts/render/deck.pdf)及[实施说明](validation/版式编译与链路进度修复.md)保留初次9个P0问题、修正后当前P0=0及真实复审。当前模型内容从真实初次调用断点复用，引用修正和复审是新增实际调用；完整AC仍未通过。
 
 原Excel“0-1全链路”已按实物同步进行中状态与剩余条件，“总览”完成数缓存与主表核对；阶段运行不表示完整系统交付。
+
+## 来源冲突与事实边界
+
+生成已接通DEC-004/005，独立CLI为 `resolve-evidence <input.json>`、`fact-boundaries <input.json>`，HTTP为 `/resolve-evidence`、`/fact-boundaries`。TaskSpec可附evidence_policy明确source_precedence/conflict_selections/missing_rules；未知或无关规则字段被拒绝，不自动挑选冲突值。
+
+真实模型事实解释逐字核对来源；未决/必需缺失停止主内容生成，已选值和原始上下文进入文案投影，完整来源/冲突留存。假设/精确推算需稳定assumption_refs和可见标记；占位、询问/失败有记录。修订/复查验证快照hash并沿用边界，被否决数值在修订写入前失败；resume支持事实解释阶段的实际断点。
+
+[35项节点与16项实物检查说明](validation/来源冲突与事实边界.md)、[四页已选事实PPTX](validation/fact-artifacts/generated/deck.pptx)、[PDF](validation/fact-artifacts/generated/render/deck.pdf)、[单对象修订稿](validation/fact-artifacts/revised/deck.pptx)与初次失败证据保留。当前已执行P0=0；语义抽取完整性、DEC-006–040及完整AC尚未通过。

@@ -12,13 +12,15 @@ from pptx.util import Pt
 
 from .artifacts import RunArtifacts, sha256
 from .errors import TaskError
-from .quality import check
+from .quality import check,numbers
+from .facts import approved_text
 from .rendering import render
 from .review import review
 from .writer import capacity
 
 DECISION_FILES = ['fact-source-result.json','task-effective.json','decision-route.json','decision-context.json',
-                  'presentation-context.json','decision-source-roles.json','source-role-map.json']
+                  'presentation-context.json','decision-source-roles.json','source-role-map.json','fact-interpretation.json',
+                  'decision-evidence.json','evidence-resolution.json','decision-fact-boundary.json','fact-boundary.json','approved-source-result.json']
 
 
 def revision_sources(prior):
@@ -31,6 +33,18 @@ def revision_sources(prior):
         roles=json.loads((prior/'source-role-map.json').read_text(encoding='utf-8'))
         if roles['status']!='assigned' or any(e['source_id'] not in roles['fact_source_ids'] for e in result['evidence']):
             raise TaskError('FACT_SOURCE_ROLE_MISMATCH', '事实快照与原角色判定不符，停止复审。', 'RevisionEngine', ['DEC-003','SYS-016'])
+    if (prior/'decision-evidence.json').is_file():
+        if not (prior/'approved-source-result.json').is_file():
+            raise TaskError('FACT_BOUNDARY_SNAPSHOT_MISSING','原版本缺少已选事实快照，不能退回全部事实。','RevisionEngine',['DEC-004','DEC-005','SYS-016'])
+        selected=json.loads((prior/'approved-source-result.json').read_text(encoding='utf-8'))
+        if selected['evidence']!=result['evidence'] or selected['fact_boundary']['status']!='ready':
+            raise TaskError('FACT_BOUNDARY_SNAPSHOT_INVALID','事实快照原始证据不一致或边界未决。','RevisionEngine',['DEC-004','DEC-005','SYS-016'])
+        manifest=json.loads((prior/'manifest.json').read_text(encoding='utf-8'))
+        for name in ['approved-source-result.json','fact-interpretation.json','evidence-resolution.json','fact-boundary.json']:
+            entries=[a for a in manifest['artifacts'] if a['path']==name]
+            if len(entries)!=1 or not (prior/name).is_file() or sha256(prior/name)!=entries[0]['hash']:
+                raise TaskError('FACT_BOUNDARY_SNAPSHOT_CHANGED','已选事实快照哈希改变或缺失，停止修订/复审。','RevisionEngine',['DEC-004','DEC-005','SYS-016'])
+        return selected
     return result
 
 
@@ -61,6 +75,14 @@ def revise(run_id, request, schemas, trace):
     element['text'] = request['replacement_text']
     if element['role'] == 'title':spec['content']['title'] = request['replacement_text'][0]
     else:spec['content']['body'] = request['replacement_text']
+    if 'fact_boundary' in sources:
+        known={e['evidence_id']:e for e in sources['evidence']}
+        raw='\n'.join(approved_text(sources,known[r]) for r in spec['source_refs'])
+        aids=spec['content'].get('assumption_refs',[]);values=sources['fact_boundary']['assumption_values']
+        if set(aids)-set(values):raise TaskError('REVISION_ASSUMPTION_UNKNOWN','修订引用未知假设。','RevisionEngine',['DEC-005','SYS-016'])
+        raw+='\n'+'\n'.join(values[a]['raw_text'] for a in aids)
+        unsupported=numbers('\n'.join([spec['content']['title'],*spec['content']['body']]))-numbers(raw)
+        if unsupported:raise TaskError('REVISION_FACT_UNSUPPORTED','修订试图使用未选/无来源数值，未写入PPT。','RevisionEngine',['DEC-004','DEC-005','SYS-016'],[{'numbers':sorted(unsupported)}])
     schemas.validate('deck-execution.schema.json', deck)
     mapping = next(o for o in object_map['objects'] if o['logical_object_id'] == request['object_id'])
     presentation = Presentation(prior/'deck.pptx')

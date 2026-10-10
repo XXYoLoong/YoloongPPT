@@ -118,6 +118,18 @@ async def source_roles(request: Request):
     return await run_in_threadpool(run_roles, await task_body(request), request.app.state.schemas, request.state.trace_id)
 
 
+@app.post('/resolve-evidence')
+async def resolve_evidence(request: Request):
+    from .facts import run_node
+    return await run_in_threadpool(run_node,await task_body(request),request.app.state.schemas,'DEC-004',request.state.trace_id)
+
+
+@app.post('/fact-boundaries')
+async def fact_boundaries(request: Request):
+    from .facts import run_node
+    return await run_in_threadpool(run_node,await task_body(request),request.app.state.schemas,'DEC-005',request.state.trace_id)
+
+
 @app.get('/evidence/{evidence_id}')
 def evidence(evidence_id: str, request: Request):
     return {'ok': True, 'trace_id': request.state.trace_id, 'evidence': request.app.state.evidence.get(evidence_id)}

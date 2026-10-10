@@ -1,0 +1,136 @@
+{
+  "qa_id": "artifact_d3787784-82c5-4307-8e66-e29b554a85ad",
+  "status": "partial",
+  "issues": [
+    {
+      "issue_id": "issue_e0475a05-8843-4456-993e-c5194afc2909",
+      "code": "FACT_NOTE_NUMBER_UNSUPPORTED",
+      "slide_id": "slide_b607fbe2-891f-4d5b-a88a-8046ccce2802",
+      "severity": "P0",
+      "detail": {
+        "numbers": [
+          "9%"
+        ]
+      }
+    },
+    {
+      "issue_id": "issue_4168b072-ff11-4f65-89de-2402c116f205",
+      "code": "FACT_NUMBER_UNSUPPORTED",
+      "slide_id": "slide_9df8d04a-b0b7-40ae-9643-850c63020922",
+      "severity": "P0",
+      "detail": {
+        "numbers_not_found_in_cited_evidence": [
+          "9%"
+        ]
+      }
+    },
+    {
+      "issue_id": "issue_647287d4-a027-4e14-94a4-1c4fb93a7dbd",
+      "code": "FACT_NOTE_NUMBER_UNSUPPORTED",
+      "slide_id": "slide_9df8d04a-b0b7-40ae-9643-850c63020922",
+      "severity": "P0",
+      "detail": {
+        "numbers": [
+          "9%"
+        ]
+      }
+    }
+  ],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_b607fbe2-891f-4d5b-a88a-8046ccce2802",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_00fab5bb-f7d5-4c93-96b4-05e1bb1cd19b",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_9f714eb8-85de-48d6-8581-d85b8b752333",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_9df8d04a-b0b7-40ae-9643-850c63020922",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 4,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "model_review_executed",
+    "fact_semantic": "model_review_executed",
+    "accessibility": "not_executed",
+    "powerpoint_compatibility": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Deterministic and real image/fact model checks executed; complete decision graph, accessibility, PowerPoint compatibility and revision gates are not proven.",
+  "model_review": {
+    "checked_slide_orders": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "issues": [
+      {
+        "slide_order": 3,
+        "severity": "P0",
+        "kind": "fact",
+        "detail": "第4页正文出现被否决值“另一来源曾给出9%”。事实边界明确9%为被否决值（selected_claim_id为8%对应claim，9%为conflicting未选值），且禁止引用被否决值，正文不应呈现9%。",
+        "evidence_refs": [
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "issue_id": "issue_86b50000-38b3-43e8-8b82-2e1e107786b7",
+        "slide_id": "slide_9df8d04a-b0b7-40ae-9643-850c63020922"
+      },
+      {
+        "slide_order": 0,
+        "severity": "P1",
+        "kind": "semantic",
+        "detail": "标题“试点核心结论”与正文“2026年降低能耗8%”将试点结果表述为已达成结论，但事实约束中该数值状态为conflicting且经用户选择，属目标/结果口径需明确；页面未标注该8%为已选来源或目标值，易被理解为已验证的真实结果。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd"
+        ],
+        "issue_id": "issue_608a1da6-b2ad-424b-9809-7e9a1b6ccbe8",
+        "slide_id": "slide_b607fbe2-891f-4d5b-a88a-8046ccce2802"
+      },
+      {
+        "slide_order": 0,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "第1页正文“学校节能试点：2026年降低能耗8%。”在“降低能耗”与“8%”之间发生换行，数字与单位被拆到下一行，影响阅读连贯性。",
+        "evidence_refs": [],
+        "issue_id": "issue_0797e404-233b-41ab-969d-00fad8119228",
+        "slide_id": "slide_b607fbe2-891f-4d5b-a88a-8046ccce2802"
+      },
+      {
+        "slide_order": 1,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "第2页两个卡片内容语义重复（“项目由总务处负责”与“总务处为项目责任部门”），信息增量低，可合并。",
+        "evidence_refs": [
+          "evidence_48325ac1-5777-458e-8158-2c56de26e3bd",
+          "evidence_43906f30-8a0e-4f40-a808-b42947f564b9"
+        ],
+        "issue_id": "issue_1ff4328a-2e27-4bf6-9e56-6f04d4e50bdc",
+        "slide_id": "slide_00fab5bb-f7d5-4c93-96b4-05e1bb1cd19b"
+      }
+    ],
+    "summary": "已检查全部4页。主要问题：第4页正文引用了被否决值9%，违反不得引用被否决值的约束（P0）；第1页将经用户选择的8%呈现为已达成结论而未标注来源/目标口径（P1）；另有换行与内容重复的P2问题。事实边界中8%为user_selected且无assumption_ref，页面未以假设形式标注；未发现表格/图表可读性问题（本套无表格图表）。"
+  }
+}
