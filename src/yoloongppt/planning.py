@@ -15,10 +15,8 @@ DEFAULT_STYLE = {'font': 'Noto Sans CJK SC', 'background': 'F6F4EE', 'foreground
 def preflight(task, context=None, schemas=None):
     if task['route']['route_status'] != 'routed' or task['route']['mode'] not in {'create_from_materials', 'create_from_scratch'}:
         raise TaskError('GENERATION_ROUTE_UNSUPPORTED', '当前生成入口只支持材料/从零新建，未替换其他模式。', 'Preflight', ['SYS-011'])
-    if task['template_ref'] is not None:
-        raise TaskError('GENERATION_TEMPLATE_UNSUPPORTED', '模板导入尚未接入；不会替换为通用版式。', 'Preflight', ['SYS-011'])
     prefs = task['runtime_preferences']
-    if set(prefs) - {'page_count'} or set(task['output']) - {'formats'}:
+    if set(prefs) - {'page_count','asset_policy'} or set(task['output']) - {'formats'}:
         raise TaskError('GENERATION_OPTION_UNSUPPORTED', '当前运行参数只支持page_count，输出只支持formats；未知参数未忽略。', 'Preflight', ['SYS-011'])
     if context is None:
         from .context import normalize
@@ -39,8 +37,8 @@ def preflight(task, context=None, schemas=None):
     if not isinstance(formats, list) or not formats or any(not isinstance(v,str) or v not in {'pptx', 'pdf', 'png'} for v in formats):
         raise TaskError('OUTPUT_FORMAT_UNSUPPORTED', '当前生成输出支持pptx/pdf/png。', 'Preflight', ['SYS-013'])
     values = context['values']
-    if values['template'] is not None:
-        raise TaskError('GENERATION_TEMPLATE_UNSUPPORTED', '归一化模板要求未接入，未替换模板。', 'Preflight', ['DEC-002','SYS-011'])
+    if values['template'] is not None and values['template'] != task['template_ref']:
+        raise TaskError('GENERATION_TEMPLATE_CONFLICT', '归一化模板与调用者模板不一致，停止执行。', 'Preflight', ['DEC-002','SYS-011'])
     if values['brand'] is not None or values['citation_policy'] != 'notes':
         raise TaskError('HARD_CONSTRAINT_UNSUPPORTED', '已保存的上下文要求尚未由完整后续节点执行；未静默忽略。', 'Preflight', ['DEC-002','GOV-003'])
     count = values['page_count']
@@ -57,7 +55,7 @@ def preflight(task, context=None, schemas=None):
     return count, style, context['warnings']
 
 
-def plan(task, sources, schemas, artifacts, count, narrative=None):
+def plan(task, sources, schemas, artifacts, count, narrative=None, visual=None):
     schema = schemas.documents['generation-model.schema.json']
     evidence = [{'evidence_id': e['evidence_id'], 'source_id': e['source_id'], 'text': approved_text(sources,e)}
                 for e in sources['evidence']]
@@ -82,12 +80,20 @@ def plan(task, sources, schemas, artifacts, count, narrative=None):
     user = {'instruction': f'请将来源材料组织成恰好{count}页中文演示。', 'constraints': task['constraints'],
             'sources': evidence, 'example_shape': {'title': '标题', 'main_takeaway': '要点',
             'storyline': {'pattern': '结论先行', 'rationale': '有原文支持'}, 'slides': []}}
+    user['caller_request']=task.get('raw_request',{}).get('request',{}).get('raw_text','')
     if 'fact_boundary' in sources:
         user.update(fact_boundary=planner_boundary(sources),instruction_context=sources['instruction_context'],projection_scope=sources['projection_scope'])
     if narrative is not None:
         from .narrative import model_packet
         user['narrative'] = model_packet(narrative)
         system += '消费narrative的受众、场景、语言风格、候选故事线与页预算；只能用已选事实，不把关系候选视为已证明因果。'
+    if visual is not None:
+        user['visual'] = {'design_tokens':visual['design_tokens'],'resolved_assets':visual['resolved_assets'],
+                          'template_family':visual['template_selection']['family']}
+        system += ('可用图片只从visual.resolved_assets.entries选asset_id，image页role为information/decoration/logo/reference，fit=contain、required=true；'
+                   '不得生成图片路径。输入明确要求图片或流程时用实际image/diagram页。diagram节点文字必须逐字见已选证据，'
+                   '每条顺序边附含双端点与显式箭头的evidence_quote以及真实evidence_refs；不要从词法暗示推断因果。'
+                   'diagram必须有direction，节点node_id唯一；无可证明的关系时明确报错，不捏造边。')
     messages = [{'role': 'system', 'content': system}, {'role': 'user', 'content': json.dumps(user, ensure_ascii=False)}]
     artifacts.json('model-request.json', {'messages': messages, 'provider': task['providers']['text']})
     proposal, metadata = DeepSeek(task['providers']['text']).complete(messages)
@@ -109,7 +115,7 @@ def plan(task, sources, schemas, artifacts, count, narrative=None):
     return proposal, metadata
 
 
-def compile_deck(proposal, style, trace, previous_deck=None, registry=None):
+def compile_deck(proposal, style, trace, previous_deck=None, registry=None, visual=None):
     if registry is None:
         from .schemas import SchemaRegistry
         registry = AtomicRegistry(SchemaRegistry())
@@ -150,11 +156,13 @@ def compile_deck(proposal, style, trace, previous_deck=None, registry=None):
                     raise TaskError('CHECKPOINT_OBJECT_MISMATCH', '断点对象结构与当前规划不一致。', 'SlideCompiler', ['SYS-010'])
                 element['object_id'] = prior_matches[0]['object_id']
         slide = {'slide_id': slide_id, 'order': order, 'intent': {'goal': content['goal'], 'core_message': content['title']},
-                 'content': content, 'assets': [], 'layout': {'kind': content['kind'], 'master': 'library-default-blank'},
-                 'bindings': [], 'elements': elements, 'style': page_style,
+                 'content': content, 'assets': [content['image']] if content['kind']=='image' else [], 'layout': {'kind': content['kind'], 'master': 'library-default-blank'},
+                 'bindings': layout_selection['bindings'] if layout_selection else [], 'elements': elements, 'style': page_style,
                  'enhancements': {'notes': content['notes']}, 'source_refs': content['evidence_refs']}
         deck['slides'].append(slide)
-        if layout_selection:slide['layout'].update(design_version='native-editorial-1',selected_layout=layout_selection['selected_layout'],selection_trace=layout_selection)
+        if layout_selection:
+            slide['layout'].update(design_version='native-editorial-1',selected_layout=layout_selection['selected_layout'],selection_trace=layout_selection)
+            slide['enhancements'].update(layout_selection['enhancements'])
         page_call = entity('capability')
         calls.append({'call_id': page_call, 'slide_id': slide_id, 'capability': 'create_slide',
                       'implementation_id': 'python-pptx.PageExecutor', 'backend': 'PP-05', 'deps': [previous] if previous else [],
@@ -172,4 +180,6 @@ def compile_deck(proposal, style, trace, previous_deck=None, registry=None):
         definition, implementation = registry.select(call['capability'])
         call['capability_id'] = definition['capability_id']
         call['implementation_id'] = implementation['implementation_id']
+    if visual and visual['template_selection']['record']:
+        deck['template'] = visual['template_selection']['record']
     return deck, {'calls': calls, 'deps': 'each page requires its predecessor; objects require owning page', 'backend': 'PP-05'}

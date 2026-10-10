@@ -1,0 +1,174 @@
+{
+  "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+  "node_id": "DEC-016",
+  "input": {
+    "page_count": 6,
+    "source_evidence_refs": [
+      "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-016",
+      "candidate_id": "candidate_f91275ca-77cf-460e-9d00-1bac4cb50f21",
+      "value": {
+        "intents": [
+          {
+            "page_key": "page_edbc692b547ad821436e",
+            "page_index": 0,
+            "goal": "说明演示性质与范围",
+            "core_message": "虚构学校照明测试演示",
+            "evidence_refs": [
+              "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "page_key": "page_8d9264047a8a440afeaa",
+            "page_index": 1,
+            "goal": "展示已授权测试素材并声明其性质",
+            "core_message": "测试示意图（仅装饰）",
+            "evidence_refs": [
+              "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "page_key": "page_232b1a2614b2708e505e",
+            "page_index": 2,
+            "goal": "按原文顺序呈现三个流程节点",
+            "core_message": "原文明示流程：三步",
+            "evidence_refs": [
+              "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "page_key": "page_6580ec95509703647191",
+            "page_index": 3,
+            "goal": "并列展示三栋楼的虚构记录值",
+            "core_message": "虚构测试数据：基线与本期",
+            "evidence_refs": [
+              "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "page_key": "page_ab93e132d8fdcdb6166d",
+            "page_index": 4,
+            "goal": "以柱图并列展示基线与本期数值",
+            "core_message": "虚构测试数据柱图",
+            "evidence_refs": [
+              "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "page_key": "page_ed7988a982f05fd44d83",
+            "page_index": 5,
+            "goal": "收束到原文结论",
+            "core_message": "结论：核对资料并按原文流程执行",
+            "evidence_refs": [
+              "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+            ],
+            "assumption_refs": []
+          }
+        ]
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_f91275ca-77cf-460e-9d00-1bac4cb50f21"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "intents": [
+      {
+        "page_key": "page_edbc692b547ad821436e",
+        "page_index": 0,
+        "goal": "说明演示性质与范围",
+        "core_message": "虚构学校照明测试演示",
+        "evidence_refs": [
+          "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "page_key": "page_8d9264047a8a440afeaa",
+        "page_index": 1,
+        "goal": "展示已授权测试素材并声明其性质",
+        "core_message": "测试示意图（仅装饰）",
+        "evidence_refs": [
+          "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "page_key": "page_232b1a2614b2708e505e",
+        "page_index": 2,
+        "goal": "按原文顺序呈现三个流程节点",
+        "core_message": "原文明示流程：三步",
+        "evidence_refs": [
+          "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "page_key": "page_6580ec95509703647191",
+        "page_index": 3,
+        "goal": "并列展示三栋楼的虚构记录值",
+        "core_message": "虚构测试数据：基线与本期",
+        "evidence_refs": [
+          "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "page_key": "page_ab93e132d8fdcdb6166d",
+        "page_index": 4,
+        "goal": "以柱图并列展示基线与本期数值",
+        "core_message": "虚构测试数据柱图",
+        "evidence_refs": [
+          "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "page_key": "page_ed7988a982f05fd44d83",
+        "page_index": 5,
+        "goal": "收束到原文结论",
+        "core_message": "结论：核对资料并按原文流程执行",
+        "evidence_refs": [
+          "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+        ],
+        "assumption_refs": []
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

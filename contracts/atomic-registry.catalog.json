@@ -1,5 +1,5 @@
 {
-  "version": 1,
+  "version": 2,
   "capabilities": [
     {
       "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
@@ -31,10 +31,9 @@
         ]
       },
       "constraints": [
-        "new deck only",
-        "native editable output",
-        "measured fixed layout; no silent truncation",
-        "no imported template or advanced preservation claim"
+        "new generated deck with native editable output",
+        "measured native geometry; no silent truncation",
+        "optional registered caller template retains masters/layout/theme via unique blank layout; arbitrary placeholder fidelity not claimed"
       ],
       "implementations": [
         {
@@ -537,6 +536,403 @@
             "reason": "catalog requires runtime probe before selection"
           },
           "entrypoint": "yoloongppt.writer.execute"
+        }
+      ],
+      "priority": "P0",
+      "status": "Partial"
+    },
+    {
+      "capability_id": "capability_ade0c185-06e5-4906-b4ae-16c70af6306d",
+      "name": "add_image",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "object_id",
+          "type",
+          "role",
+          "bounds",
+          "font_size",
+          "source_refs",
+          "data"
+        ],
+        "properties": {
+          "object_id": {
+            "type": "string",
+            "pattern": "^object_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          },
+          "type": {
+            "const": "image"
+          },
+          "role": {
+            "const": "asset"
+          },
+          "bounds": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "number"
+            }
+          },
+          "font_size": {
+            "type": "number",
+            "minimum": 12
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^evidence_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "text": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "type": "object",
+            "required": [
+              "path",
+              "width_px",
+              "height_px",
+              "sha256",
+              "fit"
+            ]
+          },
+          "slot_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "type": "object",
+            "properties": {
+              "color": {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{6}$"
+              },
+              "fill": {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{6}$"
+              },
+              "border": {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{6}$"
+              },
+              "bold": {
+                "type": "boolean"
+              },
+              "margin": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "paragraph_spacing": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "shape_id",
+          "name"
+        ]
+      },
+      "constraints": [
+        "Native editable OOXML image",
+        "Actual content/hash/topology preserved; no invented asset or relationship",
+        "PP-05 subset only; no full advanced-object capability claim"
+      ],
+      "implementations": [
+        {
+          "implementation_id": "implementation_e4366712-ef3f-4493-9b52-73fcd3fb26d3",
+          "backend": "PP-05",
+          "project/library": "python-pptx",
+          "platform": [
+            "Linux/amd64"
+          ],
+          "version": "1.0.2",
+          "feature_flags": [
+            "add_image",
+            "native_ooxml"
+          ],
+          "health": {
+            "available": false,
+            "reason": "catalog requires runtime probe before selection"
+          },
+          "entrypoint": "yoloongppt.writer.chart_shape"
+        }
+      ],
+      "priority": "P0",
+      "status": "Partial"
+    },
+    {
+      "capability_id": "capability_ffc5ac68-5581-4981-a031-df3d31b4997d",
+      "name": "add_shape",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "object_id",
+          "type",
+          "role",
+          "bounds",
+          "font_size",
+          "source_refs",
+          "data"
+        ],
+        "properties": {
+          "object_id": {
+            "type": "string",
+            "pattern": "^object_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          },
+          "type": {
+            "const": "shape"
+          },
+          "role": {
+            "const": "diagram"
+          },
+          "bounds": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "number"
+            }
+          },
+          "font_size": {
+            "type": "number",
+            "minimum": 12
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^evidence_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "text": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "type": "object",
+            "required": [
+              "node_id",
+              "shape_type",
+              "text"
+            ]
+          },
+          "slot_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "type": "object",
+            "properties": {
+              "color": {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{6}$"
+              },
+              "fill": {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{6}$"
+              },
+              "border": {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{6}$"
+              },
+              "bold": {
+                "type": "boolean"
+              },
+              "margin": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "paragraph_spacing": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "shape_id",
+          "name"
+        ]
+      },
+      "constraints": [
+        "Native editable OOXML shape",
+        "Actual content/hash/topology preserved; no invented asset or relationship",
+        "PP-05 subset only; no full advanced-object capability claim"
+      ],
+      "implementations": [
+        {
+          "implementation_id": "implementation_ad8197c3-3328-4264-be09-425d46f152ce",
+          "backend": "PP-05",
+          "project/library": "python-pptx",
+          "platform": [
+            "Linux/amd64"
+          ],
+          "version": "1.0.2",
+          "feature_flags": [
+            "add_shape",
+            "native_ooxml"
+          ],
+          "health": {
+            "available": false,
+            "reason": "catalog requires runtime probe before selection"
+          },
+          "entrypoint": "yoloongppt.writer.chart_shape"
+        }
+      ],
+      "priority": "P0",
+      "status": "Partial"
+    },
+    {
+      "capability_id": "capability_c96a4e71-7ae5-48c5-a7af-4940401a0581",
+      "name": "add_connector",
+      "input_schema": {
+        "type": "object",
+        "required": [
+          "object_id",
+          "type",
+          "role",
+          "bounds",
+          "font_size",
+          "source_refs",
+          "data"
+        ],
+        "properties": {
+          "object_id": {
+            "type": "string",
+            "pattern": "^object_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+          },
+          "type": {
+            "const": "connector"
+          },
+          "role": {
+            "const": "diagram"
+          },
+          "bounds": {
+            "type": "array",
+            "minItems": 4,
+            "maxItems": 4,
+            "items": {
+              "type": "number"
+            }
+          },
+          "font_size": {
+            "type": "number",
+            "minimum": 12
+          },
+          "source_refs": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^evidence_[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$"
+            }
+          },
+          "text": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "data": {
+            "type": "object",
+            "required": [
+              "from_slot",
+              "to_slot",
+              "start",
+              "end",
+              "connector_type"
+            ]
+          },
+          "slot_key": {
+            "type": "string",
+            "minLength": 1
+          },
+          "format": {
+            "type": "object",
+            "properties": {
+              "color": {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{6}$"
+              },
+              "fill": {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{6}$"
+              },
+              "border": {
+                "type": "string",
+                "pattern": "^[0-9A-Fa-f]{6}$"
+              },
+              "bold": {
+                "type": "boolean"
+              },
+              "margin": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 1
+              },
+              "paragraph_spacing": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 30
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "additionalProperties": false
+      },
+      "output_schema": {
+        "type": "object",
+        "required": [
+          "shape_id",
+          "name"
+        ]
+      },
+      "constraints": [
+        "Native editable OOXML connector",
+        "Actual content/hash/topology preserved; no invented asset or relationship",
+        "PP-05 subset only; no full advanced-object capability claim"
+      ],
+      "implementations": [
+        {
+          "implementation_id": "implementation_84679de7-98c8-4493-883c-93d2572d3e25",
+          "backend": "PP-05",
+          "project/library": "python-pptx",
+          "platform": [
+            "Linux/amd64"
+          ],
+          "version": "1.0.2",
+          "feature_flags": [
+            "add_connector",
+            "native_ooxml"
+          ],
+          "health": {
+            "available": false,
+            "reason": "catalog requires runtime probe before selection"
+          },
+          "entrypoint": "yoloongppt.writer.chart_shape"
         }
       ],
       "priority": "P0",

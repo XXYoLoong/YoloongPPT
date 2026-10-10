@@ -1,0 +1,68 @@
+{
+  "status": "needs_clarification",
+  "source_roles": [
+    {
+      "source_id": "source_5de3c393-4dc3-4669-b561-f61b087502ac",
+      "asset_refs": [],
+      "role": "fact",
+      "candidate_refs": [
+        "candidate_9b528337-f66d-456f-8875-d6c35ee5f6e3"
+      ],
+      "loading_strategy": {
+        "kind": "text",
+        "locator": null,
+        "fact_input": true
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    },
+    {
+      "source_id": "source_54c783db-9a6e-4a46-a683-0400f754d67a",
+      "asset_refs": [],
+      "role": null,
+      "candidate_refs": [
+        "candidate_b8c4c932-4d2e-4c92-af11-f8589a5ef8bc"
+      ],
+      "loading_strategy": {
+        "kind": "prompt",
+        "locator": null,
+        "fact_input": false
+      },
+      "reason": "Conflicting or unknown roles require clarification."
+    },
+    {
+      "source_id": "source_d693bb7e-5984-4390-b5d5-0866e3761319",
+      "asset_refs": [
+        "asset_ba3a7073-5c9d-41cb-bdd0-6d2753745b79"
+      ],
+      "role": "asset",
+      "candidate_refs": [
+        "candidate_80d7209d-36bd-4edb-b17c-5e82189c9114"
+      ],
+      "loading_strategy": {
+        "kind": "image",
+        "locator": "/runtime/visual-validation/declared-image.png",
+        "fact_input": false
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    }
+  ],
+  "fact_source_ids": [
+    "source_5de3c393-4dc3-4669-b561-f61b087502ac"
+  ],
+  "preserved_source_ids": [
+    "source_5de3c393-4dc3-4669-b561-f61b087502ac",
+    "source_54c783db-9a6e-4a46-a683-0400f754d67a",
+    "source_d693bb7e-5984-4390-b5d5-0866e3761319"
+  ],
+  "issues": [
+    {
+      "code": "SOURCE_ROLE_UNRESOLVED",
+      "source_id": "source_54c783db-9a6e-4a46-a683-0400f754d67a",
+      "candidate_roles": [
+        null
+      ]
+    }
+  ],
+  "trace_id": "trace_4452cc45-5380-4e0a-a7cf-678001c4db3e",
+  "fallback": "No guessing unknown roles or treating style/template/assets as factual evidence; preserve sources and clarify."
+}

@@ -6,6 +6,9 @@ from .operations import dispatch
 
 PROTOCOLS=('2024-11-05','2025-03-26','2025-06-18')
 TOOLS={
+ 'register_template':('登记真实模板并保存母版、布局、主题、来源与许可。',{'type':'object','required':['path'],'properties':{'path':{'type':'string'},'source':{'type':'string'},'license':{'type':'string'}},'additionalProperties':False}),
+ 'get_template':('按稳定ID读取模板并核对hash。',{'type':'object','required':['template_id'],'properties':{'template_id':{'type':'string'}},'additionalProperties':False}),
+ 'resolve_assets':('把声明素材解析为真实文件，核对hash与使用授权。',{'type':'object'}),
  'create_deck':('按TaskSpec真实生成可编辑PPTX及渲染/QA产物。',{'type':'object'}),
  'revise_deck':('局部修订现有运行产物。',{'type':'object','required':['run_id','request'],'properties':{'run_id':{'type':'string'},'request':{'type':'object'}},'additionalProperties':False}),
  'inspect':('解析来源并保存原文及证据锚点。',{'type':'object'}),

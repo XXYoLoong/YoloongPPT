@@ -1,0 +1,296 @@
+{
+  "passed": true,
+  "state": "actual_consumer_verified",
+  "checks": [
+    {
+      "name": "invalid_request_no_writer",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_PLAN_REQUEST_INVALID"
+      }
+    },
+    {
+      "name": "wrong_parent_no_writer",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_PLAN_PARENT_CHANGED"
+      }
+    },
+    {
+      "name": "stale_before_spec_no_writer",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_PLAN_STALE"
+      }
+    },
+    {
+      "name": "locked_target_no_writer",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_PLAN_TARGET_INVALID"
+      }
+    },
+    {
+      "name": "scope_expansion_no_writer",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_PLAN_SCOPE_INVALID"
+      }
+    },
+    {
+      "name": "format_extra_field_no_writer",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_PLAN_FORMAT_INVALID"
+      }
+    },
+    {
+      "name": "format_extra_operation_no_writer",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_PLAN_CHANGES_INVALID"
+      }
+    },
+    {
+      "name": "persistent_element_lock_revalidated",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_PLAN_TARGET_LOCKED"
+      }
+    },
+    {
+      "name": "negative_cases_parent_byte_unchanged",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "injected_fixture_two_safe_actions",
+      "passed": true,
+      "observation": {
+        "status": "ready",
+        "actions": 2,
+        "issues": [
+          "DECK_BACKGROUND_INCONSISTENT",
+          "TEXT_CONTRAST_LOW",
+          "ACTUAL_TEXT_CONTRAST_LOW",
+          "ACTUAL_TEXT_CONTRAST_LOW",
+          "OBJECT_GEOMETRY_MISMATCH",
+          "OBJECT_OUT_OF_BOUNDS"
+        ]
+      }
+    },
+    {
+      "name": "consumer_actual_success",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "exactly_two_objects_selected",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "fresh_real_review_one_page",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "real_model_identity_recorded",
+      "passed": true,
+      "observation": {
+        "provider": "deepseek",
+        "requested_model": "deepseek-flash",
+        "returned_model": "deepseek-flash",
+        "response_id": "92d794fe-5ff3-4097-b9ef-d87c45d925d3",
+        "usage": {
+          "prompt_tokens": 5261,
+          "completion_tokens": 252,
+          "total_tokens": 5513,
+          "prompt_tokens_details": {
+            "cached_tokens": 128
+          },
+          "prompt_cache_hit_tokens": 128,
+          "prompt_cache_miss_tokens": 5133
+        },
+        "available_models": [
+          "deepseek-flash",
+          "deepseek-v4-pro"
+        ],
+        "parameters": {
+          "model": "deepseek-flash",
+          "response_format": {
+            "type": "json_object"
+          },
+          "thinking": {
+            "type": "disabled"
+          },
+          "temperature": 0.2,
+          "max_tokens": 12000,
+          "stream": false
+        },
+        "request_sha256": "14a5812658fc415c14bfa95ddbea2de07f910f01ec07b6e10f96fb7584fd0003",
+        "response_content_sha256": "195454d5b47e92fd71b616bb4e1f69b3c2b57ae76a31994cb6ee938b5e8e361d",
+        "duration_seconds": 2.278,
+        "real_model_call": true
+      }
+    },
+    {
+      "name": "only_selected_page_part_changed",
+      "passed": true,
+      "observation": [
+        "ppt/slides/slide1.xml"
+      ]
+    },
+    {
+      "name": "unselected_parts_byte_preserved",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "unselected_page_object_byte_preserved",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "native_mapping_entity_ids_preserved",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "fact_snapshot_byte_preserved",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "history_actual_hashes_and_qa",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "fresh_renders_written",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "quality_pipeline_decision_saved",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "p0_faults_actually_removed",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "original_parent_preserved_through_positive",
+      "passed": true,
+      "observation": null
+    }
+  ],
+  "parent_run_id": "5be192ef-798f-4bb0-9c93-c24bcc279aa4",
+  "fixture_run_id": "4666053e-b31b-4fe9-b0d5-ecd9125d2d3c",
+  "fixture_identity": "artificial geometry/color fault injection over unchanged real generated parent; not AI newly generated",
+  "result": {
+    "ok": true,
+    "trace_id": "trace_cb982946-6709-4770-92ac-66f1ea5f528a",
+    "operation": "revise",
+    "state": "draft_revised",
+    "run_id": "adf6aebf-a2e1-4cc9-a623-815c1a07dc10",
+    "parent_run_id": "4666053e-b31b-4fe9-b0d5-ecd9125d2d3c",
+    "artifact_root": "/runtime/runs/adf6aebf-a2e1-4cc9-a623-815c1a07dc10",
+    "pptx": "/runtime/runs/adf6aebf-a2e1-4cc9-a623-815c1a07dc10/deck.pptx",
+    "changed_parts": [
+      "ppt/slides/slide1.xml"
+    ],
+    "qa": {
+      "status": "partial",
+      "p0_issue_count": 0
+    },
+    "completion": {
+      "state": "warning",
+      "final_allowed": false,
+      "p0_issue_count": 0,
+      "warning_issue_count": 9,
+      "missing_coverage": [
+        "structure",
+        "editability",
+        "geometry",
+        "fact_numeric",
+        "visual_semantic",
+        "fact_semantic",
+        "accessibility",
+        "global_consistency",
+        "powerpoint_compatibility"
+      ],
+      "missing_nodes": [
+        "DEC-001",
+        "DEC-002",
+        "DEC-003",
+        "DEC-004",
+        "DEC-005",
+        "DEC-006",
+        "DEC-007",
+        "DEC-008",
+        "DEC-009",
+        "DEC-010",
+        "DEC-011",
+        "DEC-012",
+        "DEC-013",
+        "DEC-014",
+        "DEC-015",
+        "DEC-016",
+        "DEC-017",
+        "DEC-018",
+        "DEC-019",
+        "DEC-020",
+        "DEC-021",
+        "DEC-022",
+        "DEC-023",
+        "DEC-024",
+        "DEC-025",
+        "DEC-026",
+        "DEC-027",
+        "DEC-028",
+        "DEC-029",
+        "DEC-030",
+        "DEC-031",
+        "DEC-032",
+        "DEC-033",
+        "DEC-034",
+        "DEC-035",
+        "DEC-036",
+        "DEC-037",
+        "DEC-038"
+      ],
+      "missing_acceptance": [
+        "AC-001",
+        "GOV-008"
+      ],
+      "revision_plan_status": "needs_input",
+      "reasons": [
+        "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+      ],
+      "retry": {
+        "count": 0,
+        "maximum": 2,
+        "allowed": false,
+        "next_action": "complete_missing_acceptance"
+      },
+      "error": null,
+      "system_acceptance": "not_passed"
+    },
+    "system_acceptance": "not_passed"
+  },
+  "model_calls": 1,
+  "source_hashes": {
+    "src/yoloongppt/revision.py": "38efd470b3d96adfb8299a4ab0cd76b71fd791fb0747186efda09bb6f81a22d5",
+    "src/yoloongppt/revision_plans.py": "107314c594eebd228563bb3c9f3b6f38ec10e8059d73371582e749b7e09de183",
+    "src/yoloongppt/existing_deck.py": "aa88ab55fedc8350629cf3e6e12be76a64553428cb5ea589644b4ec788de4e74",
+    "src/yoloongppt/quality.py": "d7de83f8b677bcd8dd6d902bdf5a0dab748e67268afb9c2ce06dc428ffb1d4f3",
+    "src/yoloongppt/quality_rules.py": "fa8db297fa8e7574cb443146b36306aa6a537bd618e1fb7bd2be180674d983b4",
+    "src/yoloongppt/quality_decisions.py": "ff20b5542d65f62adae7d62c84f5c5f389386e18aed2e6dc32b8d6880206e2ff",
+    "validation/verify-revision-plan-execution.py": "4128583aabc6b0fee3775ca28b1bd4336fca7c8a877e80769db4d54e6ddfbbf6"
+  },
+  "parent_pptx_sha256": "7484df5d31358769e44e83bbf042ed63e562455d13f4223db242350172de83c9",
+  "system_acceptance": "not_passed"
+}

@@ -8,12 +8,12 @@
   ],
   "properties": {
     "version": {
-      "const": 1
+      "const": 2
     },
     "capabilities": {
       "type": "array",
-      "minItems": 5,
-      "maxItems": 5,
+      "minItems": 8,
+      "maxItems": 8,
       "items": {
         "$ref": "#/$defs/capability"
       }
@@ -89,7 +89,10 @@
             "add_text",
             "add_table",
             "add_chart",
-            "add_notes"
+            "add_notes",
+            "add_image",
+            "add_shape",
+            "add_connector"
           ]
         },
         "input_schema": {

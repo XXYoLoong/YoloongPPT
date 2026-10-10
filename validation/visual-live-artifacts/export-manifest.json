@@ -1,0 +1,3092 @@
+{
+  "scope": "White-listed real six-page visual generation, all native rendered pages, historical failures and QA-only recovery; independent fixture node evidence separate; not full AC acceptance",
+  "runs": [
+    {
+      "label": "generated",
+      "run_id": "74a0567c-2bfb-47e1-a6b0-eae2dcf252e6",
+      "failure_code": "QA_REVIEW_INCOMPLETE",
+      "failure_component": "QAEngine",
+      "historical_qa_issue_state": false,
+      "status": "historical_evidence"
+    },
+    {
+      "label": "failed-source-role",
+      "run_id": "f1504d37-f2d0-4b22-88a9-3727b93b34a4",
+      "failure_code": "SOURCE_ROLES_UNRESOLVED",
+      "failure_component": "DEC-003",
+      "historical_qa_issue_state": false,
+      "status": "historical_evidence"
+    },
+    {
+      "label": "failed-fact-scope",
+      "run_id": "467692a5-a625-443e-94f1-276617c01e55",
+      "failure_code": "FACT_SCOPE_UNGROUNDED",
+      "failure_component": "FactInterpreter",
+      "historical_qa_issue_state": false,
+      "status": "historical_evidence"
+    },
+    {
+      "label": "failed-diagram-edge",
+      "run_id": "146f90e3-8305-43dc-ae41-383afa87c235",
+      "failure_code": "DIAGRAM_EDGE_UNGROUNDED",
+      "failure_component": "VisualOrchestrator",
+      "historical_qa_issue_state": false,
+      "status": "historical_evidence"
+    },
+    {
+      "label": "historical-qa-pixel-false-positive",
+      "run_id": "dbb3a53c-1c15-4fdd-aa73-e66560ce7b77",
+      "failure_code": null,
+      "failure_component": null,
+      "historical_qa_issue_state": true,
+      "status": "historical_evidence"
+    },
+    {
+      "label": "qa-recovered-success-39a2dbf3",
+      "run_id": "39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a",
+      "failure_code": null,
+      "failure_component": null,
+      "historical_qa_issue_state": false,
+      "status": "success"
+    },
+    {
+      "label": "qa-recovered-success-95bdc3f0",
+      "run_id": "95bdc3f0-0d60-46b7-a8ce-418d3962e49c",
+      "failure_code": null,
+      "failure_component": null,
+      "historical_qa_issue_state": false,
+      "status": "success"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "checks/recovery-checks-45a1db3f0580.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-live-validation\\recovery-checks.json",
+      "bytes": 359314,
+      "sha256": "45a1db3f05801d0ec1e151256b4b0c9055fca1e9da399bbe77c2a1c9d079394e",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "checks/repeat-recovery-90b93f62be10.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-live-validation\\repeat-recovery.json",
+      "bytes": 1573,
+      "sha256": "90b93f62be10151c64abcec5863925a9a302a5c305028b7803341eb9f97e69db",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "failed-diagram-edge/approved-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\approved-source-result.json",
+      "bytes": 102187,
+      "sha256": "79d9e9648119948024e557cfe5c4225aa01fafae3a312b44ed697e33c3cb0a7b",
+      "source_manifest_sha256": "79d9e9648119948024e557cfe5c4225aa01fafae3a312b44ed697e33c3cb0a7b"
+    },
+    {
+      "path": "failed-diagram-edge/atomic-registry.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\atomic-registry.json",
+      "bytes": 26566,
+      "sha256": "6c9d88a8be13cb65977065dc508e9b8c124adac57929d8cabd5ec04ebebafab6",
+      "source_manifest_sha256": "6c9d88a8be13cb65977065dc508e9b8c124adac57929d8cabd5ec04ebebafab6"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-006.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-006.json",
+      "bytes": 1581,
+      "sha256": "63ad61e3b66d305e919aa0010f5669f579f755b681c7fce9ebc8c74c1e5c6983",
+      "source_manifest_sha256": "63ad61e3b66d305e919aa0010f5669f579f755b681c7fce9ebc8c74c1e5c6983"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-007.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-007.json",
+      "bytes": 1423,
+      "sha256": "9418ed8a55f3adea8d0823067edcc583a10bcdfa0d80ab5d82c35fbbf3b1fa35",
+      "source_manifest_sha256": "9418ed8a55f3adea8d0823067edcc583a10bcdfa0d80ab5d82c35fbbf3b1fa35"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-008.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-008.json",
+      "bytes": 2116,
+      "sha256": "dab80b8bdb405277e192ac33b9569c47445a8a48a834ea25c9b519e9ed525b0e",
+      "source_manifest_sha256": "dab80b8bdb405277e192ac33b9569c47445a8a48a834ea25c9b519e9ed525b0e"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-009.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-009.json",
+      "bytes": 4566,
+      "sha256": "b466c945f6852d96f45cb4fb2dd664065d9a7b9ef2c33d95d993d9fb3dcb0c37",
+      "source_manifest_sha256": "b466c945f6852d96f45cb4fb2dd664065d9a7b9ef2c33d95d993d9fb3dcb0c37"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-010.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-010.json",
+      "bytes": 5219,
+      "sha256": "dc406237138c12c4d6b6294b865a5c5da4ef2c5daf11363eeeebacd6298ba13f",
+      "source_manifest_sha256": "dc406237138c12c4d6b6294b865a5c5da4ef2c5daf11363eeeebacd6298ba13f"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-011.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-011.json",
+      "bytes": 4596,
+      "sha256": "f6abe429a55f0313ea851c00655a08ed6197928e9f67c9d20b61bf7209771739",
+      "source_manifest_sha256": "f6abe429a55f0313ea851c00655a08ed6197928e9f67c9d20b61bf7209771739"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-012.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-012.json",
+      "bytes": 6702,
+      "sha256": "ca80c3b2dab1627679fa19b2a0e7aaea5fd1a0f6ccb596c104c8a393da5b7672",
+      "source_manifest_sha256": "ca80c3b2dab1627679fa19b2a0e7aaea5fd1a0f6ccb596c104c8a393da5b7672"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-013.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-013.json",
+      "bytes": 1828,
+      "sha256": "8dd809581856934b61debad98a9b52bb0cbd94a79fadc4b335a3636c518facfc",
+      "source_manifest_sha256": "8dd809581856934b61debad98a9b52bb0cbd94a79fadc4b335a3636c518facfc"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-014.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-014.json",
+      "bytes": 6220,
+      "sha256": "f66b5aaa7d9b3a2bbf099f744b5164d260262b74caf38acd06d45e83673321c8",
+      "source_manifest_sha256": "f66b5aaa7d9b3a2bbf099f744b5164d260262b74caf38acd06d45e83673321c8"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-015.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-015.json",
+      "bytes": 6557,
+      "sha256": "11d24bca23aab260d0053de145027f691c4821654f541f278c8057c8b56ff8a1",
+      "source_manifest_sha256": "11d24bca23aab260d0053de145027f691c4821654f541f278c8057c8b56ff8a1"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-016.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-016.json",
+      "bytes": 5619,
+      "sha256": "35b22487f8294ad8fdb91c4936fdc943a2d5281a8b2f1c5b0ecd6fed773df33e",
+      "source_manifest_sha256": "35b22487f8294ad8fdb91c4936fdc943a2d5281a8b2f1c5b0ecd6fed773df33e"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-017.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-017.json",
+      "bytes": 7109,
+      "sha256": "a7ec4bb82789bd1f5814d2eecd0b9903fc0340901986ac60e56fe15b2aa02de2",
+      "source_manifest_sha256": "a7ec4bb82789bd1f5814d2eecd0b9903fc0340901986ac60e56fe15b2aa02de2"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-018.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-018.json",
+      "bytes": 8001,
+      "sha256": "50f72066fe358545f3befa43d5f3b2ae2a66403605ca0ef4fcbbaa9ff28905dc",
+      "source_manifest_sha256": "50f72066fe358545f3befa43d5f3b2ae2a66403605ca0ef4fcbbaa9ff28905dc"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-019.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-019.json",
+      "bytes": 9749,
+      "sha256": "82c28bebb0be228d999b626ffcb934323c1654c76aa785c0805b6b184a8cfd2b",
+      "source_manifest_sha256": "82c28bebb0be228d999b626ffcb934323c1654c76aa785c0805b6b184a8cfd2b"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-020.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-020.json",
+      "bytes": 40103,
+      "sha256": "72117016d6d0bcfb9573094852840fd0a55162e52d4a4ce9c3cc2e3160a081a8",
+      "source_manifest_sha256": "72117016d6d0bcfb9573094852840fd0a55162e52d4a4ce9c3cc2e3160a081a8"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-021.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-021.json",
+      "bytes": 8715,
+      "sha256": "44f63d7e991a83563a48a4d0d0c7a1e28eeba47df467017a7e6b766860626acf",
+      "source_manifest_sha256": "44f63d7e991a83563a48a4d0d0c7a1e28eeba47df467017a7e6b766860626acf"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-028.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-028.json",
+      "bytes": 9027,
+      "sha256": "ad81deabd501317adedce8fcc2faf2960e627c3d58692c6893fb896f8833a1d9",
+      "source_manifest_sha256": "ad81deabd501317adedce8fcc2faf2960e627c3d58692c6893fb896f8833a1d9"
+    },
+    {
+      "path": "failed-diagram-edge/decision-DEC-029.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-DEC-029.json",
+      "bytes": 2314,
+      "sha256": "93358c980b1e35812be3b637e60d1591a3b14ccdafd53949d109312ca2c0492a",
+      "source_manifest_sha256": "93358c980b1e35812be3b637e60d1591a3b14ccdafd53949d109312ca2c0492a"
+    },
+    {
+      "path": "failed-diagram-edge/decision-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-context.json",
+      "bytes": 25686,
+      "sha256": "01657d0fc7c3719ab52a4a1d6a4e0b36de2a98eaae49cab70111da00542fcaf5",
+      "source_manifest_sha256": "01657d0fc7c3719ab52a4a1d6a4e0b36de2a98eaae49cab70111da00542fcaf5"
+    },
+    {
+      "path": "failed-diagram-edge/decision-evidence.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-evidence.json",
+      "bytes": 87652,
+      "sha256": "c6209d86eb50be01c54c03164ecd0308c64b1a15bdd0f35b033fa8fff6cdbbe0",
+      "source_manifest_sha256": "c6209d86eb50be01c54c03164ecd0308c64b1a15bdd0f35b033fa8fff6cdbbe0"
+    },
+    {
+      "path": "failed-diagram-edge/decision-fact-boundary.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-fact-boundary.json",
+      "bytes": 127238,
+      "sha256": "bdf4fe8abfac2b3e8f52b5eb90e8e24e688585f57204f235aee311ba226502b2",
+      "source_manifest_sha256": "bdf4fe8abfac2b3e8f52b5eb90e8e24e688585f57204f235aee311ba226502b2"
+    },
+    {
+      "path": "failed-diagram-edge/decision-route.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-route.json",
+      "bytes": 37461,
+      "sha256": "a052e6e301e03f221869dde358a230104a9c8bc7d34f9256247e7311ae582025",
+      "source_manifest_sha256": "a052e6e301e03f221869dde358a230104a9c8bc7d34f9256247e7311ae582025"
+    },
+    {
+      "path": "failed-diagram-edge/decision-source-roles.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\decision-source-roles.json",
+      "bytes": 17491,
+      "sha256": "db01800941bb861775f44c19e6dfd5b44088e17f1f50a94ab5fddde5d5737d22",
+      "source_manifest_sha256": "db01800941bb861775f44c19e6dfd5b44088e17f1f50a94ab5fddde5d5737d22"
+    },
+    {
+      "path": "failed-diagram-edge/evidence-resolution.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\evidence-resolution.json",
+      "bytes": 46098,
+      "sha256": "5eed238169565b15a7a93d4427ccff681cdda4bae333392f52beebcc2f41b92a",
+      "source_manifest_sha256": "5eed238169565b15a7a93d4427ccff681cdda4bae333392f52beebcc2f41b92a"
+    },
+    {
+      "path": "failed-diagram-edge/fact-boundary.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\fact-boundary.json",
+      "bytes": 38553,
+      "sha256": "f2db9366fd6f4801ca8d7f4a4067edc0f97fe7090e89a4a96b22b3ef6184671d",
+      "source_manifest_sha256": "f2db9366fd6f4801ca8d7f4a4067edc0f97fe7090e89a4a96b22b3ef6184671d"
+    },
+    {
+      "path": "failed-diagram-edge/fact-grounding.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\fact-grounding.json",
+      "bytes": 326,
+      "sha256": "c8f5c0d63dd768c9f52f70b8a97f78f2449858eb15c654cdd2553dd1e1331f77",
+      "source_manifest_sha256": "c8f5c0d63dd768c9f52f70b8a97f78f2449858eb15c654cdd2553dd1e1331f77"
+    },
+    {
+      "path": "failed-diagram-edge/fact-interpretation.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\fact-interpretation.json",
+      "bytes": 17145,
+      "sha256": "4a583ba18a11b3fbe3c3ca4b86e3c7d79bcb96e102fb54140dc9a6c24b042c19",
+      "source_manifest_sha256": "4a583ba18a11b3fbe3c3ca4b86e3c7d79bcb96e102fb54140dc9a6c24b042c19"
+    },
+    {
+      "path": "failed-diagram-edge/fact-model-call.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\fact-model-call.json",
+      "bytes": 946,
+      "sha256": "ce8798fafbc7ebb0b612b9b5227604d22fdfe68748dbef47f03f83ac594702e5",
+      "source_manifest_sha256": "ce8798fafbc7ebb0b612b9b5227604d22fdfe68748dbef47f03f83ac594702e5"
+    },
+    {
+      "path": "failed-diagram-edge/fact-model-request.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\fact-model-request.json",
+      "bytes": 6445,
+      "sha256": "dd6e9624f97c6721e2a7505b2d6051364aeba58778f0ea25c62b5ca03456364c",
+      "source_manifest_sha256": "dd6e9624f97c6721e2a7505b2d6051364aeba58778f0ea25c62b5ca03456364c"
+    },
+    {
+      "path": "failed-diagram-edge/fact-model-response.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\fact-model-response.json",
+      "bytes": 17145,
+      "sha256": "4a583ba18a11b3fbe3c3ca4b86e3c7d79bcb96e102fb54140dc9a6c24b042c19",
+      "source_manifest_sha256": "4a583ba18a11b3fbe3c3ca4b86e3c7d79bcb96e102fb54140dc9a6c24b042c19"
+    },
+    {
+      "path": "failed-diagram-edge/fact-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\fact-source-result.json",
+      "bytes": 11498,
+      "sha256": "4495882a408e1d55faaf9999367611f3cae470990984beb762748198c54ac214",
+      "source_manifest_sha256": "4495882a408e1d55faaf9999367611f3cae470990984beb762748198c54ac214"
+    },
+    {
+      "path": "failed-diagram-edge/failure.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\failure.json",
+      "bytes": 495,
+      "sha256": "21c4ce8c7fa93e8058002aa12a88d22e4214fd731a6de0cf3d3baefd841d7e65",
+      "source_manifest_sha256": "21c4ce8c7fa93e8058002aa12a88d22e4214fd731a6de0cf3d3baefd841d7e65"
+    },
+    {
+      "path": "failed-diagram-edge/manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\manifest.json",
+      "bytes": 12378,
+      "sha256": "9e02e52a669bdb71da757621328e232d7189bdb0adffbd19fb88dd34cd5ddd5c",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "failed-diagram-edge/model-call.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\model-call.json",
+      "bytes": 951,
+      "sha256": "584c3f4582c40a3ff3e93c017a5ef4d9e7d019063a5141f7b2a7f68d76614312",
+      "source_manifest_sha256": "584c3f4582c40a3ff3e93c017a5ef4d9e7d019063a5141f7b2a7f68d76614312"
+    },
+    {
+      "path": "failed-diagram-edge/model-request.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\model-request.json",
+      "bytes": 45405,
+      "sha256": "32a4775a3e4565c3f643ef751e5da9aad7e1c33a1e6f3721d328b65c7478e691",
+      "source_manifest_sha256": "32a4775a3e4565c3f643ef751e5da9aad7e1c33a1e6f3721d328b65c7478e691"
+    },
+    {
+      "path": "failed-diagram-edge/model-response.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\model-response.json",
+      "bytes": 7523,
+      "sha256": "2bedb234c64a1a001225e15c1f4f6550d74a2ca439b7d06fd97342415f7d689a",
+      "source_manifest_sha256": "2bedb234c64a1a001225e15c1f4f6550d74a2ca439b7d06fd97342415f7d689a"
+    },
+    {
+      "path": "failed-diagram-edge/narrative-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\narrative-context.json",
+      "bytes": 22210,
+      "sha256": "e24a4eaf95ef1a8932a077e25b1cd6315da7d1536057cefc55a226604f06da80",
+      "source_manifest_sha256": "e24a4eaf95ef1a8932a077e25b1cd6315da7d1536057cefc55a226604f06da80"
+    },
+    {
+      "path": "failed-diagram-edge/narrative-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\narrative-result.json",
+      "bytes": 174029,
+      "sha256": "394a88964f5325da483f967f981cfc88967b66b888e13b2c7f854bea6a0c27af",
+      "source_manifest_sha256": "394a88964f5325da483f967f981cfc88967b66b888e13b2c7f854bea6a0c27af"
+    },
+    {
+      "path": "failed-diagram-edge/pipeline-trace.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\pipeline-trace.json",
+      "bytes": 1484,
+      "sha256": "5b93c478a8275affda71fdefcf928ac561b7c307f3a1eb2a9b1a887f5400a7e3",
+      "source_manifest_sha256": "5b93c478a8275affda71fdefcf928ac561b7c307f3a1eb2a9b1a887f5400a7e3"
+    },
+    {
+      "path": "failed-diagram-edge/presentation-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\presentation-context.json",
+      "bytes": 7162,
+      "sha256": "63e6d857d75204084901cfd095670840746797f24b92d041953a0a4b3a1c8397",
+      "source_manifest_sha256": "63e6d857d75204084901cfd095670840746797f24b92d041953a0a4b3a1c8397"
+    },
+    {
+      "path": "failed-diagram-edge/resolved-assets.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\resolved-assets.json",
+      "bytes": 2444,
+      "sha256": "e41d596f997f36df992cfae18dd55a1170ca39f57b37e1522d8629f055f4baf7",
+      "source_manifest_sha256": "e41d596f997f36df992cfae18dd55a1170ca39f57b37e1522d8629f055f4baf7"
+    },
+    {
+      "path": "failed-diagram-edge/runtime-snapshot.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\runtime-snapshot.json",
+      "bytes": 30465,
+      "sha256": "7d197989e86229178f6c5bb2d30f46ba72eae2ad65088b66500397dd18b22d93",
+      "source_manifest_sha256": "7d197989e86229178f6c5bb2d30f46ba72eae2ad65088b66500397dd18b22d93"
+    },
+    {
+      "path": "failed-diagram-edge/source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\source-result.json",
+      "bytes": 15488,
+      "sha256": "c575203468c911c0d1af7a81c295ed3eacf1c6399e2117acafd779a7760eb89f",
+      "source_manifest_sha256": "c575203468c911c0d1af7a81c295ed3eacf1c6399e2117acafd779a7760eb89f"
+    },
+    {
+      "path": "failed-diagram-edge/source-role-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\source-role-map.json",
+      "bytes": 1416,
+      "sha256": "4980910fdcec4110d70072fcffe2fc9116acf52f61d475a3f91e10ceb16c92b3",
+      "source_manifest_sha256": "4980910fdcec4110d70072fcffe2fc9116acf52f61d475a3f91e10ceb16c92b3"
+    },
+    {
+      "path": "failed-diagram-edge/task-effective.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\task-effective.json",
+      "bytes": 9732,
+      "sha256": "c3fe09ecd73610e2d5d362b82c835c878944dbbe4fa3aa27a9a2a2297fbe7d43",
+      "source_manifest_sha256": "c3fe09ecd73610e2d5d362b82c835c878944dbbe4fa3aa27a9a2a2297fbe7d43"
+    },
+    {
+      "path": "failed-diagram-edge/task.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\task.json",
+      "bytes": 2990,
+      "sha256": "c16f76c3108182b29ee3bf57767f071bd52e7538a08726c83a69931db9227f0d",
+      "source_manifest_sha256": "c16f76c3108182b29ee3bf57767f071bd52e7538a08726c83a69931db9227f0d"
+    },
+    {
+      "path": "failed-diagram-edge/template-selection.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\template-selection.json",
+      "bytes": 452,
+      "sha256": "4c2eda76d2dc06c788fa1b578d9726e618e90ecdc6ff72c59ad76b3f1cca1294",
+      "source_manifest_sha256": "4c2eda76d2dc06c788fa1b578d9726e618e90ecdc6ff72c59ad76b3f1cca1294"
+    },
+    {
+      "path": "failed-diagram-edge/version-manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\version-manifest.json",
+      "bytes": 13906,
+      "sha256": "b14197c3c84742abe3ac47f209bc8331b98a4b8926c48361bd1bea757fafe90d",
+      "source_manifest_sha256": "b14197c3c84742abe3ac47f209bc8331b98a4b8926c48361bd1bea757fafe90d"
+    },
+    {
+      "path": "failed-diagram-edge/visual-packet.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\146f90e3-8305-43dc-ae41-383afa87c235\\visual-packet.json",
+      "bytes": 17933,
+      "sha256": "6496e1ca3533f0776893ece12965e96bf79aa6c4caa91a39a719fd2fb42643b8",
+      "source_manifest_sha256": "6496e1ca3533f0776893ece12965e96bf79aa6c4caa91a39a719fd2fb42643b8"
+    },
+    {
+      "path": "failed-fact-scope/atomic-registry.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\atomic-registry.json",
+      "bytes": 26566,
+      "sha256": "6c9d88a8be13cb65977065dc508e9b8c124adac57929d8cabd5ec04ebebafab6",
+      "source_manifest_sha256": "6c9d88a8be13cb65977065dc508e9b8c124adac57929d8cabd5ec04ebebafab6"
+    },
+    {
+      "path": "failed-fact-scope/decision-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\decision-context.json",
+      "bytes": 25686,
+      "sha256": "1567911734944064387e333652b174a5b81a206707fdd65f836d84961b69defc",
+      "source_manifest_sha256": "1567911734944064387e333652b174a5b81a206707fdd65f836d84961b69defc"
+    },
+    {
+      "path": "failed-fact-scope/decision-route.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\decision-route.json",
+      "bytes": 37461,
+      "sha256": "e47112e1bb7836d334089007bae4eaf92ebcc79a9ebaee3deb58b0bc814e58d3",
+      "source_manifest_sha256": "e47112e1bb7836d334089007bae4eaf92ebcc79a9ebaee3deb58b0bc814e58d3"
+    },
+    {
+      "path": "failed-fact-scope/decision-source-roles.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\decision-source-roles.json",
+      "bytes": 17491,
+      "sha256": "2097403cc880fd921427e2aa4fb49d1921e6b4b12b79c46ce83d09a5aa612178",
+      "source_manifest_sha256": "2097403cc880fd921427e2aa4fb49d1921e6b4b12b79c46ce83d09a5aa612178"
+    },
+    {
+      "path": "failed-fact-scope/fact-model-call.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\fact-model-call.json",
+      "bytes": 951,
+      "sha256": "8ebd5018037cd844cbdf3073a90e018a763bc0ec79c6a12d3b6871fab9b9fac1",
+      "source_manifest_sha256": "8ebd5018037cd844cbdf3073a90e018a763bc0ec79c6a12d3b6871fab9b9fac1"
+    },
+    {
+      "path": "failed-fact-scope/fact-model-request.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\fact-model-request.json",
+      "bytes": 6139,
+      "sha256": "64b6cd101e500a2a27b1a07947da370b0588541b313d0f89996e0ab6b760c3dd",
+      "source_manifest_sha256": "64b6cd101e500a2a27b1a07947da370b0588541b313d0f89996e0ab6b760c3dd"
+    },
+    {
+      "path": "failed-fact-scope/fact-model-response.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\fact-model-response.json",
+      "bytes": 17729,
+      "sha256": "9d23836e774c7ca1bf8d2ba62b8214982ff1a55329d2cec8bf1e0b88677d25e4",
+      "source_manifest_sha256": "9d23836e774c7ca1bf8d2ba62b8214982ff1a55329d2cec8bf1e0b88677d25e4"
+    },
+    {
+      "path": "failed-fact-scope/fact-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\fact-source-result.json",
+      "bytes": 11498,
+      "sha256": "b97e2e9a5f6c44cc130746225bd8f3e1b6f2880c390150e07bdd8dd3d0f595c8",
+      "source_manifest_sha256": "b97e2e9a5f6c44cc130746225bd8f3e1b6f2880c390150e07bdd8dd3d0f595c8"
+    },
+    {
+      "path": "failed-fact-scope/failure.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\failure.json",
+      "bytes": 534,
+      "sha256": "5e298098e2432897f995cfb693a734654cf62565158d9491c36574c84182e857",
+      "source_manifest_sha256": "5e298098e2432897f995cfb693a734654cf62565158d9491c36574c84182e857"
+    },
+    {
+      "path": "failed-fact-scope/manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\manifest.json",
+      "bytes": 4246,
+      "sha256": "3d0be6d4ef1d1ec9a1f9dc6722bea5dc8165c1acf8e5218c32fe34affebd40ed",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "failed-fact-scope/pipeline-trace.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\pipeline-trace.json",
+      "bytes": 641,
+      "sha256": "7cf0899574335225748992947e6628d29397e9f820ee8ed279bd6de3cb7ed010",
+      "source_manifest_sha256": "7cf0899574335225748992947e6628d29397e9f820ee8ed279bd6de3cb7ed010"
+    },
+    {
+      "path": "failed-fact-scope/presentation-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\presentation-context.json",
+      "bytes": 7162,
+      "sha256": "9ab8b3e1fba146a54fea847bddd7459d6c3d177be5e2b362a2fe05431e3b0a25",
+      "source_manifest_sha256": "9ab8b3e1fba146a54fea847bddd7459d6c3d177be5e2b362a2fe05431e3b0a25"
+    },
+    {
+      "path": "failed-fact-scope/runtime-snapshot.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\runtime-snapshot.json",
+      "bytes": 30465,
+      "sha256": "7d197989e86229178f6c5bb2d30f46ba72eae2ad65088b66500397dd18b22d93",
+      "source_manifest_sha256": "7d197989e86229178f6c5bb2d30f46ba72eae2ad65088b66500397dd18b22d93"
+    },
+    {
+      "path": "failed-fact-scope/source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\source-result.json",
+      "bytes": 15488,
+      "sha256": "89fa3a85af13915e796dea31ae1d360d4e1e3752403646cf83938f1b125891de",
+      "source_manifest_sha256": "89fa3a85af13915e796dea31ae1d360d4e1e3752403646cf83938f1b125891de"
+    },
+    {
+      "path": "failed-fact-scope/source-role-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\source-role-map.json",
+      "bytes": 1416,
+      "sha256": "bd61cb0f9e39f3db5d0d5b60879f0cb10e9baae931b48112f8c9b6b3b1e3b152",
+      "source_manifest_sha256": "bd61cb0f9e39f3db5d0d5b60879f0cb10e9baae931b48112f8c9b6b3b1e3b152"
+    },
+    {
+      "path": "failed-fact-scope/task-effective.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\task-effective.json",
+      "bytes": 9732,
+      "sha256": "f0f0a6224216b337bc4a990eaf2af87f085bb8cf93228594af91b18498ce7813",
+      "source_manifest_sha256": "f0f0a6224216b337bc4a990eaf2af87f085bb8cf93228594af91b18498ce7813"
+    },
+    {
+      "path": "failed-fact-scope/task.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\task.json",
+      "bytes": 2990,
+      "sha256": "928262382e2e83db8f2de8cafc097355b098f97faf688b25567bab1fe648ffc0",
+      "source_manifest_sha256": "928262382e2e83db8f2de8cafc097355b098f97faf688b25567bab1fe648ffc0"
+    },
+    {
+      "path": "failed-fact-scope/version-manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\467692a5-a625-443e-94f1-276617c01e55\\version-manifest.json",
+      "bytes": 13906,
+      "sha256": "b04e6c15229b15be149246185139c95fff38cea83495d61bd123325ce3198404",
+      "source_manifest_sha256": "b04e6c15229b15be149246185139c95fff38cea83495d61bd123325ce3198404"
+    },
+    {
+      "path": "failed-source-role/atomic-registry.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\atomic-registry.json",
+      "bytes": 23944,
+      "sha256": "4dc1b017b05443012a873900de374dd136bdf52e2eea192162378afbd28aa592",
+      "source_manifest_sha256": "4dc1b017b05443012a873900de374dd136bdf52e2eea192162378afbd28aa592"
+    },
+    {
+      "path": "failed-source-role/decision-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\decision-context.json",
+      "bytes": 22828,
+      "sha256": "c9e645242564f8e940f66bcbc4d7d6bef454721fc5635057ffefa02918f07913",
+      "source_manifest_sha256": "c9e645242564f8e940f66bcbc4d7d6bef454721fc5635057ffefa02918f07913"
+    },
+    {
+      "path": "failed-source-role/decision-route.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\decision-route.json",
+      "bytes": 33992,
+      "sha256": "a06a8a7ab704a09f448791ffc1a741a97d8866932f3e1c48f4690d4f667999ea",
+      "source_manifest_sha256": "a06a8a7ab704a09f448791ffc1a741a97d8866932f3e1c48f4690d4f667999ea"
+    },
+    {
+      "path": "failed-source-role/decision-source-roles.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\decision-source-roles.json",
+      "bytes": 19156,
+      "sha256": "1474ae8bf4615862f82fd7175f045d3a029c9eac8a780186ad85a63ca579cacb",
+      "source_manifest_sha256": "1474ae8bf4615862f82fd7175f045d3a029c9eac8a780186ad85a63ca579cacb"
+    },
+    {
+      "path": "failed-source-role/failure.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\failure.json",
+      "bytes": 685,
+      "sha256": "72e0fe4536b5a68e3a9c15513c77104766312675516e46f6a8e7edd80c0c089a",
+      "source_manifest_sha256": "72e0fe4536b5a68e3a9c15513c77104766312675516e46f6a8e7edd80c0c089a"
+    },
+    {
+      "path": "failed-source-role/manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\manifest.json",
+      "bytes": 3255,
+      "sha256": "a3f9a02ed5779b7501e2ec8e42a796f80912767f3936238592f026f99a49a427",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "failed-source-role/pipeline-trace.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\pipeline-trace.json",
+      "bytes": 641,
+      "sha256": "9bcd7c848057a7576f9a347dd11bc2515351d3bdb2967e0470613d26b6ea700e",
+      "source_manifest_sha256": "9bcd7c848057a7576f9a347dd11bc2515351d3bdb2967e0470613d26b6ea700e"
+    },
+    {
+      "path": "failed-source-role/presentation-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\presentation-context.json",
+      "bytes": 6651,
+      "sha256": "5e1a51be7b6a127a988c66a5ce58aa2c414feeb18740e772b30a64079215b7d1",
+      "source_manifest_sha256": "5e1a51be7b6a127a988c66a5ce58aa2c414feeb18740e772b30a64079215b7d1"
+    },
+    {
+      "path": "failed-source-role/runtime-snapshot.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\runtime-snapshot.json",
+      "bytes": 27657,
+      "sha256": "963fcee5e4a9750a6da34b4bda58d9141302cb1a1dde9a4983b019f831f84b76",
+      "source_manifest_sha256": "963fcee5e4a9750a6da34b4bda58d9141302cb1a1dde9a4983b019f831f84b76"
+    },
+    {
+      "path": "failed-source-role/source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\source-result.json",
+      "bytes": 20347,
+      "sha256": "a9adc996c44b0510c938a29558215914e04083287397d6d2f2d42466c4309b35",
+      "source_manifest_sha256": "a9adc996c44b0510c938a29558215914e04083287397d6d2f2d42466c4309b35"
+    },
+    {
+      "path": "failed-source-role/source-role-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\source-role-map.json",
+      "bytes": 2048,
+      "sha256": "0402e540f3195c7cf3fae293428a67a870fb092ea1b688b36c0a35d99319937c",
+      "source_manifest_sha256": "0402e540f3195c7cf3fae293428a67a870fb092ea1b688b36c0a35d99319937c"
+    },
+    {
+      "path": "failed-source-role/task-effective.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\task-effective.json",
+      "bytes": 9157,
+      "sha256": "7aa2c3e71252cdea48e7d85fdbf9e75aeb002ba0e9ef40ebf4d0fe6166af2d05",
+      "source_manifest_sha256": "7aa2c3e71252cdea48e7d85fdbf9e75aeb002ba0e9ef40ebf4d0fe6166af2d05"
+    },
+    {
+      "path": "failed-source-role/task.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\task.json",
+      "bytes": 2926,
+      "sha256": "775e866b402779e9c7a90587ff09fdd594db52f42cd0eeebdaf49b86986cc2b4",
+      "source_manifest_sha256": "775e866b402779e9c7a90587ff09fdd594db52f42cd0eeebdaf49b86986cc2b4"
+    },
+    {
+      "path": "failed-source-role/version-manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\f1504d37-f2d0-4b22-88a9-3727b93b34a4\\version-manifest.json",
+      "bytes": 13906,
+      "sha256": "a7bb4255cf89b2111c5138174bb2236a85f66c9745a1349a7060a0128e2af94e",
+      "source_manifest_sha256": "a7bb4255cf89b2111c5138174bb2236a85f66c9745a1349a7060a0128e2af94e"
+    },
+    {
+      "path": "fixtures/incremental-verification/quality-after-metadata-check.json",
+      "source_path": "F:\\YoloongPPT\\validation\\quality-stage-artifacts\\quality-after-metadata-check.json",
+      "bytes": 8205,
+      "sha256": "65b145267b24e5b4107748c79c1ab98d071c616a8cbd0a14096a8cfce21f22ee",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/incremental-verification/quality-asset-note-runtime.json",
+      "source_path": "F:\\YoloongPPT\\validation\\quality-stage-artifacts\\quality-asset-note-runtime.json",
+      "bytes": 3382,
+      "sha256": "71e6d36bdb51e70cb81069bf115e93d89dad32f4873a21f851e315cd0878f6c0",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/incremental-verification/visual-path-guards.json",
+      "source_path": "F:\\YoloongPPT\\validation\\visual-path-guards.json",
+      "bytes": 5234,
+      "sha256": "2f6b82dc26ff618cc084e8e9f8d0aaeb097938cc01a3721315e97545645e4830",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-independent-50/declared-image.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-validation\\declared-image.png",
+      "bytes": 552,
+      "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-independent-50/narrow-template.pptx",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-validation\\narrow-template.pptx",
+      "bytes": 27387,
+      "sha256": "4507bc32cc87a881936d3a610179d597c942e36367cca52f6935a54d3fa7ea11",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-independent-50/node-samples.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-validation\\node-samples.json",
+      "bytes": 189815,
+      "sha256": "d57b01ae1f2a3062936764ce3a65321644040723a183b9095331010aaa800408",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-independent-50/visual-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-validation\\visual-result.json",
+      "bytes": 26985,
+      "sha256": "5c3d8d97b99eba129095b7a402c179b758b5372e223d8b141a02a54f5a7fc57b",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-independent-50/visual-runtime.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-validation\\visual-runtime.json",
+      "bytes": 6964,
+      "sha256": "0bf692280e3985ee8033af66f3793c56ed6696922009ba1529641ce2bf5cba6b",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-independent-50/wide-template.pptx",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-validation\\wide-template.pptx",
+      "bytes": 28280,
+      "sha256": "075a54037c1da42259e0366bd4c28e378b8b237decaf9179453e90f379097db6",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/deck-spec.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\deck-spec.json",
+      "bytes": 814946,
+      "sha256": "704fcd98206d4e2808ca96e8cd5dda25e1c5ab5e1337c52df4a376624464bec6",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/deck.pdf",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\render\\deck.pdf",
+      "bytes": 35727,
+      "sha256": "661809908544cd938e90496e0d8d750d578d76d099d656532b505b9692bee8be",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/deck.pptx",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\deck.pptx",
+      "bytes": 48832,
+      "sha256": "b23b52e58df56a28a50253a9360664a6fdc40978a71e393004c918a1e52e2c4f",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/execution-plan.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\execution-plan.json",
+      "bytes": 29253,
+      "sha256": "0e7f6c7fdaabb04bd0c9f4fdc957d6bc190908260ac3bf93bcdd2d3798773e17",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/execution-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\execution-result.json",
+      "bytes": 32152,
+      "sha256": "149a57c5eee366d9052f00cb708289b91e552ce44674912177d07dc7b98cc7fc",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/final-proposal.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\final-proposal.json",
+      "bytes": 4494,
+      "sha256": "e8de5e9f984071e199a1bc36838c8e7ed4fb2f35a1cbad3f5e75c94178cba357",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/object-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\object-map.json",
+      "bytes": 10065,
+      "sha256": "d937222ba0d88b37e14e1c175b0c603c19db433b2d918a8f865be8ae9c19d0d0",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/proposal.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\proposal.json",
+      "bytes": 4159,
+      "sha256": "b42e876ac48819966224f4b78452e0ba9faa1b17455ee4cd077db090a39d685a",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/quality-decisions.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\quality-decisions.json",
+      "bytes": 982536,
+      "sha256": "3da5f6f0a6dda19199c69d4975897d87259b894e05b524497858cf76a3c3616d",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/quality-report.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\quality-report.json",
+      "bytes": 3711,
+      "sha256": "5ecc0ed5aade7a2c6e1c95f4268d51e811ae1152883feaa535f0b3bc67e6ad7d",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/render-report.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\render-report.json",
+      "bytes": 2551,
+      "sha256": "8744a202180440a5401d9868622f24274618a4caf3dd71069432c4f4659d98f3",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/selected-template.pptx",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\selected-template.pptx",
+      "bytes": 28316,
+      "sha256": "b9a7e60f7917b86ff1bcc0c123d58a2e0be3ee52266daf4bef0803b60df7c2b8",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/source-fixture.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\source-fixture.json",
+      "bytes": 473,
+      "sha256": "ca2a3100dd56149332b2b6fc8b49e7947941432c1036319cf78f621829c0b4e4",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/unsupported-template.pptx",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\unsupported-template.pptx",
+      "bytes": 28418,
+      "sha256": "24b608cbe090f49caa06144e1df9daffaf0b7fa9806fa4e02c68b92267e3bc7f",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/visual-execution.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\visual-execution.json",
+      "bytes": 17833,
+      "sha256": "54e7b241baf81a9ced329b355f42b226bf0036b4d724f5010180aad3d9dbb5d4",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/visual-packet.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\visual-packet.json",
+      "bytes": 418359,
+      "sha256": "8e8185bc14293472779dbb0e2c2b96c0a8115bec3b066dee7678ba5cb2c52ad6",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "fixtures/visual-native-fixture/visual-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\visual-execution-validation\\visual-result.json",
+      "bytes": 467945,
+      "sha256": "3655fdaa1a1b47623d504c2184b40549f66f40c837bfd2af46ae390072aa4fe3",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "generated/approved-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\approved-source-result.json",
+      "bytes": 88714,
+      "sha256": "70297625543d6d283d572e857e10857a3c896c60ffd5be0d3a0c06495efe4551",
+      "source_manifest_sha256": "70297625543d6d283d572e857e10857a3c896c60ffd5be0d3a0c06495efe4551"
+    },
+    {
+      "path": "generated/atomic-registry.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\atomic-registry.json",
+      "bytes": 26566,
+      "sha256": "6c9d88a8be13cb65977065dc508e9b8c124adac57929d8cabd5ec04ebebafab6",
+      "source_manifest_sha256": "6c9d88a8be13cb65977065dc508e9b8c124adac57929d8cabd5ec04ebebafab6"
+    },
+    {
+      "path": "generated/decision-DEC-006.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-006.json",
+      "bytes": 1581,
+      "sha256": "fce661cdad0e00b56cfeb310e7724e4bdf13fef6897081529c29d4e92be43c1b",
+      "source_manifest_sha256": "fce661cdad0e00b56cfeb310e7724e4bdf13fef6897081529c29d4e92be43c1b"
+    },
+    {
+      "path": "generated/decision-DEC-007.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-007.json",
+      "bytes": 1423,
+      "sha256": "5dd7856f18643b607e67d7d139d0013c94753a0c03f02176d9834cde8859e25e",
+      "source_manifest_sha256": "5dd7856f18643b607e67d7d139d0013c94753a0c03f02176d9834cde8859e25e"
+    },
+    {
+      "path": "generated/decision-DEC-008.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-008.json",
+      "bytes": 2116,
+      "sha256": "67dc7ec178cfc46ceff1ed86ef9168d96fcd38cb539b9edd9ae76cd16cc29973",
+      "source_manifest_sha256": "67dc7ec178cfc46ceff1ed86ef9168d96fcd38cb539b9edd9ae76cd16cc29973"
+    },
+    {
+      "path": "generated/decision-DEC-009.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-009.json",
+      "bytes": 4990,
+      "sha256": "e36139816b8404cbf6f2d5f3837f34c0a258839afcaeaf3e403be5dc414d64d2",
+      "source_manifest_sha256": "e36139816b8404cbf6f2d5f3837f34c0a258839afcaeaf3e403be5dc414d64d2"
+    },
+    {
+      "path": "generated/decision-DEC-010.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-010.json",
+      "bytes": 5680,
+      "sha256": "3601bc8dc15ec1a9741858d43f09de1ed7733d05a68b17f1fa5b6e8d8329ffc3",
+      "source_manifest_sha256": "3601bc8dc15ec1a9741858d43f09de1ed7733d05a68b17f1fa5b6e8d8329ffc3"
+    },
+    {
+      "path": "generated/decision-DEC-011.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-011.json",
+      "bytes": 4993,
+      "sha256": "5735e529b5b971a4dc5e4536850a03b0c123940c8dfdcd08142175ef310ce91f",
+      "source_manifest_sha256": "5735e529b5b971a4dc5e4536850a03b0c123940c8dfdcd08142175ef310ce91f"
+    },
+    {
+      "path": "generated/decision-DEC-012.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-012.json",
+      "bytes": 7192,
+      "sha256": "80b8b0e600dae6792cc5b6aff198c26cc3210c148ca63b1098acf3abd08e965c",
+      "source_manifest_sha256": "80b8b0e600dae6792cc5b6aff198c26cc3210c148ca63b1098acf3abd08e965c"
+    },
+    {
+      "path": "generated/decision-DEC-013.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-013.json",
+      "bytes": 1828,
+      "sha256": "50a0aac746da7cb90038dbdd49cdf5d5163ea5179f13fdbfe4a453faf33b9556",
+      "source_manifest_sha256": "50a0aac746da7cb90038dbdd49cdf5d5163ea5179f13fdbfe4a453faf33b9556"
+    },
+    {
+      "path": "generated/decision-DEC-014.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-014.json",
+      "bytes": 6405,
+      "sha256": "2ba16c54ab32ee6479c51dad1ed6f67d2be015ef5595f3556e4b0eeca31f1589",
+      "source_manifest_sha256": "2ba16c54ab32ee6479c51dad1ed6f67d2be015ef5595f3556e4b0eeca31f1589"
+    },
+    {
+      "path": "generated/decision-DEC-015.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-015.json",
+      "bytes": 6982,
+      "sha256": "908204a1b52f14eeb12d8dd1c1b519ed8023c1613b04d6b3041ea88dffc612b9",
+      "source_manifest_sha256": "908204a1b52f14eeb12d8dd1c1b519ed8023c1613b04d6b3041ea88dffc612b9"
+    },
+    {
+      "path": "generated/decision-DEC-016.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-016.json",
+      "bytes": 6020,
+      "sha256": "67e7cf1eef514c768271e62bca3a70a44985b7ba506b55d52a661abe2acaa791",
+      "source_manifest_sha256": "67e7cf1eef514c768271e62bca3a70a44985b7ba506b55d52a661abe2acaa791"
+    },
+    {
+      "path": "generated/decision-DEC-017.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-017.json",
+      "bytes": 7164,
+      "sha256": "eb67d805827c5c6e42a408c7b4854ce0a2121d84c535d9b37170a9296aba38bd",
+      "source_manifest_sha256": "eb67d805827c5c6e42a408c7b4854ce0a2121d84c535d9b37170a9296aba38bd"
+    },
+    {
+      "path": "generated/decision-DEC-018.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-018.json",
+      "bytes": 8066,
+      "sha256": "4463b9ec26845fdadf996c084290b73c643d74e34c23e011cf70ac7ad18f2cff",
+      "source_manifest_sha256": "4463b9ec26845fdadf996c084290b73c643d74e34c23e011cf70ac7ad18f2cff"
+    },
+    {
+      "path": "generated/decision-DEC-019.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-019.json",
+      "bytes": 10372,
+      "sha256": "bf8b5d5babd7bad554f93c2c0ab191143f7643bb52e77a798c6087040b63137b",
+      "source_manifest_sha256": "bf8b5d5babd7bad554f93c2c0ab191143f7643bb52e77a798c6087040b63137b"
+    },
+    {
+      "path": "generated/decision-DEC-020.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-020.json",
+      "bytes": 42418,
+      "sha256": "6a093fbff33f3f66f79ce48ea4001514dd40cec98c960f680e3dbf459db24f74",
+      "source_manifest_sha256": "6a093fbff33f3f66f79ce48ea4001514dd40cec98c960f680e3dbf459db24f74"
+    },
+    {
+      "path": "generated/decision-DEC-021.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-021.json",
+      "bytes": 9734,
+      "sha256": "3bc5f6b0e05985f127f6f5a0a6965b5a30ece57cd11b18f1d84d5ffccfdd3c5f",
+      "source_manifest_sha256": "3bc5f6b0e05985f127f6f5a0a6965b5a30ece57cd11b18f1d84d5ffccfdd3c5f"
+    },
+    {
+      "path": "generated/decision-DEC-022.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-022.json",
+      "bytes": 8823,
+      "sha256": "8c5dc217c29de55f6e1be3fbd502e7f4b6ed01f83e6a999c2b5a2528cf99b127",
+      "source_manifest_sha256": "8c5dc217c29de55f6e1be3fbd502e7f4b6ed01f83e6a999c2b5a2528cf99b127"
+    },
+    {
+      "path": "generated/decision-DEC-023.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-023.json",
+      "bytes": 7181,
+      "sha256": "6794d17b1af84b2a69ea20c06edcaf479893823aebbcbaadcbc7332ee8de2ca0",
+      "source_manifest_sha256": "6794d17b1af84b2a69ea20c06edcaf479893823aebbcbaadcbc7332ee8de2ca0"
+    },
+    {
+      "path": "generated/decision-DEC-024.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-024.json",
+      "bytes": 9335,
+      "sha256": "5b2f4a773f12c69d122d1232f35a52ced7a1614b52c092ad6fae1a4553e07119",
+      "source_manifest_sha256": "5b2f4a773f12c69d122d1232f35a52ced7a1614b52c092ad6fae1a4553e07119"
+    },
+    {
+      "path": "generated/decision-DEC-025.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-025.json",
+      "bytes": 8147,
+      "sha256": "71a36a992acd1d919499e07114ff1e4aab59fdc007f21a8e681d24b6575737eb",
+      "source_manifest_sha256": "71a36a992acd1d919499e07114ff1e4aab59fdc007f21a8e681d24b6575737eb"
+    },
+    {
+      "path": "generated/decision-DEC-026.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-026.json",
+      "bytes": 9487,
+      "sha256": "e02adf4a7f2503cbeb265b7d2edcf776cd113901977a68d71b2008a4fd8ec582",
+      "source_manifest_sha256": "e02adf4a7f2503cbeb265b7d2edcf776cd113901977a68d71b2008a4fd8ec582"
+    },
+    {
+      "path": "generated/decision-DEC-027.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-027.json",
+      "bytes": 10725,
+      "sha256": "79b497316dc64af54f496dab7f32fad094dac57919bd9fa3323e70aed09e39e2",
+      "source_manifest_sha256": "79b497316dc64af54f496dab7f32fad094dac57919bd9fa3323e70aed09e39e2"
+    },
+    {
+      "path": "generated/decision-DEC-028.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-028.json",
+      "bytes": 9027,
+      "sha256": "eaee510ea30f441e0c70655f9cb2e159a58edafab9f5d50d00c603c3ae833c47",
+      "source_manifest_sha256": "eaee510ea30f441e0c70655f9cb2e159a58edafab9f5d50d00c603c3ae833c47"
+    },
+    {
+      "path": "generated/decision-DEC-029.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-DEC-029.json",
+      "bytes": 2314,
+      "sha256": "ea5707d8028ba2f3910be68e2c30f1abfde15bc1258b06513cc044c21ee5f3ef",
+      "source_manifest_sha256": "ea5707d8028ba2f3910be68e2c30f1abfde15bc1258b06513cc044c21ee5f3ef"
+    },
+    {
+      "path": "generated/decision-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-context.json",
+      "bytes": 25945,
+      "sha256": "89e00f204be9a383a40929d672eed1a19b439a2cc696ce0e5908fd1165eba323",
+      "source_manifest_sha256": "89e00f204be9a383a40929d672eed1a19b439a2cc696ce0e5908fd1165eba323"
+    },
+    {
+      "path": "generated/decision-evidence.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-evidence.json",
+      "bytes": 75671,
+      "sha256": "13971721fc09729eb14c003e8636dbbe37a63f56bb294b1936ab001b61c73eb0",
+      "source_manifest_sha256": "13971721fc09729eb14c003e8636dbbe37a63f56bb294b1936ab001b61c73eb0"
+    },
+    {
+      "path": "generated/decision-fact-boundary.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-fact-boundary.json",
+      "bytes": 106849,
+      "sha256": "38ffb59c2a3ba139f1cf5f84e54311cf5d6a69ea1629fb7e117c241658b11008",
+      "source_manifest_sha256": "38ffb59c2a3ba139f1cf5f84e54311cf5d6a69ea1629fb7e117c241658b11008"
+    },
+    {
+      "path": "generated/decision-route.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-route.json",
+      "bytes": 37461,
+      "sha256": "71b931ca1334bb1ef01aecc419e41f7ce0faffe72afbd212045d750106f35874",
+      "source_manifest_sha256": "71b931ca1334bb1ef01aecc419e41f7ce0faffe72afbd212045d750106f35874"
+    },
+    {
+      "path": "generated/decision-source-roles.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\decision-source-roles.json",
+      "bytes": 19543,
+      "sha256": "812dc3b3183883479c02947a354d28d5527bc477ebfa941aef5870f6cfc04a0a",
+      "source_manifest_sha256": "812dc3b3183883479c02947a354d28d5527bc477ebfa941aef5870f6cfc04a0a"
+    },
+    {
+      "path": "generated/deck-spec.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\deck-spec.json",
+      "bytes": 717100,
+      "sha256": "b1931dc71877c94bb064c18e046a1552a58403c10fe3d6c856e03130253a6ba3",
+      "source_manifest_sha256": "b1931dc71877c94bb064c18e046a1552a58403c10fe3d6c856e03130253a6ba3"
+    },
+    {
+      "path": "generated/deck.pptx",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\deck.pptx",
+      "bytes": 55643,
+      "sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733",
+      "source_manifest_sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733"
+    },
+    {
+      "path": "generated/evidence-resolution.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\evidence-resolution.json",
+      "bytes": 37099,
+      "sha256": "9e84a9f8bda872407a5069651458fbc91d3ac4c351567fe0cd8eee53c9a45586",
+      "source_manifest_sha256": "9e84a9f8bda872407a5069651458fbc91d3ac4c351567fe0cd8eee53c9a45586"
+    },
+    {
+      "path": "generated/execution-plan.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\execution-plan.json",
+      "bytes": 40874,
+      "sha256": "5800baf0ca135a1513534bcb195b9ff4aa2c12f63cc998edf81bd03d0f4059c9",
+      "source_manifest_sha256": "5800baf0ca135a1513534bcb195b9ff4aa2c12f63cc998edf81bd03d0f4059c9"
+    },
+    {
+      "path": "generated/execution-trace.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\execution-trace.json",
+      "bytes": 43965,
+      "sha256": "dff57ef09696efa99e7bb8ea39493652b9737526e22788e2a576dae8b86974da",
+      "source_manifest_sha256": "dff57ef09696efa99e7bb8ea39493652b9737526e22788e2a576dae8b86974da"
+    },
+    {
+      "path": "generated/fact-boundary.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\fact-boundary.json",
+      "bytes": 30601,
+      "sha256": "ccf828df6ae8c34757d4f86d457f05767b52dd85147d9d8029bde85459c5dc0c",
+      "source_manifest_sha256": "ccf828df6ae8c34757d4f86d457f05767b52dd85147d9d8029bde85459c5dc0c"
+    },
+    {
+      "path": "generated/fact-grounding.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\fact-grounding.json",
+      "bytes": 326,
+      "sha256": "15e6b6ddb452f745792de440891447106a048e35ba9113cff1bad8848237324a",
+      "source_manifest_sha256": "15e6b6ddb452f745792de440891447106a048e35ba9113cff1bad8848237324a"
+    },
+    {
+      "path": "generated/fact-interpretation.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\fact-interpretation.json",
+      "bytes": 14563,
+      "sha256": "b7b7fa94cc427cf7f5d4fe023867e9c3850a2d342913eb997d2dcb8e553a1b77",
+      "source_manifest_sha256": "b7b7fa94cc427cf7f5d4fe023867e9c3850a2d342913eb997d2dcb8e553a1b77"
+    },
+    {
+      "path": "generated/fact-model-call.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\fact-model-call.json",
+      "bytes": 946,
+      "sha256": "8abf706e13866b4f2fa7e174aef9c758a33e2f2c8e394e0e556aedecb15e5cf1",
+      "source_manifest_sha256": "8abf706e13866b4f2fa7e174aef9c758a33e2f2c8e394e0e556aedecb15e5cf1"
+    },
+    {
+      "path": "generated/fact-model-request.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\fact-model-request.json",
+      "bytes": 6913,
+      "sha256": "953b4da186a66f54744f52b5f37ba87029ce258041ee6b0f956e0afb03203607",
+      "source_manifest_sha256": "953b4da186a66f54744f52b5f37ba87029ce258041ee6b0f956e0afb03203607"
+    },
+    {
+      "path": "generated/fact-model-response.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\fact-model-response.json",
+      "bytes": 14563,
+      "sha256": "b7b7fa94cc427cf7f5d4fe023867e9c3850a2d342913eb997d2dcb8e553a1b77",
+      "source_manifest_sha256": "b7b7fa94cc427cf7f5d4fe023867e9c3850a2d342913eb997d2dcb8e553a1b77"
+    },
+    {
+      "path": "generated/fact-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\fact-source-result.json",
+      "bytes": 15871,
+      "sha256": "1316663c42a9f626c83c07f84d06c809d73a676c22ab4bd806e28ebedcadd106",
+      "source_manifest_sha256": "1316663c42a9f626c83c07f84d06c809d73a676c22ab4bd806e28ebedcadd106"
+    },
+    {
+      "path": "generated/failure.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\failure.json",
+      "bytes": 480,
+      "sha256": "995794fd66bae1487ac8d3c325944e32b88822b2190ccd3c0a11a509b5a20e42",
+      "source_manifest_sha256": "995794fd66bae1487ac8d3c325944e32b88822b2190ccd3c0a11a509b5a20e42"
+    },
+    {
+      "path": "generated/layout-selection.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\layout-selection.json",
+      "bytes": 642706,
+      "sha256": "237eeff830cd8a7fb32ce121dc80716a103f1a923e3d411e460dddff067cc308",
+      "source_manifest_sha256": "237eeff830cd8a7fb32ce121dc80716a103f1a923e3d411e460dddff067cc308"
+    },
+    {
+      "path": "generated/manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\manifest.json",
+      "bytes": 18974,
+      "sha256": "0b72a9be8312c1a6bdea52821c6e18e4927c1024e97c55348b738791d4dd139e",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "generated/model-call.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\model-call.json",
+      "bytes": 952,
+      "sha256": "113d822f3afb93cd99dae43897f0b7692d6614857c72ffe4da18711f6c6c45ef",
+      "source_manifest_sha256": "113d822f3afb93cd99dae43897f0b7692d6614857c72ffe4da18711f6c6c45ef"
+    },
+    {
+      "path": "generated/model-request.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\model-request.json",
+      "bytes": 40406,
+      "sha256": "9e6871a560c51214cd487850feb8409ada2c9cb1f83684848be614e4b141f96e",
+      "source_manifest_sha256": "9e6871a560c51214cd487850feb8409ada2c9cb1f83684848be614e4b141f96e"
+    },
+    {
+      "path": "generated/model-response-effective.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\model-response-effective.json",
+      "bytes": 8279,
+      "sha256": "b38265a652d635d895df05fe135ed6761e39a05b16fd4bd1c5f572c9735892f5",
+      "source_manifest_sha256": "b38265a652d635d895df05fe135ed6761e39a05b16fd4bd1c5f572c9735892f5"
+    },
+    {
+      "path": "generated/model-response.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\model-response.json",
+      "bytes": 8054,
+      "sha256": "b67df7aa8dcfa06833f5d885221f74e2f7d94dd22fedb9dff57af571cc789afc",
+      "source_manifest_sha256": "b67df7aa8dcfa06833f5d885221f74e2f7d94dd22fedb9dff57af571cc789afc"
+    },
+    {
+      "path": "generated/narrative-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\narrative-context.json",
+      "bytes": 23394,
+      "sha256": "610981826a74ebfe18bf745417206e7f12019bfaf01f87b454f0e64479be273c",
+      "source_manifest_sha256": "610981826a74ebfe18bf745417206e7f12019bfaf01f87b454f0e64479be273c"
+    },
+    {
+      "path": "generated/narrative-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\narrative-result.json",
+      "bytes": 183798,
+      "sha256": "07b31444e6a748da7d0275eafc4f2d3ac0d8a611664b765c44b75a9050cedb3e",
+      "source_manifest_sha256": "07b31444e6a748da7d0275eafc4f2d3ac0d8a611664b765c44b75a9050cedb3e"
+    },
+    {
+      "path": "generated/object-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\object-map.json",
+      "bytes": 13251,
+      "sha256": "932284fc9d6f263cf89c044b4ab3e35120d4d7360cc4bcaf61ed92a34781777e",
+      "source_manifest_sha256": "932284fc9d6f263cf89c044b4ab3e35120d4d7360cc4bcaf61ed92a34781777e"
+    },
+    {
+      "path": "generated/pipeline-trace.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\pipeline-trace.json",
+      "bytes": 2046,
+      "sha256": "ff987043cc2ed3bd48898c4b22799bd03498004358a32c269d90f7aec23ea359",
+      "source_manifest_sha256": "ff987043cc2ed3bd48898c4b22799bd03498004358a32c269d90f7aec23ea359"
+    },
+    {
+      "path": "generated/presentation-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\presentation-context.json",
+      "bytes": 7162,
+      "sha256": "d13ea71fc80d06ccb2d2037433ef66895ddefcd3f8d3c6db153bfea700b024b8",
+      "source_manifest_sha256": "d13ea71fc80d06ccb2d2037433ef66895ddefcd3f8d3c6db153bfea700b024b8"
+    },
+    {
+      "path": "generated/render-report.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\render-report.json",
+      "bytes": 3429,
+      "sha256": "affc3ab3c3aba302840e9556c691105c1f540c44cdcfd7ea214ba2245daa45b9",
+      "source_manifest_sha256": "affc3ab3c3aba302840e9556c691105c1f540c44cdcfd7ea214ba2245daa45b9"
+    },
+    {
+      "path": "generated/render/deck-bbox.xhtml",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\render\\deck-bbox.xhtml",
+      "bytes": 9140,
+      "sha256": "bdd44a6347a3d2cd5bb48e30895f80add19ad6c913e06226804142a037daebdd",
+      "source_manifest_sha256": "bdd44a6347a3d2cd5bb48e30895f80add19ad6c913e06226804142a037daebdd"
+    },
+    {
+      "path": "generated/render/deck.pdf",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\render\\deck.pdf",
+      "bytes": 85568,
+      "sha256": "9ef274212e8bec80df6df62223306ca30290eab63c6c24656bac285a7cda53de",
+      "source_manifest_sha256": "9ef274212e8bec80df6df62223306ca30290eab63c6c24656bac285a7cda53de"
+    },
+    {
+      "path": "generated/render/deck.txt",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\render\\deck.txt",
+      "bytes": 1715,
+      "sha256": "0e160d1d7c24f6d71f8345fec46e9db04b3ab309c24cf57f69355f1624581c9c",
+      "source_manifest_sha256": "0e160d1d7c24f6d71f8345fec46e9db04b3ab309c24cf57f69355f1624581c9c"
+    },
+    {
+      "path": "generated/render/slide-1.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\render\\slide-1.png",
+      "bytes": 74481,
+      "sha256": "e60f60ffe88af2f56a758f88891224dc4e7d6a83effba3e696c2a7376ef6b82c",
+      "source_manifest_sha256": "e60f60ffe88af2f56a758f88891224dc4e7d6a83effba3e696c2a7376ef6b82c"
+    },
+    {
+      "path": "generated/render/slide-2.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\render\\slide-2.png",
+      "bytes": 76739,
+      "sha256": "fbc7b5ea7ab2ccda95b4456b37a1cb2d550838c202e9efce83560ab17e814386",
+      "source_manifest_sha256": "fbc7b5ea7ab2ccda95b4456b37a1cb2d550838c202e9efce83560ab17e814386"
+    },
+    {
+      "path": "generated/render/slide-3.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\render\\slide-3.png",
+      "bytes": 80808,
+      "sha256": "6cccd189df918c0d7b44ef368aa01e7be676bc564a3a42828d45428142059546",
+      "source_manifest_sha256": "6cccd189df918c0d7b44ef368aa01e7be676bc564a3a42828d45428142059546"
+    },
+    {
+      "path": "generated/render/slide-4.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\render\\slide-4.png",
+      "bytes": 83240,
+      "sha256": "cdcb954005fd6eeffbc49ea8c5d4e2e11afd4c9054ede7437d95c8a59e6ea32b",
+      "source_manifest_sha256": "cdcb954005fd6eeffbc49ea8c5d4e2e11afd4c9054ede7437d95c8a59e6ea32b"
+    },
+    {
+      "path": "generated/render/slide-5.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\render\\slide-5.png",
+      "bytes": 83233,
+      "sha256": "5e57091c6e1a257e36011c1be8fe1a6293eb07671018a0b287e47aeca9439e31",
+      "source_manifest_sha256": "5e57091c6e1a257e36011c1be8fe1a6293eb07671018a0b287e47aeca9439e31"
+    },
+    {
+      "path": "generated/render/slide-6.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\render\\slide-6.png",
+      "bytes": 104667,
+      "sha256": "f30b0798f659d95dc90ed8d20f6f8b747315d23bf67eea3e189f0c8b49189e3c",
+      "source_manifest_sha256": "f30b0798f659d95dc90ed8d20f6f8b747315d23bf67eea3e189f0c8b49189e3c"
+    },
+    {
+      "path": "generated/resolved-assets.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\resolved-assets.json",
+      "bytes": 2444,
+      "sha256": "b53a9e0d7bcc3c97c5a93718c2b07902ff8fc9d47679a57b8e70b4b8a085cc8d",
+      "source_manifest_sha256": "b53a9e0d7bcc3c97c5a93718c2b07902ff8fc9d47679a57b8e70b4b8a085cc8d"
+    },
+    {
+      "path": "generated/review-model-call.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\review-model-call.json",
+      "bytes": 951,
+      "sha256": "38cfcd3e0afc2d199f520b4a27fdf005f38f1118776f5b5406b70be8331e5689",
+      "source_manifest_sha256": "38cfcd3e0afc2d199f520b4a27fdf005f38f1118776f5b5406b70be8331e5689"
+    },
+    {
+      "path": "generated/review-request.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\review-request.json",
+      "bytes": 46731,
+      "sha256": "dc96b9e5b2c83451e45d83fae6f315ad9a3b361f89e69f1f6d0a8fd1afb3e9fc",
+      "source_manifest_sha256": "dc96b9e5b2c83451e45d83fae6f315ad9a3b361f89e69f1f6d0a8fd1afb3e9fc"
+    },
+    {
+      "path": "generated/review-response.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\review-response.json",
+      "bytes": 2152,
+      "sha256": "a5c8484a9389f2818ab9877f1c5436829611941572db02baaf872a2b09d43770",
+      "source_manifest_sha256": "a5c8484a9389f2818ab9877f1c5436829611941572db02baaf872a2b09d43770"
+    },
+    {
+      "path": "generated/runtime-snapshot.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\runtime-snapshot.json",
+      "bytes": 30465,
+      "sha256": "7d197989e86229178f6c5bb2d30f46ba72eae2ad65088b66500397dd18b22d93",
+      "source_manifest_sha256": "7d197989e86229178f6c5bb2d30f46ba72eae2ad65088b66500397dd18b22d93"
+    },
+    {
+      "path": "generated/source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\source-result.json",
+      "bytes": 19808,
+      "sha256": "cf250e9da7f3011cf1650fd0db5ff79e16f98c874169bf93a3bd6f64f154a909",
+      "source_manifest_sha256": "cf250e9da7f3011cf1650fd0db5ff79e16f98c874169bf93a3bd6f64f154a909"
+    },
+    {
+      "path": "generated/source-role-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\source-role-map.json",
+      "bytes": 1940,
+      "sha256": "9a708294180aaaa799d73be9a0f6f063670340fc133c7445723c4a139002c8a8",
+      "source_manifest_sha256": "9a708294180aaaa799d73be9a0f6f063670340fc133c7445723c4a139002c8a8"
+    },
+    {
+      "path": "generated/task-effective.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\task-effective.json",
+      "bytes": 9975,
+      "sha256": "496a4d299d6b4efad32b58da20a5f29d906cc6f02855184e8e9062f300f0f7ec",
+      "source_manifest_sha256": "496a4d299d6b4efad32b58da20a5f29d906cc6f02855184e8e9062f300f0f7ec"
+    },
+    {
+      "path": "generated/task.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\task.json",
+      "bytes": 3233,
+      "sha256": "86d8d906908faa21f569fb7f6e6a0e828b9e456dc4d8937d118dbb828ab1084d",
+      "source_manifest_sha256": "86d8d906908faa21f569fb7f6e6a0e828b9e456dc4d8937d118dbb828ab1084d"
+    },
+    {
+      "path": "generated/template-selection.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\template-selection.json",
+      "bytes": 452,
+      "sha256": "4c2eda76d2dc06c788fa1b578d9726e618e90ecdc6ff72c59ad76b3f1cca1294",
+      "source_manifest_sha256": "4c2eda76d2dc06c788fa1b578d9726e618e90ecdc6ff72c59ad76b3f1cca1294"
+    },
+    {
+      "path": "generated/version-manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\version-manifest.json",
+      "bytes": 13906,
+      "sha256": "71a620c2cc51a5799f3e66a015fa3f144306f064d66c65d516a8b3f794326871",
+      "source_manifest_sha256": "71a620c2cc51a5799f3e66a015fa3f144306f064d66c65d516a8b3f794326871"
+    },
+    {
+      "path": "generated/visual-packet.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\visual-packet.json",
+      "bytes": 17933,
+      "sha256": "6dc5657e1ab8f713a587507a639c691534796370849249d7a39b684cecb70ea5",
+      "source_manifest_sha256": "6dc5657e1ab8f713a587507a639c691534796370849249d7a39b684cecb70ea5"
+    },
+    {
+      "path": "generated/visual-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\74a0567c-2bfb-47e1-a6b0-eae2dcf252e6\\visual-result.json",
+      "bytes": 90130,
+      "sha256": "597e24f91f6fee6d1c437082ba3013923db0d8d79de6f9ae8daf7f3dd036efb0",
+      "source_manifest_sha256": "597e24f91f6fee6d1c437082ba3013923db0d8d79de6f9ae8daf7f3dd036efb0"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/approved-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\approved-source-result.json",
+      "bytes": 88714,
+      "sha256": "70297625543d6d283d572e857e10857a3c896c60ffd5be0d3a0c06495efe4551",
+      "source_manifest_sha256": "70297625543d6d283d572e857e10857a3c896c60ffd5be0d3a0c06495efe4551"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/completion-decision.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\completion-decision.json",
+      "bytes": 804,
+      "sha256": "ec1d94167c851e22a6d9bd35839bdc0ebe3f8916d264c2db93a13ba9990445d1",
+      "source_manifest_sha256": "ec1d94167c851e22a6d9bd35839bdc0ebe3f8916d264c2db93a13ba9990445d1"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-006.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-006.json",
+      "bytes": 1581,
+      "sha256": "fce661cdad0e00b56cfeb310e7724e4bdf13fef6897081529c29d4e92be43c1b",
+      "source_manifest_sha256": "fce661cdad0e00b56cfeb310e7724e4bdf13fef6897081529c29d4e92be43c1b"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-007.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-007.json",
+      "bytes": 1423,
+      "sha256": "5dd7856f18643b607e67d7d139d0013c94753a0c03f02176d9834cde8859e25e",
+      "source_manifest_sha256": "5dd7856f18643b607e67d7d139d0013c94753a0c03f02176d9834cde8859e25e"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-008.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-008.json",
+      "bytes": 2116,
+      "sha256": "67dc7ec178cfc46ceff1ed86ef9168d96fcd38cb539b9edd9ae76cd16cc29973",
+      "source_manifest_sha256": "67dc7ec178cfc46ceff1ed86ef9168d96fcd38cb539b9edd9ae76cd16cc29973"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-009.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-009.json",
+      "bytes": 4990,
+      "sha256": "e36139816b8404cbf6f2d5f3837f34c0a258839afcaeaf3e403be5dc414d64d2",
+      "source_manifest_sha256": "e36139816b8404cbf6f2d5f3837f34c0a258839afcaeaf3e403be5dc414d64d2"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-010.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-010.json",
+      "bytes": 5680,
+      "sha256": "3601bc8dc15ec1a9741858d43f09de1ed7733d05a68b17f1fa5b6e8d8329ffc3",
+      "source_manifest_sha256": "3601bc8dc15ec1a9741858d43f09de1ed7733d05a68b17f1fa5b6e8d8329ffc3"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-011.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-011.json",
+      "bytes": 4993,
+      "sha256": "5735e529b5b971a4dc5e4536850a03b0c123940c8dfdcd08142175ef310ce91f",
+      "source_manifest_sha256": "5735e529b5b971a4dc5e4536850a03b0c123940c8dfdcd08142175ef310ce91f"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-012.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-012.json",
+      "bytes": 7192,
+      "sha256": "80b8b0e600dae6792cc5b6aff198c26cc3210c148ca63b1098acf3abd08e965c",
+      "source_manifest_sha256": "80b8b0e600dae6792cc5b6aff198c26cc3210c148ca63b1098acf3abd08e965c"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-013.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-013.json",
+      "bytes": 1828,
+      "sha256": "50a0aac746da7cb90038dbdd49cdf5d5163ea5179f13fdbfe4a453faf33b9556",
+      "source_manifest_sha256": "50a0aac746da7cb90038dbdd49cdf5d5163ea5179f13fdbfe4a453faf33b9556"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-014.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-014.json",
+      "bytes": 6405,
+      "sha256": "2ba16c54ab32ee6479c51dad1ed6f67d2be015ef5595f3556e4b0eeca31f1589",
+      "source_manifest_sha256": "2ba16c54ab32ee6479c51dad1ed6f67d2be015ef5595f3556e4b0eeca31f1589"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-015.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-015.json",
+      "bytes": 6982,
+      "sha256": "908204a1b52f14eeb12d8dd1c1b519ed8023c1613b04d6b3041ea88dffc612b9",
+      "source_manifest_sha256": "908204a1b52f14eeb12d8dd1c1b519ed8023c1613b04d6b3041ea88dffc612b9"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-016.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-016.json",
+      "bytes": 6020,
+      "sha256": "67e7cf1eef514c768271e62bca3a70a44985b7ba506b55d52a661abe2acaa791",
+      "source_manifest_sha256": "67e7cf1eef514c768271e62bca3a70a44985b7ba506b55d52a661abe2acaa791"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-017.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-017.json",
+      "bytes": 7164,
+      "sha256": "eb67d805827c5c6e42a408c7b4854ce0a2121d84c535d9b37170a9296aba38bd",
+      "source_manifest_sha256": "eb67d805827c5c6e42a408c7b4854ce0a2121d84c535d9b37170a9296aba38bd"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-018.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-018.json",
+      "bytes": 8066,
+      "sha256": "4463b9ec26845fdadf996c084290b73c643d74e34c23e011cf70ac7ad18f2cff",
+      "source_manifest_sha256": "4463b9ec26845fdadf996c084290b73c643d74e34c23e011cf70ac7ad18f2cff"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-019.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-019.json",
+      "bytes": 10372,
+      "sha256": "bf8b5d5babd7bad554f93c2c0ab191143f7643bb52e77a798c6087040b63137b",
+      "source_manifest_sha256": "bf8b5d5babd7bad554f93c2c0ab191143f7643bb52e77a798c6087040b63137b"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-020.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-020.json",
+      "bytes": 42418,
+      "sha256": "6a093fbff33f3f66f79ce48ea4001514dd40cec98c960f680e3dbf459db24f74",
+      "source_manifest_sha256": "6a093fbff33f3f66f79ce48ea4001514dd40cec98c960f680e3dbf459db24f74"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-021.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-021.json",
+      "bytes": 9734,
+      "sha256": "3bc5f6b0e05985f127f6f5a0a6965b5a30ece57cd11b18f1d84d5ffccfdd3c5f",
+      "source_manifest_sha256": "3bc5f6b0e05985f127f6f5a0a6965b5a30ece57cd11b18f1d84d5ffccfdd3c5f"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-022.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-022.json",
+      "bytes": 8823,
+      "sha256": "8c5dc217c29de55f6e1be3fbd502e7f4b6ed01f83e6a999c2b5a2528cf99b127",
+      "source_manifest_sha256": "8c5dc217c29de55f6e1be3fbd502e7f4b6ed01f83e6a999c2b5a2528cf99b127"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-023.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-023.json",
+      "bytes": 7181,
+      "sha256": "6794d17b1af84b2a69ea20c06edcaf479893823aebbcbaadcbc7332ee8de2ca0",
+      "source_manifest_sha256": "6794d17b1af84b2a69ea20c06edcaf479893823aebbcbaadcbc7332ee8de2ca0"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-024.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-024.json",
+      "bytes": 9335,
+      "sha256": "5b2f4a773f12c69d122d1232f35a52ced7a1614b52c092ad6fae1a4553e07119",
+      "source_manifest_sha256": "5b2f4a773f12c69d122d1232f35a52ced7a1614b52c092ad6fae1a4553e07119"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-025.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-025.json",
+      "bytes": 8147,
+      "sha256": "71a36a992acd1d919499e07114ff1e4aab59fdc007f21a8e681d24b6575737eb",
+      "source_manifest_sha256": "71a36a992acd1d919499e07114ff1e4aab59fdc007f21a8e681d24b6575737eb"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-026.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-026.json",
+      "bytes": 9487,
+      "sha256": "e02adf4a7f2503cbeb265b7d2edcf776cd113901977a68d71b2008a4fd8ec582",
+      "source_manifest_sha256": "e02adf4a7f2503cbeb265b7d2edcf776cd113901977a68d71b2008a4fd8ec582"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-027.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-027.json",
+      "bytes": 10725,
+      "sha256": "79b497316dc64af54f496dab7f32fad094dac57919bd9fa3323e70aed09e39e2",
+      "source_manifest_sha256": "79b497316dc64af54f496dab7f32fad094dac57919bd9fa3323e70aed09e39e2"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-028.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-028.json",
+      "bytes": 9027,
+      "sha256": "eaee510ea30f441e0c70655f9cb2e159a58edafab9f5d50d00c603c3ae833c47",
+      "source_manifest_sha256": "eaee510ea30f441e0c70655f9cb2e159a58edafab9f5d50d00c603c3ae833c47"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-029.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-029.json",
+      "bytes": 2314,
+      "sha256": "ea5707d8028ba2f3910be68e2c30f1abfde15bc1258b06513cc044c21ee5f3ef",
+      "source_manifest_sha256": "ea5707d8028ba2f3910be68e2c30f1abfde15bc1258b06513cc044c21ee5f3ef"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-039.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-039.json",
+      "bytes": 823527,
+      "sha256": "6eccfe79cbd4ee432104ee45bfe8365f6f5d4084a430631ae68caea6fa9f7d7d",
+      "source_manifest_sha256": "6eccfe79cbd4ee432104ee45bfe8365f6f5d4084a430631ae68caea6fa9f7d7d"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-DEC-040.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-DEC-040.json",
+      "bytes": 940966,
+      "sha256": "41c41f012461e6cb3a57df228dcb0c7c5ef41493826ec81b572dcc239370e1f0",
+      "source_manifest_sha256": "41c41f012461e6cb3a57df228dcb0c7c5ef41493826ec81b572dcc239370e1f0"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-context.json",
+      "bytes": 25945,
+      "sha256": "89e00f204be9a383a40929d672eed1a19b439a2cc696ce0e5908fd1165eba323",
+      "source_manifest_sha256": "89e00f204be9a383a40929d672eed1a19b439a2cc696ce0e5908fd1165eba323"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-evidence.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-evidence.json",
+      "bytes": 75671,
+      "sha256": "13971721fc09729eb14c003e8636dbbe37a63f56bb294b1936ab001b61c73eb0",
+      "source_manifest_sha256": "13971721fc09729eb14c003e8636dbbe37a63f56bb294b1936ab001b61c73eb0"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-fact-boundary.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-fact-boundary.json",
+      "bytes": 106849,
+      "sha256": "38ffb59c2a3ba139f1cf5f84e54311cf5d6a69ea1629fb7e117c241658b11008",
+      "source_manifest_sha256": "38ffb59c2a3ba139f1cf5f84e54311cf5d6a69ea1629fb7e117c241658b11008"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-route.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-route.json",
+      "bytes": 37461,
+      "sha256": "71b931ca1334bb1ef01aecc419e41f7ce0faffe72afbd212045d750106f35874",
+      "source_manifest_sha256": "71b931ca1334bb1ef01aecc419e41f7ce0faffe72afbd212045d750106f35874"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/decision-source-roles.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\decision-source-roles.json",
+      "bytes": 19543,
+      "sha256": "812dc3b3183883479c02947a354d28d5527bc477ebfa941aef5870f6cfc04a0a",
+      "source_manifest_sha256": "812dc3b3183883479c02947a354d28d5527bc477ebfa941aef5870f6cfc04a0a"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/deck-spec.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\deck-spec.json",
+      "bytes": 717100,
+      "sha256": "b1931dc71877c94bb064c18e046a1552a58403c10fe3d6c856e03130253a6ba3",
+      "source_manifest_sha256": "b1931dc71877c94bb064c18e046a1552a58403c10fe3d6c856e03130253a6ba3"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/deck.pptx",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\deck.pptx",
+      "bytes": 55643,
+      "sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733",
+      "source_manifest_sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/evidence-resolution.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\evidence-resolution.json",
+      "bytes": 37099,
+      "sha256": "9e84a9f8bda872407a5069651458fbc91d3ac4c351567fe0cd8eee53c9a45586",
+      "source_manifest_sha256": "9e84a9f8bda872407a5069651458fbc91d3ac4c351567fe0cd8eee53c9a45586"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/fact-boundary.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\fact-boundary.json",
+      "bytes": 30601,
+      "sha256": "ccf828df6ae8c34757d4f86d457f05767b52dd85147d9d8029bde85459c5dc0c",
+      "source_manifest_sha256": "ccf828df6ae8c34757d4f86d457f05767b52dd85147d9d8029bde85459c5dc0c"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/fact-interpretation.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\fact-interpretation.json",
+      "bytes": 14563,
+      "sha256": "b7b7fa94cc427cf7f5d4fe023867e9c3850a2d342913eb997d2dcb8e553a1b77",
+      "source_manifest_sha256": "b7b7fa94cc427cf7f5d4fe023867e9c3850a2d342913eb997d2dcb8e553a1b77"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/fact-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\fact-source-result.json",
+      "bytes": 15871,
+      "sha256": "1316663c42a9f626c83c07f84d06c809d73a676c22ab4bd806e28ebedcadd106",
+      "source_manifest_sha256": "1316663c42a9f626c83c07f84d06c809d73a676c22ab4bd806e28ebedcadd106"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/layout-selection.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\layout-selection.json",
+      "bytes": 642706,
+      "sha256": "237eeff830cd8a7fb32ce121dc80716a103f1a923e3d411e460dddff067cc308",
+      "source_manifest_sha256": "237eeff830cd8a7fb32ce121dc80716a103f1a923e3d411e460dddff067cc308"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\manifest.json",
+      "bytes": 17010,
+      "sha256": "26883831feaae4dc752a4f2f155c6112c328a3a170a9cafbdff0d060f4c835a4",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/narrative-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\narrative-result.json",
+      "bytes": 183798,
+      "sha256": "07b31444e6a748da7d0275eafc4f2d3ac0d8a611664b765c44b75a9050cedb3e",
+      "source_manifest_sha256": "07b31444e6a748da7d0275eafc4f2d3ac0d8a611664b765c44b75a9050cedb3e"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/object-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\object-map.json",
+      "bytes": 13251,
+      "sha256": "932284fc9d6f263cf89c044b4ab3e35120d4d7360cc4bcaf61ed92a34781777e",
+      "source_manifest_sha256": "932284fc9d6f263cf89c044b4ab3e35120d4d7360cc4bcaf61ed92a34781777e"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/presentation-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\presentation-context.json",
+      "bytes": 7162,
+      "sha256": "d13ea71fc80d06ccb2d2037433ef66895ddefcd3f8d3c6db153bfea700b024b8",
+      "source_manifest_sha256": "d13ea71fc80d06ccb2d2037433ef66895ddefcd3f8d3c6db153bfea700b024b8"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/quality-before-recheck.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\quality-before-recheck.json",
+      "bytes": 8171,
+      "sha256": "b075d5353e80c96d343bb31966fc2db882b48320bc8065cd8e5a032136f0be09",
+      "source_manifest_sha256": "b075d5353e80c96d343bb31966fc2db882b48320bc8065cd8e5a032136f0be09"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/quality-report.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\quality-report.json",
+      "bytes": 10988,
+      "sha256": "b9441f5f32b4275c95447974338a9441892dcd160764441bc43df31ffb7544f1",
+      "source_manifest_sha256": "b9441f5f32b4275c95447974338a9441892dcd160764441bc43df31ffb7544f1"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/render-report.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\render-report.json",
+      "bytes": 3429,
+      "sha256": "affc3ab3c3aba302840e9556c691105c1f540c44cdcfd7ea214ba2245daa45b9",
+      "source_manifest_sha256": "affc3ab3c3aba302840e9556c691105c1f540c44cdcfd7ea214ba2245daa45b9"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/render/deck-bbox.xhtml",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\render\\deck-bbox.xhtml",
+      "bytes": 9140,
+      "sha256": "bdd44a6347a3d2cd5bb48e30895f80add19ad6c913e06226804142a037daebdd",
+      "source_manifest_sha256": "bdd44a6347a3d2cd5bb48e30895f80add19ad6c913e06226804142a037daebdd"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/render/deck.pdf",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\render\\deck.pdf",
+      "bytes": 85568,
+      "sha256": "9ef274212e8bec80df6df62223306ca30290eab63c6c24656bac285a7cda53de",
+      "source_manifest_sha256": "9ef274212e8bec80df6df62223306ca30290eab63c6c24656bac285a7cda53de"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/render/deck.txt",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\render\\deck.txt",
+      "bytes": 1715,
+      "sha256": "0e160d1d7c24f6d71f8345fec46e9db04b3ab309c24cf57f69355f1624581c9c",
+      "source_manifest_sha256": "0e160d1d7c24f6d71f8345fec46e9db04b3ab309c24cf57f69355f1624581c9c"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/render/slide-1.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\render\\slide-1.png",
+      "bytes": 74481,
+      "sha256": "e60f60ffe88af2f56a758f88891224dc4e7d6a83effba3e696c2a7376ef6b82c",
+      "source_manifest_sha256": "e60f60ffe88af2f56a758f88891224dc4e7d6a83effba3e696c2a7376ef6b82c"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/render/slide-2.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\render\\slide-2.png",
+      "bytes": 76739,
+      "sha256": "fbc7b5ea7ab2ccda95b4456b37a1cb2d550838c202e9efce83560ab17e814386",
+      "source_manifest_sha256": "fbc7b5ea7ab2ccda95b4456b37a1cb2d550838c202e9efce83560ab17e814386"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/render/slide-3.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\render\\slide-3.png",
+      "bytes": 80808,
+      "sha256": "6cccd189df918c0d7b44ef368aa01e7be676bc564a3a42828d45428142059546",
+      "source_manifest_sha256": "6cccd189df918c0d7b44ef368aa01e7be676bc564a3a42828d45428142059546"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/render/slide-4.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\render\\slide-4.png",
+      "bytes": 83240,
+      "sha256": "cdcb954005fd6eeffbc49ea8c5d4e2e11afd4c9054ede7437d95c8a59e6ea32b",
+      "source_manifest_sha256": "cdcb954005fd6eeffbc49ea8c5d4e2e11afd4c9054ede7437d95c8a59e6ea32b"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/render/slide-5.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\render\\slide-5.png",
+      "bytes": 83233,
+      "sha256": "5e57091c6e1a257e36011c1be8fe1a6293eb07671018a0b287e47aeca9439e31",
+      "source_manifest_sha256": "5e57091c6e1a257e36011c1be8fe1a6293eb07671018a0b287e47aeca9439e31"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/render/slide-6.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\render\\slide-6.png",
+      "bytes": 104667,
+      "sha256": "f30b0798f659d95dc90ed8d20f6f8b747315d23bf67eea3e189f0c8b49189e3c",
+      "source_manifest_sha256": "f30b0798f659d95dc90ed8d20f6f8b747315d23bf67eea3e189f0c8b49189e3c"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/resolved-assets.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\resolved-assets.json",
+      "bytes": 2444,
+      "sha256": "b53a9e0d7bcc3c97c5a93718c2b07902ff8fc9d47679a57b8e70b4b8a085cc8d",
+      "source_manifest_sha256": "b53a9e0d7bcc3c97c5a93718c2b07902ff8fc9d47679a57b8e70b4b8a085cc8d"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\result.json",
+      "bytes": 1428,
+      "sha256": "02a62b5774a07c99e39e1ab9d6aecf8889ee996b7f0e9e3da789f5e51fd5d821",
+      "source_manifest_sha256": "02a62b5774a07c99e39e1ab9d6aecf8889ee996b7f0e9e3da789f5e51fd5d821"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/review-model-call.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\review-model-call.json",
+      "bytes": 951,
+      "sha256": "38cfcd3e0afc2d199f520b4a27fdf005f38f1118776f5b5406b70be8331e5689",
+      "source_manifest_sha256": "38cfcd3e0afc2d199f520b4a27fdf005f38f1118776f5b5406b70be8331e5689"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/review-request.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\review-request.json",
+      "bytes": 46731,
+      "sha256": "dc96b9e5b2c83451e45d83fae6f315ad9a3b361f89e69f1f6d0a8fd1afb3e9fc",
+      "source_manifest_sha256": "dc96b9e5b2c83451e45d83fae6f315ad9a3b361f89e69f1f6d0a8fd1afb3e9fc"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/review-response.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\review-response.json",
+      "bytes": 2152,
+      "sha256": "a5c8484a9389f2818ab9877f1c5436829611941572db02baaf872a2b09d43770",
+      "source_manifest_sha256": "a5c8484a9389f2818ab9877f1c5436829611941572db02baaf872a2b09d43770"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/review-reuse.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\review-reuse.json",
+      "bytes": 243,
+      "sha256": "20beb992d865cb460e4c2caf27396caaee0c52fd3d62beacbd3f7cf0cc059e51",
+      "source_manifest_sha256": "20beb992d865cb460e4c2caf27396caaee0c52fd3d62beacbd3f7cf0cc059e51"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/revision-plan.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\revision-plan.json",
+      "bytes": 8961,
+      "sha256": "90e4dfa97075bdbdc90fdbbe07b4e9fc87e65f95a4205ee916f9bf8c8e9fef89",
+      "source_manifest_sha256": "90e4dfa97075bdbdc90fdbbe07b4e9fc87e65f95a4205ee916f9bf8c8e9fef89"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\source-result.json",
+      "bytes": 19808,
+      "sha256": "cf250e9da7f3011cf1650fd0db5ff79e16f98c874169bf93a3bd6f64f154a909",
+      "source_manifest_sha256": "cf250e9da7f3011cf1650fd0db5ff79e16f98c874169bf93a3bd6f64f154a909"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/source-role-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\source-role-map.json",
+      "bytes": 1940,
+      "sha256": "9a708294180aaaa799d73be9a0f6f063670340fc133c7445723c4a139002c8a8",
+      "source_manifest_sha256": "9a708294180aaaa799d73be9a0f6f063670340fc133c7445723c4a139002c8a8"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/task-effective.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\task-effective.json",
+      "bytes": 9975,
+      "sha256": "496a4d299d6b4efad32b58da20a5f29d906cc6f02855184e8e9062f300f0f7ec",
+      "source_manifest_sha256": "496a4d299d6b4efad32b58da20a5f29d906cc6f02855184e8e9062f300f0f7ec"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/task.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\task.json",
+      "bytes": 3233,
+      "sha256": "86d8d906908faa21f569fb7f6e6a0e828b9e456dc4d8937d118dbb828ab1084d",
+      "source_manifest_sha256": "86d8d906908faa21f569fb7f6e6a0e828b9e456dc4d8937d118dbb828ab1084d"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/template-selection.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\template-selection.json",
+      "bytes": 452,
+      "sha256": "4c2eda76d2dc06c788fa1b578d9726e618e90ecdc6ff72c59ad76b3f1cca1294",
+      "source_manifest_sha256": "4c2eda76d2dc06c788fa1b578d9726e618e90ecdc6ff72c59ad76b3f1cca1294"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/visual-packet.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\visual-packet.json",
+      "bytes": 17933,
+      "sha256": "6dc5657e1ab8f713a587507a639c691534796370849249d7a39b684cecb70ea5",
+      "source_manifest_sha256": "6dc5657e1ab8f713a587507a639c691534796370849249d7a39b684cecb70ea5"
+    },
+    {
+      "path": "historical-qa-pixel-false-positive/visual-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\dbb3a53c-1c15-4fdd-aa73-e66560ce7b77\\visual-result.json",
+      "bytes": 90130,
+      "sha256": "597e24f91f6fee6d1c437082ba3013923db0d8d79de6f9ae8daf7f3dd036efb0",
+      "source_manifest_sha256": "597e24f91f6fee6d1c437082ba3013923db0d8d79de6f9ae8daf7f3dd036efb0"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/approved-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\approved-source-result.json",
+      "bytes": 88714,
+      "sha256": "70297625543d6d283d572e857e10857a3c896c60ffd5be0d3a0c06495efe4551",
+      "source_manifest_sha256": "70297625543d6d283d572e857e10857a3c896c60ffd5be0d3a0c06495efe4551"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/completion-decision.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\completion-decision.json",
+      "bytes": 734,
+      "sha256": "d50bdfe9191ba84f8298d717f828425bbf1c534b4709acead66339134b3070a5",
+      "source_manifest_sha256": "d50bdfe9191ba84f8298d717f828425bbf1c534b4709acead66339134b3070a5"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-006.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-006.json",
+      "bytes": 1581,
+      "sha256": "fce661cdad0e00b56cfeb310e7724e4bdf13fef6897081529c29d4e92be43c1b",
+      "source_manifest_sha256": "fce661cdad0e00b56cfeb310e7724e4bdf13fef6897081529c29d4e92be43c1b"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-007.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-007.json",
+      "bytes": 1423,
+      "sha256": "5dd7856f18643b607e67d7d139d0013c94753a0c03f02176d9834cde8859e25e",
+      "source_manifest_sha256": "5dd7856f18643b607e67d7d139d0013c94753a0c03f02176d9834cde8859e25e"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-008.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-008.json",
+      "bytes": 2116,
+      "sha256": "67dc7ec178cfc46ceff1ed86ef9168d96fcd38cb539b9edd9ae76cd16cc29973",
+      "source_manifest_sha256": "67dc7ec178cfc46ceff1ed86ef9168d96fcd38cb539b9edd9ae76cd16cc29973"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-009.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-009.json",
+      "bytes": 4990,
+      "sha256": "e36139816b8404cbf6f2d5f3837f34c0a258839afcaeaf3e403be5dc414d64d2",
+      "source_manifest_sha256": "e36139816b8404cbf6f2d5f3837f34c0a258839afcaeaf3e403be5dc414d64d2"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-010.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-010.json",
+      "bytes": 5680,
+      "sha256": "3601bc8dc15ec1a9741858d43f09de1ed7733d05a68b17f1fa5b6e8d8329ffc3",
+      "source_manifest_sha256": "3601bc8dc15ec1a9741858d43f09de1ed7733d05a68b17f1fa5b6e8d8329ffc3"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-011.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-011.json",
+      "bytes": 4993,
+      "sha256": "5735e529b5b971a4dc5e4536850a03b0c123940c8dfdcd08142175ef310ce91f",
+      "source_manifest_sha256": "5735e529b5b971a4dc5e4536850a03b0c123940c8dfdcd08142175ef310ce91f"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-012.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-012.json",
+      "bytes": 7192,
+      "sha256": "80b8b0e600dae6792cc5b6aff198c26cc3210c148ca63b1098acf3abd08e965c",
+      "source_manifest_sha256": "80b8b0e600dae6792cc5b6aff198c26cc3210c148ca63b1098acf3abd08e965c"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-013.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-013.json",
+      "bytes": 1828,
+      "sha256": "50a0aac746da7cb90038dbdd49cdf5d5163ea5179f13fdbfe4a453faf33b9556",
+      "source_manifest_sha256": "50a0aac746da7cb90038dbdd49cdf5d5163ea5179f13fdbfe4a453faf33b9556"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-014.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-014.json",
+      "bytes": 6405,
+      "sha256": "2ba16c54ab32ee6479c51dad1ed6f67d2be015ef5595f3556e4b0eeca31f1589",
+      "source_manifest_sha256": "2ba16c54ab32ee6479c51dad1ed6f67d2be015ef5595f3556e4b0eeca31f1589"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-015.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-015.json",
+      "bytes": 6982,
+      "sha256": "908204a1b52f14eeb12d8dd1c1b519ed8023c1613b04d6b3041ea88dffc612b9",
+      "source_manifest_sha256": "908204a1b52f14eeb12d8dd1c1b519ed8023c1613b04d6b3041ea88dffc612b9"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-016.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-016.json",
+      "bytes": 6020,
+      "sha256": "67e7cf1eef514c768271e62bca3a70a44985b7ba506b55d52a661abe2acaa791",
+      "source_manifest_sha256": "67e7cf1eef514c768271e62bca3a70a44985b7ba506b55d52a661abe2acaa791"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-017.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-017.json",
+      "bytes": 7164,
+      "sha256": "eb67d805827c5c6e42a408c7b4854ce0a2121d84c535d9b37170a9296aba38bd",
+      "source_manifest_sha256": "eb67d805827c5c6e42a408c7b4854ce0a2121d84c535d9b37170a9296aba38bd"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-018.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-018.json",
+      "bytes": 8066,
+      "sha256": "4463b9ec26845fdadf996c084290b73c643d74e34c23e011cf70ac7ad18f2cff",
+      "source_manifest_sha256": "4463b9ec26845fdadf996c084290b73c643d74e34c23e011cf70ac7ad18f2cff"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-019.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-019.json",
+      "bytes": 10372,
+      "sha256": "bf8b5d5babd7bad554f93c2c0ab191143f7643bb52e77a798c6087040b63137b",
+      "source_manifest_sha256": "bf8b5d5babd7bad554f93c2c0ab191143f7643bb52e77a798c6087040b63137b"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-020.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-020.json",
+      "bytes": 42418,
+      "sha256": "6a093fbff33f3f66f79ce48ea4001514dd40cec98c960f680e3dbf459db24f74",
+      "source_manifest_sha256": "6a093fbff33f3f66f79ce48ea4001514dd40cec98c960f680e3dbf459db24f74"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-021.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-021.json",
+      "bytes": 9734,
+      "sha256": "3bc5f6b0e05985f127f6f5a0a6965b5a30ece57cd11b18f1d84d5ffccfdd3c5f",
+      "source_manifest_sha256": "3bc5f6b0e05985f127f6f5a0a6965b5a30ece57cd11b18f1d84d5ffccfdd3c5f"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-022.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-022.json",
+      "bytes": 8823,
+      "sha256": "8c5dc217c29de55f6e1be3fbd502e7f4b6ed01f83e6a999c2b5a2528cf99b127",
+      "source_manifest_sha256": "8c5dc217c29de55f6e1be3fbd502e7f4b6ed01f83e6a999c2b5a2528cf99b127"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-023.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-023.json",
+      "bytes": 7181,
+      "sha256": "6794d17b1af84b2a69ea20c06edcaf479893823aebbcbaadcbc7332ee8de2ca0",
+      "source_manifest_sha256": "6794d17b1af84b2a69ea20c06edcaf479893823aebbcbaadcbc7332ee8de2ca0"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-024.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-024.json",
+      "bytes": 9335,
+      "sha256": "5b2f4a773f12c69d122d1232f35a52ced7a1614b52c092ad6fae1a4553e07119",
+      "source_manifest_sha256": "5b2f4a773f12c69d122d1232f35a52ced7a1614b52c092ad6fae1a4553e07119"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-025.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-025.json",
+      "bytes": 8147,
+      "sha256": "71a36a992acd1d919499e07114ff1e4aab59fdc007f21a8e681d24b6575737eb",
+      "source_manifest_sha256": "71a36a992acd1d919499e07114ff1e4aab59fdc007f21a8e681d24b6575737eb"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-026.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-026.json",
+      "bytes": 9487,
+      "sha256": "e02adf4a7f2503cbeb265b7d2edcf776cd113901977a68d71b2008a4fd8ec582",
+      "source_manifest_sha256": "e02adf4a7f2503cbeb265b7d2edcf776cd113901977a68d71b2008a4fd8ec582"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-027.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-027.json",
+      "bytes": 10725,
+      "sha256": "79b497316dc64af54f496dab7f32fad094dac57919bd9fa3323e70aed09e39e2",
+      "source_manifest_sha256": "79b497316dc64af54f496dab7f32fad094dac57919bd9fa3323e70aed09e39e2"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-028.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-028.json",
+      "bytes": 9027,
+      "sha256": "eaee510ea30f441e0c70655f9cb2e159a58edafab9f5d50d00c603c3ae833c47",
+      "source_manifest_sha256": "eaee510ea30f441e0c70655f9cb2e159a58edafab9f5d50d00c603c3ae833c47"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-029.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-029.json",
+      "bytes": 2314,
+      "sha256": "ea5707d8028ba2f3910be68e2c30f1abfde15bc1258b06513cc044c21ee5f3ef",
+      "source_manifest_sha256": "ea5707d8028ba2f3910be68e2c30f1abfde15bc1258b06513cc044c21ee5f3ef"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-039.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-039.json",
+      "bytes": 818799,
+      "sha256": "a8a42af2171f82d37c1289aad5bf9a934f41a2b7b1b9d45e6b7b465bcf743d79",
+      "source_manifest_sha256": "a8a42af2171f82d37c1289aad5bf9a934f41a2b7b1b9d45e6b7b465bcf743d79"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-DEC-040.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-DEC-040.json",
+      "bytes": 938791,
+      "sha256": "72a65dd5423d6ab6d1606c145d2e21f587da710f1cac5eb08d4564337e2244cc",
+      "source_manifest_sha256": "72a65dd5423d6ab6d1606c145d2e21f587da710f1cac5eb08d4564337e2244cc"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-context.json",
+      "bytes": 25945,
+      "sha256": "89e00f204be9a383a40929d672eed1a19b439a2cc696ce0e5908fd1165eba323",
+      "source_manifest_sha256": "89e00f204be9a383a40929d672eed1a19b439a2cc696ce0e5908fd1165eba323"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-evidence.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-evidence.json",
+      "bytes": 75671,
+      "sha256": "13971721fc09729eb14c003e8636dbbe37a63f56bb294b1936ab001b61c73eb0",
+      "source_manifest_sha256": "13971721fc09729eb14c003e8636dbbe37a63f56bb294b1936ab001b61c73eb0"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-fact-boundary.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-fact-boundary.json",
+      "bytes": 106849,
+      "sha256": "38ffb59c2a3ba139f1cf5f84e54311cf5d6a69ea1629fb7e117c241658b11008",
+      "source_manifest_sha256": "38ffb59c2a3ba139f1cf5f84e54311cf5d6a69ea1629fb7e117c241658b11008"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-route.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-route.json",
+      "bytes": 37461,
+      "sha256": "71b931ca1334bb1ef01aecc419e41f7ce0faffe72afbd212045d750106f35874",
+      "source_manifest_sha256": "71b931ca1334bb1ef01aecc419e41f7ce0faffe72afbd212045d750106f35874"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/decision-source-roles.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\decision-source-roles.json",
+      "bytes": 19543,
+      "sha256": "812dc3b3183883479c02947a354d28d5527bc477ebfa941aef5870f6cfc04a0a",
+      "source_manifest_sha256": "812dc3b3183883479c02947a354d28d5527bc477ebfa941aef5870f6cfc04a0a"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/deck-spec.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\deck-spec.json",
+      "bytes": 717100,
+      "sha256": "b1931dc71877c94bb064c18e046a1552a58403c10fe3d6c856e03130253a6ba3",
+      "source_manifest_sha256": "b1931dc71877c94bb064c18e046a1552a58403c10fe3d6c856e03130253a6ba3"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/deck.pptx",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\deck.pptx",
+      "bytes": 55643,
+      "sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733",
+      "source_manifest_sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/evidence-resolution.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\evidence-resolution.json",
+      "bytes": 37099,
+      "sha256": "9e84a9f8bda872407a5069651458fbc91d3ac4c351567fe0cd8eee53c9a45586",
+      "source_manifest_sha256": "9e84a9f8bda872407a5069651458fbc91d3ac4c351567fe0cd8eee53c9a45586"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/fact-boundary.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\fact-boundary.json",
+      "bytes": 30601,
+      "sha256": "ccf828df6ae8c34757d4f86d457f05767b52dd85147d9d8029bde85459c5dc0c",
+      "source_manifest_sha256": "ccf828df6ae8c34757d4f86d457f05767b52dd85147d9d8029bde85459c5dc0c"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/fact-interpretation.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\fact-interpretation.json",
+      "bytes": 14563,
+      "sha256": "b7b7fa94cc427cf7f5d4fe023867e9c3850a2d342913eb997d2dcb8e553a1b77",
+      "source_manifest_sha256": "b7b7fa94cc427cf7f5d4fe023867e9c3850a2d342913eb997d2dcb8e553a1b77"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/fact-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\fact-source-result.json",
+      "bytes": 15871,
+      "sha256": "1316663c42a9f626c83c07f84d06c809d73a676c22ab4bd806e28ebedcadd106",
+      "source_manifest_sha256": "1316663c42a9f626c83c07f84d06c809d73a676c22ab4bd806e28ebedcadd106"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/layout-selection.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\layout-selection.json",
+      "bytes": 642706,
+      "sha256": "237eeff830cd8a7fb32ce121dc80716a103f1a923e3d411e460dddff067cc308",
+      "source_manifest_sha256": "237eeff830cd8a7fb32ce121dc80716a103f1a923e3d411e460dddff067cc308"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\manifest.json",
+      "bytes": 17010,
+      "sha256": "fa689d35a921cdc59dc07aaffcc48474a991c9418f8a181b61f6ae8250ce48a5",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/narrative-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\narrative-result.json",
+      "bytes": 183798,
+      "sha256": "07b31444e6a748da7d0275eafc4f2d3ac0d8a611664b765c44b75a9050cedb3e",
+      "source_manifest_sha256": "07b31444e6a748da7d0275eafc4f2d3ac0d8a611664b765c44b75a9050cedb3e"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/object-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\object-map.json",
+      "bytes": 13251,
+      "sha256": "932284fc9d6f263cf89c044b4ab3e35120d4d7360cc4bcaf61ed92a34781777e",
+      "source_manifest_sha256": "932284fc9d6f263cf89c044b4ab3e35120d4d7360cc4bcaf61ed92a34781777e"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/presentation-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\presentation-context.json",
+      "bytes": 7162,
+      "sha256": "d13ea71fc80d06ccb2d2037433ef66895ddefcd3f8d3c6db153bfea700b024b8",
+      "source_manifest_sha256": "d13ea71fc80d06ccb2d2037433ef66895ddefcd3f8d3c6db153bfea700b024b8"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/quality-before-recheck.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\quality-before-recheck.json",
+      "bytes": 8204,
+      "sha256": "47fa082bc0c0542942afa962b9994d2265213dc6179a93dc8fe327a3d39741a9",
+      "source_manifest_sha256": "47fa082bc0c0542942afa962b9994d2265213dc6179a93dc8fe327a3d39741a9"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/quality-report.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\quality-report.json",
+      "bytes": 11021,
+      "sha256": "9a1e502e35c927b14c0427e3a04d2c6aa02f6de5e8169670fb6fc498243cc0ab",
+      "source_manifest_sha256": "9a1e502e35c927b14c0427e3a04d2c6aa02f6de5e8169670fb6fc498243cc0ab"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/render-report.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\render-report.json",
+      "bytes": 3429,
+      "sha256": "affc3ab3c3aba302840e9556c691105c1f540c44cdcfd7ea214ba2245daa45b9",
+      "source_manifest_sha256": "affc3ab3c3aba302840e9556c691105c1f540c44cdcfd7ea214ba2245daa45b9"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/render/deck-bbox.xhtml",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\render\\deck-bbox.xhtml",
+      "bytes": 9140,
+      "sha256": "bdd44a6347a3d2cd5bb48e30895f80add19ad6c913e06226804142a037daebdd",
+      "source_manifest_sha256": "bdd44a6347a3d2cd5bb48e30895f80add19ad6c913e06226804142a037daebdd"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/render/deck.pdf",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\render\\deck.pdf",
+      "bytes": 85568,
+      "sha256": "9ef274212e8bec80df6df62223306ca30290eab63c6c24656bac285a7cda53de",
+      "source_manifest_sha256": "9ef274212e8bec80df6df62223306ca30290eab63c6c24656bac285a7cda53de"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/render/deck.txt",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\render\\deck.txt",
+      "bytes": 1715,
+      "sha256": "0e160d1d7c24f6d71f8345fec46e9db04b3ab309c24cf57f69355f1624581c9c",
+      "source_manifest_sha256": "0e160d1d7c24f6d71f8345fec46e9db04b3ab309c24cf57f69355f1624581c9c"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/render/slide-1.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\render\\slide-1.png",
+      "bytes": 74481,
+      "sha256": "e60f60ffe88af2f56a758f88891224dc4e7d6a83effba3e696c2a7376ef6b82c",
+      "source_manifest_sha256": "e60f60ffe88af2f56a758f88891224dc4e7d6a83effba3e696c2a7376ef6b82c"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/render/slide-2.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\render\\slide-2.png",
+      "bytes": 76739,
+      "sha256": "fbc7b5ea7ab2ccda95b4456b37a1cb2d550838c202e9efce83560ab17e814386",
+      "source_manifest_sha256": "fbc7b5ea7ab2ccda95b4456b37a1cb2d550838c202e9efce83560ab17e814386"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/render/slide-3.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\render\\slide-3.png",
+      "bytes": 80808,
+      "sha256": "6cccd189df918c0d7b44ef368aa01e7be676bc564a3a42828d45428142059546",
+      "source_manifest_sha256": "6cccd189df918c0d7b44ef368aa01e7be676bc564a3a42828d45428142059546"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/render/slide-4.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\render\\slide-4.png",
+      "bytes": 83240,
+      "sha256": "cdcb954005fd6eeffbc49ea8c5d4e2e11afd4c9054ede7437d95c8a59e6ea32b",
+      "source_manifest_sha256": "cdcb954005fd6eeffbc49ea8c5d4e2e11afd4c9054ede7437d95c8a59e6ea32b"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/render/slide-5.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\render\\slide-5.png",
+      "bytes": 83233,
+      "sha256": "5e57091c6e1a257e36011c1be8fe1a6293eb07671018a0b287e47aeca9439e31",
+      "source_manifest_sha256": "5e57091c6e1a257e36011c1be8fe1a6293eb07671018a0b287e47aeca9439e31"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/render/slide-6.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\render\\slide-6.png",
+      "bytes": 104667,
+      "sha256": "f30b0798f659d95dc90ed8d20f6f8b747315d23bf67eea3e189f0c8b49189e3c",
+      "source_manifest_sha256": "f30b0798f659d95dc90ed8d20f6f8b747315d23bf67eea3e189f0c8b49189e3c"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/resolved-assets.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\resolved-assets.json",
+      "bytes": 2444,
+      "sha256": "b53a9e0d7bcc3c97c5a93718c2b07902ff8fc9d47679a57b8e70b4b8a085cc8d",
+      "source_manifest_sha256": "b53a9e0d7bcc3c97c5a93718c2b07902ff8fc9d47679a57b8e70b4b8a085cc8d"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\result.json",
+      "bytes": 1348,
+      "sha256": "2309395c425a56e920df7ef3c0217a53c61a016f47b6e914932151bdfebbdcc8",
+      "source_manifest_sha256": "2309395c425a56e920df7ef3c0217a53c61a016f47b6e914932151bdfebbdcc8"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/review-model-call.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\review-model-call.json",
+      "bytes": 951,
+      "sha256": "38cfcd3e0afc2d199f520b4a27fdf005f38f1118776f5b5406b70be8331e5689",
+      "source_manifest_sha256": "38cfcd3e0afc2d199f520b4a27fdf005f38f1118776f5b5406b70be8331e5689"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/review-request.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\review-request.json",
+      "bytes": 46731,
+      "sha256": "dc96b9e5b2c83451e45d83fae6f315ad9a3b361f89e69f1f6d0a8fd1afb3e9fc",
+      "source_manifest_sha256": "dc96b9e5b2c83451e45d83fae6f315ad9a3b361f89e69f1f6d0a8fd1afb3e9fc"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/review-response.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\review-response.json",
+      "bytes": 2152,
+      "sha256": "a5c8484a9389f2818ab9877f1c5436829611941572db02baaf872a2b09d43770",
+      "source_manifest_sha256": "a5c8484a9389f2818ab9877f1c5436829611941572db02baaf872a2b09d43770"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/review-reuse.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\review-reuse.json",
+      "bytes": 243,
+      "sha256": "20beb992d865cb460e4c2caf27396caaee0c52fd3d62beacbd3f7cf0cc059e51",
+      "source_manifest_sha256": "20beb992d865cb460e4c2caf27396caaee0c52fd3d62beacbd3f7cf0cc059e51"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/revision-plan.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\revision-plan.json",
+      "bytes": 7202,
+      "sha256": "38b1a325b37a951d2ae811d6dba3d140a12c80de4dca9231e5295f03ed34645d",
+      "source_manifest_sha256": "38b1a325b37a951d2ae811d6dba3d140a12c80de4dca9231e5295f03ed34645d"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\source-result.json",
+      "bytes": 19808,
+      "sha256": "cf250e9da7f3011cf1650fd0db5ff79e16f98c874169bf93a3bd6f64f154a909",
+      "source_manifest_sha256": "cf250e9da7f3011cf1650fd0db5ff79e16f98c874169bf93a3bd6f64f154a909"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/source-role-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\source-role-map.json",
+      "bytes": 1940,
+      "sha256": "9a708294180aaaa799d73be9a0f6f063670340fc133c7445723c4a139002c8a8",
+      "source_manifest_sha256": "9a708294180aaaa799d73be9a0f6f063670340fc133c7445723c4a139002c8a8"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/task-effective.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\task-effective.json",
+      "bytes": 9975,
+      "sha256": "496a4d299d6b4efad32b58da20a5f29d906cc6f02855184e8e9062f300f0f7ec",
+      "source_manifest_sha256": "496a4d299d6b4efad32b58da20a5f29d906cc6f02855184e8e9062f300f0f7ec"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/task.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\task.json",
+      "bytes": 3233,
+      "sha256": "86d8d906908faa21f569fb7f6e6a0e828b9e456dc4d8937d118dbb828ab1084d",
+      "source_manifest_sha256": "86d8d906908faa21f569fb7f6e6a0e828b9e456dc4d8937d118dbb828ab1084d"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/template-selection.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\template-selection.json",
+      "bytes": 452,
+      "sha256": "4c2eda76d2dc06c788fa1b578d9726e618e90ecdc6ff72c59ad76b3f1cca1294",
+      "source_manifest_sha256": "4c2eda76d2dc06c788fa1b578d9726e618e90ecdc6ff72c59ad76b3f1cca1294"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/visual-packet.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\visual-packet.json",
+      "bytes": 17933,
+      "sha256": "6dc5657e1ab8f713a587507a639c691534796370849249d7a39b684cecb70ea5",
+      "source_manifest_sha256": "6dc5657e1ab8f713a587507a639c691534796370849249d7a39b684cecb70ea5"
+    },
+    {
+      "path": "qa-recovered-success-39a2dbf3/visual-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a\\visual-result.json",
+      "bytes": 90130,
+      "sha256": "597e24f91f6fee6d1c437082ba3013923db0d8d79de6f9ae8daf7f3dd036efb0",
+      "source_manifest_sha256": "597e24f91f6fee6d1c437082ba3013923db0d8d79de6f9ae8daf7f3dd036efb0"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/approved-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\approved-source-result.json",
+      "bytes": 88714,
+      "sha256": "70297625543d6d283d572e857e10857a3c896c60ffd5be0d3a0c06495efe4551",
+      "source_manifest_sha256": "70297625543d6d283d572e857e10857a3c896c60ffd5be0d3a0c06495efe4551"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/completion-decision.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\completion-decision.json",
+      "bytes": 734,
+      "sha256": "d50bdfe9191ba84f8298d717f828425bbf1c534b4709acead66339134b3070a5",
+      "source_manifest_sha256": "d50bdfe9191ba84f8298d717f828425bbf1c534b4709acead66339134b3070a5"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-006.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-006.json",
+      "bytes": 1581,
+      "sha256": "fce661cdad0e00b56cfeb310e7724e4bdf13fef6897081529c29d4e92be43c1b",
+      "source_manifest_sha256": "fce661cdad0e00b56cfeb310e7724e4bdf13fef6897081529c29d4e92be43c1b"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-007.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-007.json",
+      "bytes": 1423,
+      "sha256": "5dd7856f18643b607e67d7d139d0013c94753a0c03f02176d9834cde8859e25e",
+      "source_manifest_sha256": "5dd7856f18643b607e67d7d139d0013c94753a0c03f02176d9834cde8859e25e"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-008.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-008.json",
+      "bytes": 2116,
+      "sha256": "67dc7ec178cfc46ceff1ed86ef9168d96fcd38cb539b9edd9ae76cd16cc29973",
+      "source_manifest_sha256": "67dc7ec178cfc46ceff1ed86ef9168d96fcd38cb539b9edd9ae76cd16cc29973"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-009.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-009.json",
+      "bytes": 4990,
+      "sha256": "e36139816b8404cbf6f2d5f3837f34c0a258839afcaeaf3e403be5dc414d64d2",
+      "source_manifest_sha256": "e36139816b8404cbf6f2d5f3837f34c0a258839afcaeaf3e403be5dc414d64d2"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-010.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-010.json",
+      "bytes": 5680,
+      "sha256": "3601bc8dc15ec1a9741858d43f09de1ed7733d05a68b17f1fa5b6e8d8329ffc3",
+      "source_manifest_sha256": "3601bc8dc15ec1a9741858d43f09de1ed7733d05a68b17f1fa5b6e8d8329ffc3"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-011.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-011.json",
+      "bytes": 4993,
+      "sha256": "5735e529b5b971a4dc5e4536850a03b0c123940c8dfdcd08142175ef310ce91f",
+      "source_manifest_sha256": "5735e529b5b971a4dc5e4536850a03b0c123940c8dfdcd08142175ef310ce91f"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-012.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-012.json",
+      "bytes": 7192,
+      "sha256": "80b8b0e600dae6792cc5b6aff198c26cc3210c148ca63b1098acf3abd08e965c",
+      "source_manifest_sha256": "80b8b0e600dae6792cc5b6aff198c26cc3210c148ca63b1098acf3abd08e965c"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-013.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-013.json",
+      "bytes": 1828,
+      "sha256": "50a0aac746da7cb90038dbdd49cdf5d5163ea5179f13fdbfe4a453faf33b9556",
+      "source_manifest_sha256": "50a0aac746da7cb90038dbdd49cdf5d5163ea5179f13fdbfe4a453faf33b9556"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-014.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-014.json",
+      "bytes": 6405,
+      "sha256": "2ba16c54ab32ee6479c51dad1ed6f67d2be015ef5595f3556e4b0eeca31f1589",
+      "source_manifest_sha256": "2ba16c54ab32ee6479c51dad1ed6f67d2be015ef5595f3556e4b0eeca31f1589"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-015.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-015.json",
+      "bytes": 6982,
+      "sha256": "908204a1b52f14eeb12d8dd1c1b519ed8023c1613b04d6b3041ea88dffc612b9",
+      "source_manifest_sha256": "908204a1b52f14eeb12d8dd1c1b519ed8023c1613b04d6b3041ea88dffc612b9"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-016.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-016.json",
+      "bytes": 6020,
+      "sha256": "67e7cf1eef514c768271e62bca3a70a44985b7ba506b55d52a661abe2acaa791",
+      "source_manifest_sha256": "67e7cf1eef514c768271e62bca3a70a44985b7ba506b55d52a661abe2acaa791"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-017.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-017.json",
+      "bytes": 7164,
+      "sha256": "eb67d805827c5c6e42a408c7b4854ce0a2121d84c535d9b37170a9296aba38bd",
+      "source_manifest_sha256": "eb67d805827c5c6e42a408c7b4854ce0a2121d84c535d9b37170a9296aba38bd"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-018.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-018.json",
+      "bytes": 8066,
+      "sha256": "4463b9ec26845fdadf996c084290b73c643d74e34c23e011cf70ac7ad18f2cff",
+      "source_manifest_sha256": "4463b9ec26845fdadf996c084290b73c643d74e34c23e011cf70ac7ad18f2cff"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-019.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-019.json",
+      "bytes": 10372,
+      "sha256": "bf8b5d5babd7bad554f93c2c0ab191143f7643bb52e77a798c6087040b63137b",
+      "source_manifest_sha256": "bf8b5d5babd7bad554f93c2c0ab191143f7643bb52e77a798c6087040b63137b"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-020.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-020.json",
+      "bytes": 42418,
+      "sha256": "6a093fbff33f3f66f79ce48ea4001514dd40cec98c960f680e3dbf459db24f74",
+      "source_manifest_sha256": "6a093fbff33f3f66f79ce48ea4001514dd40cec98c960f680e3dbf459db24f74"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-021.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-021.json",
+      "bytes": 9734,
+      "sha256": "3bc5f6b0e05985f127f6f5a0a6965b5a30ece57cd11b18f1d84d5ffccfdd3c5f",
+      "source_manifest_sha256": "3bc5f6b0e05985f127f6f5a0a6965b5a30ece57cd11b18f1d84d5ffccfdd3c5f"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-022.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-022.json",
+      "bytes": 8823,
+      "sha256": "8c5dc217c29de55f6e1be3fbd502e7f4b6ed01f83e6a999c2b5a2528cf99b127",
+      "source_manifest_sha256": "8c5dc217c29de55f6e1be3fbd502e7f4b6ed01f83e6a999c2b5a2528cf99b127"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-023.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-023.json",
+      "bytes": 7181,
+      "sha256": "6794d17b1af84b2a69ea20c06edcaf479893823aebbcbaadcbc7332ee8de2ca0",
+      "source_manifest_sha256": "6794d17b1af84b2a69ea20c06edcaf479893823aebbcbaadcbc7332ee8de2ca0"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-024.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-024.json",
+      "bytes": 9335,
+      "sha256": "5b2f4a773f12c69d122d1232f35a52ced7a1614b52c092ad6fae1a4553e07119",
+      "source_manifest_sha256": "5b2f4a773f12c69d122d1232f35a52ced7a1614b52c092ad6fae1a4553e07119"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-025.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-025.json",
+      "bytes": 8147,
+      "sha256": "71a36a992acd1d919499e07114ff1e4aab59fdc007f21a8e681d24b6575737eb",
+      "source_manifest_sha256": "71a36a992acd1d919499e07114ff1e4aab59fdc007f21a8e681d24b6575737eb"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-026.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-026.json",
+      "bytes": 9487,
+      "sha256": "e02adf4a7f2503cbeb265b7d2edcf776cd113901977a68d71b2008a4fd8ec582",
+      "source_manifest_sha256": "e02adf4a7f2503cbeb265b7d2edcf776cd113901977a68d71b2008a4fd8ec582"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-027.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-027.json",
+      "bytes": 10725,
+      "sha256": "79b497316dc64af54f496dab7f32fad094dac57919bd9fa3323e70aed09e39e2",
+      "source_manifest_sha256": "79b497316dc64af54f496dab7f32fad094dac57919bd9fa3323e70aed09e39e2"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-028.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-028.json",
+      "bytes": 9027,
+      "sha256": "eaee510ea30f441e0c70655f9cb2e159a58edafab9f5d50d00c603c3ae833c47",
+      "source_manifest_sha256": "eaee510ea30f441e0c70655f9cb2e159a58edafab9f5d50d00c603c3ae833c47"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-029.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-029.json",
+      "bytes": 2314,
+      "sha256": "ea5707d8028ba2f3910be68e2c30f1abfde15bc1258b06513cc044c21ee5f3ef",
+      "source_manifest_sha256": "ea5707d8028ba2f3910be68e2c30f1abfde15bc1258b06513cc044c21ee5f3ef"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-039.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-039.json",
+      "bytes": 818798,
+      "sha256": "6653dc0165706653eb78cc8f053d9eb2cdd53190e9544144c7ecbeff04fc9a44",
+      "source_manifest_sha256": "6653dc0165706653eb78cc8f053d9eb2cdd53190e9544144c7ecbeff04fc9a44"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-DEC-040.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-DEC-040.json",
+      "bytes": 938791,
+      "sha256": "7ac76ebe950c6e633e763bf1c31d993e65615342d8e7a8b91250c5ab63145982",
+      "source_manifest_sha256": "7ac76ebe950c6e633e763bf1c31d993e65615342d8e7a8b91250c5ab63145982"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-context.json",
+      "bytes": 25945,
+      "sha256": "89e00f204be9a383a40929d672eed1a19b439a2cc696ce0e5908fd1165eba323",
+      "source_manifest_sha256": "89e00f204be9a383a40929d672eed1a19b439a2cc696ce0e5908fd1165eba323"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-evidence.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-evidence.json",
+      "bytes": 75671,
+      "sha256": "13971721fc09729eb14c003e8636dbbe37a63f56bb294b1936ab001b61c73eb0",
+      "source_manifest_sha256": "13971721fc09729eb14c003e8636dbbe37a63f56bb294b1936ab001b61c73eb0"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-fact-boundary.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-fact-boundary.json",
+      "bytes": 106849,
+      "sha256": "38ffb59c2a3ba139f1cf5f84e54311cf5d6a69ea1629fb7e117c241658b11008",
+      "source_manifest_sha256": "38ffb59c2a3ba139f1cf5f84e54311cf5d6a69ea1629fb7e117c241658b11008"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-route.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-route.json",
+      "bytes": 37461,
+      "sha256": "71b931ca1334bb1ef01aecc419e41f7ce0faffe72afbd212045d750106f35874",
+      "source_manifest_sha256": "71b931ca1334bb1ef01aecc419e41f7ce0faffe72afbd212045d750106f35874"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/decision-source-roles.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\decision-source-roles.json",
+      "bytes": 19543,
+      "sha256": "812dc3b3183883479c02947a354d28d5527bc477ebfa941aef5870f6cfc04a0a",
+      "source_manifest_sha256": "812dc3b3183883479c02947a354d28d5527bc477ebfa941aef5870f6cfc04a0a"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/deck-spec.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\deck-spec.json",
+      "bytes": 717100,
+      "sha256": "b1931dc71877c94bb064c18e046a1552a58403c10fe3d6c856e03130253a6ba3",
+      "source_manifest_sha256": "b1931dc71877c94bb064c18e046a1552a58403c10fe3d6c856e03130253a6ba3"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/deck.pptx",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\deck.pptx",
+      "bytes": 55643,
+      "sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733",
+      "source_manifest_sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/evidence-resolution.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\evidence-resolution.json",
+      "bytes": 37099,
+      "sha256": "9e84a9f8bda872407a5069651458fbc91d3ac4c351567fe0cd8eee53c9a45586",
+      "source_manifest_sha256": "9e84a9f8bda872407a5069651458fbc91d3ac4c351567fe0cd8eee53c9a45586"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/fact-boundary.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\fact-boundary.json",
+      "bytes": 30601,
+      "sha256": "ccf828df6ae8c34757d4f86d457f05767b52dd85147d9d8029bde85459c5dc0c",
+      "source_manifest_sha256": "ccf828df6ae8c34757d4f86d457f05767b52dd85147d9d8029bde85459c5dc0c"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/fact-interpretation.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\fact-interpretation.json",
+      "bytes": 14563,
+      "sha256": "b7b7fa94cc427cf7f5d4fe023867e9c3850a2d342913eb997d2dcb8e553a1b77",
+      "source_manifest_sha256": "b7b7fa94cc427cf7f5d4fe023867e9c3850a2d342913eb997d2dcb8e553a1b77"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/fact-source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\fact-source-result.json",
+      "bytes": 15871,
+      "sha256": "1316663c42a9f626c83c07f84d06c809d73a676c22ab4bd806e28ebedcadd106",
+      "source_manifest_sha256": "1316663c42a9f626c83c07f84d06c809d73a676c22ab4bd806e28ebedcadd106"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/layout-selection.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\layout-selection.json",
+      "bytes": 642706,
+      "sha256": "237eeff830cd8a7fb32ce121dc80716a103f1a923e3d411e460dddff067cc308",
+      "source_manifest_sha256": "237eeff830cd8a7fb32ce121dc80716a103f1a923e3d411e460dddff067cc308"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/manifest.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\manifest.json",
+      "bytes": 17011,
+      "sha256": "0274df6a801429791d4aecefe1616a74c457c2b67b8e4e5ad1184c8e39ed6b1f",
+      "source_manifest_sha256": null
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/narrative-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\narrative-result.json",
+      "bytes": 183798,
+      "sha256": "07b31444e6a748da7d0275eafc4f2d3ac0d8a611664b765c44b75a9050cedb3e",
+      "source_manifest_sha256": "07b31444e6a748da7d0275eafc4f2d3ac0d8a611664b765c44b75a9050cedb3e"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/object-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\object-map.json",
+      "bytes": 13251,
+      "sha256": "932284fc9d6f263cf89c044b4ab3e35120d4d7360cc4bcaf61ed92a34781777e",
+      "source_manifest_sha256": "932284fc9d6f263cf89c044b4ab3e35120d4d7360cc4bcaf61ed92a34781777e"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/presentation-context.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\presentation-context.json",
+      "bytes": 7162,
+      "sha256": "d13ea71fc80d06ccb2d2037433ef66895ddefcd3f8d3c6db153bfea700b024b8",
+      "source_manifest_sha256": "d13ea71fc80d06ccb2d2037433ef66895ddefcd3f8d3c6db153bfea700b024b8"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/quality-before-recheck.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\quality-before-recheck.json",
+      "bytes": 11021,
+      "sha256": "9a1e502e35c927b14c0427e3a04d2c6aa02f6de5e8169670fb6fc498243cc0ab",
+      "source_manifest_sha256": "9a1e502e35c927b14c0427e3a04d2c6aa02f6de5e8169670fb6fc498243cc0ab"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/quality-report.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\quality-report.json",
+      "bytes": 11021,
+      "sha256": "e952e045a3fd5647b436e9e05dcd9c7b71f3f4a83647b0f656d7967a2e4d30b7",
+      "source_manifest_sha256": "e952e045a3fd5647b436e9e05dcd9c7b71f3f4a83647b0f656d7967a2e4d30b7"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/render-report.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\render-report.json",
+      "bytes": 3429,
+      "sha256": "affc3ab3c3aba302840e9556c691105c1f540c44cdcfd7ea214ba2245daa45b9",
+      "source_manifest_sha256": "affc3ab3c3aba302840e9556c691105c1f540c44cdcfd7ea214ba2245daa45b9"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/render/deck-bbox.xhtml",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\render\\deck-bbox.xhtml",
+      "bytes": 9140,
+      "sha256": "bdd44a6347a3d2cd5bb48e30895f80add19ad6c913e06226804142a037daebdd",
+      "source_manifest_sha256": "bdd44a6347a3d2cd5bb48e30895f80add19ad6c913e06226804142a037daebdd"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/render/deck.pdf",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\render\\deck.pdf",
+      "bytes": 85568,
+      "sha256": "9ef274212e8bec80df6df62223306ca30290eab63c6c24656bac285a7cda53de",
+      "source_manifest_sha256": "9ef274212e8bec80df6df62223306ca30290eab63c6c24656bac285a7cda53de"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/render/deck.txt",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\render\\deck.txt",
+      "bytes": 1715,
+      "sha256": "0e160d1d7c24f6d71f8345fec46e9db04b3ab309c24cf57f69355f1624581c9c",
+      "source_manifest_sha256": "0e160d1d7c24f6d71f8345fec46e9db04b3ab309c24cf57f69355f1624581c9c"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/render/slide-1.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\render\\slide-1.png",
+      "bytes": 74481,
+      "sha256": "e60f60ffe88af2f56a758f88891224dc4e7d6a83effba3e696c2a7376ef6b82c",
+      "source_manifest_sha256": "e60f60ffe88af2f56a758f88891224dc4e7d6a83effba3e696c2a7376ef6b82c"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/render/slide-2.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\render\\slide-2.png",
+      "bytes": 76739,
+      "sha256": "fbc7b5ea7ab2ccda95b4456b37a1cb2d550838c202e9efce83560ab17e814386",
+      "source_manifest_sha256": "fbc7b5ea7ab2ccda95b4456b37a1cb2d550838c202e9efce83560ab17e814386"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/render/slide-3.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\render\\slide-3.png",
+      "bytes": 80808,
+      "sha256": "6cccd189df918c0d7b44ef368aa01e7be676bc564a3a42828d45428142059546",
+      "source_manifest_sha256": "6cccd189df918c0d7b44ef368aa01e7be676bc564a3a42828d45428142059546"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/render/slide-4.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\render\\slide-4.png",
+      "bytes": 83240,
+      "sha256": "cdcb954005fd6eeffbc49ea8c5d4e2e11afd4c9054ede7437d95c8a59e6ea32b",
+      "source_manifest_sha256": "cdcb954005fd6eeffbc49ea8c5d4e2e11afd4c9054ede7437d95c8a59e6ea32b"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/render/slide-5.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\render\\slide-5.png",
+      "bytes": 83233,
+      "sha256": "5e57091c6e1a257e36011c1be8fe1a6293eb07671018a0b287e47aeca9439e31",
+      "source_manifest_sha256": "5e57091c6e1a257e36011c1be8fe1a6293eb07671018a0b287e47aeca9439e31"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/render/slide-6.png",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\render\\slide-6.png",
+      "bytes": 104667,
+      "sha256": "f30b0798f659d95dc90ed8d20f6f8b747315d23bf67eea3e189f0c8b49189e3c",
+      "source_manifest_sha256": "f30b0798f659d95dc90ed8d20f6f8b747315d23bf67eea3e189f0c8b49189e3c"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/resolved-assets.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\resolved-assets.json",
+      "bytes": 2444,
+      "sha256": "b53a9e0d7bcc3c97c5a93718c2b07902ff8fc9d47679a57b8e70b4b8a085cc8d",
+      "source_manifest_sha256": "b53a9e0d7bcc3c97c5a93718c2b07902ff8fc9d47679a57b8e70b4b8a085cc8d"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\result.json",
+      "bytes": 1348,
+      "sha256": "c05a55216fe7b9094d1cb7bbbe261064161cacf82a2ad5c8b116c976a5ab97da",
+      "source_manifest_sha256": "c05a55216fe7b9094d1cb7bbbe261064161cacf82a2ad5c8b116c976a5ab97da"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/review-model-call.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\review-model-call.json",
+      "bytes": 951,
+      "sha256": "38cfcd3e0afc2d199f520b4a27fdf005f38f1118776f5b5406b70be8331e5689",
+      "source_manifest_sha256": "38cfcd3e0afc2d199f520b4a27fdf005f38f1118776f5b5406b70be8331e5689"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/review-request.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\review-request.json",
+      "bytes": 46731,
+      "sha256": "dc96b9e5b2c83451e45d83fae6f315ad9a3b361f89e69f1f6d0a8fd1afb3e9fc",
+      "source_manifest_sha256": "dc96b9e5b2c83451e45d83fae6f315ad9a3b361f89e69f1f6d0a8fd1afb3e9fc"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/review-response.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\review-response.json",
+      "bytes": 2152,
+      "sha256": "a5c8484a9389f2818ab9877f1c5436829611941572db02baaf872a2b09d43770",
+      "source_manifest_sha256": "a5c8484a9389f2818ab9877f1c5436829611941572db02baaf872a2b09d43770"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/review-reuse.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\review-reuse.json",
+      "bytes": 243,
+      "sha256": "53b4bc12a3ce5bc6e140761f9e3c10445c3231dc64c842942bc0380044ddff41",
+      "source_manifest_sha256": "53b4bc12a3ce5bc6e140761f9e3c10445c3231dc64c842942bc0380044ddff41"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/revision-plan.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\revision-plan.json",
+      "bytes": 7202,
+      "sha256": "855801602b821bbb11c7248badd8e26896fb205a16df65f140acdfaab640f26a",
+      "source_manifest_sha256": "855801602b821bbb11c7248badd8e26896fb205a16df65f140acdfaab640f26a"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/source-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\source-result.json",
+      "bytes": 19808,
+      "sha256": "cf250e9da7f3011cf1650fd0db5ff79e16f98c874169bf93a3bd6f64f154a909",
+      "source_manifest_sha256": "cf250e9da7f3011cf1650fd0db5ff79e16f98c874169bf93a3bd6f64f154a909"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/source-role-map.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\source-role-map.json",
+      "bytes": 1940,
+      "sha256": "9a708294180aaaa799d73be9a0f6f063670340fc133c7445723c4a139002c8a8",
+      "source_manifest_sha256": "9a708294180aaaa799d73be9a0f6f063670340fc133c7445723c4a139002c8a8"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/task-effective.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\task-effective.json",
+      "bytes": 9975,
+      "sha256": "496a4d299d6b4efad32b58da20a5f29d906cc6f02855184e8e9062f300f0f7ec",
+      "source_manifest_sha256": "496a4d299d6b4efad32b58da20a5f29d906cc6f02855184e8e9062f300f0f7ec"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/task.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\task.json",
+      "bytes": 3233,
+      "sha256": "86d8d906908faa21f569fb7f6e6a0e828b9e456dc4d8937d118dbb828ab1084d",
+      "source_manifest_sha256": "86d8d906908faa21f569fb7f6e6a0e828b9e456dc4d8937d118dbb828ab1084d"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/template-selection.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\template-selection.json",
+      "bytes": 452,
+      "sha256": "4c2eda76d2dc06c788fa1b578d9726e618e90ecdc6ff72c59ad76b3f1cca1294",
+      "source_manifest_sha256": "4c2eda76d2dc06c788fa1b578d9726e618e90ecdc6ff72c59ad76b3f1cca1294"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/visual-packet.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\visual-packet.json",
+      "bytes": 17933,
+      "sha256": "6dc5657e1ab8f713a587507a639c691534796370849249d7a39b684cecb70ea5",
+      "source_manifest_sha256": "6dc5657e1ab8f713a587507a639c691534796370849249d7a39b684cecb70ea5"
+    },
+    {
+      "path": "qa-recovered-success-95bdc3f0/visual-result.json",
+      "source_path": "F:\\YoloongPPT\\runtime\\data\\runs\\95bdc3f0-0d60-46b7-a8ce-418d3962e49c\\visual-result.json",
+      "bytes": 90130,
+      "sha256": "597e24f91f6fee6d1c437082ba3013923db0d8d79de6f9ae8daf7f3dd036efb0",
+      "source_manifest_sha256": "597e24f91f6fee6d1c437082ba3013923db0d8d79de6f9ae8daf7f3dd036efb0"
+    }
+  ],
+  "current_source_contract_hashes": {
+    "contracts/appendix-plan.catalog.json": "5899a9777af539ab1f85e6c4378bc7dc79e9de51d3afddbeac9bca01ac9f157a",
+    "contracts/appendix-plan.fixtures.json": "2dd070f5e5e4d4d55995f9c90182958fffa04fec3989567697b0bdb0ee23ab41",
+    "contracts/appendix-plan.schema.json": "3007536e2c512542af67226d10fa4be773cc64aae8e1de7988c5dabc17fb5fc8",
+    "contracts/asset-image-inspection.schema.json": "4f12bf92ce95d2af768629cbb3f97916173e1a960f236c98e241f4f614791448",
+    "contracts/asset-inventory.catalog.json": "97dfde4299bf38d59b11f2bae619b06c89dbe6e536d03ba869c17d7bea1c74c0",
+    "contracts/asset-inventory.fixtures.json": "91f1471228a4a8e5cbc351e5b52355cee5a3d405344b388fcaa804521b3fa6f5",
+    "contracts/asset-inventory.schema.json": "7c39b5bdbd98b1da5569be45ef253ed3990606b0c6f588ee1f5b18aecb1b8843",
+    "contracts/asset-resolver-plan.schema.json": "7cb41b44f3985ba7b3b23a5c6b101c08ece5a5a36e153ea82b230423c325ad4f",
+    "contracts/asset-resolver-result.schema.json": "83439fcc41517b3fb19c477482bc1098c4a544d0b80279d82b4752f645bc314c",
+    "contracts/assumption.catalog.json": "7b2e940602e54b689f866b2b261fb94a5b2ff2d666ca197c580b6f35e8141429",
+    "contracts/assumption.fixtures.json": "42c0517fbb405a3506f77d4525a606a96bb02000d2e3e796b02630c5c4265ec3",
+    "contracts/assumption.schema.json": "d97c782aee28197d6fa70e706946c9daf494531f5e8bb2ccadb97d807e826705",
+    "contracts/atomic-registry.catalog.json": "908710b68f915fcc3d9b8ee4f1964034678275eac6be4df9f0fd71c16888ad58",
+    "contracts/atomic-registry.schema.json": "60958b0554b593a98a7bf5c241544073b5bfe27d02cf58f5132b16e801ad3e8c",
+    "contracts/audience-profile.catalog.json": "e09a7bb17881738a4fbf72c71b8e07052e8f347bcdc5993c398b71f5b49a4d59",
+    "contracts/audience-profile.fixtures.json": "82b4ab7a75a62b77a940c8269186224801adae124dd378d41a0ccdd8b67eef89",
+    "contracts/audience-profile.schema.json": "721451a107ea8f1ac2bbb90f89669f7304bcb6e72d8a48cd58744140420518ea",
+    "contracts/capability-status.catalog.json": "cad7b23742d7b6d77a59f85bde9bf0d111bdb25bd62af1c3afe1079112e29f02",
+    "contracts/capability-status.fixtures.json": "d6011396e199ab5fc4938bba313625b5cd041e9b710619e3075fea08951d9c65",
+    "contracts/capability-status.schema.json": "85f61dd9042d4f67ecf18880c41f7f0c8cbadd65131c3cb5941430965b3b199e",
+    "contracts/capacity-rules.catalog.json": "d31e4578cb07cc456669ceb577c7afd6cad2852647956cdf8e5ccd26a470e4eb",
+    "contracts/capacity-rules.fixtures.json": "48eb39a92fdb180bc50e4e4231bc6589d60b56f49c661f8547958cde48fa9ac4",
+    "contracts/capacity-rules.schema.json": "8149bfcf23c9fe855cad20015917759b64db47d1f63b3c14312064e806a074a7",
+    "contracts/citation-policy.catalog.json": "1d0ccf7aed231b678e599ab733c3898320367f5638b5f18f88eab15c692425f7",
+    "contracts/citation-policy.fixtures.json": "21992cf39a97a06ecdce4bd3c44af453606d242175659e799534ec4c69dfda0d",
+    "contracts/citation-policy.schema.json": "d93113e3a5eb84513ddbb4e8c7cfcc5a1575968315af3f00443e2b3ae6a81924",
+    "contracts/config-schema.catalog.json": "df204bb4f146e898b43a56da1763257cfb7ba460d7969ad516dd6bc5897f4a87",
+    "contracts/config-schema.fixtures.json": "40f17322fa2fb2b73c07a93aa463edb38e9772cef56d4687402a18d8808a2071",
+    "contracts/config-schema.schema.json": "80408956daab254cb770a003544a10510f2955d38824f322245a5725c5e2bb53",
+    "contracts/constraint-set.catalog.json": "aaaa979e6bd7ac1a6ace7a709329b04f3f00eb59f0b6f56543cb34d378f090ac",
+    "contracts/constraint-set.fixtures.json": "1941b63f39ba4519295ca2fa82a32b0696e559c2ac69e1425dc429b12754d775",
+    "contracts/constraint-set.schema.json": "9361ae7a641c5ded5a09737b1e47eb1e26440819bdac1abe63fa059a07432061",
+    "contracts/content-graph.catalog.json": "74452903cc25b9f68bdc6db0e1b52b32bf89376ac179602a4cdd670e5cb9d297",
+    "contracts/content-graph.fixtures.json": "2019dc922225e690ee721774efdc413953e04d0040b469013cfcc4cb537d17f4",
+    "contracts/content-graph.schema.json": "c9ea32414abf2b6e0b620ae0aaa548971b56e595b787a3e48015fff105afad84",
+    "contracts/content-rewrite-trace.catalog.json": "d672eb8c18866347515049a4a56ce8fab21fd61d280cbdd8cd7fbecac09dc53d",
+    "contracts/content-rewrite-trace.fixtures.json": "9c7a674138b29542b975c60149949c8889bb6df44f7a6b243cc9bb5b41788fc4",
+    "contracts/content-rewrite-trace.schema.json": "28028d4f04e88e7970b232214bddd1a7be98373e6d80348306d09a192db2e83a",
+    "contracts/data-binding.catalog.json": "5342c8e17dc30d2b265f931566318a94aa666503c9446cb59d31c1de6f3aaf3c",
+    "contracts/data-binding.fixtures.json": "fd09091f919cbb35eb5645c7ac247fa65f232df31b163c84ff74d25e300c772b",
+    "contracts/data-binding.schema.json": "57ce8f4f95bc058461ec0136bbeaab524699570d76176bc7f309d3ad25cd07d8",
+    "contracts/decision-trace.schema.json": "b676f34d25ab78b5198565813132ea0a82f42aa0fb5c72f675455c9e7458b8a8",
+    "contracts/deck-execution.schema.json": "6d60ee473da5a9f2f8c2572b695a6e2e09e342e59b3c7b0f9a24e14ef9a70c17",
+    "contracts/deck-thesis.catalog.json": "51a959c9f613d5085003d067949411abb8998ff00ad1ba37f30ccd52bd0123d5",
+    "contracts/deck-thesis.fixtures.json": "1c72606f66f481cb04a03eb2562782768173c74984f16e159187a551769e22b1",
+    "contracts/deck-thesis.schema.json": "f5069adf10609da7c4f91cb953bed45f4d556d9f75196fab39025f1691b7ff03",
+    "contracts/design-tokens.catalog.json": "8447d5992bb17bbcbc0e518f10e80fb4b587dfeaed80bbddedd749bb458e488e",
+    "contracts/design-tokens.fixtures.json": "e37862ee055a38d898ef90f9016fc290c086002d55688b98ab758d0ffc0356b4",
+    "contracts/design-tokens.schema.json": "ea92e761daa1d51fce434ab681f87d2727c47da5788cdaae1ec215816ae96785",
+    "contracts/docx-evidence.catalog.json": "879b157dc65bd5e381511839bd9a304840e7c6a7846837fbf7195d4c488f82ca",
+    "contracts/docx-evidence.fixtures.json": "450bcabeb001e4b6605f0dfa417d4e04cebc5dfcc6e69f73c606847eaf1e660a",
+    "contracts/docx-evidence.schema.json": "c2704b4b6a65e6204ba4c4ac46d07bbd04a96fef59fda282fa93baba4bbe0a83",
+    "contracts/e2e-acceptance.catalog.json": "1ac18885726552febade45a9699cd47bb6e9b6e125fc66ca54b5cc77ca559782",
+    "contracts/e2e-acceptance.fixtures.json": "0dd0a8d0a29593020b7a9bafc728d5c38ecac15f27b556a32a1dd24e1a8ad511",
+    "contracts/e2e-acceptance.schema.json": "5134ad6e170ede359343e79651b9c873d05178cdae70ba9f1b64abbaf18feac4",
+    "contracts/evidence-conflict.catalog.json": "d2e98726d3ce04a9828856efc563b83ee77c1a6aaa4bfb0c5958246ee6c08880",
+    "contracts/evidence-conflict.fixtures.json": "a224224168a3064be5032b262889d6b92dfe902b242a37ed3a677d60f95fc623",
+    "contracts/evidence-conflict.schema.json": "f0e96bb92cd62d1d9909a1dd906eeb3a8f7c528dafd3e72793384ae38357879d",
+    "contracts/evidence-decision.schema.json": "970a1566c285e94d6758cc5dcf54797de2c930397f2d78ea2083216efb3ee944",
+    "contracts/evidence-policy.schema.json": "9004e1ad546147c170f5f85edc77d627e5942666a5e4b9c30540a36773174516",
+    "contracts/existing-deck-patch.schema.json": "58347bcf6e38ad9bf2a75cde9c01074b0b90c47ed0c6dc23c5af8293a87a35db",
+    "contracts/fact-boundary.schema.json": "e80b58d3dec025593aa7b200e1e84cdd2db6d743b1e3f68d0661f7153fdd30f7",
+    "contracts/fact-constraint-set.catalog.json": "dd6cceec100d7f2d491efac144d7f8590cb30cd992b52c9972f1d721896b59d6",
+    "contracts/fact-constraint-set.fixtures.json": "404c4b5ebc4fef88cbe25e18317845e2c8b2bceae1d3ae5789a186ccd9dcdb0e",
+    "contracts/fact-constraint-set.schema.json": "fdbd51369f51219e5445cc3d7efbfefb4010b56ca8893bb233329403b4fade8c",
+    "contracts/fact-interpretation.schema.json": "1cb9e5cae34fe7f9048b36c87fd209f9f4aa0a3971839b2387e2c3d3c6822586",
+    "contracts/fallback-record.catalog.json": "e7852cf0031b87b9ceadfa81bafe43f811470ac44b0078819b28481ece04daf4",
+    "contracts/fallback-record.fixtures.json": "60e26019bcbfabea8bd9d4c056f94814fc5a69d7ac9303711ce0ce6605cf66d6",
+    "contracts/fallback-record.schema.json": "23bf5f91980e6698b5c123042777641971d938be98c59ad5ae4e8dc0a647cc74",
+    "contracts/generation-model.schema.json": "0bfefec3c9ea77384fe7d945780626bb1d614efdb81a27a044f5de2c10c22e39",
+    "contracts/hallucination-guard.catalog.json": "aceffe801ea95a3b6e6e7ee0ed6f304e7ec598a78f60bf887afd742df30a21d7",
+    "contracts/hallucination-guard.fixtures.json": "1623e28a42071d9684f029e66e8854d77e94f4588ac41e701c06363b58d67e53",
+    "contracts/hallucination-guard.schema.json": "048c05dc6acbd1de274a8c30063d789c24ad09a0a2b65f081314f4f7696e950c",
+    "contracts/image-evidence.catalog.json": "7ff997bd2ad2823860ac9664ce7b82dec74c380da67b40930930b2839243357b",
+    "contracts/image-evidence.fixtures.json": "d296ea30b343ac44492accf4128d39de415b5c6927632bca9bbcf7c1425abb77",
+    "contracts/image-evidence.schema.json": "74c49df1d3ef83d053f3bc6edf83e12cba525b1b886bc3e317159c69f1bf6e01",
+    "contracts/imported-deck.catalog.json": "ed87a43e8cf1c2c971e7abd458dd818c6bbaae21bd0243552669a97e12c1ad7d",
+    "contracts/imported-deck.fixtures.json": "874ce022edde4bf71766d68485ef90a79164e69f5b44a6cf16a8fd16551a2c72",
+    "contracts/imported-deck.schema.json": "2bd6cab7dc2a80c244497b747e36cc673ad468814bc8c224dfd8fc7db7b2c620",
+    "contracts/input-format-result.schema.json": "52d2f808702cd4ca229fede1fb6be901c1e7eb078949969abbce9ed367467da9",
+    "contracts/input-issue.catalog.json": "8850612be3c2af2ee12ec253c02c1bff8a32ec2744175ca2c77071fde4becd3f",
+    "contracts/input-issue.fixtures.json": "182508928c98b074013947681f30b2a66572453905bd8e56cf922f0dafe11aa3",
+    "contracts/input-issue.schema.json": "8d0c45eeae8bca1a857755614c09728aa5de7bdb2ac8e71fb5917810ab5f6f8a",
+    "contracts/job-request.schema.json": "740c4b887143f3244c46ec11fc81aa8e371daa02224a3c9fa88a8483bb313a3e",
+    "contracts/language-style-spec.catalog.json": "d3af171a38839c637da258743e8a82ba0dbb5bb2f8a778d95a5d07df929459ad",
+    "contracts/language-style-spec.fixtures.json": "94fed211d1235df16233287a3ba66f7bb2abba6710c9be558566474619e93488",
+    "contracts/language-style-spec.schema.json": "22ebec367dfcf8907f6bc57d1c3c55ccaf952237505d2fcf52fa206b5073797e",
+    "contracts/layout-applicability.catalog.json": "d221ba6f90345844d1287ed5b1723d13f46673f8edd5c780a1bf21952077426a",
+    "contracts/layout-applicability.fixtures.json": "b835bd4bd8f1611254b3c482034a920876a820614260ade963add4c8adb4e68b",
+    "contracts/layout-applicability.schema.json": "31dd8629f7d9e39183fe79de33765b1f570f8124c8733951196eb9fa1c22d3df",
+    "contracts/layout-slot.catalog.json": "5ca6f670ada49195b52d5f9eb2dbed3250ee4fc3b1005b0bb33838fd1c016719",
+    "contracts/layout-slot.fixtures.json": "ed828143e47a5a43b6bcbaaf9fc392955920575eb0a5d91c6eb2de01916db7df",
+    "contracts/layout-slot.schema.json": "728812880ca9924bd624207169bc6181b94199cee23c132f9f41955a780e0cca",
+    "contracts/layout-stage-node.schema.json": "d4dd4cb9fe9939512d7962b674fb6f7a4d7c32078f68ad4cb1b8a4473baf24c5",
+    "contracts/layout-template.catalog.json": "4ec55b78f0b04061f53a29df0df8dc0b35b60d0cc2eaf9f3ed5ecf114190a380",
+    "contracts/layout-template.fixtures.json": "8e81ea03e9eb43b4915227fdf40d9a0e57b419e15921725a3da0d7797120727a",
+    "contracts/layout-template.schema.json": "cb0cfe9f52f19cb21fe52ae9ca51ff4e1ce97f651f8b1ce479941a8e34c41f28",
+    "contracts/master-spec.catalog.json": "b5409aae303a5fc5bd65eccd99e16f4c336f5f6ee430654e1eb9c6d77f1ddfa7",
+    "contracts/master-spec.fixtures.json": "0201bcc083888ee3866cf5123c93034f561a0585b74cb3de3a84aaad36e516b9",
+    "contracts/master-spec.schema.json": "75fa4438489dd9b70fb00170c36b230ae64d988aa932dd5c78b8f654364c0cc1",
+    "contracts/narrative-context.schema.json": "3570d159082f0976f79c62ea72481607328888c82bf13e3bc2e37316ca7f5934",
+    "contracts/narrative-request.schema.json": "6d25f1a0fc43c9e2ab32a8dbbf69e4b152a64495c9115e478c2d38aaa04d65e4",
+    "contracts/narrative-result.schema.json": "464ffb30814fff2dc364be04208a21d9ed89247b2a9e17f94f4a57679e1bc2d7",
+    "contracts/narrative-trace.schema.json": "6bfeff0d1d5239fec9243672bc61c8c7ac140deff2223852124821e75f89ad83",
+    "contracts/native-layout.catalog.json": "2cad77f3385afbb8ce27ae21300d8590bd2de241f082ba67c1bdcffe4b4b9daa",
+    "contracts/native-object-spec.schema.json": "e8a967a4711588e23e117835440de6dde994f94ceee1abe181a3f8c9d02f2988",
+    "contracts/notes-spec.catalog.json": "313843d6d2e9530fa40ca5f4ff14e65a22974fc6b6cd6d3b5a8bbe42a3451dcc",
+    "contracts/notes-spec.fixtures.json": "eb2087ee111a568c01ea69c0ffc33c2c561a107cf97fac46860cb0be8f512f0a",
+    "contracts/notes-spec.schema.json": "7739670238c7a3d7ad790b1c52bc961d9e8f9947b2d6b4e156ff3bc7db984127",
+    "contracts/object-id.catalog.json": "057e75b41be62198c3148fe167e1edfd9814f40d294483c7feecbebbaa63ddc1",
+    "contracts/object-id.fixtures.json": "e4c271bdf04d81185cf3875c59c7c6c326ff588f47526a54b3f741cbbfa8f110",
+    "contracts/object-id.schema.json": "21e614a8966fc58aab56f7b81a9f4e414d1ef9ddb37cb68c742026fd4feaaf26",
+    "contracts/ocr-evidence.catalog.json": "de93276f56d9c42da3eb3aa77ee00f04401a917a7a81a854151557899fc7e6ee",
+    "contracts/ocr-evidence.fixtures.json": "16e46683bb4fd8a69080a5c0577fb840c54ad76637a30ee955a73784cbfd822a",
+    "contracts/ocr-evidence.schema.json": "44a98123f17f9aebb328501b5dbd5efeaa1c9dce16cb5a6ace4a2163ea1106d9",
+    "contracts/pdf-evidence.catalog.json": "36eba32ce067c844999cfe937943a6ff780149bc87252a58fe84ed326d5e9da4",
+    "contracts/pdf-evidence.fixtures.json": "1ccaab8db7562adf3a55de4134a6c05698d44afd9fc9a0c771bbf817a0f4c32b",
+    "contracts/pdf-evidence.schema.json": "b37bc58d33bfed533d990a89df2eacc1a95c343699aa67a162c0b0db65f538fe",
+    "contracts/presentation-context.schema.json": "7374b8bcd2cbcca2095a494f24018db7af6b1259ad5c0352739f677ebbbccc4d",
+    "contracts/presentation-scenario.catalog.json": "ef43923aa006bfd3b14cf63253a86abf7d8c38a166591f93de4cb5f82556f263",
+    "contracts/presentation-scenario.fixtures.json": "393d7175fa1cf039b419068dcdd25e49295a866a6e298bc334bad22d138908de",
+    "contracts/presentation-scenario.schema.json": "55bc709a4c0a07dd46d70c708935f02a4f5839b5d34eecf5aff62cf460106b4a",
+    "contracts/prompt-input.catalog.json": "6062ee427dc2eb4c4ad283438b5bb5d04d68e6f3e8524948a0a1ce6e839bfd13",
+    "contracts/prompt-input.fixtures.json": "791dd0290431126032e07421536f3c1a6d50a4f81352449520716966c8b357de",
+    "contracts/prompt-input.schema.json": "096ae377313f92f78df61be38e4f2ec9e061b55fada68d24acef402f2fd52d00",
+    "contracts/quality-stage-input.schema.json": "82d8c76e46c053082bc9289cd90ff01e7e0de29790b3c1392aea43c925d61a7d",
+    "contracts/quality-stage-output.schema.json": "7e3b25edca33c104ca32b9d5be372a4f172b67f132566d139b552af4efa7cd85",
+    "contracts/revision-plan-runtime-output.schema.json": "0257f7e6ff8b7a93ba80d308c77aa89f100282ba23249f85477bccf5575eb0e5",
+    "contracts/revision-request.schema.json": "3fa2de13eeded6c7155deeca2326f8abdcbb5034c72dd2b55c3c65186c657541",
+    "contracts/route-request.schema.json": "e48b2357d73340d0a6089efd1f90f80d5274c3851a11b7721642579c6d374722",
+    "contracts/route-trace.schema.json": "518e211e9f9499fc6a0cdfd5be7f8d80184c5362f925fa5dd5e5790aeab852b7",
+    "contracts/source-anchor.catalog.json": "eb03e3b9234e765c291ad02317c4b438140771f24bde2668871eb6f0481aaad6",
+    "contracts/source-anchor.fixtures.json": "a4ffe88fb4e4cbe91a0cb635655ae31a5e3c17b9bd0c59be7082332bb2eaf6f1",
+    "contracts/source-anchor.schema.json": "4fe43d038ddde4697da99dc9e68cda8f635654594c0bdf9da79c263a9bfa1608",
+    "contracts/source-bundle.catalog.json": "023477e0be22935b19982cc867b77bfdb78d7d7d2bf5c3a98215d87697857dde",
+    "contracts/source-bundle.fixtures.json": "4b7608511b64e2c5019ba038d5237716511767b1ff91b164622c16ff28c20b03",
+    "contracts/source-bundle.schema.json": "90dd4487e16e93744942b18b823bfd807e3eb4aa059d59f6bc3319a2ce3a30d9",
+    "contracts/source-evidence.schema.json": "479361fd7b924ac3ed2df2fe5f3463fa81876345ed16c78bf302163ac66a8715",
+    "contracts/source-role-map.schema.json": "23f05b9a2e80d79876583f3eb9663a6a1ed3c1bb8a3f0a645a5c85d3a9409d79",
+    "contracts/structured-evidence.catalog.json": "a62791d98d6e9e312459c8aac86850e1de3e61e84f53621de50b12f238987539",
+    "contracts/structured-evidence.fixtures.json": "f668de50dc7753c5b9344fcd9916c3b69d90482d7561a4f052e0b848599c8014",
+    "contracts/structured-evidence.schema.json": "22560b71fd939f4a054ccd0fbcd688d85298ce6625e60e0d7301882f8ff54c0e",
+    "contracts/style-reference.catalog.json": "939d93f4765b8203cf5a09bebc37fea7280c725892d5adb0fdd3bd0f3c1f826c",
+    "contracts/style-reference.fixtures.json": "499bacd438de7e49606fab25a17b027a887a7f427ca72c374efefd7a8bb619aa",
+    "contracts/style-reference.schema.json": "f2e95037f4b00814b27eca3db37000dbc742e60d2c2d31c39348ea2da69322e1",
+    "contracts/tabular-evidence.catalog.json": "d325febc9f5b14b08cca34c43ca646b6bd428c3571ad19a82ce387f91d7396cc",
+    "contracts/tabular-evidence.fixtures.json": "acbc04bd9f50752c5673eb9c5d97e2c7bd37de2c25f26355d32b7567f14f82a9",
+    "contracts/tabular-evidence.schema.json": "afb1f97e04b4d0dc397d2c6da21db9c60c03f2149ceca5119a3a0d89cd3363cd",
+    "contracts/task-route.catalog.json": "4079a7d007bfe0e669488e5cb5df1721a4da06c243b330dd3fb4069295c30419",
+    "contracts/task-route.fixtures.json": "578d32c248d6faa931ca672516fcf9f778b608ecd406d2c4c13708814d2a3aa9",
+    "contracts/task-route.schema.json": "5adb591e32e0e7bf6b419a5ef2d8e7cb14fe07db45fd2f2dbfbe3836bedeeb04",
+    "contracts/task-spec.schema.json": "e107163822a6c50eec88df8937016dd45338e020c5e944df7d3ac2c4b8d89f02",
+    "contracts/template-field-map.catalog.json": "dac97a08b6dc612fc3261c134188afcec1354ba8dbb7dce7b773347bfc193874",
+    "contracts/template-field-map.fixtures.json": "3556850d3ac0f9287654a0687c36cf957d59ce349354fb0c15b68aad72dc3e90",
+    "contracts/template-field-map.schema.json": "9fd627ef26eb23f8c4b8d115d69ef415f4ae94a0b05cc5d1939a0cbe69a55d88",
+    "contracts/template-import-report.catalog.json": "a42a4f83a4db6b0c8442b183666ed28e92d129a70ebf390ecb37c410d76c28fb",
+    "contracts/template-import-report.fixtures.json": "09e1a480888fec6b20f1cebcf11d1cb8aca0d6499300605392049892374fc042",
+    "contracts/template-import-report.schema.json": "711cc508b5d16cf4aa15075e5bd62a711d887ac0af9fbce068137f239b8906c5",
+    "contracts/template-native-pack.schema.json": "f8c502f60634023f0ac33ce4028763c7886b19c1ca892b1a2a3aa6cea35b1606",
+    "contracts/template-pack.catalog.json": "17cd763cb33669248ff5eab39503bdc293e2bda6b3b969a94f7635b9f295df1d",
+    "contracts/template-pack.fixtures.json": "ed9bb3401abac92f94c83cd44e1e257ffc8df21168d340e3db5739dff979c85c",
+    "contracts/template-pack.schema.json": "35d129ae94713b3c2819238cc89c4b60746c8379ba6524fb2643f7908f8b6f6d",
+    "contracts/template-registry-record.schema.json": "37a232122c454bd25e3d9d72cd2009e49abae5c7d295a07567b877bc725bab0f",
+    "contracts/template-source-record.catalog.json": "5a25d808de01abd6ebbf142f1d7bf416ea3b7ba098cabea3d37bad9e50d412cc",
+    "contracts/template-source-record.fixtures.json": "a56029381e0ed804b534e5318e69edc0bac504a2948db6314e0f6053042934d3",
+    "contracts/template-source-record.schema.json": "aab26cef803b270d79a627a45b4f0ff6d2cefd050d5c055fe342b0d13410515b",
+    "contracts/text-document.catalog.json": "78e7ab09345459fb08f16b5614173e2ec4ee669e693adc82cf83b2896fc3c2c8",
+    "contracts/text-document.fixtures.json": "a63700e176f333d9efdf657d09b7f15936bef0a77da5145d4bfb864a48903e03",
+    "contracts/text-document.schema.json": "5838db9a14b413f00989f2e5bb68f5975036cfd83864b34d4b47aa253849579a",
+    "contracts/version-manifest.catalog.json": "38db5ca5a9c920c0922ffcfe7b1755bfe38dbda53dcce72f01a40bd9f6795a1a",
+    "contracts/version-manifest.fixtures.json": "b981fd34ac51885e1c426db5ce9899d2c44039645c3648893180836c189f7ff0",
+    "contracts/version-manifest.schema.json": "b1cf2eeb3f1834b9ca596b4f5f0548d4e3d6ab286d27d2f982286416a7fa3b23",
+    "contracts/visual-model-fields.schema.json": "618e040fd862d9bda78a0c481c7e996b9391cf548db349d8e71e475e1af6bd92",
+    "contracts/visual-packet.schema.json": "932f5490ee8b9ebdc2770a9dd076c7120ddd3d769a3f11fdbe1fca61ac1dd52b",
+    "contracts/visual-request.schema.json": "e721531e5f5503f19fce8f200da3bd7e8bc6450256da5c789f92e21670cbe471",
+    "contracts/visual-result.schema.json": "ee4d59afeda64193b5db080277c8510b77149821aa3fa9aa6bd0cf0f58bb109d",
+    "contracts/visual-trace.schema.json": "2d9ecfe7658b7dcef6f94b7798c3ea80378ab41308eeb81f493a19f7878aca28",
+    "contracts/web-evidence.catalog.json": "f90bc11595c034b6859579c702f6d1e71258b9c86544576b3ce9c96c0958f030",
+    "contracts/web-evidence.fixtures.json": "0158bf3ee69d876e7a12beee2653a9b48358061bc1942a7b9817e5bdc609f20a",
+    "contracts/web-evidence.schema.json": "7681e0ac361b21ab608cdedf8838ef70b8fdbc82bcc96e971d5ab3ad35c1ff26",
+    "src/yoloongppt/__init__.py": "8bdb38ff28f3a548d91af566ff0637444a48c296386952e669f73a2b9f7aa90b",
+    "src/yoloongppt/__main__.py": "8a89800fbef367b8a8384b6460537368cc6e57b3bf43ee8f6400edad4d2876c0",
+    "src/yoloongppt/api.py": "ba8e1234b8d578b3bba518124b51b7d466e0230b2b529f677fc6556e1fcb3bf6",
+    "src/yoloongppt/artifacts.py": "122a72e8a81d991daf5a4237c573bbfb4a43fce0e7f4427d9aa264b1a5334e8f",
+    "src/yoloongppt/asset_resolver.py": "b043189a1017e54b3cd01f2b56a6c27f476186101beb83046da17b85f555fafc",
+    "src/yoloongppt/assets.py": "763da1b80811776de01fc37173d98174718894a214fac372edff373e36fa7982",
+    "src/yoloongppt/atomic.py": "77447e7c5c31a1307c0b055feedd9cfb85c681188ac7590c16740ae5c456ff57",
+    "src/yoloongppt/capabilities.py": "dec12d838d8c53ed04695dfad173229d37aaa52857162f377ba997a34bd9a10d",
+    "src/yoloongppt/context.py": "c0d1f2309a3186382437af0e143df745264b82a0984559f538c85c80a15d732d",
+    "src/yoloongppt/errors.py": "877d710a888b55a173c3c376735c2796510d3b5733174fab02a37fff2d76f355",
+    "src/yoloongppt/evidence.py": "2e66c94e2a5d8eeea70006f98b525bca84930f64b70112d042ee96973e6bac3a",
+    "src/yoloongppt/existing_deck.py": "aa88ab55fedc8350629cf3e6e12be76a64553428cb5ea589644b4ec788de4e74",
+    "src/yoloongppt/facts.py": "9cf67567462e6bf43b39724753be8f3f223d200a79ce7192e10a162652398ba6",
+    "src/yoloongppt/generation.py": "b181e2633d81437e0d5c67c9660c95776976a2b9d3c6ad8f37cb2e5b0e4d8f70",
+    "src/yoloongppt/input_formats.py": "53b4513c32314f4928fa1bd8504539634327ceac2d36263baad433f54c46aa36",
+    "src/yoloongppt/job_worker.py": "170468882f35ccbf23f891a5c0f55b96189dd5360ae7dc7f7eb22eb31af9c633",
+    "src/yoloongppt/jobs.py": "7131a2b0598db9e915289e914eab51e24801e47de0f536c5d814f47baf26dafb",
+    "src/yoloongppt/jsonio.py": "7eede0b149d96093f63a9d0eaa9416b2acba2745535ef8fe76921a99323d8fb9",
+    "src/yoloongppt/layout_decisions.py": "873c28f327983f886e4e5354af103c22e6036c20e12298735b0b408a83368b0f",
+    "src/yoloongppt/layouts.py": "97b8208e5ce939f8b45b74a558765e2f87023df83840bd708816df6b754d02ee",
+    "src/yoloongppt/markdown.py": "a4ee49169ab79914e3e9a99fcde6b5ae3af6bc9d5200199463acfcd1a32d812a",
+    "src/yoloongppt/mcp_server.py": "eea478eb09c18680d8b0b4d15dd87f72e487dee7d9cf82459aaea26ce14dce19",
+    "src/yoloongppt/narrative.py": "9b9811627a75c6bb9bcb2ada3269e58da9b2713210715686adbe6f6e8b3e454e",
+    "src/yoloongppt/native_objects.py": "f4dbe032a8e77ebeff521f0eb995331287bf0f2e1b26b19e94196ad87d749817",
+    "src/yoloongppt/observability.py": "9810fc6416b2d6499cb151706d26c792525467e2e6f1cccfde87c7b35e31441a",
+    "src/yoloongppt/operations.py": "6e2b455e860f542d298511fb5c3f1d4f12c5252889c83e1d3334eb14ebf26531",
+    "src/yoloongppt/planning.py": "2f7abf3ee5b9ba3d632783934f84a4d189498297675e8e7576fce4c9bb39196e",
+    "src/yoloongppt/providers.py": "269a90d1e498d54cb9f16fba8f6735ec586c1f26e8298ce784ab43d601bf7d99",
+    "src/yoloongppt/quality.py": "f95f271cef0b4629805530245f39a5b19aac90d058e33baa85fb977816a7189c",
+    "src/yoloongppt/quality_decisions.py": "ff20b5542d65f62adae7d62c84f5c5f389386e18aed2e6dc32b8d6880206e2ff",
+    "src/yoloongppt/quality_rules.py": "83cdf01f7611aabf73efd331d95ef2df4b97ba2c2c5112c8f37db030d38dc099",
+    "src/yoloongppt/rendering.py": "59831608a7d5d7ef22613a70c7203407d6190afd5e9bc40361b65923f8cc14c6",
+    "src/yoloongppt/review.py": "7394551c2000ffa20c47782953bee6794019820d18c70d92e6bd991612aeac14",
+    "src/yoloongppt/revision.py": "24d98865206352966fef2030acf536b3cc35bb25f4164fc2e452ffe07c0362cc",
+    "src/yoloongppt/revision_plans.py": "107314c594eebd228563bb3c9f3b6f38ec10e8059d73371582e749b7e09de183",
+    "src/yoloongppt/routing.py": "c5cd66cb20e33de813403623db7f5f935a5433494ae048f2838091e6ed967438",
+    "src/yoloongppt/schemas.py": "f58337c8a7199056b131b7e43f46e7d994804eab2a3889a38e9c8a6ed45071bb",
+    "src/yoloongppt/source_roles.py": "17abca434fcdc61145cfbf556a5fa7a9495d9eee63812e7bdcb99aa400cf9916",
+    "src/yoloongppt/sources.py": "add49699cde32a20d903222e7605e49e79efbc445c7766e33e452bbd77ed464d",
+    "src/yoloongppt/tasks.py": "e00553086474db58a632cfe0d3b042a53a37e8b6203694ff998b0d8dd4abcdaf",
+    "src/yoloongppt/template_registry.py": "70818503b7d0850e7849662462ecbe4e49e79c44deb64410d8a8f0f9c67d4ac5",
+    "src/yoloongppt/templates.py": "505b718b514560e73980fa898b5ab45f486f52c21f07a041d76579d82257ece7",
+    "src/yoloongppt/visual.py": "05b3e9264c866fc1b79599399e86622500c39050d1936880816c59da4cb31fdc",
+    "src/yoloongppt/writer.py": "58b48554aca8b2a35ce8000910966064a81f43c769b4794cf063b452f3017333"
+  },
+  "source_snapshot_at_utc": "2026-10-10T15:42:50.272214+00:00",
+  "source_snapshot_meaning": "current repository snapshot for review; each run retains its own actual execution/version metadata, not rewritten to this snapshot",
+  "not_exported": [
+    "secrets",
+    "credentials",
+    "SQLite",
+    "runtime directories wholesale",
+    "LibreOffice profiles"
+  ],
+  "system_acceptance": "not_passed"
+}

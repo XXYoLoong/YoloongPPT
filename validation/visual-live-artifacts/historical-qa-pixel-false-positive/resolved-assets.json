@@ -1,0 +1,68 @@
+{
+  "status": "resolved",
+  "entries": [
+    {
+      "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+      "source_id": "source_2ce3a059-f498-491c-9f3c-15a2636283d9",
+      "source_type": "user",
+      "source_locator": "/runtime/visual-validation/declared-image.png",
+      "source_url": null,
+      "path": "/runtime/assets/39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e.png",
+      "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+      "bytes": 552,
+      "mime_type": "image/png",
+      "width_px": 320,
+      "height_px": 160,
+      "inspection": {
+        "asset_kind": "image",
+        "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+        "bytes": 552,
+        "format": "PNG",
+        "mime_type": "image/png",
+        "width": 320,
+        "height": 160,
+        "mode": "RGB",
+        "frame_count": 1,
+        "aspect_ratio": 2.0,
+        "dpi": null,
+        "color_profile_sha256": null,
+        "perceptual_hash": {
+          "algorithm": "dhash-9x8-white-composite-frame0",
+          "value": "0000000000000000"
+        },
+        "has_alpha": false,
+        "dominant_colors": [
+          {
+            "color": "#1A5043",
+            "fraction": 1.0
+          }
+        ],
+        "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+        "semantic_status": "not_inferred",
+        "ocr_status": "unsupported",
+        "issues": [
+          {
+            "code": "IMAGE_OCR_NOT_EXECUTED",
+            "requirement_ids": [
+              "IN-011"
+            ],
+            "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+          }
+        ]
+      },
+      "license": "test-fixture-authorized",
+      "usage_status": "authorized",
+      "authorization_basis": "Artificial fixture authored for product integration verification",
+      "attribution": null,
+      "transform_history": [],
+      "request_metadata": null,
+      "source_refs": [],
+      "semantic_status": "caller_role_declared_not_independently_reviewed",
+      "deliberate_reuse": false,
+      "cache_status": "complete_and_hash_verified"
+    }
+  ],
+  "issues": [],
+  "duplicate_groups": [],
+  "boundary": "Real bytes/hash/MIME/pixels and caller authorization checked; semantic appropriateness, watermark, perceptual duplicates and full AST acceptance remain unproven."
+}

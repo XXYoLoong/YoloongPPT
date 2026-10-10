@@ -1,0 +1,163 @@
+{
+  "passed": 23,
+  "checks": [
+    {
+      "id": "secrets_asset_path",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": "secrets_template_register",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": ".git_asset_path",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": ".git_template_register",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": ".ssh_asset_path",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": ".ssh_template_register",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": "SeCrEtS_asset_path",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": "SeCrEtS_template_register",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": ".env_asset_path",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": ".env_template_register",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": ".env.local_asset_path",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": ".env.local_template_register",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": ".ENV.production_asset_path",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": ".ENV.production_template_register",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": "symlink_to_secret_asset",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": "symlink_to_secret_template",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": "symlink_escape_asset",
+      "passed": true,
+      "error_code": "ASSET_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": "symlink_escape_template",
+      "passed": true,
+      "error_code": "ASSET_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": "lexical_traversal_outside_root",
+      "passed": true,
+      "error_code": "ASSET_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": "actual_resolver_consumer_denies_env",
+      "passed": true,
+      "error_code": "ASSET_SENSITIVE_PATH_FORBIDDEN",
+      "read_bytes_calls": 0
+    },
+    {
+      "id": "ordinary_allowed_path_retained",
+      "passed": true
+    },
+    {
+      "id": "ordinary_in_root_symlink_retained",
+      "passed": true
+    },
+    {
+      "id": "all_eight_existing_schema_hashes_unchanged",
+      "passed": true
+    }
+  ],
+  "source_hashes": {
+    "visual.py": "05b3e9264c866fc1b79599399e86622500c39050d1936880816c59da4cb31fdc",
+    "asset_resolver.py": "b043189a1017e54b3cd01f2b56a6c27f476186101beb83046da17b85f555fafc",
+    "template_registry.py": "70818503b7d0850e7849662462ecbe4e49e79c44deb64410d8a8f0f9c67d4ac5"
+  },
+  "schema_hashes": {
+    "asset-resolver-plan.schema.json": "7cb41b44f3985ba7b3b23a5c6b101c08ece5a5a36e153ea82b230423c325ad4f",
+    "asset-resolver-result.schema.json": "83439fcc41517b3fb19c477482bc1098c4a544d0b80279d82b4752f645bc314c",
+    "template-registry-record.schema.json": "37a232122c454bd25e3d9d72cd2009e49abae5c7d295a07567b877bc725bab0f",
+    "visual-model-fields.schema.json": "618e040fd862d9bda78a0c481c7e996b9391cf548db349d8e71e475e1af6bd92",
+    "visual-packet.schema.json": "932f5490ee8b9ebdc2770a9dd076c7120ddd3d769a3f11fdbe1fca61ac1dd52b",
+    "visual-request.schema.json": "e721531e5f5503f19fce8f200da3bd7e8bc6450256da5c789f92e21670cbe471",
+    "visual-result.schema.json": "ee4d59afeda64193b5db080277c8510b77149821aa3fa9aa6bd0cf0f58bb109d",
+    "visual-trace.schema.json": "2d9ecfe7658b7dcef6f94b7798c3ea80378ab41308eeb81f493a19f7878aca28"
+  },
+  "prior_evidence": {
+    "path": "validation/visual-runtime.json",
+    "passed": 50,
+    "source_hashes": {
+      "visual.py": "05b3e9264c866fc1b79599399e86622500c39050d1936880816c59da4cb31fdc",
+      "asset_resolver.py": "39467722c3008893630b583862333ee1d4c9d6b2ba560ee4cd31ff4202052550",
+      "template_registry.py": "70818503b7d0850e7849662462ecbe4e49e79c44deb64410d8a8f0f9c67d4ac5"
+    },
+    "scope": "Historical 50 visual checks preserved; only asset_resolver guard source changed. This report does not claim all 50 reran."
+  },
+  "actual_scope": "Direct SEC-001 sensitive spelling/resolved targets, real symlinks and asset/template callers; no secrets read and no model calls."
+}

@@ -11,7 +11,8 @@ from .tasks import validate_task
 
 DEFAULTS = {'page_count': 10, 'language': 'zh-CN', 'aspect_ratio': '16:9', 'minimum_font_size': 16,
             'template': None, 'brand': None, 'output_formats': ['pptx','pdf','png'], 'audience': None,
-            'scenario': None, 'duration': None, 'tone': None, 'citation_policy': 'notes'}
+            'scenario': None, 'duration': None, 'tone': None, 'citation_policy': 'notes',
+            'asset_policy': {'allow_network':False,'minimum_pixels':[1,1]}}
 ALIASES = {'page_target':'page_count', 'page_budget':'page_count', 'template_ref':'template', 'formats':'output_formats'}
 
 
@@ -31,7 +32,10 @@ def supported(field, value):
     if field == 'aspect_ratio':return value == '16:9'
     if field == 'minimum_font_size':return type(value) in {int,float} and value == 16
     if field == 'output_formats':return isinstance(value,list) and bool(value) and all(isinstance(x,str) and x in {'pptx','pdf','png'} for x in value)
-    if field in {'template','brand'}:return value is None
+    if field == 'template':return value is None or (isinstance(value,str) and bool(value.strip()))
+    if field == 'brand':return value is None
+    if field == 'asset_policy':
+        return isinstance(value,dict) and not (set(value)-{'allow_network','minimum_pixels'}) and type(value.get('allow_network',False)) is bool and isinstance(value.get('minimum_pixels',[1,1]),list) and len(value.get('minimum_pixels',[1,1]))==2 and all(type(v) is int and v>0 for v in value.get('minimum_pixels',[1,1]))
     if field == 'citation_policy':return value == 'notes'
     if field == 'audience':return value is None or (isinstance(value,str) and bool(value.strip())) or isinstance(value,dict)
     if field in {'scenario','duration','tone'}:return value is None or (isinstance(value,str) and bool(value.strip()))

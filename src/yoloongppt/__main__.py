@@ -30,7 +30,7 @@ def main():
     sub.add_parser('debug-node').add_argument('task')
     sub.add_parser('doctor')
     sub.add_parser('render').add_argument('run_id')
-    for name in ['inspect-deck','edit-deck','parse-template','instantiate-template','compose-native','compare-runs','inventory-assets']:
+    for name in ['inspect-deck','edit-deck','parse-template','instantiate-template','compose-native','compare-runs','inventory-assets','register-template','get-template','resolve-assets']:
         sub.add_parser(name).add_argument('task')
     for command in ['validate', 'inspect', 'generate', 'route', 'context', 'source-roles', 'resolve-evidence', 'fact-boundaries']:
         task = sub.add_parser(command)
@@ -54,13 +54,13 @@ def main():
         elif args.command == 'artifacts':
             from .operations import artifacts
             result=artifacts(args.run_id,trace)
-        elif args.command in {'validate', 'inspect', 'generate', 'route', 'context', 'source-roles', 'resolve-evidence', 'fact-boundaries','debug-node','inspect-deck','edit-deck','parse-template','instantiate-template','compose-native','compare-runs','inventory-assets'}:
+        elif args.command in {'validate', 'inspect', 'generate', 'route', 'context', 'source-roles', 'resolve-evidence', 'fact-boundaries','debug-node','inspect-deck','edit-deck','parse-template','instantiate-template','compose-native','compare-runs','inventory-assets','register-template','get-template','resolve-assets'}:
             try:
                 raw = sys.stdin.buffer.read() if args.task == '-' else Path(args.task).read_bytes()
             except OSError:
                 raise TaskError('INPUT_NOT_FOUND', '无法读取任务输入文件。', 'CLI', ['SYS-019', 'SYS-001']) from None
             document = load_json(raw, 'CLI')
-            if args.command in {'inspect-deck','edit-deck','parse-template','instantiate-template','compose-native','compare-runs','inventory-assets'}:
+            if args.command in {'inspect-deck','edit-deck','parse-template','instantiate-template','compose-native','compare-runs','inventory-assets','register-template','get-template','resolve-assets'}:
                 from .operations import dispatch
                 result=dispatch('compare' if args.command=='compare-runs' else args.command.replace('-','_'),document,trace,registry)
             elif args.command == 'debug-node':
@@ -84,12 +84,13 @@ def main():
             else:
                 result = validate_task(document, registry, trace) if args.command == 'validate' else inspect_sources(document, registry, EvidenceStore(), trace)
         elif args.command == 'revise':
-            from .revision import revise
+            from .revision import revise,revise_plan
             try:
                 raw = sys.stdin.buffer.read() if args.request == '-' else Path(args.request).read_bytes()
             except OSError:
                 raise TaskError('INPUT_NOT_FOUND', '无法读取修订请求。', 'CLI', ['SYS-019']) from None
-            result = revise(args.run_id, load_json(raw, 'CLI'), registry, trace)
+            document=load_json(raw,'CLI')
+            result = (revise_plan if 'plan' in document else revise)(args.run_id, document, registry, trace)
         elif args.command == 'recheck':
             from .revision import recheck
             result = recheck(args.run_id, registry, trace)

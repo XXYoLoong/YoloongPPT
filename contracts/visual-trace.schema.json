@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/visual-trace.schema.json",
+  "type": "object",
+  "required": [
+    "trace_id",
+    "node_id",
+    "input",
+    "candidates",
+    "selected",
+    "rules",
+    "output",
+    "duration",
+    "error"
+  ],
+  "properties": {
+    "trace_id": {
+      "$ref": "object-id.schema.json#/$defs/trace_id"
+    },
+    "node_id": {
+      "enum": [
+        "DEC-022",
+        "DEC-023",
+        "DEC-024",
+        "DEC-025",
+        "DEC-026",
+        "DEC-027",
+        "DEC-028",
+        "DEC-029"
+      ]
+    },
+    "input": {
+      "type": "object"
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "node_id",
+          "candidate_id",
+          "value",
+          "score",
+          "reasons",
+          "evidence_refs",
+          "constraints"
+        ],
+        "properties": {
+          "node_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "candidate_id": {
+            "$ref": "object-id.schema.json#/$defs/candidate_id"
+          },
+          "value": {},
+          "score": {
+            "type": "number"
+          },
+          "reasons": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "minItems": 1
+          },
+          "evidence_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "object-id.schema.json#/$defs/evidence_id"
+            }
+          },
+          "constraints": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "minItems": 0
+          }
+        },
+        "additionalProperties": false
+      },
+      "minItems": 1
+    },
+    "selected": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "rules": {
+      "type": "object"
+    },
+    "output": {
+      "type": "object"
+    },
+    "duration": {
+      "type": "number",
+      "minimum": 0
+    },
+    "error": {
+      "type": "null"
+    }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,183 @@
+{
+  "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+  "node_id": "DEC-011",
+  "input": {
+    "scenario": {
+      "scenario": null,
+      "duration": null,
+      "field_provenance": []
+    },
+    "relation_candidates": [
+      {
+        "node_id": "content_d4ead8d9e5d9e56ad592",
+        "relation": "process",
+        "literal_cues": [
+          "流程"
+        ],
+        "evidence_refs": [
+          "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+        ],
+        "status": "candidate_only",
+        "reason": "literal cue is not a proven semantic relation"
+      }
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_c4f36ca8-1c5d-4a51-bfe8-32b95d873160",
+      "value": {
+        "pattern": "linear"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_afbb7c26-e6e6-4a0f-92a6-a1f4aff7b76b",
+      "value": {
+        "pattern": "problem_solution"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_8f4305e7-44fd-459a-8cf4-bc23fa6012a5",
+      "value": {
+        "pattern": "conclusion_first"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_f3e58fdd-411a-4c3b-acf8-476e175acfd0",
+      "value": {
+        "pattern": "timeline"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_ce00742d-f986-4811-b5cf-941c01ee1cd7",
+      "value": {
+        "pattern": "teaching_progression"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_b48ec8e6-5fec-4f1b-b740-3495f0499361",
+      "value": {
+        "pattern": "data_driven"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_c4f36ca8-1c5d-4a51-bfe8-32b95d873160"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "pattern": "linear",
+    "rationale": "stable source-order presentation default",
+    "evidence_refs": [
+      "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

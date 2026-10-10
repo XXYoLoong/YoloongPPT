@@ -1,0 +1,807 @@
+{
+  "version": "visual-1",
+  "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+  "status": "executed_partial",
+  "decision_traces": [
+    {
+      "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+      "node_id": "DEC-022",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_40854fdf-9783-4c11-8b04-d6a85abe80d9",
+          "value": {
+            "page_index": 0,
+            "expression": "text_image",
+            "kind": "image",
+            "reason": "明示结构且保留数据",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_40854fdf-9783-4c11-8b04-d6a85abe80d9"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "expression": "text_image",
+            "kind": "image",
+            "reason": "明示结构且保留数据",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "preserved_content": true
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+      "node_id": "DEC-023",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_4ce88852-aded-42b8-bbf3-2b5c2f1b9926",
+          "value": {
+            "page_index": 0,
+            "required": true,
+            "count": 1,
+            "role": "information",
+            "information_value": "caller/model declared; independent semantic review pending",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_4ce88852-aded-42b8-bbf3-2b5c2f1b9926"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "count": 1,
+            "role": "information",
+            "information_value": "caller/model declared; independent semantic review pending",
+            "fallback": "fail on missing material"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+      "node_id": "DEC-024",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_50832283-99fe-4277-b483-c82aa88c6989",
+          "value": {
+            "page_index": 0,
+            "selected_asset_ids": [
+              "asset_385291a5-22d8-4712-a56f-3983e775db03"
+            ],
+            "model_image_declaration": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "information",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            },
+            "sources": [
+              {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "source_type": "user",
+                "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                "license": "unknown",
+                "usage_status": "authorized"
+              }
+            ],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_50832283-99fe-4277-b483-c82aa88c6989"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "selected_asset_ids": [
+              "asset_385291a5-22d8-4712-a56f-3983e775db03"
+            ],
+            "model_image_declaration": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "information",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            },
+            "sources": [
+              {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "source_type": "user",
+                "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                "license": "unknown",
+                "usage_status": "authorized"
+              }
+            ],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+      "node_id": "DEC-025",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_bc585c92-e202-4dad-a3ee-04424ee8db85",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_bc585c92-e202-4dad-a3ee-04424ee8db85"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+      "node_id": "DEC-026",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_e0080637-e4db-460b-9320-e9fa0c60a3a8",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "保留来源，选择原生表达",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_e0080637-e4db-460b-9320-e9fa0c60a3a8"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "保留来源，选择原生表达",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+      "node_id": "DEC-027",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_4cf23bd2-996d-4735-b542-987f7cfb8283",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_4cf23bd2-996d-4735-b542-987f7cfb8283"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+      "node_id": "DEC-028",
+      "input": {
+        "template_ref": null,
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "evidence_refs": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-028",
+          "candidate_id": "candidate_51fdd713-bbea-4b3f-a2be-a4a579e174f0",
+          "value": {
+            "family": "generic",
+            "eligible": true,
+            "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-028",
+          "candidate_id": "candidate_7cf0d275-08bd-401b-889f-c30575e19640",
+          "value": {
+            "family": "free_layout",
+            "eligible": true,
+            "reason": "Native geometry compiler is available as explicit alternative."
+          },
+          "score": 0,
+          "reasons": [
+            {
+              "reason": "Native geometry compiler is available as explicit alternative."
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_51fdd713-bbea-4b3f-a2be-a4a579e174f0"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "family": "generic",
+        "template_id": null,
+        "template_status": "selected",
+        "fallback": "fail on incompatible capacity"
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+      "node_id": "DEC-029",
+      "input": {
+        "style": {},
+        "template_id": null,
+        "evidence_refs": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-029",
+          "candidate_id": "candidate_2c5ed7ea-31d3-4a45-bc17-50c82855c186",
+          "value": {
+            "font": "Noto Sans CJK SC",
+            "foreground": "192C32",
+            "background": "F6F4EE",
+            "accent": "147C80",
+            "shape_language": "native_editable",
+            "image_treatment": "contain_without_crop",
+            "decoration_density": "minimal",
+            "provenance": {
+              "font": "caller override or declared native renderer font",
+              "colors": "caller override or explicit product default"
+            },
+            "template_tokens": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "explicit caller values/product defaults; template originals retained without assuming font availability"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_2c5ed7ea-31d3-4a45-bc17-50c82855c186"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "font": "Noto Sans CJK SC",
+        "foreground": "192C32",
+        "background": "F6F4EE",
+        "accent": "147C80",
+        "shape_language": "native_editable",
+        "image_treatment": "contain_without_crop",
+        "decoration_density": "minimal",
+        "provenance": {
+          "font": "caller override or declared native renderer font",
+          "colors": "caller override or explicit product default"
+        },
+        "template_tokens": null
+      },
+      "duration": 0.0,
+      "error": null
+    }
+  ],
+  "visual_specs": [
+    {
+      "page_index": 0,
+      "expression": "text_image",
+      "kind": "image",
+      "reason": "明示结构且保留数据",
+      "evidence_refs": [
+        "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+      ],
+      "preserved_content": true
+    }
+  ],
+  "image_requirements": [
+    {
+      "page_index": 0,
+      "required": true,
+      "count": 1,
+      "role": "information",
+      "information_value": "caller/model declared; independent semantic review pending",
+      "fallback": "fail on missing material"
+    }
+  ],
+  "asset_plan": [
+    {
+      "page_index": 0,
+      "selected_asset_ids": [
+        "asset_385291a5-22d8-4712-a56f-3983e775db03"
+      ],
+      "model_image_declaration": {
+        "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+        "role": "information",
+        "alt_text": "调用者提供的绿色图片",
+        "fit": "contain",
+        "required": true
+      },
+      "sources": [
+        {
+          "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+          "source_type": "user",
+          "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+          "license": "unknown",
+          "usage_status": "authorized"
+        }
+      ],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    }
+  ],
+  "table_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    }
+  ],
+  "chart_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": "保留来源，选择原生表达",
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    }
+  ],
+  "diagram_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    }
+  ],
+  "template_selection": {
+    "family": "generic",
+    "record": null,
+    "candidates": [
+      {
+        "family": "generic",
+        "eligible": true,
+        "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+      },
+      {
+        "family": "free_layout",
+        "eligible": true,
+        "reason": "Native geometry compiler is available as explicit alternative."
+      }
+    ],
+    "fallback": "fail on incompatible capacity",
+    "status": "selected"
+  },
+  "design_tokens": {
+    "font": "Noto Sans CJK SC",
+    "foreground": "192C32",
+    "background": "F6F4EE",
+    "accent": "147C80",
+    "shape_language": "native_editable",
+    "image_treatment": "contain_without_crop",
+    "decoration_density": "minimal",
+    "provenance": {
+      "font": "caller override or declared native renderer font",
+      "colors": "caller override or explicit product default"
+    },
+    "template_tokens": null
+  },
+  "resolved_assets": {
+    "status": "partial",
+    "entries": [
+      {
+        "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+        "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+        "source_type": "user",
+        "source_locator": "/runtime/visual-validation/declared-image.png",
+        "source_url": null,
+        "path": "/runtime/assets/39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e.png",
+        "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+        "bytes": 552,
+        "mime_type": "image/png",
+        "width_px": 320,
+        "height_px": 160,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+          "bytes": 552,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 320,
+          "height": 160,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 2.0,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "0000000000000000"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#1A5043",
+              "fraction": 1.0
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "unknown",
+        "usage_status": "authorized",
+        "authorization_basis": "caller supplied file with explicit asset role",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      }
+    ],
+    "issues": [
+      {
+        "code": "ASSET_LICENSE_UNKNOWN",
+        "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+        "message": "使用由调用者授权；license仍unknown，不推断版权许可。"
+      }
+    ],
+    "duplicate_groups": [],
+    "boundary": "Real bytes/hash/MIME/pixels and caller authorization checked; semantic appropriateness, watermark, perceptual duplicates and full AST acceptance remain unproven."
+  },
+  "remaining_limits": [
+    "Independent semantic image relevance/quality review remains required.",
+    "Hierarchy/network/matrix/funnel/swimlane relation semantics and complete node acceptance remain incomplete.",
+    "Source search and image generation services are not called; materialized outputs retain query/request provenance.",
+    "Template capacity, complete styles and brand lock require downstream validation."
+  ],
+  "system_acceptance": "not_claimed"
+}

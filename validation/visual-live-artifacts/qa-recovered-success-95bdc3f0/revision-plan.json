@@ -1,0 +1,185 @@
+{
+  "plan_id": "revision_plan_0aaa3319-a76e-4b2a-8d25-506df430e4b2",
+  "trace_id": "trace_f395038b-d6b9-44ce-ae52-bcc19332f1be",
+  "parent_run_id": "95bdc3f0-0d60-46b7-a8ce-418d3962e49c",
+  "status": "needs_input",
+  "scope": {
+    "slide_ids": [],
+    "object_ids": []
+  },
+  "locked_object_ids": [],
+  "locked_slide_ids": [],
+  "actions": [],
+  "blocked": [
+    {
+      "issue_id": "issue_87992a5d-d152-47e6-a2a6-3d8f9246180e",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Needs explicit geometry/asset/order choice; related objects must remain unchanged",
+      "candidate_id": "candidate_acbbfcbd-82c3-4e1f-b7ab-e04a5c59ca8b"
+    },
+    {
+      "issue_id": "issue_adf0bd18-4509-4057-bbc5-09b4910bf384",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_b4af8ddc-0b6e-4e17-813a-91491d7ff3f1"
+    },
+    {
+      "issue_id": "issue_66c8bb04-ace3-4162-b26c-3dd6471e2aec",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_73d257e6-0acc-4780-9cfe-b4282ba0f75b"
+    },
+    {
+      "issue_id": "issue_f2aa35ad-1504-4a85-be6f-f9b3708b79ce",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_0a2f3abc-f45b-4503-9e92-3fbffce66468"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate_acbbfcbd-82c3-4e1f-b7ab-e04a5c59ca8b",
+      "issue_id": "issue_87992a5d-d152-47e6-a2a6-3d8f9246180e",
+      "object_id": "object_ed4abf06-e682-43ad-bb05-abd7ba940826",
+      "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+      "node": "asset",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Needs explicit geometry/asset/order choice; related objects must remain unchanged",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "issue_id": "issue_87992a5d-d152-47e6-a2a6-3d8f9246180e",
+          "code": "IMAGE_RESOLUTION_LOW",
+          "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+          "object_id": "object_ed4abf06-e682-43ad-bb05-abd7ba940826",
+          "severity": "P1",
+          "detail": "Image below rendering policy resolution",
+          "requirement_id": "QA-010",
+          "measurement": {
+            "pixels": [
+              320,
+              160
+            ],
+            "effective_dpi": 38.64734299516908
+          },
+          "threshold": {
+            "minimum_dpi": 96
+          },
+          "action": {
+            "node": "asset",
+            "mode": "local_revision",
+            "reason": "IMAGE_RESOLUTION_LOW"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_b4af8ddc-0b6e-4e17-813a-91491d7ff3f1",
+      "issue_id": "issue_adf0bd18-4509-4057-bbc5-09b4910bf384",
+      "object_id": null,
+      "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 1,
+          "severity": "P1",
+          "kind": "visual",
+          "detail": "图片页的图片区域渲染为纯深绿色色块，未显示任何可辨识的示意图内容；虽然声明为装饰素材，但视觉上无法确认素材内容，且与“程序人工绘制的测试示意图”描述不符，影响页面可读性与素材展示目的。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_adf0bd18-4509-4057-bbc5-09b4910bf384",
+          "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_73d257e6-0acc-4780-9cfe-b4282ba0f75b",
+      "issue_id": "issue_66c8bb04-ace3-4162-b26c-3dd6471e2aec",
+      "object_id": null,
+      "slide_id": "slide_74faa075-a256-44d9-8dc8-423d323d723f",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 3,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "表格行高较大，A楼、B楼、C楼三行之间留白明显，表格整体偏松散，但数值与表头清晰可读，不影响理解。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_66c8bb04-ace3-4162-b26c-3dd6471e2aec",
+          "slide_id": "slide_74faa075-a256-44d9-8dc8-423d323d723f",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_0a2f3abc-f45b-4503-9e92-3fbffce66468",
+      "issue_id": "issue_f2aa35ad-1504-4a85-be6f-f9b3708b79ce",
+      "object_id": null,
+      "slide_id": "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 4,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "柱图纵轴标签“千瓦时”为竖排文字，与图表整体横向布局略不协调，但数值刻度与图例清晰，不影响数据读取。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_f2aa35ad-1504-4a85-be6f-f9b3708b79ce",
+          "slide_id": "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    }
+  ],
+  "all_issue_ids": [
+    "issue_87992a5d-d152-47e6-a2a6-3d8f9246180e",
+    "issue_adf0bd18-4509-4057-bbc5-09b4910bf384",
+    "issue_66c8bb04-ace3-4162-b26c-3dd6471e2aec",
+    "issue_f2aa35ad-1504-4a85-be6f-f9b3708b79ce"
+  ],
+  "rerun_nodes": [],
+  "preserve_unselected_objects": true,
+  "full_acceptance": "not_passed"
+}

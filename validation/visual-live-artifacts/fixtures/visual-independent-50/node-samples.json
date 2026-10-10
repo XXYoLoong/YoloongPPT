@@ -1,0 +1,5662 @@
+[
+  {
+    "name": "DEC-022_normal_1",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "text",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-022",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "expression": "cards_or_text",
+            "kind": "text",
+            "reason": "明示结构且保留数据",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "preserved_content": true
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-022",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-022",
+            "candidate_id": "candidate_1c82f24d-ccf1-4445-81ea-c70eaf9a4120",
+            "value": {
+              "page_index": 0,
+              "expression": "cards_or_text",
+              "kind": "text",
+              "reason": "明示结构且保留数据",
+              "evidence_refs": [
+                "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+              ],
+              "preserved_content": true
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_1c82f24d-ccf1-4445-81ea-c70eaf9a4120"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "expression": "cards_or_text",
+              "kind": "text",
+              "reason": "明示结构且保留数据",
+              "evidence_refs": [
+                "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+              ],
+              "preserved_content": true
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-022_normal_2",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "table",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": {
+              "columns": [
+                "指标",
+                "值"
+              ],
+              "rows": [
+                [
+                  "A",
+                  "8"
+                ],
+                [
+                  "B",
+                  "9"
+                ]
+              ],
+              "units": "原文单位未指定"
+            },
+            "chart": null
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-022",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "expression": "table",
+            "kind": "table",
+            "reason": "明示结构且保留数据",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "preserved_content": true
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-022",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-022",
+            "candidate_id": "candidate_56b91e88-b840-4643-925f-505b00d24431",
+            "value": {
+              "page_index": 0,
+              "expression": "table",
+              "kind": "table",
+              "reason": "明示结构且保留数据",
+              "evidence_refs": [
+                "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+              ],
+              "preserved_content": true
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_56b91e88-b840-4643-925f-505b00d24431"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "expression": "table",
+              "kind": "table",
+              "reason": "明示结构且保留数据",
+              "evidence_refs": [
+                "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+              ],
+              "preserved_content": true
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-022_normal_3",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "image",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null,
+            "image": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "information",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-022",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "expression": "text_image",
+            "kind": "image",
+            "reason": "明示结构且保留数据",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "preserved_content": true
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-022",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-022",
+            "candidate_id": "candidate_5b9cee47-3c48-4dd9-9e15-945371fe5cee",
+            "value": {
+              "page_index": 0,
+              "expression": "text_image",
+              "kind": "image",
+              "reason": "明示结构且保留数据",
+              "evidence_refs": [
+                "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+              ],
+              "preserved_content": true
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_5b9cee47-3c48-4dd9-9e15-945371fe5cee"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "expression": "text_image",
+              "kind": "image",
+              "reason": "明示结构且保留数据",
+              "evidence_refs": [
+                "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+              ],
+              "preserved_content": true
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-023_normal_1",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "image",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null,
+            "image": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "information",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-023",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "count": 1,
+            "role": "information",
+            "information_value": "caller/model declared; independent semantic review pending",
+            "fallback": "fail on missing material"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-023",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-023",
+            "candidate_id": "candidate_8596b40c-b9cc-48c9-80f2-c6f0f0e416aa",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "count": 1,
+              "role": "information",
+              "information_value": "caller/model declared; independent semantic review pending",
+              "fallback": "fail on missing material"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_8596b40c-b9cc-48c9-80f2-c6f0f0e416aa"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "count": 1,
+              "role": "information",
+              "information_value": "caller/model declared; independent semantic review pending",
+              "fallback": "fail on missing material"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-023_normal_2",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "image",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null,
+            "image": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "decoration",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-023",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "count": 1,
+            "role": "decoration",
+            "information_value": "caller/model declared; independent semantic review pending",
+            "fallback": "fail on missing material"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-023",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-023",
+            "candidate_id": "candidate_ce613add-0e3c-4218-91cd-70503d96ccc1",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "count": 1,
+              "role": "decoration",
+              "information_value": "caller/model declared; independent semantic review pending",
+              "fallback": "fail on missing material"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_ce613add-0e3c-4218-91cd-70503d96ccc1"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "count": 1,
+              "role": "decoration",
+              "information_value": "caller/model declared; independent semantic review pending",
+              "fallback": "fail on missing material"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-023_normal_3",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "image",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null,
+            "image": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "logo",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-023",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "count": 1,
+            "role": "logo",
+            "information_value": "caller/model declared; independent semantic review pending",
+            "fallback": "fail on missing material"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-023",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-023",
+            "candidate_id": "candidate_bea1f4b1-9314-443d-9695-353294f11861",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "count": 1,
+              "role": "logo",
+              "information_value": "caller/model declared; independent semantic review pending",
+              "fallback": "fail on missing material"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_bea1f4b1-9314-443d-9695-353294f11861"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "count": 1,
+              "role": "logo",
+              "information_value": "caller/model declared; independent semantic review pending",
+              "fallback": "fail on missing material"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-024_normal_1",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "image",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null,
+            "image": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "information",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-024",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "selected_asset_ids": [
+              "asset_385291a5-22d8-4712-a56f-3983e775db03"
+            ],
+            "model_image_declaration": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "information",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            },
+            "sources": [
+              {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "source_type": "user",
+                "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                "license": "unknown",
+                "usage_status": "authorized"
+              }
+            ],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-024",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-024",
+            "candidate_id": "candidate_e18a767d-a747-4692-9162-30bed9e0132a",
+            "value": {
+              "page_index": 0,
+              "selected_asset_ids": [
+                "asset_385291a5-22d8-4712-a56f-3983e775db03"
+              ],
+              "model_image_declaration": {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "role": "information",
+                "alt_text": "调用者提供的绿色图片",
+                "fit": "contain",
+                "required": true
+              },
+              "sources": [
+                {
+                  "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                  "source_type": "user",
+                  "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                  "license": "unknown",
+                  "usage_status": "authorized"
+                }
+              ],
+              "all_materialized": true,
+              "unused_assets_retained": true,
+              "fallback": "fail on unavailable or unauthorized requested asset"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_e18a767d-a747-4692-9162-30bed9e0132a"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "selected_asset_ids": [
+                "asset_385291a5-22d8-4712-a56f-3983e775db03"
+              ],
+              "model_image_declaration": {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "role": "information",
+                "alt_text": "调用者提供的绿色图片",
+                "fit": "contain",
+                "required": true
+              },
+              "sources": [
+                {
+                  "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                  "source_type": "user",
+                  "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                  "license": "unknown",
+                  "usage_status": "authorized"
+                }
+              ],
+              "all_materialized": true,
+              "unused_assets_retained": true,
+              "fallback": "fail on unavailable or unauthorized requested asset"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-024_normal_2",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "image",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null,
+            "image": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "decoration",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-024",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "selected_asset_ids": [
+              "asset_385291a5-22d8-4712-a56f-3983e775db03"
+            ],
+            "model_image_declaration": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "decoration",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            },
+            "sources": [
+              {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "source_type": "user",
+                "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                "license": "unknown",
+                "usage_status": "authorized"
+              }
+            ],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-024",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-024",
+            "candidate_id": "candidate_e77b9cf1-e6a7-40e4-ad24-60b88681e5e3",
+            "value": {
+              "page_index": 0,
+              "selected_asset_ids": [
+                "asset_385291a5-22d8-4712-a56f-3983e775db03"
+              ],
+              "model_image_declaration": {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "role": "decoration",
+                "alt_text": "调用者提供的绿色图片",
+                "fit": "contain",
+                "required": true
+              },
+              "sources": [
+                {
+                  "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                  "source_type": "user",
+                  "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                  "license": "unknown",
+                  "usage_status": "authorized"
+                }
+              ],
+              "all_materialized": true,
+              "unused_assets_retained": true,
+              "fallback": "fail on unavailable or unauthorized requested asset"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_e77b9cf1-e6a7-40e4-ad24-60b88681e5e3"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "selected_asset_ids": [
+                "asset_385291a5-22d8-4712-a56f-3983e775db03"
+              ],
+              "model_image_declaration": {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "role": "decoration",
+                "alt_text": "调用者提供的绿色图片",
+                "fit": "contain",
+                "required": true
+              },
+              "sources": [
+                {
+                  "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                  "source_type": "user",
+                  "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                  "license": "unknown",
+                  "usage_status": "authorized"
+                }
+              ],
+              "all_materialized": true,
+              "unused_assets_retained": true,
+              "fallback": "fail on unavailable or unauthorized requested asset"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-024_normal_3",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "image",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null,
+            "image": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "logo",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-024",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "selected_asset_ids": [
+              "asset_385291a5-22d8-4712-a56f-3983e775db03"
+            ],
+            "model_image_declaration": {
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "role": "logo",
+              "alt_text": "调用者提供的绿色图片",
+              "fit": "contain",
+              "required": true
+            },
+            "sources": [
+              {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "source_type": "user",
+                "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                "license": "unknown",
+                "usage_status": "authorized"
+              }
+            ],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-024",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-024",
+            "candidate_id": "candidate_513c3f08-08f8-4bbd-8469-3ad5e5cb1538",
+            "value": {
+              "page_index": 0,
+              "selected_asset_ids": [
+                "asset_385291a5-22d8-4712-a56f-3983e775db03"
+              ],
+              "model_image_declaration": {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "role": "logo",
+                "alt_text": "调用者提供的绿色图片",
+                "fit": "contain",
+                "required": true
+              },
+              "sources": [
+                {
+                  "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                  "source_type": "user",
+                  "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                  "license": "unknown",
+                  "usage_status": "authorized"
+                }
+              ],
+              "all_materialized": true,
+              "unused_assets_retained": true,
+              "fallback": "fail on unavailable or unauthorized requested asset"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_513c3f08-08f8-4bbd-8469-3ad5e5cb1538"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "selected_asset_ids": [
+                "asset_385291a5-22d8-4712-a56f-3983e775db03"
+              ],
+              "model_image_declaration": {
+                "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                "role": "logo",
+                "alt_text": "调用者提供的绿色图片",
+                "fit": "contain",
+                "required": true
+              },
+              "sources": [
+                {
+                  "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+                  "source_type": "user",
+                  "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                  "license": "unknown",
+                  "usage_status": "authorized"
+                }
+              ],
+              "all_materialized": true,
+              "unused_assets_retained": true,
+              "fallback": "fail on unavailable or unauthorized requested asset"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-025_normal_1",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "table",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": {
+              "columns": [
+                "指标",
+                "值"
+              ],
+              "rows": [
+                [
+                  "A",
+                  "8"
+                ],
+                [
+                  "B",
+                  "9"
+                ]
+              ],
+              "units": "原文单位未指定"
+            },
+            "chart": null
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-025",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "rows": 2,
+            "columns": 2,
+            "emphasis_fields": [],
+            "pagination": "one native table; physical capacity gate must pass",
+            "data": {
+              "columns": [
+                "指标",
+                "值"
+              ],
+              "rows": [
+                [
+                  "A",
+                  "8"
+                ],
+                [
+                  "B",
+                  "9"
+                ]
+              ],
+              "units": "原文单位未指定"
+            }
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-025",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-025",
+            "candidate_id": "candidate_5366b751-d271-4f94-ac6c-b1fffcd493e1",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "rows": 2,
+              "columns": 2,
+              "emphasis_fields": [],
+              "pagination": "one native table; physical capacity gate must pass",
+              "data": {
+                "columns": [
+                  "指标",
+                  "值"
+                ],
+                "rows": [
+                  [
+                    "A",
+                    "8"
+                  ],
+                  [
+                    "B",
+                    "9"
+                  ]
+                ],
+                "units": "原文单位未指定"
+              }
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_5366b751-d271-4f94-ac6c-b1fffcd493e1"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "rows": 2,
+              "columns": 2,
+              "emphasis_fields": [],
+              "pagination": "one native table; physical capacity gate must pass",
+              "data": {
+                "columns": [
+                  "指标",
+                  "值"
+                ],
+                "rows": [
+                  [
+                    "A",
+                    "8"
+                  ],
+                  [
+                    "B",
+                    "9"
+                  ]
+                ],
+                "units": "原文单位未指定"
+              }
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-025_normal_2",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "table",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": {
+              "columns": [
+                "指标"
+              ],
+              "rows": [
+                [
+                  "A"
+                ],
+                [
+                  "B"
+                ]
+              ],
+              "units": "原文单位未指定"
+            },
+            "chart": null
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-025",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "rows": 2,
+            "columns": 1,
+            "emphasis_fields": [],
+            "pagination": "one native table; physical capacity gate must pass",
+            "data": {
+              "columns": [
+                "指标"
+              ],
+              "rows": [
+                [
+                  "A"
+                ],
+                [
+                  "B"
+                ]
+              ],
+              "units": "原文单位未指定"
+            }
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-025",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-025",
+            "candidate_id": "candidate_633e155e-3167-4cee-b395-9b94e543d133",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "rows": 2,
+              "columns": 1,
+              "emphasis_fields": [],
+              "pagination": "one native table; physical capacity gate must pass",
+              "data": {
+                "columns": [
+                  "指标"
+                ],
+                "rows": [
+                  [
+                    "A"
+                  ],
+                  [
+                    "B"
+                  ]
+                ],
+                "units": "原文单位未指定"
+              }
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_633e155e-3167-4cee-b395-9b94e543d133"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "rows": 2,
+              "columns": 1,
+              "emphasis_fields": [],
+              "pagination": "one native table; physical capacity gate must pass",
+              "data": {
+                "columns": [
+                  "指标"
+                ],
+                "rows": [
+                  [
+                    "A"
+                  ],
+                  [
+                    "B"
+                  ]
+                ],
+                "units": "原文单位未指定"
+              }
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-025_normal_3",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "table",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": {
+              "columns": [
+                "值"
+              ],
+              "rows": [
+                [
+                  "8"
+                ]
+              ],
+              "units": "原文单位未指定"
+            },
+            "chart": null
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-025",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "rows": 1,
+            "columns": 1,
+            "emphasis_fields": [],
+            "pagination": "one native table; physical capacity gate must pass",
+            "data": {
+              "columns": [
+                "值"
+              ],
+              "rows": [
+                [
+                  "8"
+                ]
+              ],
+              "units": "原文单位未指定"
+            }
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-025",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-025",
+            "candidate_id": "candidate_d298cc13-c0aa-48c9-a458-286f2dc3249f",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "rows": 1,
+              "columns": 1,
+              "emphasis_fields": [],
+              "pagination": "one native table; physical capacity gate must pass",
+              "data": {
+                "columns": [
+                  "值"
+                ],
+                "rows": [
+                  [
+                    "8"
+                  ]
+                ],
+                "units": "原文单位未指定"
+              }
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_d298cc13-c0aa-48c9-a458-286f2dc3249f"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "rows": 1,
+              "columns": 1,
+              "emphasis_fields": [],
+              "pagination": "one native table; physical capacity gate must pass",
+              "data": {
+                "columns": [
+                  "值"
+                ],
+                "rows": [
+                  [
+                    "8"
+                  ]
+                ],
+                "units": "原文单位未指定"
+              }
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-026_normal_1",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "chart",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": {
+              "type": "bar",
+              "categories": [
+                "A",
+                "B"
+              ],
+              "series": [
+                {
+                  "name": "指标",
+                  "values": [
+                    8,
+                    9
+                  ]
+                }
+              ],
+              "units": "原文单位未指定"
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-026",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "type": "bar",
+            "analysis_purpose": "保留来源，选择原生表达",
+            "data": {
+              "type": "bar",
+              "categories": [
+                "A",
+                "B"
+              ],
+              "series": [
+                {
+                  "name": "指标",
+                  "values": [
+                    8,
+                    9
+                  ]
+                }
+              ],
+              "units": "原文单位未指定"
+            },
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-026",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-026",
+            "candidate_id": "candidate_a329674c-f164-4428-8b74-80796f7300b5",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "type": "bar",
+              "analysis_purpose": "保留来源，选择原生表达",
+              "data": {
+                "type": "bar",
+                "categories": [
+                  "A",
+                  "B"
+                ],
+                "series": [
+                  {
+                    "name": "指标",
+                    "values": [
+                      8,
+                      9
+                    ]
+                  }
+                ],
+                "units": "原文单位未指定"
+              },
+              "data_semantic_status": "subsequent evidence/numeric and independent review required",
+              "image_fallback": "not_permitted"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_a329674c-f164-4428-8b74-80796f7300b5"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "type": "bar",
+              "analysis_purpose": "保留来源，选择原生表达",
+              "data": {
+                "type": "bar",
+                "categories": [
+                  "A",
+                  "B"
+                ],
+                "series": [
+                  {
+                    "name": "指标",
+                    "values": [
+                      8,
+                      9
+                    ]
+                  }
+                ],
+                "units": "原文单位未指定"
+              },
+              "data_semantic_status": "subsequent evidence/numeric and independent review required",
+              "image_fallback": "not_permitted"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-026_normal_2",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "chart",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": {
+              "type": "column",
+              "categories": [
+                "A",
+                "B"
+              ],
+              "series": [
+                {
+                  "name": "指标",
+                  "values": [
+                    8,
+                    9
+                  ]
+                }
+              ],
+              "units": "原文单位未指定"
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-026",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "type": "column",
+            "analysis_purpose": "保留来源，选择原生表达",
+            "data": {
+              "type": "column",
+              "categories": [
+                "A",
+                "B"
+              ],
+              "series": [
+                {
+                  "name": "指标",
+                  "values": [
+                    8,
+                    9
+                  ]
+                }
+              ],
+              "units": "原文单位未指定"
+            },
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-026",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-026",
+            "candidate_id": "candidate_e34fe248-cb92-4e42-a392-61eb92c5578c",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "type": "column",
+              "analysis_purpose": "保留来源，选择原生表达",
+              "data": {
+                "type": "column",
+                "categories": [
+                  "A",
+                  "B"
+                ],
+                "series": [
+                  {
+                    "name": "指标",
+                    "values": [
+                      8,
+                      9
+                    ]
+                  }
+                ],
+                "units": "原文单位未指定"
+              },
+              "data_semantic_status": "subsequent evidence/numeric and independent review required",
+              "image_fallback": "not_permitted"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_e34fe248-cb92-4e42-a392-61eb92c5578c"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "type": "column",
+              "analysis_purpose": "保留来源，选择原生表达",
+              "data": {
+                "type": "column",
+                "categories": [
+                  "A",
+                  "B"
+                ],
+                "series": [
+                  {
+                    "name": "指标",
+                    "values": [
+                      8,
+                      9
+                    ]
+                  }
+                ],
+                "units": "原文单位未指定"
+              },
+              "data_semantic_status": "subsequent evidence/numeric and independent review required",
+              "image_fallback": "not_permitted"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-026_normal_3",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "chart",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": {
+              "type": "line",
+              "categories": [
+                "A",
+                "B"
+              ],
+              "series": [
+                {
+                  "name": "指标",
+                  "values": [
+                    8,
+                    9
+                  ]
+                }
+              ],
+              "units": "原文单位未指定"
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-026",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "type": "line",
+            "analysis_purpose": "保留来源，选择原生表达",
+            "data": {
+              "type": "line",
+              "categories": [
+                "A",
+                "B"
+              ],
+              "series": [
+                {
+                  "name": "指标",
+                  "values": [
+                    8,
+                    9
+                  ]
+                }
+              ],
+              "units": "原文单位未指定"
+            },
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-026",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-026",
+            "candidate_id": "candidate_4e95bf4a-cbe3-4fb5-af3e-a47ffd884350",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "type": "line",
+              "analysis_purpose": "保留来源，选择原生表达",
+              "data": {
+                "type": "line",
+                "categories": [
+                  "A",
+                  "B"
+                ],
+                "series": [
+                  {
+                    "name": "指标",
+                    "values": [
+                      8,
+                      9
+                    ]
+                  }
+                ],
+                "units": "原文单位未指定"
+              },
+              "data_semantic_status": "subsequent evidence/numeric and independent review required",
+              "image_fallback": "not_permitted"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_4e95bf4a-cbe3-4fb5-af3e-a47ffd884350"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "type": "line",
+              "analysis_purpose": "保留来源，选择原生表达",
+              "data": {
+                "type": "line",
+                "categories": [
+                  "A",
+                  "B"
+                ],
+                "series": [
+                  {
+                    "name": "指标",
+                    "values": [
+                      8,
+                      9
+                    ]
+                  }
+                ],
+                "units": "原文单位未指定"
+              },
+              "data_semantic_status": "subsequent evidence/numeric and independent review required",
+              "image_fallback": "not_permitted"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-027_normal_1",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "diagram",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null,
+            "diagram": {
+              "type": "process",
+              "direction": "horizontal",
+              "nodes": [
+                {
+                  "node_id": "n0",
+                  "label": "需求确认",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                },
+                {
+                  "node_id": "n1",
+                  "label": "设计",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                },
+                {
+                  "node_id": "n2",
+                  "label": "制作",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "from": "n0",
+                  "to": "n1",
+                  "relation": "sequence",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ],
+                  "evidence_quote": "需求确认 → 设计 → 制作"
+                },
+                {
+                  "from": "n1",
+                  "to": "n2",
+                  "relation": "sequence",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ],
+                  "evidence_quote": "需求确认 → 设计 → 制作"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-027",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "diagram": {
+              "type": "process",
+              "direction": "horizontal",
+              "nodes": [
+                {
+                  "node_id": "n0",
+                  "label": "需求确认",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                },
+                {
+                  "node_id": "n1",
+                  "label": "设计",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                },
+                {
+                  "node_id": "n2",
+                  "label": "制作",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "from": "n0",
+                  "to": "n1",
+                  "relation": "sequence",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ],
+                  "evidence_quote": "需求确认 → 设计 → 制作"
+                },
+                {
+                  "from": "n1",
+                  "to": "n2",
+                  "relation": "sequence",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ],
+                  "evidence_quote": "需求确认 → 设计 → 制作"
+                }
+              ],
+              "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+              "editable_representation": "native_shapes_and_connectors",
+              "causal_proof": "not_claimed"
+            },
+            "type": "process",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-027",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-027",
+            "candidate_id": "candidate_5da3f149-e5ef-47ca-bb4b-ec5f5e1179de",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "diagram": {
+                "type": "process",
+                "direction": "horizontal",
+                "nodes": [
+                  {
+                    "node_id": "n0",
+                    "label": "需求确认",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  },
+                  {
+                    "node_id": "n1",
+                    "label": "设计",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  },
+                  {
+                    "node_id": "n2",
+                    "label": "制作",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "n0",
+                    "to": "n1",
+                    "relation": "sequence",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ],
+                    "evidence_quote": "需求确认 → 设计 → 制作"
+                  },
+                  {
+                    "from": "n1",
+                    "to": "n2",
+                    "relation": "sequence",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ],
+                    "evidence_quote": "需求确认 → 设计 → 制作"
+                  }
+                ],
+                "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+                "editable_representation": "native_shapes_and_connectors",
+                "causal_proof": "not_claimed"
+              },
+              "type": "process",
+              "lexical_relation_inference": "disabled",
+              "fallback": "fail rather than raster-only or inferred relation"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_5da3f149-e5ef-47ca-bb4b-ec5f5e1179de"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "diagram": {
+                "type": "process",
+                "direction": "horizontal",
+                "nodes": [
+                  {
+                    "node_id": "n0",
+                    "label": "需求确认",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  },
+                  {
+                    "node_id": "n1",
+                    "label": "设计",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  },
+                  {
+                    "node_id": "n2",
+                    "label": "制作",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "n0",
+                    "to": "n1",
+                    "relation": "sequence",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ],
+                    "evidence_quote": "需求确认 → 设计 → 制作"
+                  },
+                  {
+                    "from": "n1",
+                    "to": "n2",
+                    "relation": "sequence",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ],
+                    "evidence_quote": "需求确认 → 设计 → 制作"
+                  }
+                ],
+                "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+                "editable_representation": "native_shapes_and_connectors",
+                "causal_proof": "not_claimed"
+              },
+              "type": "process",
+              "lexical_relation_inference": "disabled",
+              "fallback": "fail rather than raster-only or inferred relation"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-027_normal_2",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "diagram",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null,
+            "diagram": {
+              "type": "timeline",
+              "direction": "horizontal",
+              "nodes": [
+                {
+                  "node_id": "n0",
+                  "label": "2026启动",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                },
+                {
+                  "node_id": "n1",
+                  "label": "2027扩展",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                },
+                {
+                  "node_id": "n2",
+                  "label": "2028完成",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "from": "n0",
+                  "to": "n1",
+                  "relation": "temporal",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ],
+                  "evidence_quote": "2026启动 → 2027扩展 → 2028完成"
+                },
+                {
+                  "from": "n1",
+                  "to": "n2",
+                  "relation": "temporal",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ],
+                  "evidence_quote": "2026启动 → 2027扩展 → 2028完成"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-027",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "diagram": {
+              "type": "timeline",
+              "direction": "horizontal",
+              "nodes": [
+                {
+                  "node_id": "n0",
+                  "label": "2026启动",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                },
+                {
+                  "node_id": "n1",
+                  "label": "2027扩展",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                },
+                {
+                  "node_id": "n2",
+                  "label": "2028完成",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "from": "n0",
+                  "to": "n1",
+                  "relation": "temporal",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ],
+                  "evidence_quote": "2026启动 → 2027扩展 → 2028完成"
+                },
+                {
+                  "from": "n1",
+                  "to": "n2",
+                  "relation": "temporal",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ],
+                  "evidence_quote": "2026启动 → 2027扩展 → 2028完成"
+                }
+              ],
+              "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+              "editable_representation": "native_shapes_and_connectors",
+              "causal_proof": "not_claimed"
+            },
+            "type": "timeline",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-027",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-027",
+            "candidate_id": "candidate_73d0dc68-b68e-4164-858a-b48946d12349",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "diagram": {
+                "type": "timeline",
+                "direction": "horizontal",
+                "nodes": [
+                  {
+                    "node_id": "n0",
+                    "label": "2026启动",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  },
+                  {
+                    "node_id": "n1",
+                    "label": "2027扩展",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  },
+                  {
+                    "node_id": "n2",
+                    "label": "2028完成",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "n0",
+                    "to": "n1",
+                    "relation": "temporal",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ],
+                    "evidence_quote": "2026启动 → 2027扩展 → 2028完成"
+                  },
+                  {
+                    "from": "n1",
+                    "to": "n2",
+                    "relation": "temporal",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ],
+                    "evidence_quote": "2026启动 → 2027扩展 → 2028完成"
+                  }
+                ],
+                "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+                "editable_representation": "native_shapes_and_connectors",
+                "causal_proof": "not_claimed"
+              },
+              "type": "timeline",
+              "lexical_relation_inference": "disabled",
+              "fallback": "fail rather than raster-only or inferred relation"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_73d0dc68-b68e-4164-858a-b48946d12349"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "diagram": {
+                "type": "timeline",
+                "direction": "horizontal",
+                "nodes": [
+                  {
+                    "node_id": "n0",
+                    "label": "2026启动",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  },
+                  {
+                    "node_id": "n1",
+                    "label": "2027扩展",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  },
+                  {
+                    "node_id": "n2",
+                    "label": "2028完成",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "n0",
+                    "to": "n1",
+                    "relation": "temporal",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ],
+                    "evidence_quote": "2026启动 → 2027扩展 → 2028完成"
+                  },
+                  {
+                    "from": "n1",
+                    "to": "n2",
+                    "relation": "temporal",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ],
+                    "evidence_quote": "2026启动 → 2027扩展 → 2028完成"
+                  }
+                ],
+                "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+                "editable_representation": "native_shapes_and_connectors",
+                "causal_proof": "not_claimed"
+              },
+              "type": "timeline",
+              "lexical_relation_inference": "disabled",
+              "fallback": "fail rather than raster-only or inferred relation"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-027_normal_3",
+    "input": {
+      "task": {
+        "task_id": "task_8c2076ae-f9ea-4c81-a341-c005fa4d50ef",
+        "route": {
+          "route_status": "routed",
+          "mode": "create_from_scratch",
+          "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+          "protection_policy_id": "protect_scratch_scope",
+          "decision_id": "DEC-001",
+          "trace": {
+            "candidate_modes": [
+              "create_from_scratch"
+            ],
+            "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+          }
+        },
+        "sources": [
+          {
+            "source_id": "source_f19546bd-88b4-4bd4-bad8-748118726c1f",
+            "kind": "image",
+            "locator": "/runtime/visual-validation/declared-image.png",
+            "metadata": {
+              "source_role": "asset",
+              "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+              "license": "unknown",
+              "usage_status": "authorized"
+            }
+          }
+        ],
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        },
+        "style": null,
+        "template_ref": null,
+        "output": {
+          "formats": [
+            "pptx"
+          ]
+        },
+        "providers": {},
+        "runtime_preferences": {}
+      },
+      "sources": {
+        "evidence": [
+          {
+            "evidence_id": "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3",
+            "raw_text": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+          }
+        ],
+        "approved_texts": {
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3": "需求确认 → 设计 → 制作。2026启动 → 2027扩展 → 2028完成。指标A为8，指标B为9。"
+        },
+        "fact_boundary": {
+          "status": "ready"
+        }
+      },
+      "context": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "values": {
+          "aspect_ratio": "16:9"
+        },
+        "constraints": {
+          "hard": [],
+          "soft": [],
+          "defaults": [],
+          "conflicts": []
+        }
+      },
+      "proposal": {
+        "title": "视觉样例",
+        "main_takeaway": "保留证据",
+        "storyline": {
+          "pattern": "linear",
+          "rationale": "原文顺序"
+        },
+        "slides": [
+          {
+            "title": "已批准视觉样例",
+            "goal": "保留来源，选择原生表达",
+            "kind": "diagram",
+            "body": [
+              "需求确认",
+              "设计",
+              "制作"
+            ],
+            "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "rationale": "明示结构且保留数据",
+            "table": null,
+            "chart": null,
+            "diagram": {
+              "type": "process",
+              "direction": "horizontal",
+              "nodes": [
+                {
+                  "node_id": "n0",
+                  "label": "需求确认",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                },
+                {
+                  "node_id": "n1",
+                  "label": "设计",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "from": "n0",
+                  "to": "n1",
+                  "relation": "sequence",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ],
+                  "evidence_quote": "需求确认 → 设计"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "result": {
+      "node_id": "DEC-027",
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "diagram": {
+              "type": "process",
+              "direction": "horizontal",
+              "nodes": [
+                {
+                  "node_id": "n0",
+                  "label": "需求确认",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                },
+                {
+                  "node_id": "n1",
+                  "label": "设计",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "from": "n0",
+                  "to": "n1",
+                  "relation": "sequence",
+                  "evidence_refs": [
+                    "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                  ],
+                  "evidence_quote": "需求确认 → 设计"
+                }
+              ],
+              "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+              "editable_representation": "native_shapes_and_connectors",
+              "causal_proof": "not_claimed"
+            },
+            "type": "process",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          }
+        ]
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-027",
+        "input": {
+          "page_count": 1,
+          "evidence_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ]
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-027",
+            "candidate_id": "candidate_fc342dc5-369e-422a-9d14-797bc35668e2",
+            "value": {
+              "page_index": 0,
+              "required": true,
+              "diagram": {
+                "type": "process",
+                "direction": "horizontal",
+                "nodes": [
+                  {
+                    "node_id": "n0",
+                    "label": "需求确认",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  },
+                  {
+                    "node_id": "n1",
+                    "label": "设计",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "n0",
+                    "to": "n1",
+                    "relation": "sequence",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ],
+                    "evidence_quote": "需求确认 → 设计"
+                  }
+                ],
+                "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+                "editable_representation": "native_shapes_and_connectors",
+                "causal_proof": "not_claimed"
+              },
+              "type": "process",
+              "lexical_relation_inference": "disabled",
+              "fallback": "fail rather than raster-only or inferred relation"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "validated explicit structured visual choice; facts unchanged"
+              }
+            ],
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_fc342dc5-369e-422a-9d14-797bc35668e2"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "pages": [
+            {
+              "page_index": 0,
+              "required": true,
+              "diagram": {
+                "type": "process",
+                "direction": "horizontal",
+                "nodes": [
+                  {
+                    "node_id": "n0",
+                    "label": "需求确认",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  },
+                  {
+                    "node_id": "n1",
+                    "label": "设计",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ]
+                  }
+                ],
+                "edges": [
+                  {
+                    "from": "n0",
+                    "to": "n1",
+                    "relation": "sequence",
+                    "evidence_refs": [
+                      "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+                    ],
+                    "evidence_quote": "需求确认 → 设计"
+                  }
+                ],
+                "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+                "editable_representation": "native_shapes_and_connectors",
+                "causal_proof": "not_claimed"
+              },
+              "type": "process",
+              "lexical_relation_inference": "disabled",
+              "fallback": "fail rather than raster-only or inferred relation"
+            }
+          ]
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-028_normal_1",
+    "result": {
+      "node_id": "DEC-028",
+      "output": {
+        "family": "generic",
+        "template_id": null,
+        "template_status": "selected",
+        "fallback": "fail on incompatible capacity"
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-028",
+        "input": {
+          "template_ref": null,
+          "constraints": {
+            "hard": [],
+            "soft": [],
+            "defaults": [],
+            "conflicts": []
+          },
+          "evidence_refs": []
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_e94b3b06-c7a4-491b-af31-053169d08a16",
+            "value": {
+              "family": "generic",
+              "eligible": true,
+              "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_04ef1a83-4eb2-4747-affa-5708c5d625f7",
+            "value": {
+              "family": "free_layout",
+              "eligible": true,
+              "reason": "Native geometry compiler is available as explicit alternative."
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "Native geometry compiler is available as explicit alternative."
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_e94b3b06-c7a4-491b-af31-053169d08a16"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "family": "generic",
+          "template_id": null,
+          "template_status": "selected",
+          "fallback": "fail on incompatible capacity"
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-028_normal_2",
+    "result": {
+      "node_id": "DEC-028",
+      "output": {
+        "family": "reference",
+        "template_id": "template_075a54037c1da42259e0366b",
+        "template_status": "selected_partial_capacity_unmeasured",
+        "fallback": "fail unless caller explicitly supplies fallback template"
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-028",
+        "input": {
+          "template_ref": "/runtime/visual-validation/wide-template.pptx",
+          "constraints": {
+            "hard": [],
+            "soft": [],
+            "defaults": [],
+            "conflicts": []
+          },
+          "evidence_refs": []
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_2472f2c7-35cd-4553-9df2-26da0aa98c30",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout5.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=2",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=3",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=4",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=12"
+              ],
+              "score": 8,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_0dac86b4-ecb1-444b-9a70-99de25091954",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout4.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=2",
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=12"
+              ],
+              "score": 6,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_8cda40db-2264-47e3-a7b5-507b903a0490",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout8.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=2",
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=12"
+              ],
+              "score": 6,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_de714987-a0a2-4d20-98de-527042568769",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout1.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout1.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout1.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout1.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout1.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout1.xml#placeholder=12"
+              ],
+              "score": 5,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_3b25a59e-8146-4c3d-9cb5-5d6910ce0d1a",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout10.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout10.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout10.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout10.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout10.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout10.xml#placeholder=12"
+              ],
+              "score": 5,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_99ae9f25-8f7a-4364-8107-09a8e7bc5152",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout11.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout11.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout11.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout11.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout11.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout11.xml#placeholder=12"
+              ],
+              "score": 5,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_7a72f18c-6ee5-4375-9571-3386e246d7bb",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout3.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout3.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout3.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout3.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout3.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout3.xml#placeholder=12"
+              ],
+              "score": 5,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_119fb98f-44ff-429c-8ef8-1852c3e8d23d",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout9.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout9.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout9.xml#placeholder=2",
+                "ppt/slideLayouts/slideLayout9.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout9.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout9.xml#placeholder=12"
+              ],
+              "score": 5,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_c47ad104-2a31-4c54-ba74-0ceccfb048ea",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout2.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout2.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout2.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout2.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout2.xml#placeholder=12"
+              ],
+              "score": 4,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_da7978e4-c70f-4de5-804e-9769297c5c88",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout6.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout6.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout6.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout6.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout6.xml#placeholder=12"
+              ],
+              "score": 4,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_afb1316a-3700-4c77-b9f5-10de3b3386e2",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout7.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout7.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout7.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout7.xml#placeholder=12"
+              ],
+              "score": 3,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_2472f2c7-35cd-4553-9df2-26da0aa98c30"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "family": "reference",
+          "template_id": "template_075a54037c1da42259e0366b",
+          "template_status": "selected_partial_capacity_unmeasured",
+          "fallback": "fail unless caller explicitly supplies fallback template"
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-028_normal_3",
+    "result": {
+      "node_id": "DEC-028",
+      "output": {
+        "family": "brand",
+        "template_id": "template_075a54037c1da42259e0366b",
+        "template_status": "selected_partial_capacity_unmeasured",
+        "fallback": "fail unless caller explicitly supplies fallback template"
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-028",
+        "input": {
+          "template_ref": "/runtime/visual-validation/wide-template.pptx",
+          "constraints": {
+            "hard": [],
+            "soft": [],
+            "defaults": [],
+            "conflicts": []
+          },
+          "evidence_refs": []
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_0663e5a6-fcb1-45ff-8cb0-07ab77edc852",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout5.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=2",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=3",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=4",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout5.xml#placeholder=12"
+              ],
+              "score": 8,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_34f29396-9da9-45f5-b308-b3c81a1c1630",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout4.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=2",
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout4.xml#placeholder=12"
+              ],
+              "score": 6,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_be6c21a9-4235-4d25-ab2e-6fb73079cc48",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout8.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=2",
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout8.xml#placeholder=12"
+              ],
+              "score": 6,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_76db488f-b2a1-49ed-8e99-b2eca47d7b65",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout1.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout1.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout1.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout1.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout1.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout1.xml#placeholder=12"
+              ],
+              "score": 5,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_e0fc9c0d-b92a-4390-a27d-3a0a89de208d",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout10.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout10.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout10.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout10.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout10.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout10.xml#placeholder=12"
+              ],
+              "score": 5,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_d6575e12-98bc-4241-b1ec-d4ad956986c8",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout11.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout11.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout11.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout11.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout11.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout11.xml#placeholder=12"
+              ],
+              "score": 5,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_2ff5ebc6-4c5c-4cec-ac23-43b1216521eb",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout3.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout3.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout3.xml#placeholder=1",
+                "ppt/slideLayouts/slideLayout3.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout3.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout3.xml#placeholder=12"
+              ],
+              "score": 5,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_8f8f10c5-556d-49f2-9da4-7e5b9a113e54",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout9.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout9.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout9.xml#placeholder=2",
+                "ppt/slideLayouts/slideLayout9.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout9.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout9.xml#placeholder=12"
+              ],
+              "score": 5,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_16582ca3-5656-4e2f-a69b-b7987dea40c2",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout2.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout2.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout2.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout2.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout2.xml#placeholder=12"
+              ],
+              "score": 4,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_0559792f-f62c-4f3f-9ff4-a586a47725e8",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout6.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout6.xml#placeholder=0",
+                "ppt/slideLayouts/slideLayout6.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout6.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout6.xml#placeholder=12"
+              ],
+              "score": 4,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          },
+          {
+            "node_id": "DEC-028",
+            "candidate_id": "candidate_b20d1b35-8dbf-48ff-8e05-5c7409472cb5",
+            "value": {
+              "layout_part": "ppt/slideLayouts/slideLayout7.xml",
+              "eligible": true,
+              "matching_slot_ids": [
+                "ppt/slideLayouts/slideLayout7.xml#placeholder=10",
+                "ppt/slideLayouts/slideLayout7.xml#placeholder=11",
+                "ppt/slideLayouts/slideLayout7.xml#placeholder=12"
+              ],
+              "score": 3,
+              "reasons": [
+                "仅按内容类型和已定位槽位筛选；内容容量尚未测量。"
+              ],
+              "capacity_status": "unmeasured"
+            },
+            "score": 0,
+            "reasons": [
+              {
+                "reason": "native template structural match; capacity remains explicit"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_0663e5a6-fcb1-45ff-8cb0-07ab77edc852"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "family": "brand",
+          "template_id": "template_075a54037c1da42259e0366b",
+          "template_status": "selected_partial_capacity_unmeasured",
+          "fallback": "fail unless caller explicitly supplies fallback template"
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-029_normal_1",
+    "result": {
+      "node_id": "DEC-029",
+      "output": {
+        "font": "Noto Sans CJK SC",
+        "foreground": "192C32",
+        "background": "F6F4EE",
+        "accent": "147C80",
+        "shape_language": "native_editable",
+        "image_treatment": "contain_without_crop",
+        "decoration_density": "minimal",
+        "provenance": {
+          "font": "caller override or declared native renderer font",
+          "colors": "caller override or explicit product default"
+        },
+        "template_tokens": null
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-029",
+        "input": {
+          "style": {
+            "accent": "147C80"
+          },
+          "template_id": null,
+          "evidence_refs": []
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-029",
+            "candidate_id": "candidate_a04f4a2d-9d8e-4fab-8f3a-969546ddd5da",
+            "value": {
+              "font": "Noto Sans CJK SC",
+              "foreground": "192C32",
+              "background": "F6F4EE",
+              "accent": "147C80",
+              "shape_language": "native_editable",
+              "image_treatment": "contain_without_crop",
+              "decoration_density": "minimal",
+              "provenance": {
+                "font": "caller override or declared native renderer font",
+                "colors": "caller override or explicit product default"
+              },
+              "template_tokens": null
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "explicit caller values/product defaults; template originals retained without assuming font availability"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_a04f4a2d-9d8e-4fab-8f3a-969546ddd5da"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "font": "Noto Sans CJK SC",
+          "foreground": "192C32",
+          "background": "F6F4EE",
+          "accent": "147C80",
+          "shape_language": "native_editable",
+          "image_treatment": "contain_without_crop",
+          "decoration_density": "minimal",
+          "provenance": {
+            "font": "caller override or declared native renderer font",
+            "colors": "caller override or explicit product default"
+          },
+          "template_tokens": null
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-029_normal_2",
+    "result": {
+      "node_id": "DEC-029",
+      "output": {
+        "font": "Noto Sans CJK SC",
+        "foreground": "192C32",
+        "background": "F6F4EE",
+        "accent": "000000",
+        "shape_language": "native_editable",
+        "image_treatment": "contain_without_crop",
+        "decoration_density": "minimal",
+        "provenance": {
+          "font": "caller override or declared native renderer font",
+          "colors": "caller override or explicit product default"
+        },
+        "template_tokens": null
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-029",
+        "input": {
+          "style": {
+            "accent": "000000"
+          },
+          "template_id": null,
+          "evidence_refs": []
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-029",
+            "candidate_id": "candidate_c178e4ce-c401-4ed3-8b38-ac8e6f334655",
+            "value": {
+              "font": "Noto Sans CJK SC",
+              "foreground": "192C32",
+              "background": "F6F4EE",
+              "accent": "000000",
+              "shape_language": "native_editable",
+              "image_treatment": "contain_without_crop",
+              "decoration_density": "minimal",
+              "provenance": {
+                "font": "caller override or declared native renderer font",
+                "colors": "caller override or explicit product default"
+              },
+              "template_tokens": null
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "explicit caller values/product defaults; template originals retained without assuming font availability"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_c178e4ce-c401-4ed3-8b38-ac8e6f334655"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "font": "Noto Sans CJK SC",
+          "foreground": "192C32",
+          "background": "F6F4EE",
+          "accent": "000000",
+          "shape_language": "native_editable",
+          "image_treatment": "contain_without_crop",
+          "decoration_density": "minimal",
+          "provenance": {
+            "font": "caller override or declared native renderer font",
+            "colors": "caller override or explicit product default"
+          },
+          "template_tokens": null
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  },
+  {
+    "name": "DEC-029_normal_3",
+    "result": {
+      "node_id": "DEC-029",
+      "output": {
+        "font": "Noto Sans CJK SC",
+        "foreground": "192C32",
+        "background": "F6F4EE",
+        "accent": "FFFFFF",
+        "shape_language": "native_editable",
+        "image_treatment": "contain_without_crop",
+        "decoration_density": "minimal",
+        "provenance": {
+          "font": "caller override or declared native renderer font",
+          "colors": "caller override or explicit product default"
+        },
+        "template_tokens": null
+      },
+      "decision_trace": {
+        "trace_id": "trace_ee69ca82-411e-4de5-a92b-4457e8791367",
+        "node_id": "DEC-029",
+        "input": {
+          "style": {
+            "accent": "FFFFFF"
+          },
+          "template_id": null,
+          "evidence_refs": []
+        },
+        "candidates": [
+          {
+            "node_id": "DEC-029",
+            "candidate_id": "candidate_7d3a5014-bd84-4100-9398-5a64f0bbd34d",
+            "value": {
+              "font": "Noto Sans CJK SC",
+              "foreground": "192C32",
+              "background": "F6F4EE",
+              "accent": "FFFFFF",
+              "shape_language": "native_editable",
+              "image_treatment": "contain_without_crop",
+              "decoration_density": "minimal",
+              "provenance": {
+                "font": "caller override or declared native renderer font",
+                "colors": "caller override or explicit product default"
+              },
+              "template_tokens": null
+            },
+            "score": 1,
+            "reasons": [
+              {
+                "reason": "explicit caller values/product defaults; template originals retained without assuming font availability"
+              }
+            ],
+            "evidence_refs": [],
+            "constraints": [
+              {
+                "no_implicit_fact_inference": true,
+                "no_silent_fallback": true
+              }
+            ]
+          }
+        ],
+        "selected": [
+          "candidate_7d3a5014-bd84-4100-9398-5a64f0bbd34d"
+        ],
+        "rules": {
+          "source_project_mapping": {
+            "P01": "Visual_Designer/template/Executor",
+            "P02": "layout induction/reference selection/actions",
+            "P03": "slide content/layout/template/assets",
+            "P04": "PureLayout/assets/PPTAdapter",
+            "P05": "SlidePlanner/template/assets/native writer"
+          },
+          "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+          "score_semantics": "selected policy outcome, not semantic probability",
+          "fallback": "structured failure; never invent material or downgrade a requested expression"
+        },
+        "output": {
+          "font": "Noto Sans CJK SC",
+          "foreground": "192C32",
+          "background": "F6F4EE",
+          "accent": "FFFFFF",
+          "shape_language": "native_editable",
+          "image_treatment": "contain_without_crop",
+          "decoration_density": "minimal",
+          "provenance": {
+            "font": "caller override or declared native renderer font",
+            "colors": "caller override or explicit product default"
+          },
+          "template_tokens": null
+        },
+        "duration": 0.0,
+        "error": null
+      }
+    }
+  }
+]

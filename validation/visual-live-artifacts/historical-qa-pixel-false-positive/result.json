@@ -1,0 +1,55 @@
+{
+  "ok": true,
+  "operation": "recheck",
+  "trace_id": "trace_c0ad2733-d650-4020-89cc-998263617677",
+  "run_id": "dbb3a53c-1c15-4fdd-aa73-e66560ce7b77",
+  "parent_run_id": "74a0567c-2bfb-47e1-a6b0-eae2dcf252e6",
+  "artifact_root": "/runtime/runs/dbb3a53c-1c15-4fdd-aa73-e66560ce7b77",
+  "pptx": "/runtime/runs/dbb3a53c-1c15-4fdd-aa73-e66560ce7b77/deck.pptx",
+  "deck_and_render_bytes_reused": true,
+  "qa": {
+    "p0_issue_count": 1,
+    "status": "partial"
+  },
+  "completion": {
+    "state": "fail",
+    "final_allowed": false,
+    "p0_issue_count": 1,
+    "warning_issue_count": 4,
+    "missing_coverage": [
+      "structure",
+      "editability",
+      "geometry",
+      "fact_numeric",
+      "visual_semantic",
+      "fact_semantic",
+      "accessibility",
+      "global_consistency",
+      "powerpoint_compatibility"
+    ],
+    "missing_nodes": [],
+    "missing_acceptance": [
+      "AC-001",
+      "GOV-008"
+    ],
+    "revision_plan_status": "needs_input",
+    "reasons": [
+      "Unresolved P0 issues block final output"
+    ],
+    "retry": {
+      "count": 0,
+      "maximum": 2,
+      "allowed": false,
+      "next_action": "provide_required_input_or_fail"
+    },
+    "error": {
+      "code": "QUALITY_P0_UNRESOLVED",
+      "issue_ids": [
+        "issue_280535b9-c0f5-4638-a8c7-666e4a766de3"
+      ]
+    },
+    "system_acceptance": "not_passed"
+  },
+  "fresh_model_call": false,
+  "system_acceptance": "not_passed"
+}

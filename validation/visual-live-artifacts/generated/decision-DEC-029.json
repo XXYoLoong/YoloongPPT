@@ -1,0 +1,73 @@
+{
+  "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+  "node_id": "DEC-029",
+  "input": {
+    "style": {},
+    "template_id": null,
+    "evidence_refs": []
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-029",
+      "candidate_id": "candidate_38b6c2a9-350d-49ea-aa20-d838cf4c8c6b",
+      "value": {
+        "font": "Noto Sans CJK SC",
+        "foreground": "192C32",
+        "background": "F6F4EE",
+        "accent": "147C80",
+        "shape_language": "native_editable",
+        "image_treatment": "contain_without_crop",
+        "decoration_density": "minimal",
+        "provenance": {
+          "font": "caller override or declared native renderer font",
+          "colors": "caller override or explicit product default"
+        },
+        "template_tokens": null
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "explicit caller values/product defaults; template originals retained without assuming font availability"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_38b6c2a9-350d-49ea-aa20-d838cf4c8c6b"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "Visual_Designer/template/Executor",
+      "P02": "layout induction/reference selection/actions",
+      "P03": "slide content/layout/template/assets",
+      "P04": "PureLayout/assets/PPTAdapter",
+      "P05": "SlidePlanner/template/assets/native writer"
+    },
+    "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+    "score_semantics": "selected policy outcome, not semantic probability",
+    "fallback": "structured failure; never invent material or downgrade a requested expression"
+  },
+  "output": {
+    "font": "Noto Sans CJK SC",
+    "foreground": "192C32",
+    "background": "F6F4EE",
+    "accent": "147C80",
+    "shape_language": "native_editable",
+    "image_treatment": "contain_without_crop",
+    "decoration_density": "minimal",
+    "provenance": {
+      "font": "caller override or declared native renderer font",
+      "colors": "caller override or explicit product default"
+    },
+    "template_tokens": null
+  },
+  "duration": 0.0,
+  "error": null
+}

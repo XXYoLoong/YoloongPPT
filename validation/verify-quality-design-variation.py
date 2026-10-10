@@ -1,0 +1,12 @@
+"""DEC-035/QA-015 explicit background variation acceptance, no model calls."""
+import copy,json,hashlib
+from pathlib import Path
+from pptx import Presentation
+from pptx.dml.color import RGBColor
+from yoloongppt.quality_rules import audit
+parent=Path('/runtime/runs/5be192ef-798f-4bb0-9c93-c24bcc279aa4');load=lambda n:json.loads((parent/n).read_text('utf-8'));deck=load('deck-spec.json');mapping=load('object-map.json');checks=[]
+def test(name,condition,observed):checks.append({'name':name,'passed':bool(condition),'observation':observed});assert condition,name
+p=Presentation(parent/'deck.pptx');issues,measurements,_=audit(deck,p,mapping);sid=deck['slides'][0]['slide_id'];test('native_selected_cover_explicit_variation',not any(i['code']=='DECK_BACKGROUND_INCONSISTENT' and i['slide_id']==sid for i in issues) and any(c.get('explicit_variation') and c['slide_id']==sid for c in measurements),{'slide_id':sid,'cover_background':deck['slides'][0]['style']['background'],'deck_background':deck['style']['background']})
+bad=copy.deepcopy(deck);bad['slides'][0]['layout'].pop('selection_trace');issues,_,_=audit(bad,p,mapping);test('no_trace_background_variation_reported',any(i['code']=='DECK_BACKGROUND_INCONSISTENT' and i['slide_id']==sid for i in issues),{'removed':'executed selection trace'})
+bad_native=Presentation(parent/'deck.pptx');bad_native.slides[0].background.fill.solid();bad_native.slides[0].background.fill.fore_color.rgb=RGBColor.from_string('ABCDEF');issues,measurements,_=audit(deck,bad_native,mapping);test('native_spec_mismatch_not_whitelisted',any(i['code']=='SLIDE_BACKGROUND_CHANGED' and i['slide_id']==sid for i in issues) and not any(c.get('explicit_variation') and c['slide_id']==sid for c in measurements),{'native_background':'ABCDEF','spec_background':deck['slides'][0]['style']['background']})
+p=Path('/workspace/src/yoloongppt/quality_rules.py');result={'passed':all(c['passed'] for c in checks),'checks':checks,'model_calls':0,'source_hashes':{str(p.relative_to('/workspace')):hashlib.sha256(p.read_bytes()).hexdigest()},'scope':'only explicit native/spec/selected cover background variation incremental change; preceding37-rule and38-policy evidence retained at its actual version','system_acceptance':'not_passed'};out=Path('/runtime/revision-plan-validation');out.mkdir(exist_ok=True);(out/'quality-design-variation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n','utf-8');print(json.dumps({'passed':result['passed'],'checks':len(checks)},ensure_ascii=False))

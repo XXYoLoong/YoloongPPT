@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "native_selected_cover_explicit_variation",
+      "passed": true,
+      "observation": {
+        "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+        "cover_background": "192C32",
+        "deck_background": "F6F4EE"
+      }
+    },
+    {
+      "name": "no_trace_background_variation_reported",
+      "passed": true,
+      "observation": {
+        "removed": "executed selection trace"
+      }
+    },
+    {
+      "name": "native_spec_mismatch_not_whitelisted",
+      "passed": true,
+      "observation": {
+        "native_background": "ABCDEF",
+        "spec_background": "192C32"
+      }
+    }
+  ],
+  "model_calls": 0,
+  "source_hashes": {
+    "src/yoloongppt/quality_rules.py": "83cdf01f7611aabf73efd331d95ef2df4b97ba2c2c5112c8f37db030d38dc099"
+  },
+  "scope": "only explicit native/spec/selected cover background variation incremental change; preceding37-rule and38-policy evidence retained at its actual version",
+  "system_acceptance": "not_passed"
+}

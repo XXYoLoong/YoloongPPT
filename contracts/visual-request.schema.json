@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/visual-request.schema.json",
+  "type": "object",
+  "required": [
+    "task",
+    "sources",
+    "context"
+  ],
+  "properties": {
+    "task": {
+      "$ref": "task-spec.schema.json"
+    },
+    "sources": {
+      "type": "object",
+      "required": [
+        "evidence"
+      ],
+      "properties": {
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "minItems": 0
+        },
+        "fact_boundary": {
+          "type": "object"
+        },
+        "approved_texts": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "context": {
+      "type": "object",
+      "required": [
+        "values"
+      ],
+      "properties": {
+        "values": {
+          "type": "object"
+        },
+        "constraints": {
+          "type": "object"
+        },
+        "trace_id": {
+          "$ref": "object-id.schema.json#/$defs/trace_id"
+        }
+      },
+      "additionalProperties": true
+    },
+    "proposal": {
+      "type": "object",
+      "required": [
+        "slides"
+      ],
+      "properties": {
+        "slides": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "minItems": 1
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

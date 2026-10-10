@@ -1,0 +1,88 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "actual_png_dimensions_metadata_verified",
+      "passed": true,
+      "observation": [
+        {
+          "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+          "object_id": "object_ed4abf06-e682-43ad-bb05-abd7ba940826",
+          "kind": "asset_metadata_namespace",
+          "check": "same-page native image bytes/sha256 and pixel dimensions",
+          "status": "executed",
+          "namespace": "native_image_dimensions",
+          "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+          "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+          "actual_dimensions_px": [
+            320,
+            160
+          ],
+          "native_format": "png",
+          "matched_span": "320×160 PNG",
+          "span_start": 54,
+          "span_end": 65,
+          "reason": "Only this explicit verified dimension token is metadata, not a business fact allowance"
+        }
+      ]
+    },
+    {
+      "name": "same_value_business_quantity_not_allowed",
+      "passed": true,
+      "observation": {
+        "numbers_after_metadata_mask": [
+          "320"
+        ]
+      }
+    },
+    {
+      "name": "wrong_dimensions_fake_asset_hash_fail_closed",
+      "passed": true,
+      "observation": {
+        "wrong_dimensions_mask": "使用调用方已授权素材 asset_53df89e2-f082-4680-9411-8abc446ad30b（999×160 PNG，sha256 已校验）。来源明确该素材为程序人工绘制的测试示意图，仅用于装饰，不证明任何事实；图片语义未经独立复核，也未提取文字。",
+        "fake_asset_verifications": [],
+        "hash_mismatch_verifications": []
+      }
+    },
+    {
+      "name": "real_6page_direct_qa_preserves_notes_and_resolution_warning",
+      "passed": true,
+      "observation": {
+        "p0_count": 0,
+        "issues": [
+          "IMAGE_RESOLUTION_LOW"
+        ]
+      }
+    }
+  ],
+  "run_id": "dbb3a53c-1c15-4fdd-aa73-e66560ce7b77",
+  "original_notes": "使用调用方已授权素材 asset_53df89e2-f082-4680-9411-8abc446ad30b（320×160 PNG，sha256 已校验）。来源明确该素材为程序人工绘制的测试示意图，仅用于装饰，不证明任何事实；图片语义未经独立复核，也未提取文字。",
+  "verified_asset_metadata": [
+    {
+      "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+      "object_id": "object_ed4abf06-e682-43ad-bb05-abd7ba940826",
+      "kind": "asset_metadata_namespace",
+      "check": "same-page native image bytes/sha256 and pixel dimensions",
+      "status": "executed",
+      "namespace": "native_image_dimensions",
+      "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+      "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+      "actual_dimensions_px": [
+        320,
+        160
+      ],
+      "native_format": "png",
+      "matched_span": "320×160 PNG",
+      "span_start": 54,
+      "span_end": 65,
+      "reason": "Only this explicit verified dimension token is metadata, not a business fact allowance"
+    }
+  ],
+  "source_hashes": {
+    "src/yoloongppt/quality.py": "f95f271cef0b4629805530245f39a5b19aac90d058e33baa85fb977816a7189c"
+  },
+  "pptx_sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733",
+  "model_calls": 0,
+  "render_calls": 0,
+  "system_acceptance": "not_passed"
+}

@@ -1,0 +1,45 @@
+{
+  "status": "assigned",
+  "source_roles": [
+    {
+      "source_id": "source_7ea4aae4-e224-421b-a66e-8a97908af93a",
+      "asset_refs": [],
+      "role": "fact",
+      "candidate_refs": [
+        "candidate_70c185ba-3607-4861-a59d-94dc0343e59f"
+      ],
+      "loading_strategy": {
+        "kind": "text",
+        "locator": null,
+        "fact_input": true
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    },
+    {
+      "source_id": "source_b8f46381-3481-4a8f-886e-423905de9ddd",
+      "asset_refs": [
+        "asset_67840c19-4ea3-41a7-8449-fb175ff8fc4d"
+      ],
+      "role": "asset",
+      "candidate_refs": [
+        "candidate_1bc3b86d-1ae3-4fa7-aec9-52fb42383f8d"
+      ],
+      "loading_strategy": {
+        "kind": "image",
+        "locator": "/runtime/visual-validation/declared-image.png",
+        "fact_input": false
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    }
+  ],
+  "fact_source_ids": [
+    "source_7ea4aae4-e224-421b-a66e-8a97908af93a"
+  ],
+  "preserved_source_ids": [
+    "source_7ea4aae4-e224-421b-a66e-8a97908af93a",
+    "source_b8f46381-3481-4a8f-886e-423905de9ddd"
+  ],
+  "issues": [],
+  "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+  "fallback": "No guessing unknown roles or treating style/template/assets as factual evidence; preserve sources and clarify."
+}

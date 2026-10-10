@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/quality-stage-output.schema.json",
+  "type": "object",
+  "properties": {
+    "revision_plan": {
+      "$ref": "revision-plan-runtime-output.schema.json"
+    },
+    "completion": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "enum": [
+            "final",
+            "warning",
+            "fail"
+          ]
+        },
+        "final_allowed": {
+          "type": "boolean"
+        },
+        "p0_issue_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warning_issue_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "missing_coverage": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_nodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "missing_acceptance": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "revision_plan_status": {
+          "enum": [
+            "ready",
+            "needs_input",
+            "fail"
+          ]
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "retry": {
+          "type": "object",
+          "properties": {
+            "count": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "maximum": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "allowed": {
+              "type": "boolean"
+            },
+            "next_action": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "count",
+            "maximum",
+            "allowed",
+            "next_action"
+          ],
+          "additionalProperties": false
+        },
+        "error": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "system_acceptance": {
+          "enum": [
+            "passed",
+            "not_passed"
+          ]
+        }
+      },
+      "required": [
+        "state",
+        "final_allowed",
+        "p0_issue_count",
+        "warning_issue_count",
+        "missing_coverage",
+        "missing_nodes",
+        "missing_acceptance",
+        "revision_plan_status",
+        "reasons",
+        "retry",
+        "error",
+        "system_acceptance"
+      ],
+      "additionalProperties": false
+    },
+    "decision_traces": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "required": [
+          "trace_id",
+          "node_id",
+          "input",
+          "candidates",
+          "selected",
+          "rules",
+          "output",
+          "duration",
+          "error"
+        ],
+        "properties": {
+          "node_id": {
+            "enum": [
+              "DEC-039",
+              "DEC-040"
+            ]
+          }
+        },
+        "additionalProperties": true
+      }
+    }
+  },
+  "required": [
+    "revision_plan",
+    "completion",
+    "decision_traces"
+  ],
+  "additionalProperties": false
+}

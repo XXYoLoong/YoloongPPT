@@ -1,0 +1,81 @@
+{
+  "task_id": "task_9c74b8fa-6b53-4285-864e-596653e01b59",
+  "route": {
+    "route_status": "routed",
+    "mode": "create_from_materials",
+    "routing_reason": "调用者明确要求材料新建",
+    "protection_policy_id": "preserve_material_facts_and_sources",
+    "decision_id": "DEC-001",
+    "trace": {
+      "candidate_modes": [
+        "create_from_materials"
+      ],
+      "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+    }
+  },
+  "sources": [
+    {
+      "source_id": "source_cdd42298-3d0f-4d6e-a3e0-aa288bd25f5c",
+      "kind": "text",
+      "content": "明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。管理流程原文明示：检查照明→设置定时→记录变化。检查照明指核对灯具与使用时段。设置定时指设置关灯规则。记录变化指记录照明用电。测试数据单位为千瓦时，观察窗口为虚构测试周，统计对象为照明用电：A楼基线100，本期90；B楼基线80，本期72；C楼基线60，本期54。基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。结论是先核对资料、保留来源，再按原文明示流程执行。",
+      "metadata": {
+        "source_role": "fact"
+      }
+    },
+    {
+      "source_id": "source_7e6e78d6-4717-4cff-901f-0630cc51ba3b",
+      "kind": "image",
+      "locator": "/runtime/visual-validation/declared-image.png",
+      "metadata": {
+        "source_role": "asset",
+        "asset_id": "asset_84243d24-573d-4a39-9c05-4c1774926d65",
+        "usage_status": "authorized",
+        "license": "test-fixture-authorized",
+        "authorization_basis": "Artificial fixture authored for product integration verification"
+      }
+    }
+  ],
+  "constraints": {
+    "hard": [],
+    "soft": [],
+    "defaults": [],
+    "conflicts": []
+  },
+  "style": null,
+  "template_ref": null,
+  "output": {
+    "formats": [
+      "pptx",
+      "pdf",
+      "png"
+    ]
+  },
+  "providers": {
+    "text": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "parameters": {
+        "temperature": 0.2,
+        "max_tokens": 12000,
+        "timeout_seconds": 180
+      }
+    }
+  },
+  "runtime_preferences": {
+    "page_count": 6
+  },
+  "raw_request": {
+    "request": {
+      "raw_text": "用明确虚构测试材料新建恰好6页中文演示：封面、真实素材图片页、原生流程图页、原生表格页、原生柱图页、结论页。流程必须采用资料原文明示的三个节点和箭头；图像仅作装饰。全部数值注明虚构测试。不要新增统计或因果。",
+      "attachments": [],
+      "requested_mode": "create_from_materials",
+      "requested_outputs": [
+        "pptx",
+        "pdf",
+        "png"
+      ]
+    },
+    "attachment_roles": []
+  }
+}

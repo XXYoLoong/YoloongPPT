@@ -1,0 +1,232 @@
+{
+  "qa_id": "artifact_81fc511b-0231-4994-b539-f281f88df159",
+  "status": "partial",
+  "issues": [
+    {
+      "issue_id": "issue_2ecd44c3-f352-41a4-8d1a-27bd64d992c5",
+      "code": "DECK_BACKGROUND_INCONSISTENT",
+      "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+      "object_id": null,
+      "severity": "P1",
+      "detail": "Page background differs; exception requires explicit policy",
+      "requirement_id": "QA-015",
+      "measurement": {},
+      "threshold": {},
+      "action": {
+        "node": "style",
+        "mode": "local_revision",
+        "reason": "DECK_BACKGROUND_INCONSISTENT"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "kind": "structure",
+      "check": "Content_Types declarations and all internal relationship targets/IDs",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "model_review_executed_with_unchanged_page_evidence_reuse",
+    "fact_semantic": "model_review_executed_with_unchanged_page_evidence_reuse",
+    "accessibility": "partial_native_alt_font_contrast_table_header_reading_order",
+    "powerpoint_compatibility": "not_executed",
+    "global_consistency": "partial_style_font_footer_hierarchy",
+    "visual_geometry": "partial_collision_geometry_contrast_image_dpi",
+    "image_semantics": "not_executed",
+    "full_semantic_reading_order": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Numeric membership is not semantic truth; PNG/text presence is not visual approval. Full DEC/QA/revision acceptance remains required.",
+  "model_review": {
+    "checked_slide_orders": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "fresh_checked_slide_orders": [
+      0
+    ],
+    "issues": [
+      {
+        "slide_order": 1,
+        "severity": "P1",
+        "kind": "visual",
+        "detail": "占位符文本为超长英文键名（school_energy_saving_pilot.energy_consumption_reduction_target.baseline / .metric_name），在卡片内强制换行且被截断为多行，可读性差，且未显示完整键名。",
+        "evidence_refs": [
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+        ],
+        "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+        "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0"
+      },
+      {
+        "slide_order": 1,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "正文以原始键名占位符呈现缺失项，对管理层读者不友好，建议改为中文可读标签（如“基线口径待补充”“指标名称待补充”）。",
+        "evidence_refs": [],
+        "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+        "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0"
+      },
+      {
+        "slide_order": 2,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "两个内容卡片高度远大于文本量，右侧卡片仅两行文字却占据整块区域，留白过多，版面失衡。",
+        "evidence_refs": [],
+        "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+        "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a"
+      },
+      {
+        "slide_order": 3,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "三个卡片高度不一致且内容极少，下方卡片与上方卡片对齐松散，版面留白过多。",
+        "evidence_refs": [],
+        "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+        "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3"
+      },
+      {
+        "slide_order": 4,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "表格左侧说明文字与表格间距偏大，表格行高较大，整体偏空；表格本身可读，无裁切。",
+        "evidence_refs": [],
+        "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+        "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad"
+      },
+      {
+        "slide_order": 5,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "图表仅呈现单一8%柱状值，信息量极低，作为独立一页略显冗余，可考虑与目标页合并。",
+        "evidence_refs": [
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+          "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+        ],
+        "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+        "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a"
+      },
+      {
+        "slide_order": 7,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "标题“下一步：补齐口径后复核”在左侧换行断为“复/核”，断行位置不佳，影响标题观感。",
+        "evidence_refs": [],
+        "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+        "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9"
+      },
+      {
+        "slide_order": 0,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "正文第三条“先检查教室照明，再设置定时关灯，随后记录变化”属于执行方法（第3页内容），与第0页“试点定位/范围”主题重复，建议本页仅保留范围与性质说明，避免与后续执行页内容重叠。",
+        "evidence_refs": [
+          "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+        ],
+        "issue_id": "issue_1c28ed99-433a-4bb2-81c1-d822f299e4ab",
+        "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8"
+      }
+    ],
+    "summary": "本次仅复审第0页（试点定位：教室照明管理）。页面渲染正常，无视觉裁切、重叠或错字；标题与正文层级清晰，页码01/08正确。事实层面：试点名称“学校节能试点”由evidence_85794346支持；“只讨论照明管理、不对全校节能作出承诺”与“检查—定时—记录”顺序由evidence_dc928737支持，未发现被否决值或未标注假设被当作事实。唯一问题为P2级内容重叠（执行步骤出现在定位页）。未附图页面的视觉质量不在本次复审范围，未重新批准。",
+    "carried_from_run": "4666053e-b31b-4fe9-b0d5-ecd9125d2d3c"
+  }
+}

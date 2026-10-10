@@ -1,0 +1,255 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "real_8_page_pptx_checked",
+      "passed": true,
+      "observation": {
+        "slides": 8,
+        "checks": 18,
+        "p0": 0,
+        "issues": [
+          "DECK_BACKGROUND_INCONSISTENT"
+        ]
+      }
+    },
+    {
+      "name": "quality_issues_explainable",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "coverage_explicit_no_false_powerpoint",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "actual8_never_full_final",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "synthetic_final",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "synthetic_final_DEC-039",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "synthetic_final_DEC-040",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "partial_warning",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "partial_warning_DEC-039",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "partial_warning_DEC-040",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "nonblocking_warning",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "nonblocking_warning_DEC-039",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "nonblocking_warning_DEC-040",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "p0_fail_with_safe_retry",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "contrast_plan_local",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "plan_native_stale_guard_valid",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "locked_p0_explicit_fail",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "locked_plan_not_consumable",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_PLAN_BLOCKED"
+      }
+    },
+    {
+      "name": "retry_exhausted_no_loop",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "p0_count_cannot_hide_issue",
+      "passed": true,
+      "observation": {
+        "code": "QUALITY_P0_COUNT_MISMATCH"
+      }
+    },
+    {
+      "name": "unknown_policy_fails",
+      "passed": true,
+      "observation": {
+        "code": "COMPLETION_POLICY_UNSUPPORTED"
+      }
+    },
+    {
+      "name": "unknown_lock_fails",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_LOCK_TARGET_UNKNOWN"
+      }
+    },
+    {
+      "name": "fact_not_guessed",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "stale_spec_fails",
+      "passed": true,
+      "observation": {
+        "code": "REVISION_PLAN_STALE"
+      }
+    },
+    {
+      "name": "history_does_not_invent_preservation",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "empty_policy_cannot_remove_baseline",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "actual_geometry_injection_detected",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "actual_overlap_injection_detected",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "contrast_injection_detected",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "contrast_black_white",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "missing_relation_target_injection",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "content_type_orphan_injection",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "native_image_diagram_connector_positive",
+      "passed": true,
+      "observation": [
+        "DECK_BACKGROUND_INCONSISTENT"
+      ]
+    },
+    {
+      "name": "actual_alt_text_fault_detected",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "actual_diagram_node_label_fault_detected",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "actual_diagram_fact_boundary_enforced",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "actual_connector_label_fault_detected",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "actual_native_color_fault_detected",
+      "passed": true,
+      "observation": null
+    }
+  ],
+  "requirement_ids": [
+    "DEC-039",
+    "DEC-040",
+    "SYS-015",
+    "SYS-016",
+    "QA-001",
+    "QA-003",
+    "QA-004",
+    "QA-005",
+    "QA-006",
+    "QA-008",
+    "QA-009",
+    "QA-010",
+    "QA-015",
+    "QA-016",
+    "QA-018",
+    "QA-019",
+    "QA-020",
+    "REV-006",
+    "REV-010"
+  ],
+  "source_hashes": {
+    "src/yoloongppt/quality.py": "d7de83f8b677bcd8dd6d902bdf5a0dab748e67268afb9c2ce06dc428ffb1d4f3",
+    "src/yoloongppt/quality_rules.py": "fa8db297fa8e7574cb443146b36306aa6a537bd618e1fb7bd2be180674d983b4",
+    "src/yoloongppt/quality_decisions.py": "ff20b5542d65f62adae7d62c84f5c5f389386e18aed2e6dc32b8d6880206e2ff",
+    "src/yoloongppt/revision_plans.py": "107314c594eebd228563bb3c9f3b6f38ec10e8059d73371582e749b7e09de183",
+    "contracts/quality-stage-input.schema.json": "82d8c76e46c053082bc9289cd90ff01e7e0de29790b3c1392aea43c925d61a7d",
+    "contracts/quality-stage-output.schema.json": "7e3b25edca33c104ca32b9d5be372a4f172b67f132566d139b552af4efa7cd85",
+    "contracts/revision-plan-runtime-output.schema.json": "0257f7e6ff8b7a93ba80d308c77aa89f100282ba23249f85477bccf5575eb0e5"
+  },
+  "real_pptx_sha256": "7484df5d31358769e44e83bbf042ed63e562455d13f4223db242350172de83c9",
+  "real_qa_p0": 0,
+  "node_cases": "/runtime/quality-stage-validation/cases.json",
+  "model_calls": 0,
+  "system_acceptance": "not_passed",
+  "remaining": [
+    "Full original QA acceptance",
+    "PowerPoint native open validation",
+    "Semantic truth/visual approval",
+    "All RevisionPlan actions/locks/rollback/end-to-end"
+  ]
+}

@@ -148,9 +148,9 @@ async def resume(run_id: str, request: Request):
 
 @app.post('/revise/{run_id}')
 async def revise(run_id: str, request: Request):
-    from .revision import revise as revise_deck
+    from .revision import revise as revise_deck, revise_plan
     document = await task_body(request)
-    return await run_in_threadpool(revise_deck, run_id, document, request.app.state.schemas, request.state.trace_id)
+    return await run_in_threadpool(revise_plan if 'plan' in document else revise_deck, run_id, document, request.app.state.schemas, request.state.trace_id)
 
 
 @app.post('/recheck/{run_id}')
@@ -240,3 +240,11 @@ async def compare_api(request: Request):
 async def inventory_api(request: Request):
     from .operations import dispatch
     return await run_in_threadpool(dispatch,'inventory_assets',await task_body(request),request.state.trace_id,request.app.state.schemas,request.app.state.evidence)
+
+
+@app.post('/register-template')
+@app.post('/get-template')
+@app.post('/resolve-assets')
+async def visual_registry_api(request: Request):
+    from .operations import dispatch
+    return await run_in_threadpool(dispatch,request.url.path.strip('/').replace('-','_'),await task_body(request),request.state.trace_id,request.app.state.schemas,request.app.state.evidence)

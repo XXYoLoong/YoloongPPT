@@ -1,0 +1,287 @@
+{
+  "task_id": "task_4efb54e4-ffaf-4f7d-a820-d21a6c42da00",
+  "route": {
+    "route_status": "routed",
+    "mode": "create_from_materials",
+    "routing_reason": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+    "protection_policy_id": "preserve_material_facts_and_sources",
+    "decision_id": "DEC-001",
+    "trace": {
+      "candidate_modes": [
+        "create_from_materials"
+      ],
+      "selection_basis": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+      "conflict_summary": "",
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "negated_signals": [],
+      "executable": true,
+      "fallback": "No alternate mode substitution; clarify scope or expose missing implementation."
+    }
+  },
+  "sources": [
+    {
+      "source_id": "source_9c891057-5781-44af-ae12-fa24d72479f8",
+      "kind": "text",
+      "content": "明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。检查照明指核对灯具与使用时段。设置定时指设置关灯规则。记录变化指记录照明用电。测试数据单位为千瓦时，观察窗口为虚构测试周，统计对象为照明用电：A楼基线100，本期90；B楼基线80，本期72；C楼基线60，本期54。基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。结论是先核对资料、保留来源，再按原文明示流程执行。",
+      "metadata": {
+        "source_role": "fact"
+      }
+    },
+    {
+      "source_id": "source_e617be69-0e4a-4c97-ac6a-1900692e4bf2",
+      "kind": "text",
+      "content": "原文唯一流程关系：检查照明→设置定时→记录变化。不得添加其他关系或因果；这是软件测试示例。",
+      "metadata": {
+        "source_role": "fact"
+      }
+    },
+    {
+      "source_id": "source_2ce3a059-f498-491c-9f3c-15a2636283d9",
+      "kind": "image",
+      "locator": "/runtime/visual-validation/declared-image.png",
+      "metadata": {
+        "source_role": "asset",
+        "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+        "usage_status": "authorized",
+        "license": "test-fixture-authorized",
+        "authorization_basis": "Artificial fixture authored for product integration verification"
+      }
+    }
+  ],
+  "constraints": {
+    "hard": [
+      {
+        "constraint_id": "candidate_9c31a0bf-826b-49f7-ae61-79da11ccc1d1",
+        "field": "page_count",
+        "value": 6,
+        "source": {
+          "kind": "user_instruction",
+          "reference": "raw_text:13:15"
+        }
+      },
+      {
+        "constraint_id": "candidate_335efc9a-bca8-465b-99f1-0f7f535a9f6a",
+        "field": "language",
+        "value": "zh-CN",
+        "source": {
+          "kind": "user_instruction",
+          "reference": "raw_text:15:17"
+        }
+      }
+    ],
+    "soft": [
+      {
+        "constraint_id": "candidate_295e3d19-cf33-48d7-af03-35788ff33ab9",
+        "field": "page_count",
+        "value": 6,
+        "source": {
+          "kind": "user_instruction",
+          "reference": "runtime_preferences.page_count"
+        },
+        "disposition": "applied",
+        "applied_value": 6,
+        "handling_reason": "Selected by DEC-002 and within current execution subset."
+      }
+    ],
+    "defaults": [
+      {
+        "constraint_id": "system_default.page_count",
+        "field": "page_count",
+        "value": 10,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": false,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.language",
+        "field": "language",
+        "value": "zh-CN",
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": false,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.aspect_ratio",
+        "field": "aspect_ratio",
+        "value": "16:9",
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.minimum_font_size",
+        "field": "minimum_font_size",
+        "value": 16,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.template",
+        "field": "template",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.brand",
+        "field": "brand",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.output_formats",
+        "field": "output_formats",
+        "value": [
+          "pptx",
+          "pdf",
+          "png"
+        ],
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": false,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.audience",
+        "field": "audience",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.scenario",
+        "field": "scenario",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.duration",
+        "field": "duration",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.tone",
+        "field": "tone",
+        "value": null,
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.citation_policy",
+        "field": "citation_policy",
+        "value": "notes",
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      },
+      {
+        "constraint_id": "system_default.asset_policy",
+        "field": "asset_policy",
+        "value": {
+          "allow_network": false,
+          "minimum_pixels": [
+            1,
+            1
+          ]
+        },
+        "source": {
+          "kind": "system_default",
+          "reference": "DEC-002 versioned runtime defaults"
+        },
+        "used": true,
+        "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+      }
+    ],
+    "conflicts": []
+  },
+  "style": null,
+  "template_ref": null,
+  "output": {
+    "formats": [
+      "pptx",
+      "pdf",
+      "png"
+    ]
+  },
+  "providers": {
+    "text": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "parameters": {
+        "temperature": 0.2,
+        "max_tokens": 12000,
+        "timeout_seconds": 180
+      }
+    }
+  },
+  "runtime_preferences": {
+    "page_count": 6,
+    "asset_policy": {
+      "allow_network": false,
+      "minimum_pixels": [
+        1,
+        1
+      ]
+    }
+  },
+  "raw_request": {
+    "request": {
+      "raw_text": "用明确虚构测试材料新建恰好6页中文演示：封面、真实素材图片页、原生流程图页、原生表格页、原生柱图页、结论页。流程必须采用资料原文明示的三个节点和箭头；图像仅作装饰。全部数值注明虚构测试。不要新增统计或因果。",
+      "attachments": [],
+      "requested_mode": "create_from_materials",
+      "requested_outputs": [
+        "pptx",
+        "pdf",
+        "png"
+      ]
+    },
+    "attachment_roles": []
+  }
+}

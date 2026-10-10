@@ -1,0 +1,237 @@
+{
+  "plan_id": "revision_plan_0e949fcb-4d73-440a-99b0-76c8379aaf62",
+  "trace_id": "trace_c0ad2733-d650-4020-89cc-998263617677",
+  "parent_run_id": "dbb3a53c-1c15-4fdd-aa73-e66560ce7b77",
+  "status": "needs_input",
+  "scope": {
+    "slide_ids": [],
+    "object_ids": []
+  },
+  "locked_object_ids": [],
+  "locked_slide_ids": [],
+  "actions": [],
+  "blocked": [
+    {
+      "issue_id": "issue_c1888ecd-fa72-4e41-abbb-fcff61e2dc2b",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Needs explicit geometry/asset/order choice; related objects must remain unchanged",
+      "candidate_id": "candidate_0dcb2622-f6d4-4132-bb26-21bc01bdd0b6"
+    },
+    {
+      "issue_id": "issue_280535b9-c0f5-4638-a8c7-666e4a766de3",
+      "severity": "P0",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_4528de9f-b878-4c66-b396-0c3255fd243e"
+    },
+    {
+      "issue_id": "issue_e8376dd1-bb6e-463e-a77a-e010187d1440",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_65ef3d5b-a01c-493a-af6b-e865ccc2d742"
+    },
+    {
+      "issue_id": "issue_589a7052-8f4f-4b5b-a72a-3adfa2e0cea1",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_1a08c5bf-b949-445e-99d9-91d8024e28b5"
+    },
+    {
+      "issue_id": "issue_86074bbf-09ff-4ab4-a24a-310ca4b1f78f",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_69359463-6f0b-455f-a202-ced80b06fd51"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate_0dcb2622-f6d4-4132-bb26-21bc01bdd0b6",
+      "issue_id": "issue_c1888ecd-fa72-4e41-abbb-fcff61e2dc2b",
+      "object_id": "object_ed4abf06-e682-43ad-bb05-abd7ba940826",
+      "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+      "node": "asset",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Needs explicit geometry/asset/order choice; related objects must remain unchanged",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "issue_id": "issue_c1888ecd-fa72-4e41-abbb-fcff61e2dc2b",
+          "code": "IMAGE_RESOLUTION_LOW",
+          "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+          "object_id": "object_ed4abf06-e682-43ad-bb05-abd7ba940826",
+          "severity": "P1",
+          "detail": "Image below rendering policy resolution",
+          "requirement_id": "QA-010",
+          "measurement": {
+            "pixels": [
+              320,
+              160
+            ],
+            "effective_dpi": 38.64734299516908
+          },
+          "threshold": {
+            "minimum_dpi": 96
+          },
+          "action": {
+            "node": "asset",
+            "mode": "local_revision",
+            "reason": "IMAGE_RESOLUTION_LOW"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_4528de9f-b878-4c66-b396-0c3255fd243e",
+      "issue_id": "issue_280535b9-c0f5-4638-a8c7-666e4a766de3",
+      "object_id": null,
+      "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+      "node": "fact_boundary",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "issue_id": "issue_280535b9-c0f5-4638-a8c7-666e4a766de3",
+          "code": "FACT_NOTE_NUMBER_UNSUPPORTED",
+          "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+          "severity": "P0",
+          "detail": {
+            "numbers": [
+              "160",
+              "320"
+            ]
+          },
+          "object_id": null,
+          "requirement_id": "QA-014",
+          "measurement": {
+            "observed": {
+              "numbers": [
+                "160",
+                "320"
+              ]
+            }
+          },
+          "threshold": {
+            "rule": "FACT_NOTE_NUMBER_UNSUPPORTED"
+          },
+          "action": {
+            "node": "fact",
+            "mode": "requires_user_input",
+            "reason": "Explicit mapped repair or fail; do not guess facts"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_65ef3d5b-a01c-493a-af6b-e865ccc2d742",
+      "issue_id": "issue_e8376dd1-bb6e-463e-a77a-e010187d1440",
+      "object_id": null,
+      "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 1,
+          "severity": "P1",
+          "kind": "visual",
+          "detail": "图片页的图片区域渲染为纯深绿色色块，未显示任何可辨识的示意图内容；虽然声明为装饰素材，但视觉上无法确认素材内容，且与“程序人工绘制的测试示意图”描述不符，影响页面可读性与素材展示目的。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_e8376dd1-bb6e-463e-a77a-e010187d1440",
+          "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_1a08c5bf-b949-445e-99d9-91d8024e28b5",
+      "issue_id": "issue_589a7052-8f4f-4b5b-a72a-3adfa2e0cea1",
+      "object_id": null,
+      "slide_id": "slide_74faa075-a256-44d9-8dc8-423d323d723f",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 3,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "表格行高较大，A楼、B楼、C楼三行之间留白明显，表格整体偏松散，但数值与表头清晰可读，不影响理解。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_589a7052-8f4f-4b5b-a72a-3adfa2e0cea1",
+          "slide_id": "slide_74faa075-a256-44d9-8dc8-423d323d723f",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_69359463-6f0b-455f-a202-ced80b06fd51",
+      "issue_id": "issue_86074bbf-09ff-4ab4-a24a-310ca4b1f78f",
+      "object_id": null,
+      "slide_id": "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 4,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "柱图纵轴标签“千瓦时”为竖排文字，与图表整体横向布局略不协调，但数值刻度与图例清晰，不影响数据读取。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_86074bbf-09ff-4ab4-a24a-310ca4b1f78f",
+          "slide_id": "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    }
+  ],
+  "all_issue_ids": [
+    "issue_c1888ecd-fa72-4e41-abbb-fcff61e2dc2b",
+    "issue_280535b9-c0f5-4638-a8c7-666e4a766de3",
+    "issue_e8376dd1-bb6e-463e-a77a-e010187d1440",
+    "issue_589a7052-8f4f-4b5b-a72a-3adfa2e0cea1",
+    "issue_86074bbf-09ff-4ab4-a24a-310ca4b1f78f"
+  ],
+  "rerun_nodes": [],
+  "preserve_unselected_objects": true,
+  "full_acceptance": "not_passed"
+}

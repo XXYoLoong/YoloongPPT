@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/visual-result.schema.json",
+  "type": "object",
+  "required": [
+    "version",
+    "trace_id",
+    "status",
+    "decision_traces",
+    "visual_specs",
+    "image_requirements",
+    "asset_plan",
+    "table_specs",
+    "chart_specs",
+    "diagram_specs",
+    "template_selection",
+    "design_tokens",
+    "resolved_assets",
+    "remaining_limits",
+    "system_acceptance"
+  ],
+  "properties": {
+    "version": {
+      "const": "visual-1"
+    },
+    "trace_id": {
+      "$ref": "object-id.schema.json#/$defs/trace_id"
+    },
+    "status": {
+      "const": "executed_partial"
+    },
+    "decision_traces": {
+      "type": "array",
+      "items": {
+        "$ref": "visual-trace.schema.json"
+      },
+      "minItems": 8,
+      "maxItems": 8
+    },
+    "visual_specs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "image_requirements": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "asset_plan": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "table_specs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "chart_specs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "diagram_specs": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "template_selection": {
+      "type": "object",
+      "required": [
+        "family",
+        "record",
+        "candidates",
+        "fallback",
+        "status"
+      ],
+      "properties": {
+        "family": {
+          "enum": [
+            "brand",
+            "reference",
+            "generic",
+            "free_layout"
+          ]
+        },
+        "record": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "template-registry-record.schema.json"
+            }
+          ]
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "minItems": 0
+        },
+        "fallback": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "design_tokens": {
+      "type": "object"
+    },
+    "resolved_assets": {
+      "$ref": "asset-resolver-result.schema.json"
+    },
+    "remaining_limits": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 0
+    },
+    "system_acceptance": {
+      "const": "not_claimed"
+    }
+  },
+  "additionalProperties": false
+}

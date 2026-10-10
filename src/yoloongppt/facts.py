@@ -91,7 +91,7 @@ def validate_interpretation(evidence,interpretation,schemas):
             if value[field] is not None and value[field] not in text:
                 same_source=next((e for e in evidence if e['source_id']==refs[0]['source_id'] and value[field] in e['raw_text']),None)
                 if same_source is None:
-                    raise TaskError('FACT_SCOPE_UNGROUNDED','单位/期间/限定条件/引用缺少逐字来源。','FactInterpreter',['DEC-005'],[{'field':field}])
+                    raise TaskError('FACT_SCOPE_UNGROUNDED','单位/期间/限定条件/引用缺少逐字来源。','FactInterpreter',['DEC-005'],[{'field':field,'fact_key':claim['fact_key'],'evidence_refs':[r['evidence_id'] for r in refs]}])
                 ref={'evidence_id':same_source['evidence_id'],'source_id':same_source['source_id'],'source_anchor':same_source['anchor']}
                 if ref not in refs:refs.append(ref)
                 claim={**claim,'quotes':[*claim['quotes'],{'evidence_id':same_source['evidence_id'],'quote':value[field]}]}
@@ -111,7 +111,11 @@ def interpret(task,sources,schemas,artifacts):
             '同一主体/指标/期间/限定范围必须使用相同fact_key，禁止把冲突的两个值命名成不同事实。'
             '基线与目标、实际与计划、不同年份/主体不可误并。每个claim只属于一个source_id，quotes逐字摘录。'
             'value.raw_text逐字保留；所有非null单位/期间/限定/币种/引用必须在quotes中逐字出现，可附同来源上下文quote。'
+            '尤其qualifier必须是同来源中的一个连续原文片段；不能把“基线”和“明确虚构的记录值”用分号拼成原文不存在的字符串。'
+            '要表达多个限定，复制同时涵盖限定的完整原句到qualifier和quotes；raw_text可保留含基线/本期的原数据短句。'
             '不换算数值/单位，不舍入；未知字段null，normalized_text只允许空白归一化或null。示例/目标限定必须保留。'
+            '原文明示的流程、时间或关系也是关键事实；A→B→C这样的整条关系必须作为quote claim保留到value.raw_text和quotes，'
+            '不能只抽出A/B/C节点而删除它们之间的原始箭头；不要推断原文没有的边或因果。'
             'explicit_assumption仅用于原文明确的假设，不把示例数据说成实际。模型不得自己补任何缺失值。'
             'missing记录原文或调用方需要但不存在的信息，明确required；missing的fact_key专指不存在的值，不与已有claim重复。'
             '冲突只保留多claim，由DEC-004处理，不重复作为missing。纯指令/格式要求放coverage instructions，不当事实。'

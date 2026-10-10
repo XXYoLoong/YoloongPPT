@@ -47,7 +47,10 @@
           "enum": [
             "text",
             "table",
-            "chart"
+            "chart",
+            "image",
+            "shape",
+            "connector"
           ]
         },
         "role": {
@@ -55,7 +58,9 @@
             "title",
             "body",
             "data",
-            "footer"
+            "footer",
+            "asset",
+            "diagram"
           ]
         },
         "bounds": {
@@ -146,14 +151,18 @@
         },
         "assets": {
           "type": "array",
-          "maxItems": 0
+          "items": {
+            "type": "object"
+          }
         },
         "layout": {
           "type": "object"
         },
         "bindings": {
           "type": "array",
-          "maxItems": 0
+          "items": {
+            "type": "object"
+          }
         },
         "elements": {
           "type": "array",
@@ -216,6 +225,12 @@
         },
         "trace_id": {
           "$ref": "object-id.schema.json#/$defs/trace_id"
+        },
+        "template": {
+          "type": [
+            "object",
+            "null"
+          ]
         }
       },
       "additionalProperties": false
@@ -263,7 +278,10 @@
                   "add_text",
                   "add_table",
                   "add_chart",
-                  "add_notes"
+                  "add_notes",
+                  "add_image",
+                  "add_shape",
+                  "add_connector"
                 ]
               },
               "implementation_id": {
@@ -338,7 +356,10 @@
                 "enum": [
                   "text",
                   "table",
-                  "chart"
+                  "chart",
+                  "image",
+                  "shape",
+                  "connector"
                 ]
               },
               "source_ref": {

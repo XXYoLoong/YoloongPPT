@@ -1,0 +1,130 @@
+{
+  "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+  "node_id": "DEC-010",
+  "input": {
+    "evidence_refs": [
+      "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+      "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-010",
+      "candidate_id": "candidate_f3e68d25-bfcf-4bac-9633-ab5a42654977",
+      "value": {
+        "content_graph": {
+          "nodes": [
+            {
+              "node_id": "content_08c1b7ae382c2ba92ec3",
+              "text": "测试数据单位为千瓦时；千瓦时\n测试数据单位为千瓦时\n观察窗口为虚构测试周；虚构测试周\n观察窗口为虚构测试周\n统计对象为照明用电\nA楼基线100；千瓦时；基线\nA楼基线100\n本期90；千瓦时；本期\n本期90\nB楼基线80；千瓦时；基线\nB楼基线80\n本期72；千瓦时；本期\n本期72\nC楼基线60；千瓦时；基线\nC楼基线60\n本期54；千瓦时；本期\n本期54\n检查照明指核对灯具与使用时段。\n设置定时指设置关灯规则。\n记录变化指记录照明用电。\n素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。\n结论是先核对资料、保留来源，再按原文明示流程执行。\n基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。",
+              "evidence_refs": [
+                "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+              ],
+              "assumption_refs": []
+            },
+            {
+              "node_id": "content_b37a9925b364c2107c9e",
+              "text": "检查照明→设置定时→记录变化\n不得添加其他关系或因果；这是软件测试示例。",
+              "evidence_refs": [
+                "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+              ],
+              "assumption_refs": []
+            }
+          ],
+          "edges": [],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ]
+        },
+        "relation_candidates": [
+          {
+            "node_id": "content_08c1b7ae382c2ba92ec3",
+            "relation": "process",
+            "literal_cues": [
+              "流程"
+            ],
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "status": "candidate_only",
+            "reason": "literal cue is not a proven semantic relation"
+          }
+        ],
+        "semantic_edges_status": "not_inferred"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_f3e68d25-bfcf-4bac-9633-ab5a42654977"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "content_graph": {
+      "nodes": [
+        {
+          "node_id": "content_08c1b7ae382c2ba92ec3",
+          "text": "测试数据单位为千瓦时；千瓦时\n测试数据单位为千瓦时\n观察窗口为虚构测试周；虚构测试周\n观察窗口为虚构测试周\n统计对象为照明用电\nA楼基线100；千瓦时；基线\nA楼基线100\n本期90；千瓦时；本期\n本期90\nB楼基线80；千瓦时；基线\nB楼基线80\n本期72；千瓦时；本期\n本期72\nC楼基线60；千瓦时；基线\nC楼基线60\n本期54；千瓦时；本期\n本期54\n检查照明指核对灯具与使用时段。\n设置定时指设置关灯规则。\n记录变化指记录照明用电。\n素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。\n结论是先核对资料、保留来源，再按原文明示流程执行。\n基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "assumption_refs": []
+        },
+        {
+          "node_id": "content_b37a9925b364c2107c9e",
+          "text": "检查照明→设置定时→记录变化\n不得添加其他关系或因果；这是软件测试示例。",
+          "evidence_refs": [
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "assumption_refs": []
+        }
+      ],
+      "edges": [],
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+        "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+      ]
+    },
+    "relation_candidates": [
+      {
+        "node_id": "content_08c1b7ae382c2ba92ec3",
+        "relation": "process",
+        "literal_cues": [
+          "流程"
+        ],
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "status": "candidate_only",
+        "reason": "literal cue is not a proven semantic relation"
+      }
+    ],
+    "semantic_edges_status": "not_inferred"
+  },
+  "duration": 0.0,
+  "error": null
+}

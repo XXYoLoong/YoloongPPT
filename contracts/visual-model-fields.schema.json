@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/visual-model-fields.schema.json",
+  "title": "真实模型视觉字段；主规划schema由root接入",
+  "$defs": {
+    "image": {
+      "type": "object",
+      "required": [
+        "asset_id",
+        "role",
+        "alt_text",
+        "fit",
+        "required"
+      ],
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "information",
+            "decoration",
+            "logo",
+            "reference"
+          ]
+        },
+        "alt_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fit": {
+          "const": "contain"
+        },
+        "required": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "resolved_image": {
+      "type": "object",
+      "required": [
+        "asset_id",
+        "role",
+        "alt_text",
+        "fit",
+        "required",
+        "path",
+        "width_px",
+        "height_px",
+        "sha256",
+        "source_refs"
+      ],
+      "properties": {
+        "asset_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "role": {
+          "enum": [
+            "information",
+            "decoration",
+            "logo",
+            "reference"
+          ]
+        },
+        "alt_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fit": {
+          "const": "contain"
+        },
+        "required": {
+          "const": true
+        },
+        "path": {
+          "type": "string",
+          "minLength": 1
+        },
+        "width_px": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height_px": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "source_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "diagram": {
+      "type": "object",
+      "required": [
+        "type",
+        "nodes",
+        "edges",
+        "direction"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "process",
+            "timeline",
+            "tree",
+            "network",
+            "matrix",
+            "funnel",
+            "swimlane"
+          ]
+        },
+        "nodes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "node_id",
+              "label",
+              "evidence_refs"
+            ],
+            "properties": {
+              "node_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_refs": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "$ref": "object-id.schema.json#/$defs/evidence_id"
+                },
+                "minItems": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "minItems": 1,
+          "maxItems": 12
+        },
+        "edges": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "from",
+              "to",
+              "relation",
+              "evidence_refs",
+              "evidence_quote"
+            ],
+            "properties": {
+              "from": {
+                "type": "string",
+                "minLength": 1
+              },
+              "to": {
+                "type": "string",
+                "minLength": 1
+              },
+              "relation": {
+                "enum": [
+                  "sequence",
+                  "temporal",
+                  "process",
+                  "hierarchy",
+                  "association",
+                  "causal"
+                ]
+              },
+              "label": {
+                "type": "string",
+                "minLength": 1
+              },
+              "evidence_refs": {
+                "type": "array",
+                "uniqueItems": true,
+                "items": {
+                  "$ref": "object-id.schema.json#/$defs/evidence_id"
+                },
+                "minItems": 1
+              },
+              "evidence_quote": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          },
+          "minItems": 0,
+          "maxItems": 24
+        },
+        "direction": {
+          "enum": [
+            "horizontal",
+            "vertical"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "oneOf": [
+    {
+      "$ref": "#/$defs/image"
+    },
+    {
+      "$ref": "#/$defs/resolved_image"
+    },
+    {
+      "$ref": "#/$defs/diagram"
+    }
+  ]
+}

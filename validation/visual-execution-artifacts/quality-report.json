@@ -1,0 +1,102 @@
+{
+  "qa_id": "artifact_e4265f4a-bf0e-43c1-951f-8d2b2273f50e",
+  "status": "partial",
+  "issues": [
+    {
+      "issue_id": "issue_250e9e21-23ad-4515-962a-51432ebaea37",
+      "code": "IMAGE_RESOLUTION_LOW",
+      "slide_id": "slide_bd4635d1-8e5b-4936-af5f-307292aba108",
+      "object_id": "object_63d35b04-2347-42b0-9ad6-cf61cecfff05",
+      "severity": "P1",
+      "detail": "Image below rendering policy resolution",
+      "requirement_id": "QA-010",
+      "measurement": {
+        "pixels": [
+          320,
+          160
+        ],
+        "effective_dpi": 38.64734299516908
+      },
+      "threshold": {
+        "minimum_dpi": 96
+      },
+      "action": {
+        "node": "asset",
+        "mode": "local_revision",
+        "reason": "IMAGE_RESOLUTION_LOW"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "kind": "structure",
+      "check": "Content_Types declarations and all internal relationship targets/IDs",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_bd4635d1-8e5b-4936-af5f-307292aba108",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_62ad846c-a349-45c1-bf7c-6a2e8008c8c1",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_f953d2ef-035a-4887-bbb9-7efebad68495",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_07b2bec6-ef3a-4910-9973-9e8d50f9db0b",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_bd4635d1-8e5b-4936-af5f-307292aba108",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_62ad846c-a349-45c1-bf7c-6a2e8008c8c1",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_f953d2ef-035a-4887-bbb9-7efebad68495",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_07b2bec6-ef3a-4910-9973-9e8d50f9db0b",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "not_executed",
+    "fact_semantic": "not_executed",
+    "accessibility": "partial_native_alt_font_contrast_table_header_reading_order",
+    "powerpoint_compatibility": "not_executed",
+    "global_consistency": "partial_style_font_footer_hierarchy",
+    "visual_geometry": "partial_collision_geometry_contrast_image_dpi",
+    "image_semantics": "not_executed",
+    "full_semantic_reading_order": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Numeric membership is not semantic truth; PNG/text presence is not visual approval. Full DEC/QA/revision acceptance remains required."
+}

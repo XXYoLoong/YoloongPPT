@@ -21,6 +21,87 @@ from .writer import capacity
 DECISION_FILES = ['fact-source-result.json','task-effective.json','decision-route.json','decision-context.json',
                   'presentation-context.json','decision-source-roles.json','source-role-map.json','fact-interpretation.json',
                   'decision-evidence.json','evidence-resolution.json','decision-fact-boundary.json','fact-boundary.json','approved-source-result.json']
+DECISION_FILES += ['narrative-result.json','visual-packet.json','visual-result.json','resolved-assets.json','template-selection.json','layout-selection.json']
+DECISION_FILES += ['decision-DEC-'+str(i).zfill(3)+'.json' for i in range(6,39)]
+
+
+def _finish_quality(task,deck,sources,object_map,renders,artifacts,prior,orders,schemas,trace):
+    """Only changed pages require fresh model review; preserve all other issues."""
+    from .quality_decisions import decide
+    quality=check(deck,artifacts.path/'deck.pptx',object_map,sources,renders,artifacts.path)
+    fresh=review(task,deck,sources,renders,artifacts,orders)
+    old=json.loads((prior/'quality-report.json').read_text('utf-8')).get('model_review',{})
+    carried=[i for i in old.get('issues',[]) if i['slide_order'] not in orders]
+    quality['model_review']={'checked_slide_orders':sorted(set(old.get('checked_slide_orders',[]))|set(fresh['checked_slide_orders'])),
+        'fresh_checked_slide_orders':fresh['checked_slide_orders'],'issues':[*carried,*fresh['issues']],
+        'summary':fresh['summary'],'carried_from_run':prior.name}
+    quality['p0_issue_count']+=sum(i['severity']=='P0' for i in quality['model_review']['issues'])
+    quality['coverage']['visual_semantic']=quality['coverage']['fact_semantic']='model_review_executed_with_unchanged_page_evidence_reuse'
+    artifacts.json('quality-report.json',quality)
+    decision=decide({'quality_report':quality,'deck':deck,'object_map':object_map,'parent_run_id':artifacts.run_id},schemas,trace)
+    artifacts.json('revision-plan.json',decision['revision_plan']);artifacts.json('completion-decision.json',decision['completion'])
+    for item in decision['decision_traces']:artifacts.json('decision-'+item['node_id']+'.json',item)
+    return quality,decision
+
+
+def revise_plan(run_id,request,schemas,trace):
+    """Consume a checked DEC-039 plan using byte-preserving existing-PPT patches."""
+    from .operations import run_folder,artifacts as verify_artifacts
+    from .revision_plans import validate_plan,history_input
+    from .existing_deck import apply_patch,inspect_deck
+    if not isinstance(request,dict) or set(request)!={'plan'}:
+        raise TaskError('REVISION_PLAN_REQUEST_INVALID','修订计划请求只允许plan字段。','RevisionEngine',['SYS-016'])
+    plan=request['plan'];schemas.validate('revision-plan-runtime-output.schema.json',plan)
+    prior=run_folder(run_id);verify_artifacts(run_id,trace)
+    load=lambda n:json.loads((prior/n).read_text('utf-8'))
+    if plan['parent_run_id']!=run_id:
+        raise TaskError('REVISION_PLAN_PARENT_CHANGED','计划原版本与当前请求不一致。','RevisionEngine',['SYS-016'])
+    deck=load('deck-spec.json');object_map=load('object-map.json');sources=revision_sources(prior)
+    validate_plan(plan,deck,object_map)
+    if not plan['actions']:
+        raise TaskError('REVISION_PLAN_EMPTY','修订计划没有可执行动作，未伪造修订。','RevisionEngine',['SYS-016'])
+    native=inspect_deck(prior/'deck.pptx');native_slides={s['slide_index']:s for s in native['slides']}
+    elements={e['object_id']:(s,e) for s in deck['slides'] for e in s['elements']}
+    patches=[];orders=[];locked=[]
+    for oid in plan['locked_object_ids']:
+        s,e=elements[oid];mapping=next(o for o in object_map['objects'] if o['logical_object_id']==oid)
+        locked.append(f"pptx:s{native_slides[s['order']]['slide_id']}:shape{mapping['shape_id']}")
+    for action in plan['actions']:
+        s,e=elements[action['object_id']];mapping=action['expected_native_mapping']
+        actual=[o for o in native_slides[s['order']]['objects'] if o['shape_id']==mapping['shape_id'] and o['name']==mapping['name']]
+        if len(actual)!=1:
+            raise TaskError('REVISION_OBJECT_MAP_STALE','实际原生对象身份与计划不一致。','RevisionEngine',['SYS-016'])
+        if action['operation']=='geometry':
+            value=action['changes']['bounds'];e['bounds']=copy.deepcopy(value)
+            if e['type']=='connector':
+                raise TaskError('REVISION_CONNECTOR_REROUTE_UNSUPPORTED','连接线修订需要成对端点重算，未仅移动外框。','RevisionEngine',['DEC-033','SYS-016'])
+            if e['type'] in {'text','shape'}:
+                f=e.get('format',{});capacity(e.get('text',[e.get('data',{}).get('text','')]),value,e['font_size'],padding=f.get('margin',.12),paragraph_spacing=f.get('paragraph_spacing',10))
+        elif action['operation']=='format':
+            if e['type'] not in {'text','shape'}:
+                raise TaskError('REVISION_PLAN_FORMAT_UNSUPPORTED','当前计划颜色修订只消费原生文本/形状文本。','RevisionEngine',['SYS-016'])
+            value=action['changes']['format'];e.setdefault('format',{}).update(value)
+        else:
+            raise TaskError('REVISION_PLAN_OPERATION_UNSUPPORTED','该计划操作尚未连接实际执行器。','RevisionEngine',['SYS-016'])
+        patches.append({'object_id':actual[0]['object_id'],'operation':action['operation'],'value':value});orders.append(s['order'])
+    schemas.validate('deck-execution.schema.json',deck)
+    artifacts=RunArtifacts();artifacts.json('revision-request.json',request)
+    report=apply_patch(prior/'deck.pptx',artifacts.path/'deck.pptx',{'expected_sha256':sha256(prior/'deck.pptx'),'patches':patches,'locked_object_ids':locked})
+    task=load('task-effective.json') if (prior/'task-effective.json').is_file() else load('task.json')
+    for name,value in [('task.json',task),('deck-spec.json',deck),('source-result.json',load('source-result.json')),('object-map.json',object_map)]:artifacts.json(name,value)
+    for name in DECISION_FILES:
+        if (prior/name).is_file():artifacts.json(name,load(name))
+    artifacts.json('native-revision-report.json',report)
+    renders=render(artifacts.path/'deck.pptx',deck,artifacts.path);artifacts.json('render-report.json',renders)
+    quality,decision=_finish_quality(task,deck,sources,object_map,renders,artifacts,prior,sorted(set(orders)),schemas,trace)
+    history=history_input(plan,sha256(prior/'deck.pptx'),sha256(artifacts.path/'deck.pptx'),report['changed_parts'],load('quality-report.json'),quality)
+    history.update(parent_run_id=run_id,unchanged_parts_byte_preserved=True,entity_ids_preserved=True,execution_report=report)
+    artifacts.json('revision-history.json',history)
+    result={'ok':True,'trace_id':trace,'operation':'revise','state':'draft_revised','run_id':artifacts.run_id,'parent_run_id':run_id,
+        'artifact_root':str(artifacts.path),'pptx':str(artifacts.path/'deck.pptx'),'changed_parts':report['changed_parts'],
+        'qa':{'status':quality['status'],'p0_issue_count':quality['p0_issue_count']},'completion':decision['completion'],'system_acceptance':'not_passed'}
+    artifacts.json('result.json',result);artifacts.json('manifest.json',{'run_id':artifacts.run_id,'artifacts':artifacts.manifest()})
+    return result
 
 
 def revision_sources(prior):
@@ -148,7 +229,7 @@ def revise(run_id, request, schemas, trace):
     return result
 
 
-def recheck(run_id, schemas, trace):
+def recheck(run_id, schemas, trace, reuse_saved_review=False):
     """QA-only recovery: reuse the exact deck/render bytes, preserve failed review."""
     import shutil
     try:
@@ -156,9 +237,11 @@ def recheck(run_id, schemas, trace):
     except ValueError:
         raise TaskError('REVISION_RUN_ID_INVALID', '原版本ID必须为标准UUID。', 'RevisionEngine', ['SYS-016']) from None
     prior = Path('/runtime/runs')/run_id
-    required = ['task.json', 'deck-spec.json', 'source-result.json', 'object-map.json', 'quality-report.json', 'render-report.json', 'deck.pptx']
+    required = ['task.json', 'deck-spec.json', 'source-result.json', 'object-map.json', 'render-report.json', 'deck.pptx']
     if not all((prior/n).is_file() for n in required):
         raise TaskError('QA_CHECKPOINT_INCOMPLETE', 'QA断点缺少实际文件。', 'QAEngine', ['SYS-015'])
+    from .operations import artifacts as verify_artifacts
+    verify_artifacts(run_id,trace)
     artifacts = RunArtifacts()
     for name in required:shutil.copyfile(prior/name, artifacts.path/name)
     shutil.copytree(prior/'render', artifacts.path/'render')
@@ -170,20 +253,41 @@ def recheck(run_id, schemas, trace):
     for a in renders['artifacts']:
         if sha256(artifacts.path/a['path']) != a['hash']:
             raise TaskError('QA_RENDER_HASH_CHANGED', '复用渲染哈希不符，不能直接复审。', 'QAEngine', ['SYS-015'])
-    previous_quality = load('quality-report.json')
+    previous_quality = load('quality-report.json') if (prior/'quality-report.json').is_file() else check(deck,artifacts.path/'deck.pptx',load('object-map.json'),sources,renders,artifacts.path)
     artifacts.json('quality-before-recheck.json', previous_quality)
     orders = previous_quality.get('model_review', {}).get('fresh_checked_slide_orders')
-    fresh = review(task, deck, sources, renders, artifacts, orders)
+    if reuse_saved_review:
+        from .review import reuse_review
+        # A recovered run has no *new* reviewed pages. The saved request is the
+        # authoritative scope of the original model call, including repeat recovery.
+        if not (prior/'review-request.json').is_file():
+            raise TaskError('QA_REVIEW_CHECKPOINT_INCOMPLETE','断点缺少实际模型审查请求。','QAEngine',['SYS-015'])
+        orders=load('review-request.json').get('context',{}).get('reviewed_image_orders')
+        if not isinstance(orders,list) or not orders or any(type(n) is not int or n<0 or n>=len(deck['slides']) for n in orders) or len(set(orders))!=len(orders):
+            raise TaskError('QA_REVIEW_CHECKPOINT_CHANGED','保存的审查页面范围无效，不能复用。','QAEngine',['SYS-015'])
+        fresh=reuse_review(prior,deck,sources,renders,artifacts,orders)
+    else:
+        if orders==[] and previous_quality.get('model_review',{}).get('saved_review_reused'):
+            orders=None
+        fresh = review(task, deck, sources, renders, artifacts, orders)
     quality = check(deck, artifacts.path/'deck.pptx', load('object-map.json'), sources, renders, artifacts.path)
     carried = [i for i in previous_quality.get('model_review', {}).get('issues', []) if orders is not None and i['slide_order'] not in orders]
-    quality['model_review'] = {'checked_slide_orders': list(range(len(deck['slides']))), 'fresh_checked_slide_orders': fresh['checked_slide_orders'],
+    quality['model_review'] = {'checked_slide_orders': list(range(len(deck['slides']))), 'fresh_checked_slide_orders': [] if reuse_saved_review else fresh['checked_slide_orders'],
+                               'saved_review_reused':reuse_saved_review,
                                'issues': [*carried, *fresh['issues']], 'summary': fresh['summary'], 'carried_from_run': run_id}
     quality['p0_issue_count'] += sum(i['severity'] == 'P0' for i in quality['model_review']['issues'])
     quality['coverage']['visual_semantic'] = quality['coverage']['fact_semantic'] = 'actual_model_review_with_unchanged_evidence_reuse'
     artifacts.json('quality-report.json', quality)
+    from .quality_decisions import decide
+    prior_traces=[load(p.name) for p in prior.glob('decision-*.json') if p.name not in {'decision-DEC-039.json','decision-DEC-040.json'}]
+    prior_traces += [{'node_id':d['node_id'],'input':d['trace']['input'],'output':d['result'],'error':None} for s in deck['slides'] for d in s['layout'].get('selection_trace',{}).get('decisions',[])]
+    decision=decide({'quality_report':quality,'deck':deck,'object_map':load('object-map.json'),'prior_traces':prior_traces,'parent_run_id':artifacts.run_id},schemas,trace)
+    artifacts.json('revision-plan.json',decision['revision_plan']);artifacts.json('completion-decision.json',decision['completion'])
+    for item in decision['decision_traces']:artifacts.json('decision-'+item['node_id']+'.json',item)
     result = {'ok': True, 'operation': 'recheck', 'trace_id': trace, 'run_id': artifacts.run_id, 'parent_run_id': run_id,
               'artifact_root': str(artifacts.path), 'pptx': str(artifacts.path/'deck.pptx'), 'deck_and_render_bytes_reused': True,
-              'qa': {'p0_issue_count': quality['p0_issue_count'], 'status': 'partial'}, 'system_acceptance': 'not_passed'}
+              'qa': {'p0_issue_count': quality['p0_issue_count'], 'status': 'partial'},'completion':decision['completion'],
+              'fresh_model_call':not reuse_saved_review,'system_acceptance': 'not_passed'}
     artifacts.json('result.json', result)
     artifacts.json('manifest.json', {'run_id': artifacts.run_id, 'artifacts': artifacts.manifest()})
     return result

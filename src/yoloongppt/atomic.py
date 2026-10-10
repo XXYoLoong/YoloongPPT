@@ -48,7 +48,7 @@ class AtomicRegistry:
         schema = item['output_schema' if output is not None else 'input_schema']
         if not Draft202012Validator(schema).is_valid(output if output is not None else call['inputs']):
             raise TaskError('ATOMIC_CONTRACT_INVALID', '原子能力输入/输出不符合登记契约。', 'CapabilityRegistry', ['SYS-007', 'SYS-012'])
-        if output is None and call['capability'] in {'add_text', 'add_table', 'add_chart'}:
+        if output is None and call['capability'] in {'add_text', 'add_table', 'add_chart', 'add_image', 'add_shape', 'add_connector'}:
             bounds = call['inputs']['bounds']
             if any(not math.isfinite(v) for v in bounds) or min(bounds[:2]) < 0 or min(bounds[2:]) <= 0:
                 raise TaskError('ATOMIC_GEOMETRY_INVALID', '原子能力几何须为有限正尺寸。', 'CapabilityRegistry', ['SYS-007', 'SYS-012'])

@@ -1,0 +1,349 @@
+{
+  "ok": true,
+  "trace_id": "trace_9c7e64ac-765f-4d55-8640-85a083d6ed1c",
+  "operation": "inspect_sources",
+  "task_id": "task_9c74b8fa-6b53-4285-864e-596653e01b59",
+  "source_bundle": {
+    "record_type": "source_bundle_result",
+    "status": "partial",
+    "bundle": {
+      "model_type": "SourceBundle",
+      "sources": [
+        {
+          "source_id": "source_cdd42298-3d0f-4d6e-a3e0-aa288bd25f5c",
+          "input_order": 0,
+          "kind": "text",
+          "locator": null,
+          "raw_text": "明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。管理流程原文明示：检查照明→设置定时→记录变化。检查照明指核对灯具与使用时段。设置定时指设置关灯规则。记录变化指记录照明用电。测试数据单位为千瓦时，观察窗口为虚构测试周，统计对象为照明用电：A楼基线100，本期90；B楼基线80，本期72；C楼基线60，本期54。基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。结论是先核对资料、保留来源，再按原文明示流程执行。",
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [],
+          "content_sha256": "21b8f578a390b331c67e3b532b1a2f10b0a8ef87b38b3d9f49a5ad01ca57409c",
+          "priority_rank": null,
+          "claims": []
+        },
+        {
+          "source_id": "source_7e6e78d6-4717-4cff-901f-0630cc51ba3b",
+          "input_order": 1,
+          "kind": "file",
+          "locator": "/runtime/visual-validation/declared-image.png",
+          "raw_text": null,
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [
+            "asset_baf94d2e-e4f4-42c8-9ef3-55ceba334eff"
+          ],
+          "content_sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+          "priority_rank": null,
+          "claims": []
+        }
+      ],
+      "source_priority_policy": {
+        "status": "unresolved",
+        "decision_id": "DEC-004",
+        "task_id": "TASK-DEC-004",
+        "precedence_source_ids": [],
+        "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+      },
+      "dedup_policy": {
+        "mode": "hash_candidates_only",
+        "keep_all_sources": true
+      },
+      "duplicate_groups": [],
+      "conflicts": []
+    },
+    "coverage": [
+      {
+        "feature": "source_identity",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "source_anchors",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "priority",
+        "status": "partial",
+        "reason": "DEC-004尚未执行。"
+      },
+      {
+        "feature": "conflict_detection",
+        "status": "unsupported",
+        "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+      },
+      {
+        "feature": "deduplication",
+        "status": "partial",
+        "reason": "仅SHA候选，不删除来源。"
+      }
+    ],
+    "errors": []
+  },
+  "documents": [
+    {
+      "source_id": "source_cdd42298-3d0f-4d6e-a3e0-aa288bd25f5c",
+      "document": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。管理流程原文明示：检查照明→设置定时→记录变化。检查照明指核对灯具与使用时段。设置定时指设置关灯规则。记录变化指记录照明用电。测试数据单位为千瓦时，观察窗口为虚构测试周，统计对象为照明用电：A楼基线100，本期90；B楼基线80，本期72；C楼基线60，本期54。基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。结论是先核对资料、保留来源，再按原文明示流程执行。",
+        "source": {
+          "kind": "raw_text",
+          "source_ref": "raw_markdown"
+        },
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "document": {
+          "model_type": "TextDocumentModel",
+          "source": {
+            "kind": "raw_text",
+            "source_ref": "raw_markdown"
+          },
+          "blocks": [
+            {
+              "kind": "paragraph",
+              "block_index": 0,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 0,
+                "end_offset": 260,
+                "offset_unit": "unicode_code_point",
+                "line_start": 1,
+                "line_end": 1
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。管理流程原文明示：检查照明→设置定时→记录变化。检查照明指核对灯具与使用时段。设置定时指设置关灯规则。记录变化指记录照明用电。测试数据单位为千瓦时，观察窗口为虚构测试周，统计对象为照明用电：A楼基线100，本期90；B楼基线80，本期72；C楼基线60，本期54。基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。结论是先核对资料、保留来源，再按原文明示流程执行。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 0,
+                    "end_offset": 260,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 1,
+                    "line_end": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted."
+    },
+    {
+      "source_id": "source_7e6e78d6-4717-4cff-901f-0630cc51ba3b",
+      "document": {
+        "asset_kind": "image",
+        "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+        "bytes": 552,
+        "format": "PNG",
+        "mime_type": "image/png",
+        "width": 320,
+        "height": 160,
+        "mode": "RGB",
+        "frame_count": 1,
+        "aspect_ratio": 2.0,
+        "dpi": null,
+        "color_profile_sha256": null,
+        "perceptual_hash": {
+          "algorithm": "dhash-9x8-white-composite-frame0",
+          "value": "0000000000000000"
+        },
+        "has_alpha": false,
+        "dominant_colors": [
+          {
+            "color": "#1A5043",
+            "fraction": 1.0
+          }
+        ],
+        "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+        "semantic_status": "not_inferred",
+        "ocr_status": "unsupported",
+        "issues": [
+          {
+            "code": "IMAGE_OCR_NOT_EXECUTED",
+            "requirement_ids": [
+              "IN-011"
+            ],
+            "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+          }
+        ],
+        "raw_asset_refs": [
+          "asset_baf94d2e-e4f4-42c8-9ef3-55ceba334eff"
+        ]
+      },
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "warnings": [
+        {
+          "code": "IMAGE_OCR_NOT_EXECUTED",
+          "requirement_ids": [
+            "IN-011"
+          ],
+          "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "source_id": "source_cdd42298-3d0f-4d6e-a3e0-aa288bd25f5c",
+      "source_hash": "21b8f578a390b331c67e3b532b1a2f10b0a8ef87b38b3d9f49a5ad01ca57409c",
+      "parser_version": "text-1:cb6707ccfd2db91ecc747723be0fbae25d971c8d3e58b721c871bcc3705209a3:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:text",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_cdd42298-3d0f-4d6e-a3e0-aa288bd25f5c",
+        "asset_id": null,
+        "native_locator": "chars:0:260",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 0,
+          "start_char": 0,
+          "end_char": 260,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。管理流程原文明示：检查照明→设置定时→记录变化。检查照明指核对灯具与使用时段。设置定时指设置关灯规则。记录变化指记录照明用电。测试数据单位为千瓦时，观察窗口为虚构测试周，统计对象为照明用电：A楼基线100，本期90；B楼基线80，本期72；C楼基线60，本期54。基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。结论是先核对资料、保留来源，再按原文明示流程执行。",
+      "content": "明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。管理流程原文明示：检查照明→设置定时→记录变化。检查照明指核对灯具与使用时段。设置定时指设置关灯规则。记录变化指记录照明用电。测试数据单位为千瓦时，观察窗口为虚构测试周，统计对象为照明用电：A楼基线100，本期90；B楼基线80，本期72；C楼基线60，本期54。基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。结论是先核对资料、保留来源，再按原文明示流程执行。",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 0,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 0,
+          "end_offset": 260,
+          "offset_unit": "unicode_code_point",
+          "line_start": 1,
+          "line_end": 1
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。管理流程原文明示：检查照明→设置定时→记录变化。检查照明指核对灯具与使用时段。设置定时指设置关灯规则。记录变化指记录照明用电。测试数据单位为千瓦时，观察窗口为虚构测试周，统计对象为照明用电：A楼基线100，本期90；B楼基线80，本期72；C楼基线60，本期54。基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。结论是先核对资料、保留来源，再按原文明示流程执行。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 0,
+              "end_offset": 260,
+              "offset_unit": "unicode_code_point",
+              "line_start": 1,
+              "line_end": 1
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "text",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted.",
+      "evidence_id": "evidence_14e4c2db-6955-46b7-bea7-6c8fee963db4"
+    },
+    {
+      "source_id": "source_7e6e78d6-4717-4cff-901f-0630cc51ba3b",
+      "source_hash": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+      "parser_version": "binary-1:2cdf2f20cfbedeee939c230a07db46d56e9e555d25351553178ae179ba76ccb2:kind:image",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_7e6e78d6-4717-4cff-901f-0630cc51ba3b",
+        "asset_id": "asset_baf94d2e-e4f4-42c8-9ef3-55ceba334eff",
+        "native_locator": "image:full_frame",
+        "locator": {
+          "kind": "image_region",
+          "element_id": null,
+          "bbox": {
+            "x": 0,
+            "y": 0,
+            "width": 320,
+            "height": 160,
+            "coordinate_space": "raw_source_pixels_top_left"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "",
+      "content": "",
+      "confidence": null,
+      "data": {
+        "asset_kind": "image",
+        "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+        "bytes": 552,
+        "format": "PNG",
+        "mime_type": "image/png",
+        "width": 320,
+        "height": 160,
+        "mode": "RGB",
+        "frame_count": 1,
+        "aspect_ratio": 2.0,
+        "dpi": null,
+        "color_profile_sha256": null,
+        "perceptual_hash": {
+          "algorithm": "dhash-9x8-white-composite-frame0",
+          "value": "0000000000000000"
+        },
+        "has_alpha": false,
+        "dominant_colors": [
+          {
+            "color": "#1A5043",
+            "fraction": 1.0
+          }
+        ],
+        "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+        "semantic_status": "not_inferred",
+        "ocr_status": "unsupported",
+        "issues": [
+          {
+            "code": "IMAGE_OCR_NOT_EXECUTED",
+            "requirement_ids": [
+              "IN-011"
+            ],
+            "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+          }
+        ],
+        "raw_asset_refs": [
+          "asset_baf94d2e-e4f4-42c8-9ef3-55ceba334eff"
+        ]
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。"
+      },
+      "asset_ref": "asset_baf94d2e-e4f4-42c8-9ef3-55ceba334eff",
+      "raw_asset_refs": [
+        "asset_baf94d2e-e4f4-42c8-9ef3-55ceba334eff"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_8a2d2e96-68d0-4817-804d-55108e8e77df"
+    }
+  ],
+  "trace": [
+    {
+      "component": "TaskSpec",
+      "requirement_id": "SYS-001",
+      "status": "validated"
+    },
+    {
+      "component": "SchemaRegistry",
+      "requirement_id": "SYS-006",
+      "status": "validated"
+    },
+    {
+      "component": "SourceLoader",
+      "requirement_id": "SYS-003",
+      "status": "partial"
+    },
+    {
+      "component": "EvidenceStore",
+      "requirement_id": "SYS-004",
+      "status": "saved"
+    }
+  ],
+  "boundary": "Source parsing and evidence only; no fact extraction, model routing, PPTX generation or QA acceptance."
+}

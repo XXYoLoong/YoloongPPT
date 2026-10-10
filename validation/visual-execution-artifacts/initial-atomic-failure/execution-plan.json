@@ -1,0 +1,986 @@
+{
+  "calls": [
+    {
+      "call_id": "capability_76c54ba9-ed6c-4f41-856d-b4c64ced6223",
+      "slide_id": "slide_c277eb7c-7555-4990-bbbe-fe0f2f2ec10c",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [],
+      "inputs": {
+        "slide_id": "slide_c277eb7c-7555-4990-bbbe-fe0f2f2ec10c",
+        "order": 0
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_f460a4fa-ff5b-472f-b4a8-8bc689de43c6",
+      "slide_id": "slide_c277eb7c-7555-4990-bbbe-fe0f2f2ec10c",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_76c54ba9-ed6c-4f41-856d-b4c64ced6223"
+      ],
+      "inputs": {
+        "object_id": "object_d25086d4-ddb5-474b-ad20-c19c2ace9d7c",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "已批准视觉样例"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_d25086d4-ddb5-474b-ad20-c19c2ace9d7c"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_60029f4e-4766-4b81-ab3d-a99d0805a80c",
+      "slide_id": "slide_c277eb7c-7555-4990-bbbe-fe0f2f2ec10c",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_76c54ba9-ed6c-4f41-856d-b4c64ced6223"
+      ],
+      "inputs": {
+        "object_id": "object_7b8d0722-112c-4dbe-b383-488a6a5e8d41",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "需求确认",
+          "设计",
+          "制作"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "expected_objects": [
+        "object_7b8d0722-112c-4dbe-b383-488a6a5e8d41"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_093e1a25-868e-4144-b778-8551faf79379",
+      "slide_id": "slide_c277eb7c-7555-4990-bbbe-fe0f2f2ec10c",
+      "capability": "add_image",
+      "implementation_id": "implementation_e4366712-ef3f-4493-9b52-73fcd3fb26d3",
+      "backend": "PP-05",
+      "deps": [
+        "capability_76c54ba9-ed6c-4f41-856d-b4c64ced6223"
+      ],
+      "inputs": {
+        "object_id": "object_c03347cf-5ee8-4698-bef8-af37e78cfa6e",
+        "type": "image",
+        "role": "asset",
+        "slot_key": "asset",
+        "data": {
+          "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+          "role": "information",
+          "alt_text": "调用者提供的绿色图片",
+          "fit": "contain",
+          "required": true,
+          "path": "/runtime/assets/39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e.png",
+          "width_px": 320,
+          "height_px": 160,
+          "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+          "source_refs": [
+            "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+          ],
+          "crop": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fit_result": {
+            "slot_key": "asset",
+            "mode": "contain",
+            "bounds": [
+              4.32,
+              2.18,
+              8.28,
+              4.14
+            ],
+            "crop": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "focal_point": [
+              0.5,
+              0.5
+            ],
+            "effective_dpi": 38.65,
+            "quality": "low_resolution",
+            "warning": "Below 96 DPI at display size; no fabricated upscaling.",
+            "pixel_removal_explicit": false
+          }
+        },
+        "bounds": [
+          4.32,
+          2.18,
+          8.28,
+          4.14
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "expected_objects": [
+        "object_c03347cf-5ee8-4698-bef8-af37e78cfa6e"
+      ],
+      "capability_id": "capability_ade0c185-06e5-4906-b4ae-16c70af6306d"
+    },
+    {
+      "call_id": "capability_c84505fd-c823-4e7d-8924-7d012f5c5397",
+      "slide_id": "slide_c277eb7c-7555-4990-bbbe-fe0f2f2ec10c",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_76c54ba9-ed6c-4f41-856d-b4c64ced6223"
+      ],
+      "inputs": {
+        "object_id": "object_71fc25ee-eb8e-46b6-b917-61529900ac0b",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "01 / 04"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_71fc25ee-eb8e-46b6-b917-61529900ac0b"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_056ff6f9-2e25-4490-ba78-891b4cb38226",
+      "slide_id": "slide_c277eb7c-7555-4990-bbbe-fe0f2f2ec10c",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_76c54ba9-ed6c-4f41-856d-b4c64ced6223"
+      ],
+      "inputs": {
+        "text": "结构关系由原文明示箭头提供，语义复审另行执行。",
+        "evidence_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    },
+    {
+      "call_id": "capability_54d11462-d245-4186-b29b-f1da551c4a09",
+      "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [
+        "capability_76c54ba9-ed6c-4f41-856d-b4c64ced6223"
+      ],
+      "inputs": {
+        "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+        "order": 1
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_ad30d5ff-47e2-437a-8a10-d6e9dcf4ebe7",
+      "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_54d11462-d245-4186-b29b-f1da551c4a09"
+      ],
+      "inputs": {
+        "object_id": "object_9652dbf1-10ac-4b91-b806-3f023e981a31",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "已批准视觉样例"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_9652dbf1-10ac-4b91-b806-3f023e981a31"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_c2a19a69-f489-4216-89f4-5f0038cb9689",
+      "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_54d11462-d245-4186-b29b-f1da551c4a09"
+      ],
+      "inputs": {
+        "object_id": "object_400dcbae-d000-4b0b-98f6-454607b32cc1",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "需求确认",
+          "设计",
+          "制作"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "expected_objects": [
+        "object_400dcbae-d000-4b0b-98f6-454607b32cc1"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_496308de-f1ef-4ea1-ab13-17b7e8b816f8",
+      "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+      "capability": "add_shape",
+      "implementation_id": "implementation_ad8197c3-3328-4264-be09-425d46f152ce",
+      "backend": "PP-05",
+      "deps": [
+        "capability_54d11462-d245-4186-b29b-f1da551c4a09"
+      ],
+      "inputs": {
+        "object_id": "object_1de571d2-5537-45f0-9f7a-cae701582ca0",
+        "type": "shape",
+        "role": "diagram",
+        "slot_key": "diagram.node.n0",
+        "data": {
+          "node_id": "n0",
+          "shape_type": "rounded_rectangle",
+          "text": "需求确认"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          2.3183999999999996,
+          3.2976
+        ],
+        "font_size": 18,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "fill": "FFFFFF",
+          "border": "192C32",
+          "color": "192C32",
+          "margin": 0.12,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_1de571d2-5537-45f0-9f7a-cae701582ca0"
+      ],
+      "capability_id": "capability_ffc5ac68-5581-4981-a031-df3d31b4997d"
+    },
+    {
+      "call_id": "capability_682859f8-41c0-45d0-b7ea-7d8ca0d1f987",
+      "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+      "capability": "add_shape",
+      "implementation_id": "implementation_ad8197c3-3328-4264-be09-425d46f152ce",
+      "backend": "PP-05",
+      "deps": [
+        "capability_54d11462-d245-4186-b29b-f1da551c4a09"
+      ],
+      "inputs": {
+        "object_id": "object_321939d5-01b6-461a-a3cc-647d88da1186",
+        "type": "shape",
+        "role": "diagram",
+        "slot_key": "diagram.node.n1",
+        "data": {
+          "node_id": "n1",
+          "shape_type": "rounded_rectangle",
+          "text": "设计"
+        },
+        "bounds": [
+          7.08,
+          1.96,
+          2.3183999999999996,
+          3.2976
+        ],
+        "font_size": 18,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "fill": "FFFFFF",
+          "border": "192C32",
+          "color": "192C32",
+          "margin": 0.12,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_321939d5-01b6-461a-a3cc-647d88da1186"
+      ],
+      "capability_id": "capability_ffc5ac68-5581-4981-a031-df3d31b4997d"
+    },
+    {
+      "call_id": "capability_d47be23d-f39f-4958-9644-2153f484af8d",
+      "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+      "capability": "add_shape",
+      "implementation_id": "implementation_ad8197c3-3328-4264-be09-425d46f152ce",
+      "backend": "PP-05",
+      "deps": [
+        "capability_54d11462-d245-4186-b29b-f1da551c4a09"
+      ],
+      "inputs": {
+        "object_id": "object_476d27de-9a82-4e9f-9371-8424ac1a1273",
+        "type": "shape",
+        "role": "diagram",
+        "slot_key": "diagram.node.n2",
+        "data": {
+          "node_id": "n2",
+          "shape_type": "rounded_rectangle",
+          "text": "制作"
+        },
+        "bounds": [
+          9.84,
+          1.96,
+          2.3183999999999996,
+          3.2976
+        ],
+        "font_size": 18,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "fill": "FFFFFF",
+          "border": "192C32",
+          "color": "192C32",
+          "margin": 0.12,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_476d27de-9a82-4e9f-9371-8424ac1a1273"
+      ],
+      "capability_id": "capability_ffc5ac68-5581-4981-a031-df3d31b4997d"
+    },
+    {
+      "call_id": "capability_7c5dae1e-ba17-4113-b9fc-9189f06c1135",
+      "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+      "capability": "add_connector",
+      "implementation_id": "implementation_84679de7-98c8-4493-883c-93d2572d3e25",
+      "backend": "PP-05",
+      "deps": [
+        "capability_54d11462-d245-4186-b29b-f1da551c4a09"
+      ],
+      "inputs": {
+        "object_id": "object_3b6e481b-e86d-4cc6-b7ef-16004a883d86",
+        "type": "connector",
+        "role": "diagram",
+        "slot_key": "diagram.edge.0",
+        "data": {
+          "from_slot": "diagram.node.n0",
+          "to_slot": "diagram.node.n1",
+          "start": [
+            6.6384,
+            3.6088
+          ],
+          "end": [
+            7.08,
+            3.6088
+          ],
+          "label": "",
+          "relation": "sequence",
+          "connector_type": "straight"
+        },
+        "bounds": [
+          6.6384,
+          3.6088,
+          0.4416000000000002,
+          0.001
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "color": "192C32"
+        }
+      },
+      "expected_objects": [
+        "object_3b6e481b-e86d-4cc6-b7ef-16004a883d86"
+      ],
+      "capability_id": "capability_c96a4e71-7ae5-48c5-a7af-4940401a0581"
+    },
+    {
+      "call_id": "capability_a8ac35e5-259f-49e2-b661-78fd63e8e8a5",
+      "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+      "capability": "add_connector",
+      "implementation_id": "implementation_84679de7-98c8-4493-883c-93d2572d3e25",
+      "backend": "PP-05",
+      "deps": [
+        "capability_54d11462-d245-4186-b29b-f1da551c4a09"
+      ],
+      "inputs": {
+        "object_id": "object_289a2470-986c-4d16-bf81-a31d4f6f55d2",
+        "type": "connector",
+        "role": "diagram",
+        "slot_key": "diagram.edge.1",
+        "data": {
+          "from_slot": "diagram.node.n1",
+          "to_slot": "diagram.node.n2",
+          "start": [
+            9.398399999999999,
+            3.6088
+          ],
+          "end": [
+            9.84,
+            3.6088
+          ],
+          "label": "",
+          "relation": "sequence",
+          "connector_type": "straight"
+        },
+        "bounds": [
+          9.398399999999999,
+          3.6088,
+          0.4416000000000011,
+          0.001
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "color": "192C32"
+        }
+      },
+      "expected_objects": [
+        "object_289a2470-986c-4d16-bf81-a31d4f6f55d2"
+      ],
+      "capability_id": "capability_c96a4e71-7ae5-48c5-a7af-4940401a0581"
+    },
+    {
+      "call_id": "capability_733df2f8-a3e5-4e07-bb44-e5982d0d52c0",
+      "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_54d11462-d245-4186-b29b-f1da551c4a09"
+      ],
+      "inputs": {
+        "object_id": "object_022a0146-9dfb-4cba-9863-05f755eb8067",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "02 / 04"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_022a0146-9dfb-4cba-9863-05f755eb8067"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_62357e66-f38e-400c-a54f-007fcc3ffc4e",
+      "slide_id": "slide_cc835828-c5b8-404a-b87f-36795ce700ab",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_54d11462-d245-4186-b29b-f1da551c4a09"
+      ],
+      "inputs": {
+        "text": "结构关系由原文明示箭头提供，语义复审另行执行。",
+        "evidence_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    },
+    {
+      "call_id": "capability_763cd07b-d15c-4a9c-b607-4b299811a80f",
+      "slide_id": "slide_2e7a8153-e375-4c6c-9386-efd60435379e",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [
+        "capability_54d11462-d245-4186-b29b-f1da551c4a09"
+      ],
+      "inputs": {
+        "slide_id": "slide_2e7a8153-e375-4c6c-9386-efd60435379e",
+        "order": 2
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_9d9ab96c-98ec-4bb2-b35a-5195e4f54887",
+      "slide_id": "slide_2e7a8153-e375-4c6c-9386-efd60435379e",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_763cd07b-d15c-4a9c-b607-4b299811a80f"
+      ],
+      "inputs": {
+        "object_id": "object_3c99f436-81ac-45e3-84fc-95ae505d735f",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "已批准视觉样例"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_3c99f436-81ac-45e3-84fc-95ae505d735f"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_1d10b878-868d-43bf-a915-8db9c2fc8be3",
+      "slide_id": "slide_2e7a8153-e375-4c6c-9386-efd60435379e",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_763cd07b-d15c-4a9c-b607-4b299811a80f"
+      ],
+      "inputs": {
+        "object_id": "object_cda116d2-4ba7-4e57-bb0f-18b3095c8906",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "需求确认",
+          "设计",
+          "制作"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "expected_objects": [
+        "object_cda116d2-4ba7-4e57-bb0f-18b3095c8906"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_db07ed12-9744-44cd-8927-f928b566fbdb",
+      "slide_id": "slide_2e7a8153-e375-4c6c-9386-efd60435379e",
+      "capability": "add_table",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "deps": [
+        "capability_763cd07b-d15c-4a9c-b607-4b299811a80f"
+      ],
+      "inputs": {
+        "object_id": "object_1bd8eb77-5fc5-43e1-b0ed-37307738d441",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "指标",
+            "值"
+          ],
+          "rows": [
+            [
+              "A",
+              "8"
+            ],
+            [
+              "B",
+              "9"
+            ]
+          ],
+          "units": "原文单位未指定"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "expected_objects": [
+        "object_1bd8eb77-5fc5-43e1-b0ed-37307738d441"
+      ],
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55"
+    },
+    {
+      "call_id": "capability_3d1ddf8a-ef75-4b65-a097-5373b3e73b80",
+      "slide_id": "slide_2e7a8153-e375-4c6c-9386-efd60435379e",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_763cd07b-d15c-4a9c-b607-4b299811a80f"
+      ],
+      "inputs": {
+        "object_id": "object_277fb884-d5ee-4889-a06b-de8e1a7f4154",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "03 / 04"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_277fb884-d5ee-4889-a06b-de8e1a7f4154"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_ba8c5736-5235-4b76-ad06-6f517d07773d",
+      "slide_id": "slide_2e7a8153-e375-4c6c-9386-efd60435379e",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_763cd07b-d15c-4a9c-b607-4b299811a80f"
+      ],
+      "inputs": {
+        "text": "结构关系由原文明示箭头提供，语义复审另行执行。",
+        "evidence_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    },
+    {
+      "call_id": "capability_bff2acd0-914e-42d2-ba53-27918d58df41",
+      "slide_id": "slide_ab52523e-2582-46c3-a68b-966bb3e716df",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [
+        "capability_763cd07b-d15c-4a9c-b607-4b299811a80f"
+      ],
+      "inputs": {
+        "slide_id": "slide_ab52523e-2582-46c3-a68b-966bb3e716df",
+        "order": 3
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_febd2f95-719c-4623-94e5-0be85803b920",
+      "slide_id": "slide_ab52523e-2582-46c3-a68b-966bb3e716df",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_bff2acd0-914e-42d2-ba53-27918d58df41"
+      ],
+      "inputs": {
+        "object_id": "object_15ae166f-880a-4703-b322-5e4b3a5998a5",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "已批准视觉样例"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_15ae166f-880a-4703-b322-5e4b3a5998a5"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_4050ce39-bb32-4600-b701-4ce9ae540864",
+      "slide_id": "slide_ab52523e-2582-46c3-a68b-966bb3e716df",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_bff2acd0-914e-42d2-ba53-27918d58df41"
+      ],
+      "inputs": {
+        "object_id": "object_271935e3-2664-40fb-a048-e8affc946e85",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "需求确认",
+          "设计",
+          "制作"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "expected_objects": [
+        "object_271935e3-2664-40fb-a048-e8affc946e85"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_c4724b6b-58d6-4dea-bd1b-4d4184cc65a2",
+      "slide_id": "slide_ab52523e-2582-46c3-a68b-966bb3e716df",
+      "capability": "add_chart",
+      "implementation_id": "implementation_1dbe17f0-905b-448d-b059-dc374a8422b6",
+      "backend": "PP-05",
+      "deps": [
+        "capability_bff2acd0-914e-42d2-ba53-27918d58df41"
+      ],
+      "inputs": {
+        "object_id": "object_84b0884d-a5ac-4ac2-97fb-41d85ad8c285",
+        "type": "chart",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "type": "bar",
+          "categories": [
+            "A",
+            "B"
+          ],
+          "series": [
+            {
+              "name": "指标",
+              "values": [
+                8,
+                9
+              ]
+            }
+          ],
+          "units": "原文单位未指定"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "expected_objects": [
+        "object_84b0884d-a5ac-4ac2-97fb-41d85ad8c285"
+      ],
+      "capability_id": "capability_fbd10105-0957-443e-93ac-47dc71efefe5"
+    },
+    {
+      "call_id": "capability_002830d1-d68b-47f6-8386-aca52595ec9a",
+      "slide_id": "slide_ab52523e-2582-46c3-a68b-966bb3e716df",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_bff2acd0-914e-42d2-ba53-27918d58df41"
+      ],
+      "inputs": {
+        "object_id": "object_fae7fcf0-f92f-4a6f-9bd2-a653863d31da",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "04 / 04"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_fae7fcf0-f92f-4a6f-9bd2-a653863d31da"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_d096ce15-71c2-45f0-9a5c-7959be9fc4fa",
+      "slide_id": "slide_ab52523e-2582-46c3-a68b-966bb3e716df",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_bff2acd0-914e-42d2-ba53-27918d58df41"
+      ],
+      "inputs": {
+        "text": "结构关系由原文明示箭头提供，语义复审另行执行。",
+        "evidence_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    }
+  ],
+  "deps": "each page requires its predecessor; objects require owning page",
+  "backend": "PP-05"
+}

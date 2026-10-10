@@ -1,0 +1,484 @@
+{
+  "version": "visual-1",
+  "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+  "template_selection": {
+    "family": "generic",
+    "record": null,
+    "candidates": [
+      {
+        "family": "generic",
+        "eligible": true,
+        "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+      },
+      {
+        "family": "free_layout",
+        "eligible": true,
+        "reason": "Native geometry compiler is available as explicit alternative."
+      }
+    ],
+    "fallback": "fail on incompatible capacity",
+    "status": "selected"
+  },
+  "design_tokens": {
+    "font": "Noto Sans CJK SC",
+    "foreground": "192C32",
+    "background": "F6F4EE",
+    "accent": "147C80",
+    "shape_language": "native_editable",
+    "image_treatment": "contain_without_crop",
+    "decoration_density": "minimal",
+    "provenance": {
+      "font": "caller override or declared native renderer font",
+      "colors": "caller override or explicit product default"
+    },
+    "template_tokens": null
+  },
+  "asset_declarations": [
+    {
+      "asset_id": "asset_5dcd9484-9f23-4d6c-8d7e-34b0017374cf",
+      "source_id": "source_b8f46381-3481-4a8f-886e-423905de9ddd",
+      "source_type": "user",
+      "path": "/runtime/visual-validation/declared-image.png",
+      "license": "test-fixture-authorized",
+      "usage_status": "authorized",
+      "authorization_basis": "Artificial fixture authored for product integration verification",
+      "attribution": null,
+      "source_url": null,
+      "source_refs": [],
+      "deliberate_reuse": false,
+      "request_metadata": null,
+      "transform_history": []
+    }
+  ],
+  "resolved_assets": {
+    "status": "resolved",
+    "entries": [
+      {
+        "asset_id": "asset_5dcd9484-9f23-4d6c-8d7e-34b0017374cf",
+        "source_id": "source_b8f46381-3481-4a8f-886e-423905de9ddd",
+        "source_type": "user",
+        "source_locator": "/runtime/visual-validation/declared-image.png",
+        "source_url": null,
+        "path": "/runtime/assets/39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e.png",
+        "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+        "bytes": 552,
+        "mime_type": "image/png",
+        "width_px": 320,
+        "height_px": 160,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+          "bytes": 552,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 320,
+          "height": 160,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 2.0,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "0000000000000000"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#1A5043",
+              "fraction": 1.0
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "test-fixture-authorized",
+        "usage_status": "authorized",
+        "authorization_basis": "Artificial fixture authored for product integration verification",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      }
+    ],
+    "issues": [],
+    "duplicate_groups": [],
+    "boundary": "Real bytes/hash/MIME/pixels and caller authorization checked; semantic appropriateness, watermark, perceptual duplicates and full AST acceptance remain unproven."
+  },
+  "decision_traces": [
+    {
+      "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+      "node_id": "DEC-028",
+      "input": {
+        "template_ref": null,
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "candidate_6efd7e9e-15db-4b59-bf0f-7ecb374c70eb",
+              "field": "page_count",
+              "value": 6,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "raw_text:13:15"
+              }
+            },
+            {
+              "constraint_id": "candidate_b0185fb2-57fc-4b22-b388-3b325b83974a",
+              "field": "language",
+              "value": "zh-CN",
+              "source": {
+                "kind": "user_instruction",
+                "reference": "raw_text:15:17"
+              }
+            }
+          ],
+          "soft": [
+            {
+              "constraint_id": "candidate_99985f2b-4445-485c-b4fb-4d2d36f9ed44",
+              "field": "page_count",
+              "value": 6,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "runtime_preferences.page_count"
+              },
+              "disposition": "applied",
+              "applied_value": 6,
+              "handling_reason": "Selected by DEC-002 and within current execution subset."
+            }
+          ],
+          "defaults": [
+            {
+              "constraint_id": "system_default.page_count",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.language",
+              "field": "language",
+              "value": "zh-CN",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.aspect_ratio",
+              "field": "aspect_ratio",
+              "value": "16:9",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.minimum_font_size",
+              "field": "minimum_font_size",
+              "value": 16,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.template",
+              "field": "template",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.brand",
+              "field": "brand",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.output_formats",
+              "field": "output_formats",
+              "value": [
+                "pptx",
+                "pdf",
+                "png"
+              ],
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.audience",
+              "field": "audience",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.scenario",
+              "field": "scenario",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.duration",
+              "field": "duration",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.tone",
+              "field": "tone",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.citation_policy",
+              "field": "citation_policy",
+              "value": "notes",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.asset_policy",
+              "field": "asset_policy",
+              "value": {
+                "allow_network": false,
+                "minimum_pixels": [
+                  1,
+                  1
+                ]
+              },
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            }
+          ],
+          "conflicts": []
+        },
+        "evidence_refs": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-028",
+          "candidate_id": "candidate_0a8f4afc-2095-449b-a2a3-e3691f6ede2f",
+          "value": {
+            "family": "generic",
+            "eligible": true,
+            "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-028",
+          "candidate_id": "candidate_50e154dd-216a-4a30-a891-59a8b9835fac",
+          "value": {
+            "family": "free_layout",
+            "eligible": true,
+            "reason": "Native geometry compiler is available as explicit alternative."
+          },
+          "score": 0,
+          "reasons": [
+            {
+              "reason": "Native geometry compiler is available as explicit alternative."
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_0a8f4afc-2095-449b-a2a3-e3691f6ede2f"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "family": "generic",
+        "template_id": null,
+        "template_status": "selected",
+        "fallback": "fail on incompatible capacity"
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+      "node_id": "DEC-029",
+      "input": {
+        "style": {},
+        "template_id": null,
+        "evidence_refs": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-029",
+          "candidate_id": "candidate_51a03cc4-e21b-411a-8503-e2f9a403289a",
+          "value": {
+            "font": "Noto Sans CJK SC",
+            "foreground": "192C32",
+            "background": "F6F4EE",
+            "accent": "147C80",
+            "shape_language": "native_editable",
+            "image_treatment": "contain_without_crop",
+            "decoration_density": "minimal",
+            "provenance": {
+              "font": "caller override or declared native renderer font",
+              "colors": "caller override or explicit product default"
+            },
+            "template_tokens": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "explicit caller values/product defaults; template originals retained without assuming font availability"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_51a03cc4-e21b-411a-8503-e2f9a403289a"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "font": "Noto Sans CJK SC",
+        "foreground": "192C32",
+        "background": "F6F4EE",
+        "accent": "147C80",
+        "shape_language": "native_editable",
+        "image_treatment": "contain_without_crop",
+        "decoration_density": "minimal",
+        "provenance": {
+          "font": "caller override or declared native renderer font",
+          "colors": "caller override or explicit product default"
+        },
+        "template_tokens": null
+      },
+      "duration": 0.0,
+      "error": null
+    }
+  ],
+  "planner_assets": [
+    {
+      "asset_id": "asset_5dcd9484-9f23-4d6c-8d7e-34b0017374cf",
+      "width_px": 320,
+      "height_px": 160,
+      "source_type": "user",
+      "license": "test-fixture-authorized",
+      "usage_status": "authorized",
+      "semantic_status": "caller_role_declared_not_independently_reviewed"
+    }
+  ],
+  "planner_rules": [
+    "Only listed asset_id is executable; paths are injected by the resolver, never invented by the model.",
+    "image requires explicit role and alt_text; decorative and information roles are distinct.",
+    "diagram labels and edge evidence_quote must be literal approved-source text; no invented causal edges.",
+    "A list can remain cards/text without connecting nodes; visual flow requires explicit relation evidence.",
+    "table/chart data remain unchanged; native chart types bar/column/line only in this execution version."
+  ],
+  "system_acceptance": "not_claimed"
+}

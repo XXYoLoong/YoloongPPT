@@ -1,0 +1,3841 @@
+{
+  "trace_id": "trace_cb982946-6709-4770-92ac-66f1ea5f528a",
+  "node_id": "DEC-039",
+  "input": {
+    "issues": [
+      {
+        "issue_id": "issue_2ecd44c3-f352-41a4-8d1a-27bd64d992c5",
+        "code": "DECK_BACKGROUND_INCONSISTENT",
+        "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+        "object_id": null,
+        "severity": "P1",
+        "detail": "Page background differs; exception requires explicit policy",
+        "requirement_id": "QA-015",
+        "measurement": {},
+        "threshold": {},
+        "action": {
+          "node": "style",
+          "mode": "local_revision",
+          "reason": "DECK_BACKGROUND_INCONSISTENT"
+        }
+      },
+      {
+        "slide_order": 1,
+        "severity": "P1",
+        "kind": "visual",
+        "detail": "占位符文本为超长英文键名（school_energy_saving_pilot.energy_consumption_reduction_target.baseline / .metric_name），在卡片内强制换行且被截断为多行，可读性差，且未显示完整键名。",
+        "evidence_refs": [
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+        ],
+        "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+        "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+        "code": "MODEL_SEMANTIC",
+        "action": {
+          "node": "semantic",
+          "mode": "requires_user_input",
+          "reason": "Independent review issue needs grounded decision"
+        }
+      },
+      {
+        "slide_order": 1,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "正文以原始键名占位符呈现缺失项，对管理层读者不友好，建议改为中文可读标签（如“基线口径待补充”“指标名称待补充”）。",
+        "evidence_refs": [],
+        "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+        "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+        "code": "MODEL_SEMANTIC",
+        "action": {
+          "node": "semantic",
+          "mode": "requires_user_input",
+          "reason": "Independent review issue needs grounded decision"
+        }
+      },
+      {
+        "slide_order": 2,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "两个内容卡片高度远大于文本量，右侧卡片仅两行文字却占据整块区域，留白过多，版面失衡。",
+        "evidence_refs": [],
+        "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+        "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+        "code": "MODEL_SEMANTIC",
+        "action": {
+          "node": "semantic",
+          "mode": "requires_user_input",
+          "reason": "Independent review issue needs grounded decision"
+        }
+      },
+      {
+        "slide_order": 3,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "三个卡片高度不一致且内容极少，下方卡片与上方卡片对齐松散，版面留白过多。",
+        "evidence_refs": [],
+        "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+        "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+        "code": "MODEL_SEMANTIC",
+        "action": {
+          "node": "semantic",
+          "mode": "requires_user_input",
+          "reason": "Independent review issue needs grounded decision"
+        }
+      },
+      {
+        "slide_order": 4,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "表格左侧说明文字与表格间距偏大，表格行高较大，整体偏空；表格本身可读，无裁切。",
+        "evidence_refs": [],
+        "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+        "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+        "code": "MODEL_SEMANTIC",
+        "action": {
+          "node": "semantic",
+          "mode": "requires_user_input",
+          "reason": "Independent review issue needs grounded decision"
+        }
+      },
+      {
+        "slide_order": 5,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "图表仅呈现单一8%柱状值，信息量极低，作为独立一页略显冗余，可考虑与目标页合并。",
+        "evidence_refs": [
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+          "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+        ],
+        "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+        "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+        "code": "MODEL_SEMANTIC",
+        "action": {
+          "node": "semantic",
+          "mode": "requires_user_input",
+          "reason": "Independent review issue needs grounded decision"
+        }
+      },
+      {
+        "slide_order": 7,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "标题“下一步：补齐口径后复核”在左侧换行断为“复/核”，断行位置不佳，影响标题观感。",
+        "evidence_refs": [],
+        "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+        "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+        "code": "MODEL_SEMANTIC",
+        "action": {
+          "node": "semantic",
+          "mode": "requires_user_input",
+          "reason": "Independent review issue needs grounded decision"
+        }
+      },
+      {
+        "slide_order": 0,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "正文第三条“先检查教室照明，再设置定时关灯，随后记录变化”属于执行方法（第3页内容），与第0页“试点定位/范围”主题重复，建议本页仅保留范围与性质说明，避免与后续执行页内容重叠。",
+        "evidence_refs": [
+          "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+        ],
+        "issue_id": "issue_1c28ed99-433a-4bb2-81c1-d822f299e4ab",
+        "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+        "code": "MODEL_SEMANTIC",
+        "action": {
+          "node": "semantic",
+          "mode": "requires_user_input",
+          "reason": "Independent review issue needs grounded decision"
+        }
+      }
+    ],
+    "revision_policy": {},
+    "deck": {
+      "deck_id": "deck_f0e2c661-e9f6-4bf0-9501-ff94cee68211",
+      "title": "学校节能试点项目汇报",
+      "aspect_ratio": "16:9",
+      "width_inches": 13.333333,
+      "height_inches": 7.5,
+      "style": {
+        "font": "Noto Sans CJK SC",
+        "background": "F6F4EE",
+        "foreground": "192C32",
+        "accent": "147C80",
+        "title_size": 30,
+        "body_size": 22,
+        "minimum_size": 16
+      },
+      "slides": [
+        {
+          "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+          "order": 0,
+          "intent": {
+            "goal": "明确试点范围与性质",
+            "core_message": "试点定位：教室照明管理"
+          },
+          "content": {
+            "title": "试点定位：教室照明管理",
+            "goal": "明确试点范围与性质",
+            "kind": "text",
+            "body": [
+              "试点名称为学校节能试点。",
+              "试点只讨论照明管理，不对全校节能作出承诺。",
+              "先检查教室照明，再设置定时关灯，随后记录变化。"
+            ],
+            "notes": "来源材料明确试点范围限于教室照明管理，并强调不对全校节能作出承诺，因此本页不扩展至其他用能领域。",
+            "evidence_refs": [
+              "evidence_85794346-3802-4b3d-b792-359536e81038",
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+            ],
+            "rationale": "先界定范围，避免管理层对试点覆盖范围产生误解。",
+            "table": null,
+            "chart": null
+          },
+          "assets": [],
+          "layout": {
+            "kind": "text",
+            "master": "library-default-blank",
+            "design_version": "native-editorial-1",
+            "selected_layout": "cover",
+            "selection_trace": {
+              "version": "native-editorial-1",
+              "input": {
+                "content": {
+                  "title": "试点定位：教室照明管理",
+                  "goal": "明确试点范围与性质",
+                  "kind": "text",
+                  "body": [
+                    "试点名称为学校节能试点。",
+                    "试点只讨论照明管理，不对全校节能作出承诺。",
+                    "先检查教室照明，再设置定时关灯，随后记录变化。"
+                  ],
+                  "notes": "来源材料明确试点范围限于教室照明管理，并强调不对全校节能作出承诺，因此本页不扩展至其他用能领域。",
+                  "evidence_refs": [
+                    "evidence_85794346-3802-4b3d-b792-359536e81038",
+                    "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+                  ],
+                  "rationale": "先界定范围，避免管理层对试点覆盖范围产生误解。",
+                  "table": null,
+                  "chart": null
+                },
+                "order": 0,
+                "page_count": 8,
+                "style": {
+                  "font": "Noto Sans CJK SC",
+                  "background": "F6F4EE",
+                  "foreground": "192C32",
+                  "accent": "147C80",
+                  "title_size": 30,
+                  "body_size": 22,
+                  "minimum_size": 16
+                },
+                "previous_layout": null
+              },
+              "candidates": [
+                {
+                  "candidate_id": "candidate_fbaeaf44-7750-4815-85b1-3ee034e03df9",
+                  "layout_id": "layout_2db6d228-cf42-4e80-aecb-960958b664b9",
+                  "layout": "editorial",
+                  "score": 40,
+                  "reasons": [
+                    "Readable broad text slot with all original paragraphs."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_7a28a315-3170-4f29-bc42-ced589a27f9f",
+                  "layout_id": "layout_5aa82fb8-104d-4bbf-906c-2d1b698f5ae2",
+                  "layout": "columns",
+                  "score": 65,
+                  "reasons": [
+                    "Longer point sets balanced across two columns without rewriting."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_7cd42e47-3e9d-4f61-9eee-ebe5bca4bc6b",
+                  "layout_id": "layout_fef2c84c-5348-452f-87cf-23bdea99eb7c",
+                  "layout": "cards",
+                  "score": 75,
+                  "reasons": [
+                    "Two to four original body items in individual editable panels; semantic relation is unchanged and not inferred."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_88344d2f-e975-440a-9d4c-ae4723f0a4e5",
+                  "layout_id": "layout_ed4738a0-89d8-4a82-9fad-3ef816fe8844",
+                  "layout": "cover",
+                  "score": 100,
+                  "reasons": [
+                    "First text page: clear opening and side summary."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_45124e25-1be7-44b2-9781-bf47e12aa5ce",
+                  "layout_id": "layout_94b9f663-55cd-4540-960d-9968fa8ec7fa",
+                  "layout": "closing",
+                  "score": 95,
+                  "reasons": [
+                    "Last text page: strong conclusion and preserved action points."
+                  ],
+                  "eligible": false,
+                  "capacity_pass": false,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": {
+                    "code": "LAYOUT_CONTENT_MISMATCH",
+                    "reason": "Position or body item count does not match this layout."
+                  }
+                }
+              ],
+              "selected": "candidate_88344d2f-e975-440a-9d4c-ae4723f0a4e5",
+              "selected_layout": "cover",
+              "mechanism": "Content compatibility + measured capacity + opening/closing/data hierarchy + adjacent variation; stable catalog order breaks equal scores.",
+              "source_sha256": "c1bfe831094eecde539e45dfeaca297af0cfb1cad176271f4f0473327681afad",
+              "fallback": "Capacity rejection selects another declared candidate; all rejected stops before write.",
+              "limitations": [
+                "Current native text/table/chart subset; full DEC-030–035, imagery/template/RTL/brand selection not complete."
+              ]
+            }
+          },
+          "bindings": [],
+          "elements": [
+            {
+              "object_id": "object_37c9b1de-67ea-4d7a-8094-fd467bf70a8d",
+              "type": "text",
+              "role": "title",
+              "slot_key": "title",
+              "text": [
+                "试点定位：",
+                "教室照明管理"
+              ],
+              "bounds": [
+                0.7,
+                1.35,
+                6.4,
+                3.65
+              ],
+              "font_size": 40,
+              "source_refs": [
+                "evidence_85794346-3802-4b3d-b792-359536e81038",
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+              ],
+              "format": {
+                "color": "FFFFFF",
+                "bold": true,
+                "margin": 0
+              }
+            },
+            {
+              "object_id": "object_310785a5-fe5b-451c-96d1-9b16083df0a5",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body",
+              "text": [
+                "试点名称为学校节能试点。",
+                "试点只讨论照明管理，不对全校节能作出承诺。",
+                "先检查教室照明，再设置定时关灯，随后记录变化。"
+              ],
+              "bounds": [
+                7.65,
+                1.42,
+                4.9,
+                4.9
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_85794346-3802-4b3d-b792-359536e81038",
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+              ],
+              "format": {
+                "color": "F6F4EE",
+                "paragraph_spacing": 16,
+                "margin": 0
+              }
+            },
+            {
+              "object_id": "object_f4d786ad-d9b3-4700-b942-cbd639116233",
+              "type": "text",
+              "role": "footer",
+              "slot_key": "footer",
+              "text": [
+                "01 / 08"
+              ],
+              "bounds": [
+                0.7,
+                6.83,
+                11.95,
+                0.38
+              ],
+              "font_size": 16,
+              "source_refs": [],
+              "format": {
+                "color": "F6F4EE",
+                "paragraph_spacing": 0,
+                "margin": 0
+              }
+            }
+          ],
+          "style": {
+            "font": "Noto Sans CJK SC",
+            "background": "192C32",
+            "foreground": "F6F4EE",
+            "accent": "147C80",
+            "title_size": 30,
+            "body_size": 22,
+            "minimum_size": 16
+          },
+          "enhancements": {
+            "notes": "来源材料明确试点范围限于教室照明管理，并强调不对全校节能作出承诺，因此本页不扩展至其他用能领域。"
+          },
+          "source_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ]
+        },
+        {
+          "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+          "order": 1,
+          "intent": {
+            "goal": "呈现试点核心量化目标",
+            "core_message": "目标：2026年能耗降低8%"
+          },
+          "content": {
+            "title": "目标：2026年能耗降低8%",
+            "goal": "呈现试点核心量化目标",
+            "kind": "text",
+            "body": [
+              "试点2026年能耗降低8%。",
+              "【待补充：school_energy_saving_pilot.energy_consumption_reduction_target.baseline】",
+              "【待补充：school_energy_saving_pilot.energy_consumption_reduction_target.metric_name】"
+            ],
+            "notes": "8%与2026年来自原文，属试点目标性质。基线口径与指标名称在来源中缺失，按占位符保留，未补值。\n【容量决策：完整补充内容移入备注】\n该8%为试点目标，百分比基准为能耗。",
+            "evidence_refs": [
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+              "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+            ],
+            "rationale": "结论先行，把可核验的目标数字放在前部，同时显式标注缺失项。",
+            "table": null,
+            "chart": null
+          },
+          "assets": [],
+          "layout": {
+            "kind": "text",
+            "master": "library-default-blank",
+            "design_version": "native-editorial-1",
+            "selected_layout": "cards",
+            "selection_trace": {
+              "version": "native-editorial-1",
+              "input": {
+                "content": {
+                  "title": "目标：2026年能耗降低8%",
+                  "goal": "呈现试点核心量化目标",
+                  "kind": "text",
+                  "body": [
+                    "试点2026年能耗降低8%。",
+                    "【待补充：school_energy_saving_pilot.energy_consumption_reduction_target.baseline】",
+                    "【待补充：school_energy_saving_pilot.energy_consumption_reduction_target.metric_name】"
+                  ],
+                  "notes": "8%与2026年来自原文，属试点目标性质。基线口径与指标名称在来源中缺失，按占位符保留，未补值。\n【容量决策：完整补充内容移入备注】\n该8%为试点目标，百分比基准为能耗。",
+                  "evidence_refs": [
+                    "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                    "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+                  ],
+                  "rationale": "结论先行，把可核验的目标数字放在前部，同时显式标注缺失项。",
+                  "table": null,
+                  "chart": null
+                },
+                "order": 1,
+                "page_count": 8,
+                "style": {
+                  "font": "Noto Sans CJK SC",
+                  "background": "F6F4EE",
+                  "foreground": "192C32",
+                  "accent": "147C80",
+                  "title_size": 30,
+                  "body_size": 22,
+                  "minimum_size": 16
+                },
+                "previous_layout": "cover"
+              },
+              "candidates": [
+                {
+                  "candidate_id": "candidate_b5b00998-e081-45ba-9aea-5666d1be09ca",
+                  "layout_id": "layout_2db6d228-cf42-4e80-aecb-960958b664b9",
+                  "layout": "editorial",
+                  "score": 40,
+                  "reasons": [
+                    "Readable broad text slot with all original paragraphs."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_f0ddbdf1-53db-4c6c-9b69-393514641169",
+                  "layout_id": "layout_5aa82fb8-104d-4bbf-906c-2d1b698f5ae2",
+                  "layout": "columns",
+                  "score": 65,
+                  "reasons": [
+                    "Longer point sets balanced across two columns without rewriting."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_5dfab2b1-7707-453d-a12d-1c398e06f3d9",
+                  "layout_id": "layout_fef2c84c-5348-452f-87cf-23bdea99eb7c",
+                  "layout": "cards",
+                  "score": 75,
+                  "reasons": [
+                    "Two to four original body items in individual editable panels; semantic relation is unchanged and not inferred."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_b8425c44-d488-4e5b-bf93-b0caeeb144db",
+                  "layout_id": "layout_ed4738a0-89d8-4a82-9fad-3ef816fe8844",
+                  "layout": "cover",
+                  "score": 82,
+                  "reasons": [
+                    "First text page: clear opening and side summary.",
+                    "Variation penalty against repeating adjacent layout."
+                  ],
+                  "eligible": false,
+                  "capacity_pass": false,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": {
+                    "code": "LAYOUT_CONTENT_MISMATCH",
+                    "reason": "Position or body item count does not match this layout."
+                  }
+                },
+                {
+                  "candidate_id": "candidate_50317324-d7e1-433f-ab18-953fe1a0aa19",
+                  "layout_id": "layout_94b9f663-55cd-4540-960d-9968fa8ec7fa",
+                  "layout": "closing",
+                  "score": 95,
+                  "reasons": [
+                    "Last text page: strong conclusion and preserved action points."
+                  ],
+                  "eligible": false,
+                  "capacity_pass": false,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": {
+                    "code": "LAYOUT_CONTENT_MISMATCH",
+                    "reason": "Position or body item count does not match this layout."
+                  }
+                }
+              ],
+              "selected": "candidate_5dfab2b1-7707-453d-a12d-1c398e06f3d9",
+              "selected_layout": "cards",
+              "mechanism": "Content compatibility + measured capacity + opening/closing/data hierarchy + adjacent variation; stable catalog order breaks equal scores.",
+              "source_sha256": "c1bfe831094eecde539e45dfeaca297af0cfb1cad176271f4f0473327681afad",
+              "fallback": "Capacity rejection selects another declared candidate; all rejected stops before write.",
+              "limitations": [
+                "Current native text/table/chart subset; full DEC-030–035, imagery/template/RTL/brand selection not complete."
+              ]
+            }
+          },
+          "bindings": [],
+          "elements": [
+            {
+              "object_id": "object_676d404a-619f-4c83-99e0-d30059a3508b",
+              "type": "text",
+              "role": "title",
+              "slot_key": "title",
+              "text": [
+                "目标：2026年能耗降低8%"
+              ],
+              "bounds": [
+                0.7,
+                0.6,
+                11.95,
+                1.25
+              ],
+              "font_size": 32,
+              "source_refs": [
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ],
+              "format": {
+                "color": "192C32",
+                "bold": true,
+                "margin": 0
+              }
+            },
+            {
+              "object_id": "object_711b2f01-9161-4e44-9a36-92061824911d",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.0",
+              "text": [
+                "试点2026年能耗降低8%。"
+              ],
+              "bounds": [
+                0.7,
+                2.05,
+                5.82,
+                1.85
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_df02f740-c76e-4148-b74e-49ba25000241",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.1",
+              "text": [
+                "【待补充：school_energy_saving_pilot.energy_consumption_reduction_target.baseline】"
+              ],
+              "bounds": [
+                6.8500000000000005,
+                2.05,
+                5.82,
+                1.85
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_058480ae-4f5a-45be-9cf2-9bfae0386298",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.2",
+              "text": [
+                "【待补充：school_energy_saving_pilot.energy_consumption_reduction_target.metric_name】"
+              ],
+              "bounds": [
+                0.7,
+                4.18,
+                5.82,
+                1.85
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_5a9d69a7-97b9-4ec8-9864-fe8b651725fc",
+              "type": "text",
+              "role": "footer",
+              "slot_key": "footer",
+              "text": [
+                "02 / 08"
+              ],
+              "bounds": [
+                0.7,
+                6.83,
+                11.95,
+                0.38
+              ],
+              "font_size": 16,
+              "source_refs": [],
+              "format": {
+                "color": "147C80",
+                "paragraph_spacing": 0,
+                "margin": 0
+              }
+            }
+          ],
+          "style": {
+            "font": "Noto Sans CJK SC",
+            "background": "F6F4EE",
+            "foreground": "192C32",
+            "accent": "147C80",
+            "title_size": 30,
+            "body_size": 22,
+            "minimum_size": 16
+          },
+          "enhancements": {
+            "notes": "8%与2026年来自原文，属试点目标性质。基线口径与指标名称在来源中缺失，按占位符保留，未补值。\n【容量决策：完整补充内容移入备注】\n该8%为试点目标，百分比基准为能耗。"
+          },
+          "source_refs": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ]
+        },
+        {
+          "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+          "order": 2,
+          "intent": {
+            "goal": "说明试点操作步骤",
+            "core_message": "执行方法：检查、定时、记录"
+          },
+          "content": {
+            "title": "执行方法：检查、定时、记录",
+            "goal": "说明试点操作步骤",
+            "kind": "text",
+            "body": [
+              "第一步：检查教室照明。",
+              "第二步：设置定时关灯。",
+              "第三步：记录变化。",
+              "步骤顺序来自来源材料。"
+            ],
+            "notes": "来源材料给出三步顺序：先检查教室照明，再设置定时关灯，随后记录变化。本页仅复述该顺序，不添加设备型号或时间参数。",
+            "evidence_refs": [
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+            ],
+            "rationale": "以操作顺序呈现执行方法，便于管理层理解落地路径。",
+            "table": null,
+            "chart": null
+          },
+          "assets": [],
+          "layout": {
+            "kind": "text",
+            "master": "library-default-blank",
+            "design_version": "native-editorial-1",
+            "selected_layout": "columns",
+            "selection_trace": {
+              "version": "native-editorial-1",
+              "input": {
+                "content": {
+                  "title": "执行方法：检查、定时、记录",
+                  "goal": "说明试点操作步骤",
+                  "kind": "text",
+                  "body": [
+                    "第一步：检查教室照明。",
+                    "第二步：设置定时关灯。",
+                    "第三步：记录变化。",
+                    "步骤顺序来自来源材料。"
+                  ],
+                  "notes": "来源材料给出三步顺序：先检查教室照明，再设置定时关灯，随后记录变化。本页仅复述该顺序，不添加设备型号或时间参数。",
+                  "evidence_refs": [
+                    "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+                  ],
+                  "rationale": "以操作顺序呈现执行方法，便于管理层理解落地路径。",
+                  "table": null,
+                  "chart": null
+                },
+                "order": 2,
+                "page_count": 8,
+                "style": {
+                  "font": "Noto Sans CJK SC",
+                  "background": "F6F4EE",
+                  "foreground": "192C32",
+                  "accent": "147C80",
+                  "title_size": 30,
+                  "body_size": 22,
+                  "minimum_size": 16
+                },
+                "previous_layout": "cards"
+              },
+              "candidates": [
+                {
+                  "candidate_id": "candidate_134e9b75-3b19-4036-ba16-75d3ddda4add",
+                  "layout_id": "layout_2db6d228-cf42-4e80-aecb-960958b664b9",
+                  "layout": "editorial",
+                  "score": 40,
+                  "reasons": [
+                    "Readable broad text slot with all original paragraphs."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_08d71097-10c7-44d9-824f-678a403b7ee5",
+                  "layout_id": "layout_5aa82fb8-104d-4bbf-906c-2d1b698f5ae2",
+                  "layout": "columns",
+                  "score": 65,
+                  "reasons": [
+                    "Longer point sets balanced across two columns without rewriting."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_3ab028ac-d2bc-45c0-9820-843df24b1a3b",
+                  "layout_id": "layout_fef2c84c-5348-452f-87cf-23bdea99eb7c",
+                  "layout": "cards",
+                  "score": 57,
+                  "reasons": [
+                    "Two to four original body items in individual editable panels; semantic relation is unchanged and not inferred.",
+                    "Variation penalty against repeating adjacent layout."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_e9e6bd2e-af99-49fe-a6f0-ff36d7536c68",
+                  "layout_id": "layout_ed4738a0-89d8-4a82-9fad-3ef816fe8844",
+                  "layout": "cover",
+                  "score": 100,
+                  "reasons": [
+                    "First text page: clear opening and side summary."
+                  ],
+                  "eligible": false,
+                  "capacity_pass": false,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": {
+                    "code": "LAYOUT_CONTENT_MISMATCH",
+                    "reason": "Position or body item count does not match this layout."
+                  }
+                },
+                {
+                  "candidate_id": "candidate_a4c84aa6-f1ff-4417-98e3-bbf55fa5d446",
+                  "layout_id": "layout_94b9f663-55cd-4540-960d-9968fa8ec7fa",
+                  "layout": "closing",
+                  "score": 95,
+                  "reasons": [
+                    "Last text page: strong conclusion and preserved action points."
+                  ],
+                  "eligible": false,
+                  "capacity_pass": false,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": {
+                    "code": "LAYOUT_CONTENT_MISMATCH",
+                    "reason": "Position or body item count does not match this layout."
+                  }
+                }
+              ],
+              "selected": "candidate_08d71097-10c7-44d9-824f-678a403b7ee5",
+              "selected_layout": "columns",
+              "mechanism": "Content compatibility + measured capacity + opening/closing/data hierarchy + adjacent variation; stable catalog order breaks equal scores.",
+              "source_sha256": "c1bfe831094eecde539e45dfeaca297af0cfb1cad176271f4f0473327681afad",
+              "fallback": "Capacity rejection selects another declared candidate; all rejected stops before write.",
+              "limitations": [
+                "Current native text/table/chart subset; full DEC-030–035, imagery/template/RTL/brand selection not complete."
+              ]
+            }
+          },
+          "bindings": [],
+          "elements": [
+            {
+              "object_id": "object_4ab15402-a7b8-4ca4-be3d-feef613f9c2f",
+              "type": "text",
+              "role": "title",
+              "slot_key": "title",
+              "text": [
+                "执行方法：检查、定时、记录"
+              ],
+              "bounds": [
+                0.7,
+                0.6,
+                11.95,
+                1.25
+              ],
+              "font_size": 32,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+              ],
+              "format": {
+                "color": "192C32",
+                "bold": true,
+                "margin": 0
+              }
+            },
+            {
+              "object_id": "object_707c9f36-5cbf-4819-86a9-d9bf3b920f9c",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.0",
+              "text": [
+                "第一步：检查教室照明。",
+                "第二步：设置定时关灯。"
+              ],
+              "bounds": [
+                0.7,
+                2.05,
+                5.82,
+                4.25
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_6925a4f3-29ed-403b-831e-68b1e4e86ab6",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.1",
+              "text": [
+                "第三步：记录变化。",
+                "步骤顺序来自来源材料。"
+              ],
+              "bounds": [
+                6.8500000000000005,
+                2.05,
+                5.82,
+                4.25
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_a883e663-cdf5-4968-aad4-6ed99b5e4a47",
+              "type": "text",
+              "role": "footer",
+              "slot_key": "footer",
+              "text": [
+                "03 / 08"
+              ],
+              "bounds": [
+                0.7,
+                6.83,
+                11.95,
+                0.38
+              ],
+              "font_size": 16,
+              "source_refs": [],
+              "format": {
+                "color": "147C80",
+                "paragraph_spacing": 0,
+                "margin": 0
+              }
+            }
+          ],
+          "style": {
+            "font": "Noto Sans CJK SC",
+            "background": "F6F4EE",
+            "foreground": "192C32",
+            "accent": "147C80",
+            "title_size": 30,
+            "body_size": 22,
+            "minimum_size": 16
+          },
+          "enhancements": {
+            "notes": "来源材料给出三步顺序：先检查教室照明，再设置定时关灯，随后记录变化。本页仅复述该顺序，不添加设备型号或时间参数。"
+          },
+          "source_refs": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ]
+        },
+        {
+          "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+          "order": 3,
+          "intent": {
+            "goal": "说明培训与每周回看安排",
+            "core_message": "人员与复核机制"
+          },
+          "content": {
+            "title": "人员与复核机制",
+            "goal": "说明培训与每周回看安排",
+            "kind": "text",
+            "body": [
+              "团队先培训值班人员。",
+              "再每周回看记录。",
+              "发现异常时先核实记录，再调整设备。"
+            ],
+            "notes": "来源材料描述培训值班人员、每周回看记录以及异常处理顺序。本页不承诺培训频次或覆盖人数。",
+            "evidence_refs": [
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+            ],
+            "rationale": "管理层关注执行责任与复核闭环，本页集中呈现。",
+            "table": null,
+            "chart": null
+          },
+          "assets": [],
+          "layout": {
+            "kind": "text",
+            "master": "library-default-blank",
+            "design_version": "native-editorial-1",
+            "selected_layout": "cards",
+            "selection_trace": {
+              "version": "native-editorial-1",
+              "input": {
+                "content": {
+                  "title": "人员与复核机制",
+                  "goal": "说明培训与每周回看安排",
+                  "kind": "text",
+                  "body": [
+                    "团队先培训值班人员。",
+                    "再每周回看记录。",
+                    "发现异常时先核实记录，再调整设备。"
+                  ],
+                  "notes": "来源材料描述培训值班人员、每周回看记录以及异常处理顺序。本页不承诺培训频次或覆盖人数。",
+                  "evidence_refs": [
+                    "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+                  ],
+                  "rationale": "管理层关注执行责任与复核闭环，本页集中呈现。",
+                  "table": null,
+                  "chart": null
+                },
+                "order": 3,
+                "page_count": 8,
+                "style": {
+                  "font": "Noto Sans CJK SC",
+                  "background": "F6F4EE",
+                  "foreground": "192C32",
+                  "accent": "147C80",
+                  "title_size": 30,
+                  "body_size": 22,
+                  "minimum_size": 16
+                },
+                "previous_layout": "columns"
+              },
+              "candidates": [
+                {
+                  "candidate_id": "candidate_164d6542-d467-45fa-aa88-35abcf132502",
+                  "layout_id": "layout_2db6d228-cf42-4e80-aecb-960958b664b9",
+                  "layout": "editorial",
+                  "score": 40,
+                  "reasons": [
+                    "Readable broad text slot with all original paragraphs."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_0838e8f1-85d9-4058-b8f6-aca64c4f9e10",
+                  "layout_id": "layout_5aa82fb8-104d-4bbf-906c-2d1b698f5ae2",
+                  "layout": "columns",
+                  "score": 47,
+                  "reasons": [
+                    "Longer point sets balanced across two columns without rewriting.",
+                    "Variation penalty against repeating adjacent layout."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_3be0eec6-7f96-408d-baa2-409a50c4ee50",
+                  "layout_id": "layout_fef2c84c-5348-452f-87cf-23bdea99eb7c",
+                  "layout": "cards",
+                  "score": 75,
+                  "reasons": [
+                    "Two to four original body items in individual editable panels; semantic relation is unchanged and not inferred."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_c30cc688-92bf-4fcc-9f67-31add6932a74",
+                  "layout_id": "layout_ed4738a0-89d8-4a82-9fad-3ef816fe8844",
+                  "layout": "cover",
+                  "score": 100,
+                  "reasons": [
+                    "First text page: clear opening and side summary."
+                  ],
+                  "eligible": false,
+                  "capacity_pass": false,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": {
+                    "code": "LAYOUT_CONTENT_MISMATCH",
+                    "reason": "Position or body item count does not match this layout."
+                  }
+                },
+                {
+                  "candidate_id": "candidate_437fdaec-37f4-4dc8-9af8-9900da49bcea",
+                  "layout_id": "layout_94b9f663-55cd-4540-960d-9968fa8ec7fa",
+                  "layout": "closing",
+                  "score": 95,
+                  "reasons": [
+                    "Last text page: strong conclusion and preserved action points."
+                  ],
+                  "eligible": false,
+                  "capacity_pass": false,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": {
+                    "code": "LAYOUT_CONTENT_MISMATCH",
+                    "reason": "Position or body item count does not match this layout."
+                  }
+                }
+              ],
+              "selected": "candidate_3be0eec6-7f96-408d-baa2-409a50c4ee50",
+              "selected_layout": "cards",
+              "mechanism": "Content compatibility + measured capacity + opening/closing/data hierarchy + adjacent variation; stable catalog order breaks equal scores.",
+              "source_sha256": "c1bfe831094eecde539e45dfeaca297af0cfb1cad176271f4f0473327681afad",
+              "fallback": "Capacity rejection selects another declared candidate; all rejected stops before write.",
+              "limitations": [
+                "Current native text/table/chart subset; full DEC-030–035, imagery/template/RTL/brand selection not complete."
+              ]
+            }
+          },
+          "bindings": [],
+          "elements": [
+            {
+              "object_id": "object_3be7dd1e-51ac-4dfe-b3c8-eeed638d6e30",
+              "type": "text",
+              "role": "title",
+              "slot_key": "title",
+              "text": [
+                "人员与复核机制"
+              ],
+              "bounds": [
+                0.7,
+                0.6,
+                11.95,
+                1.25
+              ],
+              "font_size": 32,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+              ],
+              "format": {
+                "color": "192C32",
+                "bold": true,
+                "margin": 0
+              }
+            },
+            {
+              "object_id": "object_447ab263-4142-41f3-8589-efdc74c60109",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.0",
+              "text": [
+                "团队先培训值班人员。"
+              ],
+              "bounds": [
+                0.7,
+                2.05,
+                5.82,
+                1.85
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_b79b31c4-d19e-49ed-8d0b-f4ae2865d4a0",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.1",
+              "text": [
+                "再每周回看记录。"
+              ],
+              "bounds": [
+                6.8500000000000005,
+                2.05,
+                5.82,
+                1.85
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_1e1f65c3-ec71-4d0f-88b5-fd91a422e516",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.2",
+              "text": [
+                "发现异常时先核实记录，再调整设备。"
+              ],
+              "bounds": [
+                0.7,
+                4.18,
+                5.82,
+                1.85
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_6286ca99-89a0-4bf2-9604-fb7294655413",
+              "type": "text",
+              "role": "footer",
+              "slot_key": "footer",
+              "text": [
+                "04 / 08"
+              ],
+              "bounds": [
+                0.7,
+                6.83,
+                11.95,
+                0.38
+              ],
+              "font_size": 16,
+              "source_refs": [],
+              "format": {
+                "color": "147C80",
+                "paragraph_spacing": 0,
+                "margin": 0
+              }
+            }
+          ],
+          "style": {
+            "font": "Noto Sans CJK SC",
+            "background": "F6F4EE",
+            "foreground": "192C32",
+            "accent": "147C80",
+            "title_size": 30,
+            "body_size": 22,
+            "minimum_size": 16
+          },
+          "enhancements": {
+            "notes": "来源材料描述培训值班人员、每周回看记录以及异常处理顺序。本页不承诺培训频次或覆盖人数。"
+          },
+          "source_refs": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ]
+        },
+        {
+          "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+          "order": 4,
+          "intent": {
+            "goal": "用表格汇总已知目标要素",
+            "core_message": "试点目标一览"
+          },
+          "content": {
+            "title": "试点目标一览",
+            "goal": "用表格汇总已知目标要素",
+            "kind": "table",
+            "body": [
+              "仅列出来源中可核验的要素。",
+              "缺失项以占位符标注。"
+            ],
+            "notes": "表格仅使用原文可核验要素：试点名称、目标年份、降低幅度、百分比基准、限定范围。基线口径与指标名称缺失，未填入表格。",
+            "evidence_refs": [
+              "evidence_85794346-3802-4b3d-b792-359536e81038",
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+              "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+            ],
+            "rationale": "以表格集中呈现目标要素，便于管理层快速核对。",
+            "table": {
+              "columns": [
+                "要素",
+                "内容"
+              ],
+              "rows": [
+                [
+                  "试点名称",
+                  "学校节能试点"
+                ],
+                [
+                  "目标年份",
+                  "2026年"
+                ],
+                [
+                  "降低幅度",
+                  "8%"
+                ],
+                [
+                  "百分比基准",
+                  "能耗"
+                ],
+                [
+                  "限定范围",
+                  "试点"
+                ],
+                [
+                  "基线口径",
+                  "【待补充】"
+                ],
+                [
+                  "指标名称",
+                  "【待补充】"
+                ]
+              ],
+              "units": "百分比单位为%，其余为文本"
+            },
+            "chart": null
+          },
+          "assets": [],
+          "layout": {
+            "kind": "table",
+            "master": "library-default-blank",
+            "design_version": "native-editorial-1",
+            "selected_layout": "table",
+            "selection_trace": {
+              "version": "native-editorial-1",
+              "input": {
+                "content": {
+                  "title": "试点目标一览",
+                  "goal": "用表格汇总已知目标要素",
+                  "kind": "table",
+                  "body": [
+                    "仅列出来源中可核验的要素。",
+                    "缺失项以占位符标注。"
+                  ],
+                  "notes": "表格仅使用原文可核验要素：试点名称、目标年份、降低幅度、百分比基准、限定范围。基线口径与指标名称缺失，未填入表格。",
+                  "evidence_refs": [
+                    "evidence_85794346-3802-4b3d-b792-359536e81038",
+                    "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                    "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+                  ],
+                  "rationale": "以表格集中呈现目标要素，便于管理层快速核对。",
+                  "table": {
+                    "columns": [
+                      "要素",
+                      "内容"
+                    ],
+                    "rows": [
+                      [
+                        "试点名称",
+                        "学校节能试点"
+                      ],
+                      [
+                        "目标年份",
+                        "2026年"
+                      ],
+                      [
+                        "降低幅度",
+                        "8%"
+                      ],
+                      [
+                        "百分比基准",
+                        "能耗"
+                      ],
+                      [
+                        "限定范围",
+                        "试点"
+                      ],
+                      [
+                        "基线口径",
+                        "【待补充】"
+                      ],
+                      [
+                        "指标名称",
+                        "【待补充】"
+                      ]
+                    ],
+                    "units": "百分比单位为%，其余为文本"
+                  },
+                  "chart": null
+                },
+                "order": 4,
+                "page_count": 8,
+                "style": {
+                  "font": "Noto Sans CJK SC",
+                  "background": "F6F4EE",
+                  "foreground": "192C32",
+                  "accent": "147C80",
+                  "title_size": 30,
+                  "body_size": 22,
+                  "minimum_size": 16
+                },
+                "previous_layout": "cards"
+              },
+              "candidates": [
+                {
+                  "candidate_id": "candidate_127be609-ad35-49f6-8144-c3209d7d4342",
+                  "layout_id": "layout_4d4c4236-f1a7-4862-bc87-a4ebba7332c6",
+                  "layout": "table",
+                  "score": 100,
+                  "reasons": [
+                    "Native editable data object retains prominence and all original values."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes",
+                      "add_table"
+                    ]
+                  },
+                  "rejection": null
+                }
+              ],
+              "selected": "candidate_127be609-ad35-49f6-8144-c3209d7d4342",
+              "selected_layout": "table",
+              "mechanism": "Content compatibility + measured capacity + opening/closing/data hierarchy + adjacent variation; stable catalog order breaks equal scores.",
+              "source_sha256": "c1bfe831094eecde539e45dfeaca297af0cfb1cad176271f4f0473327681afad",
+              "fallback": "Capacity rejection selects another declared candidate; all rejected stops before write.",
+              "limitations": [
+                "Current native text/table/chart subset; full DEC-030–035, imagery/template/RTL/brand selection not complete."
+              ]
+            }
+          },
+          "bindings": [],
+          "elements": [
+            {
+              "object_id": "object_09b96bca-02e1-4064-838b-b1b114eb9cea",
+              "type": "text",
+              "role": "title",
+              "slot_key": "title",
+              "text": [
+                "试点目标一览"
+              ],
+              "bounds": [
+                0.7,
+                0.6,
+                11.95,
+                1.25
+              ],
+              "font_size": 32,
+              "source_refs": [
+                "evidence_85794346-3802-4b3d-b792-359536e81038",
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ],
+              "format": {
+                "color": "192C32",
+                "bold": true,
+                "margin": 0
+              }
+            },
+            {
+              "object_id": "object_5a56972e-f56e-48a9-9aa5-9caeb63cdb6b",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body",
+              "text": [
+                "仅列出来源中可核验的要素。",
+                "缺失项以占位符标注。"
+              ],
+              "bounds": [
+                0.7,
+                1.92,
+                3.25,
+                4.55
+              ],
+              "font_size": 21,
+              "source_refs": [
+                "evidence_85794346-3802-4b3d-b792-359536e81038",
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ],
+              "format": {
+                "color": "192C32",
+                "margin": 0,
+                "paragraph_spacing": 16
+              }
+            },
+            {
+              "object_id": "object_5c46659a-a6f4-44fe-92fa-8f6224b2c31b",
+              "type": "table",
+              "role": "data",
+              "slot_key": "data",
+              "data": {
+                "columns": [
+                  "要素",
+                  "内容"
+                ],
+                "rows": [
+                  [
+                    "试点名称",
+                    "学校节能试点"
+                  ],
+                  [
+                    "目标年份",
+                    "2026年"
+                  ],
+                  [
+                    "降低幅度",
+                    "8%"
+                  ],
+                  [
+                    "百分比基准",
+                    "能耗"
+                  ],
+                  [
+                    "限定范围",
+                    "试点"
+                  ],
+                  [
+                    "基线口径",
+                    "【待补充】"
+                  ],
+                  [
+                    "指标名称",
+                    "【待补充】"
+                  ]
+                ],
+                "units": "百分比单位为%，其余为文本"
+              },
+              "bounds": [
+                4.32,
+                1.96,
+                8.28,
+                4.58
+              ],
+              "font_size": 16,
+              "source_refs": [
+                "evidence_85794346-3802-4b3d-b792-359536e81038",
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ]
+            },
+            {
+              "object_id": "object_dd8f4f44-625c-43c3-ba97-d420480786c5",
+              "type": "text",
+              "role": "footer",
+              "slot_key": "footer",
+              "text": [
+                "05 / 08"
+              ],
+              "bounds": [
+                0.7,
+                6.83,
+                11.95,
+                0.38
+              ],
+              "font_size": 16,
+              "source_refs": [],
+              "format": {
+                "color": "147C80",
+                "paragraph_spacing": 0,
+                "margin": 0
+              }
+            }
+          ],
+          "style": {
+            "font": "Noto Sans CJK SC",
+            "background": "F6F4EE",
+            "foreground": "192C32",
+            "accent": "147C80",
+            "title_size": 30,
+            "body_size": 22,
+            "minimum_size": 16
+          },
+          "enhancements": {
+            "notes": "表格仅使用原文可核验要素：试点名称、目标年份、降低幅度、百分比基准、限定范围。基线口径与指标名称缺失，未填入表格。"
+          },
+          "source_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ]
+        },
+        {
+          "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+          "order": 5,
+          "intent": {
+            "goal": "以图表呈现唯一可核验数值",
+            "core_message": "目标数值呈现"
+          },
+          "content": {
+            "title": "目标数值呈现",
+            "goal": "以图表呈现唯一可核验数值",
+            "kind": "chart",
+            "body": [
+              "来源仅提供8%这一目标数值。",
+              "不补充其他年份或对比数据。"
+            ],
+            "notes": "图表仅呈现原文给出的8%目标值，不添加基线值或历史对比，避免编造统计数据。",
+            "evidence_refs": [
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+              "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+            ],
+            "rationale": "用原生图表突出唯一可核验数值，保持克制。",
+            "table": null,
+            "chart": {
+              "type": "column",
+              "categories": [
+                "2026年试点能耗降低目标"
+              ],
+              "series": [
+                {
+                  "name": "降低幅度",
+                  "values": [
+                    8
+                  ]
+                }
+              ],
+              "units": "%"
+            }
+          },
+          "assets": [],
+          "layout": {
+            "kind": "chart",
+            "master": "library-default-blank",
+            "design_version": "native-editorial-1",
+            "selected_layout": "chart",
+            "selection_trace": {
+              "version": "native-editorial-1",
+              "input": {
+                "content": {
+                  "title": "目标数值呈现",
+                  "goal": "以图表呈现唯一可核验数值",
+                  "kind": "chart",
+                  "body": [
+                    "来源仅提供8%这一目标数值。",
+                    "不补充其他年份或对比数据。"
+                  ],
+                  "notes": "图表仅呈现原文给出的8%目标值，不添加基线值或历史对比，避免编造统计数据。",
+                  "evidence_refs": [
+                    "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                    "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+                  ],
+                  "rationale": "用原生图表突出唯一可核验数值，保持克制。",
+                  "table": null,
+                  "chart": {
+                    "type": "column",
+                    "categories": [
+                      "2026年试点能耗降低目标"
+                    ],
+                    "series": [
+                      {
+                        "name": "降低幅度",
+                        "values": [
+                          8
+                        ]
+                      }
+                    ],
+                    "units": "%"
+                  }
+                },
+                "order": 5,
+                "page_count": 8,
+                "style": {
+                  "font": "Noto Sans CJK SC",
+                  "background": "F6F4EE",
+                  "foreground": "192C32",
+                  "accent": "147C80",
+                  "title_size": 30,
+                  "body_size": 22,
+                  "minimum_size": 16
+                },
+                "previous_layout": "table"
+              },
+              "candidates": [
+                {
+                  "candidate_id": "candidate_db7da3d9-ddda-4558-a057-feca7aeb00a4",
+                  "layout_id": "layout_1d30dc81-ac5b-48a2-a24f-aeb31e7373e9",
+                  "layout": "chart",
+                  "score": 100,
+                  "reasons": [
+                    "Native editable data object retains prominence and all original values."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes",
+                      "add_chart"
+                    ]
+                  },
+                  "rejection": null
+                }
+              ],
+              "selected": "candidate_db7da3d9-ddda-4558-a057-feca7aeb00a4",
+              "selected_layout": "chart",
+              "mechanism": "Content compatibility + measured capacity + opening/closing/data hierarchy + adjacent variation; stable catalog order breaks equal scores.",
+              "source_sha256": "c1bfe831094eecde539e45dfeaca297af0cfb1cad176271f4f0473327681afad",
+              "fallback": "Capacity rejection selects another declared candidate; all rejected stops before write.",
+              "limitations": [
+                "Current native text/table/chart subset; full DEC-030–035, imagery/template/RTL/brand selection not complete."
+              ]
+            }
+          },
+          "bindings": [],
+          "elements": [
+            {
+              "object_id": "object_dc86d78c-106d-48bd-9552-22ff58694afa",
+              "type": "text",
+              "role": "title",
+              "slot_key": "title",
+              "text": [
+                "目标数值呈现"
+              ],
+              "bounds": [
+                0.7,
+                0.6,
+                11.95,
+                1.25
+              ],
+              "font_size": 32,
+              "source_refs": [
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ],
+              "format": {
+                "color": "192C32",
+                "bold": true,
+                "margin": 0
+              }
+            },
+            {
+              "object_id": "object_43b145be-3775-42e3-b6f9-a2e99c37392c",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body",
+              "text": [
+                "来源仅提供8%这一目标数值。",
+                "不补充其他年份或对比数据。"
+              ],
+              "bounds": [
+                0.7,
+                1.92,
+                3.25,
+                4.55
+              ],
+              "font_size": 21,
+              "source_refs": [
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ],
+              "format": {
+                "color": "192C32",
+                "margin": 0,
+                "paragraph_spacing": 16
+              }
+            },
+            {
+              "object_id": "object_4c4141f4-b2a5-4db2-a793-bc117339dc58",
+              "type": "chart",
+              "role": "data",
+              "slot_key": "data",
+              "data": {
+                "type": "column",
+                "categories": [
+                  "2026年试点能耗降低目标"
+                ],
+                "series": [
+                  {
+                    "name": "降低幅度",
+                    "values": [
+                      8
+                    ]
+                  }
+                ],
+                "units": "%"
+              },
+              "bounds": [
+                4.32,
+                1.96,
+                8.28,
+                4.58
+              ],
+              "font_size": 16,
+              "source_refs": [
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ]
+            },
+            {
+              "object_id": "object_ec1c9fd3-9f5e-430e-92a1-fc9fe30757e7",
+              "type": "text",
+              "role": "footer",
+              "slot_key": "footer",
+              "text": [
+                "06 / 08"
+              ],
+              "bounds": [
+                0.7,
+                6.83,
+                11.95,
+                0.38
+              ],
+              "font_size": 16,
+              "source_refs": [],
+              "format": {
+                "color": "147C80",
+                "paragraph_spacing": 0,
+                "margin": 0
+              }
+            }
+          ],
+          "style": {
+            "font": "Noto Sans CJK SC",
+            "background": "F6F4EE",
+            "foreground": "192C32",
+            "accent": "147C80",
+            "title_size": 30,
+            "body_size": 22,
+            "minimum_size": 16
+          },
+          "enhancements": {
+            "notes": "图表仅呈现原文给出的8%目标值，不添加基线值或历史对比，避免编造统计数据。"
+          },
+          "source_refs": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ]
+        },
+        {
+          "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+          "order": 6,
+          "intent": {
+            "goal": "明确缺失信息与不承诺范围",
+            "core_message": "待补充事项与边界"
+          },
+          "content": {
+            "title": "待补充事项与边界",
+            "goal": "明确缺失信息与不承诺范围",
+            "kind": "text",
+            "body": [
+              "基线口径待补充，无法计算绝对节能量。",
+              "指标名称待补充，口径尚未确认。",
+              "试点只讨论照明管理，不对全校节能作出承诺。"
+            ],
+            "notes": "来源材料未给出基线口径与指标名称，按占位符保留。试点范围限定为照明管理，不扩展为全校节能承诺。",
+            "evidence_refs": [
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+            ],
+            "rationale": "显式呈现信息边界，避免管理层基于不完整数据作判断。",
+            "table": null,
+            "chart": null
+          },
+          "assets": [],
+          "layout": {
+            "kind": "text",
+            "master": "library-default-blank",
+            "design_version": "native-editorial-1",
+            "selected_layout": "cards",
+            "selection_trace": {
+              "version": "native-editorial-1",
+              "input": {
+                "content": {
+                  "title": "待补充事项与边界",
+                  "goal": "明确缺失信息与不承诺范围",
+                  "kind": "text",
+                  "body": [
+                    "基线口径待补充，无法计算绝对节能量。",
+                    "指标名称待补充，口径尚未确认。",
+                    "试点只讨论照明管理，不对全校节能作出承诺。"
+                  ],
+                  "notes": "来源材料未给出基线口径与指标名称，按占位符保留。试点范围限定为照明管理，不扩展为全校节能承诺。",
+                  "evidence_refs": [
+                    "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+                    "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+                  ],
+                  "rationale": "显式呈现信息边界，避免管理层基于不完整数据作判断。",
+                  "table": null,
+                  "chart": null
+                },
+                "order": 6,
+                "page_count": 8,
+                "style": {
+                  "font": "Noto Sans CJK SC",
+                  "background": "F6F4EE",
+                  "foreground": "192C32",
+                  "accent": "147C80",
+                  "title_size": 30,
+                  "body_size": 22,
+                  "minimum_size": 16
+                },
+                "previous_layout": "chart"
+              },
+              "candidates": [
+                {
+                  "candidate_id": "candidate_5e3c598b-18eb-4ab9-bcbe-68fa8d8b4c3e",
+                  "layout_id": "layout_2db6d228-cf42-4e80-aecb-960958b664b9",
+                  "layout": "editorial",
+                  "score": 40,
+                  "reasons": [
+                    "Readable broad text slot with all original paragraphs."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_bf657c0c-4866-4132-99da-c7529e20a09d",
+                  "layout_id": "layout_5aa82fb8-104d-4bbf-906c-2d1b698f5ae2",
+                  "layout": "columns",
+                  "score": 65,
+                  "reasons": [
+                    "Longer point sets balanced across two columns without rewriting."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_b8dc5ac2-17e7-4dbc-9709-33a5452ba13d",
+                  "layout_id": "layout_fef2c84c-5348-452f-87cf-23bdea99eb7c",
+                  "layout": "cards",
+                  "score": 75,
+                  "reasons": [
+                    "Two to four original body items in individual editable panels; semantic relation is unchanged and not inferred."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_7752d7fd-843e-4399-a1b2-fa24d606fadf",
+                  "layout_id": "layout_ed4738a0-89d8-4a82-9fad-3ef816fe8844",
+                  "layout": "cover",
+                  "score": 100,
+                  "reasons": [
+                    "First text page: clear opening and side summary."
+                  ],
+                  "eligible": false,
+                  "capacity_pass": false,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": {
+                    "code": "LAYOUT_CONTENT_MISMATCH",
+                    "reason": "Position or body item count does not match this layout."
+                  }
+                },
+                {
+                  "candidate_id": "candidate_20bf3dd1-98aa-40e1-96cc-b539e4584825",
+                  "layout_id": "layout_94b9f663-55cd-4540-960d-9968fa8ec7fa",
+                  "layout": "closing",
+                  "score": 95,
+                  "reasons": [
+                    "Last text page: strong conclusion and preserved action points."
+                  ],
+                  "eligible": false,
+                  "capacity_pass": false,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": {
+                    "code": "LAYOUT_CONTENT_MISMATCH",
+                    "reason": "Position or body item count does not match this layout."
+                  }
+                }
+              ],
+              "selected": "candidate_b8dc5ac2-17e7-4dbc-9709-33a5452ba13d",
+              "selected_layout": "cards",
+              "mechanism": "Content compatibility + measured capacity + opening/closing/data hierarchy + adjacent variation; stable catalog order breaks equal scores.",
+              "source_sha256": "c1bfe831094eecde539e45dfeaca297af0cfb1cad176271f4f0473327681afad",
+              "fallback": "Capacity rejection selects another declared candidate; all rejected stops before write.",
+              "limitations": [
+                "Current native text/table/chart subset; full DEC-030–035, imagery/template/RTL/brand selection not complete."
+              ]
+            }
+          },
+          "bindings": [],
+          "elements": [
+            {
+              "object_id": "object_69d03004-17d9-4017-9428-28293d70fc53",
+              "type": "text",
+              "role": "title",
+              "slot_key": "title",
+              "text": [
+                "待补充事项与边界"
+              ],
+              "bounds": [
+                0.7,
+                0.6,
+                11.95,
+                1.25
+              ],
+              "font_size": 32,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+              ],
+              "format": {
+                "color": "192C32",
+                "bold": true,
+                "margin": 0
+              }
+            },
+            {
+              "object_id": "object_bb87fef3-92ea-4457-ad4e-4f07d6a1fdea",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.0",
+              "text": [
+                "基线口径待补充，无法计算绝对节能量。"
+              ],
+              "bounds": [
+                0.7,
+                2.05,
+                5.82,
+                1.85
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_1a82fd8f-306a-4134-8f3d-c7199c07ccde",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.1",
+              "text": [
+                "指标名称待补充，口径尚未确认。"
+              ],
+              "bounds": [
+                6.8500000000000005,
+                2.05,
+                5.82,
+                1.85
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_6b627f73-01e4-4423-ac95-a11cc5b21559",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body.2",
+              "text": [
+                "试点只讨论照明管理，不对全校节能作出承诺。"
+              ],
+              "bounds": [
+                0.7,
+                4.18,
+                5.82,
+                1.85
+              ],
+              "font_size": 22,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+              ],
+              "format": {
+                "color": "192C32",
+                "fill": "FFFFFF",
+                "border": "D6DFDA",
+                "margin": 0.22,
+                "paragraph_spacing": 14
+              }
+            },
+            {
+              "object_id": "object_6eb1e7aa-425f-4e0a-a86e-af9f3a3d6b24",
+              "type": "text",
+              "role": "footer",
+              "slot_key": "footer",
+              "text": [
+                "07 / 08"
+              ],
+              "bounds": [
+                0.7,
+                6.83,
+                11.95,
+                0.38
+              ],
+              "font_size": 16,
+              "source_refs": [],
+              "format": {
+                "color": "147C80",
+                "paragraph_spacing": 0,
+                "margin": 0
+              }
+            }
+          ],
+          "style": {
+            "font": "Noto Sans CJK SC",
+            "background": "F6F4EE",
+            "foreground": "192C32",
+            "accent": "147C80",
+            "title_size": 30,
+            "body_size": 22,
+            "minimum_size": 16
+          },
+          "enhancements": {
+            "notes": "来源材料未给出基线口径与指标名称，按占位符保留。试点范围限定为照明管理，不扩展为全校节能承诺。"
+          },
+          "source_refs": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+          ]
+        },
+        {
+          "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+          "order": 7,
+          "intent": {
+            "goal": "给出后续推进方向",
+            "core_message": "下一步：补齐口径后复核"
+          },
+          "content": {
+            "title": "下一步：补齐口径后复核",
+            "goal": "给出后续推进方向",
+            "kind": "text",
+            "body": [
+              "补齐基线口径与指标名称。",
+              "按检查、定时、记录流程继续执行。",
+              "每周回看记录，异常先核实再调整设备。"
+            ],
+            "notes": "后续动作基于来源已有的执行与复核机制，并针对缺失口径提出补充需求，不新增承诺或时间表。",
+            "evidence_refs": [
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+            ],
+            "rationale": "以可执行动作收束，呼应结论先行的汇报结构。",
+            "table": null,
+            "chart": null
+          },
+          "assets": [],
+          "layout": {
+            "kind": "text",
+            "master": "library-default-blank",
+            "design_version": "native-editorial-1",
+            "selected_layout": "closing",
+            "selection_trace": {
+              "version": "native-editorial-1",
+              "input": {
+                "content": {
+                  "title": "下一步：补齐口径后复核",
+                  "goal": "给出后续推进方向",
+                  "kind": "text",
+                  "body": [
+                    "补齐基线口径与指标名称。",
+                    "按检查、定时、记录流程继续执行。",
+                    "每周回看记录，异常先核实再调整设备。"
+                  ],
+                  "notes": "后续动作基于来源已有的执行与复核机制，并针对缺失口径提出补充需求，不新增承诺或时间表。",
+                  "evidence_refs": [
+                    "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+                    "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+                  ],
+                  "rationale": "以可执行动作收束，呼应结论先行的汇报结构。",
+                  "table": null,
+                  "chart": null
+                },
+                "order": 7,
+                "page_count": 8,
+                "style": {
+                  "font": "Noto Sans CJK SC",
+                  "background": "F6F4EE",
+                  "foreground": "192C32",
+                  "accent": "147C80",
+                  "title_size": 30,
+                  "body_size": 22,
+                  "minimum_size": 16
+                },
+                "previous_layout": "cards"
+              },
+              "candidates": [
+                {
+                  "candidate_id": "candidate_b690f57a-44fb-4941-bea5-6d0c25821a09",
+                  "layout_id": "layout_2db6d228-cf42-4e80-aecb-960958b664b9",
+                  "layout": "editorial",
+                  "score": 40,
+                  "reasons": [
+                    "Readable broad text slot with all original paragraphs."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_7021470f-3b61-417e-b811-ef48e2bbf620",
+                  "layout_id": "layout_5aa82fb8-104d-4bbf-906c-2d1b698f5ae2",
+                  "layout": "columns",
+                  "score": 65,
+                  "reasons": [
+                    "Longer point sets balanced across two columns without rewriting."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_faf16153-d525-49e6-bcb5-e5bb83f616fd",
+                  "layout_id": "layout_fef2c84c-5348-452f-87cf-23bdea99eb7c",
+                  "layout": "cards",
+                  "score": 57,
+                  "reasons": [
+                    "Two to four original body items in individual editable panels; semantic relation is unchanged and not inferred.",
+                    "Variation penalty against repeating adjacent layout."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                {
+                  "candidate_id": "candidate_d0cee0e1-cbf8-445c-8221-7fd197adae26",
+                  "layout_id": "layout_ed4738a0-89d8-4a82-9fad-3ef816fe8844",
+                  "layout": "cover",
+                  "score": 100,
+                  "reasons": [
+                    "First text page: clear opening and side summary."
+                  ],
+                  "eligible": false,
+                  "capacity_pass": false,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": {
+                    "code": "LAYOUT_CONTENT_MISMATCH",
+                    "reason": "Position or body item count does not match this layout."
+                  }
+                },
+                {
+                  "candidate_id": "candidate_806d07a9-8125-41e9-bf49-3f47d05363d5",
+                  "layout_id": "layout_94b9f663-55cd-4540-960d-9968fa8ec7fa",
+                  "layout": "closing",
+                  "score": 95,
+                  "reasons": [
+                    "Last text page: strong conclusion and preserved action points."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                }
+              ],
+              "selected": "candidate_806d07a9-8125-41e9-bf49-3f47d05363d5",
+              "selected_layout": "closing",
+              "mechanism": "Content compatibility + measured capacity + opening/closing/data hierarchy + adjacent variation; stable catalog order breaks equal scores.",
+              "source_sha256": "c1bfe831094eecde539e45dfeaca297af0cfb1cad176271f4f0473327681afad",
+              "fallback": "Capacity rejection selects another declared candidate; all rejected stops before write.",
+              "limitations": [
+                "Current native text/table/chart subset; full DEC-030–035, imagery/template/RTL/brand selection not complete."
+              ]
+            }
+          },
+          "bindings": [],
+          "elements": [
+            {
+              "object_id": "object_ade868f0-ec47-4d88-9c88-cb34b49c9a93",
+              "type": "text",
+              "role": "title",
+              "slot_key": "title",
+              "text": [
+                "下一步：补齐口径后复核"
+              ],
+              "bounds": [
+                0.7,
+                1.28,
+                5.1,
+                4.55
+              ],
+              "font_size": 36,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+              ],
+              "format": {
+                "color": "192C32",
+                "bold": true,
+                "margin": 0
+              }
+            },
+            {
+              "object_id": "object_571ca927-2436-4bba-b93e-85aa1a7dea58",
+              "type": "text",
+              "role": "body",
+              "slot_key": "body",
+              "text": [
+                "补齐基线口径与指标名称。",
+                "按检查、定时、记录流程继续执行。",
+                "每周回看记录，异常先核实再调整设备。"
+              ],
+              "bounds": [
+                6.4,
+                1.24,
+                6.2,
+                4.95
+              ],
+              "font_size": 23,
+              "source_refs": [
+                "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+              ],
+              "format": {
+                "color": "F6F4EE",
+                "fill": "192C32",
+                "margin": 0.28,
+                "paragraph_spacing": 16
+              }
+            },
+            {
+              "object_id": "object_b8dc4239-0d4c-4365-bd54-52e766c51f4d",
+              "type": "text",
+              "role": "footer",
+              "slot_key": "footer",
+              "text": [
+                "08 / 08"
+              ],
+              "bounds": [
+                0.7,
+                6.83,
+                11.95,
+                0.38
+              ],
+              "font_size": 16,
+              "source_refs": [],
+              "format": {
+                "color": "147C80",
+                "paragraph_spacing": 0,
+                "margin": 0
+              }
+            }
+          ],
+          "style": {
+            "font": "Noto Sans CJK SC",
+            "background": "F6F4EE",
+            "foreground": "192C32",
+            "accent": "147C80",
+            "title_size": 30,
+            "body_size": 22,
+            "minimum_size": 16
+          },
+          "enhancements": {
+            "notes": "后续动作基于来源已有的执行与复核机制，并针对缺失口径提出补充需求，不新增承诺或时间表。"
+          },
+          "source_refs": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+          ]
+        }
+      ],
+      "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe"
+    },
+    "object_map": {
+      "objects": [
+        {
+          "logical_object_id": "object_37c9b1de-67ea-4d7a-8094-fd467bf70a8d",
+          "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+          "backend_object_id": "/ppt/slides/slide1.xml#2",
+          "shape_id": 2,
+          "name": "object_37c9b1de-67ea-4d7a-8094-fd467bf70a8d",
+          "type": "text",
+          "source_ref": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ],
+          "execution_call_id": "capability_ebaf708a-a1aa-42bf-9b91-abb96fb0af5e",
+          "part": "/ppt/slides/slide1.xml"
+        },
+        {
+          "logical_object_id": "object_310785a5-fe5b-451c-96d1-9b16083df0a5",
+          "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+          "backend_object_id": "/ppt/slides/slide1.xml#3",
+          "shape_id": 3,
+          "name": "object_310785a5-fe5b-451c-96d1-9b16083df0a5",
+          "type": "text",
+          "source_ref": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ],
+          "execution_call_id": "capability_ce8186b7-335c-414f-839f-accf509b3f86",
+          "part": "/ppt/slides/slide1.xml"
+        },
+        {
+          "logical_object_id": "object_f4d786ad-d9b3-4700-b942-cbd639116233",
+          "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+          "backend_object_id": "/ppt/slides/slide1.xml#4",
+          "shape_id": 4,
+          "name": "object_f4d786ad-d9b3-4700-b942-cbd639116233",
+          "type": "text",
+          "source_ref": [],
+          "execution_call_id": "capability_c07cdb63-3a9a-42dd-8043-3f7821db2b6b",
+          "part": "/ppt/slides/slide1.xml"
+        },
+        {
+          "logical_object_id": "object_676d404a-619f-4c83-99e0-d30059a3508b",
+          "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+          "backend_object_id": "/ppt/slides/slide2.xml#2",
+          "shape_id": 2,
+          "name": "object_676d404a-619f-4c83-99e0-d30059a3508b",
+          "type": "text",
+          "source_ref": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "execution_call_id": "capability_8d3c71e8-6f55-4e02-8940-c2b8da689a84",
+          "part": "/ppt/slides/slide2.xml"
+        },
+        {
+          "logical_object_id": "object_711b2f01-9161-4e44-9a36-92061824911d",
+          "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+          "backend_object_id": "/ppt/slides/slide2.xml#3",
+          "shape_id": 3,
+          "name": "object_711b2f01-9161-4e44-9a36-92061824911d",
+          "type": "text",
+          "source_ref": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "execution_call_id": "capability_34aa0735-6f66-4db8-b9d2-a58ee56c0678",
+          "part": "/ppt/slides/slide2.xml"
+        },
+        {
+          "logical_object_id": "object_df02f740-c76e-4148-b74e-49ba25000241",
+          "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+          "backend_object_id": "/ppt/slides/slide2.xml#4",
+          "shape_id": 4,
+          "name": "object_df02f740-c76e-4148-b74e-49ba25000241",
+          "type": "text",
+          "source_ref": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "execution_call_id": "capability_b18cc738-3ff0-4ec9-9c6e-588ce401f0cb",
+          "part": "/ppt/slides/slide2.xml"
+        },
+        {
+          "logical_object_id": "object_058480ae-4f5a-45be-9cf2-9bfae0386298",
+          "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+          "backend_object_id": "/ppt/slides/slide2.xml#5",
+          "shape_id": 5,
+          "name": "object_058480ae-4f5a-45be-9cf2-9bfae0386298",
+          "type": "text",
+          "source_ref": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "execution_call_id": "capability_ae35f601-c7ae-49d4-a477-48cb6651d068",
+          "part": "/ppt/slides/slide2.xml"
+        },
+        {
+          "logical_object_id": "object_5a9d69a7-97b9-4ec8-9864-fe8b651725fc",
+          "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+          "backend_object_id": "/ppt/slides/slide2.xml#6",
+          "shape_id": 6,
+          "name": "object_5a9d69a7-97b9-4ec8-9864-fe8b651725fc",
+          "type": "text",
+          "source_ref": [],
+          "execution_call_id": "capability_51d7c1e8-72e5-4282-beff-00382c502710",
+          "part": "/ppt/slides/slide2.xml"
+        },
+        {
+          "logical_object_id": "object_4ab15402-a7b8-4ca4-be3d-feef613f9c2f",
+          "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+          "backend_object_id": "/ppt/slides/slide3.xml#2",
+          "shape_id": 2,
+          "name": "object_4ab15402-a7b8-4ca4-be3d-feef613f9c2f",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ],
+          "execution_call_id": "capability_dc8dd429-c197-44c3-9934-b6557a07054d",
+          "part": "/ppt/slides/slide3.xml"
+        },
+        {
+          "logical_object_id": "object_707c9f36-5cbf-4819-86a9-d9bf3b920f9c",
+          "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+          "backend_object_id": "/ppt/slides/slide3.xml#3",
+          "shape_id": 3,
+          "name": "object_707c9f36-5cbf-4819-86a9-d9bf3b920f9c",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ],
+          "execution_call_id": "capability_04dcb481-8a84-4704-b59d-9aa784607232",
+          "part": "/ppt/slides/slide3.xml"
+        },
+        {
+          "logical_object_id": "object_6925a4f3-29ed-403b-831e-68b1e4e86ab6",
+          "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+          "backend_object_id": "/ppt/slides/slide3.xml#4",
+          "shape_id": 4,
+          "name": "object_6925a4f3-29ed-403b-831e-68b1e4e86ab6",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ],
+          "execution_call_id": "capability_eafbeec1-ed9b-436a-ad1a-f02b58cafe33",
+          "part": "/ppt/slides/slide3.xml"
+        },
+        {
+          "logical_object_id": "object_a883e663-cdf5-4968-aad4-6ed99b5e4a47",
+          "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+          "backend_object_id": "/ppt/slides/slide3.xml#5",
+          "shape_id": 5,
+          "name": "object_a883e663-cdf5-4968-aad4-6ed99b5e4a47",
+          "type": "text",
+          "source_ref": [],
+          "execution_call_id": "capability_29082074-1cde-4b0f-a3ad-5a00b0c65072",
+          "part": "/ppt/slides/slide3.xml"
+        },
+        {
+          "logical_object_id": "object_3be7dd1e-51ac-4dfe-b3c8-eeed638d6e30",
+          "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+          "backend_object_id": "/ppt/slides/slide4.xml#2",
+          "shape_id": 2,
+          "name": "object_3be7dd1e-51ac-4dfe-b3c8-eeed638d6e30",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ],
+          "execution_call_id": "capability_ec066cdc-90f2-4d9a-8744-c36df2358c60",
+          "part": "/ppt/slides/slide4.xml"
+        },
+        {
+          "logical_object_id": "object_447ab263-4142-41f3-8589-efdc74c60109",
+          "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+          "backend_object_id": "/ppt/slides/slide4.xml#3",
+          "shape_id": 3,
+          "name": "object_447ab263-4142-41f3-8589-efdc74c60109",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ],
+          "execution_call_id": "capability_5e3ade26-2807-48df-baed-00d7895a5c37",
+          "part": "/ppt/slides/slide4.xml"
+        },
+        {
+          "logical_object_id": "object_b79b31c4-d19e-49ed-8d0b-f4ae2865d4a0",
+          "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+          "backend_object_id": "/ppt/slides/slide4.xml#4",
+          "shape_id": 4,
+          "name": "object_b79b31c4-d19e-49ed-8d0b-f4ae2865d4a0",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ],
+          "execution_call_id": "capability_7e6ef0b2-33b1-45ec-92cb-e85b9c77cd9e",
+          "part": "/ppt/slides/slide4.xml"
+        },
+        {
+          "logical_object_id": "object_1e1f65c3-ec71-4d0f-88b5-fd91a422e516",
+          "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+          "backend_object_id": "/ppt/slides/slide4.xml#5",
+          "shape_id": 5,
+          "name": "object_1e1f65c3-ec71-4d0f-88b5-fd91a422e516",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+          ],
+          "execution_call_id": "capability_9f6063ff-503d-463e-9f4f-522ce50dfab9",
+          "part": "/ppt/slides/slide4.xml"
+        },
+        {
+          "logical_object_id": "object_6286ca99-89a0-4bf2-9604-fb7294655413",
+          "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+          "backend_object_id": "/ppt/slides/slide4.xml#6",
+          "shape_id": 6,
+          "name": "object_6286ca99-89a0-4bf2-9604-fb7294655413",
+          "type": "text",
+          "source_ref": [],
+          "execution_call_id": "capability_c85fd16b-08e6-4f35-9429-9d7011bc8f4e",
+          "part": "/ppt/slides/slide4.xml"
+        },
+        {
+          "logical_object_id": "object_09b96bca-02e1-4064-838b-b1b114eb9cea",
+          "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+          "backend_object_id": "/ppt/slides/slide5.xml#2",
+          "shape_id": 2,
+          "name": "object_09b96bca-02e1-4064-838b-b1b114eb9cea",
+          "type": "text",
+          "source_ref": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "execution_call_id": "capability_41dcfdae-9937-4733-a372-74b8f52ae990",
+          "part": "/ppt/slides/slide5.xml"
+        },
+        {
+          "logical_object_id": "object_5a56972e-f56e-48a9-9aa5-9caeb63cdb6b",
+          "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+          "backend_object_id": "/ppt/slides/slide5.xml#3",
+          "shape_id": 3,
+          "name": "object_5a56972e-f56e-48a9-9aa5-9caeb63cdb6b",
+          "type": "text",
+          "source_ref": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "execution_call_id": "capability_0f63c8e7-7366-43b0-9a0d-c2a7e48b9411",
+          "part": "/ppt/slides/slide5.xml"
+        },
+        {
+          "logical_object_id": "object_5c46659a-a6f4-44fe-92fa-8f6224b2c31b",
+          "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+          "backend_object_id": "/ppt/slides/slide5.xml#4",
+          "shape_id": 4,
+          "name": "object_5c46659a-a6f4-44fe-92fa-8f6224b2c31b",
+          "type": "table",
+          "source_ref": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "execution_call_id": "capability_b3c224ce-a226-454f-afd5-606b368650e1",
+          "part": "/ppt/slides/slide5.xml"
+        },
+        {
+          "logical_object_id": "object_dd8f4f44-625c-43c3-ba97-d420480786c5",
+          "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+          "backend_object_id": "/ppt/slides/slide5.xml#5",
+          "shape_id": 5,
+          "name": "object_dd8f4f44-625c-43c3-ba97-d420480786c5",
+          "type": "text",
+          "source_ref": [],
+          "execution_call_id": "capability_ffe3140c-1366-4c99-8bf3-afd4a71bbac7",
+          "part": "/ppt/slides/slide5.xml"
+        },
+        {
+          "logical_object_id": "object_dc86d78c-106d-48bd-9552-22ff58694afa",
+          "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+          "backend_object_id": "/ppt/slides/slide6.xml#2",
+          "shape_id": 2,
+          "name": "object_dc86d78c-106d-48bd-9552-22ff58694afa",
+          "type": "text",
+          "source_ref": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "execution_call_id": "capability_7ad4ecfb-b3cf-4715-ba53-07d8249a1358",
+          "part": "/ppt/slides/slide6.xml"
+        },
+        {
+          "logical_object_id": "object_43b145be-3775-42e3-b6f9-a2e99c37392c",
+          "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+          "backend_object_id": "/ppt/slides/slide6.xml#3",
+          "shape_id": 3,
+          "name": "object_43b145be-3775-42e3-b6f9-a2e99c37392c",
+          "type": "text",
+          "source_ref": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "execution_call_id": "capability_98ac6aad-2782-4a57-b8fa-6a75c78852c6",
+          "part": "/ppt/slides/slide6.xml"
+        },
+        {
+          "logical_object_id": "object_4c4141f4-b2a5-4db2-a793-bc117339dc58",
+          "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+          "backend_object_id": "/ppt/slides/slide6.xml#4",
+          "shape_id": 4,
+          "name": "object_4c4141f4-b2a5-4db2-a793-bc117339dc58",
+          "type": "chart",
+          "source_ref": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "execution_call_id": "capability_d59e9254-12b2-453f-85f8-773fa113ac87",
+          "part": "/ppt/slides/slide6.xml"
+        },
+        {
+          "logical_object_id": "object_ec1c9fd3-9f5e-430e-92a1-fc9fe30757e7",
+          "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+          "backend_object_id": "/ppt/slides/slide6.xml#5",
+          "shape_id": 5,
+          "name": "object_ec1c9fd3-9f5e-430e-92a1-fc9fe30757e7",
+          "type": "text",
+          "source_ref": [],
+          "execution_call_id": "capability_ea9d87e2-bb0e-4174-86a9-1801740bc7ef",
+          "part": "/ppt/slides/slide6.xml"
+        },
+        {
+          "logical_object_id": "object_69d03004-17d9-4017-9428-28293d70fc53",
+          "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+          "backend_object_id": "/ppt/slides/slide7.xml#2",
+          "shape_id": 2,
+          "name": "object_69d03004-17d9-4017-9428-28293d70fc53",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+          ],
+          "execution_call_id": "capability_035ff182-8a92-47cd-9381-2c60665592a5",
+          "part": "/ppt/slides/slide7.xml"
+        },
+        {
+          "logical_object_id": "object_bb87fef3-92ea-4457-ad4e-4f07d6a1fdea",
+          "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+          "backend_object_id": "/ppt/slides/slide7.xml#3",
+          "shape_id": 3,
+          "name": "object_bb87fef3-92ea-4457-ad4e-4f07d6a1fdea",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+          ],
+          "execution_call_id": "capability_213146bb-5f59-4315-9b13-fa2d4b470976",
+          "part": "/ppt/slides/slide7.xml"
+        },
+        {
+          "logical_object_id": "object_1a82fd8f-306a-4134-8f3d-c7199c07ccde",
+          "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+          "backend_object_id": "/ppt/slides/slide7.xml#4",
+          "shape_id": 4,
+          "name": "object_1a82fd8f-306a-4134-8f3d-c7199c07ccde",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+          ],
+          "execution_call_id": "capability_a86df492-61d7-42a2-8059-709116e6de2b",
+          "part": "/ppt/slides/slide7.xml"
+        },
+        {
+          "logical_object_id": "object_6b627f73-01e4-4423-ac95-a11cc5b21559",
+          "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+          "backend_object_id": "/ppt/slides/slide7.xml#5",
+          "shape_id": 5,
+          "name": "object_6b627f73-01e4-4423-ac95-a11cc5b21559",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+          ],
+          "execution_call_id": "capability_07f07d2d-0532-4c80-a8d2-d94823e721cc",
+          "part": "/ppt/slides/slide7.xml"
+        },
+        {
+          "logical_object_id": "object_6eb1e7aa-425f-4e0a-a86e-af9f3a3d6b24",
+          "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+          "backend_object_id": "/ppt/slides/slide7.xml#6",
+          "shape_id": 6,
+          "name": "object_6eb1e7aa-425f-4e0a-a86e-af9f3a3d6b24",
+          "type": "text",
+          "source_ref": [],
+          "execution_call_id": "capability_9d09d306-875a-4cf4-b9c9-d7850a07c85b",
+          "part": "/ppt/slides/slide7.xml"
+        },
+        {
+          "logical_object_id": "object_ade868f0-ec47-4d88-9c88-cb34b49c9a93",
+          "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+          "backend_object_id": "/ppt/slides/slide8.xml#2",
+          "shape_id": 2,
+          "name": "object_ade868f0-ec47-4d88-9c88-cb34b49c9a93",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+          ],
+          "execution_call_id": "capability_0242b929-fcd2-43ec-9fd7-0255d10a3ac3",
+          "part": "/ppt/slides/slide8.xml"
+        },
+        {
+          "logical_object_id": "object_571ca927-2436-4bba-b93e-85aa1a7dea58",
+          "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+          "backend_object_id": "/ppt/slides/slide8.xml#3",
+          "shape_id": 3,
+          "name": "object_571ca927-2436-4bba-b93e-85aa1a7dea58",
+          "type": "text",
+          "source_ref": [
+            "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+          ],
+          "execution_call_id": "capability_f560d1f2-4360-480f-a76b-8e7d5a4a9db7",
+          "part": "/ppt/slides/slide8.xml"
+        },
+        {
+          "logical_object_id": "object_b8dc4239-0d4c-4365-bd54-52e766c51f4d",
+          "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+          "backend_object_id": "/ppt/slides/slide8.xml#4",
+          "shape_id": 4,
+          "name": "object_b8dc4239-0d4c-4365-bd54-52e766c51f4d",
+          "type": "text",
+          "source_ref": [],
+          "execution_call_id": "capability_6fc88b73-4ca1-449e-b22e-c647022d4c42",
+          "part": "/ppt/slides/slide8.xml"
+        }
+      ]
+    }
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-039",
+      "candidate_id": "candidate_992807c9-e9e4-4136-b9c8-533b7816aba7",
+      "value": {
+        "plan_id": "revision_plan_b304c90c-6ed9-4218-a77e-5fc11638452c",
+        "trace_id": "trace_cb982946-6709-4770-92ac-66f1ea5f528a",
+        "parent_run_id": "adf6aebf-a2e1-4cc9-a623-815c1a07dc10",
+        "status": "needs_input",
+        "scope": {
+          "slide_ids": [],
+          "object_ids": []
+        },
+        "locked_object_ids": [],
+        "locked_slide_ids": [],
+        "actions": [],
+        "blocked": [
+          {
+            "issue_id": "issue_2ecd44c3-f352-41a4-8d1a-27bd64d992c5",
+            "severity": "P1",
+            "state": "fail",
+            "reason": "No safe executable repair registered",
+            "candidate_id": "candidate_76a6f34c-1bf1-4181-9f23-e91989a4aef5"
+          },
+          {
+            "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+            "severity": "P1",
+            "state": "requires_user_input",
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "candidate_id": "candidate_05d47478-6fda-4124-9a4b-dd4b8a3137ec"
+          },
+          {
+            "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+            "severity": "P2",
+            "state": "requires_user_input",
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "candidate_id": "candidate_e98c3481-458a-4ec2-b8dd-9aa364751b83"
+          },
+          {
+            "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+            "severity": "P2",
+            "state": "requires_user_input",
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "candidate_id": "candidate_c9480473-d451-4a45-89f8-904e3c3322c3"
+          },
+          {
+            "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+            "severity": "P2",
+            "state": "requires_user_input",
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "candidate_id": "candidate_6d712cf7-0389-4bfc-95fc-4dfe31d9cc26"
+          },
+          {
+            "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+            "severity": "P2",
+            "state": "requires_user_input",
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "candidate_id": "candidate_db1c79ee-fce9-4c1b-a2a1-fd3d12b68436"
+          },
+          {
+            "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+            "severity": "P2",
+            "state": "requires_user_input",
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "candidate_id": "candidate_44385458-3b5e-476a-88f8-84521e38c0ff"
+          },
+          {
+            "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+            "severity": "P2",
+            "state": "requires_user_input",
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "candidate_id": "candidate_0cd79fb9-8cd1-4ae0-953a-c811530e6cc4"
+          },
+          {
+            "issue_id": "issue_1c28ed99-433a-4bb2-81c1-d822f299e4ab",
+            "severity": "P2",
+            "state": "requires_user_input",
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "candidate_id": "candidate_ab22d6bc-9c43-4326-917c-a833847823b3"
+          }
+        ],
+        "candidates": [
+          {
+            "candidate_id": "candidate_76a6f34c-1bf1-4181-9f23-e91989a4aef5",
+            "issue_id": "issue_2ecd44c3-f352-41a4-8d1a-27bd64d992c5",
+            "object_id": null,
+            "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+            "node": "style",
+            "state": "fail",
+            "operation": null,
+            "changes": {},
+            "reason": "No safe executable repair registered",
+            "score": 0,
+            "evidence": {
+              "issue": {
+                "issue_id": "issue_2ecd44c3-f352-41a4-8d1a-27bd64d992c5",
+                "code": "DECK_BACKGROUND_INCONSISTENT",
+                "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+                "object_id": null,
+                "severity": "P1",
+                "detail": "Page background differs; exception requires explicit policy",
+                "requirement_id": "QA-015",
+                "measurement": {},
+                "threshold": {},
+                "action": {
+                  "node": "style",
+                  "mode": "local_revision",
+                  "reason": "DECK_BACKGROUND_INCONSISTENT"
+                }
+              }
+            }
+          },
+          {
+            "candidate_id": "candidate_05d47478-6fda-4124-9a4b-dd4b8a3137ec",
+            "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+            "object_id": null,
+            "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+            "node": "content",
+            "state": "requires_user_input",
+            "operation": null,
+            "changes": {},
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "score": 0,
+            "evidence": {
+              "issue": {
+                "slide_order": 1,
+                "severity": "P1",
+                "kind": "visual",
+                "detail": "占位符文本为超长英文键名（school_energy_saving_pilot.energy_consumption_reduction_target.baseline / .metric_name），在卡片内强制换行且被截断为多行，可读性差，且未显示完整键名。",
+                "evidence_refs": [
+                  "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+                ],
+                "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+                "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+                "code": "MODEL_SEMANTIC",
+                "action": {
+                  "node": "semantic",
+                  "mode": "requires_user_input",
+                  "reason": "Independent review issue needs grounded decision"
+                }
+              }
+            }
+          },
+          {
+            "candidate_id": "candidate_e98c3481-458a-4ec2-b8dd-9aa364751b83",
+            "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+            "object_id": null,
+            "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+            "node": "content",
+            "state": "requires_user_input",
+            "operation": null,
+            "changes": {},
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "score": 0,
+            "evidence": {
+              "issue": {
+                "slide_order": 1,
+                "severity": "P2",
+                "kind": "semantic",
+                "detail": "正文以原始键名占位符呈现缺失项，对管理层读者不友好，建议改为中文可读标签（如“基线口径待补充”“指标名称待补充”）。",
+                "evidence_refs": [],
+                "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+                "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+                "code": "MODEL_SEMANTIC",
+                "action": {
+                  "node": "semantic",
+                  "mode": "requires_user_input",
+                  "reason": "Independent review issue needs grounded decision"
+                }
+              }
+            }
+          },
+          {
+            "candidate_id": "candidate_c9480473-d451-4a45-89f8-904e3c3322c3",
+            "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+            "object_id": null,
+            "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+            "node": "content",
+            "state": "requires_user_input",
+            "operation": null,
+            "changes": {},
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "score": 0,
+            "evidence": {
+              "issue": {
+                "slide_order": 2,
+                "severity": "P2",
+                "kind": "visual",
+                "detail": "两个内容卡片高度远大于文本量，右侧卡片仅两行文字却占据整块区域，留白过多，版面失衡。",
+                "evidence_refs": [],
+                "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+                "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+                "code": "MODEL_SEMANTIC",
+                "action": {
+                  "node": "semantic",
+                  "mode": "requires_user_input",
+                  "reason": "Independent review issue needs grounded decision"
+                }
+              }
+            }
+          },
+          {
+            "candidate_id": "candidate_6d712cf7-0389-4bfc-95fc-4dfe31d9cc26",
+            "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+            "object_id": null,
+            "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+            "node": "content",
+            "state": "requires_user_input",
+            "operation": null,
+            "changes": {},
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "score": 0,
+            "evidence": {
+              "issue": {
+                "slide_order": 3,
+                "severity": "P2",
+                "kind": "visual",
+                "detail": "三个卡片高度不一致且内容极少，下方卡片与上方卡片对齐松散，版面留白过多。",
+                "evidence_refs": [],
+                "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+                "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+                "code": "MODEL_SEMANTIC",
+                "action": {
+                  "node": "semantic",
+                  "mode": "requires_user_input",
+                  "reason": "Independent review issue needs grounded decision"
+                }
+              }
+            }
+          },
+          {
+            "candidate_id": "candidate_db1c79ee-fce9-4c1b-a2a1-fd3d12b68436",
+            "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+            "object_id": null,
+            "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+            "node": "content",
+            "state": "requires_user_input",
+            "operation": null,
+            "changes": {},
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "score": 0,
+            "evidence": {
+              "issue": {
+                "slide_order": 4,
+                "severity": "P2",
+                "kind": "visual",
+                "detail": "表格左侧说明文字与表格间距偏大，表格行高较大，整体偏空；表格本身可读，无裁切。",
+                "evidence_refs": [],
+                "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+                "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+                "code": "MODEL_SEMANTIC",
+                "action": {
+                  "node": "semantic",
+                  "mode": "requires_user_input",
+                  "reason": "Independent review issue needs grounded decision"
+                }
+              }
+            }
+          },
+          {
+            "candidate_id": "candidate_44385458-3b5e-476a-88f8-84521e38c0ff",
+            "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+            "object_id": null,
+            "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+            "node": "content",
+            "state": "requires_user_input",
+            "operation": null,
+            "changes": {},
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "score": 0,
+            "evidence": {
+              "issue": {
+                "slide_order": 5,
+                "severity": "P2",
+                "kind": "semantic",
+                "detail": "图表仅呈现单一8%柱状值，信息量极低，作为独立一页略显冗余，可考虑与目标页合并。",
+                "evidence_refs": [
+                  "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                  "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+                ],
+                "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+                "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+                "code": "MODEL_SEMANTIC",
+                "action": {
+                  "node": "semantic",
+                  "mode": "requires_user_input",
+                  "reason": "Independent review issue needs grounded decision"
+                }
+              }
+            }
+          },
+          {
+            "candidate_id": "candidate_0cd79fb9-8cd1-4ae0-953a-c811530e6cc4",
+            "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+            "object_id": null,
+            "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+            "node": "content",
+            "state": "requires_user_input",
+            "operation": null,
+            "changes": {},
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "score": 0,
+            "evidence": {
+              "issue": {
+                "slide_order": 7,
+                "severity": "P2",
+                "kind": "visual",
+                "detail": "标题“下一步：补齐口径后复核”在左侧换行断为“复/核”，断行位置不佳，影响标题观感。",
+                "evidence_refs": [],
+                "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+                "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+                "code": "MODEL_SEMANTIC",
+                "action": {
+                  "node": "semantic",
+                  "mode": "requires_user_input",
+                  "reason": "Independent review issue needs grounded decision"
+                }
+              }
+            }
+          },
+          {
+            "candidate_id": "candidate_ab22d6bc-9c43-4326-917c-a833847823b3",
+            "issue_id": "issue_1c28ed99-433a-4bb2-81c1-d822f299e4ab",
+            "object_id": null,
+            "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+            "node": "content",
+            "state": "requires_user_input",
+            "operation": null,
+            "changes": {},
+            "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+            "score": 0,
+            "evidence": {
+              "issue": {
+                "slide_order": 0,
+                "severity": "P2",
+                "kind": "semantic",
+                "detail": "正文第三条“先检查教室照明，再设置定时关灯，随后记录变化”属于执行方法（第3页内容），与第0页“试点定位/范围”主题重复，建议本页仅保留范围与性质说明，避免与后续执行页内容重叠。",
+                "evidence_refs": [
+                  "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+                ],
+                "issue_id": "issue_1c28ed99-433a-4bb2-81c1-d822f299e4ab",
+                "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+                "code": "MODEL_SEMANTIC",
+                "action": {
+                  "node": "semantic",
+                  "mode": "requires_user_input",
+                  "reason": "Independent review issue needs grounded decision"
+                }
+              }
+            }
+          }
+        ],
+        "all_issue_ids": [
+          "issue_2ecd44c3-f352-41a4-8d1a-27bd64d992c5",
+          "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+          "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+          "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+          "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+          "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+          "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+          "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+          "issue_1c28ed99-433a-4bb2-81c1-d822f299e4ab"
+        ],
+        "rerun_nodes": [],
+        "preserve_unselected_objects": true,
+        "full_acceptance": "not_passed"
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "Local plan with preserved locks, all issues mapped"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "no_p0_final": true,
+          "preserve_facts": true,
+          "preserve_locks": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-039",
+      "candidate_id": "candidate_db557b1d-39c4-466d-a2ca-3620ce5f21e7",
+      "value": {
+        "status": "fail"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "Explicit fail if no safe repair/input available"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "no_p0_final": true,
+          "preserve_facts": true,
+          "preserve_locks": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_992807c9-e9e4-4136-b9c8-533b7816aba7"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "deterministic policy precedence; not confidence",
+    "confidence": "unknown",
+    "fallback": "explicit fail or requires_user_input; never silent repair",
+    "retry": {
+      "allowed": false,
+      "reason": "RevisionPlan consumption required"
+    }
+  },
+  "output": {
+    "plan_id": "revision_plan_b304c90c-6ed9-4218-a77e-5fc11638452c",
+    "trace_id": "trace_cb982946-6709-4770-92ac-66f1ea5f528a",
+    "parent_run_id": "adf6aebf-a2e1-4cc9-a623-815c1a07dc10",
+    "status": "needs_input",
+    "scope": {
+      "slide_ids": [],
+      "object_ids": []
+    },
+    "locked_object_ids": [],
+    "locked_slide_ids": [],
+    "actions": [],
+    "blocked": [
+      {
+        "issue_id": "issue_2ecd44c3-f352-41a4-8d1a-27bd64d992c5",
+        "severity": "P1",
+        "state": "fail",
+        "reason": "No safe executable repair registered",
+        "candidate_id": "candidate_76a6f34c-1bf1-4181-9f23-e91989a4aef5"
+      },
+      {
+        "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+        "severity": "P1",
+        "state": "requires_user_input",
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "candidate_id": "candidate_05d47478-6fda-4124-9a4b-dd4b8a3137ec"
+      },
+      {
+        "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+        "severity": "P2",
+        "state": "requires_user_input",
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "candidate_id": "candidate_e98c3481-458a-4ec2-b8dd-9aa364751b83"
+      },
+      {
+        "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+        "severity": "P2",
+        "state": "requires_user_input",
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "candidate_id": "candidate_c9480473-d451-4a45-89f8-904e3c3322c3"
+      },
+      {
+        "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+        "severity": "P2",
+        "state": "requires_user_input",
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "candidate_id": "candidate_6d712cf7-0389-4bfc-95fc-4dfe31d9cc26"
+      },
+      {
+        "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+        "severity": "P2",
+        "state": "requires_user_input",
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "candidate_id": "candidate_db1c79ee-fce9-4c1b-a2a1-fd3d12b68436"
+      },
+      {
+        "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+        "severity": "P2",
+        "state": "requires_user_input",
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "candidate_id": "candidate_44385458-3b5e-476a-88f8-84521e38c0ff"
+      },
+      {
+        "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+        "severity": "P2",
+        "state": "requires_user_input",
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "candidate_id": "candidate_0cd79fb9-8cd1-4ae0-953a-c811530e6cc4"
+      },
+      {
+        "issue_id": "issue_1c28ed99-433a-4bb2-81c1-d822f299e4ab",
+        "severity": "P2",
+        "state": "requires_user_input",
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "candidate_id": "candidate_ab22d6bc-9c43-4326-917c-a833847823b3"
+      }
+    ],
+    "candidates": [
+      {
+        "candidate_id": "candidate_76a6f34c-1bf1-4181-9f23-e91989a4aef5",
+        "issue_id": "issue_2ecd44c3-f352-41a4-8d1a-27bd64d992c5",
+        "object_id": null,
+        "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+        "node": "style",
+        "state": "fail",
+        "operation": null,
+        "changes": {},
+        "reason": "No safe executable repair registered",
+        "score": 0,
+        "evidence": {
+          "issue": {
+            "issue_id": "issue_2ecd44c3-f352-41a4-8d1a-27bd64d992c5",
+            "code": "DECK_BACKGROUND_INCONSISTENT",
+            "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+            "object_id": null,
+            "severity": "P1",
+            "detail": "Page background differs; exception requires explicit policy",
+            "requirement_id": "QA-015",
+            "measurement": {},
+            "threshold": {},
+            "action": {
+              "node": "style",
+              "mode": "local_revision",
+              "reason": "DECK_BACKGROUND_INCONSISTENT"
+            }
+          }
+        }
+      },
+      {
+        "candidate_id": "candidate_05d47478-6fda-4124-9a4b-dd4b8a3137ec",
+        "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+        "object_id": null,
+        "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+        "node": "content",
+        "state": "requires_user_input",
+        "operation": null,
+        "changes": {},
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "score": 0,
+        "evidence": {
+          "issue": {
+            "slide_order": 1,
+            "severity": "P1",
+            "kind": "visual",
+            "detail": "占位符文本为超长英文键名（school_energy_saving_pilot.energy_consumption_reduction_target.baseline / .metric_name），在卡片内强制换行且被截断为多行，可读性差，且未显示完整键名。",
+            "evidence_refs": [
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+            ],
+            "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+            "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+            "code": "MODEL_SEMANTIC",
+            "action": {
+              "node": "semantic",
+              "mode": "requires_user_input",
+              "reason": "Independent review issue needs grounded decision"
+            }
+          }
+        }
+      },
+      {
+        "candidate_id": "candidate_e98c3481-458a-4ec2-b8dd-9aa364751b83",
+        "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+        "object_id": null,
+        "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+        "node": "content",
+        "state": "requires_user_input",
+        "operation": null,
+        "changes": {},
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "score": 0,
+        "evidence": {
+          "issue": {
+            "slide_order": 1,
+            "severity": "P2",
+            "kind": "semantic",
+            "detail": "正文以原始键名占位符呈现缺失项，对管理层读者不友好，建议改为中文可读标签（如“基线口径待补充”“指标名称待补充”）。",
+            "evidence_refs": [],
+            "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+            "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+            "code": "MODEL_SEMANTIC",
+            "action": {
+              "node": "semantic",
+              "mode": "requires_user_input",
+              "reason": "Independent review issue needs grounded decision"
+            }
+          }
+        }
+      },
+      {
+        "candidate_id": "candidate_c9480473-d451-4a45-89f8-904e3c3322c3",
+        "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+        "object_id": null,
+        "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+        "node": "content",
+        "state": "requires_user_input",
+        "operation": null,
+        "changes": {},
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "score": 0,
+        "evidence": {
+          "issue": {
+            "slide_order": 2,
+            "severity": "P2",
+            "kind": "visual",
+            "detail": "两个内容卡片高度远大于文本量，右侧卡片仅两行文字却占据整块区域，留白过多，版面失衡。",
+            "evidence_refs": [],
+            "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+            "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+            "code": "MODEL_SEMANTIC",
+            "action": {
+              "node": "semantic",
+              "mode": "requires_user_input",
+              "reason": "Independent review issue needs grounded decision"
+            }
+          }
+        }
+      },
+      {
+        "candidate_id": "candidate_6d712cf7-0389-4bfc-95fc-4dfe31d9cc26",
+        "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+        "object_id": null,
+        "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+        "node": "content",
+        "state": "requires_user_input",
+        "operation": null,
+        "changes": {},
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "score": 0,
+        "evidence": {
+          "issue": {
+            "slide_order": 3,
+            "severity": "P2",
+            "kind": "visual",
+            "detail": "三个卡片高度不一致且内容极少，下方卡片与上方卡片对齐松散，版面留白过多。",
+            "evidence_refs": [],
+            "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+            "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+            "code": "MODEL_SEMANTIC",
+            "action": {
+              "node": "semantic",
+              "mode": "requires_user_input",
+              "reason": "Independent review issue needs grounded decision"
+            }
+          }
+        }
+      },
+      {
+        "candidate_id": "candidate_db1c79ee-fce9-4c1b-a2a1-fd3d12b68436",
+        "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+        "object_id": null,
+        "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+        "node": "content",
+        "state": "requires_user_input",
+        "operation": null,
+        "changes": {},
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "score": 0,
+        "evidence": {
+          "issue": {
+            "slide_order": 4,
+            "severity": "P2",
+            "kind": "visual",
+            "detail": "表格左侧说明文字与表格间距偏大，表格行高较大，整体偏空；表格本身可读，无裁切。",
+            "evidence_refs": [],
+            "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+            "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+            "code": "MODEL_SEMANTIC",
+            "action": {
+              "node": "semantic",
+              "mode": "requires_user_input",
+              "reason": "Independent review issue needs grounded decision"
+            }
+          }
+        }
+      },
+      {
+        "candidate_id": "candidate_44385458-3b5e-476a-88f8-84521e38c0ff",
+        "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+        "object_id": null,
+        "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+        "node": "content",
+        "state": "requires_user_input",
+        "operation": null,
+        "changes": {},
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "score": 0,
+        "evidence": {
+          "issue": {
+            "slide_order": 5,
+            "severity": "P2",
+            "kind": "semantic",
+            "detail": "图表仅呈现单一8%柱状值，信息量极低，作为独立一页略显冗余，可考虑与目标页合并。",
+            "evidence_refs": [
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+              "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+            ],
+            "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+            "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+            "code": "MODEL_SEMANTIC",
+            "action": {
+              "node": "semantic",
+              "mode": "requires_user_input",
+              "reason": "Independent review issue needs grounded decision"
+            }
+          }
+        }
+      },
+      {
+        "candidate_id": "candidate_0cd79fb9-8cd1-4ae0-953a-c811530e6cc4",
+        "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+        "object_id": null,
+        "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+        "node": "content",
+        "state": "requires_user_input",
+        "operation": null,
+        "changes": {},
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "score": 0,
+        "evidence": {
+          "issue": {
+            "slide_order": 7,
+            "severity": "P2",
+            "kind": "visual",
+            "detail": "标题“下一步：补齐口径后复核”在左侧换行断为“复/核”，断行位置不佳，影响标题观感。",
+            "evidence_refs": [],
+            "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+            "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+            "code": "MODEL_SEMANTIC",
+            "action": {
+              "node": "semantic",
+              "mode": "requires_user_input",
+              "reason": "Independent review issue needs grounded decision"
+            }
+          }
+        }
+      },
+      {
+        "candidate_id": "candidate_ab22d6bc-9c43-4326-917c-a833847823b3",
+        "issue_id": "issue_1c28ed99-433a-4bb2-81c1-d822f299e4ab",
+        "object_id": null,
+        "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+        "node": "content",
+        "state": "requires_user_input",
+        "operation": null,
+        "changes": {},
+        "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+        "score": 0,
+        "evidence": {
+          "issue": {
+            "slide_order": 0,
+            "severity": "P2",
+            "kind": "semantic",
+            "detail": "正文第三条“先检查教室照明，再设置定时关灯，随后记录变化”属于执行方法（第3页内容），与第0页“试点定位/范围”主题重复，建议本页仅保留范围与性质说明，避免与后续执行页内容重叠。",
+            "evidence_refs": [
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+            ],
+            "issue_id": "issue_1c28ed99-433a-4bb2-81c1-d822f299e4ab",
+            "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+            "code": "MODEL_SEMANTIC",
+            "action": {
+              "node": "semantic",
+              "mode": "requires_user_input",
+              "reason": "Independent review issue needs grounded decision"
+            }
+          }
+        }
+      }
+    ],
+    "all_issue_ids": [
+      "issue_2ecd44c3-f352-41a4-8d1a-27bd64d992c5",
+      "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+      "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+      "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+      "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+      "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+      "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+      "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+      "issue_1c28ed99-433a-4bb2-81c1-d822f299e4ab"
+    ],
+    "rerun_nodes": [],
+    "preserve_unselected_objects": true,
+    "full_acceptance": "not_passed"
+  },
+  "duration": 0.021235234002233483,
+  "error": null
+}

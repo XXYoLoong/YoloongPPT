@@ -24,7 +24,7 @@ def review(task, deck, sources, renders, artifacts, only_orders=None):
               '必须输出json对象：{"checked_slide_orders":[0,1,...],"issues":[{"slide_order":0,"severity":"P0",'
               '"kind":"fact|visual|semantic|consistency","detail":"具体问题","evidence_refs":[]}],'
               '"summary":"审查结论与限制"}。不输出可编辑性或PowerPoint兼容性的通过结论，图片不能证明这些。'
-              '即使没有问题也列出实际检查的所有页序，不能为了通过而隐藏问题。')
+              '即使没有问题也列出实际检查的所有页序，不能为了通过而隐藏问题。可选issues_note仅为文字备注，不能替代issues。')
     context = {'deck_title': deck['title'], 'deck_slide_count': len(deck['slides']), 'reviewed_image_orders': orders,
                'review_scope': 'full_deck' if only_orders is None else 'selected_pages_only; unselected pages exist and keep their prior QA',
                'slides': [{'order': s['order'], 'content': s['content']} for s in deck['slides']], 'evidence': source}
@@ -43,10 +43,16 @@ def review(task, deck, sources, renders, artifacts, only_orders=None):
                     'images': [{'path': i['path'], 'hash': i['hash']} for i in images], 'model': config['model']})
     result, call = DeepSeek(config).complete([{'role': 'system', 'content': system}, {'role': 'user', 'content': content}])
     artifacts.json('review-response.json', result); artifacts.json('review-model-call.json', call)
+    return validate_review(result,deck,sources,orders)
+
+
+def validate_review(result,deck,sources,orders):
+    """Typed review metadata cannot replace actual coverage or issue records."""
     expected = orders
     required = {'checked_slide_orders', 'issues', 'summary'}
-    if (not isinstance(result, dict) or not required <= set(result) or set(result) - required - {'type'}
+    if (not isinstance(result, dict) or not required <= set(result) or set(result) - required - {'type','issues_note'}
         or ('type' in result and result['type'] != 'json_object')
+        or ('issues_note' in result and not isinstance(result['issues_note'],str))
         or result['checked_slide_orders'] != expected or not isinstance(result['issues'], list) or not isinstance(result['summary'], str)):
         raise TaskError('QA_REVIEW_INCOMPLETE', '模型审查未覆盖所有页或输出形状异常。', 'QAEngine', ['SYS-015'])
     known = {e['evidence_id'] for e in sources['evidence']}
@@ -57,6 +63,29 @@ def review(task, deck, sources, renders, artifacts, only_orders=None):
             or not isinstance(issue['evidence_refs'], list) or any(not isinstance(e, str) or e not in known for e in issue['evidence_refs'])):
             raise TaskError('QA_REVIEW_INVALID', '模型审查问题引用或字段无效。', 'QAEngine', ['SYS-015'])
         issue['issue_id'] = entity('issue'); issue['slide_id'] = deck['slides'][issue['slide_order']]['slide_id']
+    return result
+
+
+def reuse_review(prior,deck,sources,renders,artifacts,orders):
+    """Reuse an actual saved response only for its exact fact/deck/image input."""
+    from .operations import artifacts as verify_artifacts
+    verify_artifacts(prior.name,artifacts.run_id)
+    names=['review-request.json','review-response.json','review-model-call.json']
+    if not all((prior/n).is_file() for n in names):
+        raise TaskError('QA_REVIEW_CHECKPOINT_MISSING','缺少真实模型审查输入/响应/调用记录。','QAEngine',['SYS-015'])
+    request=json.loads((prior/names[0]).read_text('utf-8'));context=request['context']
+    evidence=[{'evidence_id':e['evidence_id'],'text':approved_text(sources,e)} for e in sources['evidence']]
+    checks={'deck_title':deck['title'],'deck_slide_count':len(deck['slides']),'reviewed_image_orders':orders,
+            'slides':[{'order':s['order'],'content':s['content']} for s in deck['slides']],'evidence':evidence}
+    if 'fact_boundary' in sources:checks.update(fact_boundary=sources['fact_boundary'],projection_scope=sources['projection_scope'])
+    selected={deck['slides'][n]['slide_id'] for n in orders}
+    images=[{'path':i['path'],'hash':i['hash']} for i in renders['artifacts'] if i['type']=='png' and i['slide_id'] in selected]
+    if any(context.get(k)!=v for k,v in checks.items()) or request.get('images')!=images:
+        raise TaskError('QA_REVIEW_CHECKPOINT_CHANGED','已选事实/页面/实际图片与旧审查输入不符，不能复用。','QAEngine',['SYS-015'])
+    response=json.loads((prior/names[1]).read_text('utf-8'))
+    result=validate_review(response,deck,sources,orders)
+    for name in names:artifacts.json(name,json.loads((prior/name).read_text('utf-8')))
+    artifacts.json('review-reuse.json',{'reused_from_run':prior.name,'fresh_model_call':False,'verified':'manifest plus exact deck/facts/image request identity','optional_metadata':'issues_note retained; no issues or coverage discarded'})
     return result
 
 

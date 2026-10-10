@@ -1,0 +1,641 @@
+{
+  "version": "narrative-1",
+  "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+  "audience": {
+    "knowledge_level": null,
+    "roles": [],
+    "concerns": [],
+    "expected_actions": [],
+    "field_provenance": []
+  },
+  "scenario": {
+    "scenario": null,
+    "duration": null,
+    "field_provenance": []
+  },
+  "language_style": {
+    "language": "zh-CN",
+    "tone": null,
+    "formal_level": null,
+    "terminology_rules": [],
+    "brand_terms": [],
+    "field_provenance": [
+      {
+        "field": "language",
+        "source": {
+          "kind": "presentation_context",
+          "context_pointer": "/values/language"
+        }
+      }
+    ]
+  },
+  "content_graph": {
+    "nodes": [
+      {
+        "node_id": "content_d4ead8d9e5d9e56ad592",
+        "text": "测试数据单位为千瓦时；千瓦时\n测试数据单位为千瓦时\n观察窗口为虚构测试周；虚构测试周\n观察窗口为虚构测试周\n统计对象为照明用电\nA楼基线100；千瓦时；虚构测试周\nA楼基线100\n本期90；千瓦时；虚构测试周\n本期90\nB楼基线80；千瓦时；虚构测试周\nB楼基线80\n本期72；千瓦时；虚构测试周\n本期72\nC楼基线60；千瓦时；虚构测试周\nC楼基线60\n本期54；千瓦时；虚构测试周\n本期54\n检查照明\n设置定时\n记录变化\n检查照明指核对灯具与使用时段。\n设置定时指设置关灯规则。\n记录变化指记录照明用电。\n明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。\n基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。\n素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。\n结论是先核对资料、保留来源，再按原文明示流程执行。",
+        "evidence_refs": [
+          "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+        ],
+        "assumption_refs": []
+      }
+    ],
+    "edges": [],
+    "evidence_refs": [
+      "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+    ]
+  },
+  "relation_candidates": [
+    {
+      "node_id": "content_d4ead8d9e5d9e56ad592",
+      "relation": "process",
+      "literal_cues": [
+        "流程"
+      ],
+      "evidence_refs": [
+        "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+      ],
+      "status": "candidate_only",
+      "reason": "literal cue is not a proven semantic relation"
+    }
+  ],
+  "storyline": {
+    "pattern": "linear",
+    "rationale": "stable source-order presentation default",
+    "evidence_refs": [
+      "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+    ]
+  },
+  "page_budget": {
+    "target": 6,
+    "minimum": 6,
+    "maximum": 6,
+    "allowed_deviation": 0,
+    "duration_original": null,
+    "source_characters": 386,
+    "policy": "normalized page count is binding; duration guides density and speaker notes, not implicit count replacement"
+  },
+  "citation_mode": "notes",
+  "content_policy": {
+    "title_max_characters": 60,
+    "body_max_characters": 180,
+    "list_max_items": 6,
+    "table_max_columns": 6,
+    "table_max_rows": 8,
+    "notes_preserve_overflow": true,
+    "no_text_truncation": true
+  },
+  "decision_traces": [
+    {
+      "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+      "node_id": "DEC-006",
+      "input": {
+        "audience": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-006",
+          "candidate_id": "candidate_d8721944-f2e5-434a-878f-0cf0f6e2fc3b",
+          "value": {
+            "knowledge_level": null,
+            "roles": [],
+            "concerns": [],
+            "expected_actions": [],
+            "field_provenance": []
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_d8721944-f2e5-434a-878f-0cf0f6e2fc3b"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure",
+        "missing_profile": "retain null/empty; do not stereotype audience"
+      },
+      "output": {
+        "knowledge_level": null,
+        "roles": [],
+        "concerns": [],
+        "expected_actions": [],
+        "field_provenance": []
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+      "node_id": "DEC-007",
+      "input": {
+        "scenario": null,
+        "duration": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-007",
+          "candidate_id": "candidate_db2f89fc-0587-4c7e-bc73-0102724e1548",
+          "value": {
+            "scenario": null,
+            "duration": null,
+            "field_provenance": []
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_db2f89fc-0587-4c7e-bc73-0102724e1548"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "scenario": null,
+        "duration": null,
+        "field_provenance": []
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+      "node_id": "DEC-008",
+      "input": {
+        "language": "zh-CN",
+        "tone": null,
+        "audience": {
+          "knowledge_level": null,
+          "roles": [],
+          "concerns": [],
+          "expected_actions": [],
+          "field_provenance": []
+        }
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-008",
+          "candidate_id": "candidate_67120f7d-97c4-4f7d-b0cf-2612e0500dc8",
+          "value": {
+            "language": "zh-CN",
+            "tone": null,
+            "formal_level": null,
+            "terminology_rules": [],
+            "brand_terms": [],
+            "field_provenance": [
+              {
+                "field": "language",
+                "source": {
+                  "kind": "presentation_context",
+                  "context_pointer": "/values/language"
+                }
+              }
+            ]
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_67120f7d-97c4-4f7d-b0cf-2612e0500dc8"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "language": "zh-CN",
+        "tone": null,
+        "formal_level": null,
+        "terminology_rules": [],
+        "brand_terms": [],
+        "field_provenance": [
+          {
+            "field": "language",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/values/language"
+            }
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+      "node_id": "DEC-010",
+      "input": {
+        "evidence_refs": [
+          "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-010",
+          "candidate_id": "candidate_b7191adf-ace9-4799-9d54-bc6116d1ee1e",
+          "value": {
+            "content_graph": {
+              "nodes": [
+                {
+                  "node_id": "content_d4ead8d9e5d9e56ad592",
+                  "text": "测试数据单位为千瓦时；千瓦时\n测试数据单位为千瓦时\n观察窗口为虚构测试周；虚构测试周\n观察窗口为虚构测试周\n统计对象为照明用电\nA楼基线100；千瓦时；虚构测试周\nA楼基线100\n本期90；千瓦时；虚构测试周\n本期90\nB楼基线80；千瓦时；虚构测试周\nB楼基线80\n本期72；千瓦时；虚构测试周\n本期72\nC楼基线60；千瓦时；虚构测试周\nC楼基线60\n本期54；千瓦时；虚构测试周\n本期54\n检查照明\n设置定时\n记录变化\n检查照明指核对灯具与使用时段。\n设置定时指设置关灯规则。\n记录变化指记录照明用电。\n明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。\n基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。\n素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。\n结论是先核对资料、保留来源，再按原文明示流程执行。",
+                  "evidence_refs": [
+                    "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+                  ],
+                  "assumption_refs": []
+                }
+              ],
+              "edges": [],
+              "evidence_refs": [
+                "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+              ]
+            },
+            "relation_candidates": [
+              {
+                "node_id": "content_d4ead8d9e5d9e56ad592",
+                "relation": "process",
+                "literal_cues": [
+                  "流程"
+                ],
+                "evidence_refs": [
+                  "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+                ],
+                "status": "candidate_only",
+                "reason": "literal cue is not a proven semantic relation"
+              }
+            ],
+            "semantic_edges_status": "not_inferred"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_b7191adf-ace9-4799-9d54-bc6116d1ee1e"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "content_graph": {
+          "nodes": [
+            {
+              "node_id": "content_d4ead8d9e5d9e56ad592",
+              "text": "测试数据单位为千瓦时；千瓦时\n测试数据单位为千瓦时\n观察窗口为虚构测试周；虚构测试周\n观察窗口为虚构测试周\n统计对象为照明用电\nA楼基线100；千瓦时；虚构测试周\nA楼基线100\n本期90；千瓦时；虚构测试周\n本期90\nB楼基线80；千瓦时；虚构测试周\nB楼基线80\n本期72；千瓦时；虚构测试周\n本期72\nC楼基线60；千瓦时；虚构测试周\nC楼基线60\n本期54；千瓦时；虚构测试周\n本期54\n检查照明\n设置定时\n记录变化\n检查照明指核对灯具与使用时段。\n设置定时指设置关灯规则。\n记录变化指记录照明用电。\n明确虚构的学校照明演示测试资料；所有数据仅用于软件验证，不是现实节能效果。\n基线与本期都是明确虚构的记录值，只做并列展示，不推断控制实验或因果效果。\n素材是程序人工绘制的测试示意图，仅用于装饰，不证明任何事实。\n结论是先核对资料、保留来源，再按原文明示流程执行。",
+              "evidence_refs": [
+                "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+              ],
+              "assumption_refs": []
+            }
+          ],
+          "edges": [],
+          "evidence_refs": [
+            "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+          ]
+        },
+        "relation_candidates": [
+          {
+            "node_id": "content_d4ead8d9e5d9e56ad592",
+            "relation": "process",
+            "literal_cues": [
+              "流程"
+            ],
+            "evidence_refs": [
+              "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+            ],
+            "status": "candidate_only",
+            "reason": "literal cue is not a proven semantic relation"
+          }
+        ],
+        "semantic_edges_status": "not_inferred"
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+      "node_id": "DEC-011",
+      "input": {
+        "scenario": {
+          "scenario": null,
+          "duration": null,
+          "field_provenance": []
+        },
+        "relation_candidates": [
+          {
+            "node_id": "content_d4ead8d9e5d9e56ad592",
+            "relation": "process",
+            "literal_cues": [
+              "流程"
+            ],
+            "evidence_refs": [
+              "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+            ],
+            "status": "candidate_only",
+            "reason": "literal cue is not a proven semantic relation"
+          }
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_c4f36ca8-1c5d-4a51-bfe8-32b95d873160",
+          "value": {
+            "pattern": "linear"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_afbb7c26-e6e6-4a0f-92a6-a1f4aff7b76b",
+          "value": {
+            "pattern": "problem_solution"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_8f4305e7-44fd-459a-8cf4-bc23fa6012a5",
+          "value": {
+            "pattern": "conclusion_first"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_f3e58fdd-411a-4c3b-acf8-476e175acfd0",
+          "value": {
+            "pattern": "timeline"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_ce00742d-f986-4811-b5cf-941c01ee1cd7",
+          "value": {
+            "pattern": "teaching_progression"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_b48ec8e6-5fec-4f1b-b740-3495f0499361",
+          "value": {
+            "pattern": "data_driven"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_c4f36ca8-1c5d-4a51-bfe8-32b95d873160"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "pattern": "linear",
+        "rationale": "stable source-order presentation default",
+        "evidence_refs": [
+          "evidence_69f39c3d-9188-4d23-87b6-adb8c0840dce"
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_12abba25-729c-488d-8b36-c4b5d4c103d7",
+      "node_id": "DEC-013",
+      "input": {
+        "page_count": 6,
+        "duration": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-013",
+          "candidate_id": "candidate_c6df7c3b-4b5c-4941-923c-1401eadc7498",
+          "value": {
+            "target": 6,
+            "minimum": 6,
+            "maximum": 6,
+            "allowed_deviation": 0,
+            "duration_original": null,
+            "source_characters": 386,
+            "policy": "normalized page count is binding; duration guides density and speaker notes, not implicit count replacement"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_c6df7c3b-4b5c-4941-923c-1401eadc7498"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "target": 6,
+        "minimum": 6,
+        "maximum": 6,
+        "allowed_deviation": 0,
+        "duration_original": null,
+        "source_characters": 386,
+        "policy": "normalized page count is binding; duration guides density and speaker notes, not implicit count replacement"
+      },
+      "duration": 0.0,
+      "error": null
+    }
+  ]
+}

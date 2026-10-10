@@ -1,0 +1,229 @@
+{
+  "ok": true,
+  "checks": [
+    {
+      "name": "DEC-030_normal_1",
+      "passed": true
+    },
+    {
+      "name": "DEC-031_normal_1",
+      "passed": true
+    },
+    {
+      "name": "DEC-032_normal_1",
+      "passed": true
+    },
+    {
+      "name": "DEC-033_normal_1",
+      "passed": true
+    },
+    {
+      "name": "DEC-034_normal_1",
+      "passed": true
+    },
+    {
+      "name": "DEC-035_normal_1",
+      "passed": true
+    },
+    {
+      "name": "DEC-036_normal_1",
+      "passed": true
+    },
+    {
+      "name": "DEC-037_normal_1",
+      "passed": true
+    },
+    {
+      "name": "DEC-038_normal_1",
+      "passed": true
+    },
+    {
+      "name": "DEC-030_normal_2",
+      "passed": true
+    },
+    {
+      "name": "DEC-031_normal_2",
+      "passed": true
+    },
+    {
+      "name": "DEC-032_normal_2",
+      "passed": true
+    },
+    {
+      "name": "DEC-033_normal_2",
+      "passed": true
+    },
+    {
+      "name": "DEC-034_normal_2",
+      "passed": true
+    },
+    {
+      "name": "DEC-035_normal_2",
+      "passed": true
+    },
+    {
+      "name": "DEC-036_normal_2",
+      "passed": true
+    },
+    {
+      "name": "DEC-037_normal_2",
+      "passed": true
+    },
+    {
+      "name": "DEC-038_normal_2",
+      "passed": true
+    },
+    {
+      "name": "DEC-030_normal_3",
+      "passed": true
+    },
+    {
+      "name": "DEC-031_normal_3",
+      "passed": true
+    },
+    {
+      "name": "DEC-032_normal_3",
+      "passed": true
+    },
+    {
+      "name": "DEC-033_normal_3",
+      "passed": true
+    },
+    {
+      "name": "DEC-034_normal_3",
+      "passed": true
+    },
+    {
+      "name": "DEC-035_normal_3",
+      "passed": true
+    },
+    {
+      "name": "DEC-036_normal_3",
+      "passed": true
+    },
+    {
+      "name": "DEC-037_normal_3",
+      "passed": true
+    },
+    {
+      "name": "DEC-038_normal_3",
+      "passed": true
+    },
+    {
+      "name": "actual_png_probe_contain_no_pixel_removal",
+      "passed": true
+    },
+    {
+      "name": "explicit_diagram_nodes_edges_native_slots",
+      "passed": true
+    },
+    {
+      "name": "explicit_contain_geometry",
+      "passed": true
+    },
+    {
+      "name": "explicit_cover_geometry",
+      "passed": true
+    },
+    {
+      "name": "explicit_crop_geometry",
+      "passed": true
+    },
+    {
+      "name": "DEC030_invalid_order",
+      "passed": true,
+      "expected_code": "LAYOUT_PAGE_ORDER_INVALID"
+    },
+    {
+      "name": "DEC031_all_rejected",
+      "passed": true,
+      "expected_code": "LAYOUT_CAPACITY_UNSUPPORTED"
+    },
+    {
+      "name": "DEC032_missing_elements",
+      "passed": true,
+      "expected_code": "LAYOUT_INPUT_MISSING"
+    },
+    {
+      "name": "DEC033_overlap",
+      "passed": true,
+      "expected_code": "LAYOUT_SLOT_OVERLAP"
+    },
+    {
+      "name": "DEC034_unknown_font",
+      "passed": true,
+      "expected_code": "LAYOUT_FONT_UNSUPPORTED"
+    },
+    {
+      "name": "DEC035_contrast",
+      "passed": true,
+      "expected_code": "LAYOUT_CONTRAST_INSUFFICIENT"
+    },
+    {
+      "name": "DEC036_bad_dimensions",
+      "passed": true,
+      "expected_code": "IMAGE_DIMENSIONS_INVALID"
+    },
+    {
+      "name": "DEC037_requested_animation",
+      "passed": true,
+      "expected_code": "LAYOUT_ENHANCEMENT_UNSUPPORTED"
+    },
+    {
+      "name": "DEC038_office_round_trip",
+      "passed": true,
+      "expected_code": "LAYOUT_BACKEND_REQUIREMENT_UNSUPPORTED"
+    },
+    {
+      "name": "rtl_not_silently_ltr",
+      "passed": true,
+      "expected_code": "LAYOUT_RTL_UNSUPPORTED"
+    },
+    {
+      "name": "long_text_not_truncated",
+      "passed": true,
+      "expected_code": "TEXT_CAPACITY_EXCEEDED"
+    },
+    {
+      "name": "crop_requires_explicit_ratios",
+      "passed": true,
+      "expected_code": "IMAGE_CROP_REQUIRED"
+    },
+    {
+      "name": "backend_unknown_native_type",
+      "passed": true,
+      "expected_code": "LAYOUT_OBJECT_UNSUPPORTED"
+    },
+    {
+      "name": "caller_content_unchanged",
+      "passed": true
+    }
+  ],
+  "check_count": 46,
+  "requirement_ids": [
+    "DEC-030",
+    "DEC-031",
+    "DEC-032",
+    "DEC-033",
+    "DEC-034",
+    "DEC-035",
+    "DEC-036",
+    "DEC-037",
+    "DEC-038",
+    "SYS-010",
+    "SYS-011",
+    "TPL-007",
+    "TPL-011",
+    "TPL-012",
+    "TPL-013"
+  ],
+  "source_hashes": {
+    "src/yoloongppt/layouts.py": "97b8208e5ce939f8b45b74a558765e2f87023df83840bd708816df6b754d02ee",
+    "src/yoloongppt/layout_decisions.py": "873c28f327983f886e4e5354af103c22e6036c20e12298735b0b408a83368b0f",
+    "contracts/layout-stage-node.schema.json": "d4dd4cb9fe9939512d7962b674fb6f7a4d7c32078f68ad4cb1b8a4473baf24c5"
+  },
+  "evidence_scope": "Direct native stage validation with synthetic layout fixtures and actual locally created PNG; not model grounding, E2E or full node/AC acceptance.",
+  "limitations": [
+    "Complete brand locks, template selection, RTL, all native objects, advanced masks/effects/animation and multi-backend/Office acceptance remain incomplete."
+  ]
+}

@@ -1,0 +1,171 @@
+{
+  "title": "视觉样例",
+  "main_takeaway": "保留证据",
+  "storyline": {
+    "pattern": "linear",
+    "rationale": "原文顺序"
+  },
+  "slides": [
+    {
+      "title": "已批准视觉样例",
+      "goal": "保留来源，选择原生表达",
+      "kind": "image",
+      "body": [
+        "需求确认",
+        "设计",
+        "制作"
+      ],
+      "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+      "evidence_refs": [
+        "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+      ],
+      "rationale": "明示结构且保留数据",
+      "table": null,
+      "chart": null,
+      "image": {
+        "asset_id": "asset_385291a5-22d8-4712-a56f-3983e775db03",
+        "role": "information",
+        "alt_text": "调用者提供的绿色图片",
+        "fit": "contain",
+        "required": true,
+        "path": "/runtime/assets/39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e.png",
+        "width_px": 320,
+        "height_px": 160,
+        "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+        "source_refs": [
+          "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+        ]
+      }
+    },
+    {
+      "title": "已批准视觉样例",
+      "goal": "保留来源，选择原生表达",
+      "kind": "diagram",
+      "body": [
+        "需求确认",
+        "设计",
+        "制作"
+      ],
+      "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+      "evidence_refs": [
+        "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+      ],
+      "rationale": "明示结构且保留数据",
+      "table": null,
+      "chart": null,
+      "diagram": {
+        "type": "process",
+        "direction": "horizontal",
+        "nodes": [
+          {
+            "node_id": "n0",
+            "label": "需求确认",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ]
+          },
+          {
+            "node_id": "n1",
+            "label": "设计",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ]
+          },
+          {
+            "node_id": "n2",
+            "label": "制作",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "n0",
+            "to": "n1",
+            "relation": "sequence",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "evidence_quote": "需求确认 → 设计 → 制作"
+          },
+          {
+            "from": "n1",
+            "to": "n2",
+            "relation": "sequence",
+            "evidence_refs": [
+              "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+            ],
+            "evidence_quote": "需求确认 → 设计 → 制作"
+          }
+        ]
+      }
+    },
+    {
+      "title": "已批准视觉样例",
+      "goal": "保留来源，选择原生表达",
+      "kind": "table",
+      "body": [
+        "需求确认",
+        "设计",
+        "制作"
+      ],
+      "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+      "evidence_refs": [
+        "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+      ],
+      "rationale": "明示结构且保留数据",
+      "table": {
+        "columns": [
+          "指标",
+          "值"
+        ],
+        "rows": [
+          [
+            "A",
+            "8"
+          ],
+          [
+            "B",
+            "9"
+          ]
+        ],
+        "units": "原文单位未指定"
+      },
+      "chart": null
+    },
+    {
+      "title": "已批准视觉样例",
+      "goal": "保留来源，选择原生表达",
+      "kind": "chart",
+      "body": [
+        "需求确认",
+        "设计",
+        "制作"
+      ],
+      "notes": "结构关系由原文明示箭头提供，语义复审另行执行。",
+      "evidence_refs": [
+        "evidence_5ac95383-58ff-49d4-aaa9-ad5e732c5ed3"
+      ],
+      "rationale": "明示结构且保留数据",
+      "table": null,
+      "chart": {
+        "type": "bar",
+        "categories": [
+          "A",
+          "B"
+        ],
+        "series": [
+          {
+            "name": "指标",
+            "values": [
+              8,
+              9
+            ]
+          }
+        ],
+        "units": "原文单位未指定"
+      }
+    }
+  ]
+}

@@ -49,14 +49,15 @@ def dispatch(operation, document, trace, schemas=None, store=None):
         from .generation import generate
         return generate(document, schemas, store, trace)
     if operation in {'revise_deck','revise'}:
-        from .revision import revise
-        return revise(document['run_id'], document['request'], schemas, trace)
+        from .revision import revise, revise_plan
+        function=revise_plan if 'plan' in document['request'] else revise
+        return function(document['run_id'], document['request'], schemas, trace)
     if operation == 'resume':
         from .generation import resume
         return resume(document['run_id'], schemas, store, trace,document.get('task_patch'))
     if operation == 'recheck':
         from .revision import recheck
-        return recheck(document['run_id'], schemas, trace)
+        return recheck(document['run_id'], schemas, trace,document.get('reuse_saved_review',False))
     if operation == 'capabilities':
         from .capabilities import CapabilityRegistry
         result = CapabilityRegistry(schemas).list(trace)
@@ -74,6 +75,19 @@ def dispatch(operation, document, trace, schemas=None, store=None):
     if operation == 'inventory_assets':
         from .assets import inventory
         return {'ok':True,'trace_id':trace,'inventory':inventory(document['directory'])}
+    if operation == 'resolve_assets':
+        from .asset_resolver import resolve
+        return {'ok':True,'trace_id':trace,'operation':operation,'resolved_assets':resolve(document,schemas=schemas)}
+    if operation == 'register_template':
+        from .template_registry import register
+        if set(document)-{'path','source','license'} or 'path' not in document:
+            raise TaskError('TEMPLATE_REQUEST_INVALID','登记模板需要path，可声明source/license。','TemplateRegistry',['SYS-008'])
+        return {'ok':True,'trace_id':trace,'operation':operation,'template':register(document['path'],source=document.get('source'),license=document.get('license','unknown'),schemas=schemas)}
+    if operation == 'get_template':
+        from .template_registry import get
+        if set(document)!={'template_id'}:
+            raise TaskError('TEMPLATE_REQUEST_INVALID','查询模板只接受template_id。','TemplateRegistry',['SYS-008'])
+        return {'ok':True,'trace_id':trace,'operation':operation,'template':get(document['template_id'],schemas=schemas)}
     if operation == 'doctor':
         import shutil
         from .observability import version_manifest
@@ -168,6 +182,22 @@ def dispatch(operation, document, trace, schemas=None, store=None):
             from .artifacts import RunArtifacts
             output=RunArtifacts()
             result=run_node(node,payload,schemas,output)
+            output.json('result.json',result)
+            output.json('manifest.json',{'run_id':output.run_id,'artifacts':output.manifest()})
+            return {'ok':True,'trace_id':trace,'run_id':output.run_id,'artifact_root':str(output.path),**result}
+        if isinstance(node,str) and node in {f'DEC-{i:03d}' for i in range(22,41)}:
+            from .artifacts import RunArtifacts
+            output=RunArtifacts()
+            if int(node[-3:])<30:
+                from .visual import run_node
+                result=run_node(node,payload,schemas,output)
+            elif int(node[-3:])<39:
+                from .layout_decisions import run_stage
+                from .atomic import AtomicRegistry
+                result=run_stage(node,payload,AtomicRegistry(schemas),schemas)
+            else:
+                from .quality_decisions import run_node
+                result=run_node(payload,node,schemas,trace)
             output.json('result.json',result)
             output.json('manifest.json',{'run_id':output.run_id,'artifacts':output.manifest()})
             return {'ok':True,'trace_id':trace,'run_id':output.run_id,'artifact_root':str(output.path),**result}

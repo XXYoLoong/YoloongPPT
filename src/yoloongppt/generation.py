@@ -19,6 +19,8 @@ from .context import normalize
 from .source_roles import assign, fact_input
 from .facts import interpret,resolve,boundaries,project
 from .narrative import prepare, finalize
+from .visual import prepare as prepare_visual, finalize as finalize_visual
+from .quality_decisions import decide as quality_decide
 
 
 def generate(task, schemas, store, trace, checkpoint=None):
@@ -31,7 +33,7 @@ def generate(task, schemas, store, trace, checkpoint=None):
         result = action()
         timeline.append({'component': component, 'status': 'executed', 'duration_seconds': round(time.monotonic()-begin, 3)})
         artifacts.json('pipeline-trace.json', {'trace_id': trace, 'steps': timeline, 'warnings': warnings,
-                                               'decision_coverage': 'DEC-001–021 bounded execution when reached; full original decision acceptance remains incomplete'})
+                                               'decision_coverage': 'DEC-001–040 bounded execution when reached; complete original decision acceptance remains incomplete'})
         return result
     try:
         from .observability import version_manifest
@@ -47,7 +49,8 @@ def generate(task, schemas, store, trace, checkpoint=None):
         artifacts.json('decision-context.json', normalized['decision_trace'])
         artifacts.json('presentation-context.json', normalized['context'])
         count, style, warnings = preflight(task, normalized['context'], schemas)
-        task = {**task, 'constraints': normalized['context']['constraints']}
+        task = {**task, 'constraints': normalized['context']['constraints'],
+                'runtime_preferences':{**task['runtime_preferences'],'asset_policy':normalized['context']['values']['asset_policy']}}
         artifacts.json('task-effective.json', task)
         artifacts.json('atomic-registry.json', AtomicRegistry(schemas).snapshot())
         sources = step('SYS-003/004', lambda: inspect_sources(task, schemas, store, trace))
@@ -86,6 +89,7 @@ def generate(task, schemas, store, trace, checkpoint=None):
         sources=project(sources,resolution['resolution'],boundary['boundaries'],interpretation)
         artifacts.json('approved-source-result.json',sources)
         narrative = step('DEC-006–014 narrative preparation',lambda:prepare(task,sources,normalized['context'],schemas,artifacts))
+        visual = step('DEC-028/029 SYS-008/009', lambda:prepare_visual(task,sources,normalized['context'],schemas,artifacts))
         previous_deck = None
         if checkpoint and (checkpoint/'model-response.json').is_file():
             old = json.loads((checkpoint/('fact-source-result.json' if (checkpoint/'fact-source-result.json').exists() else 'source-result.json')).read_text(encoding='utf-8'))
@@ -110,12 +114,13 @@ def generate(task, schemas, store, trace, checkpoint=None):
                 schemas.validate('deck-execution.schema.json', previous_deck)
             timeline.append({'component': 'SYS-005 partial content planner', 'status': 'checkpoint_reused', 'previous_run_id': checkpoint.name})
         else:
-            proposal, model = step('SYS-005 partial content planner', lambda: plan(task, sources, schemas, artifacts, count,narrative))
+            proposal, model = step('SYS-005 partial content planner', lambda: plan(task, sources, schemas, artifacts, count,narrative,visual))
         proposal, narrative_result = step('DEC-009/012/014–021 narrative execution',lambda:finalize(proposal,narrative,sources,schemas,artifacts))
+        proposal, visual_result = step('DEC-022–029 visual execution',lambda:finalize_visual(proposal,visual,sources,schemas,artifacts))
         artifacts.json('model-response-effective.json',proposal)
-        deck, execution = step('SYS-010/011', lambda: compile_deck(proposal, style, trace, previous_deck))
+        deck, execution = step('SYS-010/011 DEC-030–038', lambda: compile_deck(proposal, style, trace, previous_deck,visual=visual))
         artifacts.json('deck-spec.json', deck); artifacts.json('execution-plan.json', execution)
-        artifacts.json('layout-selection.json',{'scope':'DEC-030/031/033/034 subset; full nodes incomplete','slides':[{'slide_id':s['slide_id'],**s['layout']} for s in deck['slides']]})
+        artifacts.json('layout-selection.json',{'scope':'DEC-030–038 native subset; full original acceptance incomplete','slides':[{'slide_id':s['slide_id'],**s['layout']} for s in deck['slides']]})
         object_map, calls = step('SYS-012/013', lambda: execute(deck, execution, artifacts.path/'deck.pptx', schemas))
         artifacts.json('object-map.json', object_map); artifacts.json('execution-trace.json', calls)
         renders = step('SYS-014', lambda: render(artifacts.path/'deck.pptx', deck, artifacts.path))
@@ -127,13 +132,14 @@ def generate(task, schemas, store, trace, checkpoint=None):
             artifacts.json('model-response-effective.json', proposal)
             (artifacts.path/'deck.pptx').rename(artifacts.path/'before-reference-repair.pptx')
             (artifacts.path/'render').rename(artifacts.path/'render-before-reference-repair')
-            deck, execution = compile_deck(proposal, style, trace, deck)
+            deck, execution = compile_deck(proposal, style, trace, deck,visual=visual)
             artifacts.json('deck-spec.json', deck); artifacts.json('execution-plan.json', execution)
             object_map, calls = execute(deck, execution, artifacts.path/'deck.pptx', schemas)
             artifacts.json('object-map.json', object_map); artifacts.json('execution-trace.json', calls)
             renders = render(artifacts.path/'deck.pptx', deck, artifacts.path)
             artifacts.json('render-report.json', renders)
             quality = check(deck, artifacts.path/'deck.pptx', object_map, sources, renders, artifacts.path)
+        artifacts.json('quality-report.json',quality)
         model_review = step('SYS-015 actual visual/fact review', lambda: review(task, deck, sources, renders, artifacts))
         quality['model_review'] = model_review
         quality['p0_issue_count'] += sum(i['severity'] == 'P0' for i in model_review['issues'])
@@ -141,12 +147,20 @@ def generate(task, schemas, store, trace, checkpoint=None):
         quality['coverage']['fact_semantic'] = 'model_review_executed'
         quality['reason'] = 'Deterministic and real image/fact model checks executed; complete decision graph, accessibility, PowerPoint compatibility and revision gates are not proven.'
         artifacts.json('quality-report.json', quality)
+        prior_traces=[json.loads(p.read_text('utf-8')) for p in artifacts.path.glob('decision-*.json')]
+        prior_traces += [{'node_id':d['node_id'],'input':d['trace']['input'],'output':d['result'],'error':None} for s in deck['slides'] for d in s['layout'].get('selection_trace',{}).get('decisions',[])]
+        artifacts.json('decision-traces.json',{'traces':prior_traces,'coverage':'bounded implementations; full acceptance incomplete'})
+        decision = step('DEC-039/040',lambda:quality_decide({'quality_report':quality,'deck':deck,'object_map':object_map,'parent_run_id':artifacts.run_id,
+            'prior_traces':prior_traces,'completion_policy':{'required_nodes':[f'DEC-{i:03}' for i in range(1,39)]}},schemas,trace))
+        artifacts.json('revision-plan.json',decision['revision_plan']);artifacts.json('completion-decision.json',decision['completion'])
+        for item in decision['decision_traces']:artifacts.json('decision-'+item['node_id']+'.json',item)
         artifacts.json('manifest.json', {'run_id': artifacts.run_id, 'artifacts': artifacts.manifest()})
         result = {'ok': True, 'trace_id': trace, 'task_id': task['task_id'], 'run_id': artifacts.run_id,
                   'operation': 'generate', 'state': 'draft_generated', 'artifact_root': str(artifacts.path),
                   'pptx': str(artifacts.path/'deck.pptx'), 'slide_count': len(deck['slides']), 'model': model,
                   'qa': {'status': quality['status'], 'p0_issue_count': quality['p0_issue_count'], 'acceptance': quality['acceptance']},
-                  'warnings': warnings, 'boundary': 'Actual model/PPTX/render/deterministic and image/fact model QA; complete DEC graph, QA coverage, revision scope and system acceptance unfinished.'}
+                  'warnings': warnings, 'completion':decision['completion'],'revision_plan_id':decision['revision_plan']['plan_id'],
+                  'boundary': 'All 40 bounded decision stages connected when reached; complete decision, QA, backend and system acceptance unfinished.'}
         artifacts.json('result.json', result)
         # Include the result in the final manifest too.
         artifacts.json('manifest.json', {'run_id': artifacts.run_id, 'artifacts': artifacts.manifest()})

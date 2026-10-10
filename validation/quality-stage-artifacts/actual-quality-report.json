@@ -1,0 +1,134 @@
+{
+  "qa_id": "artifact_2524eaa0-e159-4369-b230-57222012ff61",
+  "status": "partial",
+  "issues": [
+    {
+      "issue_id": "issue_3e802691-3086-4f8a-bae8-1328132f43ef",
+      "code": "DECK_BACKGROUND_INCONSISTENT",
+      "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+      "object_id": null,
+      "severity": "P1",
+      "detail": "Page background differs; exception requires explicit policy",
+      "requirement_id": "QA-015",
+      "measurement": {},
+      "threshold": {},
+      "action": {
+        "node": "style",
+        "mode": "local_revision",
+        "reason": "DECK_BACKGROUND_INCONSISTENT"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "kind": "structure",
+      "check": "Content_Types declarations and all internal relationship targets/IDs",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "not_executed",
+    "fact_semantic": "not_executed",
+    "accessibility": "partial_native_alt_font_contrast_table_header_reading_order",
+    "powerpoint_compatibility": "not_executed",
+    "global_consistency": "partial_style_font_footer_hierarchy",
+    "visual_geometry": "partial_collision_geometry_contrast_image_dpi",
+    "image_semantics": "not_executed",
+    "full_semantic_reading_order": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Numeric membership is not semantic truth; PNG/text presence is not visual approval. Full DEC/QA/revision acceptance remains required."
+}
