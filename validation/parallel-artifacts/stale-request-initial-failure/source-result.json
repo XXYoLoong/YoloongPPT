@@ -1,0 +1,204 @@
+{
+  "ok": true,
+  "trace_id": "trace_ced92d70-a49d-4f9f-acbd-70a4ddc498f2",
+  "operation": "inspect_sources",
+  "task_id": "task_83b88aa8-def7-4d31-b68a-ce9ecd287dbe",
+  "source_bundle": {
+    "record_type": "source_bundle_result",
+    "status": "partial",
+    "bundle": {
+      "model_type": "SourceBundle",
+      "sources": [
+        {
+          "source_id": "source_247efed8-8dec-455f-b974-106a02f2ebdc",
+          "input_order": 0,
+          "kind": "text",
+          "locator": null,
+          "raw_text": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [],
+          "content_sha256": "c6d45f7eea1ee434b66491f12a952977eb2e473cf6cc6dbd2376f8d7c98d4b1d",
+          "priority_rank": null,
+          "claims": []
+        }
+      ],
+      "source_priority_policy": {
+        "status": "unresolved",
+        "decision_id": "DEC-004",
+        "task_id": "TASK-DEC-004",
+        "precedence_source_ids": [],
+        "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+      },
+      "dedup_policy": {
+        "mode": "hash_candidates_only",
+        "keep_all_sources": true
+      },
+      "duplicate_groups": [],
+      "conflicts": []
+    },
+    "coverage": [
+      {
+        "feature": "source_identity",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "source_anchors",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "priority",
+        "status": "partial",
+        "reason": "DEC-004尚未执行。"
+      },
+      {
+        "feature": "conflict_detection",
+        "status": "unsupported",
+        "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+      },
+      {
+        "feature": "deduplication",
+        "status": "partial",
+        "reason": "仅SHA候选，不删除来源。"
+      }
+    ],
+    "errors": []
+  },
+  "documents": [
+    {
+      "source_id": "source_247efed8-8dec-455f-b974-106a02f2ebdc",
+      "document": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+        "source": {
+          "kind": "raw_text",
+          "source_ref": "raw_markdown"
+        },
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "document": {
+          "model_type": "TextDocumentModel",
+          "source": {
+            "kind": "raw_text",
+            "source_ref": "raw_markdown"
+          },
+          "blocks": [
+            {
+              "kind": "paragraph",
+              "block_index": 0,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 0,
+                "end_offset": 114,
+                "offset_unit": "unicode_code_point",
+                "line_start": 1,
+                "line_end": 1
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 0,
+                    "end_offset": 114,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 1,
+                    "line_end": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted."
+    }
+  ],
+  "evidence": [
+    {
+      "source_id": "source_247efed8-8dec-455f-b974-106a02f2ebdc",
+      "source_hash": "c6d45f7eea1ee434b66491f12a952977eb2e473cf6cc6dbd2376f8d7c98d4b1d",
+      "parser_version": "text-1:edb9e7429fe2dbc0ba800e0716435269684d46a8ab4c86851fa813c41e86470e:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:text",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_247efed8-8dec-455f-b974-106a02f2ebdc",
+        "asset_id": null,
+        "native_locator": "chars:0:114",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 0,
+          "start_char": 0,
+          "end_char": 114,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+      "content": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 0,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 0,
+          "end_offset": 114,
+          "offset_unit": "unicode_code_point",
+          "line_start": 1,
+          "line_end": 1
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 0,
+              "end_offset": 114,
+              "offset_unit": "unicode_code_point",
+              "line_start": 1,
+              "line_end": 1
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "text",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted.",
+      "evidence_id": "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d"
+    }
+  ],
+  "trace": [
+    {
+      "component": "TaskSpec",
+      "requirement_id": "SYS-001",
+      "status": "validated"
+    },
+    {
+      "component": "SchemaRegistry",
+      "requirement_id": "SYS-006",
+      "status": "validated"
+    },
+    {
+      "component": "SourceLoader",
+      "requirement_id": "SYS-003",
+      "status": "partial"
+    },
+    {
+      "component": "EvidenceStore",
+      "requirement_id": "SYS-004",
+      "status": "saved"
+    }
+  ],
+  "boundary": "Source parsing and evidence only; no fact extraction, model routing, PPTX generation or QA acceptance."
+}

@@ -1,0 +1,283 @@
+{
+  "trace_id": "trace_ced92d70-a49d-4f9f-acbd-70a4ddc498f2",
+  "node_id": "DEC-005",
+  "input": {
+    "trace_id": "trace_ced92d70-a49d-4f9f-acbd-70a4ddc498f2",
+    "evidence": [
+      {
+        "source_id": "source_247efed8-8dec-455f-b974-106a02f2ebdc",
+        "source_hash": "c6d45f7eea1ee434b66491f12a952977eb2e473cf6cc6dbd2376f8d7c98d4b1d",
+        "parser_version": "text-1:edb9e7429fe2dbc0ba800e0716435269684d46a8ab4c86851fa813c41e86470e:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:text",
+        "segment_index": 0,
+        "anchor": {
+          "source_id": "source_247efed8-8dec-455f-b974-106a02f2ebdc",
+          "asset_id": null,
+          "native_locator": "chars:0:114",
+          "locator": {
+            "kind": "text_span",
+            "segment_index": 0,
+            "start_char": 0,
+            "end_char": 114,
+            "offset_unit": "unicode_code_points"
+          },
+          "locator_status": "located",
+          "reason": null
+        },
+        "raw_text": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+        "content": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+        "confidence": null,
+        "data": {
+          "kind": "paragraph",
+          "block_index": 0,
+          "source_location": {
+            "source_ref": "raw_markdown",
+            "start_offset": 0,
+            "end_offset": 114,
+            "offset_unit": "unicode_code_point",
+            "line_start": 1,
+            "line_end": 1
+          },
+          "content": [
+            {
+              "kind": "text",
+              "text": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 0,
+                "end_offset": 114,
+                "offset_unit": "unicode_code_point",
+                "line_start": 1,
+                "line_end": 1
+              }
+            }
+          ]
+        },
+        "metadata": {
+          "source_kind": "text",
+          "semantic_claim_status": "not_inferred",
+          "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+        },
+        "asset_ref": null,
+        "raw_asset_refs": [],
+        "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted.",
+        "evidence_id": "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d"
+      }
+    ],
+    "interpretation": {
+      "coverage": [
+        {
+          "evidence_id": "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d",
+          "classification": "instructions",
+          "reason": "该段为明确虚构的学校节能演示测试材料，包含流程指令（先检查、再设置、随后记录、先培训、再回看、先核实、再调整）以及范围限定（只讨论照明管理、不对全校节能作出承诺），属于操作/格式与范围要求，不是可核验的事实数据。"
+        }
+      ],
+      "claims": [],
+      "missing": [
+        {
+          "fact_key": "school_energy_saving_pilot_quantitative_data",
+          "fact_kind": "amount",
+          "required": true,
+          "reason": "调用方要求保留原始数值、单位与来源，但材料未提供任何具体数值、单位或指标数据。",
+          "evidence_refs": [
+            "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d"
+          ]
+        },
+        {
+          "fact_key": "school_energy_saving_pilot_source_priority",
+          "fact_kind": "citation",
+          "required": true,
+          "reason": "调用方要求数值分歧使用明确的来源优先级，但材料未提供来源优先级规则或任何来源引用。",
+          "evidence_refs": [
+            "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d"
+          ]
+        }
+      ]
+    },
+    "policy": {},
+    "resolution": {
+      "status": "ready",
+      "groups": [],
+      "conflicts": [],
+      "issues": [],
+      "preserved_evidence_ids": [
+        "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d"
+      ],
+      "source_priority_policy": {
+        "status": "unresolved",
+        "decision_id": "DEC-004",
+        "task_id": "TASK-DEC-004",
+        "precedence_source_ids": [],
+        "unresolved_reason": "No caller source precedence; default does not pick conflicting values."
+      }
+    }
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-005",
+      "candidate_id": "candidate_1d99f7d1-6a24-446a-a75b-ea50fac1eed3",
+      "value": {
+        "fact_key": "school_energy_saving_pilot_quantitative_data",
+        "action": "ask"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "调用方要求保留原始数值、单位与来源，但材料未提供任何具体数值、单位或指标数据。"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d"
+      ],
+      "constraints": [
+        {
+          "no_unrecorded_assumption": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-005",
+      "candidate_id": "candidate_5f1a21fd-1b90-422e-bf21-7e720b21cadc",
+      "value": {
+        "fact_key": "school_energy_saving_pilot_source_priority",
+        "action": "ask"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "调用方要求数值分歧使用明确的来源优先级，但材料未提供来源优先级规则或任何来源引用。"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d"
+      ],
+      "constraints": [
+        {
+          "no_unrecorded_assumption": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_1d99f7d1-6a24-446a-a75b-ea50fac1eed3",
+    "candidate_5f1a21fd-1b90-422e-bf21-7e720b21cadc"
+  ],
+  "rules": {
+    "version": "DEC-005-1",
+    "mechanism": "Exact quote and identity validation; explicit policy precedence; no guessed authority or missing values.",
+    "source_sha256": "f3bfa3925abb76e445badb8f0ba20766896df8d62b564bbb8db9f7deee1300d2",
+    "fallback": "Unresolved conflict/ambiguity/required missing input blocks downstream use; all candidates retained."
+  },
+  "output": {
+    "status": "needs_clarification",
+    "fact_constraints": {
+      "record_type": "fact_constraint_set",
+      "requirement_id": "CNT-001",
+      "task_id": "TASK-CNT-001",
+      "status": "blocked",
+      "dates": [],
+      "citations": [
+        {
+          "fact_id": "fact.8b8eb12abfa7aa41fa84b45d",
+          "fact_kind": "citation",
+          "status": "missing",
+          "claims": [],
+          "resolution_status": "not_applicable",
+          "selected_claim_id": null,
+          "assumption_ref": null,
+          "related_fact_ids": [],
+          "allowed_transformations": []
+        }
+      ],
+      "metrics": [],
+      "entities": [],
+      "units": [],
+      "quotes": [],
+      "numbers": [
+        {
+          "fact_id": "fact.d5c3d939e7d84715909387f4",
+          "fact_kind": "amount",
+          "status": "missing",
+          "claims": [],
+          "resolution_status": "not_applicable",
+          "selected_claim_id": null,
+          "assumption_ref": null,
+          "related_fact_ids": [],
+          "allowed_transformations": []
+        }
+      ],
+      "assumption_refs": [],
+      "forbidden_inference": [
+        "DO_NOT_INVENT_MISSING_FACTS",
+        "DO_NOT_SELECT_UNRESOLVED_CONFLICTS",
+        "DO_NOT_CHANGE_ENTITY_IDENTITY",
+        "DO_NOT_CHANGE_NUMBER_SIGN_OR_PRECISION",
+        "DO_NOT_CHANGE_UNIT_CURRENCY_OR_DENOMINATOR",
+        "DO_NOT_CHANGE_DATE_PRECISION_PERIOD_OR_TIMEZONE",
+        "DO_NOT_DROP_QUALIFIER_OR_SCOPE",
+        "DO_NOT_INVENT_OR_REASSIGN_CITATIONS"
+      ],
+      "errors": [
+        {
+          "error_id": "ERR-009",
+          "reason_code": "MISSING_FACT",
+          "fact_id": "fact.d5c3d939e7d84715909387f4",
+          "source_id": null,
+          "evidence_id": null,
+          "message": "调用方要求保留原始数值、单位与来源，但材料未提供任何具体数值、单位或指标数据。"
+        },
+        {
+          "error_id": "ERR-009",
+          "reason_code": "MISSING_FACT",
+          "fact_id": "fact.8b8eb12abfa7aa41fa84b45d",
+          "source_id": null,
+          "evidence_id": null,
+          "message": "调用方要求数值分歧使用明确的来源优先级，但材料未提供来源优先级规则或任何来源引用。"
+        }
+      ]
+    },
+    "assumptions": [],
+    "assumption_values": {},
+    "actions": [
+      {
+        "fact_key": "school_energy_saving_pilot_quantitative_data",
+        "mode": "ask",
+        "reason": "调用方要求保留原始数值、单位与来源，但材料未提供任何具体数值、单位或指标数据。",
+        "label": "待确认"
+      },
+      {
+        "fact_key": "school_energy_saving_pilot_source_priority",
+        "mode": "ask",
+        "reason": "调用方要求数值分歧使用明确的来源优先级，但材料未提供来源优先级规则或任何来源引用。",
+        "label": "待确认"
+      }
+    ],
+    "issues": [
+      {
+        "code": "MISSING_FACT",
+        "fact_key": "school_energy_saving_pilot_quantitative_data",
+        "handling": "ask"
+      },
+      {
+        "code": "MISSING_FACT",
+        "fact_key": "school_energy_saving_pilot_source_priority",
+        "handling": "ask"
+      }
+    ]
+  },
+  "duration": 0.011966,
+  "error": {
+    "code": "FACT_DECISION_UNRESOLVED",
+    "issues": [
+      {
+        "code": "MISSING_FACT",
+        "fact_key": "school_energy_saving_pilot_quantitative_data",
+        "handling": "ask"
+      },
+      {
+        "code": "MISSING_FACT",
+        "fact_key": "school_energy_saving_pilot_source_priority",
+        "handling": "ask"
+      }
+    ]
+  }
+}

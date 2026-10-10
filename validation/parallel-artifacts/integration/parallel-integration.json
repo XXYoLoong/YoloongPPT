@@ -1,0 +1,340 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "http_ready",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "job_submit_202",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "isolated_worker_actual_validate",
+      "passed": true,
+      "observation": {
+        "job_id": "bc765b4b-582d-4618-b123-e0b945b3d5fc",
+        "operation": "validate",
+        "state": "succeeded",
+        "trace_id": "trace_c3abc2a6-ace0-44ec-ac5f-143a8c89d7d5",
+        "created_at": "2026-10-10T09:21:00.674889+00:00",
+        "updated_at": "2026-10-10T09:21:03.666870+00:00"
+      }
+    },
+    {
+      "name": "queued_cancel",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "explicit_retry_new_identity",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "mcp_stdio_initialized",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "mcp_required_tools",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "mcp_actual_evidence_not_mock",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "mcp_structured_failure",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "native_api_real_pptx",
+      "passed": true,
+      "observation": "019a3ada-ddfe-48bd-ac75-d99b42283c8b"
+    },
+    {
+      "name": "existing_deck_api_index",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "existing_deck_api_preserve",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "template_api_master_layout_theme",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "template_api_actual_instantiation",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "create_async_202",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "explicit_missing_policy_resume",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "actual_ai_job_succeeded",
+      "passed": true,
+      "observation": {
+        "ok": true,
+        "trace_id": "trace_24ce6a7a-3377-464a-902e-338589a6ce4f",
+        "job": {
+          "job_id": "0e6271b5-08ff-483d-ae51-f5f79c89a9d3",
+          "operation": "resume",
+          "state": "succeeded",
+          "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+          "created_at": "2026-10-10T09:25:36.436188+00:00",
+          "updated_at": "2026-10-10T09:26:04.581658+00:00"
+        },
+        "result": {
+          "ok": true,
+          "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+          "task_id": "task_c2474677-adeb-48b1-8b43-6db30ffebf56",
+          "run_id": "5be192ef-798f-4bb0-9c93-c24bcc279aa4",
+          "operation": "generate",
+          "state": "draft_generated",
+          "artifact_root": "/runtime/runs/5be192ef-798f-4bb0-9c93-c24bcc279aa4",
+          "pptx": "/runtime/runs/5be192ef-798f-4bb0-9c93-c24bcc279aa4/deck.pptx",
+          "slide_count": 8,
+          "model": {
+            "provider": "deepseek",
+            "requested_model": "deepseek-flash",
+            "returned_model": "deepseek-flash",
+            "response_id": "af98590e-e7e3-41b9-a857-2e1fe9661577",
+            "usage": {
+              "prompt_tokens": 5423,
+              "completion_tokens": 1689,
+              "total_tokens": 7112,
+              "prompt_tokens_details": {
+                "cached_tokens": 1152
+              },
+              "prompt_cache_hit_tokens": 1152,
+              "prompt_cache_miss_tokens": 4271
+            },
+            "available_models": [
+              "deepseek-flash",
+              "deepseek-v4-pro"
+            ],
+            "parameters": {
+              "model": "deepseek-flash",
+              "response_format": {
+                "type": "json_object"
+              },
+              "thinking": {
+                "type": "disabled"
+              },
+              "temperature": 0.2,
+              "max_tokens": 12000,
+              "stream": false
+            },
+            "request_sha256": "3e24f19e50c102d7ec0f4083088b987b78fd8bd622645e6b48b27c6bbec6165a",
+            "response_content_sha256": "c9aeaa1b520fe55890ebbcbbbaf47ec1c4618a2cb98249c3702bc80e5764a92e",
+            "duration_seconds": 7.347,
+            "real_model_call": true
+          },
+          "qa": {
+            "status": "partial",
+            "p0_issue_count": 0,
+            "acceptance": {
+              "AC-001": "not_passed",
+              "GOV-008": "not_passed"
+            }
+          },
+          "warnings": [],
+          "boundary": "Actual model/PPTX/render/deterministic and image/fact model QA; complete DEC graph, QA coverage, revision scope and system acceptance unfinished."
+        }
+      }
+    },
+    {
+      "name": "narrative_consumed_by_real_model",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "sixteen_nodes_consumed",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "actual_eight_native_slides",
+      "passed": true,
+      "observation": null
+    },
+    {
+      "name": "actual_lo_render",
+      "passed": true,
+      "observation": {
+        "artifacts": [
+          {
+            "artifact_id": "artifact_f5e24d7f-8199-4f27-b760-81d4083b3303",
+            "slide_id": null,
+            "type": "pdf",
+            "path": "render/deck.pdf",
+            "hash": "15d0f83b09c967ce9068b7562a5d69ccf0ec994a8ca47c53753fc135436770b2",
+            "renderer": "LibreOffice",
+            "version": "LibreOffice 7.4.7.2 40(Build:2)",
+            "dpi": null
+          },
+          {
+            "artifact_id": "artifact_ffaf4175-ff6c-4042-9899-d25ccf86cb1a",
+            "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+            "type": "png",
+            "path": "render/slide-1.png",
+            "hash": "6a41caaa0dc87b990b1e364afedf4a21510a8e414cf6dd0bdcf322aaa4a8dd47",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          },
+          {
+            "artifact_id": "artifact_30eed889-d94e-49ec-82ea-44ebb0acff3e",
+            "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+            "type": "png",
+            "path": "render/slide-2.png",
+            "hash": "3fe78eda218e4f86c7f205a3327fee33aa5a934c7e0f5e1f2bf6ebd88c62173c",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          },
+          {
+            "artifact_id": "artifact_ba388327-18ae-49c7-a024-289e92d1b6ea",
+            "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+            "type": "png",
+            "path": "render/slide-3.png",
+            "hash": "79a22c71a507808bc2694051541e08dc9585164052b7b90cba7216c5fddcbcc7",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          },
+          {
+            "artifact_id": "artifact_918067f6-7486-466d-91df-d07088a70f52",
+            "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+            "type": "png",
+            "path": "render/slide-4.png",
+            "hash": "f6f1469158e876ff87c128cb7a612609e5a605aede2973516b23ba96b1dae5f9",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          },
+          {
+            "artifact_id": "artifact_d4cc2f82-2d23-4973-a999-b7fed3f5e3cc",
+            "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+            "type": "png",
+            "path": "render/slide-5.png",
+            "hash": "0ece17b73fde54f9b506373a221c81bad3ed998172cf56c0cae3efae93fbebff",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          },
+          {
+            "artifact_id": "artifact_2c8f7b37-d66d-45bc-9f57-e7128e179e2b",
+            "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+            "type": "png",
+            "path": "render/slide-6.png",
+            "hash": "90b97c94450e75e1150b2b8d58cd3050fae2352eb44693841f2d5b187224ee6d",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          },
+          {
+            "artifact_id": "artifact_5c05862d-265e-4c6e-9da5-2eb8d852e1c9",
+            "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+            "type": "png",
+            "path": "render/slide-7.png",
+            "hash": "8e4cfbbff3d89e6bb4a92003f6fc0e56a55ae84c95f90c2d0d8ba38b57897870",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          },
+          {
+            "artifact_id": "artifact_7aa38643-1474-4654-86dd-5336f2a41e66",
+            "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+            "type": "png",
+            "path": "render/slide-8.png",
+            "hash": "c8b18f7c0e24e725b65cf867b10816dd39b094e5d06ef155a2c2a949148efd7d",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          }
+        ],
+        "renderer_version": "LibreOffice 7.4.7.2 40(Build:2)",
+        "poppler_version": "pdftoppm version 22.12.0",
+        "stdout": "convert /runtime/runs/5be192ef-798f-4bb0-9c93-c24bcc279aa4/deck.pptx -> /runtime/runs/5be192ef-798f-4bb0-9c93-c24bcc279aa4/render/deck.pdf using filter : impress_pdf_Export",
+        "stderr": "Warning: failed to launch javaldx - java may not function correctly",
+        "powerpoint_compatibility": "not_tested",
+        "render_text_path": "render/deck.txt",
+        "render_bbox_path": "render/deck-bbox.xhtml"
+      }
+    },
+    {
+      "name": "api_manifest_verified",
+      "passed": true,
+      "observation": null
+    }
+  ],
+  "run_id": "5be192ef-798f-4bb0-9c93-c24bcc279aa4",
+  "job_id": "0e6271b5-08ff-483d-ae51-f5f79c89a9d3",
+  "qa": {
+    "status": "partial",
+    "p0_issue_count": 0,
+    "acceptance": {
+      "AC-001": "not_passed",
+      "GOV-008": "not_passed"
+    }
+  },
+  "scope": "bounded parallel integration; full original requirements and AC not accepted",
+  "source_hashes": {
+    "src/yoloongppt/__init__.py": "8bdb38ff28f3a548d91af566ff0637444a48c296386952e669f73a2b9f7aa90b",
+    "src/yoloongppt/__main__.py": "1fad34e021e36610f3c547e70d6f351ab8e9726feb6345ad23433e552de4338c",
+    "src/yoloongppt/api.py": "e0ef19e5631e54f516c9d2ae2914857d3e55399a43017ed4c949fc7ab1d6df6b",
+    "src/yoloongppt/artifacts.py": "122a72e8a81d991daf5a4237c573bbfb4a43fce0e7f4427d9aa264b1a5334e8f",
+    "src/yoloongppt/assets.py": "c904a5688db21224b7f709732f23e9924bc999f7a0fef811a4e80a64e249bfcc",
+    "src/yoloongppt/atomic.py": "992342eac300d4b64c3e815b5a5465dbd2f147133b37bd34fac2c400771bb0bd",
+    "src/yoloongppt/capabilities.py": "dec12d838d8c53ed04695dfad173229d37aaa52857162f377ba997a34bd9a10d",
+    "src/yoloongppt/context.py": "d880a6c169d01782b6b26abb83bf9fd5f736198ccb632a7d242a349419cd44ce",
+    "src/yoloongppt/errors.py": "877d710a888b55a173c3c376735c2796510d3b5733174fab02a37fff2d76f355",
+    "src/yoloongppt/evidence.py": "2e66c94e2a5d8eeea70006f98b525bca84930f64b70112d042ee96973e6bac3a",
+    "src/yoloongppt/existing_deck.py": "aa88ab55fedc8350629cf3e6e12be76a64553428cb5ea589644b4ec788de4e74",
+    "src/yoloongppt/facts.py": "f3bfa3925abb76e445badb8f0ba20766896df8d62b564bbb8db9f7deee1300d2",
+    "src/yoloongppt/generation.py": "6ad8f5e5e170544febee10aae907754ffc083d7a62afd063ec64f9405fb30864",
+    "src/yoloongppt/input_formats.py": "53b4513c32314f4928fa1bd8504539634327ceac2d36263baad433f54c46aa36",
+    "src/yoloongppt/job_worker.py": "170468882f35ccbf23f891a5c0f55b96189dd5360ae7dc7f7eb22eb31af9c633",
+    "src/yoloongppt/jobs.py": "570e086ec37ee0418b99df69bf0e1a5371969ed40a213df829c88f0b0f4edf45",
+    "src/yoloongppt/jsonio.py": "7eede0b149d96093f63a9d0eaa9416b2acba2745535ef8fe76921a99323d8fb9",
+    "src/yoloongppt/layouts.py": "c1bfe831094eecde539e45dfeaca297af0cfb1cad176271f4f0473327681afad",
+    "src/yoloongppt/markdown.py": "a4ee49169ab79914e3e9a99fcde6b5ae3af6bc9d5200199463acfcd1a32d812a",
+    "src/yoloongppt/mcp_server.py": "51199764dffa6b01eda3c2d9b44e28bb0ce2f644b5fa1aec99a88e50329b6dfc",
+    "src/yoloongppt/narrative.py": "9b9811627a75c6bb9bcb2ada3269e58da9b2713210715686adbe6f6e8b3e454e",
+    "src/yoloongppt/native_objects.py": "f4dbe032a8e77ebeff521f0eb995331287bf0f2e1b26b19e94196ad87d749817",
+    "src/yoloongppt/observability.py": "9810fc6416b2d6499cb151706d26c792525467e2e6f1cccfde87c7b35e31441a",
+    "src/yoloongppt/operations.py": "eb61ccf3433730f4cb9d1593f48ab5a98c4bdb3a0c1c00d948be80b7f9ae54b1",
+    "src/yoloongppt/planning.py": "27b4d93921002affacc3a36fa223f67eb3aff87732327813c28def2de0b4ef2a",
+    "src/yoloongppt/providers.py": "269a90d1e498d54cb9f16fba8f6735ec586c1f26e8298ce784ab43d601bf7d99",
+    "src/yoloongppt/quality.py": "cd54c54fa5a94f04adc525805f70f513235dc4308898d56f899859b64f474ea2",
+    "src/yoloongppt/rendering.py": "59831608a7d5d7ef22613a70c7203407d6190afd5e9bc40361b65923f8cc14c6",
+    "src/yoloongppt/review.py": "016adc3a9b89ec599a7c299b65f5996bab70ca8840a23f0be60cd1b7f1256d60",
+    "src/yoloongppt/revision.py": "6fe379bd6ee2b0f874a9b3e7da4438868c0064d4a3561f06f0ba1c2ff83b11d6",
+    "src/yoloongppt/routing.py": "c5cd66cb20e33de813403623db7f5f935a5433494ae048f2838091e6ed967438",
+    "src/yoloongppt/schemas.py": "f58337c8a7199056b131b7e43f46e7d994804eab2a3889a38e9c8a6ed45071bb",
+    "src/yoloongppt/source_roles.py": "17abca434fcdc61145cfbf556a5fa7a9495d9eee63812e7bdcb99aa400cf9916",
+    "src/yoloongppt/sources.py": "add49699cde32a20d903222e7605e49e79efbc445c7766e33e452bbd77ed464d",
+    "src/yoloongppt/tasks.py": "e00553086474db58a632cfe0d3b042a53a37e8b6203694ff998b0d8dd4abcdaf",
+    "src/yoloongppt/templates.py": "505b718b514560e73980fa898b5ab45f486f52c21f07a041d76579d82257ece7",
+    "src/yoloongppt/writer.py": "9fddcc9cbe4d6fa22233a7e2711b7155a1b2379fcac61385003ac97b94b87a18"
+  }
+}

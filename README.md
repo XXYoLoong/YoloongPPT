@@ -1,6 +1,6 @@
 # YoloongPPT
 
-AI PPT 生成系统项目。Docker内已有任务校验、文本/Markdown解析、证据存储、真实模型规划、原生PPTX写入、PDF/PNG渲染、结构及模型视觉/事实检查和单个文本对象修订，均通过CLI/API共享核心。完整DEC链、全部QA与修订范围和系统验收仍待完成。
+AI PPT 生成系统项目。Docker内已有多格式输入/证据、DEC-001–021有界消费、真实模型规划、可编辑PPTX、PDF/PNG渲染、部分结构/视觉/事实检查、原生对象执行及已有PPT定向编辑；CLI/API/MCP共享核心，长任务有持久状态、取消、重试和显式恢复。全部原需求及系统验收仍待完成。
 
 完整交付目标与防偏离规则见 [GOAL.md](GOAL.md)，执行计划见 [PROJECT_PLAN.md](PROJECT_PLAN.md)，17 小时进度审计见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
 
@@ -40,9 +40,9 @@ TaskSpec例子只校验已给出的路由与输入形状，未执行DEC-001或�
 
 ## 来源解析与证据
 
-`python -m yoloongppt inspect <TaskSpec.json>`或HTTP POST `/inspect`解析prompt/text/markdown来源，返回SourceBundle、结构化文档、原文证据ID与trace；`python -m yoloongppt evidence <evidence_id>`或GET `/evidence/{id}`查询同一持久证据。SQLite与原文快照位于F盘绑定的runtime/data，不进入Git。文件路径只接受工作区或运行目录内的UTF-8 .md/.markdown/.txt，其他输入明确报错。
+`python -m yoloongppt inspect <TaskSpec.json>`或HTTP POST `/inspect`支持prompt/text/markdown、DOCX、XLSX/CSV、PPTX/POTX、文本PDF、图片、JSON/XML，返回结构与证据锚点；二进制使用工作区或/runtime中的locator，限制16MiB并拒绝敏感目录。原始字节/数据库只在F盘runtime/data。图片与空结构保留，未执行OCR，不作为文字事实。
 
-Markdown保留标题、列表、代码、表格、链接、引用与脚注结构；表格行宽不一致、重复脚注、未映射结构停止解析，原文未截断。块锚点精确回到原文，行内位置仅表示所属块范围。来源解析不推导意图；DEC-001另行按显式模式、调用方原文及附件角色判定。优先级/事实冲突检测和其他格式仍未实现。实际输入/解析样例见[source-runtime-example.json](validation/source-runtime-example.json)，验证见[source-runtime.json](validation/source-runtime.json)。
+Markdown保留原文结构；原生格式保留表格/对象/媒体关系及格式锚点。外部链接只登记，不自动执行下载；未知语义、OCR、单位/显示格式或模板容量明确报告。DEC-003分角色，DEC-004/005选择事实、冲突与缺失策略。格式边界与31项实物检查见[输入格式与原生模板实装](validation/输入格式与原生模板实装.md)。
 
 ## 真实生成与局部修订
 
@@ -58,13 +58,23 @@ Markdown保留标题、列表、代码、表格、链接、引用与脚注结构
 
 默认开发分支为 yoloongdevlop，远端为 origin。每个项目变更都要在 ailog/ 和 development-log/ 各创建一份同名中文摘要日志，再提交到该分支并推送到 origin/yoloongdevlop。具体约定见 AGENTS.md。
 
+## 并行实装的入口与产物
+
+`POST /create` 返回202及job_id；`GET /jobs/{job_id}` 查询，`POST /jobs/{job_id}/cancel`取消，`POST /jobs/{job_id}/retry`显式重试。`GET /artifacts/{run_id}`核对并列出产物路径。`POST /jobs`可提交generate/revise/resume/recheck/inspect/validate；恢复请求可显式提供 `task_patch.evidence_policy` 处理原未决事实，来源和已保存模型响应不改写。
+
+`python -m yoloongppt mcp-serve` 在Docker内启动stdio MCP；客户端应通过 `docker --context desktop-linux compose exec -T app python -m yoloongppt mcp-serve` 的stdin/stdout连接，不能使用TTY。工具至少包含create_deck/revise_deck/inspect/validate/capabilities/debug，另有已有PPT、模板、资产与原生执行入口。当前只实现stdio，有界初始化和串行调用；完整客户端/取消能力仍待验收。
+
+新CLI命令 `inspect-deck/edit-deck/parse-template/instantiate-template/compose-native/inventory-assets/compare-runs` 接收JSON文件；HTTP对应 `/inspect-deck`、`/edit-deck`、`/parse-template`、`/instantiate-template`、`/compose-native`、`/inventory-assets`、`/compare-runs`。现有AI生成入口仅采用已验证原生版式，自定义模板文本实例化属于独立明确入口；不静默替换用户模板。
+
+本轮真实产物：[8页可编辑PPTX](validation/parallel-artifacts/generated/deck.pptx)、[PDF](validation/parallel-artifacts/generated/render/deck.pdf)。[并行集成记录](validation/并行核心功能集成.md)说明177项检查、初次失败、真实恢复及剩余条件。整体仍为部分交付，P0=0不表示系统AC通过。
+
 ## 可独立运行的模式路由与原子能力
 
 app内 `python -m yoloongppt route /workspace/validation/route-request.json` 或 HTTP POST `/route` 输入相同JSON。raw_request.request保留原文、附件ID、显式模式、输出；attachment_roles明确内容/风格/模板/已有deck/还原来源，single_slide可指定动作及目标。八种模式独立保护策略，无法唯一判断则needs_clarification，未实现的后续模式标明executable=false，不替换为新建。
 
 节点结果与完整DecisionTrace保存到F盘运行目录；`generate`也实际消费该节点。TaskSpec可附raw_request，声明路线与原文判定冲突时停止。能力快照只探测当前本地子集，外部模型/Office完整探测仍待SYS-002；节点入口可注入能力快照进行调试，其来源标为caller_provided，不能改变生成入口的实际探测。
 
-`capabilities`的atomic_registry含五项已登记的原生写入能力及稳定实现ID；执行DAG由planner实际选择，writer在任何写入前核对所有调用的绑定和输入，再校验真实输出。其他对象/后端及导入保真未升级支持状态。
+`capabilities`的atomic_registry含原生成主链路五项写入能力，native_objects另列30类能力与CRUD/保真/渲染限制；`compose-native`入口实际执行七类对象。已有PPT编辑保留未选部件，但不将未知对象保留升级为可编辑支持；其他后端保持原状态。
 
 实物与复现：[模式路由与能力登记](validation/模式路由与能力登记.md)、[该次生成PPTX](validation/route-artifacts/deck.pptx)、[渲染PDF](validation/route-artifacts/render/deck.pdf)。39项模式节点/登记核验是前次版本证据；当前核心26项及生成修订31项回归通过，完整AC仍未通过。
 

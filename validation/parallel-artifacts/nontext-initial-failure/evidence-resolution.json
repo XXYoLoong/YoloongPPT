@@ -1,0 +1,121 @@
+{
+  "status": "needs_clarification",
+  "groups": [
+    {
+      "fact_id": "fact.3fb87b6dcb7cbca50068e360",
+      "fact_key": "school_energy_pilot_energy_consumption_reduction_2026",
+      "fact_kind": "percentage",
+      "claims": [
+        {
+          "fact_key": "school_energy_pilot_energy_consumption_reduction_2026",
+          "fact_kind": "percentage",
+          "value": {
+            "raw_text": "8%",
+            "normalized_text": null,
+            "numeric_value": "8",
+            "date_value": null,
+            "date_precision": null,
+            "unit": "%",
+            "currency": null,
+            "percentage_base": null,
+            "period": "2026年",
+            "qualifier": "试点",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_95913b19-7bd5-4d98-9d9a-6478ca149232",
+              "quote": "试点2026年能耗降低8%。"
+            },
+            {
+              "evidence_id": "evidence_15c9107c-78e6-485e-a26e-7b1a8290cfb1",
+              "quote": "8%"
+            }
+          ],
+          "reason": "原文明确表述试点2026年能耗降低8%，提取为百分比事实，期间为2026年，限定为试点。",
+          "claim_id": "claim.8b35f9553793bbad0863bd62",
+          "source_id": "source_56223fbb-1640-426d-bed4-a0c98299433f",
+          "evidence_refs": [
+            {
+              "evidence_id": "evidence_95913b19-7bd5-4d98-9d9a-6478ca149232",
+              "source_id": "source_56223fbb-1640-426d-bed4-a0c98299433f",
+              "source_anchor": {
+                "source_id": "source_56223fbb-1640-426d-bed4-a0c98299433f",
+                "asset_id": "asset_4524ab8e-9964-4e86-9b01-84911283ac66",
+                "native_locator": "word/document.xml#paragraph=1",
+                "locator": {
+                  "kind": "docx_block",
+                  "story": "body",
+                  "paragraph_index": 1,
+                  "table_index": null,
+                  "row_index": null,
+                  "cell_index": null,
+                  "page_location": {
+                    "status": "pending",
+                    "page_numbers": [],
+                    "renderer_ref": null,
+                    "reason": "未执行Word布局分页渲染。"
+                  }
+                },
+                "locator_status": "located",
+                "reason": null
+              }
+            },
+            {
+              "evidence_id": "evidence_15c9107c-78e6-485e-a26e-7b1a8290cfb1",
+              "source_id": "source_56223fbb-1640-426d-bed4-a0c98299433f",
+              "source_anchor": {
+                "source_id": "source_56223fbb-1640-426d-bed4-a0c98299433f",
+                "asset_id": "asset_4524ab8e-9964-4e86-9b01-84911283ac66",
+                "native_locator": "word/document.xml#table=0,row=0,cell=1",
+                "locator": {
+                  "kind": "docx_block",
+                  "story": "body",
+                  "paragraph_index": null,
+                  "table_index": 0,
+                  "row_index": 0,
+                  "cell_index": 1,
+                  "page_location": {
+                    "status": "pending",
+                    "page_numbers": [],
+                    "renderer_ref": null,
+                    "reason": "未执行Word布局分页渲染。"
+                  }
+                },
+                "locator_status": "located",
+                "reason": null
+              }
+            }
+          ]
+        }
+      ],
+      "selected_claim_id": "claim.8b35f9553793bbad0863bd62",
+      "basis": "equivalent_values_all_sources_retained",
+      "conflicting": false
+    }
+  ],
+  "conflicts": [],
+  "issues": [
+    {
+      "code": "FACT_EXTRACTION_AMBIGUOUS",
+      "evidence_id": "evidence_2d550fdf-5e2c-46be-a8a9-75067a0338dd",
+      "reason": "该证据文本为空，无法判断其内容或分类。"
+    }
+  ],
+  "preserved_evidence_ids": [
+    "evidence_b85c6fa2-1e85-474a-a7ac-a5d73d5ed279",
+    "evidence_8048f755-200b-4a2c-85cc-127a784872fb",
+    "evidence_95913b19-7bd5-4d98-9d9a-6478ca149232",
+    "evidence_bfaae797-73d2-442e-b92f-5fcea97f1341",
+    "evidence_15c9107c-78e6-485e-a26e-7b1a8290cfb1",
+    "evidence_2d550fdf-5e2c-46be-a8a9-75067a0338dd"
+  ],
+  "source_priority_policy": {
+    "status": "unresolved",
+    "decision_id": "DEC-004",
+    "task_id": "TASK-DEC-004",
+    "precedence_source_ids": [],
+    "unresolved_reason": "No caller source precedence; default does not pick conflicting values."
+  }
+}

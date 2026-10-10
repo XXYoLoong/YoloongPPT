@@ -1,0 +1,105 @@
+{
+  "task_id": "task_83b88aa8-def7-4d31-b68a-ce9ecd287dbe",
+  "route": {
+    "route_status": "routed",
+    "mode": "create_from_materials",
+    "routing_reason": "调用者明确要求材料新建",
+    "protection_policy_id": "preserve_material_facts_and_sources",
+    "decision_id": "DEC-001",
+    "trace": {
+      "candidate_modes": [
+        "create_from_materials"
+      ],
+      "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+    }
+  },
+  "sources": [
+    {
+      "source_id": "source_247efed8-8dec-455f-b974-106a02f2ebdc",
+      "kind": "text",
+      "content": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。"
+    }
+  ],
+  "constraints": {
+    "hard": [],
+    "soft": [
+      {
+        "constraint_id": "parallel-page_count",
+        "field": "page_count",
+        "value": 8,
+        "source": {
+          "kind": "user_instruction",
+          "reference": "parallel integration fixture"
+        },
+        "disposition": "applied"
+      },
+      {
+        "constraint_id": "parallel-audience",
+        "field": "audience",
+        "value": "学校管理层",
+        "source": {
+          "kind": "user_instruction",
+          "reference": "parallel integration fixture"
+        },
+        "disposition": "applied"
+      },
+      {
+        "constraint_id": "parallel-scenario",
+        "field": "scenario",
+        "value": "项目汇报",
+        "source": {
+          "kind": "user_instruction",
+          "reference": "parallel integration fixture"
+        },
+        "disposition": "applied"
+      },
+      {
+        "constraint_id": "parallel-tone",
+        "field": "tone",
+        "value": "清晰克制",
+        "source": {
+          "kind": "user_instruction",
+          "reference": "parallel integration fixture"
+        },
+        "disposition": "applied"
+      }
+    ],
+    "defaults": [],
+    "conflicts": []
+  },
+  "style": null,
+  "template_ref": null,
+  "output": {
+    "formats": [
+      "pptx",
+      "pdf",
+      "png"
+    ]
+  },
+  "providers": {
+    "text": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "parameters": {
+        "temperature": 0.2,
+        "max_tokens": 12000,
+        "timeout_seconds": 180
+      }
+    }
+  },
+  "runtime_preferences": {},
+  "raw_request": {
+    "request": {
+      "raw_text": "根据材料制作4页中文演示；保留原始数值、单位与来源，数值分歧使用明确的来源优先级。",
+      "attachments": [],
+      "requested_mode": "create_from_materials",
+      "requested_outputs": [
+        "pptx",
+        "pdf",
+        "png"
+      ]
+    },
+    "attachment_roles": []
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/narrative-context.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "实际模型消费的叙事上下文",
+  "required": [
+    "version",
+    "trace_id",
+    "audience",
+    "scenario",
+    "language_style",
+    "content_graph",
+    "relation_candidates",
+    "storyline",
+    "page_budget",
+    "citation_mode",
+    "content_policy",
+    "decision_traces"
+  ],
+  "properties": {
+    "version": {
+      "const": "narrative-1"
+    },
+    "trace_id": {
+      "$ref": "object-id.schema.json#/$defs/trace_id"
+    },
+    "audience": {
+      "$ref": "audience-profile.schema.json"
+    },
+    "scenario": {
+      "$ref": "presentation-scenario.schema.json"
+    },
+    "language_style": {
+      "$ref": "language-style-spec.schema.json"
+    },
+    "content_graph": {
+      "$ref": "content-graph.schema.json"
+    },
+    "relation_candidates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "storyline": {
+      "type": "object",
+      "required": [
+        "pattern",
+        "rationale",
+        "evidence_refs"
+      ],
+      "properties": {
+        "pattern": {
+          "enum": [
+            "linear",
+            "problem_solution",
+            "conclusion_first",
+            "timeline",
+            "teaching_progression",
+            "data_driven"
+          ]
+        },
+        "rationale": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "uniqueItems": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "page_budget": {
+      "type": "object",
+      "required": [
+        "target",
+        "minimum",
+        "maximum",
+        "allowed_deviation",
+        "duration_original",
+        "source_characters",
+        "policy"
+      ],
+      "properties": {
+        "target": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "minimum": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "maximum": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "allowed_deviation": {
+          "const": 0
+        },
+        "duration_original": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_characters": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "policy": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "citation_mode": {
+      "const": "notes"
+    },
+    "content_policy": {
+      "type": "object"
+    },
+    "decision_traces": {
+      "type": "array",
+      "items": {
+        "$ref": "narrative-trace.schema.json"
+      }
+    }
+  }
+}

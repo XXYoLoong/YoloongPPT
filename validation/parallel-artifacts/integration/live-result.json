@@ -1,0 +1,69 @@
+{
+  "ok": true,
+  "trace_id": "trace_24ce6a7a-3377-464a-902e-338589a6ce4f",
+  "job": {
+    "job_id": "0e6271b5-08ff-483d-ae51-f5f79c89a9d3",
+    "operation": "resume",
+    "state": "succeeded",
+    "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+    "created_at": "2026-10-10T09:25:36.436188+00:00",
+    "updated_at": "2026-10-10T09:26:04.581658+00:00"
+  },
+  "result": {
+    "ok": true,
+    "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+    "task_id": "task_c2474677-adeb-48b1-8b43-6db30ffebf56",
+    "run_id": "5be192ef-798f-4bb0-9c93-c24bcc279aa4",
+    "operation": "generate",
+    "state": "draft_generated",
+    "artifact_root": "/runtime/runs/5be192ef-798f-4bb0-9c93-c24bcc279aa4",
+    "pptx": "/runtime/runs/5be192ef-798f-4bb0-9c93-c24bcc279aa4/deck.pptx",
+    "slide_count": 8,
+    "model": {
+      "provider": "deepseek",
+      "requested_model": "deepseek-flash",
+      "returned_model": "deepseek-flash",
+      "response_id": "af98590e-e7e3-41b9-a857-2e1fe9661577",
+      "usage": {
+        "prompt_tokens": 5423,
+        "completion_tokens": 1689,
+        "total_tokens": 7112,
+        "prompt_tokens_details": {
+          "cached_tokens": 1152
+        },
+        "prompt_cache_hit_tokens": 1152,
+        "prompt_cache_miss_tokens": 4271
+      },
+      "available_models": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "parameters": {
+        "model": "deepseek-flash",
+        "response_format": {
+          "type": "json_object"
+        },
+        "thinking": {
+          "type": "disabled"
+        },
+        "temperature": 0.2,
+        "max_tokens": 12000,
+        "stream": false
+      },
+      "request_sha256": "3e24f19e50c102d7ec0f4083088b987b78fd8bd622645e6b48b27c6bbec6165a",
+      "response_content_sha256": "c9aeaa1b520fe55890ebbcbbbaf47ec1c4618a2cb98249c3702bc80e5764a92e",
+      "duration_seconds": 7.347,
+      "real_model_call": true
+    },
+    "qa": {
+      "status": "partial",
+      "p0_issue_count": 0,
+      "acceptance": {
+        "AC-001": "not_passed",
+        "GOV-008": "not_passed"
+      }
+    },
+    "warnings": [],
+    "boundary": "Actual model/PPTX/render/deterministic and image/fact model QA; complete DEC graph, QA coverage, revision scope and system acceptance unfinished."
+  }
+}

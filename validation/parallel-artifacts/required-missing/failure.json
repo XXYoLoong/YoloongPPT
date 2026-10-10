@@ -1,0 +1,30 @@
+{
+  "ok": false,
+  "trace_id": "trace_dbaefe46-34d1-4b13-8f55-6941b570b7e7",
+  "error": {
+    "code": "FACT_DECISION_UNRESOLVED",
+    "message": "来源冲突、含糊解释或必需事实缺失，停止生成。",
+    "component": "FactBoundary",
+    "requirement_ids": [
+      "DEC-004",
+      "DEC-005"
+    ],
+    "details": [
+      {
+        "code": "MISSING_FACT",
+        "fact_key": "school_energy_saving_pilot.energy_consumption_reduction_target.baseline",
+        "handling": "ask"
+      },
+      {
+        "code": "MISSING_FACT",
+        "fact_key": "school_energy_saving_pilot.energy_consumption_reduction_target.metric_name",
+        "handling": "ask"
+      },
+      {
+        "run_id": "78bbb274-b6c9-4805-ac6f-9564b3b26270",
+        "artifact_root": "/runtime/runs/78bbb274-b6c9-4805-ac6f-9564b3b26270"
+      }
+    ],
+    "retryable": false
+  }
+}

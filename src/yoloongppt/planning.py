@@ -41,7 +41,7 @@ def preflight(task, context=None, schemas=None):
     values = context['values']
     if values['template'] is not None:
         raise TaskError('GENERATION_TEMPLATE_UNSUPPORTED', '归一化模板要求未接入，未替换模板。', 'Preflight', ['DEC-002','SYS-011'])
-    if any(values[k] is not None for k in ['brand','audience','scenario','duration','tone']) or values['citation_policy'] != 'notes':
+    if values['brand'] is not None or values['citation_policy'] != 'notes':
         raise TaskError('HARD_CONSTRAINT_UNSUPPORTED', '已保存的上下文要求尚未由完整后续节点执行；未静默忽略。', 'Preflight', ['DEC-002','GOV-003'])
     count = values['page_count']
     if type(count) is not int or not 1 <= count <= 30 or values['language'] != 'zh-CN' or values['aspect_ratio'] != '16:9' or values['minimum_font_size'] != 16:
@@ -57,7 +57,7 @@ def preflight(task, context=None, schemas=None):
     return count, style, context['warnings']
 
 
-def plan(task, sources, schemas, artifacts, count):
+def plan(task, sources, schemas, artifacts, count, narrative=None):
     schema = schemas.documents['generation-model.schema.json']
     evidence = [{'evidence_id': e['evidence_id'], 'source_id': e['source_id'], 'text': approved_text(sources,e)}
                 for e in sources['evidence']]
@@ -84,6 +84,10 @@ def plan(task, sources, schemas, artifacts, count):
             'storyline': {'pattern': '结论先行', 'rationale': '有原文支持'}, 'slides': []}}
     if 'fact_boundary' in sources:
         user.update(fact_boundary=planner_boundary(sources),instruction_context=sources['instruction_context'],projection_scope=sources['projection_scope'])
+    if narrative is not None:
+        from .narrative import model_packet
+        user['narrative'] = model_packet(narrative)
+        system += '消费narrative的受众、场景、语言风格、候选故事线与页预算；只能用已选事实，不把关系候选视为已证明因果。'
     messages = [{'role': 'system', 'content': system}, {'role': 'user', 'content': json.dumps(user, ensure_ascii=False)}]
     artifacts.json('model-request.json', {'messages': messages, 'provider': task['providers']['text']})
     proposal, metadata = DeepSeek(task['providers']['text']).complete(messages)

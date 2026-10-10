@@ -1,0 +1,46 @@
+{
+  "status": "assigned",
+  "source_roles": [
+    {
+      "source_id": "source_569dba42-7303-479e-9174-67243afc057e",
+      "asset_refs": [],
+      "role": "fact",
+      "candidate_refs": [
+        "candidate_8a5b80a5-dc47-4088-a025-2d2754523c59"
+      ],
+      "loading_strategy": {
+        "kind": "text",
+        "locator": null,
+        "fact_input": true
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    },
+    {
+      "source_id": "source_56223fbb-1640-426d-bed4-a0c98299433f",
+      "asset_refs": [
+        "asset_4524ab8e-9964-4e86-9b01-84911283ac66"
+      ],
+      "role": "fact",
+      "candidate_refs": [
+        "candidate_d7d211d2-9947-4031-a891-a3fabf158f20"
+      ],
+      "loading_strategy": {
+        "kind": "docx",
+        "locator": "/runtime/input-format-validation/school-source.docx",
+        "fact_input": true
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    }
+  ],
+  "fact_source_ids": [
+    "source_569dba42-7303-479e-9174-67243afc057e",
+    "source_56223fbb-1640-426d-bed4-a0c98299433f"
+  ],
+  "preserved_source_ids": [
+    "source_569dba42-7303-479e-9174-67243afc057e",
+    "source_56223fbb-1640-426d-bed4-a0c98299433f"
+  ],
+  "issues": [],
+  "trace_id": "trace_142b546e-fe26-4866-9e84-763f4f3dbf13",
+  "fallback": "No guessing unknown roles or treating style/template/assets as factual evidence; preserve sources and clarify."
+}

@@ -1,0 +1,192 @@
+{
+  "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+  "node_id": "DEC-011",
+  "input": {
+    "scenario": {
+      "scenario": "项目汇报",
+      "duration": null,
+      "field_provenance": [
+        {
+          "field": "scenario",
+          "source": {
+            "kind": "presentation_context",
+            "context_pointer": "/values/scenario"
+          }
+        }
+      ]
+    },
+    "relation_candidates": []
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_f942968f-8051-4252-a9fe-73921ea52240",
+      "value": {
+        "pattern": "linear"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_85794346-3802-4b3d-b792-359536e81038",
+        "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+        "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_d4751205-e315-4d89-a429-7102e6087a95",
+      "value": {
+        "pattern": "problem_solution"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_85794346-3802-4b3d-b792-359536e81038",
+        "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+        "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_bc4927db-a64f-4421-a032-cc1d2257b751",
+      "value": {
+        "pattern": "conclusion_first"
+      },
+      "score": 4.0,
+      "reasons": [
+        {
+          "rule": "caller scenario benefits from presenting the selected thesis first"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_85794346-3802-4b3d-b792-359536e81038",
+        "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+        "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_8bdec2bc-b25d-42bf-bd04-bc1a34535f84",
+      "value": {
+        "pattern": "timeline"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_85794346-3802-4b3d-b792-359536e81038",
+        "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+        "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_1679c0da-f19d-4407-95bc-a21ae8a8a77f",
+      "value": {
+        "pattern": "teaching_progression"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_85794346-3802-4b3d-b792-359536e81038",
+        "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+        "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_99ffc885-d405-4a78-9bbf-5f04b6091832",
+      "value": {
+        "pattern": "data_driven"
+      },
+      "score": 1.5,
+      "reasons": [
+        {
+          "rule": "selected evidence contains percentages; use only grounded values"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_85794346-3802-4b3d-b792-359536e81038",
+        "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+        "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_bc4927db-a64f-4421-a032-cc1d2257b751"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "pattern": "conclusion_first",
+    "rationale": "caller scenario benefits from presenting the selected thesis first",
+    "evidence_refs": [
+      "evidence_85794346-3802-4b3d-b792-359536e81038",
+      "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+      "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

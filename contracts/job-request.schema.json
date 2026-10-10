@@ -1,0 +1,12 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://yoloongppt.local/contracts/job-request.schema.json",
+  "title":"SYS-020 durable operation request",
+  "type":"object","additionalProperties":false,"required":["operation","request"],
+  "properties":{"operation":{"enum":["generate","revise","resume","recheck","inspect","validate"]},"request":{"type":"object"}},
+  "allOf":[
+    {"if":{"properties":{"operation":{"enum":["generate","inspect","validate"]}}},"then":{"properties":{"request":{"$ref":"task-spec.schema.json"}}}},
+    {"if":{"properties":{"operation":{"const":"revise"}}},"then":{"properties":{"request":{"type":"object","additionalProperties":false,"required":["run_id","request"],"properties":{"run_id":{"type":"string","format":"uuid"},"request":{"type":"object"}}}}}},
+    {"if":{"properties":{"operation":{"enum":["resume","recheck"]}}},"then":{"properties":{"request":{"type":"object","additionalProperties":false,"required":["run_id"],"properties":{"run_id":{"type":"string","format":"uuid"},"task_patch":{"type":"object","additionalProperties":false,"required":["evidence_policy"],"properties":{"evidence_policy":{"$ref":"evidence-policy.schema.json"}}}}}}}}
+  ]
+}

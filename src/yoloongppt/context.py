@@ -33,6 +33,8 @@ def supported(field, value):
     if field == 'output_formats':return isinstance(value,list) and bool(value) and all(isinstance(x,str) and x in {'pptx','pdf','png'} for x in value)
     if field in {'template','brand'}:return value is None
     if field == 'citation_policy':return value == 'notes'
+    if field == 'audience':return value is None or (isinstance(value,str) and bool(value.strip())) or isinstance(value,dict)
+    if field in {'scenario','duration','tone'}:return value is None or (isinstance(value,str) and bool(value.strip()))
     return value is None
 
 

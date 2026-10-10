@@ -15,17 +15,20 @@ MAX_SOURCE_BYTES = 16 * 1024 * 1024
 
 
 def input_bytes(source):
-    if source['kind'] not in {'prompt', 'text', 'markdown'}:
-        raise TaskError('INPUT_UNSUPPORTED', '当前SourceLoader支持prompt/text/markdown；其他格式未接入，未静默跳过。',
-                        'SourceLoader', ['SYS-003', 'IN-015'], [{'source_id': source['source_id'], 'supported_formats': ['prompt', 'text', 'markdown']}])
+    binary = {'docx': {'.docx'}, 'xlsx': {'.xlsx'}, 'csv':{'.csv'}, 'json':{'.json'}, 'xml':{'.xml'},
+              'pptx': {'.pptx'}, 'potx':{'.potx'}, 'pdf': {'.pdf'},
+              'image': {'.png','.jpg','.jpeg','.webp','.gif','.bmp','.tif','.tiff'}}
+    if source['kind'] not in {'prompt', 'text', 'markdown', *binary}:
+        raise TaskError('INPUT_UNSUPPORTED', '该输入格式尚未接入，未静默跳过。',
+                        'SourceLoader', ['SYS-003', 'IN-015'], [{'source_id': source['source_id'], 'supported_formats': ['prompt', 'text', 'markdown', *binary]}])
     if 'content' in source and 'locator' in source:
         raise TaskError('SOURCE_LOCATION_AMBIGUOUS', '来源同时提供content和locator，须明确实际输入。', 'SourceLoader', ['SYS-003'])
     if 'locator' in source:
         path = Path(source['locator'])
         path = (ROOT / path).resolve() if not path.is_absolute() else path.resolve()
-        if not path.is_relative_to(ROOT) and not path.is_relative_to(Path('/runtime')):
+        if any(p in {'secrets','.git','.ssh','.env'} for p in path.parts) or (not path.is_relative_to(ROOT) and not path.is_relative_to(Path('/runtime'))):
             raise TaskError('SOURCE_PATH_OUTSIDE_ROOT', '输入路径超出工作区和运行产物目录。', 'SourceLoader', ['SYS-003'])
-        if path.suffix.lower() not in {'.md', '.markdown', '.txt'}:
+        if path.suffix.lower() not in binary.get(source['kind'], {'.md', '.markdown', '.txt'}):
             raise TaskError('INPUT_UNSUPPORTED', '该文件扩展名未支持，禁止改作纯文本读取。', 'SourceLoader', ['SYS-003', 'IN-015'])
         try:
             with path.open('rb') as file:
@@ -34,12 +37,16 @@ def input_bytes(source):
             raise TaskError('INPUT_NOT_FOUND', '输入文件不存在或不可读取。', 'SourceLoader', ['SYS-003', 'IN-015'], [{'source_id': source['source_id']}]) from None
         locator = str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path)
     else:
+        if source['kind'] in binary:
+            raise TaskError('INPUT_BINARY_LOCATION_REQUIRED', '二进制来源需文件locator，禁止把字符串或base64当作文件。', 'SourceLoader', ['SYS-003','IN-015'])
         content = source.get('content')
         if not isinstance(content, str):
             raise TaskError('INPUT_TEXT_INVALID', '文本来源content必须为字符串；不隐式转换。', 'SourceLoader', ['SYS-003', 'IN-001', 'IN-002'])
         raw = content.encode('utf-8'); locator = None
     if len(raw) > MAX_SOURCE_BYTES:
         raise TaskError('INPUT_SIZE_LIMIT', '文本来源超过16MiB限制，未截断或继续解析。', 'SourceLoader', ['SYS-003', 'IN-015'])
+    if source['kind'] in binary:
+        return raw, None, locator
     try:
         text = raw.decode('utf-8')
     except UnicodeDecodeError:
@@ -67,6 +74,24 @@ def inspect_sources(task, schemas, store, trace):
         digest = hashlib.sha256(raw).hexdigest(); id = source['source_id']
         asset = store.asset_id(id, digest, locator is not None)
         snapshots.append({'source_id': id, 'source_hash': digest, 'asset_id': asset, 'bytes': raw})
+        if text is None:
+            from .input_formats import parse_input
+            parsed = parse_input(source['kind'], raw, source_id=id, asset_id=asset, locator=locator)
+            schemas.validate('input-format-result.schema.json',parsed)
+            document = parsed['document']
+            note = 'Native format structure retained; warnings and unsupported semantics are explicit.'
+            documents.append({'source_id': id, 'document': document, 'parse_note': note,
+                              'warnings': parsed['warnings']})
+            for n, segment in enumerate(parsed['segments']):
+                schemas.validate('source-anchor.schema.json', segment['anchor'])
+                records.append({'source_id':id,'source_hash':digest,'parser_version':parsed['parser_version'],
+                                'segment_index':n,'anchor':segment['anchor'],'raw_text':segment['raw_text'],
+                                'content':segment['raw_text'],'confidence':None,'data':segment['data'],
+                                'metadata':segment['metadata'],'asset_ref':asset,'raw_asset_refs':[asset] if asset else [],'parse_note':note})
+            items.append({'source_id':id,'input_order':order,'kind':'file','locator':locator,'raw_text':None,
+                          'locator_redaction':'not_required','display_name':None,'raw_asset_refs':[asset] if asset else [],
+                          'content_sha256':digest,'priority_rank':None,'claims':[]})
+            continue
         if source['kind'] in {'markdown', 'text'}:
             document = MarkdownParser(text).parse() if source['kind'] == 'markdown' else parse_plain_text(text)
             if asset:

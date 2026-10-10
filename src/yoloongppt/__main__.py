@@ -25,6 +25,13 @@ def main():
     sub = parser.add_subparsers(dest='command', required=True)
     sub.add_parser('capabilities')
     sub.add_parser('schemas')
+    sub.add_parser('mcp-serve')
+    sub.add_parser('artifacts').add_argument('run_id')
+    sub.add_parser('debug-node').add_argument('task')
+    sub.add_parser('doctor')
+    sub.add_parser('render').add_argument('run_id')
+    for name in ['inspect-deck','edit-deck','parse-template','instantiate-template','compose-native','compare-runs','inventory-assets']:
+        sub.add_parser(name).add_argument('task')
     for command in ['validate', 'inspect', 'generate', 'route', 'context', 'source-roles', 'resolve-evidence', 'fact-boundaries']:
         task = sub.add_parser(command)
         task.add_argument('task', help='TaskSpec JSON path or - for stdin')
@@ -34,16 +41,32 @@ def main():
     revision = sub.add_parser('revise')
     revision.add_argument('run_id'); revision.add_argument('request')
     args = parser.parse_args()
+    if args.command == 'mcp-serve':
+        from .mcp_server import serve
+        serve()
+        return 0
     trace = trace_id()
     try:
         registry = SchemaRegistry()
-        if args.command in {'validate', 'inspect', 'generate', 'route', 'context', 'source-roles', 'resolve-evidence', 'fact-boundaries'}:
+        if args.command in {'doctor','render'}:
+            from .operations import dispatch
+            result=dispatch(args.command,{'run_id':args.run_id} if args.command=='render' else {},trace,registry)
+        elif args.command == 'artifacts':
+            from .operations import artifacts
+            result=artifacts(args.run_id,trace)
+        elif args.command in {'validate', 'inspect', 'generate', 'route', 'context', 'source-roles', 'resolve-evidence', 'fact-boundaries','debug-node','inspect-deck','edit-deck','parse-template','instantiate-template','compose-native','compare-runs','inventory-assets'}:
             try:
                 raw = sys.stdin.buffer.read() if args.task == '-' else Path(args.task).read_bytes()
             except OSError:
                 raise TaskError('INPUT_NOT_FOUND', '无法读取任务输入文件。', 'CLI', ['SYS-019', 'SYS-001']) from None
             document = load_json(raw, 'CLI')
-            if args.command in {'resolve-evidence','fact-boundaries'}:
+            if args.command in {'inspect-deck','edit-deck','parse-template','instantiate-template','compose-native','compare-runs','inventory-assets'}:
+                from .operations import dispatch
+                result=dispatch('compare' if args.command=='compare-runs' else args.command.replace('-','_'),document,trace,registry)
+            elif args.command == 'debug-node':
+                from .operations import dispatch
+                result=dispatch('debug',document,trace,registry)
+            elif args.command in {'resolve-evidence','fact-boundaries'}:
                 from .facts import run_node
                 result=run_node(document,registry,'DEC-004' if args.command=='resolve-evidence' else 'DEC-005',trace)
             elif args.command == 'context':

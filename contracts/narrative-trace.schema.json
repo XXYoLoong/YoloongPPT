@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/narrative-trace.schema.json",
+  "title": "DEC-006至021实际叙事决策轨迹",
+  "type": "object",
+  "required": [
+    "trace_id",
+    "node_id",
+    "input",
+    "candidates",
+    "selected",
+    "rules",
+    "output",
+    "duration",
+    "error"
+  ],
+  "properties": {
+    "trace_id": {
+      "$ref": "object-id.schema.json#/$defs/trace_id"
+    },
+    "node_id": {
+      "enum": [
+        "DEC-006",
+        "DEC-007",
+        "DEC-008",
+        "DEC-009",
+        "DEC-010",
+        "DEC-011",
+        "DEC-012",
+        "DEC-013",
+        "DEC-014",
+        "DEC-015",
+        "DEC-016",
+        "DEC-017",
+        "DEC-018",
+        "DEC-019",
+        "DEC-020",
+        "DEC-021"
+      ]
+    },
+    "input": {
+      "type": "object"
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/candidate"
+      }
+    },
+    "selected": {
+      "type": "array",
+      "items": {
+        "$ref": "object-id.schema.json#/$defs/candidate_id"
+      }
+    },
+    "rules": {
+      "type": "object"
+    },
+    "output": {
+      "type": "object"
+    },
+    "duration": {
+      "type": "number",
+      "minimum": 0
+    },
+    "error": {
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "required": [
+        "node_id",
+        "candidate_id",
+        "value",
+        "score",
+        "reasons",
+        "evidence_refs",
+        "constraints"
+      ],
+      "properties": {
+        "node_id": {
+          "enum": [
+            "DEC-006",
+            "DEC-007",
+            "DEC-008",
+            "DEC-009",
+            "DEC-010",
+            "DEC-011",
+            "DEC-012",
+            "DEC-013",
+            "DEC-014",
+            "DEC-015",
+            "DEC-016",
+            "DEC-017",
+            "DEC-018",
+            "DEC-019",
+            "DEC-020",
+            "DEC-021"
+          ]
+        },
+        "candidate_id": {
+          "$ref": "object-id.schema.json#/$defs/candidate_id"
+        },
+        "value": {},
+        "score": {
+          "type": "number"
+        },
+        "reasons": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object"
+          }
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

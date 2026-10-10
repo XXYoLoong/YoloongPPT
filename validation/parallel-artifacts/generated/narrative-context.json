@@ -1,0 +1,754 @@
+{
+  "version": "narrative-1",
+  "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+  "audience": {
+    "knowledge_level": null,
+    "roles": [
+      "学校管理层"
+    ],
+    "concerns": [],
+    "expected_actions": [],
+    "field_provenance": [
+      {
+        "field": "roles",
+        "source": {
+          "kind": "presentation_context",
+          "context_pointer": "/values/audience"
+        }
+      }
+    ]
+  },
+  "scenario": {
+    "scenario": "项目汇报",
+    "duration": null,
+    "field_provenance": [
+      {
+        "field": "scenario",
+        "source": {
+          "kind": "presentation_context",
+          "context_pointer": "/values/scenario"
+        }
+      }
+    ]
+  },
+  "language_style": {
+    "language": "zh-CN",
+    "tone": "清晰克制",
+    "formal_level": null,
+    "terminology_rules": [],
+    "brand_terms": [],
+    "field_provenance": [
+      {
+        "field": "language",
+        "source": {
+          "kind": "presentation_context",
+          "context_pointer": "/values/language"
+        }
+      },
+      {
+        "field": "tone",
+        "source": {
+          "kind": "presentation_context",
+          "context_pointer": "/values/tone"
+        }
+      }
+    ]
+  },
+  "content_graph": {
+    "nodes": [
+      {
+        "node_id": "content_1a2e8e7bea57af133642",
+        "text": "学校节能试点",
+        "evidence_refs": [
+          "evidence_85794346-3802-4b3d-b792-359536e81038"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "node_id": "content_1618ca0c9da7a43a9de1",
+        "text": "8%；%；能耗；2026年；试点\n试点2026年能耗降低8%。\n2026年；试点",
+        "evidence_refs": [
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "node_id": "content_0a885421ff1275b7135a",
+        "text": "8%；%；能耗；2026年；试点\n8%",
+        "evidence_refs": [
+          "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+        ],
+        "assumption_refs": []
+      }
+    ],
+    "edges": [],
+    "evidence_refs": [
+      "evidence_85794346-3802-4b3d-b792-359536e81038",
+      "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+      "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+    ]
+  },
+  "relation_candidates": [],
+  "storyline": {
+    "pattern": "conclusion_first",
+    "rationale": "caller scenario benefits from presenting the selected thesis first",
+    "evidence_refs": [
+      "evidence_85794346-3802-4b3d-b792-359536e81038",
+      "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+      "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+    ]
+  },
+  "page_budget": {
+    "target": 8,
+    "minimum": 8,
+    "maximum": 8,
+    "allowed_deviation": 0,
+    "duration_original": null,
+    "source_characters": 65,
+    "policy": "normalized page count is binding; duration guides density and speaker notes, not implicit count replacement"
+  },
+  "citation_mode": "notes",
+  "content_policy": {
+    "title_max_characters": 60,
+    "body_max_characters": 180,
+    "list_max_items": 6,
+    "table_max_columns": 6,
+    "table_max_rows": 8,
+    "notes_preserve_overflow": true,
+    "no_text_truncation": true
+  },
+  "decision_traces": [
+    {
+      "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+      "node_id": "DEC-006",
+      "input": {
+        "audience": "学校管理层"
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-006",
+          "candidate_id": "candidate_5f06fb92-2325-420f-b445-cb49367fd8ee",
+          "value": {
+            "knowledge_level": null,
+            "roles": [
+              "学校管理层"
+            ],
+            "concerns": [],
+            "expected_actions": [],
+            "field_provenance": [
+              {
+                "field": "roles",
+                "source": {
+                  "kind": "presentation_context",
+                  "context_pointer": "/values/audience"
+                }
+              }
+            ]
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_5f06fb92-2325-420f-b445-cb49367fd8ee"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure",
+        "missing_profile": "retain null/empty; do not stereotype audience"
+      },
+      "output": {
+        "knowledge_level": null,
+        "roles": [
+          "学校管理层"
+        ],
+        "concerns": [],
+        "expected_actions": [],
+        "field_provenance": [
+          {
+            "field": "roles",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/values/audience"
+            }
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+      "node_id": "DEC-007",
+      "input": {
+        "scenario": "项目汇报",
+        "duration": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-007",
+          "candidate_id": "candidate_8388679a-9b98-493f-b105-7853260bb747",
+          "value": {
+            "scenario": "项目汇报",
+            "duration": null,
+            "field_provenance": [
+              {
+                "field": "scenario",
+                "source": {
+                  "kind": "presentation_context",
+                  "context_pointer": "/values/scenario"
+                }
+              }
+            ]
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_8388679a-9b98-493f-b105-7853260bb747"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "scenario": "项目汇报",
+        "duration": null,
+        "field_provenance": [
+          {
+            "field": "scenario",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/values/scenario"
+            }
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+      "node_id": "DEC-008",
+      "input": {
+        "language": "zh-CN",
+        "tone": "清晰克制",
+        "audience": {
+          "knowledge_level": null,
+          "roles": [
+            "学校管理层"
+          ],
+          "concerns": [],
+          "expected_actions": [],
+          "field_provenance": [
+            {
+              "field": "roles",
+              "source": {
+                "kind": "presentation_context",
+                "context_pointer": "/values/audience"
+              }
+            }
+          ]
+        }
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-008",
+          "candidate_id": "candidate_abf4ef6a-6f8a-4d22-8a7d-328568d57346",
+          "value": {
+            "language": "zh-CN",
+            "tone": "清晰克制",
+            "formal_level": null,
+            "terminology_rules": [],
+            "brand_terms": [],
+            "field_provenance": [
+              {
+                "field": "language",
+                "source": {
+                  "kind": "presentation_context",
+                  "context_pointer": "/values/language"
+                }
+              },
+              {
+                "field": "tone",
+                "source": {
+                  "kind": "presentation_context",
+                  "context_pointer": "/values/tone"
+                }
+              }
+            ]
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_abf4ef6a-6f8a-4d22-8a7d-328568d57346"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "language": "zh-CN",
+        "tone": "清晰克制",
+        "formal_level": null,
+        "terminology_rules": [],
+        "brand_terms": [],
+        "field_provenance": [
+          {
+            "field": "language",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/values/language"
+            }
+          },
+          {
+            "field": "tone",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/values/tone"
+            }
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+      "node_id": "DEC-010",
+      "input": {
+        "evidence_refs": [
+          "evidence_85794346-3802-4b3d-b792-359536e81038",
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+          "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-010",
+          "candidate_id": "candidate_34ac1ee9-f506-4025-ba1d-6709b6867d11",
+          "value": {
+            "content_graph": {
+              "nodes": [
+                {
+                  "node_id": "content_1a2e8e7bea57af133642",
+                  "text": "学校节能试点",
+                  "evidence_refs": [
+                    "evidence_85794346-3802-4b3d-b792-359536e81038"
+                  ],
+                  "assumption_refs": []
+                },
+                {
+                  "node_id": "content_1618ca0c9da7a43a9de1",
+                  "text": "8%；%；能耗；2026年；试点\n试点2026年能耗降低8%。\n2026年；试点",
+                  "evidence_refs": [
+                    "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+                  ],
+                  "assumption_refs": []
+                },
+                {
+                  "node_id": "content_0a885421ff1275b7135a",
+                  "text": "8%；%；能耗；2026年；试点\n8%",
+                  "evidence_refs": [
+                    "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+                  ],
+                  "assumption_refs": []
+                }
+              ],
+              "edges": [],
+              "evidence_refs": [
+                "evidence_85794346-3802-4b3d-b792-359536e81038",
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ]
+            },
+            "relation_candidates": [],
+            "semantic_edges_status": "not_inferred"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_34ac1ee9-f506-4025-ba1d-6709b6867d11"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "content_graph": {
+          "nodes": [
+            {
+              "node_id": "content_1a2e8e7bea57af133642",
+              "text": "学校节能试点",
+              "evidence_refs": [
+                "evidence_85794346-3802-4b3d-b792-359536e81038"
+              ],
+              "assumption_refs": []
+            },
+            {
+              "node_id": "content_1618ca0c9da7a43a9de1",
+              "text": "8%；%；能耗；2026年；试点\n试点2026年能耗降低8%。\n2026年；试点",
+              "evidence_refs": [
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+              ],
+              "assumption_refs": []
+            },
+            {
+              "node_id": "content_0a885421ff1275b7135a",
+              "text": "8%；%；能耗；2026年；试点\n8%",
+              "evidence_refs": [
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ],
+              "assumption_refs": []
+            }
+          ],
+          "edges": [],
+          "evidence_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ]
+        },
+        "relation_candidates": [],
+        "semantic_edges_status": "not_inferred"
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+      "node_id": "DEC-011",
+      "input": {
+        "scenario": {
+          "scenario": "项目汇报",
+          "duration": null,
+          "field_provenance": [
+            {
+              "field": "scenario",
+              "source": {
+                "kind": "presentation_context",
+                "context_pointer": "/values/scenario"
+              }
+            }
+          ]
+        },
+        "relation_candidates": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_f942968f-8051-4252-a9fe-73921ea52240",
+          "value": {
+            "pattern": "linear"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_d4751205-e315-4d89-a429-7102e6087a95",
+          "value": {
+            "pattern": "problem_solution"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_bc4927db-a64f-4421-a032-cc1d2257b751",
+          "value": {
+            "pattern": "conclusion_first"
+          },
+          "score": 4.0,
+          "reasons": [
+            {
+              "rule": "caller scenario benefits from presenting the selected thesis first"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_8bdec2bc-b25d-42bf-bd04-bc1a34535f84",
+          "value": {
+            "pattern": "timeline"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_1679c0da-f19d-4407-95bc-a21ae8a8a77f",
+          "value": {
+            "pattern": "teaching_progression"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_99ffc885-d405-4a78-9bbf-5f04b6091832",
+          "value": {
+            "pattern": "data_driven"
+          },
+          "score": 1.5,
+          "reasons": [
+            {
+              "rule": "selected evidence contains percentages; use only grounded values"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_bc4927db-a64f-4421-a032-cc1d2257b751"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "pattern": "conclusion_first",
+        "rationale": "caller scenario benefits from presenting the selected thesis first",
+        "evidence_refs": [
+          "evidence_85794346-3802-4b3d-b792-359536e81038",
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+          "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+      "node_id": "DEC-013",
+      "input": {
+        "page_count": 8,
+        "duration": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-013",
+          "candidate_id": "candidate_c1467685-d14d-4009-a11a-b6fd1b7b4ce2",
+          "value": {
+            "target": 8,
+            "minimum": 8,
+            "maximum": 8,
+            "allowed_deviation": 0,
+            "duration_original": null,
+            "source_characters": 65,
+            "policy": "normalized page count is binding; duration guides density and speaker notes, not implicit count replacement"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_c1467685-d14d-4009-a11a-b6fd1b7b4ce2"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "target": 8,
+        "minimum": 8,
+        "maximum": 8,
+        "allowed_deviation": 0,
+        "duration_original": null,
+        "source_characters": 65,
+        "policy": "normalized page count is binding; duration guides density and speaker notes, not implicit count replacement"
+      },
+      "duration": 0.0,
+      "error": null
+    }
+  ]
+}

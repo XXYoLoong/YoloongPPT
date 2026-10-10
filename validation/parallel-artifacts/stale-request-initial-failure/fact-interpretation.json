@@ -1,0 +1,30 @@
+{
+  "coverage": [
+    {
+      "evidence_id": "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d",
+      "classification": "instructions",
+      "reason": "该段为明确虚构的学校节能演示测试材料，包含流程指令（先检查、再设置、随后记录、先培训、再回看、先核实、再调整）以及范围限定（只讨论照明管理、不对全校节能作出承诺），属于操作/格式与范围要求，不是可核验的事实数据。"
+    }
+  ],
+  "claims": [],
+  "missing": [
+    {
+      "fact_key": "school_energy_saving_pilot_quantitative_data",
+      "fact_kind": "amount",
+      "required": true,
+      "reason": "调用方要求保留原始数值、单位与来源，但材料未提供任何具体数值、单位或指标数据。",
+      "evidence_refs": [
+        "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d"
+      ]
+    },
+    {
+      "fact_key": "school_energy_saving_pilot_source_priority",
+      "fact_kind": "citation",
+      "required": true,
+      "reason": "调用方要求数值分歧使用明确的来源优先级，但材料未提供来源优先级规则或任何来源引用。",
+      "evidence_refs": [
+        "evidence_fb46da38-c0d9-4e55-8bc3-b5c04fdb6e3d"
+      ]
+    }
+  ]
+}

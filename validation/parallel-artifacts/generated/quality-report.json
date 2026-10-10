@@ -1,0 +1,152 @@
+{
+  "qa_id": "artifact_0ad004cc-d0d3-4d48-9f16-c27fb73d8086",
+  "status": "partial",
+  "issues": [],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_d27ef7b5-7a1f-4227-a28b-5943dee94588",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "model_review_executed",
+    "fact_semantic": "model_review_executed",
+    "accessibility": "not_executed",
+    "powerpoint_compatibility": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Deterministic and real image/fact model checks executed; complete decision graph, accessibility, PowerPoint compatibility and revision gates are not proven.",
+  "model_review": {
+    "checked_slide_orders": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "issues": [
+      {
+        "slide_order": 1,
+        "severity": "P1",
+        "kind": "visual",
+        "detail": "占位符文本为超长英文键名（school_energy_saving_pilot.energy_consumption_reduction_target.baseline / .metric_name），在卡片内强制换行且被截断为多行，可读性差，且未显示完整键名。",
+        "evidence_refs": [
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+        ],
+        "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+        "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0"
+      },
+      {
+        "slide_order": 1,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "正文以原始键名占位符呈现缺失项，对管理层读者不友好，建议改为中文可读标签（如“基线口径待补充”“指标名称待补充”）。",
+        "evidence_refs": [],
+        "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+        "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0"
+      },
+      {
+        "slide_order": 2,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "两个内容卡片高度远大于文本量，右侧卡片仅两行文字却占据整块区域，留白过多，版面失衡。",
+        "evidence_refs": [],
+        "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+        "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a"
+      },
+      {
+        "slide_order": 3,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "三个卡片高度不一致且内容极少，下方卡片与上方卡片对齐松散，版面留白过多。",
+        "evidence_refs": [],
+        "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+        "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3"
+      },
+      {
+        "slide_order": 4,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "表格左侧说明文字与表格间距偏大，表格行高较大，整体偏空；表格本身可读，无裁切。",
+        "evidence_refs": [],
+        "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+        "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad"
+      },
+      {
+        "slide_order": 5,
+        "severity": "P2",
+        "kind": "semantic",
+        "detail": "图表仅呈现单一8%柱状值，信息量极低，作为独立一页略显冗余，可考虑与目标页合并。",
+        "evidence_refs": [
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+          "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+        ],
+        "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+        "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a"
+      },
+      {
+        "slide_order": 7,
+        "severity": "P2",
+        "kind": "visual",
+        "detail": "标题“下一步：补齐口径后复核”在左侧换行断为“复/核”，断行位置不佳，影响标题观感。",
+        "evidence_refs": [],
+        "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+        "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9"
+      }
+    ],
+    "summary": "已逐页检查全部8页。事实层面：8%、2026年、能耗基准、试点范围、学校节能试点名称均与证据一致；基线口径与指标名称以占位符显式标注为缺失，未编造数值，符合事实边界。未发现P0级事实错误或严重内容缺失。主要问题为P1级视觉可读性：第2页（order=1）超长英文占位符键名换行截断、可读性差。其余为P2级版面留白、标题断行与图表信息量偏低等优化项。限制说明：证据文本为已选事实的显式投影，部分evidence文本为空，无法据此核验更多语义完整性；图片不能证明可编辑性或PowerPoint兼容性，本审查不涉及该结论。",
+    "type": "json_object"
+  }
+}

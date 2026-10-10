@@ -1,0 +1,97 @@
+{
+  "status": "needs_clarification",
+  "fact_constraints": {
+    "record_type": "fact_constraint_set",
+    "requirement_id": "CNT-001",
+    "task_id": "TASK-CNT-001",
+    "status": "blocked",
+    "dates": [],
+    "citations": [
+      {
+        "fact_id": "fact.8b8eb12abfa7aa41fa84b45d",
+        "fact_kind": "citation",
+        "status": "missing",
+        "claims": [],
+        "resolution_status": "not_applicable",
+        "selected_claim_id": null,
+        "assumption_ref": null,
+        "related_fact_ids": [],
+        "allowed_transformations": []
+      }
+    ],
+    "metrics": [],
+    "entities": [],
+    "units": [],
+    "quotes": [],
+    "numbers": [
+      {
+        "fact_id": "fact.d5c3d939e7d84715909387f4",
+        "fact_kind": "amount",
+        "status": "missing",
+        "claims": [],
+        "resolution_status": "not_applicable",
+        "selected_claim_id": null,
+        "assumption_ref": null,
+        "related_fact_ids": [],
+        "allowed_transformations": []
+      }
+    ],
+    "assumption_refs": [],
+    "forbidden_inference": [
+      "DO_NOT_INVENT_MISSING_FACTS",
+      "DO_NOT_SELECT_UNRESOLVED_CONFLICTS",
+      "DO_NOT_CHANGE_ENTITY_IDENTITY",
+      "DO_NOT_CHANGE_NUMBER_SIGN_OR_PRECISION",
+      "DO_NOT_CHANGE_UNIT_CURRENCY_OR_DENOMINATOR",
+      "DO_NOT_CHANGE_DATE_PRECISION_PERIOD_OR_TIMEZONE",
+      "DO_NOT_DROP_QUALIFIER_OR_SCOPE",
+      "DO_NOT_INVENT_OR_REASSIGN_CITATIONS"
+    ],
+    "errors": [
+      {
+        "error_id": "ERR-009",
+        "reason_code": "MISSING_FACT",
+        "fact_id": "fact.d5c3d939e7d84715909387f4",
+        "source_id": null,
+        "evidence_id": null,
+        "message": "调用方要求保留原始数值、单位与来源，但材料未提供任何具体数值、单位或指标数据。"
+      },
+      {
+        "error_id": "ERR-009",
+        "reason_code": "MISSING_FACT",
+        "fact_id": "fact.8b8eb12abfa7aa41fa84b45d",
+        "source_id": null,
+        "evidence_id": null,
+        "message": "调用方要求数值分歧使用明确的来源优先级，但材料未提供来源优先级规则或任何来源引用。"
+      }
+    ]
+  },
+  "assumptions": [],
+  "assumption_values": {},
+  "actions": [
+    {
+      "fact_key": "school_energy_saving_pilot_quantitative_data",
+      "mode": "ask",
+      "reason": "调用方要求保留原始数值、单位与来源，但材料未提供任何具体数值、单位或指标数据。",
+      "label": "待确认"
+    },
+    {
+      "fact_key": "school_energy_saving_pilot_source_priority",
+      "mode": "ask",
+      "reason": "调用方要求数值分歧使用明确的来源优先级，但材料未提供来源优先级规则或任何来源引用。",
+      "label": "待确认"
+    }
+  ],
+  "issues": [
+    {
+      "code": "MISSING_FACT",
+      "fact_key": "school_energy_saving_pilot_quantitative_data",
+      "handling": "ask"
+    },
+    {
+      "code": "MISSING_FACT",
+      "fact_key": "school_energy_saving_pilot_source_priority",
+      "handling": "ask"
+    }
+  ]
+}

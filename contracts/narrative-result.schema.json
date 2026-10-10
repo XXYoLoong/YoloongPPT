@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/narrative-result.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "title": "实际分页与容量叙事执行结果",
+  "required": [
+    "version",
+    "trace_id",
+    "status",
+    "system_acceptance",
+    "deck_thesis",
+    "outline",
+    "section_budget",
+    "total",
+    "decision_traces",
+    "remaining_limits",
+    "pages",
+    "intents",
+    "slide_types",
+    "content_budgets",
+    "slide_contents",
+    "rewrites",
+    "placements",
+    "model_storyline_original"
+  ],
+  "properties": {
+    "version": {
+      "const": "narrative-1"
+    },
+    "trace_id": {
+      "$ref": "object-id.schema.json#/$defs/trace_id"
+    },
+    "status": {
+      "const": "executed"
+    },
+    "system_acceptance": {
+      "const": "not_claimed"
+    },
+    "deck_thesis": {
+      "$ref": "deck-thesis.schema.json"
+    },
+    "outline": {
+      "type": "object"
+    },
+    "section_budget": {
+      "type": "object"
+    },
+    "total": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 30
+    },
+    "decision_traces": {
+      "type": "array",
+      "items": {
+        "$ref": "narrative-trace.schema.json"
+      }
+    },
+    "remaining_limits": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "minItems": 1
+    },
+    "pages": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "intents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "slide_types": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "content_budgets": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "slide_contents": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "rewrites": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "placements": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object"
+      }
+    },
+    "model_storyline_original": {
+      "type": "object"
+    }
+  }
+}

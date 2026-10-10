@@ -18,6 +18,7 @@ from .atomic import AtomicRegistry
 from .context import normalize
 from .source_roles import assign, fact_input
 from .facts import interpret,resolve,boundaries,project
+from .narrative import prepare, finalize
 
 
 def generate(task, schemas, store, trace, checkpoint=None):
@@ -30,9 +31,11 @@ def generate(task, schemas, store, trace, checkpoint=None):
         result = action()
         timeline.append({'component': component, 'status': 'executed', 'duration_seconds': round(time.monotonic()-begin, 3)})
         artifacts.json('pipeline-trace.json', {'trace_id': trace, 'steps': timeline, 'warnings': warnings,
-                                               'decision_coverage': 'DEC-001–005 executed when reached; DEC-006–040 graph not complete'})
+                                               'decision_coverage': 'DEC-001–021 bounded execution when reached; full original decision acceptance remains incomplete'})
         return result
     try:
+        from .observability import version_manifest
+        artifacts.json('version-manifest.json',version_manifest(schemas))
         artifacts.json('task.json', task)
         routing = step('DEC-001', lambda: route_task(task, schemas, trace))
         artifacts.json('decision-route.json', routing['decision_trace'])
@@ -82,6 +85,7 @@ def generate(task, schemas, store, trace, checkpoint=None):
         artifacts.json('decision-fact-boundary.json',boundary['decision_trace']);artifacts.json('fact-boundary.json',boundary['boundaries'])
         sources=project(sources,resolution['resolution'],boundary['boundaries'],interpretation)
         artifacts.json('approved-source-result.json',sources)
+        narrative = step('DEC-006–014 narrative preparation',lambda:prepare(task,sources,normalized['context'],schemas,artifacts))
         previous_deck = None
         if checkpoint and (checkpoint/'model-response.json').is_file():
             old = json.loads((checkpoint/('fact-source-result.json' if (checkpoint/'fact-source-result.json').exists() else 'source-result.json')).read_text(encoding='utf-8'))
@@ -106,7 +110,9 @@ def generate(task, schemas, store, trace, checkpoint=None):
                 schemas.validate('deck-execution.schema.json', previous_deck)
             timeline.append({'component': 'SYS-005 partial content planner', 'status': 'checkpoint_reused', 'previous_run_id': checkpoint.name})
         else:
-            proposal, model = step('SYS-005 partial content planner', lambda: plan(task, sources, schemas, artifacts, count))
+            proposal, model = step('SYS-005 partial content planner', lambda: plan(task, sources, schemas, artifacts, count,narrative))
+        proposal, narrative_result = step('DEC-009/012/014–021 narrative execution',lambda:finalize(proposal,narrative,sources,schemas,artifacts))
+        artifacts.json('model-response-effective.json',proposal)
         deck, execution = step('SYS-010/011', lambda: compile_deck(proposal, style, trace, previous_deck))
         artifacts.json('deck-spec.json', deck); artifacts.json('execution-plan.json', execution)
         artifacts.json('layout-selection.json',{'scope':'DEC-030/031/033/034 subset; full nodes incomplete','slides':[{'slide_id':s['slide_id'],**s['layout']} for s in deck['slides']]})
@@ -152,7 +158,7 @@ def generate(task, schemas, store, trace, checkpoint=None):
         raise
 
 
-def resume(run_id, schemas, store, trace):
+def resume(run_id, schemas, store, trace, task_patch=None):
     try:
         if str(UUID(run_id)) != run_id:raise ValueError()
     except ValueError:
@@ -162,4 +168,9 @@ def resume(run_id, schemas, store, trace):
     if not all((folder/name).is_file() for name in required):
         raise TaskError('CHECKPOINT_INCOMPLETE', '没有可恢复的事实解释阶段断点。', 'Generation', ['SYS-005'])
     task = json.loads((folder/'task.json').read_text(encoding='utf-8'))
+    if task_patch is not None:
+        if not isinstance(task_patch,dict) or set(task_patch)!={'evidence_policy'}:
+            raise TaskError('CHECKPOINT_PATCH_UNSUPPORTED','恢复只允许显式更新evidence_policy，不改来源或事实解释。','Generation',['DEC-004','DEC-005'])
+        schemas.validate('evidence-policy.schema.json',task_patch['evidence_policy'])
+        task={**task,**task_patch}
     return generate(task, schemas, store, trace, folder)

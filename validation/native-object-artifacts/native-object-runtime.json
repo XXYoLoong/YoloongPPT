@@ -1,0 +1,498 @@
+{
+  "ok": true,
+  "checks": [
+    "two_slides_native_inventory",
+    "unknown_part_inventoried",
+    "all_unchanged_members_byte_identical",
+    "unknown_xml_byte_identical",
+    "master_layout_theme_byte_identical",
+    "second_slide_byte_identical",
+    "text_actual_edit",
+    "font_actual_edit",
+    "geometry_actual_edit",
+    "table_actual_edit",
+    "chart_cache_actual_edit",
+    "chart_workbook_matches_cache",
+    "image_actual_edit",
+    "notes_actual_edit",
+    "group_child_local_edit",
+    "hyperlink_created_preserved",
+    "object_ids_stable",
+    "exact_selector_name",
+    "group_child_indexed",
+    "masters_layouts_themes_imported",
+    "chart_data_imported",
+    "bad_hash",
+    "locked_object",
+    "unsupported_operation",
+    "ambiguous_selector",
+    "bad_geometry",
+    "bad_table_cell",
+    "secret_image_path",
+    "outside_media_path_denied",
+    "capabilities_all30_partial_honest",
+    "source_never_changed",
+    "consumed_input_schema"
+  ],
+  "source_sha256": "f3a499bb972e8a7a2f228f88e82ca6f880d07558781843bdb1b6c478f853c364",
+  "output_sha256": "6b6b926ec332a1480aa2fa024bf889c4c199d4113a1782433042ab8b36ed5002",
+  "changed_parts": [
+    "ppt/slides/slide1.xml",
+    "ppt/charts/chart1.xml",
+    "ppt/embeddings/Microsoft_Excel_Sheet1.xlsx",
+    "ppt/media/image1.png",
+    "ppt/notesSlides/notesSlide1.xml"
+  ],
+  "capabilities": {
+    "backend": "PP-05",
+    "library": "python-pptx",
+    "version": "1.0.2",
+    "system_acceptance": "not_passed",
+    "requirements": [
+      {
+        "requirement_id": "PPT-001",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "create/open/save-as; properties and dimensions; merge not implemented",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-002",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "add/read slides; hide/duplicate/move/delete not implemented",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-003",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-004",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-005",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-006",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-007",
+        "status": "partial",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "read placeholder type/idx/bounds; fill existing text placeholders",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-008",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "create/read/update text frames; preserve unrelated XML",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-009",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "font/size/bold/italic/underline/color/alignment; advanced bullets/tabs not implemented",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-010",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-011",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "rectangle/ellipse/rounded rectangle/arrows; fill/stroke/rotation",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-012",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "straight/elbow/curved connectors; connection points/reroute/freeform not implemented",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-013",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "native group creation and child indexing; ungroup/locks not implemented",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-014",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "embedded PNG/JPEG create/read/replace; crop/effects not implemented; shared image replacement rejected",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-015",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-016",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "native rows/columns/cells and cell text edit; pagination not implemented",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-017",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "category charts and replace data with embedded workbook; combo/error bars not implemented",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-018",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-019",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-020",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-021",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-022",
+        "status": "partial",
+        "operations": {
+          "create": "partial",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "safe https/http/mailto text hyperlink; executable file/action links rejected",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-023",
+        "status": "partial",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "read/update existing notes; notes master preserved",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-024",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-025",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-026",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-027",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-028",
+        "status": "unsupported",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "unsupported",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "Existing OOXML parts are inventoried and preserved; native editing is unavailable.",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-029",
+        "status": "partial",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "alt text and shape order indexing; complete accessibility audit not implemented",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      },
+      {
+        "requirement_id": "PPT-030",
+        "status": "partial",
+        "operations": {
+          "create": "unsupported",
+          "read": "partial",
+          "update": "partial",
+          "delete": "unsupported",
+          "preserve": "supported",
+          "render": "untested"
+        },
+        "reason": "slide-id + shape-id stable mapping; extension/custom XML preserved",
+        "preservation_scope": "unchanged ZIP member payloads in existing_deck.apply_patch"
+      }
+    ]
+  },
+  "qa": "not_executed",
+  "acceptance": "partial_component_only",
+  "requirement_ids": [
+    "REV-001",
+    "REV-002",
+    "REV-004",
+    "REV-005",
+    "REV-010",
+    "PPT-008",
+    "PPT-009",
+    "PPT-011",
+    "PPT-012",
+    "PPT-013",
+    "PPT-014",
+    "PPT-016",
+    "PPT-017",
+    "PPT-023",
+    "PPT-029",
+    "PPT-030"
+  ],
+  "source_versions": {
+    "src/yoloongppt/native_objects.py": "f4dbe032a8e77ebeff521f0eb995331287bf0f2e1b26b19e94196ad87d749817",
+    "src/yoloongppt/existing_deck.py": "aa88ab55fedc8350629cf3e6e12be76a64553428cb5ea589644b4ec788de4e74"
+  }
+}

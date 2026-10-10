@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "IN-007 TPL native template registry runtime result",
+  "type": "object",
+  "required": ["record_type", "status", "package_sha256", "source", "license", "version", "slide_size", "masters", "layouts", "themes", "assets", "coverage", "issues"],
+  "properties": {
+    "record_type": {"const": "native_template_pack"}, "status": {"const": "partial"},
+    "package_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}, "source": {"type": ["object", "string", "null"]},
+    "license": {"type": "string"}, "version": {"type": "string"},
+    "slide_size": {"type": "object", "required": ["width_emu", "height_emu", "type"], "properties": {"width_emu": {"type": "integer", "minimum": 1}, "height_emu": {"type": "integer", "minimum": 1}, "type": {"type": ["string", "null"]}}, "additionalProperties": false},
+    "masters": {"type": "array", "items": {"type": "object", "required": ["part", "shapes", "relationships", "raw_xml"]}},
+    "layouts": {"type": "array", "items": {"type": "object", "required": ["part", "slots", "master_part", "raw_xml"], "properties": {"slots": {"type": "array", "items": {"type": "object", "required": ["slot_id", "role", "bounds", "content_types", "capacity", "overflow_policy"]}}}}},
+    "themes": {"type": "array", "items": {"type": "object", "required": ["part", "colors", "fonts", "raw_xml"]}},
+    "assets": {"type": "array"}, "coverage": {"type": "object"}, "issues": {"type": "array", "minItems": 1}
+  },
+  "additionalProperties": false
+}

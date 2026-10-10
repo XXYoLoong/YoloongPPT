@@ -1,0 +1,362 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/existing-deck-patch.schema.json",
+  "title": "REV-005 targeted preserve-first native patch",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "expected_sha256",
+    "patches"
+  ],
+  "properties": {
+    "expected_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "patches": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 200,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "operation",
+          "value"
+        ],
+        "properties": {
+          "object_id": {
+            "type": "string",
+            "pattern": "^pptx:s[0-9]+:shape[0-9]+$"
+          },
+          "selector": {
+            "type": "object",
+            "minProperties": 1,
+            "additionalProperties": false,
+            "properties": {
+              "object_id": {
+                "type": "string",
+                "pattern": "^pptx:s[0-9]+:shape[0-9]+$"
+              },
+              "slide_index": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "shape_id": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "name": {
+                "type": "string"
+              },
+              "text": {
+                "type": "string"
+              },
+              "placeholder_idx": {
+                "type": "integer",
+                "minimum": 0
+              }
+            }
+          },
+          "operation": {
+            "enum": [
+              "text",
+              "format",
+              "geometry",
+              "table_cell",
+              "chart_data",
+              "image_replace",
+              "alt_text",
+              "notes"
+            ]
+          },
+          "value": {}
+        },
+        "oneOf": [
+          {
+            "required": [
+              "object_id"
+            ],
+            "not": {
+              "required": [
+                "selector"
+              ]
+            }
+          },
+          {
+            "required": [
+              "selector"
+            ],
+            "not": {
+              "required": [
+                "object_id"
+              ]
+            }
+          }
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "text"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "alt_text"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "notes"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "geometry"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "array",
+                  "minItems": 4,
+                  "maxItems": 4,
+                  "prefixItems": [
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "number",
+                      "minimum": 0
+                    },
+                    {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    },
+                    {
+                      "type": "number",
+                      "exclusiveMinimum": 0
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "format"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "minProperties": 1,
+                  "additionalProperties": false,
+                  "properties": {
+                    "font": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "font_size": {
+                      "type": "number",
+                      "minimum": 1,
+                      "maximum": 400
+                    },
+                    "bold": {
+                      "type": "boolean"
+                    },
+                    "italic": {
+                      "type": "boolean"
+                    },
+                    "underline": {
+                      "type": "boolean"
+                    },
+                    "color": {
+                      "type": "string",
+                      "pattern": "^[0-9a-fA-F]{6}$"
+                    },
+                    "alignment": {
+                      "enum": [
+                        "left",
+                        "center",
+                        "right",
+                        "justify"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "chart_data"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "categories",
+                    "series"
+                  ],
+                  "properties": {
+                    "categories": {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 10000,
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "series": {
+                      "type": "array",
+                      "minItems": 1,
+                      "maxItems": 1000,
+                      "items": {
+                        "type": "object",
+                        "additionalProperties": false,
+                        "required": [
+                          "name",
+                          "values"
+                        ],
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "values": {
+                            "type": "array",
+                            "minItems": 1,
+                            "maxItems": 10000,
+                            "items": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "image_replace"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "path"
+                  ],
+                  "properties": {
+                    "path": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            "if": {
+              "properties": {
+                "operation": {
+                  "const": "table_cell"
+                }
+              }
+            },
+            "then": {
+              "properties": {
+                "value": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "row",
+                    "column",
+                    "text"
+                  ],
+                  "properties": {
+                    "row": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "column": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "text": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "locked_object_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^pptx:s[0-9]+:shape[0-9]+$"
+      }
+    }
+  }
+}

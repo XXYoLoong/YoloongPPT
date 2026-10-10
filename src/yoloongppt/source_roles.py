@@ -56,9 +56,16 @@ def assign(document,schemas,trace):
 
 def fact_input(sources,role_map):
     ids=set(role_map['fact_source_ids'])
-    return {**sources,'evidence':[e for e in sources['evidence'] if e['source_id'] in ids],
+    # Empty OOXML paragraphs and image-only records are physical structure, not
+    # ambiguous text. Keep their original evidence/bytes explicitly as assets;
+    # do not ask the text fact model to invent OCR or interpret blank content.
+    structural=[e for e in sources['evidence'] if e['source_id'] in ids and e['raw_text']=='']
+    return {**sources,'evidence':[e for e in sources['evidence'] if e['source_id'] in ids and e['raw_text']!=''],
+            'nontext_evidence':structural,
             'documents':[d for d in sources['documents'] if d['source_id'] in ids],
-            'selection':{'producer':'DEC-003','fact_source_ids':role_map['fact_source_ids'],'all_sources_preserved_in':'source-result.json'}}
+            'selection':{'producer':'DEC-003','fact_source_ids':role_map['fact_source_ids'],'all_sources_preserved_in':'source-result.json',
+                         'nontext_evidence_ids':[e['evidence_id'] for e in structural],
+                         'nontext_handling':'Original evidence retained in nontext_evidence; empty structure carries no textual fact; OCR/visual fact inference not executed.'}}
 
 
 def run_roles(document,schemas,trace):

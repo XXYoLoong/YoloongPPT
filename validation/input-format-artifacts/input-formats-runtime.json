@@ -1,0 +1,201 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "id": "docx_heading_table_hyperlink_image_preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "docx_native_anchor_without_fake_page",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "docx_external_link_not_fetched",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "docx_raw_original_hash",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "original_requirement_docx_real_parse",
+      "passed": true,
+      "observed": {
+        "segments": 1364,
+        "stories": 2
+      }
+    },
+    {
+      "id": "xlsx_cell_anchor_and_formula_cache",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "xlsx_table_and_merge_preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "xlsx_missing_formula_cache_explicit",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "original_requirement_xlsx_real_parse",
+      "passed": true,
+      "observed": {
+        "sheets": 20,
+        "cells": 16384
+      }
+    },
+    {
+      "id": "csv_quoted_multiline_and_ragged_preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "csv_corrupt_quotes",
+      "passed": true,
+      "observed": "CSV_CORRUPT"
+    },
+    {
+      "id": "image_pixels_palette_without_fake_ocr",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "image_corrupt",
+      "passed": true,
+      "observed": "IMAGE_CORRUPT_OR_UNSUPPORTED"
+    },
+    {
+      "id": "pptx_shapes_tables_charts_images_notes",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "template_master_layout_theme_slots",
+      "passed": true,
+      "observed": {
+        "masters": 1,
+        "layouts": 11,
+        "themes": 2
+      }
+    },
+    {
+      "id": "template_structural_query_with_unmeasured_capacity",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "template_actual_editable_instantiation",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "template_size_mismatch_explicit",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "pdf_real_poppler_page_text_bbox",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "pdf_table_semantics_explicit",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "pdf_disguised",
+      "passed": true,
+      "observed": "INPUT_FORMAT_DISGUISED"
+    },
+    {
+      "id": "json_hierarchy_preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "json_duplicate_key",
+      "passed": true,
+      "observed": "JSON_DUPLICATE_KEY"
+    },
+    {
+      "id": "json_nonfinite",
+      "passed": true,
+      "observed": "JSON_NONFINITE"
+    },
+    {
+      "id": "xml_entity_blocked",
+      "passed": true,
+      "observed": "XML_ENTITY_BLOCKED"
+    },
+    {
+      "id": "ooxml_disguised",
+      "passed": true,
+      "observed": "INPUT_FORMAT_DISGUISED"
+    },
+    {
+      "id": "ooxml_corrupt",
+      "passed": true,
+      "observed": "INPUT_ARCHIVE_CORRUPT"
+    },
+    {
+      "id": "office_encrypted_or_legacy",
+      "passed": true,
+      "observed": "INPUT_ENCRYPTED_OR_LEGACY"
+    },
+    {
+      "id": "unsupported_format",
+      "passed": true,
+      "observed": "INPUT_UNSUPPORTED"
+    },
+    {
+      "id": "archive_path_escape",
+      "passed": true,
+      "observed": "INPUT_UNSAFE_PART"
+    },
+    {
+      "id": "asset_inventory_hash_duplicates_unknown_license",
+      "passed": true,
+      "observed": null
+    }
+  ],
+  "requirement_ids": [
+    "IN-003",
+    "IN-004",
+    "IN-006",
+    "IN-007",
+    "IN-008",
+    "IN-010",
+    "IN-011",
+    "IN-012",
+    "IN-015",
+    "IN-016",
+    "TPL-001",
+    "TPL-002",
+    "TPL-003",
+    "TPL-004",
+    "TPL-005",
+    "TPL-009",
+    "TPL-014",
+    "AST-001",
+    "AST-004",
+    "AST-011",
+    "SEC-004",
+    "SEC-005",
+    "SEC-006"
+  ],
+  "source_sha256": {
+    "src/yoloongppt/input_formats.py": "53b4513c32314f4928fa1bd8504539634327ceac2d36263baad433f54c46aa36",
+    "src/yoloongppt/templates.py": "505b718b514560e73980fa898b5ab45f486f52c21f07a041d76579d82257ece7",
+    "src/yoloongppt/assets.py": "c904a5688db21224b7f709732f23e9924bc999f7a0fef811a4e80a64e249bfcc"
+  },
+  "boundary": "Targeted actual Docker parser/template checks; OCR/PDF table semantics/capacity/visual QA/system AC and multi-project template fixtures remain incomplete."
+}
