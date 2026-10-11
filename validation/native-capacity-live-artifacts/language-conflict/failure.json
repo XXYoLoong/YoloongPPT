@@ -1,0 +1,32 @@
+{
+  "ok": false,
+  "trace_id": "trace_5b51f28d-781e-47f3-aa46-3d4dc95bc26f",
+  "error": {
+    "code": "HARD_CONSTRAINT_CONFLICT",
+    "message": "约束或同优先级偏好存在冲突，停止执行。",
+    "component": "Preflight",
+    "requirement_ids": [
+      "GOV-003",
+      "DEC-002"
+    ],
+    "details": [
+      {
+        "code": "HARD_CONSTRAINT_CONFLICT",
+        "field": "language",
+        "candidate_refs": [
+          "candidate_c01109bc-4364-464b-ad76-0104a48450b9",
+          "candidate_24641a3a-e860-447d-8eda-e72ab2c63e30"
+        ],
+        "values": [
+          "zh-CN",
+          "en"
+        ]
+      },
+      {
+        "run_id": "32ee63b0-832f-4054-ab3e-19721f1eada7",
+        "artifact_root": "/runtime/runs/32ee63b0-832f-4054-ab3e-19721f1eada7"
+      }
+    ],
+    "retryable": false
+  }
+}

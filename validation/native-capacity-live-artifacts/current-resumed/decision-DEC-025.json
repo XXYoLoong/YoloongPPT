@@ -1,0 +1,334 @@
+{
+  "trace_id": "trace_2b9fb2af-c004-46ef-8899-b74855ac5397",
+  "node_id": "DEC-025",
+  "input": {
+    "page_count": 3,
+    "evidence_refs": [
+      "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-025",
+      "candidate_id": "candidate_8eb83a84-cdba-4d7a-8ce0-41bb39af131d",
+      "value": {
+        "page_index": 0,
+        "required": false,
+        "rows": 0,
+        "columns": 0,
+        "emphasis_fields": [],
+        "pagination": "not applicable to this slide",
+        "data": null
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-025",
+      "candidate_id": "candidate_98421e70-9cea-4086-aa09-402710c1e8c0",
+      "value": {
+        "page_index": 1,
+        "required": false,
+        "rows": 0,
+        "columns": 0,
+        "emphasis_fields": [],
+        "pagination": "not applicable to this slide",
+        "data": null
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-025",
+      "candidate_id": "candidate_3258afbc-a311-4b54-9837-4bc3c2baef90",
+      "value": {
+        "page_index": 2,
+        "required": true,
+        "rows": 14,
+        "columns": 4,
+        "emphasis_fields": [],
+        "pagination": "one native table; physical capacity gate must pass",
+        "data": {
+          "columns": [
+            "标识",
+            "甲项",
+            "乙项",
+            "丙项"
+          ],
+          "rows": [
+            [
+              "样本01",
+              "1",
+              "21",
+              "41"
+            ],
+            [
+              "样本02",
+              "2",
+              "22",
+              "42"
+            ],
+            [
+              "样本03",
+              "3",
+              "23",
+              "43"
+            ],
+            [
+              "样本04",
+              "4",
+              "24",
+              "44"
+            ],
+            [
+              "样本05",
+              "5",
+              "25",
+              "45"
+            ],
+            [
+              "样本06",
+              "6",
+              "26",
+              "46"
+            ],
+            [
+              "样本07",
+              "7",
+              "27",
+              "47"
+            ],
+            [
+              "样本08",
+              "8",
+              "28",
+              "48"
+            ],
+            [
+              "样本09",
+              "9",
+              "29",
+              "49"
+            ],
+            [
+              "样本10",
+              "10",
+              "30",
+              "50"
+            ],
+            [
+              "样本11",
+              "11",
+              "31",
+              "51"
+            ],
+            [
+              "样本12",
+              "12",
+              "32",
+              "52"
+            ],
+            [
+              "样本13",
+              "13",
+              "33",
+              "53"
+            ],
+            [
+              "样本14",
+              "14",
+              "34",
+              "54"
+            ]
+          ],
+          "units": "测试分"
+        }
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_8eb83a84-cdba-4d7a-8ce0-41bb39af131d",
+    "candidate_98421e70-9cea-4086-aa09-402710c1e8c0",
+    "candidate_3258afbc-a311-4b54-9837-4bc3c2baef90"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "Visual_Designer/template/Executor",
+      "P02": "layout induction/reference selection/actions",
+      "P03": "slide content/layout/template/assets",
+      "P04": "PureLayout/assets/PPTAdapter",
+      "P05": "SlidePlanner/template/assets/native writer"
+    },
+    "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+    "score_semantics": "selected policy outcome, not semantic probability",
+    "fallback": "structured failure; never invent material or downgrade a requested expression"
+  },
+  "output": {
+    "pages": [
+      {
+        "page_index": 0,
+        "required": false,
+        "rows": 0,
+        "columns": 0,
+        "emphasis_fields": [],
+        "pagination": "not applicable to this slide",
+        "data": null
+      },
+      {
+        "page_index": 1,
+        "required": false,
+        "rows": 0,
+        "columns": 0,
+        "emphasis_fields": [],
+        "pagination": "not applicable to this slide",
+        "data": null
+      },
+      {
+        "page_index": 2,
+        "required": true,
+        "rows": 14,
+        "columns": 4,
+        "emphasis_fields": [],
+        "pagination": "one native table; physical capacity gate must pass",
+        "data": {
+          "columns": [
+            "标识",
+            "甲项",
+            "乙项",
+            "丙项"
+          ],
+          "rows": [
+            [
+              "样本01",
+              "1",
+              "21",
+              "41"
+            ],
+            [
+              "样本02",
+              "2",
+              "22",
+              "42"
+            ],
+            [
+              "样本03",
+              "3",
+              "23",
+              "43"
+            ],
+            [
+              "样本04",
+              "4",
+              "24",
+              "44"
+            ],
+            [
+              "样本05",
+              "5",
+              "25",
+              "45"
+            ],
+            [
+              "样本06",
+              "6",
+              "26",
+              "46"
+            ],
+            [
+              "样本07",
+              "7",
+              "27",
+              "47"
+            ],
+            [
+              "样本08",
+              "8",
+              "28",
+              "48"
+            ],
+            [
+              "样本09",
+              "9",
+              "29",
+              "49"
+            ],
+            [
+              "样本10",
+              "10",
+              "30",
+              "50"
+            ],
+            [
+              "样本11",
+              "11",
+              "31",
+              "51"
+            ],
+            [
+              "样本12",
+              "12",
+              "32",
+              "52"
+            ],
+            [
+              "样本13",
+              "13",
+              "33",
+              "53"
+            ],
+            [
+              "样本14",
+              "14",
+              "34",
+              "54"
+            ]
+          ],
+          "units": "测试分"
+        }
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

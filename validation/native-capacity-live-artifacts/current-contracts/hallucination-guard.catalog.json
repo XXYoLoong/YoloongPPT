@@ -1,0 +1,80 @@
+{
+  "document_type": "hallucination_guard_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-012",
+  "task_id": "TASK-CNT-012",
+  "deliverable": "HallucinationGuardResult",
+  "schema": "contracts/hallucination-guard.schema.json",
+  "fixtures": "contracts/hallucination-guard.fixtures.json",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "PDR para 405：不得为缺失事实、数字、客户名称、引用来源或调研结论自行填值；可用 placeholder 但须显式。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第 67 行、可执行任务第 95 行定义 SourceEvidence + PresentationContext 输入、HallucinationGuardResult 输出及数字/冲突/缺失验收。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "CNT-001-NORMAL-001 提供组织、数字与引用来源的 SourceEvidence；CNT-001-BOUNDARY-001 提供 8%/9% 来源值、12% 显式假设及缺失 renewal_date。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "CNT-003-BOUNDARY-001 保留未决 8%/9% 冲突和 ERR-008；DEC-004 尚未解决。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "沿用已有 evidence_id、assumption_id、object_id 格式，不创建别名。"
+    }
+  ],
+  "field_rules": [
+    "每个事实型断言必须引用实际支持它的 evidence_id 或 assumption_id；PresentationContext 可约束输出方式，但不能单独证明客户名、数字、引用来源或调研结论。",
+    "无来源支持的数字、客户名、引用来源、调研结论等标记 unsupported 并阻断候选文本。不得以常见值或模型知识补全。",
+    "缺失事实不生成值。显式 placeholder 必须在文本中原样出现、带 missing_fact_refs 和 ERR-009，并引用给出 placeholder 要求的 PresentationContext 路径；placeholder 不构成已知事实。",
+    "对未决来源冲突保留所有冲突 evidence 与 ERR-008；在 DEC-004 未决时，只输出一个冲突值作为赢家必须阻断。保留两侧值不表示完成冲突决策。",
+    "evidence_id、assumption_id、conflict_id 复用上游 ID；本草案仅描述 HallucinationGuardResult 草案，不新增“数据对象”行、不确定全局 PresentationContext Schema，也不实现检测运行时。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-012-SUPPORTED-001",
+      "fixture_id": "CNT-012-SUPPORTED-001",
+      "purpose": "accept_supported_facts",
+      "acceptance": "客户名、ARR 数字、增长率及引用来源均回链 CNT-001 SourceEvidence。"
+    },
+    {
+      "case_id": "CNT-012-UNSUPPORTED-001",
+      "fixture_id": "CNT-012-UNSUPPORTED-001",
+      "purpose": "block_unsupported_content",
+      "acceptance": "阻断无证据的数字、客户名、引用来源和调研结论。"
+    },
+    {
+      "case_id": "CNT-012-CONFLICT-PRESERVED-001",
+      "fixture_id": "CNT-012-CONFLICT-PRESERVED-001",
+      "purpose": "preserve_conflict",
+      "acceptance": "同时保留 8% 和 9%，附 ERR-008，不选择赢家。"
+    },
+    {
+      "case_id": "CNT-012-CONFLICT-WINNER-001",
+      "fixture_id": "CNT-012-CONFLICT-WINNER-001",
+      "purpose": "block_conflict_winner",
+      "acceptance": "DEC-004 未决时阻断单值选胜。"
+    },
+    {
+      "case_id": "CNT-012-MISSING-PLACEHOLDER-001",
+      "fixture_id": "CNT-012-MISSING-PLACEHOLDER-001",
+      "purpose": "allow_explicit_placeholder",
+      "acceptance": "显式 placeholder 链接 renewal_date/ERR-009；12% 假设回链既有 assumption_id。"
+    },
+    {
+      "case_id": "CNT-012-MISSING-INVENTED-001",
+      "fixture_id": "CNT-012-MISSING-INVENTED-001",
+      "purpose": "block_invented_missing_value",
+      "acceptance": "阻断自行填入 renewal_date 值并保留 ERR-009。"
+    }
+  ],
+  "limits": [
+    "fixture 是静态预期，不代表模型输出检测器、语义蕴含验证、引用真实性校验或 runtime guard 已实现。",
+    "未运行 JSON Schema 实例验证器、运行时、DEC-004 决策或 AC-001–AC-030。"
+  ]
+}

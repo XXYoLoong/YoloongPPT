@@ -1,0 +1,103 @@
+{
+  "version": "adaptive-content-1",
+  "status": "adapted",
+  "system_acceptance": "not_claimed",
+  "policy": {
+    "page_budget": {
+      "kind": "default",
+      "target": 1,
+      "minimum": 1,
+      "maximum": 30,
+      "provenance": [
+        {
+          "constraint_id": "fixture.default-pages",
+          "field": "page_count",
+          "value": 1,
+          "source": {
+            "kind": "system_default",
+            "reference": "explicit component fixture"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        }
+      ]
+    },
+    "table_key_columns": {},
+    "assumption_markers": {}
+  },
+  "input_pages": 1,
+  "output_pages": 1,
+  "deviation": 0,
+  "page_mappings": [
+    {
+      "original_page": 0,
+      "original_title": "复杂标题 Mixed English Title 保留数字3.5 kg与12.5%及单位，完整展示中英文字形。复杂标题 Mixed English Title 保留数字3.5 kg与12.5%及单位，完整展示中英文字形。复杂标题 Mixed English Title 保留数字3.5 kg与12.5%及单位，完整展示中英文字形。",
+      "original_body_sha256": "fd10fb105aedbeb940dc5cd0c0cda1a38ae615b3f45d791ad98a0bdb35e044b0",
+      "original_notes_sha256": "546c643690f49d048818707ccaa47372e27e6cabe86baf292875b9f1a6417701",
+      "evidence_refs": [
+        "evidence_6634c825-b6d6-4c58-ace3-3bb195308638"
+      ],
+      "assumption_refs": [],
+      "outputs": [
+        {
+          "output_page": 0,
+          "kind": "text",
+          "body_segments": [
+            {
+              "body_item": 0,
+              "start": 0,
+              "end": 24,
+              "text": "批准原文保持完整。标题允许多行，正文不移入备注。"
+            }
+          ],
+          "repeated_visible_markers": [],
+          "visible_unit_label": null,
+          "table_coordinates": null,
+          "notes_unchanged": true,
+          "title_unchanged": true
+        }
+      ],
+      "geometry": {
+        "title_bounds": [
+          0.7,
+          0.6,
+          11.95,
+          3.27
+        ],
+        "body_bounds": [
+          0.72,
+          4.03,
+          11.85,
+          2.51
+        ],
+        "body_size": 24,
+        "body_spacing": 15,
+        "data_bounds": null,
+        "table_size": 16,
+        "minimum_size": 16,
+        "measurement": "adaptive-layout-1"
+      },
+      "original_table_sha256": null,
+      "original_visual_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "visual_object_policy": "original visual declaration preserved once; visible text continuation carries no visual declaration",
+      "gallery_capacity_policy": null
+    }
+  ],
+  "input_sha256": "1273a8e2c72485425f667e7f36e9ad4a4fad75cde235d25228eaf1dd9c24de20",
+  "output_sha256": "1273a8e2c72485425f667e7f36e9ad4a4fad75cde235d25228eaf1dd9c24de20",
+  "conservation": {
+    "all_body_characters": true,
+    "all_table_cells": true,
+    "titles": true,
+    "notes_unchanged": true,
+    "evidence_refs": true,
+    "assumption_refs": true
+  },
+  "fallback": "structured_failure_without_truncation",
+  "remaining_limits": [
+    "explicit sentence boundaries only; no semantic paraphrase or compression",
+    "content pagination uses declared default Noto native grammar; selected typography is remeasured before writing",
+    "locked template slot adaptation requires a declared geometry contract",
+    "physical render and independent fact review remain required"
+  ]
+}

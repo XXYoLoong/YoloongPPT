@@ -1,0 +1,40 @@
+{
+  "state": "fail",
+  "final_allowed": false,
+  "p0_issue_count": 2,
+  "warning_issue_count": 2,
+  "missing_coverage": [
+    "structure",
+    "editability",
+    "geometry",
+    "fact_numeric",
+    "visual_semantic",
+    "fact_semantic",
+    "accessibility",
+    "global_consistency",
+    "powerpoint_compatibility"
+  ],
+  "missing_nodes": [],
+  "missing_acceptance": [
+    "AC-001",
+    "GOV-008"
+  ],
+  "revision_plan_status": "needs_input",
+  "reasons": [
+    "Unresolved P0 issues block final output"
+  ],
+  "retry": {
+    "count": 0,
+    "maximum": 2,
+    "allowed": false,
+    "next_action": "provide_required_input_or_fail"
+  },
+  "error": {
+    "code": "QUALITY_P0_UNRESOLVED",
+    "issue_ids": [
+      "issue_7bdcb9e4-1d84-486c-9620-ba142f7bbd0e",
+      "issue_e1bb1579-f2d3-417b-8a3c-e69395b7b630"
+    ]
+  },
+  "system_acceptance": "not_passed"
+}

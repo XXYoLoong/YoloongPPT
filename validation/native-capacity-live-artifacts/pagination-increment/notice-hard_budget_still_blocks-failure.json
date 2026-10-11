@@ -1,0 +1,32 @@
+{
+  "ok": false,
+  "trace_id": "trace_4fc5c341-a1a4-4582-a5d2-53151dee0b8a",
+  "error": {
+    "code": "ADAPTIVE_PAGE_BUDGET_EXCEEDED",
+    "message": "完整可读内容需要的页数超出原预算；未裁内容或改变硬约束。",
+    "component": "AdaptiveContent",
+    "requirement_ids": [
+      "DEC-014",
+      "DEC-015",
+      "DEC-018",
+      "DEC-020",
+      "TPL-007",
+      "TPL-012",
+      "AC-014",
+      "AC-015"
+    ],
+    "details": [
+      {
+        "required_pages_at_least": 4,
+        "page_budget": {
+          "kind": "hard",
+          "target": 3,
+          "minimum": 3,
+          "maximum": 3
+        },
+        "source_page": 2
+      }
+    ],
+    "retryable": false
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "ok": true,
+  "check_count": 10,
+  "checks": [
+    {
+      "name": "notice:real_fourteen_rows_split",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "notice:all_actual_tiles_visible_non_numeric_metadata",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "notice:original_title_characters_untouched",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "notice:all_original_cells_in_exact_order",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "notice:references_units_and_notes_preserved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "notice:seed_not_mutated_and_explicit_mapping",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "notice:capacity_reserved_with_complete_original_text",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "notice:single_tile_unmodified",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "notice:single_page_idempotent_and_original_cells",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "name": "notice:hard_budget_still_blocks",
+      "passed": true,
+      "observed": "ADAPTIVE_PAGE_BUDGET_EXCEEDED"
+    }
+  ],
+  "source_hashes": {
+    "src/yoloongppt/adaptive_content.py": "e3208630275fe1018c5c3974d0b1be955481c9600969f1753104eeda9b353673",
+    "contracts/adaptive-content-result.schema.json": "00c3575b0203c2cbc0a4e8333c19bc8281a2fcc16c51084d9755c10b8ec95163",
+    "validation/verify-adaptive-content.py": "b98a4c352ce4f377003292ee56595f755b1faea617a298c9daf601b21fc85e5a"
+  },
+  "parent_real_run": "ad03ceec-a393-48a3-840e-4e2f52c50613",
+  "seed_sha256": "2d58930ff7aa3da62860f154496ed493a2d08670cd892195fea6362e29093fb6",
+  "input_pages": 3,
+  "output_pages": 4,
+  "table_tile_row_counts": [
+    7,
+    7
+  ],
+  "scope": "New incremental pagination-notice contract/capacity checks on real saved model seed; no model/render/native replay and no repeat of the historical 161 checks."
+}

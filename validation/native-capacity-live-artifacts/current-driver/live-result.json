@@ -1,0 +1,119 @@
+{
+  "ok": true,
+  "trace_id": "trace_c950ea5a-968b-45af-b847-7be23a7e86bd",
+  "job": {
+    "job_id": "f649726d-06ce-42d2-a59c-5b70afaa2782",
+    "operation": "resume",
+    "state": "succeeded",
+    "trace_id": "trace_2b9fb2af-c004-46ef-8899-b74855ac5397",
+    "created_at": "2026-10-11T10:51:45.034092+00:00",
+    "updated_at": "2026-10-11T10:52:08.487285+00:00"
+  },
+  "result": {
+    "ok": true,
+    "trace_id": "trace_2b9fb2af-c004-46ef-8899-b74855ac5397",
+    "task_id": "task_ec675b35-ef73-41cf-8ea9-b4cc60a20007",
+    "run_id": "468ac35a-eef5-424f-9585-2fa45ad6722a",
+    "operation": "generate",
+    "state": "draft_generated",
+    "artifact_root": "/runtime/runs/468ac35a-eef5-424f-9585-2fa45ad6722a",
+    "pptx": "/runtime/runs/468ac35a-eef5-424f-9585-2fa45ad6722a/deck.pptx",
+    "slide_count": 4,
+    "model": {
+      "provider": "deepseek",
+      "requested_model": "deepseek-flash",
+      "returned_model": "deepseek-flash",
+      "response_id": "2bd741c2-b24a-4be3-b785-f08035f3ea48",
+      "usage": {
+        "prompt_tokens": 22466,
+        "completion_tokens": 1757,
+        "total_tokens": 24223,
+        "prompt_tokens_details": {
+          "cached_tokens": 0
+        },
+        "prompt_cache_hit_tokens": 0,
+        "prompt_cache_miss_tokens": 22466
+      },
+      "available_models": [
+        "deepseek-flash",
+        "deepseek-v4-pro"
+      ],
+      "parameters": {
+        "model": "deepseek-flash",
+        "response_format": {
+          "type": "json_object"
+        },
+        "thinking": {
+          "type": "disabled"
+        },
+        "temperature": 0.2,
+        "max_tokens": 12000,
+        "stream": false
+      },
+      "request_sha256": "95bfb6a8d629045fc720f687341219d5d9a4c3ee194c9d97981026f41c0101a2",
+      "response_content_sha256": "349e4f86b42073ddac227cfbbf4b28776c01645695e0e4c05691bc6ceb62deac",
+      "duration_seconds": 5.619,
+      "real_model_call": true,
+      "reused_from_run": "ad03ceec-a393-48a3-840e-4e2f52c50613",
+      "fresh_model_call_this_run": false
+    },
+    "qa": {
+      "status": "partial",
+      "p0_issue_count": 0,
+      "acceptance": {
+        "AC-001": "not_passed",
+        "GOV-008": "not_passed"
+      }
+    },
+    "warnings": [
+      {
+        "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+        "field": "language",
+        "location": "raw_text:145:147",
+        "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+      },
+      {
+        "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+        "field": "language",
+        "location": "raw_text:148:155",
+        "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+      }
+    ],
+    "completion": {
+      "state": "warning",
+      "final_allowed": false,
+      "p0_issue_count": 0,
+      "warning_issue_count": 5,
+      "missing_coverage": [
+        "structure",
+        "editability",
+        "geometry",
+        "fact_numeric",
+        "visual_semantic",
+        "fact_semantic",
+        "accessibility",
+        "global_consistency",
+        "powerpoint_compatibility"
+      ],
+      "missing_nodes": [],
+      "missing_acceptance": [
+        "AC-001",
+        "GOV-008"
+      ],
+      "revision_plan_status": "needs_input",
+      "reasons": [
+        "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+      ],
+      "retry": {
+        "count": 0,
+        "maximum": 2,
+        "allowed": false,
+        "next_action": "complete_missing_acceptance"
+      },
+      "error": null,
+      "system_acceptance": "not_passed"
+    },
+    "revision_plan_id": "revision_plan_0c54ee5a-46d3-4e30-8da3-02f41c3e3a97",
+    "boundary": "All 40 bounded decision stages connected when reached; complete decision, QA, backend and system acceptance unfinished."
+  }
+}

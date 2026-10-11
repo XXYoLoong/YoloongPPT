@@ -1,0 +1,157 @@
+{
+  "requirement_id": "TPL-001",
+  "task_id": "TASK-TPL-001",
+  "title": "模板来源登记",
+  "status": "进行中",
+  "deliverable": "TemplateSourceRecord",
+  "contract_files": [
+    "contracts/template-source-record.schema.json",
+    "contracts/template-source-record.catalog.json",
+    "contracts/template-source-record.fixtures.json"
+  ],
+  "data_object_alignment": {
+    "canonical_data_object_registered": false,
+    "existing_related_object": "TemplatePack",
+    "evidence": "需求矩阵数据对象表 I28:J28 已有 TemplatePack；没有 TemplateSourceRecord 独立数据对象行。此任务定义输出契约，不新增、删除或重命名数据对象行。",
+    "integration_boundary": "来源登记是 TemplatePack.source 的候选细化；正式字段映射、查询/评分/实例化运行时仍待后续任务与架构评审。"
+  },
+  "required_record_fields": [
+    {
+      "field": "origin",
+      "coverage": ["source_project", "source_file", "user_upload"],
+      "rule": "三种来源形态互斥且必须显式记录；不得只保存预览图。"
+    },
+    {
+      "field": "source_revision",
+      "coverage": ["observed", "unknown", "conflicting"],
+      "rule": "项目提交/文件版本作为来源版本单独记录；不替代模板自身版本。"
+    },
+    {
+      "field": "source_project_license",
+      "coverage": ["observed", "unknown", "conflicting"],
+      "rule": "只说明来源项目许可。"
+    },
+    {
+      "field": "template_license",
+      "coverage": ["observed", "unknown", "conflicting"],
+      "rule": "必须以模板资产本身的证据为依据；不能由仓库根许可证推断。"
+    },
+    {
+      "field": "template_version",
+      "coverage": ["observed", "unknown", "conflicting"],
+      "rule": "模板版本与来源项目提交分开；无声明时不得从文件时间或源码版本猜测。"
+    },
+    {
+      "field": "content_hash",
+      "coverage": ["sha256", "scope"],
+      "rule": "哈希必须标明针对 source_file 还是 template_file；unknown 时保留原因。"
+    },
+    {
+      "field": "slide_size",
+      "coverage": ["pptx_package_slide_size", "template_canvas", "source_coordinate_system"],
+      "rule": "尺寸必须同时记录单位和坐标语义，避免把像素画布误作实际 PPTX 页面尺寸。"
+    },
+    {
+      "field": "masters/layouts/theme",
+      "coverage": ["complete", "partial", "not_present", "unsupported", "unknown"],
+      "rule": "记录可定位的结构部件；缺失、未支持和未知分别表达，不静默降级为截图。"
+    }
+  ],
+  "acceptance_crosswalk": [
+    {
+      "source": "PPT Master",
+      "source_revision": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "static_observation": "固定源码定义模板创建流程、Master/Layout roster 与多种画布规格；本次没有从该项目得到一份真实导入 PPTX。",
+      "fixture": "TPL001-P01"
+    },
+    {
+      "source": "Presenton",
+      "source_revision": "35bf44290f821323e003da854f78ffcb0e918167",
+      "static_observation": "固定文档描述从源 PPTX 的 RawSlideLayouts 构建可复用 Layout 与语义 Theme；使用 1280x720 来源坐标系。该 checkout 未运行模板导入链。",
+      "fixture": "TPL001-P03"
+    },
+    {
+      "source": "ai-agent-ppt",
+      "source_revision": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "static_observation": "固定的 pitch template.json 包含颜色、字体和 13.33x7.5 英寸画布；layout JSON 是单独文件，未将其冒充为原生 PowerPoint master。",
+      "fixture": "TPL001-P04"
+    },
+    {
+      "source": "真实 PPTX 样例",
+      "source_revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+      "static_observation": "python-pptx 固定源码包中的 default.pptx 实际 ZIP/XML 盘点得到 1 个 master、11 个 layout、1 个 theme 和 9144000x6858000 EMU 页面尺寸。",
+      "fixture": "TPL001-REAL-PPTX"
+    }
+  ],
+  "evidence": {
+    "P01_RESEARCH_README": {
+      "path": "research/P01/README.md",
+      "claim": "PPT Master 固定版本及上游根目录 MIT 许可证；README 明确不构成本项目运行时选型。"
+    },
+    "P01_TEMPLATE_FLOW": {
+      "path": "F:/YoloongPPT-Research/P01/skills/ppt-master/workflows/create-template.md",
+      "sha256": "216135743d4b6736639999d7ec6af370d4f43ac3f2399fa5ac9ab61e163365e3",
+      "source_url": "https://github.com/hugohe3/ppt-master/blob/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d/skills/ppt-master/workflows/create-template.md",
+      "claim": "静态模板创建流程与 Master/Layout 记录边界。"
+    },
+    "P01_CANVAS_FORMATS": {
+      "path": "F:/YoloongPPT-Research/P01/skills/ppt-master/references/canvas-formats.md",
+      "sha256": "8bfde00935ea6747ba7904ecaea8401f828e6f76eb7576e2419d82b940ed32a1",
+      "source_url": "https://github.com/hugohe3/ppt-master/blob/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d/skills/ppt-master/references/canvas-formats.md",
+      "claim": "上游定义多种画布，不能据此为单个模板猜一个尺寸。"
+    },
+    "P03_RESEARCH_README": {
+      "path": "research/P03/README.md",
+      "claim": "Presenton 固定版本与 Apache-2.0 上游根许可证；静态研究没有运行其模板导入流程。"
+    },
+    "P03_TEMPLATE_V2_DOC": {
+      "path": "F:/YoloongPPT-Research/P03/docs/template-v2.md",
+      "sha256": "ac536bac766662a06ff222e40c7233ac58f9122d226433e4156ece6c409518fb",
+      "source_url": "https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/docs/template-v2.md",
+      "claim": "固定版本说明源 PPTX、RawSlideLayouts、可复用 Layout、语义 Theme 与 1280x720 坐标系。"
+    },
+    "P03_V2_SCHEMA": {
+      "path": "F:/YoloongPPT-Research/P03/servers/fastapi/templates/v2/schema.py",
+      "sha256": "2e48d5a3baece24dcbf2fd4a2fa819a275c6f53cbdccd946b4151b741dd05b14",
+      "source_url": "https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/servers/fastapi/templates/v2/schema.py",
+      "claim": "固定源码模板结构实现位置；这里只进行静态源码定位。"
+    },
+    "P04_RESEARCH_README": {
+      "path": "research/P04/README.md",
+      "claim": "ai-agent-ppt 固定版本与 MIT 上游根许可证；未据此选择本项目运行时。"
+    },
+    "P04_PITCH_TEMPLATE": {
+      "path": "F:/YoloongPPT-Research/P04/src/templates/pitch/template.json",
+      "sha256": "01e4c8f40206cb60e5fcd3df10741be79cae1bc99bb6ce8eb2290ed8f5517005",
+      "source_url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/templates/pitch/template.json",
+      "claim": "固定 pitch 模板的颜色、字体与 13.33x7.5 英寸画布。"
+    },
+    "P04_TITLE_LAYOUT": {
+      "path": "F:/YoloongPPT-Research/P04/src/layouts/title.layout.json",
+      "sha256": "ccb7ac806cacb07e0c6b1070b230656cc88b66aed56a87706fffca05ce17170a",
+      "source_url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/layouts/title.layout.json",
+      "claim": "固定源码中布局定义为独立 JSON 文件，尚未证明它与 pitch 模板建立逐模板绑定。"
+    },
+    "PYTHON_PPTX_DEFAULT_SAMPLE": {
+      "source_url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/src/pptx/templates/default.pptx",
+      "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
+      "size_bytes": 34030,
+      "claim": "只读 ZIP/XML 盘点的真实 PPTX 样例；1 个 master 关系成功解析到 11 个 layout 与 1 个 theme 部件，无缺失目标；未复制到产品代码或作为项目依赖。"
+    },
+    "PYTHON_PPTX_DEFAULT_DOCS": {
+      "source_url": "https://python-pptx.readthedocs.io/en/latest/user/presentations.html",
+      "claim": "官方文档将默认模板说明为不含 slides 的 PowerPoint 文件；只用于确定样例性质。"
+    },
+    "PYTHON_PPTX_LICENSE": {
+      "source_url": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/LICENSE",
+      "claim": "固定来源仓库 LICENSE 为 MIT；这不自动声明该 PPTX 样例本身的模板许可。"
+    }
+  },
+  "validation_boundary": [
+    "P01/P03/P04 只按固定源码和文件进行静态 crosswalk，不是其运行时互操作验证。",
+    "真实 PPTX 样例只盘点 ZIP/XML 部件和 sldSz；没有产品 parser、Office/LibreOffice 渲染或用户上传链路验证。",
+    "来源项目根许可证与模板资产许可分开。样例和上游模板的模板许可证、模板自身版本没有充分证据时保持 unknown，结果为 partial。",
+    "需求还要求模板可被决策引擎查询、评分、实例化并且不能只保存截图；本契约只覆盖来源登记，不宣称上述运行时能力已经实现。",
+    "没有选定或安装 YoloongPPT 的语言、产品运行时或 PowerPoint 后端。"
+  ]
+}

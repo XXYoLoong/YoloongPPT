@@ -1,0 +1,150 @@
+{
+  "calls": [
+    {
+      "call_id": "capability_877acb3e-e345-41cb-9b1c-773d590e3788",
+      "slide_id": "slide_b364ee54-752f-46e8-b4fb-a597a8344c96",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [],
+      "inputs": {
+        "slide_id": "slide_b364ee54-752f-46e8-b4fb-a597a8344c96",
+        "order": 0
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_bccc8ea1-10fa-4142-b175-5be026c4158a",
+      "slide_id": "slide_b364ee54-752f-46e8-b4fb-a597a8344c96",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_877acb3e-e345-41cb-9b1c-773d590e3788"
+      ],
+      "inputs": {
+        "object_id": "object_495d655e-5c25-4a5a-b8bb-30cab566554a",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "复杂标题 Mixed English Title 保留数字3.5 kg与12.5%及单位，完整展示中英文字形。复杂标题 Mixed English Title 保留数字3.5 kg与12.5%及单位，完整展示中英文字形。复杂标题 Mixed English Title 保留数字3.5 kg与12.5%及单位，完整展示中英文字形。"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          3.27
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_6634c825-b6d6-4c58-ace3-3bb195308638"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_495d655e-5c25-4a5a-b8bb-30cab566554a"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_e0df4f2d-28f8-4f4b-ae75-d7b42e14816b",
+      "slide_id": "slide_b364ee54-752f-46e8-b4fb-a597a8344c96",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_877acb3e-e345-41cb-9b1c-773d590e3788"
+      ],
+      "inputs": {
+        "object_id": "object_1a456d82-b04a-4bde-b135-f452a4d0689e",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "批准原文保持完整。标题允许多行，正文不移入备注。"
+        ],
+        "bounds": [
+          0.72,
+          4.03,
+          11.85,
+          2.51
+        ],
+        "font_size": 24,
+        "source_refs": [
+          "evidence_6634c825-b6d6-4c58-ace3-3bb195308638"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 15
+        }
+      },
+      "expected_objects": [
+        "object_1a456d82-b04a-4bde-b135-f452a4d0689e"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_4a5cb492-40e4-4532-abe9-8503bf8a1ff4",
+      "slide_id": "slide_b364ee54-752f-46e8-b4fb-a597a8344c96",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_877acb3e-e345-41cb-9b1c-773d590e3788"
+      ],
+      "inputs": {
+        "object_id": "object_c437bbcd-4a28-4fde-90ff-6100e5e9fd16",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "01 / 01"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_c437bbcd-4a28-4fde-90ff-6100e5e9fd16"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_55cc0de8-eba1-4348-aa85-a23564499668",
+      "slide_id": "slide_b364ee54-752f-46e8-b4fb-a597a8344c96",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_877acb3e-e345-41cb-9b1c-773d590e3788"
+      ],
+      "inputs": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_6634c825-b6d6-4c58-ace3-3bb195308638"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    }
+  ],
+  "deps": "each page requires its predecessor; objects require owning page",
+  "backend": "PP-05"
+}

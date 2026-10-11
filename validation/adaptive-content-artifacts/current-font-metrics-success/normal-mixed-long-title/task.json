@@ -1,0 +1,56 @@
+{
+  "task_id": "task_553ff8cc-6f01-4db9-b1f0-54d370a98525",
+  "route": {
+    "route_status": "routed",
+    "mode": "create_from_scratch",
+    "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+    "protection_policy_id": "protect_scratch_scope",
+    "decision_id": "DEC-001",
+    "trace": {
+      "candidate_modes": [
+        "create_from_scratch"
+      ],
+      "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+    }
+  },
+  "sources": [
+    {
+      "source_id": "source_63eb9aa9-cc1a-4ce7-bf02-e4d10ae4672c",
+      "kind": "text",
+      "locator": "/runtime/adaptive-content-validation/20261011-102753/normal-mixed-long-title-approved-source.txt",
+      "metadata": {
+        "source_role": "content_material"
+      }
+    }
+  ],
+  "constraints": {
+    "hard": [],
+    "soft": [],
+    "defaults": [
+      {
+        "constraint_id": "fixture.default-pages",
+        "field": "page_count",
+        "value": 1,
+        "source": {
+          "kind": "system_default",
+          "reference": "explicit component fixture"
+        },
+        "used": false
+      }
+    ],
+    "conflicts": []
+  },
+  "style": null,
+  "template_ref": null,
+  "output": {
+    "formats": [
+      "pptx"
+    ]
+  },
+  "providers": {},
+  "runtime_preferences": {
+    "adaptive_policy": {
+      "table_key_columns": {}
+    }
+  }
+}

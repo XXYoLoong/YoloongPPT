@@ -1,0 +1,39 @@
+{
+  "document_type": "pdf_evidence_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-004",
+  "task_id": "TASK-IN-004",
+  "schema": "contracts/pdf-evidence.schema.json",
+  "fixtures": "contracts/pdf-evidence.fixtures.json",
+  "deliverable": "PdfEvidence",
+  "field_rules": [
+    "page_index 从 0 开始、page_number 从 1 开始；二者必须对应同一物理页。elements 按页面阅读顺序排列，element_index 与 reading_order_index 均按页连续。",
+    "项目坐标合同使用 point（1/72 英寸）、旋转后的 CropBox 左上角原点；rotation_degrees 记录页面旋转，width/height 是旋转后显示尺寸。所有 bbox 均引用本页 coordinate_frame。",
+    "bbox 使用 x_min/y_min/x_max/y_max 半开几何边界；坐标必须非负、最小值不大于最大值且不超出页面宽高。JSON Schema 不校验这些跨字段几何不变量。",
+    "source_anchor 必须引用源 PDF Asset ID、页号/索引与页面元素索引；表格单元格另保留 row_index/cell_index。不得以临时提取顺序替代页码和坐标。",
+    "文本只标为 native_text_layer；标题以 heading_candidates 独立表达，candidate_level 可空并记录 font/position 等证据，不将启发式候选宣称为已确认标题。",
+    "表格保留行/单元格顺序、文本、单元格 bbox 和 source_anchor；图像保留 bbox 与提取状态。resource_ref 是本次解析内的局部引用，不代替持久化 Asset ID。",
+    "没有原生文本层时返回 PDF_NO_TEXT_LAYER；IN-004 不执行 OCR。扫描件识别属于 IN-005 的独立需求，不在此处静默降级。",
+    "raw_asset_refs 必须在解析结果中原序回传；source_asset_id 成员一致性及所有锚点/几何对应关系由运行时验证。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "IN-004-NORMAL-001",
+      "fixture_id": "IN-004-NORMAL-001",
+      "purpose": "验证多页文本型 PDF 的文本块、标题候选、表格、图片 bbox 与来源定位。",
+      "acceptance": "每页有一基页号、零基索引和坐标框架；文本、表格单元格、图片及标题候选都有可回溯页/元素锚点，Asset ID 原序保留。"
+    },
+    {
+      "case_id": "IN-004-BOUNDARY-001",
+      "fixture_id": "IN-004-BOUNDARY-001",
+      "purpose": "验证无原生文本层的扫描 PDF 不会静默返回空文本。",
+      "acceptance": "status 为 failed、evidence 为 null，errors 包含 PDF_NO_TEXT_LAYER；不声称 OCR 已运行。"
+    }
+  ],
+  "limits": [
+    "Schema、catalog 和 fixtures 是 TASK-IN-004 的语言/运行时无关草案；PDF 解析库、产品运行时、依赖版本和许可证尚未选择。",
+    "坐标系是 YoloongPPT 的接口约定，须在真实解析器与 PDF 页面旋转/CropBox 夹具上验证转换准确性；当前 fixture 是预期结果，不是实际 PDF 提取证据。",
+    "PdfEvidence 是任务表已列出的交付名，但数据对象表没有同名注册行；本契约直接追溯到 TASK-IN-004，不新增 Requirement/Task。",
+    "没有运行时 parser、表格重建、页框转换、持久化或 PDF 文件集成；无文本层样例明确失败，不代表扫描 PDF 需求已由本任务满足。"
+  ]
+}

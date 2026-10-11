@@ -1,0 +1,29 @@
+{
+  "document_type": "asset_inventory_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-012",
+  "task_id": "TASK-IN-012",
+  "schema": "contracts/asset-inventory.schema.json",
+  "fixtures": "contracts/asset-inventory.fixtures.json",
+  "deliverable": "AssetInventory",
+  "field_rules": [
+    "目录清点只登记文件身份、路径、类型观测、体积、可选 hash 和扫描状态；不代替图片/OCR、媒体转码、字体分析或模板解析任务。",
+    "资产按 source_id 与 Asset ID 登记；local_file 的 relative_path 必须相对已批准 root，拒绝 .. 越界；输出不要求或记录开发机绝对路径。",
+    "默认不跟随符号链接/Windows reparse point；只有调用方策略明确允许后才可跟随，并必须阻止循环与 root 外访问。隐藏文件、深度和资源限制须通过 scan_policy 显式可见。",
+    "扩展名/调用方 declared_kind 不能当作实际文件类型；分别保留声明类型、检测类型和 media type。类型不明、扩展名冲突或无法读取要明确标记。",
+    "远程 URI 只作为引用登记，默认不发起网络抓取；未授权/未执行下载时 scan_status 为 remote_not_fetched，hash/size 不伪造。URL 凭据和敏感 query 在持久化 locator 中必须移除或 redacted。",
+    "sha256 仅在策略启用且哈希完成后填写；last_modified_utc 是源文件观察值，不作为资产版本或产品选型证据。",
+    "资产扫描部分失败时继续保留成功项并返回 partial issue；不允许静默跳过不支持或不可读文件。全局失败返回 failed、inventory=null 和稳定错误码。",
+    "metadata 仅记录明确观测到的字段；若需读取文件内容，标记其方法/状态，不把扩展名猜测或模型猜测伪装为已测信息。"
+  ],
+  "acceptance_cases": [
+    { "case_id": "IN-012-NORMAL-001", "fixture_id": "IN-012-NORMAL-001", "purpose": "验证目录内图片、SVG、视频、字体和模板资产清单。", "acceptance": "逐项保留 Asset ID、相对路径、声明/检测类型、size/hash 状态和来源；不把目录清点描述为内容解析。" },
+    { "case_id": "IN-012-BOUNDARY-PATH-001", "fixture_id": "IN-012-BOUNDARY-PATH-001", "purpose": "验证相对 root 的路径穿越输入。", "acceptance": "拒绝 ../ 越界并返回 ASSET_PATH_UNSAFE；失败记录不暴露目标文件内容。" },
+    { "case_id": "IN-012-BOUNDARY-REMOTE-001", "fixture_id": "IN-012-BOUNDARY-REMOTE-001", "purpose": "验证远程 URI 仅登记而未抓取，且 locator 凭据被移除。", "acceptance": "保留 redacted URI、remote_not_fetched、null size/hash 与显式 partial coverage；不发生网络访问。" }
+  ],
+  "limits": [
+    "schema 与 fixtures 是草案，未实现本地目录遍历、文件签名 sniffing、hash、symlink/reparse point 防护或 remote URI adapter。",
+    "跨文件系统路径大小写规则、硬链接/快捷方式、竞态、permission、重复内容聚类、恶意文件扫描与 URI allowlist，待运行时/安全架构决策后验证。",
+    "数据对象表未单列 AssetInventory；本任务仅关联 IN-012/TASK-IN-012，不修改需求、任务或数据对象行。"
+  ]
+}

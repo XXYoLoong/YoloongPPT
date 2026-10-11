@@ -1,0 +1,82 @@
+{
+  "qa_id": "artifact_3e8eb530-20c9-4068-90c2-d5c2cb628219",
+  "status": "partial",
+  "issues": [
+    {
+      "issue_id": "issue_2c390be3-4dd2-405d-8323-1f3e5351fa27",
+      "code": "RENDER_TEXT_MISSING",
+      "slide_id": "slide_d1453326-ff29-4c4c-bc42-ff91df976f76",
+      "severity": "P0",
+      "detail": "object_ff9810be-6086-426b-a60e-3148496aabf0",
+      "object_id": "object_ff9810be-6086-426b-a60e-3148496aabf0",
+      "requirement_id": "QA-006",
+      "measurement": {
+        "observed": "object_ff9810be-6086-426b-a60e-3148496aabf0"
+      },
+      "threshold": {
+        "rule": "RENDER_TEXT_MISSING"
+      },
+      "action": {
+        "node": "layout",
+        "mode": "local_revision",
+        "reason": "Explicit mapped repair or fail; do not guess facts"
+      }
+    }
+  ],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "kind": "structure",
+      "check": "Content_Types declarations and all internal relationship targets/IDs",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_d1453326-ff29-4c4c-bc42-ff91df976f76",
+      "kind": "global_consistency",
+      "check": "native/background/design_variation",
+      "status": "executed",
+      "explicit_variation": false,
+      "actual_background": "F6F4EE",
+      "spec_background": "F6F4EE",
+      "deck_background": "F6F4EE",
+      "selected_layout": "editorial",
+      "selected_candidate_ids": [
+        "candidate_b1a7a2b1-a3e5-4f24-a88f-1cd3b2ece118"
+      ]
+    },
+    {
+      "slide_id": "slide_d1453326-ff29-4c4c-bc42-ff91df976f76",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_d1453326-ff29-4c4c-bc42-ff91df976f76",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 1,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "not_executed",
+    "fact_semantic": "not_executed",
+    "accessibility": "partial_native_alt_font_contrast_table_header_reading_order",
+    "powerpoint_compatibility": "not_executed",
+    "global_consistency": "partial_style_font_footer_hierarchy",
+    "visual_geometry": "partial_collision_geometry_contrast_image_dpi",
+    "image_semantics": "not_executed",
+    "full_semantic_reading_order": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Numeric membership is not semantic truth; PNG/text presence is not visual approval. Full DEC/QA/revision acceptance remains required."
+}

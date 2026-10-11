@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FallbackRecord（GOV-004 草案）",
+  "description": "记录一次降级/替代动作的原因、前后行为、影响与可追溯位置。reason_code 复用需求矩阵“错误Fallback”表的枚举；字段结构仍待评审。",
+  "type": "object",
+  "required": [
+    "fallback_id",
+    "task_id",
+    "reason_code",
+    "fallback_category",
+    "trigger_summary",
+    "requested_behavior",
+    "applied_behavior",
+    "impact_summary",
+    "user_visible",
+    "trace_ref",
+    "report_ref"
+  ],
+  "properties": {
+    "fallback_id": { "type": "string", "minLength": 1 },
+    "task_id": { "type": "string", "minLength": 1 },
+    "reason_code": {
+      "type": "string",
+      "enum": [
+        "INPUT_NOT_FOUND",
+        "INPUT_UNSUPPORTED",
+        "INPUT_PASSWORD_PROTECTED",
+        "INPUT_CORRUPT",
+        "ZIP_BOMB_LIMIT",
+        "PARSE_PARTIAL",
+        "OCR_LOW_CONFIDENCE",
+        "SOURCE_CONFLICT",
+        "MISSING_FACT",
+        "MODEL_TIMEOUT",
+        "MODEL_INVALID_SCHEMA",
+        "MODEL_CONTEXT_LIMIT",
+        "ASSET_DOWNLOAD_FAIL",
+        "ASSET_UNSAFE_URL",
+        "ASSET_LOW_QUALITY",
+        "FONT_MISSING",
+        "LAYOUT_NOT_FOUND",
+        "LAYOUT_CAPACITY",
+        "CHART_INVALID_DATA",
+        "ADAPTER_UNAVAILABLE",
+        "POWERPOINT_NOT_RUNNING",
+        "OFFICE_API_UNSUPPORTED",
+        "PPTX_WRITE_FAIL",
+        "PPTX_INVALID",
+        "RENDER_FAIL",
+        "STRUCTURAL_QA_FAIL",
+        "SEMANTIC_QA_FAIL",
+        "ROUNDTRIP_LOSS",
+        "REVISION_EXHAUSTED",
+        "CANCELLED",
+        "DISK_LIMIT",
+        "SECRET_EXPOSURE_RISK"
+      ]
+    },
+    "fallback_category": {
+      "type": "string",
+      "enum": [
+        "object_flattening",
+        "font_substitution",
+        "chart_to_image",
+        "template_replacement",
+        "data_truncation",
+        "page_count_deviation",
+        "other"
+      ]
+    },
+    "category_note": { "type": "string", "minLength": 1 },
+    "trigger_summary": { "type": "string", "minLength": 1 },
+    "requested_behavior": { "type": "string", "minLength": 1 },
+    "applied_behavior": { "type": "string", "minLength": 1 },
+    "impact_summary": { "type": "string", "minLength": 1 },
+    "user_visible": { "type": "boolean", "const": true },
+    "trace_ref": { "type": "string", "minLength": 1 },
+    "report_ref": { "type": "string", "minLength": 1 }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "fallback_category": { "const": "other" } }, "required": ["fallback_category"] },
+      "then": { "required": ["category_note"] }
+    }
+  ],
+  "additionalProperties": false
+}

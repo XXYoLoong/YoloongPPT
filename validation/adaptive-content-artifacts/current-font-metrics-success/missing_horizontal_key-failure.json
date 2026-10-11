@@ -1,0 +1,26 @@
+{
+  "ok": false,
+  "trace_id": "trace_73e09bd9-60db-45f1-a25f-f9ae7736c8be",
+  "error": {
+    "code": "ADAPTIVE_TABLE_KEY_COLUMNS_REQUIRED",
+    "message": "多列容量不足；需显式指定重复关键列，未猜测首列含义。",
+    "component": "AdaptiveContent",
+    "requirement_ids": [
+      "DEC-014",
+      "DEC-015",
+      "DEC-018",
+      "DEC-020",
+      "TPL-007",
+      "TPL-012",
+      "AC-014",
+      "AC-015"
+    ],
+    "details": [
+      {
+        "page": 1,
+        "columns": 25
+      }
+    ],
+    "retryable": false
+  }
+}

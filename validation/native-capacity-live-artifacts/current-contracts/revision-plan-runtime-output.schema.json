@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/revision-plan-runtime-output.schema.json",
+  "type": "object",
+  "properties": {
+    "plan_id": {
+      "type": "string"
+    },
+    "trace_id": {
+      "type": "string"
+    },
+    "parent_run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "status": {
+      "enum": [
+        "ready",
+        "needs_input",
+        "fail"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "properties": {
+        "slide_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "object_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "slide_ids",
+        "object_ids"
+      ],
+      "additionalProperties": false
+    },
+    "locked_object_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "locked_slide_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "actions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "action_id": {
+            "type": "string"
+          },
+          "issue_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "slide_id": {
+            "type": "string"
+          },
+          "object_id": {
+            "type": "string"
+          },
+          "operation": {
+            "enum": [
+              "geometry",
+              "format",
+              "text"
+            ]
+          },
+          "changes": {
+            "type": "object"
+          },
+          "before_spec": {
+            "type": "object"
+          },
+          "expected_native_mapping": {
+            "type": "object"
+          },
+          "rerun_nodes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "preserve_fact_boundary": {
+            "const": true
+          },
+          "preserve_unselected_objects": {
+            "const": true
+          }
+        },
+        "required": [
+          "action_id",
+          "issue_ids",
+          "slide_id",
+          "object_id",
+          "operation",
+          "changes",
+          "before_spec",
+          "expected_native_mapping",
+          "rerun_nodes",
+          "preserve_fact_boundary",
+          "preserve_unselected_objects"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "blocked": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "candidates": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "all_issue_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rerun_nodes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "preserve_unselected_objects": {
+      "const": true
+    },
+    "full_acceptance": {
+      "const": "not_passed"
+    }
+  },
+  "required": [
+    "plan_id",
+    "trace_id",
+    "parent_run_id",
+    "status",
+    "scope",
+    "locked_object_ids",
+    "locked_slide_ids",
+    "actions",
+    "blocked",
+    "candidates",
+    "all_issue_ids",
+    "rerun_nodes",
+    "preserve_unselected_objects",
+    "full_acceptance"
+  ],
+  "additionalProperties": false
+}

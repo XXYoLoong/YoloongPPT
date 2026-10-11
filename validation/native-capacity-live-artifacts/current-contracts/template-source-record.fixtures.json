@@ -1,0 +1,426 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "requirement_id": "TPL-001",
+  "task_id": "TASK-TPL-001",
+  "schema_ref": "template-source-record.schema.json",
+  "fixtures": [
+    {
+      "fixture_id": "TPL001-P01",
+      "kind": "upstream_static_crosswalk",
+      "expected_status": "partial",
+      "record": {
+        "record_type": "TemplateSourceRecord",
+        "record_id": "template_source_ppt-master",
+        "validation_scope": "upstream_static_crosswalk",
+        "origin": {
+          "kind": "source_project",
+          "project_id": "P01",
+          "project_name": "PPT Master",
+          "repository_url": "https://github.com/hugohe3/ppt-master",
+          "source_file": "skills/ppt-master/references/canvas-formats.md"
+        },
+        "source_revision": {
+          "status": "observed",
+          "value": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+          "evidence_refs": ["P01_RESEARCH_README"],
+          "reason": null
+        },
+        "source_project_license": {
+          "status": "observed",
+          "identifiers": ["MIT"],
+          "evidence_refs": ["P01_RESEARCH_README"],
+          "reason": null
+        },
+        "template_license": {
+          "status": "unknown",
+          "identifiers": [],
+          "evidence_refs": [],
+          "reason": "来源项目许可证不证明某个模板资产的许可；本次没有实际模板文件的独立许可证据。"
+        },
+        "template_version": {
+          "status": "unknown",
+          "value": null,
+          "evidence_refs": [],
+          "reason": "固定源码提交已记录，但没有一个具体导入模板的版本声明。"
+        },
+        "content_hash": {
+          "status": "observed",
+          "algorithm": "sha256",
+          "value": "8bfde00935ea6747ba7904ecaea8401f828e6f76eb7576e2419d82b940ed32a1",
+          "scope": "source_file",
+          "evidence_ref": "P01_CANVAS_FORMATS",
+          "reason": null
+        },
+        "slide_size": {
+          "status": "unknown",
+          "coordinate_basis": null,
+          "unit": null,
+          "width": null,
+          "height": null,
+          "evidence_refs": [],
+          "reason": "固定规范列出多种画布，但没有从该源码样例确认一个具体模板的页面尺寸。"
+        },
+        "masters": {
+          "status": "partial",
+          "items": [],
+          "evidence_refs": ["P01_TEMPLATE_FLOW"],
+          "reason": "固定工作流定义 Master roster；本次没有在该上游 checkout 中找到并检查实际导入的 PPTX 样例。"
+        },
+        "layouts": {
+          "status": "partial",
+          "items": [],
+          "evidence_refs": ["P01_TEMPLATE_FLOW"],
+          "reason": "固定工作流定义已注册 Layout；具体模板布局样例与运行结果未验证。"
+        },
+        "theme": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": [],
+          "reason": "本次选取的固定画布规格文件不含某个模板的主题实例。"
+        },
+        "evidence_refs": ["P01_RESEARCH_README", "P01_TEMPLATE_FLOW", "P01_CANVAS_FORMATS"],
+        "status": "partial"
+      },
+      "verification_note": "按固定源码说明建立字段 crosswalk；不是 PPT Master 模板导入运行验证。"
+    },
+    {
+      "fixture_id": "TPL001-P03",
+      "kind": "upstream_static_crosswalk",
+      "expected_status": "partial",
+      "record": {
+        "record_type": "TemplateSourceRecord",
+        "record_id": "template_source_presenton",
+        "validation_scope": "upstream_static_crosswalk",
+        "origin": {
+          "kind": "source_project",
+          "project_id": "P03",
+          "project_name": "Presenton",
+          "repository_url": "https://github.com/presenton/presenton",
+          "source_file": "docs/template-v2.md"
+        },
+        "source_revision": {
+          "status": "observed",
+          "value": "35bf44290f821323e003da854f78ffcb0e918167",
+          "evidence_refs": ["P03_RESEARCH_README"],
+          "reason": null
+        },
+        "source_project_license": {
+          "status": "observed",
+          "identifiers": ["Apache-2.0"],
+          "evidence_refs": ["P03_RESEARCH_README"],
+          "reason": null
+        },
+        "template_license": {
+          "status": "unknown",
+          "identifiers": [],
+          "evidence_refs": [],
+          "reason": "Presenton 项目根许可证不声明导入模板的资产许可。"
+        },
+        "template_version": {
+          "status": "unknown",
+          "value": null,
+          "evidence_refs": [],
+          "reason": "模板文档说明 TemplateV2 数据但没有给出本次具体源 PPTX 的模板版本。"
+        },
+        "content_hash": {
+          "status": "observed",
+          "algorithm": "sha256",
+          "value": "ac536bac766662a06ff222e40c7233ac58f9122d226433e4156ece6c409518fb",
+          "scope": "source_file",
+          "evidence_ref": "P03_TEMPLATE_V2_DOC",
+          "reason": null
+        },
+        "slide_size": {
+          "status": "observed",
+          "coordinate_basis": "source_coordinate_system",
+          "unit": "px",
+          "width": 1280,
+          "height": 720,
+          "evidence_refs": ["P03_TEMPLATE_V2_DOC"],
+          "reason": null
+        },
+        "masters": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": [],
+          "reason": "固定文档说明 RawSlideLayouts 和认证 Layout；没有证据证明本 crosswalk 覆盖原生 PPTX master 的提取与回链。"
+        },
+        "layouts": {
+          "status": "partial",
+          "items": [],
+          "evidence_refs": ["P03_TEMPLATE_V2_DOC", "P03_V2_SCHEMA"],
+          "reason": "固定文档/源码确认 RawSlideLayouts 与可复用 Layout 结构；本次没有运行实际导入和持久化流程。"
+        },
+        "theme": {
+          "status": "partial",
+          "items": [],
+          "evidence_refs": ["P03_TEMPLATE_V2_DOC"],
+          "reason": "固定文档描述颜色、字体和语义 theme 派生；本次没有对真实源 deck 执行分析。"
+        },
+        "evidence_refs": ["P03_RESEARCH_README", "P03_TEMPLATE_V2_DOC", "P03_V2_SCHEMA"],
+        "status": "partial"
+      },
+      "verification_note": "1280x720 是来源坐标系，不声称是某一真实 PPTX 的 sldSz。"
+    },
+    {
+      "fixture_id": "TPL001-P04",
+      "kind": "upstream_static_crosswalk",
+      "expected_status": "partial",
+      "record": {
+        "record_type": "TemplateSourceRecord",
+        "record_id": "template_source_ai-agent-ppt-pitch",
+        "validation_scope": "upstream_static_crosswalk",
+        "origin": {
+          "kind": "source_project",
+          "project_id": "P04",
+          "project_name": "ai-agent-ppt",
+          "repository_url": "https://github.com/peterfei/ai-agent-ppt",
+          "source_file": "src/templates/pitch/template.json"
+        },
+        "source_revision": {
+          "status": "observed",
+          "value": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+          "evidence_refs": ["P04_RESEARCH_README"],
+          "reason": null
+        },
+        "source_project_license": {
+          "status": "observed",
+          "identifiers": ["MIT"],
+          "evidence_refs": ["P04_RESEARCH_README"],
+          "reason": null
+        },
+        "template_license": {
+          "status": "unknown",
+          "identifiers": [],
+          "evidence_refs": [],
+          "reason": "项目根许可证不单独声明 pitch 模板文件或其引用资产的许可。"
+        },
+        "template_version": {
+          "status": "unknown",
+          "value": null,
+          "evidence_refs": [],
+          "reason": "pitch 模板 JSON 没有独立模板版本字段；源码提交作为 source_revision 保存。"
+        },
+        "content_hash": {
+          "status": "observed",
+          "algorithm": "sha256",
+          "value": "01e4c8f40206cb60e5fcd3df10741be79cae1bc99bb6ce8eb2290ed8f5517005",
+          "scope": "source_file",
+          "evidence_ref": "P04_PITCH_TEMPLATE",
+          "reason": null
+        },
+        "slide_size": {
+          "status": "observed",
+          "coordinate_basis": "template_canvas",
+          "unit": "inches",
+          "width": 13.33,
+          "height": 7.5,
+          "evidence_refs": ["P04_PITCH_TEMPLATE"],
+          "reason": null
+        },
+        "masters": {
+          "status": "not_present",
+          "items": [],
+          "evidence_refs": ["P04_PITCH_TEMPLATE"],
+          "reason": "本条记录的 pitch/template.json 文件只定义 theme、spacing 和 slideSize，不包含 master 字段；不据此断言整个项目不支持 master。"
+        },
+        "layouts": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": ["P04_PITCH_TEMPLATE", "P04_TITLE_LAYOUT"],
+          "reason": "固定源码把 layout JSON 放在独立目录；没有证据证明 title layout 与 pitch 模板逐项绑定。"
+        },
+        "theme": {
+          "status": "complete",
+          "items": [
+            { "id": "primary", "name": "primary", "kind": "color", "value": "#1A1A1A", "source_ref": "P04_PITCH_TEMPLATE" },
+            { "id": "secondary", "name": "secondary", "kind": "color", "value": "#4A4A4A", "source_ref": "P04_PITCH_TEMPLATE" },
+            { "id": "accent", "name": "accent", "kind": "color", "value": "#FF6B35", "source_ref": "P04_PITCH_TEMPLATE" },
+            { "id": "background", "name": "background", "kind": "color", "value": "#FFFFFF", "source_ref": "P04_PITCH_TEMPLATE" },
+            { "id": "text", "name": "text", "kind": "color", "value": "#1A1A1A", "source_ref": "P04_PITCH_TEMPLATE" },
+            { "id": "codeBg", "name": "codeBg", "kind": "color", "value": "#F0F0F0", "source_ref": "P04_PITCH_TEMPLATE" },
+            { "id": "title", "name": "title", "kind": "font", "value": "Arial", "source_ref": "P04_PITCH_TEMPLATE" },
+            { "id": "body", "name": "body", "kind": "font", "value": "Arial", "source_ref": "P04_PITCH_TEMPLATE" },
+            { "id": "code", "name": "code", "kind": "font", "value": "Courier New", "source_ref": "P04_PITCH_TEMPLATE" },
+            { "id": "fallback", "name": "fallback", "kind": "font", "value": "sans-serif", "source_ref": "P04_PITCH_TEMPLATE" }
+          ],
+          "evidence_refs": ["P04_PITCH_TEMPLATE"],
+          "reason": null
+        },
+        "evidence_refs": ["P04_RESEARCH_README", "P04_PITCH_TEMPLATE", "P04_TITLE_LAYOUT"],
+        "status": "partial"
+      },
+      "verification_note": "这是固定源码 JSON 的字段 crosswalk；没有运行 ai-agent-ppt 或验证生成的 PPTX。"
+    },
+    {
+      "fixture_id": "TPL001-REAL-PPTX",
+      "kind": "real_pptx_package_inventory",
+      "expected_status": "partial",
+      "record": {
+        "record_type": "TemplateSourceRecord",
+        "record_id": "template_source_real-pptx-sample",
+        "validation_scope": "real_pptx_package_inventory",
+        "origin": {
+          "kind": "source_file",
+          "uri": "https://github.com/scanny/python-pptx/blob/278b47b1dedd5b46ee84c286e77cdfb0bf4594be/src/pptx/templates/default.pptx",
+          "file_name": "default.pptx"
+        },
+        "source_revision": {
+          "status": "observed",
+          "value": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": null
+        },
+        "source_project_license": {
+          "status": "observed",
+          "identifiers": ["MIT"],
+          "evidence_refs": ["PYTHON_PPTX_LICENSE"],
+          "reason": null
+        },
+        "template_license": {
+          "status": "unknown",
+          "identifiers": [],
+          "evidence_refs": [],
+          "reason": "PPTX 样例包未提供独立的模板资产许可或内容来源声明；python-pptx 项目 MIT 许可证不替代它。"
+        },
+        "template_version": {
+          "status": "unknown",
+          "value": null,
+          "evidence_refs": [],
+          "reason": "该 PPTX 的包属性没有声明独立模板版本；保留来源提交版本不推断模板版本。"
+        },
+        "content_hash": {
+          "status": "observed",
+          "algorithm": "sha256",
+          "value": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
+          "scope": "template_file",
+          "evidence_ref": "PYTHON_PPTX_DEFAULT_SAMPLE",
+          "reason": null
+        },
+        "slide_size": {
+          "status": "observed",
+          "coordinate_basis": "pptx_package_slide_size",
+          "unit": "EMU",
+          "width": 9144000,
+          "height": 6858000,
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": null
+        },
+        "masters": {
+          "status": "complete",
+          "items": [
+            { "id": "slideMaster1", "name": null, "source_ref": "ppt/slideMasters/slideMaster1.xml" }
+          ],
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": null
+        },
+        "layouts": {
+          "status": "complete",
+          "items": [
+            { "id": "slideLayout1", "name": "Title Slide", "source_ref": "ppt/slideLayouts/slideLayout1.xml" },
+            { "id": "slideLayout2", "name": "Title and Content", "source_ref": "ppt/slideLayouts/slideLayout2.xml" },
+            { "id": "slideLayout3", "name": "Section Header", "source_ref": "ppt/slideLayouts/slideLayout3.xml" },
+            { "id": "slideLayout4", "name": "Two Content", "source_ref": "ppt/slideLayouts/slideLayout4.xml" },
+            { "id": "slideLayout5", "name": "Comparison", "source_ref": "ppt/slideLayouts/slideLayout5.xml" },
+            { "id": "slideLayout6", "name": "Title Only", "source_ref": "ppt/slideLayouts/slideLayout6.xml" },
+            { "id": "slideLayout7", "name": "Blank", "source_ref": "ppt/slideLayouts/slideLayout7.xml" },
+            { "id": "slideLayout8", "name": "Content with Caption", "source_ref": "ppt/slideLayouts/slideLayout8.xml" },
+            { "id": "slideLayout9", "name": "Picture with Caption", "source_ref": "ppt/slideLayouts/slideLayout9.xml" },
+            { "id": "slideLayout10", "name": "Title and Vertical Text", "source_ref": "ppt/slideLayouts/slideLayout10.xml" },
+            { "id": "slideLayout11", "name": "Vertical Title and Text", "source_ref": "ppt/slideLayouts/slideLayout11.xml" }
+          ],
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": null
+        },
+        "theme": {
+          "status": "complete",
+          "items": [
+            { "id": "theme1", "name": "Office Theme", "source_ref": "ppt/theme/theme1.xml" }
+          ],
+          "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE"],
+          "reason": null
+        },
+        "evidence_refs": ["PYTHON_PPTX_DEFAULT_SAMPLE", "PYTHON_PPTX_DEFAULT_DOCS", "PYTHON_PPTX_LICENSE"],
+        "status": "partial"
+      },
+      "verification_note": "真实 PPTX 的 ZIP/XML 部件与 master 到 11 个 layout/1 个 theme 的关系盘点通过；未用 YoloongPPT parser、Office 渲染或用户上传流程。样例只作为来源样本，不作为项目依赖或技术选型。"
+    },
+    {
+      "fixture_id": "TPL001-USER-UPLOAD-SHAPE",
+      "kind": "synthetic_origin_shape",
+      "expected_status": "partial",
+      "record": {
+        "record_type": "TemplateSourceRecord",
+        "record_id": "template_source_user-upload-shape",
+        "validation_scope": "synthetic_origin_shape",
+        "origin": {
+          "kind": "user_upload",
+          "uploaded_asset_id": "asset_ffffffff-ffff-4fff-8fff-ffffffffffff",
+          "file_name": "待上传模板.pptx"
+        },
+        "source_revision": {
+          "status": "unknown",
+          "value": null,
+          "evidence_refs": [],
+          "reason": "用户上传文件没有来源项目提交版本。"
+        },
+        "source_project_license": {
+          "status": "unknown",
+          "identifiers": [],
+          "evidence_refs": [],
+          "reason": "上传源未关联来源项目。"
+        },
+        "template_license": {
+          "status": "unknown",
+          "identifiers": [],
+          "evidence_refs": [],
+          "reason": "合成形状 fixture 不包含真实上传文件或许可声明。"
+        },
+        "template_version": {
+          "status": "unknown",
+          "value": null,
+          "evidence_refs": [],
+          "reason": "合成形状 fixture 不包含真实上传文件或版本声明。"
+        },
+        "content_hash": {
+          "status": "unknown",
+          "algorithm": "sha256",
+          "value": null,
+          "scope": "template_file",
+          "evidence_ref": null,
+          "reason": "该 fixture 只检查 user_upload 来源形状，没有伪造文件字节或哈希。"
+        },
+        "slide_size": {
+          "status": "unknown",
+          "coordinate_basis": null,
+          "unit": null,
+          "width": null,
+          "height": null,
+          "evidence_refs": [],
+          "reason": "没有实际上传文件可供读取。"
+        },
+        "masters": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": [],
+          "reason": "没有实际上传文件可供解析。"
+        },
+        "layouts": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": [],
+          "reason": "没有实际上传文件可供解析。"
+        },
+        "theme": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": [],
+          "reason": "没有实际上传文件可供解析。"
+        },
+        "evidence_refs": [],
+        "status": "partial"
+      },
+      "verification_note": "只覆盖 user_upload 来源的契约形状；不是实际上传链路验证。"
+    }
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "ok": false,
+  "trace_id": "trace_fcdee4e2-7d44-4e36-b638-d03f7e51340b",
+  "error": {
+    "code": "ADAPTIVE_PAGE_BUDGET_EXCEEDED",
+    "message": "完整可读内容需要的页数超出原预算；未裁内容或改变硬约束。",
+    "component": "AdaptiveContent",
+    "requirement_ids": [
+      "DEC-014",
+      "DEC-015",
+      "DEC-018",
+      "DEC-020",
+      "TPL-007",
+      "TPL-012",
+      "AC-014",
+      "AC-015"
+    ],
+    "details": [
+      {
+        "required_pages_at_least": 8,
+        "page_budget": {
+          "kind": "hard",
+          "target": 1,
+          "minimum": 1,
+          "maximum": 1,
+          "provenance": [
+            {
+              "constraint_id": "fixture.exact-pages",
+              "field": "page_count",
+              "value": 1,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "explicit component fixture"
+              }
+            }
+          ]
+        },
+        "source_page": 0
+      }
+    ],
+    "retryable": false
+  }
+}

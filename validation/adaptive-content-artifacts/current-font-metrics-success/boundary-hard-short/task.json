@@ -1,0 +1,56 @@
+{
+  "task_id": "task_ba903990-2218-4dd3-a3e6-de3effea814a",
+  "route": {
+    "route_status": "routed",
+    "mode": "create_from_scratch",
+    "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+    "protection_policy_id": "protect_scratch_scope",
+    "decision_id": "DEC-001",
+    "trace": {
+      "candidate_modes": [
+        "create_from_scratch"
+      ],
+      "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+    }
+  },
+  "sources": [
+    {
+      "source_id": "source_8a811843-b375-4c84-95e9-a9eb9d40c1de",
+      "kind": "text",
+      "locator": "/runtime/adaptive-content-validation/20261011-102753/boundary-hard-short-approved-source.txt",
+      "metadata": {
+        "source_role": "content_material"
+      }
+    }
+  ],
+  "constraints": {
+    "hard": [
+      {
+        "constraint_id": "fixture.exact-pages",
+        "field": "page_count",
+        "value": 1,
+        "source": {
+          "kind": "user_instruction",
+          "reference": "explicit component fixture"
+        }
+      }
+    ],
+    "soft": [],
+    "defaults": [],
+    "conflicts": []
+  },
+  "style": null,
+  "template_ref": null,
+  "output": {
+    "formats": [
+      "pptx"
+    ]
+  },
+  "providers": {},
+  "runtime_preferences": {
+    "page_count": 1,
+    "adaptive_policy": {
+      "table_key_columns": {}
+    }
+  }
+}

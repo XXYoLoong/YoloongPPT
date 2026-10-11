@@ -1,0 +1,151 @@
+{
+  "document_type": "design_tokens_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "TPL-005",
+  "task_id": "TASK-TPL-005",
+  "schema": "contracts/design-tokens.schema.json",
+  "fixtures": "contracts/design-tokens.fixtures.json",
+  "deliverable": "DesignTokens",
+  "data_object_row": "数据对象!A31:J31",
+  "source_crosswalks": [
+    {
+      "source_id": "P01-PPT-Master",
+      "repository": "PPT Master",
+      "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "execution_status": "source_review_only",
+      "source_refs": [
+        "research/P01/README.md",
+        "skills/ppt-master/scripts/template_import/manifest.py#parse_theme",
+        "skills/ppt-master/scripts/template_import/manifest.py#detect_background_asset"
+      ],
+      "observations": [
+        "parse_theme 读取 OOXML clrScheme 中的 srgbClr 值或 sysClr.lastClr，并读取 major/minor Latin 字体及 minor East Asian 字体；该函数不保留完整颜色变换、字体脚本覆盖或字体比例。",
+        "模板导入代码另有 placeholder 样式和背景资产读取路径，但不构成完整的 DesignTokens 抽取模型。",
+        "以上是固定上游源码的静态行为，不是 YoloongPPT 的运行时结论。"
+      ],
+      "field_coverage": {
+        "fonts": "partial",
+        "type_scale": "not_extracted",
+        "colors": "partial",
+        "spacing": "not_extracted",
+        "radius": "not_extracted",
+        "border": "partial",
+        "shadow": "not_extracted",
+        "backgrounds": "partial",
+        "image_treatment": "not_extracted",
+        "chart_style": "not_extracted",
+        "table_style": "not_extracted"
+      }
+    },
+    {
+      "source_id": "P03-Presenton",
+      "repository": "Presenton",
+      "commit": "35bf44290f821323e003da854f78ffcb0e918167",
+      "execution_status": "source_review_only",
+      "source_refs": [
+        "research/P03/README.md",
+        "docs/template-v2.md#raw-layouts-and-theme",
+        "servers/fastapi/templates/v2/theme.py#build_theme_profile",
+        "servers/fastapi/templates/v2/theme.py#generate_template_theme"
+      ],
+      "observations": [
+        "RawSlideLayouts 保留来源元素、位置、尺寸、样式和素材；后续流程从布局颜色/字体统计构造语义主题角色。",
+        "theme.py 在没有颜色统计时注入四个合成颜色，并在 LLM 角色选择失败时切换到确定性角色选择。这是 Presenton 的上游 fallback，不能作为 YoloongPPT 默认值。",
+        "语义角色归纳不等于保真保留 OOXML 原始主题值；图表/表格区域识别也不等于已定义完整图表/表格令牌。"
+      ],
+      "field_coverage": {
+        "fonts": "partial",
+        "type_scale": "partial",
+        "colors": "partial",
+        "spacing": "partial_raw_layout_styles",
+        "radius": "partial_raw_layout_styles",
+        "border": "partial_raw_layout_styles",
+        "shadow": "partial_raw_layout_styles",
+        "backgrounds": "partial",
+        "image_treatment": "partial_raw_layout_styles",
+        "chart_style": "partial_role_profile",
+        "table_style": "partial_component_detection"
+      }
+    },
+    {
+      "source_id": "P04-ai-agent-ppt",
+      "repository": "ai-agent-ppt",
+      "commit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "execution_status": "source_review_only",
+      "source_refs": [
+        "research/P04/README.md",
+        "src/types/config.ts#TemplateColors",
+        "src/types/config.ts#TemplateFonts",
+        "src/types/config.ts#TemplateSpacing",
+        "src/core/engine/element-css-map.ts",
+        "src/core/engine/layout-loader.ts",
+        "src/templates/business/template.json"
+      ],
+      "observations": [
+        "模板 JSON 和类型声明提供 colors、fonts、字号/行高/段落间距、slideSize；元素 CSS 映射还出现 margin、padding、borderRadius、borderLeft 和 objectFit。",
+        "layout-loader 接受可选 backgroundImage；PPTXBuilder 消费模板颜色/字体/布局样式。该路线是抽象模板配置，不是原生 OOXML 主题解析。",
+        "ChartData 是内容数据类型；本次核对未发现可复用的 chart_style 或 table_style 令牌契约。"
+      ],
+      "field_coverage": {
+        "fonts": "declared",
+        "type_scale": "declared",
+        "colors": "declared",
+        "spacing": "partial",
+        "radius": "partial",
+        "border": "partial",
+        "shadow": "not_found",
+        "backgrounds": "partial",
+        "image_treatment": "partial",
+        "chart_style": "not_found",
+        "table_style": "not_found"
+      }
+    },
+    {
+      "source_id": "REAL-PPTX-TPL001",
+      "repository": "python-pptx default.pptx sample",
+      "execution_status": "sample_part_inspection_only",
+      "source_refs": [
+        "C:/Users/Ni/AppData/Local/Temp/yoloongppt-tpl001-python-pptx-default.pptx",
+        "ppt/theme/theme1.xml",
+        "ppt/slideMasters/slideMaster1.xml",
+        "ppt/tableStyles.xml"
+      ],
+      "file_sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
+      "theme_part_sha256": "4c3412087e8fa20cf5642f42e69f1e733881c28611a2bdd4622654ee313d214e",
+      "observations": [
+        "样例有 1 个 master、11 个 layout、1 个 theme、0 个 slide、0 个 chart、0 个 media 部件。",
+        "theme1.xml 有 12 个原始颜色槽、major/minor Latin 字体 Calibri；East Asian 和 complex-script 字体属性为空字符串。颜色槽保留 sysClr/srgbClr 表示。",
+        "fmtScheme 的 fill、line、effect、background-fill 样式列表各有 3 项；tableStyles 的 default GUID 为 5C22544A-7EE6-4342-B048-85BDC9FD1C3A，但列表中没有样式定义。",
+        "母版背景记录为 bgRef idx=1001、schemeClr=bg1。fixture 保留原始引用，不把它转成已确认的最终背景颜色。"
+      ],
+      "field_coverage": {
+        "fonts": "partial",
+        "type_scale": "not_observed",
+        "colors": "partial_raw_slots",
+        "spacing": "not_observed_as_tokens",
+        "radius": "not_observed",
+        "border": "partial_style_list_count_only",
+        "shadow": "partial_effect_list_count_only",
+        "backgrounds": "partial_raw_master_reference",
+        "image_treatment": "not_observed",
+        "chart_style": "not_observed_no_chart_parts",
+        "table_style": "partial_default_reference_without_definition"
+      }
+    }
+  ],
+  "field_rules": [
+    "declared 表示来源直接声明的值；mapped 必须同时保留 source_ref 和明确的映射原因；partial 必须保留已观察值及未覆盖原因；unknown、unsupported、not_present 的 value 必须为 null 且 reason 非空。",
+    "颜色槽和字体方案原值与语义角色分开保存。dk1、lt1、accent1 等源名称不得静默改写为品牌角色。",
+    "空字符串是原始来源值，不等同于缺失；不得把空的 East Asian/complex-script 字体静默替换为 Latin 字体。",
+    "上游中的合成颜色、默认值、确定性回退和语义分类只作为来源行为记录；不得继承为 YoloongPPT 的产品默认或 fallback。",
+    "字号比例、间距、圆角、边框、阴影、背景、图片处理、图表样式和表格样式均须有来源锚点；主题列表计数不等于完整样式语义。",
+    "本契约未定义独立的运行时 token-set ID；若后续要求 DesignTokens 作为独立持久化实体，须按 GOV-007 记录身份映射后再增加字段。"
+  ],
+  "limitations": [
+    "Schema、catalog 和 fixture 是 Draft 2020-12 草案，不是产品选型、产品规则或运行时实现。",
+    "PPT Master、Presenton、ai-agent-ppt 只做固定源码静态核对，没有执行其程序或验证生成产物。",
+    "真实 PPTX fixture 来自已有模板样例的只读 ZIP/XML 检查；没有 YoloongPPT parser、Office 渲染或图表/表格/图片样例。",
+    "真实样例无 slide parts，因此字号比例、通用间距、圆角、阴影语义、图片处理和图表样式仍未验证；未知值保持 null。",
+    "运行时、OOXML 解析库、产品 token 语义、字体可用性、许可证边界和 Docker 应用依赖仍待后续架构与 PoC 决策。"
+  ]
+}

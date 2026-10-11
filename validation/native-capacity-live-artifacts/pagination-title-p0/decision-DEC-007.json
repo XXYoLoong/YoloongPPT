@@ -1,0 +1,54 @@
+{
+  "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+  "node_id": "DEC-007",
+  "input": {
+    "scenario": null,
+    "duration": null
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-007",
+      "candidate_id": "candidate_e9d1613f-ebb4-46f4-8182-4670c839467d",
+      "value": {
+        "scenario": null,
+        "duration": null,
+        "field_provenance": []
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_e9d1613f-ebb4-46f4-8182-4670c839467d"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "scenario": null,
+    "duration": null,
+    "field_provenance": []
+  },
+  "duration": 0.0,
+  "error": null
+}

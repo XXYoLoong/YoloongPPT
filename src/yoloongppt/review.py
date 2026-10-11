@@ -28,6 +28,12 @@ def review(task, deck, sources, renders, artifacts, only_orders=None):
     context = {'deck_title': deck['title'], 'deck_slide_count': len(deck['slides']), 'reviewed_image_orders': orders,
                'review_scope': 'full_deck' if only_orders is None else 'selected_pages_only; unselected pages exist and keep their prior QA',
                'slides': [{'order': s['order'], 'content': s['content']} for s in deck['slides']], 'evidence': source}
+    adaptive_path=artifacts.path/'adaptive-content-result.json'
+    if adaptive_path.is_file():
+        context['adaptive_content']=json.loads(adaptive_path.read_text('utf-8'))
+        system+=('adaptive_content记录实际分页坐标，不是额外事实证据或免检结论。'
+                 '原表分页时逐项核对各页可见分页说明、原表行列与单位，并检查同标题各页合计是否完整；'
+                 '不得要求每一续页重复完整原表，也不能仅相信conservation字段而忽略缺行、重复或误导标题。')
     if 'fact_boundary' in sources:
         context.update(fact_boundary=sources['fact_boundary'],projection_scope=sources['projection_scope'])
         system+='证据文本是已选事实的显式投影。不得引用被否决值。检查假设是否可见标明且对应assumption_refs；未决或缺失不能当事实。'
@@ -77,6 +83,8 @@ def reuse_review(prior,deck,sources,renders,artifacts,orders):
     evidence=[{'evidence_id':e['evidence_id'],'text':approved_text(sources,e)} for e in sources['evidence']]
     checks={'deck_title':deck['title'],'deck_slide_count':len(deck['slides']),'reviewed_image_orders':orders,
             'slides':[{'order':s['order'],'content':s['content']} for s in deck['slides']],'evidence':evidence}
+    adaptive_path=artifacts.path/'adaptive-content-result.json'
+    if adaptive_path.is_file():checks['adaptive_content']=json.loads(adaptive_path.read_text('utf-8'))
     if 'fact_boundary' in sources:checks.update(fact_boundary=sources['fact_boundary'],projection_scope=sources['projection_scope'])
     selected={deck['slides'][n]['slide_id'] for n in orders}
     images=[{'path':i['path'],'hash':i['hash']} for i in renders['artifacts'] if i['type']=='png' and i['slide_id'] in selected]

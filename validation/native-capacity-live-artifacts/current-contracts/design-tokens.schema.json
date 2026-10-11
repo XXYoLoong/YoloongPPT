@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DesignTokens 契约（TASK-TPL-005 草案）",
+  "description": "语言与运行时无关的主题和设计令牌抽取结果。原始主题值、显式映射、部分覆盖与未知状态分开表示；未知值必须为 null 并说明原因。本契约不表示 YoloongPPT 已实现解析器。",
+  "type": "object",
+  "required": [
+    "spec_type",
+    "contract_status",
+    "requirement_id",
+    "task_id",
+    "source_ref",
+    "evidence_refs",
+    "tokens",
+    "limitations"
+  ],
+  "properties": {
+    "spec_type": { "const": "DesignTokens" },
+    "contract_status": { "const": "draft" },
+    "requirement_id": { "const": "TPL-005" },
+    "task_id": { "const": "TASK-TPL-005" },
+    "source_ref": { "type": "string", "minLength": 1 },
+    "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+    "tokens": {
+      "type": "object",
+      "required": [
+        "fonts",
+        "type_scale",
+        "colors",
+        "spacing",
+        "radius",
+        "border",
+        "shadow",
+        "backgrounds",
+        "image_treatment",
+        "chart_style",
+        "table_style"
+      ],
+      "properties": {
+        "fonts": { "$ref": "#/$defs/evidence_field" },
+        "type_scale": { "$ref": "#/$defs/evidence_field" },
+        "colors": { "$ref": "#/$defs/evidence_field" },
+        "spacing": { "$ref": "#/$defs/evidence_field" },
+        "radius": { "$ref": "#/$defs/evidence_field" },
+        "border": { "$ref": "#/$defs/evidence_field" },
+        "shadow": { "$ref": "#/$defs/evidence_field" },
+        "backgrounds": { "$ref": "#/$defs/evidence_field" },
+        "image_treatment": { "$ref": "#/$defs/evidence_field" },
+        "chart_style": { "$ref": "#/$defs/evidence_field" },
+        "table_style": { "$ref": "#/$defs/evidence_field" }
+      },
+      "additionalProperties": false
+    },
+    "limitations": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "token_entry": {
+      "type": "object",
+      "required": ["name", "value", "source_ref", "attributes"],
+      "properties": {
+        "name": { "type": "string", "minLength": 1 },
+        "value": {},
+        "unit": { "type": ["string", "null"] },
+        "source_ref": { "type": "string", "minLength": 1 },
+        "attributes": { "type": "object" }
+      },
+      "additionalProperties": false
+    },
+    "evidence_field": {
+      "type": "object",
+      "required": ["status", "value", "evidence_refs", "reason"],
+      "properties": {
+        "status": {
+          "enum": ["declared", "mapped", "partial", "unknown", "unsupported", "not_present"]
+        },
+        "value": {
+          "type": ["array", "null"],
+          "items": { "$ref": "#/$defs/token_entry" }
+        },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["declared", "mapped"] } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "value": { "type": "array", "minItems": 1 },
+              "evidence_refs": { "minItems": 1 },
+              "reason": { "const": null }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "partial" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "value": { "type": "array", "minItems": 1 },
+              "evidence_refs": { "minItems": 1 },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["unknown", "unsupported", "not_present"] } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "value": { "const": null },
+              "evidence_refs": { "minItems": 1 },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

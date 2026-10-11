@@ -1,0 +1,208 @@
+{
+  "requirement_id": "TPL-002",
+  "task_id": "TASK-TPL-002",
+  "title": "Master 解析",
+  "status": "进行中",
+  "deliverable": "MasterSpec",
+  "contract_file": "contracts/master-spec.schema.json",
+  "fixture_file": "contracts/master-spec.fixtures.json",
+  "matrix_trace": {
+    "requirement_row": "需求主表!A111:P111",
+    "task_row": "可执行任务!A179:N179",
+    "data_object_range": "数据对象!A1:J50"
+  },
+  "data_object_alignment": {
+    "canonical_data_object_registered": false,
+    "related_object": "TemplatePack",
+    "evidence": "“数据对象”表已有 TemplatePack（最低字段包含 masters），没有 MasterSpec 独立对象行；本任务只建立任务级输出契约，不增加、删除或重命名数据对象行。",
+    "integration_boundary": "MasterSpec 与 TemplatePack.masters 的正式嵌套/引用方式、ID 规则、查询和评分消费方式待后续需求任务与架构确认。"
+  },
+  "source_snapshots": {
+    "P01": {
+      "name": "PPT Master",
+      "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "license": "MIT"
+    },
+    "P03": {
+      "name": "Presenton",
+      "commit": "35bf44290f821323e003da854f78ffcb0e918167",
+      "license": "Apache-2.0"
+    },
+    "P04": {
+      "name": "ai-agent-ppt",
+      "commit": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "license": "MIT"
+    },
+    "real_pptx": {
+      "source_commit": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+      "file": "default.pptx",
+      "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34"
+    }
+  },
+  "required_coverage": [
+    {
+      "field": "background",
+      "rule": "保留 master 背景元素和原始主题色引用；只有主题链闭合并经过验证时才写 resolved color。"
+    },
+    {
+      "field": "shapes",
+      "rule": "枚举 master shape 身份、类型、占位符、几何和来源引用；未解析属性保持未知或 partial。"
+    },
+    {
+      "field": "text_styles",
+      "rule": "区分 titleStyle/bodyStyle/otherStyle 和 level；原始声明与推导/继承结果不可混写。"
+    },
+    {
+      "field": "color_map",
+      "rule": "保存 source scheme 到 theme slot 的 clrMap 映射，不把原始映射提前改成 RGB。"
+    },
+    {
+      "field": "layout_relationships",
+      "rule": "按 package relationship 解析目标路径，记录 relationship id/type、原始 target、归一化 part 与存在状态。"
+    },
+    {
+      "field": "transition_timing",
+      "rule": "记录 master 直接声明，并按目标 slide/layout 链分别求 effective transition/timing；无目标 slide、无元素、未解析不能折叠成同一个“无”。"
+    }
+  ],
+  "inheritance_rules": {
+    "master_direct_absence_is_not_effective_absence": true,
+    "resolve_per_target_slide": true,
+    "preserve_chain_and_source_part": true,
+    "unknown_status_requires_reason": true
+  },
+  "evidence": {
+    "P01_RESEARCH_BASELINE": {
+      "local_path": "research/P01/README.md",
+      "source_file": "research/P01/README.md",
+      "url": null,
+      "sha256": "afc3118eab75b1920b6335d13eec4afedffea96668fede17aa9d6a3914945a9b",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P01_IMPORTER": {
+      "local_path": null,
+      "source_file": "skills/ppt-master/scripts/pptx_template_import.py",
+      "url": "https://github.com/hugohe3/ppt-master/blob/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d/skills/ppt-master/scripts/pptx_template_import.py",
+      "sha256": "2e073a4b871cf194b4a09673b374d53ebb7ef37384d6dfaf000f240c07057001",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P01_COLOR_RESOLVER": {
+      "local_path": null,
+      "source_file": "skills/ppt-master/scripts/pptx_to_svg/color_resolver.py",
+      "url": "https://github.com/hugohe3/ppt-master/blob/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d/skills/ppt-master/scripts/pptx_to_svg/color_resolver.py",
+      "sha256": "654c2951e2a17789ed8008009133f0900539361c463e45785201f4563cdb1826",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P01_TEXT_STYLE_READER": {
+      "local_path": null,
+      "source_file": "skills/ppt-master/scripts/beautify_identity.py",
+      "url": "https://github.com/hugohe3/ppt-master/blob/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d/skills/ppt-master/scripts/beautify_identity.py",
+      "sha256": "c389c26f41c8e89475a03ea2c900adc0c60dbd53e879ec79c2c1644488b66ffb",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P01_PACKAGE_WORKSPACE": {
+      "local_path": null,
+      "source_file": "skills/ppt-master/scripts/pptx_workspace.py",
+      "url": "https://github.com/hugohe3/ppt-master/blob/2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d/skills/ppt-master/scripts/pptx_workspace.py",
+      "sha256": "27349b8b88b9837bb62723baac84862d10f7d82dfc8087d0700f61fc499504a4",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P03_RESEARCH_BASELINE": {
+      "local_path": "research/P03/README.md",
+      "source_file": "research/P03/README.md",
+      "url": null,
+      "sha256": "12f90bd9638ed8ac820a674c1c170aa9d2dc6224108c8ab052dceb2c1fd0c36e",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P03_TEMPLATE_V2_GUIDE": {
+      "local_path": null,
+      "source_file": "docs/template-v2.md",
+      "url": "https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/docs/template-v2.md",
+      "sha256": "ac536bac766662a06ff222e40c7233ac58f9122d226433e4156ece6c409518fb",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P03_PPTX_FONT_UTILS": {
+      "local_path": null,
+      "source_file": "servers/fastapi/templates/pptx_font_utils.py",
+      "url": "https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/servers/fastapi/templates/pptx_font_utils.py",
+      "sha256": "0f1f0d4c8c32313b935cbf7fd59a54c46ebe776f13753d9a0573c9b743ec544b",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P03_LAYOUT_MODEL": {
+      "local_path": null,
+      "source_file": "servers/fastapi/templates/v2/models/layouts.py",
+      "url": "https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/servers/fastapi/templates/v2/models/layouts.py",
+      "sha256": "e0cda89f3a75377683c3239c2624bb066b5d25254a4d4e5ca4b0f2faaee3651f",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P03_THEME_PROFILE": {
+      "local_path": null,
+      "source_file": "servers/fastapi/templates/v2/theme.py",
+      "url": "https://github.com/presenton/presenton/blob/35bf44290f821323e003da854f78ffcb0e918167/servers/fastapi/templates/v2/theme.py",
+      "sha256": "2549e373f6c502df74688f014654efb2098dd791c405d48d43227f937f6fa18b",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P04_RESEARCH_BASELINE": {
+      "local_path": "research/P04/README.md",
+      "source_file": "research/P04/README.md",
+      "url": null,
+      "sha256": "6f6ad9942d127ce1b745804d4a7ed3ba8d9e75238e79ce945d21d89ee0414afb",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P04_TEMPLATE_MANAGER": {
+      "local_path": null,
+      "source_file": "src/core/template/template-manager.ts",
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/core/template/template-manager.ts",
+      "sha256": "5ad5179bb922368c07f5f43bb49b96b2811f9145c87469b7686a556330aaf1fc",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P04_CREATE_ENTRY": {
+      "local_path": null,
+      "source_file": "src/commands/create.ts",
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/commands/create.ts",
+      "sha256": "1729875ba1e88ed0b2e5f13e6b80c31da7d0e20fe918388df3f9be5db65d91b8",
+      "evidence_kind": "pinned_source_file"
+    },
+    "P04_PITCH_TEMPLATE": {
+      "local_path": null,
+      "source_file": "src/templates/pitch/template.json",
+      "url": "https://github.com/peterfei/ai-agent-ppt/blob/c3605ebc487fc6c7d4f4139761e46d7021cd656c/src/templates/pitch/template.json",
+      "sha256": "01e4c8f40206cb60e5fcd3df10741be79cae1bc99bb6ce8eb2290ed8f5517005",
+      "evidence_kind": "pinned_source_file"
+    },
+    "REAL_PPTX_SAMPLE": {
+      "local_path": null,
+      "source_file": "src/pptx/templates/default.pptx",
+      "url": null,
+      "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4972977b7bea83a8f34",
+      "evidence_kind": "real_pptx_package"
+    },
+    "MS_OPENXML_MASTER": {
+      "url": "https://learn.microsoft.com/en-us/office/open-xml/presentation/working-with-slide-masters",
+      "evidence_kind": "official_specification"
+    },
+    "MS_OPENXML_ANIMATION": {
+      "url": "https://learn.microsoft.com/en-us/office/open-xml/presentation/working-with-animation",
+      "evidence_kind": "official_specification"
+    },
+    "ECMA_376": {
+      "url": "https://ecma-international.org/publications-and-standards/standards/ecma-376/",
+      "evidence_kind": "official_specification"
+    }
+  },
+  "fixture_summary": [
+    "P01 固定源码：导入/export master、layout roster 与 inheritance graph；color resolver 校验 clrMap；identity reader 提取部分 master text-style 声明。静态 crosswalk 为 partial。",
+    "P03 固定源码：Template V2 把 PPTX 转成 RawSlideLayouts 并派生语义 theme；字体发现路径沿 slide→layout→master 读取部分 txStyles。不是完整原生 MasterSpec，标 partial。",
+    "P04 固定源码：TemplateManager/CreateCommand 消费语义 template.json 与分离 layout JSON；固定配置路径没有 native MasterSpec 输入字段。此结论限于 reviewed path，不断言全项目不支持。",
+    "真实 PPTX：实际 ZIP/XML 读到 1 master、5 个 master p:sp、11 个均可解析的 layout 关系、1 个 theme 关系、12 项 clrMap、title/body/other text-style levels；0 slide parts，故 transition/timing 的逐页有效继承未解析。"
+  ],
+  "verification_boundary": {
+    "static_source_review": true,
+    "real_pptx_zip_xml_inventory": true,
+    "product_parser": false,
+    "standard_json_schema_validation": false,
+    "office_rendering": false,
+    "template_upload_flow": false,
+    "acceptance_cases": "AC-001–AC-030 未执行"
+  }
+}

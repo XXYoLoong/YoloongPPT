@@ -1,0 +1,97 @@
+{
+  "document_type": "assumption_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-004",
+  "task_id": "TASK-CNT-004",
+  "data_object": "Assumption",
+  "schema": "contracts/assumption.schema.json",
+  "fixtures": "contracts/assumption.fixtures.json",
+  "deliverable": "Assumption[]",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "CNT-004 要求将缺失信息区分为可推断、需假设、必须询问/失败，且所有假设进入 assumptions；DEC-005 负责全局事实/假设边界。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第59行、可执行任务第87行和数据对象 Assumption 行定义 Assumption[] 与 assumption_id/text/reason/confidence/user_visible。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "Assumption.assumption_id 复用已登记 assumption_id。"
+    },
+    {
+      "url": "contracts/object-id.catalog.json",
+      "supports": "Assumption ID 格式和身份引用约定。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.schema.json",
+      "supports": "FactConstraintSet 的 assumption_ref 与 assumption_refs 关联显式假设；missing 状态不带值并引用 MISSING_FACT。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "现有合成输入包含 12% user-supplied planning assumption 与缺失续约日期。"
+    },
+    {
+      "url": "contracts/fallback-record.catalog.json",
+      "supports": "ERR-009/MISSING_FACT 已登记；错误矩阵允许 placeholder/ask/fail，不臆造缺失事实。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "CNT-004 冲突边界 fixture 引用 CNT-003 未解决的 8%/9% 来源冲突；Assumption[] 不吸收或解决 EvidenceConflict。"
+    }
+  ],
+  "field_rules": [
+    "Assumption[] 只包含显式提供或经上下文明确授权的假设；输入中的每个 assumption_id 必须原样出现在输出数组中，不得遗漏、改写身份或静默去重。没有假设时输出空数组。",
+    "text 保留假设原文；reason 必须说明来源或采用理由。缺少必要理由时不得编造理由，应保持未决并请求补充或按显式上下文失败。",
+    "confidence 只保留调用方提供的数字/字符串及其原尺度；未提供时为 null。本契约不规定 0–1 范围、等级阈值或跨模型比较方式。",
+    "user_visible 只保留 PresentationContext/用户明确决定的 true/false；未提供时为 null。null 表示可见性未决，后续不得把它默认解释为显示或隐藏。",
+    "缺失信息分类：inferable 仅在有可追溯证据和显式允许的确定性推导路径时不创建 Assumption；requires_assumption 必须创建完整 Assumption 并以同一 assumption_id 供 FactConstraintSet 引用；must_ask_or_fail 在无证据且无显式假设时按调用上下文明确选择 ask 或 fail，引用 ERR-009/MISSING_FACT，不生成值。",
+    "来源冲突按 CNT-003 保留在 EvidenceConflict；当冲突尚未解决时，Assumption[] 为空且不生成单一事实值，来源选择继续由 DEC-004 决策。",
+    "DEC-005 尚未完成；本契约定义 Assumption[] 的输出形状与不臆造边界，不替代全局推断标准、placeholder 策略、用户确认流程或失败策略。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-004-INFERABLE-001",
+      "fixture_id": "CNT-004-INFERABLE-001",
+      "purpose": "上下文显式提供可追溯的同币种求和规则。",
+      "acceptance": "有两个来源事实和明确推导规则时，预期 Assumption[] 为空；derived result 仍引用两条证据。"
+    },
+    {
+      "case_id": "CNT-004-ASSUMPTION-001",
+      "fixture_id": "CNT-004-ASSUMPTION-001",
+      "purpose": "输入将 12% 明确标为规划假设。",
+      "acceptance": "输出保留同一 assumption_id、原文、理由；confidence/user_visible 未提供时为 null，不设默认。"
+    },
+    {
+      "case_id": "CNT-004-VISIBILITY-001",
+      "fixture_id": "CNT-004-VISIBILITY-001",
+      "purpose": "PresentationContext 明确指定用户可见性。",
+      "acceptance": "仅在上下文明确给出时保留 user_visible=true；不设全局默认。"
+    },
+    {
+      "case_id": "CNT-004-MISSING-ASK-001",
+      "fixture_id": "CNT-004-MISSING-ASK-001",
+      "purpose": "续约日期缺失且调用上下文明确要求询问。",
+      "acceptance": "不生成假设或日期，输出空数组并引用 ERR-009/MISSING_FACT，动作 ask。"
+    },
+    {
+      "case_id": "CNT-004-MISSING-FAIL-001",
+      "fixture_id": "CNT-004-MISSING-FAIL-001",
+      "purpose": "续约日期缺失且调用上下文明确要求失败。",
+      "acceptance": "不生成假设或日期，输出空数组并引用 ERR-009/MISSING_FACT，动作 fail。"
+    },
+    {
+      "case_id": "CNT-004-CONFLICT-001",
+      "fixture_id": "CNT-004-CONFLICT-001",
+      "purpose": "上游存在未解决的多来源数字冲突。",
+      "acceptance": "Assumption[] 保持为空；引用原 CNT-003 EvidenceConflict 与 ERR-008，不选择来源、不生成单一事实值，DEC-004 保持未决。"
+    }
+  ],
+  "limits": [
+    "schema、catalog 和 fixtures 是静态草案；没有实现推断分类器、assumption generator、ask/fail 编排或用户可见性 UI。",
+    "confidence 数值语义与用户可见性缺省值尚无基线；本契约用 null 保留未决，不能据此推断置信度或展示默认。",
+    "inferable fixture 中的 10+15 USD 是合成规则样例；静态预期不证明任何计算引擎或全局 DEC-005 策略。",
+    "ERR-009 保持错误Fallback 未开始；AC-001–AC-030 未执行。"
+  ]
+}

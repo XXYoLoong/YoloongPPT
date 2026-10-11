@@ -116,6 +116,12 @@
             }
           },
           "additionalProperties": false
+        },
+        "template_binding": {
+          "type": "object"
+        },
+        "locked": {
+          "type": "boolean"
         }
       },
       "additionalProperties": false
@@ -166,7 +172,7 @@
         },
         "elements": {
           "type": "array",
-          "minItems": 3,
+          "minItems": 1,
           "items": {
             "$ref": "#/$defs/element"
           }

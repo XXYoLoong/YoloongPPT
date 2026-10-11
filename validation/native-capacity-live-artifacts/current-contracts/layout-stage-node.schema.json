@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/layout-stage-node.schema.json",
+  "title": "DEC-030–038实际运行输入、输出与明确局限",
+  "type": "object",
+  "required": ["node_id"],
+  "properties": {
+    "node_id": {"enum": ["DEC-030","DEC-031","DEC-032","DEC-033","DEC-034","DEC-035","DEC-036","DEC-037","DEC-038"]},
+    "input": {
+      "type": "object",
+      "properties": {
+        "content": {"type":"object"}, "style": {"type":"object"}, "elements": {"type":"array","items":{"type":"object"}},
+        "candidates": {"type":"array","items":{"type":"object","required":["candidate_id","layout","score","eligible","capacity_pass"],"properties":{"score":{"type":"number"},"eligible":{"type":"boolean"},"capacity_pass":{"type":"boolean"}}}},
+        "order": {"type":"integer","minimum":0}, "page_count": {"type":"integer","minimum":1}, "previous_layout":{"type":["string","null"]},
+        "width_inches":{"type":"number","exclusiveMinimum":0}, "height_inches":{"type":"number","exclusiveMinimum":0},
+        "enhancements":{"type":"object"},"backend":{"type":"string"},"backend_requirements":{"type":"object"},
+        "trace_id":{"$ref":"object-id.schema.json#/$defs/trace_id"}
+      },
+      "additionalProperties":false
+    },
+    "result": {"type":"object"},
+    "trace": {"type":"object","required":["trace_id","version","input","mechanism","constraint","fallback","research_mapping","product_implementation","source_sha256","status","limitations"],
+      "properties":{
+        "trace_id":{"$ref":"object-id.schema.json#/$defs/trace_id"},"version":{"const":"native-layout-stages-2"},"input":{"type":"object"},
+        "mechanism":{"type":"string"},"constraint":{"type":"string"},"fallback":{"type":"string"},"research_mapping":{"type":"object","required":["P01","P02","P03","P04","P05"]},
+        "product_implementation":{"type":"string"},"source_sha256":{"type":"string","pattern":"^[0-9a-f]{64}$"},"status":{"const":"partial"},"limitations":{"type":"array","items":{"type":"string"}}
+      },"additionalProperties":false}
+  },
+  "oneOf": [{"required":["input"],"not":{"anyOf":[{"required":["result"]},{"required":["trace"]}]}},{"required":["result","trace"],"not":{"required":["input"]}}],
+  "additionalProperties":false
+}

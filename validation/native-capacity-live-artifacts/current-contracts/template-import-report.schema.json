@@ -1,0 +1,157 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TemplateImportReport 契约（TASK-TPL-009 草案）",
+  "description": "记录模板导入、至少一页重建以及 master/layout/theme 保留的证据。静态盘点、结构往返、页面渲染分别报告；任一层级未运行都不得推断为通过。本报告是任务级输出，不新增正式数据对象。",
+  "type": "object",
+  "required": ["report_type", "contract_status", "requirement_id", "task_id", "result_status", "source", "inventory", "reconstruction", "preservation", "verification", "evidence_refs", "limitations"],
+  "properties": {
+    "report_type": { "const": "TemplateImportReport" },
+    "contract_status": { "const": "draft" },
+    "requirement_id": { "const": "TPL-009" },
+    "task_id": { "const": "TASK-TPL-009" },
+    "result_status": { "enum": ["not_run", "complete", "partial", "failed"] },
+    "source": { "$ref": "#/$defs/source" },
+    "inventory": { "$ref": "#/$defs/inventory" },
+    "reconstruction": { "$ref": "#/$defs/reconstruction" },
+    "preservation": { "$ref": "#/$defs/preservation" },
+    "verification": { "$ref": "#/$defs/verification" },
+    "evidence_refs": { "$ref": "#/$defs/evidence_refs", "minItems": 1 },
+    "limitations": { "type": "array", "items": { "type": "string", "minLength": 1 } }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "result_status": { "const": "complete" } }, "required": ["result_status"] },
+      "then": {
+        "properties": {
+          "reconstruction": { "properties": { "status": { "const": "complete" }, "pages": { "minItems": 1 } } },
+          "preservation": { "properties": { "master": { "properties": { "status": { "enum": ["preserved_source_parts", "reconstructed_equivalent"] } } }, "layout": { "properties": { "status": { "enum": ["preserved_source_parts", "reconstructed_equivalent"] } } }, "theme": { "properties": { "status": { "enum": ["preserved_source_parts", "reconstructed_equivalent"] } } } } },
+          "verification": { "properties": { "package_roundtrip": { "const": "passed" }, "evidence_refs": { "minItems": 1 } } }
+        }
+      }
+    }
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "evidence_refs": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+    "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "source": {
+      "type": "object",
+      "required": ["source_id", "source_revision", "source_path", "source_sha256"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "source_revision": { "type": "string", "minLength": 1 },
+        "source_path": { "type": "string", "minLength": 1 },
+        "source_sha256": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "component_inventory": {
+      "type": "object",
+      "required": ["status", "count", "part_refs", "part_ref_coverage", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["observed", "not_present", "unknown", "unsupported"] },
+        "count": { "type": ["integer", "null"], "minimum": 0 },
+        "part_refs": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "part_ref_coverage": { "enum": ["complete", "partial", "not_applicable", "unknown"] },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "const": "observed" } }, "required": ["status"] }, "then": { "properties": { "count": { "type": "integer", "minimum": 0 }, "part_refs": { "minItems": 1 }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } } },
+        { "if": { "properties": { "status": { "const": "not_present" } }, "required": ["status"] }, "then": { "properties": { "count": { "const": 0 }, "part_refs": { "maxItems": 0 }, "part_ref_coverage": { "const": "not_applicable" }, "evidence_refs": { "minItems": 1 }, "reason": { "type": "string", "minLength": 1 } } } },
+        { "if": { "properties": { "status": { "enum": ["unknown", "unsupported"] } }, "required": ["status"] }, "then": { "properties": { "count": { "const": null }, "part_refs": { "maxItems": 0 }, "reason": { "type": "string", "minLength": 1 } } } }
+      ],
+      "additionalProperties": false
+    },
+    "inventory": {
+      "type": "object",
+      "required": ["masters", "layouts", "themes", "slides"],
+      "properties": {
+        "masters": { "$ref": "#/$defs/component_inventory" },
+        "layouts": { "$ref": "#/$defs/component_inventory" },
+        "themes": { "$ref": "#/$defs/component_inventory" },
+        "slides": { "$ref": "#/$defs/component_inventory" }
+      },
+      "additionalProperties": false
+    },
+    "reconstructed_page": {
+      "type": "object",
+      "required": ["output_slide_part", "source_layout_ref", "output_layout_part", "output_master_part", "output_theme_part", "render_status", "evidence_refs"],
+      "properties": {
+        "output_slide_part": { "type": "string", "minLength": 1 },
+        "source_layout_ref": { "type": "string", "minLength": 1 },
+        "output_layout_part": { "type": "string", "minLength": 1 },
+        "output_master_part": { "type": "string", "minLength": 1 },
+        "output_theme_part": { "type": "string", "minLength": 1 },
+        "render_status": { "enum": ["not_run", "passed", "partial", "failed"] },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" }
+      },
+      "additionalProperties": false
+    },
+    "reconstruction": {
+      "type": "object",
+      "required": ["status", "output_file_ref", "output_sha256", "pages", "reason"],
+      "properties": {
+        "status": { "enum": ["not_run", "complete", "partial", "failed"] },
+        "output_file_ref": { "type": ["string", "null"] },
+        "output_sha256": { "oneOf": [{ "$ref": "#/$defs/sha256" }, { "type": "null" }] },
+        "pages": { "type": "array", "items": { "$ref": "#/$defs/reconstructed_page" } },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "const": "complete" } }, "required": ["status"] }, "then": { "properties": { "output_file_ref": { "type": "string", "minLength": 1 }, "output_sha256": { "$ref": "#/$defs/sha256" }, "pages": { "minItems": 1 }, "reason": { "const": null } } } },
+        { "if": { "properties": { "status": { "const": "not_run" } }, "required": ["status"] }, "then": { "properties": { "output_file_ref": { "const": null }, "output_sha256": { "const": null }, "pages": { "maxItems": 0 }, "reason": { "type": "string", "minLength": 1 } } } }
+      ],
+      "additionalProperties": false
+    },
+    "component_preservation": {
+      "type": "object",
+      "required": ["status", "source_part_refs", "output_part_refs", "hash_comparison", "evidence_refs", "reason"],
+      "properties": {
+        "status": { "enum": ["not_run", "preserved_source_parts", "reconstructed_equivalent", "partial", "not_preserved", "unknown"] },
+        "source_part_refs": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "output_part_refs": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "hash_comparison": { "enum": ["not_run", "matched", "differed", "not_applicable", "unknown"] },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "enum": ["preserved_source_parts", "reconstructed_equivalent"] } }, "required": ["status"] }, "then": { "properties": { "source_part_refs": { "minItems": 1 }, "output_part_refs": { "minItems": 1 }, "hash_comparison": { "enum": ["matched", "differed", "not_applicable"] }, "evidence_refs": { "minItems": 1 }, "reason": { "const": null } } } },
+        { "if": { "properties": { "status": { "const": "not_run" } }, "required": ["status"] }, "then": { "properties": { "output_part_refs": { "maxItems": 0 }, "hash_comparison": { "const": "not_run" }, "reason": { "type": "string", "minLength": 1 } } } }
+      ],
+      "additionalProperties": false
+    },
+    "preservation": {
+      "type": "object",
+      "required": ["master", "layout", "theme"],
+      "properties": {
+        "master": { "$ref": "#/$defs/component_preservation" },
+        "layout": { "$ref": "#/$defs/component_preservation" },
+        "theme": { "$ref": "#/$defs/component_preservation" }
+      },
+      "additionalProperties": false
+    },
+    "verification": {
+      "type": "object",
+      "required": ["method", "package_roundtrip", "page_render", "environment", "evidence_refs", "reason"],
+      "properties": {
+        "method": { "enum": ["source_review_only", "package_inventory", "structural_roundtrip", "visual_render", "office_open_save"] },
+        "package_roundtrip": { "enum": ["not_run", "passed", "partial", "failed"] },
+        "page_render": { "enum": ["not_run", "passed", "partial", "failed"] },
+        "environment": {
+          "type": "object",
+          "required": ["execution_location", "container_image_digest", "runtime_observation"],
+          "properties": {
+            "execution_location": { "enum": ["project_container", "host_inspection", "other", "unknown"] },
+            "container_image_digest": { "type": ["string", "null"] },
+            "runtime_observation": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        },
+        "evidence_refs": { "$ref": "#/$defs/evidence_refs" },
+        "reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    }
+  }
+}

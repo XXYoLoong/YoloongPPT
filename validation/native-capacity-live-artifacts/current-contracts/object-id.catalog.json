@@ -1,0 +1,62 @@
+{
+  "document_type": "object_id_catalog",
+  "contract_status": "draft",
+  "requirement_id": "GOV-007",
+  "task_id": "TASK-GOV-007",
+  "schema": "contracts/object-id.schema.json",
+  "fixtures": "contracts/object-id.fixtures.json",
+  "id_format": "除决策定义外，运行时实体使用 <type>_<RFC 9562 UUIDv4>；十六进制为小写。",
+  "identity_rules": [
+    "实体创建时分配一次 ID 并持久化；重试、重排、内容编辑和导出不得重新生成仍表示同一实体的 ID。",
+    "不同实体不得复用 ID；实体被替换为新实体时分配新 ID，旧 ID 不回收。",
+    "ID 不由可变内容、列表顺序、文件路径或后端 shape 序号推导。",
+    "矩阵 Requirement ID、Task ID 是治理登记号；例如 TASK-GOV-007 不作为 TaskSpec.task_id。",
+    "Decision ID 沿用需求基线 DEC-001 至 DEC-040；DecisionTrace.trace_id 标识一次轨迹记录，node_id 引用 DEC ID。"
+  ],
+  "id_types": [
+    { "kind": "Task", "schema_ref": "#/$defs/task_id", "field": "TaskSpec.task_id", "purpose": "一次运行任务；不等于矩阵 Task ID。" },
+    { "kind": "Deck", "schema_ref": "#/$defs/deck_id", "field": "ArtifactManifest.deck_id", "purpose": "演示文稿逻辑身份；同一演示文稿的修订与多次导出沿用。" },
+    { "kind": "Slide", "schema_ref": "#/$defs/slide_id", "field": "SlideSpec.slide_id；PagePlan.slide_id", "purpose": "逻辑页面身份；ObjectMap.slide_id 引用该 ID。" },
+    { "kind": "Section", "schema_ref": "#/$defs/section_id", "field": "PagePlan.section_id", "purpose": "章节身份；不以章节序号作为持久身份。" },
+    { "kind": "Source", "schema_ref": "#/$defs/source_id", "field": "SourceRecord.source_id；SourceEvidence.source_id", "purpose": "一个输入来源的身份。" },
+    { "kind": "Evidence", "schema_ref": "#/$defs/evidence_id", "field": "SourceEvidence.evidence_id；SlideSpec.source_refs[]；ObjectMap.source_ref", "purpose": "可定位的来源证据；页面与对象的来源引用指向此 ID。" },
+    { "kind": "Assumption", "schema_ref": "#/$defs/assumption_id", "field": "Assumption.assumption_id", "purpose": "显式假设记录身份。" },
+    { "kind": "Asset", "schema_ref": "#/$defs/asset_id", "field": "AssetRecord.asset_id", "purpose": "独立素材身份；素材来源仍通过来源/证据引用表达。" },
+    { "kind": "Layout", "schema_ref": "#/$defs/layout_id", "field": "LayoutTemplate.layout_id；LayoutCandidates.layout_id", "purpose": "版式定义身份；候选结果引用既有版式 ID。" },
+    { "kind": "Slot", "schema_ref": "#/$defs/slot_id", "field": "LayoutSlot.slot_id；SlotBindingSpec.slot_id", "purpose": "版式槽位身份；绑定引用既有槽位 ID。" },
+    { "kind": "Object", "schema_ref": "#/$defs/object_id", "field": "ObjectMap.logical_object_id；ElementLayoutSpec.object_id；ResolvedStyleSpec.object_id", "purpose": "跨后端保持稳定的逻辑对象身份。" },
+    { "kind": "AtomicCapability", "schema_ref": "#/$defs/capability_id", "field": "AtomicCapability.capability_id", "purpose": "原子能力定义身份。" },
+    { "kind": "CapabilityImplementation", "schema_ref": "#/$defs/implementation_id", "field": "CapabilityImplementation.implementation_id；ExecutionPlan.implementation_id", "purpose": "具体实现身份；执行计划引用实现定义。" },
+    { "kind": "PowerPointAdapter", "schema_ref": "#/$defs/adapter_id", "field": "PowerPointAdapter.adapter_id", "purpose": "适配器实例定义身份。" },
+    { "kind": "Decision", "schema_ref": "#/$defs/decision_id", "field": "DecisionTrace.node_id", "purpose": "决策定义 ID，固定引用 DEC-001 至 DEC-040。" },
+    { "kind": "DecisionCandidate", "schema_ref": "#/$defs/candidate_id", "field": "DecisionCandidate.candidate_id", "purpose": "一次决策的候选身份；node_id 引用对应决策定义。" },
+    { "kind": "DecisionTrace", "schema_ref": "#/$defs/trace_id", "field": "DecisionTrace.trace_id", "purpose": "单次决策轨迹记录的身份；不是决策定义 ID。" },
+    { "kind": "Issue", "schema_ref": "#/$defs/issue_id", "field": "QualityIssue.issue_id", "purpose": "质量问题记录身份；RevisionAction.issue_id 引用该 ID。" },
+    { "kind": "Artifact", "schema_ref": "#/$defs/artifact_id", "field": "RenderArtifact.artifact_id；ArtifactManifest.artifact_id", "purpose": "一次文件/渲染产物身份；不得替代 deck_id。" }
+  ],
+  "reference_rules": {
+    "shape_to_slide": "ObjectMap.logical_object_id 对应逻辑对象；ObjectMap.slide_id 必须引用同一生成结果中的 SlideSpec.slide_id。",
+    "shape_to_evidence": "ObjectMap.source_ref 与 SlideSpec.source_refs[] 使用 evidence_id，沿 SourceEvidence.source_id 追到 SourceRecord.source_id。",
+    "backend_mapping": "ObjectMap.backend_object_id 与 shape_id/name 保存后端定位信息；这些值不替代 logical_object_id，换后端或重写文件时可改变。",
+    "decision_trace": "DecisionTrace.trace_id 跨重试保持该轨迹记录的身份；DecisionTrace.node_id 引用稳定的 DEC-NNN 决策定义。",
+    "referenced_ids": "ExecutionPlan.implementation_id、RevisionAction.issue_id、LayoutCandidates.layout_id、SlotBindingSpec.slot_id 和 ProvenanceRecord.target_id 均引用被引用实体的原始 ID，不生成第二套别名。",
+    "cross_surface": "同一 ID 原样写入执行记录、日志、trace、产物清单和报告；不在各层重新编码。"
+  },
+  "traceability_chain": [
+    "最终 PPT shape -> ObjectMap.logical_object_id 与 ObjectMap.slide_id",
+    "ObjectMap.slide_id -> SlideSpec.slide_id",
+    "ObjectMap.source_ref / SlideSpec.source_refs[] -> SourceEvidence.evidence_id",
+    "SourceEvidence.source_id -> SourceRecord.source_id",
+    "ArtifactManifest.artifact_id -> ArtifactManifest.deck_id（逻辑演示文稿身份）"
+  ],
+  "baseline_alignment": [
+    "Excel 数据对象表未单列 Deck 对象；本草案把 deck_id 放在 ArtifactManifest.deck_id，未新增数据对象行。",
+    "ArtifactManifest 最低字段由 artifact_id 扩为 artifact_id, deck_id, type, path, hash, producer, source_ids, retention；deck_id 区分逻辑演示文稿与单次文件产物。",
+    "Excel 中的 TaskSpec、SourceRecord、SourceEvidence、AssetRecord、SlideSpec、ObjectMap、DecisionTrace、QualityIssue、ArtifactManifest 仍只有字段清单，完整对象 Schema 与运行时生成/校验待后续任务。"
+  ],
+  "limits": [
+    "该目录、Schema 与 fixtures 是语言/运行时无关的约定草案，不代表应用、ID 生成器、持久化层、日志/trace 管线或 PPT 后端已实现。",
+    "本次 fixture 验证的是 ID 格式和引用链结构；尚无真实生成的 PPT shape 可供端到端追溯验收。",
+    "同一对象跨修订的实体识别、对象拆分/合并以及重复来源归并规则，需由后续需求与架构评审确定。"
+  ]
+}

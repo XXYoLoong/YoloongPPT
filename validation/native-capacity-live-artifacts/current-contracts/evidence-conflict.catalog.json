@@ -1,0 +1,86 @@
+{
+  "document_type": "evidence_conflict_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-003",
+  "task_id": "TASK-CNT-003",
+  "data_object": "EvidenceConflict",
+  "schema": "contracts/evidence-conflict.schema.json",
+  "fixtures": "contracts/evidence-conflict.fixtures.json",
+  "deliverable": "EvidenceConflict",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "CNT-003 要求保留多个来源之间的冲突，并按用户指定/来源优先级处理；不得自行选值却不记录。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第58行与可执行任务第86行定义 EvidenceConflict 输出及数字/冲突/缺失用例；数据对象第8行列出 field/topic、evidence_refs、values、resolution/status。"
+    },
+    {
+      "url": "contracts/source-bundle.schema.json",
+      "supports": "SourceBundle.source_conflict 保留 conflict_id、fact_key、全部 claims、来源锚点及 DEC-004 解决状态；显式调用方优先级契约。"
+    },
+    {
+      "url": "contracts/source-bundle.catalog.json",
+      "supports": "没有全局来源 precedence 默认值；冲突不得静默覆盖、平均、合并或删除。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.schema.json",
+      "supports": "CNT-001 fact claim 提供 evidence_id、source_id、SourceAnchor、原始值及 conflicting/missing 状态。"
+    },
+    {
+      "url": "contracts/source-anchor.schema.json",
+      "supports": "冲突证据定位统一引用 SourceAnchor。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "EvidenceConflict.conflict_id 与 evidence/source ID 复用既有 ID 类型。"
+    },
+    {
+      "url": "contracts/fallback-record.catalog.json",
+      "supports": "ERR-008/SOURCE_CONFLICT 已在错误码注册表登记。"
+    }
+  ],
+  "field_rules": [
+    "一个 EvidenceConflict 对应一个 fact_key/topic，至少保留两条互相冲突的 claim；evidence_refs 与 values 用 claim_id 关联。每条 evidence_ref 保留 source_id、SourceAnchor；仅当上游提供 evidence_id 时记录该 ID，否则置 null，不自行生成。",
+    "事实值原样放入 values.source_value；不换算、平均、覆盖或删除任何冲突值。FactConstraintSet 输入保留其完整结构值；SourceBundle 输入保留其原始 value 类型。",
+    "resolution.status=unresolved 时 selected_source_id/selected_claim_id 为空、所有值仍在，reason 必须可见，并关联 ERR-008/SOURCE_CONFLICT。",
+    "只有显式 user selection 或 PresentationContext 提供 caller_supplied 优先级时才能标记 user_selected；resolution.basis 明确区分 explicit_user_selection 与 caller_supplied_priority，且记录 selected source/claim。调用方顺序只在该次请求生效，不形成产品默认。",
+    "caller_supplied precedence_source_ids 按显式顺序处理；只有最高优先级 source 对该主题提供唯一 claim 时才选择。最高来源缺少事实、同一来源有多个 claim 或排序无法唯一裁决时保持 unresolved，不自动扫描更低优先级来源。",
+    "user_merged 仅在显式用户合并时可用；merge_summary 记录用户授权的合并说明，values 中仍保留全部原始 claim。",
+    "缺失事实不是来源冲突：没有两条互相冲突的 claim 时不生成 EvidenceConflict。缺失仍由 CNT-001 的 missing 状态和 ERR-009/MISSING_FACT 表达。",
+    "DEC-004 的全局优先级决策保持未决；本契约仅记录显式调用方优先级和用户选择，不更改 DEC-004/TASK-DEC-004 状态。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-003-NORMAL-001",
+      "fixture_id": "CNT-003-NORMAL-001",
+      "purpose": "单一受支持数值没有相互冲突的来源。",
+      "acceptance": "不产生 EvidenceConflict；原数字仍留在 FactConstraintSet。"
+    },
+    {
+      "case_id": "CNT-003-BOUNDARY-001",
+      "fixture_id": "CNT-003-BOUNDARY-001",
+      "purpose": "FactConstraintSet 中 8%/9% 来源冲突且 DEC-004 未决。",
+      "acceptance": "输出保留全部 claim、evidence_id、source_id、SourceAnchor 与原值；status=unresolved、无选择并引用 ERR-008。"
+    },
+    {
+      "case_id": "CNT-003-PRIORITY-001",
+      "fixture_id": "CNT-003-PRIORITY-001",
+      "purpose": "SourceBundle 输入显式提供一次性 source precedence。",
+      "acceptance": "按显式顺序选择唯一 claim，记录 caller_supplied_priority 和 selection；其他冲突来源/值仍保留，不形成全局默认。"
+    },
+    {
+      "case_id": "CNT-003-BOUNDARY-002",
+      "fixture_id": "CNT-003-BOUNDARY-002",
+      "purpose": "所需续约日期缺失，而非存在冲突值。",
+      "acceptance": "不产生 EvidenceConflict；缺失事实和 ERR-009/MISSING_FACT 保留在 CNT-001 上游。"
+    }
+  ],
+  "limits": [
+    "契约和 fixtures 是静态草案；未实现来源冲突检测器、DEC-004 决策器、EvidenceConflict 生成器或 fallback 运行时。",
+    "FactConstraintSet 与 SourceBundle 的冲突样例属于不同合成输入集；claim/source ID 不因 fact_key 相同而推断为同一证据。",
+    "跨数组 claim_id 一一对应、SourceAnchor.source_id 与 evidence_ref.source_id 一致、调用方优先级唯一性和 selected claim membership 需要语义验证器，JSON Schema 本身不能证明。",
+    "ERR-008 保持错误矩阵未开始；本任务只引用其已登记代码，不宣称 fallback 已运行。AC-001–AC-030 未执行。"
+  ]
+}

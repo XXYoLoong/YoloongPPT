@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/quality-stage-input.schema.json",
+  "type": "object",
+  "properties": {
+    "quality_report": {
+      "type": "object",
+      "required": [
+        "issues",
+        "coverage"
+      ],
+      "properties": {
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "code",
+              "severity"
+            ],
+            "properties": {
+              "issue_id": {
+                "type": "string"
+              },
+              "code": {
+                "type": "string"
+              },
+              "severity": {
+                "enum": [
+                  "P0",
+                  "P1",
+                  "P2"
+                ]
+              },
+              "slide_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "slide_order": {
+                "type": "integer"
+              },
+              "object_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "detail": {},
+              "type": {
+                "type": "string"
+              },
+              "measurement": {
+                "type": "object"
+              },
+              "threshold": {
+                "type": "object"
+              },
+              "action": {
+                "type": "object"
+              }
+            },
+            "additionalProperties": true
+          }
+        },
+        "coverage": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "p0_issue_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "acceptance": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "model_review": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "deck": {
+      "$ref": "deck-execution.schema.json#/$defs/deck"
+    },
+    "object_map": {
+      "$ref": "deck-execution.schema.json#/$defs/object_map"
+    },
+    "revision_policy": {
+      "type": "object",
+      "properties": {
+        "locked_object_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "locked_slide_ids": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "max_actions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "allow_geometry": {
+          "type": "boolean"
+        },
+        "allow_style": {
+          "type": "boolean"
+        },
+        "parent_run_id": {
+          "type": "string"
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "completion_policy": {
+      "type": "object",
+      "properties": {
+        "required_coverage": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "allow_partial_warning": {
+          "type": "boolean"
+        },
+        "retry_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_retries": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "required_nodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "acceptance_required": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [],
+      "additionalProperties": false
+    },
+    "prior_traces": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "parent_run_id": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "quality_report",
+    "deck",
+    "object_map"
+  ],
+  "additionalProperties": false
+}

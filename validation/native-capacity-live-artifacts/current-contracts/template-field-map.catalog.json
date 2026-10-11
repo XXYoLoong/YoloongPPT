@@ -1,0 +1,82 @@
+{
+  "requirement_id": "TPL-008",
+  "task_id": "TASK-TPL-008",
+  "title": "模板字段映射",
+  "status": "进行中",
+  "deliverable": "TemplateFieldMap",
+  "schema_file": "contracts/template-field-map.schema.json",
+  "fixture_file": "contracts/template-field-map.fixtures.json",
+  "validation_scope": "固定来源与真实 PPTX 的静态 crosswalk；没有运行上游应用、YoloongPPT parser/runtime 或映射决策器。",
+  "data_object_alignment": {
+    "canonical_data_object_registered": false,
+    "evidence": "矩阵“数据对象”表没有 TemplateFieldMap 独立对象行。本任务按既有可执行任务输出建立任务级契约，不新增或改动需求、任务或数据对象行。",
+    "integration_boundary": "TemplateFieldMap 后续如何并入 Template/Reference/DesignContext 与 SelectedLayout/SlotBindingSpec，须由决策链契约和产品架构确定；本草案不分配全局实体 ID。"
+  },
+  "role_baseline": {
+    "source": "Excel 需求矩阵“0-1全链路”S24（A26:D26）",
+    "source_label": "标题、正文、图片、图表、表格、注释",
+    "canonical_ids": ["title", "body", "image", "chart", "table", "note"],
+    "rule": "英文 ID 仅作为 S24 六类标签的契约键。不得把 baseline 之外的标签（如 subtitle）静默并入相近角色；新增角色需由基线变更明确授权。"
+  },
+  "mapping_states": {
+    "declared": "来源字段已直接声明与 S24 对齐的语义角色；保留来源原值。",
+    "mapped": "来源别名经固定来源规则或明确 crosswalk 映射到 S24 角色；保存原值和证据。",
+    "ambiguous": "有证据支持多个 S24 候选角色但不能唯一选择；canonical_role 必须为空并列出至少两个候选。",
+    "unmapped": "来源字段和值已知，但当前 S24 角色集合中不存在有证据支持的映射；保留原值并说明原因。",
+    "unknown": "来源字段语义或映射规则尚未验证；不得生成 canonical_role。"
+  },
+  "source_crosswalks": [
+    {
+      "source_id": "P01_PPT_MASTER",
+      "revision": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+      "license": "MIT",
+      "paths": ["skills/ppt-master/scripts/template_import/manifest.py"],
+      "observation": "固定源码将 OOXML placeholder 类型映射到 adapter semanticRole。现有 LayoutSlot 样例以 ctrTitle→title 记录一个有证据的来源映射；该映射是 adapter-specific，不扩展为所有字段的通用规则。",
+      "execution_status": "source_review_only"
+    },
+    {
+      "source_id": "P03_PRESENTON",
+      "revision": "35bf44290f821323e003da854f78ffcb0e918167",
+      "license": "Apache-2.0",
+      "paths": ["docs/template-v2.md", "servers/fastapi/templates/v2/schema.py"],
+      "observation": "RawSlideLayouts 保存源元素；语义组件依赖模型分析与预览认证。尚未执行来源流程，因此不从 raw element/type 单独推导 S24 canonical role。",
+      "execution_status": "source_review_only"
+    },
+    {
+      "source_id": "P04_AI_AGENT_PPT",
+      "revision": "c3605ebc487fc6c7d4f4139761e46d7021cd656c",
+      "license": "MIT",
+      "paths": ["src/core/engine/layout-loader.ts", "src/layouts/title.layout.json"],
+      "observation": "LayoutNode.slot 是语义名称；固定 title layout 中 slot='title' 可直接对齐 S24 的 title。此名称不是稳定 slot UUID，也不证明其他 layout 字段映射。",
+      "execution_status": "source_review_only"
+    },
+    {
+      "source_id": "PYTHON_PPTX_DEFAULT_SAMPLE",
+      "revision": "278b47b1dedd5b46ee84c286e77cdfb0bf4594be",
+      "license": "MIT source repository; template asset license remains unknown",
+      "path": "src/pptx/templates/default.pptx",
+      "sha256": "e10cc9e120961f6bd4074a373c9c80d2a06c497157e8f4977b7bea83a8f34",
+      "observation": "固定真实样例含 slideLayout1 的 ctrTitle 与 subTitle placeholder。ctrTitle 可通过 P01 adapter crosswalk 映射 title；subTitle 不属于 S24 六类，故保留原值并标记 unmapped。样例没有 slide parts。",
+      "execution_status": "package_inventory_and_static_crosswalk"
+    }
+  ],
+  "evidence_register": {
+    "MATRIX_S24_ROLE_BASELINE": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx：0-1全链路!A26:D26。",
+    "P01_PLACEHOLDER_MANIFEST": "PPT Master 固定源码 manifest.py；contracts/layout-slot.catalog.json 中的 P01 source crosswalk。",
+    "P03_TEMPLATE_V2_DOC": "Presenton 固定 docs/template-v2.md 与 servers/fastapi/templates/v2/schema.py；contracts/layout-slot.catalog.json 中的 P03 source crosswalk。",
+    "P04_ABSTRACT_LAYOUT_JSON": "ai-agent-ppt 固定 src/layouts/title.layout.json；contracts/layout-slot.fixtures.json 的 ai_agent_ppt_semantic_title_slot。",
+    "PYTHON_PPTX_DEFAULT_SAMPLE": "固定 default.pptx 的 ZIP/XML 盘点；contracts/layout-slot.catalog.json 与 layout-template.fixtures.json 的真实样例记录。"
+  },
+  "acceptance_coverage": {
+    "PPT_Master": "包含 ctrTitle→title 来源 adapter crosswalk。",
+    "Presenton": "包含其 raw element 与经认证语义组件之间的边界；当前映射保持 unknown。",
+    "ai_agent_ppt": "包含 slot='title' 直接声明映射。",
+    "real_PPTX_master_layout_sample": "包含 ctrTitle→title 与 subTitle 不静默合并的边界 fixture。"
+  },
+  "limitations": [
+    "当前仅完成固定源码和真实样例的静态 crosswalk；未执行三种上游应用、YoloongPPT parser/runtime、决策节点、查询/评分/实例化或 Office 渲染。",
+    "Presenton 语义标签需要实际模型分析和预览认证；当前样例将其保留为 unknown，不视为验证通过。",
+    "S24 角色集合之外的字段保留原值；subtitle 等未列标签不自动改写成 title/body。",
+    "真实 PPTX 样例有 0 个 slide parts，不能验证逐页内容绑定或渲染行为。"
+  ]
+}

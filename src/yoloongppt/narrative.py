@@ -12,6 +12,7 @@ import time
 from .artifacts import entity
 from .errors import TaskError, trace_id
 from .facts import approved_text
+from .adaptive_content import adapt, budget_policy
 
 NODES = tuple(f'DEC-{i:03d}' for i in range(6, 22))
 MAPPING = {
@@ -183,9 +184,12 @@ def prepare(task, sources, context, schemas=None, artifacts=None):
     storyline = {'pattern': candidates[chosen][0]['pattern'], 'rationale': candidates[chosen][1],
                  'evidence_refs': graph['evidence_refs']}
     _record(traces, 'DEC-011', {'scenario': scenario, 'relation_candidates': cues}, storyline, trace, candidates, [chosen])
-    budget = {'target': count, 'minimum': count, 'maximum': count, 'allowed_deviation': 0,
+    adaptive_policy = budget_policy(context, count)
+    binding = adaptive_policy['page_budget']
+    budget = {'target': count, 'minimum': binding['minimum'], 'maximum': binding['maximum'],
+              'allowed_deviation': binding['maximum'] - count,
               'duration_original': scenario['duration'], 'source_characters': sum(len(n['text']) for n in graph['nodes']),
-              'policy': 'normalized page count is binding; duration guides density and speaker notes, not implicit count replacement'}
+              'policy': binding['kind'] + ': hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported'}
     _record(traces, 'DEC-013', {'page_count': count, 'duration': scenario['duration']}, budget, trace)
     citation = values.get('citation_policy', 'notes')
     if citation != 'notes':
@@ -193,9 +197,11 @@ def prepare(task, sources, context, schemas=None, artifacts=None):
     packet = {'version': 'narrative-1', 'trace_id': trace, 'audience': audience, 'scenario': scenario,
               'language_style': style, 'content_graph': graph, 'relation_candidates': cues,
               'storyline': storyline, 'page_budget': budget, 'citation_mode': citation,
-              'content_policy': {'title_max_characters': 60, 'body_max_characters': 180,
-                  'list_max_items': 6, 'table_max_columns': 6, 'table_max_rows': 8,
-                  'notes_preserve_overflow': True, 'no_text_truncation': True},
+              'content_policy': {'capacity_mechanism': 'Noto font glyphs and native geometry; full literal blocks/explicit sentence boundaries',
+                  'resource_limits': {'title_characters': 1000, 'body_items': 100, 'body_item_characters': 20000,
+                                      'table_columns': 64, 'table_rows': 10000},
+                  'notes_preserve_overflow': False, 'no_text_truncation': True, 'minimum_font_size': 16,
+                  'adaptive_policy': adaptive_policy},
               'decision_traces': traces}
     _validate(schemas, 'narrative-context.schema.json', packet)
     if artifacts:
@@ -211,11 +217,12 @@ def model_packet(context):
             'storyline', 'page_budget', 'content_policy', 'citation_mode')}
 
 
-def finalize(proposal, narrative_context, sources, schemas=None, artifacts=None):
+def finalize(proposal, narrative_context, sources, schemas=None, artifacts=None,
+             adaptive_policy=None, templates=None):
     """Execute page grouping/content budgets on real model output.
 
-    Complete text items can move into notes with before/after trace. No fact is
-    shortened, no page silently removed, and a sole over-capacity item fails.
+    Measured overflow continues visibly at complete blocks/explicit sentences.
+    Original notes are unchanged. Hard page budgets remain exact or fail.
     """
     context = copy.deepcopy(narrative_context)
     _validate(schemas, 'narrative-context.schema.json', context)
@@ -239,6 +246,34 @@ def finalize(proposal, narrative_context, sources, schemas=None, artifacts=None)
             _fail('NARRATIVE_EVIDENCE_UNKNOWN', '页面引用未知证据。', ['DEC-009', 'DEC-015'], [{'page': index}])
         if set(slide.get('assumption_refs', [])) - set(known_assumptions):
             _fail('NARRATIVE_ASSUMPTION_UNKNOWN', '页面引用未知假设。', ['DEC-005', 'DEC-009'], [{'page': index}])
+    original_slides = copy.deepcopy(slides)
+    base_policy = context['content_policy'].get('adaptive_policy')
+    policy = copy.deepcopy(base_policy)
+    if adaptive_policy is not None:
+        if policy is None:
+            policy = {'page_budget': {'kind': 'hard', 'target': count, 'minimum': count, 'maximum': count},
+                      'table_key_columns': {}}
+        if not isinstance(adaptive_policy, dict):
+            _fail('ADAPTIVE_POLICY_INVALID', '适配策略必须为对象。', ['DEC-013', 'DEC-018'])
+        if 'page_budget' in adaptive_policy:
+            supplied = adaptive_policy['page_budget']; original = policy['page_budget']
+            if not isinstance(supplied, dict):
+                _fail('ADAPTIVE_PAGE_BUDGET_INVALID', '适配页预算必须为对象。', ['DEC-013'])
+            if original['kind'] == 'hard' and any(supplied.get(k) != original[k] for k in ('kind', 'target', 'minimum', 'maximum')):
+                _fail('ADAPTIVE_HARD_BUDGET_CHANGED', '外部适配策略不能修改已归一化的硬页数。', ['DEC-002', 'DEC-013'])
+            if supplied.get('target') != original['target'] or supplied.get('kind') != original['kind']:
+                _fail('ADAPTIVE_PAGE_BUDGET_CHANGED', '外部策略不能重新解释原页数来源及目标。', ['DEC-002', 'DEC-013'])
+            if 'provenance' in supplied and supplied['provenance'] != original.get('provenance', []):
+                _fail('ADAPTIVE_PAGE_BUDGET_CHANGED', '外部策略不能替换原页数约束来源。', ['DEC-002', 'DEC-013'])
+            supplied = {**copy.deepcopy(original), **copy.deepcopy(supplied)}
+            adaptive_policy = {**adaptive_policy, 'page_budget': supplied}
+        policy.update(copy.deepcopy(adaptive_policy))
+    # Older saved contexts have no adaptive policy. They retain their original
+    # exact page count; recovery cannot reinterpret an old hard budget as soft.
+    proposal, adaptation = adapt(proposal, policy, templates, schemas, artifacts)
+    slides = proposal['slides']; count = len(slides)
+    original_by_output = {entry['output_page']: mapping for mapping in adaptation['page_mappings']
+                          for entry in mapping['outputs']}
     thesis = {'main_takeaway': proposal['main_takeaway'], 'supporting_points': [
         {'text': p['goal'], 'evidence_refs': p['evidence_refs'], 'assumption_refs': p.get('assumption_refs', [])}
         for p in slides], 'evidence_refs': _unique([ref for p in slides for ref in p['evidence_refs']])}
@@ -246,10 +281,12 @@ def finalize(proposal, narrative_context, sources, schemas=None, artifacts=None)
     _record(traces, 'DEC-009', {'model_main_takeaway': proposal['main_takeaway']}, thesis, trace,
             rules={'semantic_truth': 'requires independent fact review; reference existence is not entailment proof'})
     sections = []
-    for index, page in enumerate(slides):
+    for mapping in adaptation['page_mappings']:
+        index = mapping['original_page']; page = original_slides[index]
         section_id = _local('section', [index, page['title'], page['evidence_refs']])
         sections.append({'section_id': section_id, 'order': index, 'title': page['title'], 'parent_section_id': None,
-                         'transition': 'continue' if index else 'open', 'page_indices': [index],
+                         'transition': 'continue' if index else 'open',
+                         'page_indices': [entry['output_page'] for entry in mapping['outputs']],
                          'evidence_refs': page['evidence_refs']})
     outline = {'sections': sections, 'ordering': context['storyline']['pattern'],
                'ordering_origin': 'model consumes selected narrative_context; literal model page order retained',
@@ -257,12 +294,15 @@ def finalize(proposal, narrative_context, sources, schemas=None, artifacts=None)
     _record(traces, 'DEC-012', {'storyline': context['storyline'], 'titles': [p['title'] for p in slides]}, outline, trace)
     allocation = {'total': count, 'sections': [{'section_id': s['section_id'], 'pages': len(s['page_indices']),
                    'page_indices': s['page_indices']} for s in sections],
-                  'reservation_policy': 'actual cover/conclusion participate in fixed count; no invented appendix or agenda page'}
+                  'reservation_policy': 'original pages own their visible capacity continuation pages; no empty or invented appendix',
+                  'original_page_budget': adaptation['policy']['page_budget'], 'adaptive_output_pages': count,
+                  'adaptive_deviation': adaptation['deviation'], 'adaptive_content': adaptation}
     _record(traces, 'DEC-014', {'outline': outline, 'page_budget': context['page_budget']}, allocation, trace)
     page_plan, intents, types, budgets, rewrites, placements = [], [], [], [], [], []
     contents = []
     for index, page in enumerate(slides):
-        before = copy.deepcopy(page)
+        mapping = original_by_output[index]
+        before = copy.deepcopy(original_slides[mapping['original_page']])
         key = _local('page', [index, page['title'], page['evidence_refs']])
         intent = {'page_key': key, 'page_index': index, 'goal': page['goal'], 'core_message': page['title'],
                   'evidence_refs': page['evidence_refs'], 'assumption_refs': page.get('assumption_refs', [])}
@@ -274,8 +314,8 @@ def finalize(proposal, narrative_context, sources, schemas=None, artifacts=None)
                       'unselected_advanced_types': ['SWOT', 'timeline', 'flow', 'comparison', 'KPI'],
                       'advanced_types_status': 'not_claimed_from_unverified_keywords'})
         if page['kind'] == 'table':
-            if page['table'] is None or len(page['table']['columns']) > 6 or len(page['table']['rows']) > 8:
-                _fail('NARRATIVE_TABLE_CAPACITY', '表格超过当前原生容量，未裁剪行列。', ['DEC-018'], [{'page': index}])
+            if page['table'] is None:
+                _fail('NARRATIVE_TABLE_CAPACITY', '表格类型缺少实际表格，未静默生成占位数据。', ['DEC-018'], [{'page': index}])
             if any(len(row) != len(page['table']['columns']) for row in page['table']['rows']):
                 _fail('NARRATIVE_TABLE_WIDTH', '表格宽度不一致，未补空或删单元格。', ['DEC-018'], [{'page': index}])
         if page['kind'] == 'chart':
@@ -283,39 +323,18 @@ def finalize(proposal, narrative_context, sources, schemas=None, artifacts=None)
                 _fail('NARRATIVE_CHART_CAPACITY', '图表类别与数据系列不一致。', ['DEC-018'], [{'page': index}])
         if (page['kind'] != 'table' and page['table'] is not None) or (page['kind'] != 'chart' and page['chart'] is not None):
             _fail('NARRATIVE_DATA_KIND_CONFLICT', '页面类型与数据对象冲突，不丢弃额外数据。', ['DEC-017', 'DEC-018'])
-        max_items = 6 if page['kind'] == 'text' else 2
-        max_chars = 180 if page['kind'] == 'text' else 100
         moved = []
-        labels = ['【假设】', '【推算】', '【已选来源】']
-        labels += [v.get('raw_text', '') for aid, v in known_assumptions.items()
-                   if aid in page.get('assumption_refs', []) and isinstance(v, dict)]
-        labels += [action['label'] for action in sources.get('fact_boundary', {}).get('actions', [])
-                   if action.get('mode') == 'placeholder' and action.get('label')]
-        labels = [label for label in labels if label]
-        # Move whole supplementary bullets, preserving their relative order in
-        # notes. Never remove the only item or truncate a sentence/unit/value.
-        while len(page['body']) > 1 and (len(page['body']) > max_items or sum(map(len, page['body'])) > max_chars):
-            removable = [i for i, text in enumerate(page['body']) if not any(label in text for label in labels)]
-            if not removable:
-                break
-            original_index = removable[-1]
-            moved.insert(0, page['body'].pop(original_index))
-        if sum(map(len, page['body'])) > max_chars or len(page['body']) > max_items:
-            _fail('NARRATIVE_CONTENT_CAPACITY', '核心段或需可见标记超过正文容量，需显式改写/拆页；没有截字或隐藏标记。',
-                  ['DEC-018', 'DEC-020'], [{'page': index, 'characters': sum(map(len, page['body']))}])
-        if moved:
-            preserved = '\n'.join(moved)
-            page['notes'] += ('\n' if page['notes'] else '') + '【容量决策：完整补充内容移入备注】\n' + preserved
-        budget = {'page_key': key, 'title_max_characters': 60, 'body_max_characters': max_chars,
-                  'list_max_items': max_items, 'table_max_columns': 6, 'table_max_rows': 8,
+        budget = {'page_key': key, 'capacity_policy': 'actual font/geometry; preserve all core text visibly',
                   'actual_title_characters': len(page['title']), 'actual_body_characters': sum(map(len, page['body'])),
-                  'notes_characters': len(page['notes']), 'images': {'capacity': 0, 'status': 'not_selected'},
-                  'geometry_capacity_status': 'subsequent native-layout capacity decision required'}
+                  'notes_characters': len(page['notes']), 'minimum_font_size': 16,
+                  'geometry': mapping['geometry'], 'original_page': mapping['original_page'],
+                  'original_page_outputs': len(mapping['outputs']),
+                  'geometry_capacity_status': 'measured conservative; actual layout/render verification required'}
         budgets.append(budget)
         contents.append({'page_key': key, 'title': page['title'], 'body_hierarchy': [
             {'order': i, 'text': text, 'level': 1} for i, text in enumerate(page['body'])],
             'evidence_refs': page['evidence_refs'], 'subtitle_status': 'not_invented'})
-        rewrites.append({'page_key': key, 'action': 'move_complete_items_to_notes' if moved else 'retain',
+        rewrites.append({'page_key': key, 'action': 'visible_capacity_pagination' if len(mapping['outputs']) > 1 else 'retain',
                          'before': before, 'after': copy.deepcopy(page), 'moved_items': moved,
                          'evidence_refs': page['evidence_refs'], 'assumption_refs': page.get('assumption_refs', []),
                          'preservation': 'all literal input title/body/notes/data retained; no character truncation',
@@ -324,9 +343,10 @@ def finalize(proposal, narrative_context, sources, schemas=None, artifacts=None)
                            'layout_occupancy': 0, 'evidence_refs': page['evidence_refs'],
                            'source_backlinks': [{'evidence_id': eid, 'source_id': known[eid]['source_id']} for eid in page['evidence_refs']],
                            'writer_consumer': 'python-pptx.add_notes + ObjectMap source_refs'})
-        page_plan.append({'page_key': key, 'page_index': index, 'section_id': sections[index]['section_id'],
+        page_plan.append({'page_key': key, 'page_index': index, 'section_id': sections[mapping['original_page']]['section_id'],
                           'title': page['title'], 'evidence_refs': page['evidence_refs'],
-                          'pagination_policy': 'model semantic grouping validated against exact budget; capacity overflow explicit'})
+                          'pagination_policy': 'literal block/sentence continuation; original hard/soft/default budget preserved',
+                          'original_page': mapping['original_page']})
     values = {
         'DEC-015': {'pages': page_plan, 'total': len(page_plan)},
         'DEC-016': {'intents': intents}, 'DEC-017': {'slide_types': types},

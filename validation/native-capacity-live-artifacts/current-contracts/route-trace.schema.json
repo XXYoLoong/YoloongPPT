@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DEC-001 当前消费的DecisionCandidate/DecisionTrace",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/candidate"
+    },
+    {
+      "$ref": "#/$defs/trace"
+    }
+  ],
+  "$defs": {
+    "candidate": {
+      "type": "object",
+      "required": [
+        "node_id",
+        "candidate_id",
+        "value",
+        "score",
+        "reasons",
+        "evidence_refs",
+        "constraints"
+      ],
+      "properties": {
+        "node_id": {
+          "const": "DEC-001"
+        },
+        "candidate_id": {
+          "$ref": "object-id.schema.json#/$defs/candidate_id"
+        },
+        "value": {
+          "enum": [
+            "create_from_scratch",
+            "create_from_materials",
+            "create_from_reference_style",
+            "fill_template",
+            "modify_existing_deck",
+            "reconstruct_from_image",
+            "beautify_existing_deck",
+            "create_or_replace_single_slide"
+          ]
+        },
+        "score": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "minItems": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "trace": {
+      "type": "object",
+      "required": [
+        "trace_id",
+        "node_id",
+        "input",
+        "candidates",
+        "selected",
+        "rules",
+        "output",
+        "duration",
+        "error"
+      ],
+      "properties": {
+        "trace_id": {
+          "$ref": "object-id.schema.json#/$defs/trace_id"
+        },
+        "node_id": {
+          "const": "DEC-001"
+        },
+        "input": {
+          "type": "object"
+        },
+        "candidates": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/candidate"
+          }
+        },
+        "selected": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rules": {
+          "type": "object"
+        },
+        "output": {
+          "$ref": "task-route.schema.json"
+        },
+        "duration": {
+          "type": "number",
+          "minimum": 0
+        },
+        "error": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

@@ -1,0 +1,628 @@
+{
+  "version": "narrative-1",
+  "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+  "audience": {
+    "knowledge_level": null,
+    "roles": [],
+    "concerns": [],
+    "expected_actions": [],
+    "field_provenance": []
+  },
+  "scenario": {
+    "scenario": null,
+    "duration": null,
+    "field_provenance": []
+  },
+  "language_style": {
+    "language": "zh-CN",
+    "tone": null,
+    "formal_level": null,
+    "terminology_rules": [],
+    "brand_terms": [],
+    "field_provenance": [
+      {
+        "field": "language",
+        "source": {
+          "kind": "presentation_context",
+          "context_pointer": "/values/language"
+        }
+      }
+    ]
+  },
+  "content_graph": {
+    "nodes": [
+      {
+        "node_id": "content_1b65a67c0dbd8b7e0256",
+        "text": "这些均为人工构造的软件验证资料，不代表现实业务。\n人工验证资料完整展示：中文与English混合长标题必须逐字保留并采用可读字号自动调整页面布局，所有内容仅用于软件验证而不代表真实业务结论\n人工绘制示意图1\n人工绘制示意图2\n人工绘制示意图3\n人工绘制示意图4\n人工绘制示意图5\n人工绘制示意图6\n人工绘制示意图7\n人工绘制示意图8\n测试分\n表格单位：测试分。\n标识\t甲项\t乙项\t丙项\n样本01\t1\t21\t41\n样本02\t2\t22\t42\n样本03\t3\t23\t43\n样本04\t4\t24\t44\n样本05\t5\t25\t45\n样本06\t6\t26\t46\n样本07\t7\t27\t47\n样本08\t8\t28\t48\n样本09\t9\t29\t49\n样本10\t10\t30\t50\n样本11\t11\t31\t51\n样本12\t12\t32\t52\n样本13\t13\t33\t53\n样本14\t14\t34\t54\n先保存原始数据与来源，再检查页面容量。\n图片仅作软件验证装饰，不证明统计、关系或因果。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "assumption_refs": []
+      }
+    ],
+    "edges": [],
+    "evidence_refs": [
+      "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+    ]
+  },
+  "relation_candidates": [],
+  "storyline": {
+    "pattern": "linear",
+    "rationale": "stable source-order presentation default",
+    "evidence_refs": [
+      "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+    ]
+  },
+  "page_budget": {
+    "target": 3,
+    "minimum": 1,
+    "maximum": 30,
+    "allowed_deviation": 27,
+    "duration_original": null,
+    "source_characters": 423,
+    "policy": "soft: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+  },
+  "citation_mode": "notes",
+  "content_policy": {
+    "capacity_mechanism": "Noto font glyphs and native geometry; full literal blocks/explicit sentence boundaries",
+    "resource_limits": {
+      "title_characters": 1000,
+      "body_items": 100,
+      "body_item_characters": 20000,
+      "table_columns": 64,
+      "table_rows": 10000
+    },
+    "notes_preserve_overflow": false,
+    "no_text_truncation": true,
+    "minimum_font_size": 16,
+    "adaptive_policy": {
+      "page_budget": {
+        "kind": "soft",
+        "target": 3,
+        "minimum": 1,
+        "maximum": 30,
+        "provenance": [
+          {
+            "constraint_id": "candidate_3edac09b-e07b-40c1-b03f-d8b807615051",
+            "field": "page_count",
+            "value": 3,
+            "source": {
+              "kind": "user_instruction",
+              "reference": "runtime_preferences.page_count"
+            },
+            "disposition": "applied",
+            "applied_value": 3,
+            "handling_reason": "Selected by DEC-002 and within current execution subset."
+          },
+          {
+            "constraint_id": "candidate_7cd8a9f4-1317-4655-8369-5a027dbb7380",
+            "field": "page_count",
+            "value": 3,
+            "source": {
+              "kind": "user_instruction",
+              "reference": "raw_text:5:7"
+            },
+            "disposition": "applied",
+            "applied_value": 3,
+            "handling_reason": "Selected by DEC-002 and within current execution subset."
+          }
+        ]
+      },
+      "table_key_columns": {}
+    }
+  },
+  "decision_traces": [
+    {
+      "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+      "node_id": "DEC-006",
+      "input": {
+        "audience": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-006",
+          "candidate_id": "candidate_ba9e5dcf-821c-49f1-b288-98d397c52650",
+          "value": {
+            "knowledge_level": null,
+            "roles": [],
+            "concerns": [],
+            "expected_actions": [],
+            "field_provenance": []
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_ba9e5dcf-821c-49f1-b288-98d397c52650"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure",
+        "missing_profile": "retain null/empty; do not stereotype audience"
+      },
+      "output": {
+        "knowledge_level": null,
+        "roles": [],
+        "concerns": [],
+        "expected_actions": [],
+        "field_provenance": []
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+      "node_id": "DEC-007",
+      "input": {
+        "scenario": null,
+        "duration": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-007",
+          "candidate_id": "candidate_e9d1613f-ebb4-46f4-8182-4670c839467d",
+          "value": {
+            "scenario": null,
+            "duration": null,
+            "field_provenance": []
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_e9d1613f-ebb4-46f4-8182-4670c839467d"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "scenario": null,
+        "duration": null,
+        "field_provenance": []
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+      "node_id": "DEC-008",
+      "input": {
+        "language": "zh-CN",
+        "tone": null,
+        "audience": {
+          "knowledge_level": null,
+          "roles": [],
+          "concerns": [],
+          "expected_actions": [],
+          "field_provenance": []
+        }
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-008",
+          "candidate_id": "candidate_1af2d47a-d0a1-409f-829b-d8826db7aad1",
+          "value": {
+            "language": "zh-CN",
+            "tone": null,
+            "formal_level": null,
+            "terminology_rules": [],
+            "brand_terms": [],
+            "field_provenance": [
+              {
+                "field": "language",
+                "source": {
+                  "kind": "presentation_context",
+                  "context_pointer": "/values/language"
+                }
+              }
+            ]
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_1af2d47a-d0a1-409f-829b-d8826db7aad1"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "language": "zh-CN",
+        "tone": null,
+        "formal_level": null,
+        "terminology_rules": [],
+        "brand_terms": [],
+        "field_provenance": [
+          {
+            "field": "language",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/values/language"
+            }
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+      "node_id": "DEC-010",
+      "input": {
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-010",
+          "candidate_id": "candidate_8d40d5c5-97e9-431b-8980-e2320dda1a00",
+          "value": {
+            "content_graph": {
+              "nodes": [
+                {
+                  "node_id": "content_1b65a67c0dbd8b7e0256",
+                  "text": "这些均为人工构造的软件验证资料，不代表现实业务。\n人工验证资料完整展示：中文与English混合长标题必须逐字保留并采用可读字号自动调整页面布局，所有内容仅用于软件验证而不代表真实业务结论\n人工绘制示意图1\n人工绘制示意图2\n人工绘制示意图3\n人工绘制示意图4\n人工绘制示意图5\n人工绘制示意图6\n人工绘制示意图7\n人工绘制示意图8\n测试分\n表格单位：测试分。\n标识\t甲项\t乙项\t丙项\n样本01\t1\t21\t41\n样本02\t2\t22\t42\n样本03\t3\t23\t43\n样本04\t4\t24\t44\n样本05\t5\t25\t45\n样本06\t6\t26\t46\n样本07\t7\t27\t47\n样本08\t8\t28\t48\n样本09\t9\t29\t49\n样本10\t10\t30\t50\n样本11\t11\t31\t51\n样本12\t12\t32\t52\n样本13\t13\t33\t53\n样本14\t14\t34\t54\n先保存原始数据与来源，再检查页面容量。\n图片仅作软件验证装饰，不证明统计、关系或因果。",
+                  "evidence_refs": [
+                    "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+                  ],
+                  "assumption_refs": []
+                }
+              ],
+              "edges": [],
+              "evidence_refs": [
+                "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+              ]
+            },
+            "relation_candidates": [],
+            "semantic_edges_status": "not_inferred"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_8d40d5c5-97e9-431b-8980-e2320dda1a00"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "content_graph": {
+          "nodes": [
+            {
+              "node_id": "content_1b65a67c0dbd8b7e0256",
+              "text": "这些均为人工构造的软件验证资料，不代表现实业务。\n人工验证资料完整展示：中文与English混合长标题必须逐字保留并采用可读字号自动调整页面布局，所有内容仅用于软件验证而不代表真实业务结论\n人工绘制示意图1\n人工绘制示意图2\n人工绘制示意图3\n人工绘制示意图4\n人工绘制示意图5\n人工绘制示意图6\n人工绘制示意图7\n人工绘制示意图8\n测试分\n表格单位：测试分。\n标识\t甲项\t乙项\t丙项\n样本01\t1\t21\t41\n样本02\t2\t22\t42\n样本03\t3\t23\t43\n样本04\t4\t24\t44\n样本05\t5\t25\t45\n样本06\t6\t26\t46\n样本07\t7\t27\t47\n样本08\t8\t28\t48\n样本09\t9\t29\t49\n样本10\t10\t30\t50\n样本11\t11\t31\t51\n样本12\t12\t32\t52\n样本13\t13\t33\t53\n样本14\t14\t34\t54\n先保存原始数据与来源，再检查页面容量。\n图片仅作软件验证装饰，不证明统计、关系或因果。",
+              "evidence_refs": [
+                "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+              ],
+              "assumption_refs": []
+            }
+          ],
+          "edges": [],
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ]
+        },
+        "relation_candidates": [],
+        "semantic_edges_status": "not_inferred"
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+      "node_id": "DEC-011",
+      "input": {
+        "scenario": {
+          "scenario": null,
+          "duration": null,
+          "field_provenance": []
+        },
+        "relation_candidates": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_eb5abf49-d351-41b6-8375-963970bbd526",
+          "value": {
+            "pattern": "linear"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_81f417ea-1588-482e-b693-d114b4674d17",
+          "value": {
+            "pattern": "problem_solution"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_ce845ef5-1b62-46c8-b1a4-2c1cf4472f56",
+          "value": {
+            "pattern": "conclusion_first"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_ed3a9804-7f2c-41be-b849-2008def8214b",
+          "value": {
+            "pattern": "timeline"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_6cf7e668-1c3a-4d5c-9e84-6c28076067fd",
+          "value": {
+            "pattern": "teaching_progression"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_c3e656a5-3b8e-4834-9b5e-e3992e784673",
+          "value": {
+            "pattern": "data_driven"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_eb5abf49-d351-41b6-8375-963970bbd526"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "pattern": "linear",
+        "rationale": "stable source-order presentation default",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+      "node_id": "DEC-013",
+      "input": {
+        "page_count": 3,
+        "duration": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-013",
+          "candidate_id": "candidate_bbc55c81-decc-4a73-aefd-99f5f9d9ec64",
+          "value": {
+            "target": 3,
+            "minimum": 1,
+            "maximum": 30,
+            "allowed_deviation": 27,
+            "duration_original": null,
+            "source_characters": 423,
+            "policy": "soft: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_bbc55c81-decc-4a73-aefd-99f5f9d9ec64"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "target": 3,
+        "minimum": 1,
+        "maximum": 30,
+        "allowed_deviation": 27,
+        "duration_original": null,
+        "source_characters": 423,
+        "policy": "soft: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+      },
+      "duration": 0.0,
+      "error": null
+    }
+  ]
+}

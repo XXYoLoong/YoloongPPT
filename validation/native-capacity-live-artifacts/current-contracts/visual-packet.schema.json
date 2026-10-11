@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/visual-packet.schema.json",
+  "type": "object",
+  "required": [
+    "version",
+    "trace_id",
+    "template_selection",
+    "design_tokens",
+    "asset_declarations",
+    "resolved_assets",
+    "decision_traces",
+    "planner_assets",
+    "planner_rules",
+    "system_acceptance"
+  ],
+  "properties": {
+    "version": {
+      "const": "visual-1"
+    },
+    "trace_id": {
+      "$ref": "object-id.schema.json#/$defs/trace_id"
+    },
+    "template_selection": {
+      "type": "object",
+      "required": [
+        "family",
+        "record",
+        "candidates",
+        "fallback",
+        "status"
+      ],
+      "properties": {
+        "family": {
+          "enum": [
+            "brand",
+            "reference",
+            "generic",
+            "free_layout"
+          ]
+        },
+        "record": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "template-registry-record.schema.json"
+            }
+          ]
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          },
+          "minItems": 0
+        },
+        "fallback": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "design_tokens": {
+      "type": "object"
+    },
+    "asset_declarations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "asset_id",
+          "source_type",
+          "license",
+          "usage_status"
+        ],
+        "properties": {
+          "asset_id": {
+            "$ref": "object-id.schema.json#/$defs/asset_id"
+          },
+          "source_type": {
+            "enum": [
+              "user",
+              "local",
+              "template",
+              "url",
+              "search",
+              "generation",
+              "derived"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "expected_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "usage_status": {
+            "enum": [
+              "authorized",
+              "unverified",
+              "denied"
+            ]
+          },
+          "authorization_basis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attribution": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "transform_history": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "minItems": 0
+          },
+          "request_metadata": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "object-id.schema.json#/$defs/evidence_id"
+            }
+          },
+          "deliberate_reuse": {
+            "type": "boolean"
+          },
+          "source_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "object-id.schema.json#/$defs/source_id"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "required": [
+              "path"
+            ],
+            "not": {
+              "required": [
+                "url"
+              ]
+            }
+          },
+          {
+            "required": [
+              "url"
+            ],
+            "not": {
+              "required": [
+                "path"
+              ]
+            }
+          }
+        ]
+      },
+      "minItems": 0
+    },
+    "resolved_assets": {
+      "$ref": "asset-resolver-result.schema.json"
+    },
+    "decision_traces": {
+      "type": "array",
+      "items": {
+        "$ref": "visual-trace.schema.json"
+      },
+      "minItems": 2,
+      "maxItems": 2
+    },
+    "planner_assets": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "minItems": 0
+    },
+    "planner_rules": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "minItems": 1
+    },
+    "system_acceptance": {
+      "const": "not_claimed"
+    }
+  },
+  "additionalProperties": false
+}

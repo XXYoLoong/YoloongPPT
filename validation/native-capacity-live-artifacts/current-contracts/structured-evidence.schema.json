@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "StructuredEvidence 契约（IN-010 草案）",
+  "description": "保留 JSON/YAML/XML 的层级、数组/映射、字段类型、格式结构和来源位置；重点路径只用于定位，不静默裁剪原始结构。",
+  "oneOf": [
+    { "$ref": "#/$defs/structured_input" },
+    { "$ref": "#/$defs/structured_result" }
+  ],
+  "$defs": {
+    "asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+    "source_id": { "$ref": "object-id.schema.json#/$defs/source_id" },
+    "scalar_value": { "type": ["string", "number", "boolean", "null"] },
+    "source_anchor": {
+      "type": "object",
+      "required": ["source_asset_id", "format", "node_id", "document_path", "line", "column", "end_line", "end_column", "byte_offset"],
+      "properties": {
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "format": { "type": "string", "enum": ["json", "yaml", "xml"] },
+        "node_id": { "type": ["string", "null"] },
+        "document_path": { "type": ["string", "null"] },
+        "line": { "type": ["integer", "null"], "minimum": 1 },
+        "column": { "type": ["integer", "null"], "minimum": 1 },
+        "end_line": { "type": ["integer", "null"], "minimum": 1 },
+        "end_column": { "type": ["integer", "null"], "minimum": 1 },
+        "byte_offset": { "type": ["integer", "null"], "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "xml_name": {
+      "type": "object",
+      "required": ["prefix", "local_name", "namespace_uri"],
+      "properties": {
+        "prefix": { "type": ["string", "null"] },
+        "local_name": { "type": "string", "minLength": 1 },
+        "namespace_uri": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "xml_attribute": {
+      "type": "object",
+      "required": ["name", "value", "source_anchor"],
+      "properties": {
+        "name": { "$ref": "#/$defs/xml_name" },
+        "value": { "type": "string" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "mapping_entry": {
+      "type": "object",
+      "required": ["key", "value", "source_anchor"],
+      "properties": {
+        "key": { "$ref": "#/$defs/structured_node" },
+        "value": { "$ref": "#/$defs/structured_node" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "structured_node": {
+      "type": "object",
+      "required": ["node_id", "kind", "scalar_type", "value", "source_anchor", "members", "items", "xml_name", "xml_attributes", "children", "yaml_tag"],
+      "properties": {
+        "node_id": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "enum": ["object", "array", "mapping", "sequence", "scalar", "document", "element", "text", "cdata", "comment", "processing_instruction"] },
+        "scalar_type": { "type": ["string", "null"], "enum": ["string", "integer", "decimal", "boolean", "null", null] },
+        "value": { "$ref": "#/$defs/scalar_value" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "members": { "type": "array", "items": { "$ref": "#/$defs/mapping_entry" } },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/structured_node" } },
+        "xml_name": { "oneOf": [{ "$ref": "#/$defs/xml_name" }, { "type": "null" }] },
+        "xml_attributes": { "type": "array", "items": { "$ref": "#/$defs/xml_attribute" } },
+        "children": { "type": "array", "items": { "$ref": "#/$defs/structured_node" } },
+        "yaml_tag": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "kind": { "enum": ["object", "mapping"] } }, "required": ["kind"] },
+          "then": { "properties": { "scalar_type": { "type": "null" }, "value": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "kind": { "enum": ["array", "sequence"] } }, "required": ["kind"] },
+          "then": { "properties": { "scalar_type": { "type": "null" }, "value": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "kind": { "const": "element" } }, "required": ["kind"] },
+          "then": { "properties": { "xml_name": { "$ref": "#/$defs/xml_name" }, "scalar_type": { "type": "null" }, "value": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "kind": { "enum": ["scalar", "text", "cdata", "comment", "processing_instruction"] } }, "required": ["kind"] },
+          "then": { "properties": { "scalar_type": { "enum": ["string", "integer", "decimal", "boolean", "null"] } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "focus_selector": {
+      "type": "object",
+      "required": ["syntax", "expression", "namespace_bindings"],
+      "properties": {
+        "syntax": { "type": "string", "enum": ["json_pointer", "xpath"] },
+        "expression": { "type": "string", "minLength": 1 },
+        "namespace_bindings": { "type": "object", "additionalProperties": { "type": "string" } }
+      },
+      "additionalProperties": false
+    },
+    "focus_result": {
+      "type": "object",
+      "required": ["selector_index", "syntax", "expression", "status", "matched_node_ids", "reason"],
+      "properties": {
+        "selector_index": { "type": "integer", "minimum": 0 },
+        "syntax": { "type": "string", "enum": ["json_pointer", "xpath"] },
+        "expression": { "type": "string", "minLength": 1 },
+        "status": { "type": "string", "enum": ["matched", "unmatched", "invalid", "unsupported", "partial"] },
+        "matched_node_ids": { "type": "array", "uniqueItems": true, "items": { "type": "string", "minLength": 1 } },
+        "reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "source_record": {
+      "type": "object",
+      "required": ["source_id", "source_asset_id", "raw_asset_refs", "format", "sha256"],
+      "properties": {
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "format": { "type": "string", "enum": ["json", "yaml", "xml"] },
+        "sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" }
+      },
+      "additionalProperties": false
+    },
+    "structured_evidence": {
+      "type": "object",
+      "required": ["model_type", "source", "root"],
+      "properties": {
+        "model_type": { "type": "string", "const": "StructuredEvidence" },
+        "source": { "$ref": "#/$defs/source_record" },
+        "root": { "$ref": "#/$defs/structured_node" }
+      },
+      "additionalProperties": false
+    },
+    "coverage_item": {
+      "type": "object",
+      "required": ["feature", "status", "reason"],
+      "properties": {
+        "feature": { "type": "string", "enum": ["hierarchy", "scalar_types", "source_locations", "focus_paths", "xml_namespaces", "yaml_tags"] },
+        "status": { "type": "string", "enum": ["complete", "partial", "not_present", "unsupported", "failed"] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["complete", "not_present"] } }, "required": ["status"] },
+          "then": { "properties": { "reason": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["partial", "unsupported", "failed"] } }, "required": ["status"] },
+          "then": { "properties": { "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "parse_error": {
+      "type": "object",
+      "required": ["code", "message", "source_anchor"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "message": { "type": "string", "minLength": 1 },
+        "source_anchor": { "oneOf": [{ "$ref": "#/$defs/source_anchor" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "structured_input": {
+      "type": "object",
+      "required": ["record_type", "source_id", "source_asset_id", "raw_asset_refs", "format", "focus_selectors"],
+      "properties": {
+        "record_type": { "type": "string", "const": "structured_parse_input" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "format": { "type": "string", "enum": ["json", "yaml", "xml"] },
+        "focus_selectors": { "type": "array", "items": { "$ref": "#/$defs/focus_selector" } }
+      },
+      "additionalProperties": false
+    },
+    "structured_result": {
+      "type": "object",
+      "required": ["record_type", "source_id", "source_asset_id", "raw_asset_refs", "format", "status", "evidence", "focus_results", "coverage", "errors"],
+      "properties": {
+        "record_type": { "type": "string", "const": "structured_parse_result" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "format": { "type": "string", "enum": ["json", "yaml", "xml"] },
+        "status": { "type": "string", "enum": ["parsed", "partial", "failed"] },
+        "evidence": { "oneOf": [{ "$ref": "#/$defs/structured_evidence" }, { "type": "null" }] },
+        "focus_results": { "type": "array", "items": { "$ref": "#/$defs/focus_result" } },
+        "coverage": { "type": "array", "items": { "$ref": "#/$defs/coverage_item" } },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/parse_error" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["parsed", "partial"] } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "$ref": "#/$defs/structured_evidence" } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "type": "null" }, "errors": { "minItems": 1 } } }
+        },
+        {
+          "if": { "properties": { "evidence": { "properties": { "source": { "properties": { "format": { "const": "json" } }, "required": ["format"] } }, "required": ["source"] } }, "required": ["evidence"] },
+          "then": { "properties": { "format": { "const": "json" } } }
+        },
+        {
+          "if": { "properties": { "evidence": { "properties": { "source": { "properties": { "format": { "const": "yaml" } }, "required": ["format"] } }, "required": ["source"] } }, "required": ["evidence"] },
+          "then": { "properties": { "format": { "const": "yaml" } } }
+        },
+        {
+          "if": { "properties": { "evidence": { "properties": { "source": { "properties": { "format": { "const": "xml" } }, "required": ["format"] } }, "required": ["source"] } }, "required": ["evidence"] },
+          "then": { "properties": { "format": { "const": "xml" } } }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

@@ -17,6 +17,8 @@
     "issues"
   ],
   "properties": {
+    "policy":{"$ref":"template-brand-policy.schema.json"},
+    "policy_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},
     "template_id": {
       "type": "string",
       "minLength": 1
@@ -65,4 +67,5 @@
     }
   },
   "additionalProperties": false
+  ,"dependentRequired":{"policy":["policy_sha256"],"policy_sha256":["policy"]}
 }

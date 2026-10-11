@@ -1,0 +1,142 @@
+{
+  "document_type": "citation_policy_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-010",
+  "task_id": "TASK-CNT-010",
+  "data_object": "CitationPolicy",
+  "schema": "contracts/citation-policy.schema.json",
+  "fixtures": "contracts/citation-policy.fixtures.json",
+  "deliverable": "CitationPolicy",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "PDR para 403：来源展示模式 hidden/notes/footnote/appendix/inline；每种模式定义排版与来源回链。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第 65 行和任务第 93 行定义 CitationPolicy 输入、输出及数字/冲突/缺失验收；“数据对象”表未列 CitationPolicy。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.schema.json",
+      "supports": "CNT-001 的 evidence/assumption 引用、数值原值与缺失事实契约。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "CNT-001-NORMAL-001 数值、既有年度报告标签与 source link；CNT-001-BOUNDARY-001 显式 margin 假设及缺失续约日期。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "CNT-003-BOUNDARY-001 的 8%/9% 未决冲突、两项 evidence/source ID 与 ERR-008。"
+    },
+    {
+      "url": "contracts/source-anchor.schema.json",
+      "supports": "source_id 对应的原始 locator 状态及网页/文本/表格等来源定位格式。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "evidence_id、assumption_id 与 source_id 复用 GOV-007 格式。"
+    }
+  ],
+  "mode_profiles": [
+    {
+      "mode": "hidden",
+      "surface": "none",
+      "visible_on_slide": false,
+      "layout_rule": "omit_visual_citations_keep_machine_trace",
+      "backlink_rule": "machine_evidence_ref_to_source_anchor",
+      "overflow_action": "report_unrenderable"
+    },
+    {
+      "mode": "notes",
+      "surface": "speaker_notes",
+      "visible_on_slide": false,
+      "layout_rule": "reference_list_in_speaker_notes",
+      "backlink_rule": "notes_entry_to_source_anchor",
+      "overflow_action": "report_unrenderable"
+    },
+    {
+      "mode": "footnote",
+      "surface": "slide_footnote",
+      "visible_on_slide": true,
+      "layout_rule": "compact_footnote_markers_with_reserved_area",
+      "backlink_rule": "footnote_marker_to_source_anchor",
+      "overflow_action": "report_unrenderable"
+    },
+    {
+      "mode": "appendix",
+      "surface": "appendix",
+      "visible_on_slide": true,
+      "layout_rule": "appendix_entries_with_content_markers",
+      "backlink_rule": "appendix_entry_to_source_anchor",
+      "overflow_action": "report_unrenderable"
+    },
+    {
+      "mode": "inline",
+      "surface": "inline",
+      "visible_on_slide": true,
+      "layout_rule": "source_label_adjacent_to_claim",
+      "backlink_rule": "inline_label_to_source_anchor",
+      "overflow_action": "report_unrenderable"
+    }
+  ],
+  "field_rules": [
+    "citation_mode 只能来自显式 PresentationContext；未提供时输出 mode_unresolved 且 rendering 为 null，不设置默认模式。",
+    "hidden 不显示视觉引用，但必须保留所有 evidence_refs、assumption_refs 与 source_backlinks，保证机器追溯仍可用。",
+    "notes 把来源条目放入 speaker notes；footnote 使用紧凑脚注标记并为脚注区域留版面；appendix 由正文标记回链附录条目；inline 将来源标签放在内容旁。",
+    "五种模式均使用既有 evidence_id→source_id backlink 映射解析到 SourceEvidence/SourceAnchor；不在 CitationPolicy 中复制 locator，不编造 URL/title。缺失或 partial anchor 按上游 locator_status 原样保留。",
+    "每个 citation entry 至少关联一个 evidence_id 或 assumption_id；每个 evidence_id 必须有匹配的 source_backlink，顶层 evidence_refs/assumption_refs 是条目按首次出现顺序去重汇总。display_label 无已知来源时为 null，不生成引用文字。",
+    "每种模式的布局规则是语义约束，不是已批准的字号/坐标/容量参数；超出当前布局能力时报告 unrenderable，不静默改用别的模式。",
+    "未决冲突继续回链全部证据并保留 ERR-008；缺失事实不生成 citation，继续保留 ERR-009。assumption 只引用现有 assumption_id，不伪装成 SourceEvidence。",
+    "DEC-021/TASK-DEC-021 负责来源展示位置与版面占用选择且依赖 RES-031；CNT-010 不实现决策或选择算法。CitationPolicy 未列在数据对象表，本任务不新增矩阵行。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-010-MODE-HIDDEN-001",
+      "fixture_id": "CNT-010-MODE-HIDDEN-001",
+      "purpose": "apply_explicit_citation_mode",
+      "acceptance": "hidden 模式按对应表面规则展示/隐藏且保留来源回链。"
+    },
+    {
+      "case_id": "CNT-010-MODE-NOTES-001",
+      "fixture_id": "CNT-010-MODE-NOTES-001",
+      "purpose": "apply_explicit_citation_mode",
+      "acceptance": "notes 模式按对应表面规则展示/隐藏且保留来源回链。"
+    },
+    {
+      "case_id": "CNT-010-MODE-FOOTNOTE-001",
+      "fixture_id": "CNT-010-MODE-FOOTNOTE-001",
+      "purpose": "apply_explicit_citation_mode",
+      "acceptance": "footnote 模式按对应表面规则展示/隐藏且保留来源回链。"
+    },
+    {
+      "case_id": "CNT-010-MODE-APPENDIX-001",
+      "fixture_id": "CNT-010-MODE-APPENDIX-001",
+      "purpose": "apply_explicit_citation_mode",
+      "acceptance": "appendix 模式按对应表面规则展示/隐藏且保留来源回链。"
+    },
+    {
+      "case_id": "CNT-010-MODE-INLINE-001",
+      "fixture_id": "CNT-010-MODE-INLINE-001",
+      "purpose": "apply_explicit_citation_mode",
+      "acceptance": "inline 模式按对应表面规则展示/隐藏且保留来源回链。"
+    },
+    {
+      "case_id": "CNT-010-CONFLICT-001",
+      "fixture_id": "CNT-010-CONFLICT-001",
+      "purpose": "preserve_both_conflict_citations",
+      "acceptance": "两条冲突来源引用均保留且状态 unresolved，引用 ERR-008。"
+    },
+    {
+      "case_id": "CNT-010-MISSING-001",
+      "fixture_id": "CNT-010-MISSING-001",
+      "purpose": "omit_missing_fact_preserve_err009",
+      "acceptance": "续约日期不生成引用，显式假设与 ERR-009 分别保留。"
+    },
+    {
+      "case_id": "CNT-010-UNSET-MODE-001",
+      "fixture_id": "CNT-010-UNSET-MODE-001",
+      "purpose": "leave_mode_unresolved_without_default",
+      "acceptance": "未提供模式时不默认展示方式，追溯保持可用。"
+    }
+  ]
+}

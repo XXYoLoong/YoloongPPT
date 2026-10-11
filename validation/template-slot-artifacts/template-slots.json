@@ -1,0 +1,716 @@
+{
+  "suite": "native-template-slots-1",
+  "passed": 68,
+  "checks": [
+    {
+      "id": "registry-1",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-brand-text-actual-font-file",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-brand-text-native-title",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-brand-text-native-body",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-brand-text-layout",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-brand-text-no-overlay",
+      "passed": true,
+      "observed": {
+        "shapes": 2,
+        "placeholder_indices": [
+          0,
+          1
+        ]
+      }
+    },
+    {
+      "id": "normal-brand-text-native-parts-byte-preserved",
+      "passed": true,
+      "observed": {
+        "preserved_parts": 27,
+        "changed": []
+      }
+    },
+    {
+      "id": "brand-explicit-objects",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "registry-2",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-image-actual-font-file",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-image-native-title",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-image-native-body",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-image-native-asset",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-image-layout",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-image-no-overlay",
+      "passed": true,
+      "observed": {
+        "shapes": 3,
+        "placeholder_indices": [
+          0,
+          2,
+          1
+        ]
+      }
+    },
+    {
+      "id": "normal-native-image-native-parts-byte-preserved",
+      "passed": true,
+      "observed": {
+        "preserved_parts": 27,
+        "changed": []
+      }
+    },
+    {
+      "id": "contain-preserves-aspect",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "registry-3",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-table-actual-font-file",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-table-native-title",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-table-native-body",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-table-native-data",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-table-layout",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-table-no-overlay",
+      "passed": true,
+      "observed": {
+        "shapes": 3,
+        "placeholder_indices": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "normal-native-table-native-parts-byte-preserved",
+      "passed": true,
+      "observed": {
+        "preserved_parts": 27,
+        "changed": []
+      }
+    },
+    {
+      "id": "registry-4",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-chart-actual-font-file",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-chart-native-title",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-chart-native-body",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-chart-native-data",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-chart-layout",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "normal-native-chart-no-overlay",
+      "passed": true,
+      "observed": {
+        "shapes": 5,
+        "placeholder_indices": [
+          0,
+          1,
+          2
+        ]
+      }
+    },
+    {
+      "id": "normal-native-chart-native-parts-byte-preserved",
+      "passed": true,
+      "observed": {
+        "preserved_parts": 27,
+        "changed": []
+      }
+    },
+    {
+      "id": "table-chart-native-after-reopen",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "boundary-brand-token",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_BRAND_TOKEN_CONFLICT",
+        "details": [
+          {
+            "token": "accent",
+            "locked": "176548",
+            "requested": "FF0000"
+          }
+        ]
+      }
+    },
+    {
+      "id": "registry-5",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "boundary-brand-safe-area",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_NO_COMPATIBLE_LAYOUT",
+        "details": [
+          {
+            "layout_part": "ppt/slideLayouts/slideLayout2.xml",
+            "eligible": false,
+            "selected": false,
+            "reason": "TEMPLATE_BRAND_SAFE_AREA_CONFLICT",
+            "details": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "registry-6",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "boundary-brand-slot-locked",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_NO_COMPATIBLE_LAYOUT",
+        "details": [
+          {
+            "layout_part": "ppt/slideLayouts/slideLayout2.xml",
+            "eligible": false,
+            "selected": false,
+            "reason": "TEMPLATE_BRAND_OBJECT_LOCKED",
+            "details": []
+          }
+        ]
+      }
+    },
+    {
+      "id": "registry-7",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "boundary-unmatched-field",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_NO_COMPATIBLE_LAYOUT",
+        "details": [
+          {
+            "layout_part": "ppt/slideLayouts/slideLayout2.xml",
+            "eligible": false,
+            "selected": false,
+            "reason": "TEMPLATE_FIELD_MISMATCH",
+            "details": [
+              {
+                "role": "body",
+                "mapping": "不存在的字段",
+                "layout": "ppt/slideLayouts/slideLayout2.xml"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "boundary-capacity",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_NO_COMPATIBLE_LAYOUT",
+        "details": [
+          {
+            "layout_part": "ppt/slideLayouts/slideLayout2.xml",
+            "eligible": false,
+            "selected": false,
+            "reason": "TEMPLATE_CAPACITY_EXCEEDED",
+            "details": [
+              {
+                "estimated_height_px": 7098,
+                "available_height_px": 475
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "registry-8",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "boundary-no-fallback",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_NO_COMPATIBLE_LAYOUT",
+        "details": [
+          {
+            "layout_part": "ppt/slideLayouts/slideLayout6.xml",
+            "eligible": false,
+            "selected": false,
+            "reason": "TEMPLATE_FIELD_MISMATCH",
+            "details": [
+              {
+                "role": "body",
+                "candidate_indices": []
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "registry-9",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "explicit-authorized-fallback",
+      "passed": true,
+      "observed": {
+        "used": true,
+        "requested_layout": "ppt/slideLayouts/slideLayout6.xml",
+        "selected_layout": "ppt/slideLayouts/slideLayout2.xml",
+        "reason": [
+          {
+            "layout_part": "ppt/slideLayouts/slideLayout6.xml",
+            "eligible": false,
+            "selected": false,
+            "reason": "TEMPLATE_FIELD_MISMATCH",
+            "details": [
+              {
+                "role": "body",
+                "candidate_indices": []
+              }
+            ]
+          }
+        ],
+        "authorization": "explicit caller fallback_layouts"
+      }
+    },
+    {
+      "id": "registry-10",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "boundary-missing-font",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_FONT_UNAVAILABLE",
+        "details": [
+          {
+            "requested_font": "ThisFontDoesNotExist",
+            "matched_family": "DejaVu Sans"
+          }
+        ]
+      }
+    },
+    {
+      "id": "boundary-policy-override",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_REGISTERED_POLICY_CHANGED",
+        "details": []
+      }
+    },
+    {
+      "id": "boundary-policy-invalid",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_POLICY_INVALID",
+        "details": []
+      }
+    },
+    {
+      "id": "boundary-non-native-diagram",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_CONTENT_UNSUPPORTED",
+        "details": []
+      }
+    },
+    {
+      "id": "boundary-bind-geometry",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_BINDING_GEOMETRY_CHANGED",
+        "details": []
+      }
+    },
+    {
+      "id": "boundary-bind-missing-placeholder",
+      "passed": true,
+      "observed": {
+        "code": "TEMPLATE_PLACEHOLDER_UNAVAILABLE",
+        "details": []
+      }
+    },
+    {
+      "id": "policy-versioned-identity",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "formal-compiler-nonblank-layout",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "formal-writer-native-bound-objectmap",
+      "passed": true,
+      "observed": {
+        "objects": [
+          {
+            "logical_object_id": "object_31ac0f8d-7ee5-403b-aa9a-3b6ad22a7c6a",
+            "slide_id": "slide_77a64907-23b4-4a02-80b3-42690afa4e63",
+            "backend_object_id": "/ppt/slides/slide1.xml#2",
+            "shape_id": 2,
+            "name": "object_31ac0f8d-7ee5-403b-aa9a-3b6ad22a7c6a",
+            "type": "text",
+            "source_ref": [
+              "evidence_be160373-5534-48c9-8a0f-ede1846a0619"
+            ],
+            "execution_call_id": "capability_cd50f259-db5a-4bd3-9f3b-42e871dbb921",
+            "part": "/ppt/slides/slide1.xml"
+          },
+          {
+            "logical_object_id": "object_92c2bf89-9561-425e-b0ed-466c2b19e79a",
+            "slide_id": "slide_77a64907-23b4-4a02-80b3-42690afa4e63",
+            "backend_object_id": "/ppt/slides/slide1.xml#3",
+            "shape_id": 3,
+            "name": "object_92c2bf89-9561-425e-b0ed-466c2b19e79a",
+            "type": "text",
+            "source_ref": [
+              "evidence_be160373-5534-48c9-8a0f-ede1846a0619"
+            ],
+            "execution_call_id": "capability_e0ba8436-9962-49ae-8926-396d3cd84270",
+            "part": "/ppt/slides/slide1.xml"
+          }
+        ]
+      }
+    },
+    {
+      "id": "formal-writer-no-overlay",
+      "passed": true,
+      "observed": 2
+    },
+    {
+      "id": "formal-writer-editable-source-text",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "formal-recovery-object-ids",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "formal-package-preservation",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "actual-render-1",
+      "passed": true,
+      "observed": {
+        "pdf_png": [
+          {
+            "artifact_id": "artifact_ae95e4a1-f489-40d4-a5dd-0aceae562402",
+            "slide_id": null,
+            "type": "pdf",
+            "path": "render/normal-brand-text.pdf",
+            "hash": "8346b7aca05c3bf83e0889f18d3c2ff46f25bc51ddc5907c253e30db97249b78",
+            "renderer": "LibreOffice",
+            "version": "LibreOffice 7.4.7.2 40(Build:2)",
+            "dpi": null
+          },
+          {
+            "artifact_id": "artifact_4575542c-8c1e-4c4d-9cb9-06cc3001ae6b",
+            "slide_id": "slide_1",
+            "type": "png",
+            "path": "render/slide-1.png",
+            "hash": "6f6d7df4b0cabc675151e20647a325b6a06cfdcbfb1a148c0f841d28a04853af",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          }
+        ],
+        "powerpoint_compatibility": "not_tested"
+      }
+    },
+    {
+      "id": "render-brand-visible-1",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "actual-render-2",
+      "passed": true,
+      "observed": {
+        "pdf_png": [
+          {
+            "artifact_id": "artifact_eab9e0a8-995c-4845-9cf2-8410ab988766",
+            "slide_id": null,
+            "type": "pdf",
+            "path": "render/normal-native-image.pdf",
+            "hash": "5c5a51931084f1c62c7b9687168c65395df9c7be7fe03fb59e21bd2bf975e4ae",
+            "renderer": "LibreOffice",
+            "version": "LibreOffice 7.4.7.2 40(Build:2)",
+            "dpi": null
+          },
+          {
+            "artifact_id": "artifact_b4a41513-24a5-42d7-a48d-f4aeff376a79",
+            "slide_id": "slide_2",
+            "type": "png",
+            "path": "render/slide-1.png",
+            "hash": "d50a2035223ba3f8bec9f9f99a138c9abf478f62e4f4a6abf2eade416a7240f4",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          }
+        ],
+        "powerpoint_compatibility": "not_tested"
+      }
+    },
+    {
+      "id": "render-brand-visible-2",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "actual-render-3",
+      "passed": true,
+      "observed": {
+        "pdf_png": [
+          {
+            "artifact_id": "artifact_7e558622-14bd-4571-ae94-4647b76f9dc2",
+            "slide_id": null,
+            "type": "pdf",
+            "path": "render/normal-native-table.pdf",
+            "hash": "b94d41b173643c63d6920a0443d02b07d0c94169c2713185db864cdd5c580663",
+            "renderer": "LibreOffice",
+            "version": "LibreOffice 7.4.7.2 40(Build:2)",
+            "dpi": null
+          },
+          {
+            "artifact_id": "artifact_974fa531-a663-4867-9953-c0dea5372ab9",
+            "slide_id": "slide_3",
+            "type": "png",
+            "path": "render/slide-1.png",
+            "hash": "818b741378aed26453b19e910c4c76de27d9a011ce43d0ab406681a32f44c8c6",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          }
+        ],
+        "powerpoint_compatibility": "not_tested"
+      }
+    },
+    {
+      "id": "render-brand-visible-3",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "actual-render-4",
+      "passed": true,
+      "observed": {
+        "pdf_png": [
+          {
+            "artifact_id": "artifact_459f662c-183d-4ca3-a0e4-c268591476ff",
+            "slide_id": null,
+            "type": "pdf",
+            "path": "render/normal-native-chart.pdf",
+            "hash": "470c0400d270cbbb77979f9e6231f38b0eb5cb023e0a28a951bf239fc9f4df5e",
+            "renderer": "LibreOffice",
+            "version": "LibreOffice 7.4.7.2 40(Build:2)",
+            "dpi": null
+          },
+          {
+            "artifact_id": "artifact_254d2b68-0e2d-429d-98e8-e061ee1eabc4",
+            "slide_id": "slide_4",
+            "type": "png",
+            "path": "render/slide-1.png",
+            "hash": "dc1fe8dfb60b263b666a763f85f7a7b3ad89aaff8d52214a3ba093f6d0ca8855",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          }
+        ],
+        "powerpoint_compatibility": "not_tested"
+      }
+    },
+    {
+      "id": "render-brand-visible-4",
+      "passed": true,
+      "observed": null
+    }
+  ],
+  "runtime_root": "/runtime/template-slots-ad8006f7-226e-4ca1-890b-12df769eb8cf",
+  "normal_cases": [
+    "brand-text",
+    "native-image",
+    "native-table-and-chart"
+  ],
+  "outputs": [
+    {
+      "case": "normal-brand-text",
+      "pptx": "/runtime/template-slots-ad8006f7-226e-4ca1-890b-12df769eb8cf/normal-brand-text.pptx",
+      "sha256": "9b4e1307c3ecfa2713486cc0d735677e467699c7a6c09cb6289cd4af3f7d61bc",
+      "native_layout": "ppt/slideLayouts/slideLayout2.xml",
+      "bindings": [
+        0,
+        1
+      ],
+      "render_root": "/runtime/template-slots-ad8006f7-226e-4ca1-890b-12df769eb8cf/render-case-1"
+    },
+    {
+      "case": "normal-native-image",
+      "pptx": "/runtime/template-slots-ad8006f7-226e-4ca1-890b-12df769eb8cf/normal-native-image.pptx",
+      "sha256": "16da036dd36f0349df11b1cfa1cfe1329e77b94078032daadbd0de88f59f2d01",
+      "native_layout": "ppt/slideLayouts/slideLayout9.xml",
+      "bindings": [
+        0,
+        2,
+        1
+      ],
+      "render_root": "/runtime/template-slots-ad8006f7-226e-4ca1-890b-12df769eb8cf/render-case-2"
+    },
+    {
+      "case": "normal-native-table",
+      "pptx": "/runtime/template-slots-ad8006f7-226e-4ca1-890b-12df769eb8cf/normal-native-table.pptx",
+      "sha256": "c12b7b26fb599443d2948b71b5e6fafd3f8748b757e8b14838446a0aa05b6347",
+      "native_layout": "ppt/slideLayouts/slideLayout4.xml",
+      "bindings": [
+        0,
+        1,
+        2
+      ],
+      "render_root": "/runtime/template-slots-ad8006f7-226e-4ca1-890b-12df769eb8cf/render-case-3"
+    },
+    {
+      "case": "normal-native-chart",
+      "pptx": "/runtime/template-slots-ad8006f7-226e-4ca1-890b-12df769eb8cf/normal-native-chart.pptx",
+      "sha256": "3d92cb3aa34fd1905e39ecc15e935a1998fc61d9d0528ed48032a1a9fe17e5ba",
+      "native_layout": "ppt/slideLayouts/slideLayout5.xml",
+      "bindings": [
+        0,
+        1,
+        2
+      ],
+      "render_root": "/runtime/template-slots-ad8006f7-226e-4ca1-890b-12df769eb8cf/render-case-4"
+    }
+  ],
+  "source_sha256": {
+    "src/yoloongppt/templates.py": "9bef714eb1be47bdbfc270b69766f7f4dcb4c237a6e2e74f282df6700c2cb18a",
+    "src/yoloongppt/template_registry.py": "ea8569a5e13918d7a0545492822b6f13494de78d238a59c5446566ec373dd168",
+    "src/yoloongppt/template_layout_runtime.py": "ba8fbb2983c049378f2f27641ece1d582b98ac67f815e9683120aca403b26a23",
+    "validation/verify-template-slots.py": "5b3498304ce3d4a912b9a241907a72b96cb76224099bf0f0bf0bed7b0c434bf6",
+    "src/yoloongppt/planning.py": "c4519d9790c262509512ef812b9cf44cca5f326f82623ed16147b6fe32292683",
+    "src/yoloongppt/writer.py": "a08bd6f641e172883ed04e79486d456ebf28cbf94436e8d756df09ac7ed56a99",
+    "src/yoloongppt/layout_decisions.py": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190"
+  },
+  "schema_sha256": {
+    "contracts/template-brand-policy.schema.json": "009c00bd433c7039e159d12797ff6a6fbc3965f3997abd5cd512b73e6b31f07a",
+    "contracts/template-layout-runtime.schema.json": "9db7efc40700a36dcd7a6e271e88db30ac728aae50b8b5117370d07508611567",
+    "contracts/template-registry-record.schema.json": "67d2665b012c554e16cbe6a458a09e2e23b137ed85f92279c713a1547c8ff8aa"
+  },
+  "requirements": [
+    "AC-006",
+    "TPL-002",
+    "TPL-003",
+    "TPL-004",
+    "TPL-006",
+    "TPL-008",
+    "TPL-015",
+    "TPL-016"
+  ],
+  "limits": [
+    "component Docker verification only; real generation integration is separate",
+    "three upstream template families not accepted",
+    "all modes/all AC/PowerPoint desktop verification remain incomplete"
+  ]
+}

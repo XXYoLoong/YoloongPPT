@@ -1,0 +1,149 @@
+{
+  "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+  "node_id": "DEC-012",
+  "input": {
+    "storyline": {
+      "pattern": "linear",
+      "rationale": "stable source-order presentation default",
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ]
+    },
+    "titles": [
+      "人工绘制示意图1-8（软件验证装饰）",
+      "人工验证资料完整展示：中文与English混合长标题必须逐字保留并采用可读字号自动调整页面布局，所有内容仅用于软件验证而不代表真实业务结论",
+      "测试分数据表（完整14行）",
+      "测试分数据表（完整14行）"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-012",
+      "candidate_id": "candidate_f0a2ea58-bfc9-4751-975a-1371a8dbe0b9",
+      "value": {
+        "sections": [
+          {
+            "section_id": "section_7ebeb8a8822d6980e446",
+            "order": 0,
+            "title": "人工绘制示意图1-8（软件验证装饰）",
+            "parent_section_id": null,
+            "transition": "open",
+            "page_indices": [
+              0
+            ],
+            "evidence_refs": [
+              "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+            ]
+          },
+          {
+            "section_id": "section_0d933aa839861d1e10ad",
+            "order": 1,
+            "title": "人工验证资料完整展示：中文与English混合长标题必须逐字保留并采用可读字号自动调整页面布局，所有内容仅用于软件验证而不代表真实业务结论",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              1
+            ],
+            "evidence_refs": [
+              "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+            ]
+          },
+          {
+            "section_id": "section_20ab8bfabc359b6ec15b",
+            "order": 2,
+            "title": "测试分数据表（完整14行）",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              2,
+              3
+            ],
+            "evidence_refs": [
+              "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+            ]
+          }
+        ],
+        "ordering": "linear",
+        "ordering_origin": "model consumes selected narrative_context; literal model page order retained",
+        "subsections_status": "not_requested"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_f0a2ea58-bfc9-4751-975a-1371a8dbe0b9"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "sections": [
+      {
+        "section_id": "section_7ebeb8a8822d6980e446",
+        "order": 0,
+        "title": "人工绘制示意图1-8（软件验证装饰）",
+        "parent_section_id": null,
+        "transition": "open",
+        "page_indices": [
+          0
+        ],
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ]
+      },
+      {
+        "section_id": "section_0d933aa839861d1e10ad",
+        "order": 1,
+        "title": "人工验证资料完整展示：中文与English混合长标题必须逐字保留并采用可读字号自动调整页面布局，所有内容仅用于软件验证而不代表真实业务结论",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          1
+        ],
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ]
+      },
+      {
+        "section_id": "section_20ab8bfabc359b6ec15b",
+        "order": 2,
+        "title": "测试分数据表（完整14行）",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          2,
+          3
+        ],
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ]
+      }
+    ],
+    "ordering": "linear",
+    "ordering_origin": "model consumes selected narrative_context; literal model page order retained",
+    "subsections_status": "not_requested"
+  },
+  "duration": 0.0,
+  "error": null
+}

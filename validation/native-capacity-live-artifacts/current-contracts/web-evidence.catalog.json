@@ -1,0 +1,35 @@
+{
+  "requirement_id": "IN-009",
+  "task_id": "TASK-IN-009",
+  "output": "WebEvidence",
+  "status": "draft_contract",
+  "schema": "contracts/web-evidence.schema.json",
+  "fixtures": "contracts/web-evidence.fixtures.json",
+  "baseline_alignment": {
+    "requirement_row": "需求主表!A48:P48",
+    "task_row": "可执行任务!A76:N76",
+    "data_object_row": null,
+    "data_object_note": "WebEvidence 是任务交付名，数据对象表未列同名正式对象；本任务不新增数据对象行。"
+  },
+  "coverage": [
+    { "requirement": "IN-009", "covered_by": ["title", "document_metadata", "content_blocks", "links", "source_anchor", "raw_asset_refs"] },
+    { "requirement": "SEC-002", "covered_by": ["web_retrieval_policy.allowed_schemes", "web_retrieval_policy.private_target_mode", "security_audit"] },
+    { "requirement": "SEC-003", "covered_by": ["web_retrieval_policy.max_redirects", "web_retrieval_policy.max_response_bytes", "web_retrieval_policy.allowed_media_types", "web_retrieval_policy.revalidate_redirect_targets"] },
+    { "requirement": "SEC-006", "covered_by": ["image_block.resource_status", "link_reference.fetch_status", "web_retrieval_policy.embedded_resource_fetch_mode"] },
+    { "requirement": "SEC-016", "covered_by": ["security_audit"] }
+  ],
+  "error_mapping": [
+    { "error_id": "ERR-002", "code": "INPUT_UNSUPPORTED", "use": "不支持的输入类型或内容类型；不猜测替代格式。" },
+    { "error_id": "ERR-006", "code": "PARSE_PARTIAL", "use": "部分结构无法解析但可保留已抽取证据时。" },
+    { "error_id": "ERR-013", "code": "ASSET_DOWNLOAD_FAIL", "use": "被策略允许的页面请求发生网络/下载失败时。" },
+    { "error_id": "ERR-014", "code": "ASSET_UNSAFE_URL", "use": "URL、解析目标或重定向命中 SSRF/安全策略时。" }
+  ],
+  "boundaries": [
+    "远程 URL 仅接受 HTTP/HTTPS；私网目标默认阻止，例外必须来自显式 allowlist 策略。",
+    "max_redirects、max_response_bytes 与 allowed_media_types 由调用方或生效配置显式提供；未选定产品运行时前不声明数值默认值。",
+    "重定向目标须重复安全检查。HTML 中图片、超链接、canonical 等外部引用仅提取并记录，不自动请求。",
+    "输出 URL 使用脱敏表示；密钥、认证信息及敏感查询值不得进入 error/message、日志或 fixture。",
+    "Fixtures 为合成期望结果，不是实际抓取、解析或安全测试结果；processor 执行状态显式标为未执行。",
+    "HTML 标签清理规则、DOM 定位器、解析器/运行时/版本与许可证待产品架构和实际 PoC 决定。"
+  ]
+}

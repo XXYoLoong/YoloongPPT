@@ -50,7 +50,8 @@ def generate(task, schemas, store, trace, checkpoint=None):
         artifacts.json('presentation-context.json', normalized['context'])
         count, style, warnings = preflight(task, normalized['context'], schemas)
         task = {**task, 'constraints': normalized['context']['constraints'],
-                'runtime_preferences':{**task['runtime_preferences'],'asset_policy':normalized['context']['values']['asset_policy']}}
+                'runtime_preferences':{**task['runtime_preferences'],'asset_policy':normalized['context']['values']['asset_policy'],
+                                       'adaptive_policy':normalized['context']['values']['adaptive_policy']}}
         artifacts.json('task-effective.json', task)
         artifacts.json('atomic-registry.json', AtomicRegistry(schemas).snapshot())
         sources = step('SYS-003/004', lambda: inspect_sources(task, schemas, store, trace))
@@ -96,7 +97,10 @@ def generate(task, schemas, store, trace, checkpoint=None):
             identity = lambda result: [(e['evidence_id'], e['source_hash'], e['parser_version']) for e in result['evidence']]
             if identity(old) != identity(sources):
                 raise TaskError('CHECKPOINT_SOURCE_CHANGED', '来源或解析版本变化，断点不能复用旧模型响应。', 'Generation', ['SYS-005'])
-            response_path = checkpoint/'model-response-effective.json' if (checkpoint/'model-response-effective.json').is_file() else checkpoint/'model-response.json'
+            # Replay the original seed through current visual resolution and
+            # adaptive pagination; the effective response may contain more pages.
+            adaptive_checkpoint=(checkpoint/'adaptive-content-result.json').is_file()
+            response_path = checkpoint/'model-response-effective.json' if not adaptive_checkpoint and (checkpoint/'model-response-effective.json').is_file() else checkpoint/'model-response.json'
             proposal = json.loads(response_path.read_text(encoding='utf-8'))
             schemas.validate('generation-model.schema.json', proposal)
             if len(proposal['slides']) != count:
@@ -115,8 +119,8 @@ def generate(task, schemas, store, trace, checkpoint=None):
             timeline.append({'component': 'SYS-005 partial content planner', 'status': 'checkpoint_reused', 'previous_run_id': checkpoint.name})
         else:
             proposal, model = step('SYS-005 partial content planner', lambda: plan(task, sources, schemas, artifacts, count,narrative,visual))
-        proposal, narrative_result = step('DEC-009/012/014–021 narrative execution',lambda:finalize(proposal,narrative,sources,schemas,artifacts))
         proposal, visual_result = step('DEC-022–029 visual execution',lambda:finalize_visual(proposal,visual,sources,schemas,artifacts))
+        proposal, narrative_result = step('DEC-009/012/014–021 narrative execution',lambda:finalize(proposal,narrative,sources,schemas,artifacts,templates=visual['template_selection']['record']))
         artifacts.json('model-response-effective.json',proposal)
         deck, execution = step('SYS-010/011 DEC-030–038', lambda: compile_deck(proposal, style, trace, previous_deck,visual=visual))
         artifacts.json('deck-spec.json', deck); artifacts.json('execution-plan.json', execution)

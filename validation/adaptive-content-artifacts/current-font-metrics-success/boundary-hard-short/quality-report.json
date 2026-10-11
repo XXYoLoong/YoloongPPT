@@ -1,0 +1,61 @@
+{
+  "qa_id": "artifact_8bc872b0-2a78-4613-8421-11a19365bf29",
+  "status": "partial",
+  "issues": [],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "kind": "structure",
+      "check": "Content_Types declarations and all internal relationship targets/IDs",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_7d3298b2-d220-43ec-bf15-fe57cbfaca9e",
+      "kind": "global_consistency",
+      "check": "native/background/design_variation",
+      "status": "executed",
+      "explicit_variation": false,
+      "actual_background": "F6F4EE",
+      "spec_background": "F6F4EE",
+      "deck_background": "F6F4EE",
+      "selected_layout": "editorial",
+      "selected_candidate_ids": [
+        "candidate_98017d0b-cf37-4372-8255-2a7b8ac3cfc7"
+      ]
+    },
+    {
+      "slide_id": "slide_7d3298b2-d220-43ec-bf15-fe57cbfaca9e",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_7d3298b2-d220-43ec-bf15-fe57cbfaca9e",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "not_executed",
+    "fact_semantic": "not_executed",
+    "accessibility": "partial_native_alt_font_contrast_table_header_reading_order",
+    "powerpoint_compatibility": "not_executed",
+    "global_consistency": "partial_style_font_footer_hierarchy",
+    "visual_geometry": "partial_collision_geometry_contrast_image_dpi",
+    "image_semantics": "not_executed",
+    "full_semantic_reading_order": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Numeric membership is not semantic truth; PNG/text presence is not visual approval. Full DEC/QA/revision acceptance remains required."
+}

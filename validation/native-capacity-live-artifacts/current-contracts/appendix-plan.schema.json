@@ -1,0 +1,358 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AppendixPlan 契约（CNT-014 草案）",
+  "description": "规划正文项目到附录条目的引用，并将附录证据回链到现有来源锚点。",
+  "type": "object",
+  "required": [
+    "status",
+    "citation_mode",
+    "main_items",
+    "appendix_entries"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "unresolved",
+        "blocked"
+      ]
+    },
+    "citation_mode": {
+      "type": "string",
+      "enum": [
+        "appendix",
+        "unresolved"
+      ]
+    },
+    "main_items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/main_item"
+      }
+    },
+    "appendix_entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/appendix_entry"
+      }
+    }
+  },
+  "$defs": {
+    "conflict_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "conflict_id",
+        "error_id",
+        "reason_code",
+        "evidence_refs"
+      ],
+      "properties": {
+        "kind": {
+          "const": "unresolved_conflict"
+        },
+        "conflict_id": {
+          "$ref": "object-id.schema.json#/$defs/object_id"
+        },
+        "error_id": {
+          "const": "ERR-008"
+        },
+        "reason_code": {
+          "const": "SOURCE_CONFLICT"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "missing_fact_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "fact_id",
+        "error_id",
+        "reason_code"
+      ],
+      "properties": {
+        "kind": {
+          "const": "missing_fact"
+        },
+        "fact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error_id": {
+          "const": "ERR-009"
+        },
+        "reason_code": {
+          "const": "MISSING_FACT"
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_backlink": {
+      "type": "object",
+      "required": [
+        "evidence_id",
+        "source_id"
+      ],
+      "properties": {
+        "evidence_id": {
+          "$ref": "object-id.schema.json#/$defs/evidence_id"
+        },
+        "source_id": {
+          "$ref": "object-id.schema.json#/$defs/source_id"
+        }
+      },
+      "additionalProperties": false
+    },
+    "appendix_ref": {
+      "type": "object",
+      "required": [
+        "entry_key",
+        "marker"
+      ],
+      "properties": {
+        "entry_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "marker": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
+    },
+    "main_item": {
+      "type": "object",
+      "required": [
+        "main_item_key",
+        "text",
+        "evidence_refs",
+        "assumption_refs",
+        "conflict_refs",
+        "missing_fact_refs",
+        "appendix_refs"
+      ],
+      "properties": {
+        "main_item_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        },
+        "assumption_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          }
+        },
+        "conflict_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/conflict_ref"
+          }
+        },
+        "missing_fact_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/missing_fact_ref"
+          }
+        },
+        "appendix_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/appendix_ref"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "appendix_entry": {
+      "type": "object",
+      "required": [
+        "entry_key",
+        "kind",
+        "title",
+        "content",
+        "main_item_refs",
+        "evidence_refs",
+        "assumption_refs",
+        "conflict_refs",
+        "missing_fact_refs",
+        "source_backlinks"
+      ],
+      "properties": {
+        "entry_key": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "evidence_detail",
+            "data_summary",
+            "source_reference",
+            "conflict_record",
+            "assumption_record",
+            "missing_fact_record"
+          ]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "content": {
+          "type": "string",
+          "minLength": 1
+        },
+        "main_item_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        },
+        "assumption_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          }
+        },
+        "conflict_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/conflict_ref"
+          }
+        },
+        "missing_fact_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/missing_fact_ref"
+          }
+        },
+        "source_backlinks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/source_backlink"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "source_reference"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence_refs": {
+                "minItems": 1
+              },
+              "source_backlinks": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "conflict_record"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence_refs": {
+                "minItems": 2
+              },
+              "conflict_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "assumption_record"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "assumption_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "missing_fact_record"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "missing_fact_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

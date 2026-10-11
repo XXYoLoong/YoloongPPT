@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "来源事实冲突决策输入与输出（DEC-004）",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/input"
+    },
+    {
+      "$ref": "#/$defs/output"
+    }
+  ],
+  "$defs": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "trace_id": {
+          "$ref": "object-id.schema.json#/$defs/trace_id"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "source-evidence.schema.json"
+          },
+          "minItems": 1
+        },
+        "interpretation": {
+          "$ref": "fact-interpretation.schema.json"
+        },
+        "policy": {
+          "$ref": "evidence-policy.schema.json"
+        }
+      },
+      "required": [
+        "trace_id",
+        "evidence",
+        "interpretation",
+        "policy"
+      ],
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "ready",
+            "needs_clarification"
+          ]
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "fact_id": {
+                "type": "string",
+                "minLength": 1
+              },
+              "fact_key": {
+                "type": "string",
+                "minLength": 1
+              },
+              "fact_kind": {
+                "enum": [
+                  "person",
+                  "organization",
+                  "product",
+                  "amount",
+                  "percentage",
+                  "date",
+                  "unit",
+                  "metric",
+                  "quote",
+                  "citation"
+                ]
+              },
+              "claims": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "fact_key": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "fact_kind": {
+                      "enum": [
+                        "person",
+                        "organization",
+                        "product",
+                        "amount",
+                        "percentage",
+                        "date",
+                        "unit",
+                        "metric",
+                        "quote",
+                        "citation"
+                      ]
+                    },
+                    "value": {
+                      "$ref": "fact-constraint-set.schema.json#/$defs/fact_value"
+                    },
+                    "provenance": {
+                      "enum": [
+                        "fact",
+                        "explicit_assumption"
+                      ]
+                    },
+                    "quotes": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "evidence_id": {
+                            "$ref": "object-id.schema.json#/$defs/evidence_id"
+                          },
+                          "quote": {
+                            "type": "string",
+                            "minLength": 1
+                          }
+                        },
+                        "required": [
+                          "evidence_id",
+                          "quote"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "minItems": 1
+                    },
+                    "reason": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "claim_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "source_id": {
+                      "$ref": "object-id.schema.json#/$defs/source_id"
+                    },
+                    "evidence_refs": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "fact-constraint-set.schema.json#/$defs/evidence_ref"
+                      },
+                      "minItems": 1
+                    }
+                  },
+                  "required": [
+                    "fact_key",
+                    "fact_kind",
+                    "value",
+                    "provenance",
+                    "quotes",
+                    "reason",
+                    "claim_id",
+                    "source_id",
+                    "evidence_refs"
+                  ],
+                  "additionalProperties": false
+                },
+                "minItems": 1
+              },
+              "selected_claim_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "basis": {
+                "enum": [
+                  "equivalent_values_all_sources_retained",
+                  "explicit_user_selection",
+                  "caller_supplied_priority",
+                  "unresolved"
+                ]
+              },
+              "conflicting": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "fact_id",
+              "fact_key",
+              "fact_kind",
+              "claims",
+              "selected_claim_id",
+              "basis",
+              "conflicting"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "conflicts": {
+          "type": "array",
+          "items": {
+            "$ref": "evidence-conflict.schema.json"
+          }
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "preserved_evidence_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          },
+          "uniqueItems": true
+        },
+        "source_priority_policy": {
+          "$ref": "source-bundle.schema.json#/$defs/source_priority_policy"
+        }
+      },
+      "required": [
+        "status",
+        "groups",
+        "conflicts",
+        "issues",
+        "preserved_evidence_ids",
+        "source_priority_policy"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

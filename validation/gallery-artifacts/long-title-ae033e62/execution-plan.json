@@ -1,0 +1,1079 @@
+{
+  "calls": [
+    {
+      "call_id": "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [],
+      "inputs": {
+        "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+        "order": 0
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_346b469a-c2b1-4ecb-a5f9-07483bcb4025",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_e91e7c3b-e8da-4d43-90cb-15bf705fd6ab",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "完整保留混合长标题并逐图显示不同宽高比真实素材与原据图注。完整保留混合长标题并逐图显示不同宽高比真实素材与原据图注。完整保留混合长标题并逐图显示不同宽高比真实素材与原据图注。"
+        ],
+        "bounds": [
+          0.7,
+          0.45,
+          11.95,
+          2.499
+        ],
+        "font_size": 30,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 0,
+          "bold": true
+        }
+      },
+      "expected_objects": [
+        "object_e91e7c3b-e8da-4d43-90cb-15bf705fd6ab"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_15eb7298-b900-4569-92eb-2f5c0a5d38c1",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_75dc26a3-6d34-48f2-ba48-515a6c02998c",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "全部为人工验证素材"
+        ],
+        "bounds": [
+          0.7,
+          3.1090000000000004,
+          11.95,
+          0.42
+        ],
+        "font_size": 18,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_75dc26a3-6d34-48f2-ba48-515a6c02998c"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_2dbabd61-d973-4654-9ba2-c01a3182c723",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_image",
+      "implementation_id": "implementation_e4366712-ef3f-4493-9b52-73fcd3fb26d3",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_f0ded065-fe81-42ab-97b8-d0c96af5d0a5",
+        "type": "image",
+        "role": "asset",
+        "slot_key": "asset.asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+        "data": {
+          "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+          "role": "information",
+          "alt_text": "人工栅格样例A",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例A",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "path": "/runtime/assets/9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e.png",
+          "width_px": 1800,
+          "height_px": 900,
+          "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+          "source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "crop": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fit_result": {
+            "slot_key": "asset.asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+            "mode": "contain",
+            "bounds": [
+              1.3607500000000003,
+              3.7290000000000005,
+              1.530999999999999,
+              0.7654999999999995
+            ],
+            "crop": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "focal_point": [
+              0.5,
+              0.5
+            ],
+            "effective_dpi": 1175.7,
+            "quality": "nominal_96dpi_or_above",
+            "warning": null,
+            "pixel_removal_explicit": false
+          }
+        },
+        "bounds": [
+          1.3607500000000003,
+          3.7290000000000005,
+          1.530999999999999,
+          0.7654999999999995
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "expected_objects": [
+        "object_f0ded065-fe81-42ab-97b8-d0c96af5d0a5"
+      ],
+      "capability_id": "capability_ade0c185-06e5-4906-b4ae-16c70af6306d"
+    },
+    {
+      "call_id": "capability_715a4e8b-b224-42b4-8aaa-237bbfaf8ebe",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_f5dff6ba-97ee-4d1b-b9d1-e6b38d09cc68",
+        "type": "text",
+        "role": "body",
+        "slot_key": "caption.asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+        "text": [
+          "素材示例A"
+        ],
+        "bounds": [
+          0.7,
+          4.5745,
+          2.8525,
+          0.46
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_f5dff6ba-97ee-4d1b-b9d1-e6b38d09cc68"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_1e1aafb5-fc6b-4db2-b53d-cfd46de2793d",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_image",
+      "implementation_id": "implementation_e4366712-ef3f-4493-9b52-73fcd3fb26d3",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_d6eeb513-5df4-42b9-9fbf-821fabf25542",
+        "type": "image",
+        "role": "asset",
+        "slot_key": "asset.asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+        "data": {
+          "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+          "role": "decoration",
+          "alt_text": "人工栅格样例B",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例B",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "path": "/runtime/assets/604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91.png",
+          "width_px": 900,
+          "height_px": 1800,
+          "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+          "source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "crop": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fit_result": {
+            "slot_key": "asset.asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+            "mode": "contain",
+            "bounds": [
+              4.9673750000000005,
+              3.7290000000000005,
+              0.38274999999999976,
+              0.7654999999999995
+            ],
+            "crop": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "focal_point": [
+              0.5,
+              0.5
+            ],
+            "effective_dpi": 2351.4,
+            "quality": "nominal_96dpi_or_above",
+            "warning": null,
+            "pixel_removal_explicit": false
+          }
+        },
+        "bounds": [
+          4.9673750000000005,
+          3.7290000000000005,
+          0.38274999999999976,
+          0.7654999999999995
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "expected_objects": [
+        "object_d6eeb513-5df4-42b9-9fbf-821fabf25542"
+      ],
+      "capability_id": "capability_ade0c185-06e5-4906-b4ae-16c70af6306d"
+    },
+    {
+      "call_id": "capability_7832d5b0-391e-4ed5-905c-b978e22bc5ee",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_537c8583-40d1-4f6f-b8f1-735446b78a26",
+        "type": "text",
+        "role": "body",
+        "slot_key": "caption.asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+        "text": [
+          "素材示例B"
+        ],
+        "bounds": [
+          3.7325,
+          4.5745,
+          2.8525,
+          0.46
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_537c8583-40d1-4f6f-b8f1-735446b78a26"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_993be889-bd84-4f59-ab02-2cdccec4aab4",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_image",
+      "implementation_id": "implementation_e4366712-ef3f-4493-9b52-73fcd3fb26d3",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_43e50c4f-14b8-4ada-96dc-0c8121ddb862",
+        "type": "image",
+        "role": "asset",
+        "slot_key": "asset.asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+        "data": {
+          "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+          "role": "logo",
+          "alt_text": "人工栅格样例C",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例C",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "path": "/runtime/assets/0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0.png",
+          "width_px": 1400,
+          "height_px": 1400,
+          "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+          "source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "crop": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fit_result": {
+            "slot_key": "asset.asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+            "mode": "contain",
+            "bounds": [
+              7.8085,
+              3.7290000000000005,
+              0.7654999999999995,
+              0.7654999999999995
+            ],
+            "crop": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "focal_point": [
+              0.5,
+              0.5
+            ],
+            "effective_dpi": 1828.87,
+            "quality": "nominal_96dpi_or_above",
+            "warning": null,
+            "pixel_removal_explicit": false
+          }
+        },
+        "bounds": [
+          7.8085,
+          3.7290000000000005,
+          0.7654999999999995,
+          0.7654999999999995
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "expected_objects": [
+        "object_43e50c4f-14b8-4ada-96dc-0c8121ddb862"
+      ],
+      "capability_id": "capability_ade0c185-06e5-4906-b4ae-16c70af6306d"
+    },
+    {
+      "call_id": "capability_bb13830f-ad08-4e07-b974-4198aa1dc3ef",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_b526d846-cbac-465c-a6f8-8c92e6e00952",
+        "type": "text",
+        "role": "body",
+        "slot_key": "caption.asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+        "text": [
+          "素材示例C"
+        ],
+        "bounds": [
+          6.765000000000001,
+          4.5745,
+          2.8525,
+          0.46
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_b526d846-cbac-465c-a6f8-8c92e6e00952"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_666761cf-250c-4f90-9ee1-180d8d051d41",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_image",
+      "implementation_id": "implementation_e4366712-ef3f-4493-9b52-73fcd3fb26d3",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_ddf00ad8-69de-4f4a-b875-a9fb48198237",
+        "type": "image",
+        "role": "asset",
+        "slot_key": "asset.asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+        "data": {
+          "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+          "role": "reference",
+          "alt_text": "人工栅格样例D",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例D",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "path": "/runtime/assets/c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829.png",
+          "width_px": 2400,
+          "height_px": 800,
+          "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+          "source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "crop": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fit_result": {
+            "slot_key": "asset.asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+            "mode": "contain",
+            "bounds": [
+              10.0755,
+              3.7290000000000005,
+              2.2964999999999987,
+              0.7654999999999995
+            ],
+            "crop": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "focal_point": [
+              0.5,
+              0.5
+            ],
+            "effective_dpi": 1045.07,
+            "quality": "nominal_96dpi_or_above",
+            "warning": null,
+            "pixel_removal_explicit": false
+          }
+        },
+        "bounds": [
+          10.0755,
+          3.7290000000000005,
+          2.2964999999999987,
+          0.7654999999999995
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "expected_objects": [
+        "object_ddf00ad8-69de-4f4a-b875-a9fb48198237"
+      ],
+      "capability_id": "capability_ade0c185-06e5-4906-b4ae-16c70af6306d"
+    },
+    {
+      "call_id": "capability_e2f1a089-4b2e-4c93-a8d2-cc5eafaa92b8",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_8611e8fe-04d2-4def-95f8-b1e237ca029c",
+        "type": "text",
+        "role": "body",
+        "slot_key": "caption.asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+        "text": [
+          "素材示例D"
+        ],
+        "bounds": [
+          9.7975,
+          4.5745,
+          2.8525,
+          0.46
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_8611e8fe-04d2-4def-95f8-b1e237ca029c"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_87adf81d-30b6-41e1-8f82-b9bd81e77d2e",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_image",
+      "implementation_id": "implementation_e4366712-ef3f-4493-9b52-73fcd3fb26d3",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_8c16f1ff-f027-4497-ba58-7c964d292835",
+        "type": "image",
+        "role": "asset",
+        "slot_key": "asset.asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+        "data": {
+          "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+          "role": "information",
+          "alt_text": "人工栅格样例E",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例E",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "path": "/runtime/assets/fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83.png",
+          "width_px": 800,
+          "height_px": 2400,
+          "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+          "source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "crop": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fit_result": {
+            "slot_key": "asset.asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+            "mode": "contain",
+            "bounds": [
+              1.9986666666666666,
+              5.2145,
+              0.25516666666666654,
+              0.7654999999999995
+            ],
+            "crop": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "focal_point": [
+              0.5,
+              0.5
+            ],
+            "effective_dpi": 3135.21,
+            "quality": "nominal_96dpi_or_above",
+            "warning": null,
+            "pixel_removal_explicit": false
+          }
+        },
+        "bounds": [
+          1.9986666666666666,
+          5.2145,
+          0.25516666666666654,
+          0.7654999999999995
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "expected_objects": [
+        "object_8c16f1ff-f027-4497-ba58-7c964d292835"
+      ],
+      "capability_id": "capability_ade0c185-06e5-4906-b4ae-16c70af6306d"
+    },
+    {
+      "call_id": "capability_5c7624f5-87d5-4db7-9a9d-b5d1b790540b",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_10dfcf2e-189a-4e30-acf0-9cbb7868d8d1",
+        "type": "text",
+        "role": "body",
+        "slot_key": "caption.asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+        "text": [
+          "素材示例E"
+        ],
+        "bounds": [
+          0.7,
+          6.06,
+          2.8525,
+          0.46
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_10dfcf2e-189a-4e30-acf0-9cbb7868d8d1"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_7155e46a-de02-4898-b2a4-7439d7ef0e97",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_image",
+      "implementation_id": "implementation_e4366712-ef3f-4493-9b52-73fcd3fb26d3",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_a435d99a-3a45-4895-aa61-7a5b3622739a",
+        "type": "image",
+        "role": "asset",
+        "slot_key": "asset.asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+        "data": {
+          "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+          "role": "decoration",
+          "alt_text": "人工栅格样例F",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例F",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "path": "/runtime/assets/980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6.png",
+          "width_px": 1600,
+          "height_px": 1200,
+          "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+          "source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "crop": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fit_result": {
+            "slot_key": "asset.asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+            "mode": "contain",
+            "bounds": [
+              4.648416666666667,
+              5.2145,
+              1.0206666666666662,
+              0.7654999999999995
+            ],
+            "crop": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "focal_point": [
+              0.5,
+              0.5
+            ],
+            "effective_dpi": 1567.6,
+            "quality": "nominal_96dpi_or_above",
+            "warning": null,
+            "pixel_removal_explicit": false
+          }
+        },
+        "bounds": [
+          4.648416666666667,
+          5.2145,
+          1.0206666666666662,
+          0.7654999999999995
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "expected_objects": [
+        "object_a435d99a-3a45-4895-aa61-7a5b3622739a"
+      ],
+      "capability_id": "capability_ade0c185-06e5-4906-b4ae-16c70af6306d"
+    },
+    {
+      "call_id": "capability_a2572eca-3038-4bc7-a562-4211a3228d95",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_b8f8ded1-f500-46ed-a220-3cea4fa621e7",
+        "type": "text",
+        "role": "body",
+        "slot_key": "caption.asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+        "text": [
+          "素材示例F"
+        ],
+        "bounds": [
+          3.7325,
+          6.06,
+          2.8525,
+          0.46
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_b8f8ded1-f500-46ed-a220-3cea4fa621e7"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_1aab017e-126f-47f2-b286-3537fe63f27f",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_image",
+      "implementation_id": "implementation_e4366712-ef3f-4493-9b52-73fcd3fb26d3",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_3a5fb586-9d3f-4588-a7be-6405fefa2ae6",
+        "type": "image",
+        "role": "asset",
+        "slot_key": "asset.asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+        "data": {
+          "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+          "role": "logo",
+          "alt_text": "人工栅格样例G",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例G",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "path": "/runtime/assets/ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e.png",
+          "width_px": 1200,
+          "height_px": 1600,
+          "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+          "source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "crop": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fit_result": {
+            "slot_key": "asset.asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+            "mode": "contain",
+            "bounds": [
+              7.904187500000001,
+              5.2145,
+              0.5741249999999997,
+              0.7654999999999995
+            ],
+            "crop": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "focal_point": [
+              0.5,
+              0.5
+            ],
+            "effective_dpi": 2090.14,
+            "quality": "nominal_96dpi_or_above",
+            "warning": null,
+            "pixel_removal_explicit": false
+          }
+        },
+        "bounds": [
+          7.904187500000001,
+          5.2145,
+          0.5741249999999997,
+          0.7654999999999995
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "expected_objects": [
+        "object_3a5fb586-9d3f-4588-a7be-6405fefa2ae6"
+      ],
+      "capability_id": "capability_ade0c185-06e5-4906-b4ae-16c70af6306d"
+    },
+    {
+      "call_id": "capability_58d9a06c-eda2-4d85-9ef6-ad5e3e49d268",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_932a5858-3fbe-4517-b7c6-1e18aeb6ccde",
+        "type": "text",
+        "role": "body",
+        "slot_key": "caption.asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+        "text": [
+          "素材示例G"
+        ],
+        "bounds": [
+          6.765000000000001,
+          6.06,
+          2.8525,
+          0.46
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_932a5858-3fbe-4517-b7c6-1e18aeb6ccde"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_47c8eb8e-5356-4dbd-8ab1-ae652c13f56d",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_image",
+      "implementation_id": "implementation_e4366712-ef3f-4493-9b52-73fcd3fb26d3",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_d5c35919-1216-43f2-b500-dcee60161273",
+        "type": "image",
+        "role": "asset",
+        "slot_key": "asset.asset_e85c74de-714f-4757-ba40-a8908f36e488",
+        "data": {
+          "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+          "role": "reference",
+          "alt_text": "人工栅格样例H",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例H",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "path": "/runtime/assets/0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d.png",
+          "width_px": 2000,
+          "height_px": 1100,
+          "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+          "source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "crop": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "fit_result": {
+            "slot_key": "asset.asset_e85c74de-714f-4757-ba40-a8908f36e488",
+            "mode": "contain",
+            "bounds": [
+              10.527840909090909,
+              5.2145,
+              1.391818181818181,
+              0.7654999999999995
+            ],
+            "crop": [
+              0,
+              0,
+              0,
+              0
+            ],
+            "focal_point": [
+              0.5,
+              0.5
+            ],
+            "effective_dpi": 1436.97,
+            "quality": "nominal_96dpi_or_above",
+            "warning": null,
+            "pixel_removal_explicit": false
+          }
+        },
+        "bounds": [
+          10.527840909090909,
+          5.2145,
+          1.391818181818181,
+          0.7654999999999995
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "expected_objects": [
+        "object_d5c35919-1216-43f2-b500-dcee60161273"
+      ],
+      "capability_id": "capability_ade0c185-06e5-4906-b4ae-16c70af6306d"
+    },
+    {
+      "call_id": "capability_188ebab7-e6a5-45d5-a5df-5384f5c8d7b2",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_6384585b-a7b5-4d16-b60f-b4f7df886fcc",
+        "type": "text",
+        "role": "body",
+        "slot_key": "caption.asset_e85c74de-714f-4757-ba40-a8908f36e488",
+        "text": [
+          "素材示例H"
+        ],
+        "bounds": [
+          9.7975,
+          6.06,
+          2.8525,
+          0.46
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_6384585b-a7b5-4d16-b60f-b4f7df886fcc"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_525f29c7-56b1-4756-a9ac-dbe0148fd903",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "object_id": "object_0864917d-0408-445e-a8b5-be152dba7fb6",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "01 / 01"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "margin": 0,
+          "paragraph_spacing": 0
+        }
+      },
+      "expected_objects": [
+        "object_0864917d-0408-445e-a8b5-be152dba7fb6"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_8c044721-b1f5-48c6-9924-9963dee59e99",
+      "slide_id": "slide_9cfbf949-5792-4303-b28e-03520cd19c18",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_e7fa98a6-2977-4485-b8d9-d6063d2c6cb0"
+      ],
+      "inputs": {
+        "text": "人工fixture，非AI生成结果。",
+        "evidence_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    }
+  ],
+  "deps": "each page requires its predecessor; objects require owning page",
+  "backend": "PP-05"
+}

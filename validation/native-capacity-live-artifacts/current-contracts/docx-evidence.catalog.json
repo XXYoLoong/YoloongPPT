@@ -1,0 +1,40 @@
+{
+  "document_type": "docx_evidence_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-003",
+  "task_id": "TASK-IN-003",
+  "schema": "contracts/docx-evidence.schema.json",
+  "fixtures": "contracts/docx-evidence.fixtures.json",
+  "deliverable": "DocxEvidence",
+  "field_rules": [
+    "DocxEvidence 按 body/story 中的 block 顺序保留 paragraph 与 table；heading 是 paragraph 的显式 role，不将整个文档压平成一个文本字段。",
+    "paragraph_index 在所属 story 内从 0 起；table_index、row_index、cell_index 组合定位表格和单元格段落。索引连续性和锚点路径对应关系由运行时校验。",
+    "标题保留原 style_name 与 heading_level；题注保留段落位置、Caption 样式和 caption_for_image_index。无法确认题注关联图片时留空，不凭文本猜测。",
+    "runs 按顺序保留文本、超链接显示文本/目标类型及图片引用。图片保留嵌入部件引用和已有 alt/description；本任务不下载外部图片、不根据图片内容生成描述。",
+    "表格保留 table/row/cell 次序及每个单元格的段落/行内内容；不能完整解析时用结构化错误说明，不以单一文本替代表格。",
+    "物理页码依赖指定排版引擎、字体与版式。只有 page_location.status=measured 且记录 renderer_ref 时才提供页码；pending/unsupported 必须带原因且不伪造页码。段落和表格结构锚点独立保留。",
+    "source_asset_id 必须是 raw_asset_refs 中原有 DOCX Asset ID；结果逐项、按序回传 raw_asset_refs。引用一致性由运行时校验。",
+    "损坏、加密或不支持的 DOCX 输入必须返回 failed 和带稳定 code 的结构化 errors；不得静默跳过无法解释的结构。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "IN-003-NORMAL-001",
+      "fixture_id": "IN-003-NORMAL-001",
+      "purpose": "验证 heading、paragraph、table、image、caption、hyperlink 与段落/表格定位。",
+      "acceptance": "块顺序、段落索引、表格行列、超链接目标和图片/题注引用结构化保留；未提供分页引擎证据时页码明确为 pending 并说明原因。"
+    },
+    {
+      "case_id": "IN-003-BOUNDARY-001",
+      "fixture_id": "IN-003-BOUNDARY-001",
+      "purpose": "验证损坏或缺失 OOXML 部件的 DOCX 包。",
+      "acceptance": "status 为 failed、evidence 为 null，errors 含 DOCX_INVALID_PACKAGE；输入 Asset ID 引用原样保留。"
+    }
+  ],
+  "limits": [
+    "Schema、catalog 与 fixtures 是 TASK-IN-003 的语言/运行时无关草案；DOCX 库、Office/LibreOffice 渲染器、依赖版本与许可证未选定。",
+    "正常 fixture 的页码为 pending，因为未对真实 DOCX 运行固定版本的分页渲染；此样例不证明物理页码验收通过。",
+    "DocxEvidence 是任务表已列出的交付名，但当前数据对象表未单列同名对象；本契约直接追溯到 TASK-IN-003，不新增 Requirement/Task。",
+    "JSON Schema 不能证明段落索引、story/table 坐标、图片部件、题注关联或资产回传与输入 DOCX 一致；这些需要真实文件运行时验证。",
+    "运行时 DOCX parser、文件读取、分页、持久化及应用入口尚未实现。"
+  ]
+}

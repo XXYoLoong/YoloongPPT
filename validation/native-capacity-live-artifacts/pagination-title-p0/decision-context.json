@@ -1,0 +1,991 @@
+{
+  "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+  "node_id": "DEC-002",
+  "input": {
+    "task_id": "task_ec675b35-ef73-41cf-8ea9-b4cc60a20007",
+    "route": {
+      "route_status": "routed",
+      "mode": "create_from_materials",
+      "routing_reason": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+      "protection_policy_id": "preserve_material_facts_and_sources",
+      "decision_id": "DEC-001",
+      "trace": {
+        "candidate_modes": [
+          "create_from_materials"
+        ],
+        "selection_basis": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+        "conflict_summary": "",
+        "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+        "negated_signals": [],
+        "executable": true,
+        "fallback": "No alternate mode substitution; clarify scope or expose missing implementation."
+      }
+    },
+    "sources": [
+      {
+        "source_id": "source_c69f1803-d037-41b7-bac7-60f055b19102",
+        "kind": "text",
+        "content": "这些均为人工构造的软件验证资料，不代表现实业务。\n指定完整标题：人工验证资料完整展示：中文与English混合长标题必须逐字保留并采用可读字号自动调整页面布局，所有内容仅用于软件验证而不代表真实业务结论\n图注明示：人工绘制示意图1；人工绘制示意图2；人工绘制示意图3；人工绘制示意图4；人工绘制示意图5；人工绘制示意图6；人工绘制示意图7；人工绘制示意图8。\n表格单位：测试分。全部原始列名及14行如下：\n标识\t甲项\t乙项\t丙项\n样本01\t1\t21\t41\n样本02\t2\t22\t42\n样本03\t3\t23\t43\n样本04\t4\t24\t44\n样本05\t5\t25\t45\n样本06\t6\t26\t46\n样本07\t7\t27\t47\n样本08\t8\t28\t48\n样本09\t9\t29\t49\n样本10\t10\t30\t50\n样本11\t11\t31\t51\n样本12\t12\t32\t52\n样本13\t13\t33\t53\n样本14\t14\t34\t54\n正文：先保存原始数据与来源，再检查页面容量。图片仅作软件验证装饰，不证明统计、关系或因果。",
+        "metadata": {
+          "source_role": "fact"
+        }
+      },
+      {
+        "source_id": "source_ce58cd4a-5f21-4371-872a-c9348ae35a9a",
+        "kind": "image",
+        "locator": "/runtime/capacity-live-validation/61500308-5afc-4f3d-ad4f-54c70c4e7fe9/fixture-image-1.png",
+        "metadata": {
+          "source_role": "asset",
+          "asset_id": "asset_810b9a6c-2742-4c30-b88f-cca53404c34e",
+          "usage_status": "authorized",
+          "license": "test-fixture-authorized",
+          "authorization_basis": "Artificial fixture authored for product integration verification"
+        }
+      },
+      {
+        "source_id": "source_468ad303-d94d-4aa5-a3ac-d3cd33416fa7",
+        "kind": "image",
+        "locator": "/runtime/capacity-live-validation/61500308-5afc-4f3d-ad4f-54c70c4e7fe9/fixture-image-2.png",
+        "metadata": {
+          "source_role": "asset",
+          "asset_id": "asset_fc1af1f4-27c9-4342-a70e-0830856fb0e1",
+          "usage_status": "authorized",
+          "license": "test-fixture-authorized",
+          "authorization_basis": "Artificial fixture authored for product integration verification"
+        }
+      },
+      {
+        "source_id": "source_c5c3131e-6426-4a86-b178-1e99aeb9a514",
+        "kind": "image",
+        "locator": "/runtime/capacity-live-validation/61500308-5afc-4f3d-ad4f-54c70c4e7fe9/fixture-image-3.png",
+        "metadata": {
+          "source_role": "asset",
+          "asset_id": "asset_1661f586-bf0b-422d-83d7-6da821e658b6",
+          "usage_status": "authorized",
+          "license": "test-fixture-authorized",
+          "authorization_basis": "Artificial fixture authored for product integration verification"
+        }
+      },
+      {
+        "source_id": "source_e773643b-5996-49c9-ac60-1cfaec550306",
+        "kind": "image",
+        "locator": "/runtime/capacity-live-validation/61500308-5afc-4f3d-ad4f-54c70c4e7fe9/fixture-image-4.png",
+        "metadata": {
+          "source_role": "asset",
+          "asset_id": "asset_b7cc2d9c-9606-4b43-b735-06474a5931d9",
+          "usage_status": "authorized",
+          "license": "test-fixture-authorized",
+          "authorization_basis": "Artificial fixture authored for product integration verification"
+        }
+      },
+      {
+        "source_id": "source_17d2aa32-834c-4728-9f5c-e865a808729a",
+        "kind": "image",
+        "locator": "/runtime/capacity-live-validation/61500308-5afc-4f3d-ad4f-54c70c4e7fe9/fixture-image-5.png",
+        "metadata": {
+          "source_role": "asset",
+          "asset_id": "asset_3a49db2e-6c9e-45ad-8554-688d0ae1e10b",
+          "usage_status": "authorized",
+          "license": "test-fixture-authorized",
+          "authorization_basis": "Artificial fixture authored for product integration verification"
+        }
+      },
+      {
+        "source_id": "source_3717fb80-c796-4fd6-bb53-a6060b2ab085",
+        "kind": "image",
+        "locator": "/runtime/capacity-live-validation/61500308-5afc-4f3d-ad4f-54c70c4e7fe9/fixture-image-6.png",
+        "metadata": {
+          "source_role": "asset",
+          "asset_id": "asset_e7c3c642-c823-4188-8305-96dfe0161211",
+          "usage_status": "authorized",
+          "license": "test-fixture-authorized",
+          "authorization_basis": "Artificial fixture authored for product integration verification"
+        }
+      },
+      {
+        "source_id": "source_9298584a-9366-4411-b849-bdb4db2972ab",
+        "kind": "image",
+        "locator": "/runtime/capacity-live-validation/61500308-5afc-4f3d-ad4f-54c70c4e7fe9/fixture-image-7.png",
+        "metadata": {
+          "source_role": "asset",
+          "asset_id": "asset_ac404df0-45c5-4608-9fb2-626f9272838c",
+          "usage_status": "authorized",
+          "license": "test-fixture-authorized",
+          "authorization_basis": "Artificial fixture authored for product integration verification"
+        }
+      },
+      {
+        "source_id": "source_00b9191b-1a06-41bd-891c-e3d15f9f5a94",
+        "kind": "image",
+        "locator": "/runtime/capacity-live-validation/61500308-5afc-4f3d-ad4f-54c70c4e7fe9/fixture-image-8.png",
+        "metadata": {
+          "source_role": "asset",
+          "asset_id": "asset_0af844ea-19e1-440f-bed5-f8c07a437ed7",
+          "usage_status": "authorized",
+          "license": "test-fixture-authorized",
+          "authorization_basis": "Artificial fixture authored for product integration verification"
+        }
+      }
+    ],
+    "constraints": {
+      "hard": [],
+      "soft": [],
+      "defaults": [],
+      "conflicts": []
+    },
+    "style": null,
+    "template_ref": null,
+    "output": {
+      "formats": [
+        "pptx",
+        "pdf",
+        "png"
+      ]
+    },
+    "providers": {
+      "text": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "parameters": {
+          "temperature": 0.2,
+          "max_tokens": 12000,
+          "timeout_seconds": 180
+        }
+      }
+    },
+    "runtime_preferences": {
+      "page_count": 3
+    },
+    "raw_request": {
+      "request": {
+        "raw_text": "按初始预算3页新建演示，允许容量需要时续页，所有数值明确为人工软件验证。第1页是多图页，必须用images数组保留8个提供的asset_id，fit=contain，逐字图注按图序使用原文明示文字，正文只写“图片仅作软件验证装饰”。第2页是纯文字页，完整标题逐字使用“人工验证资料完整展示：中文与English混合长标题必须逐字保留并采用可读字号自动调整页面布局，所有内容仅用于软件验证而不代表真实业务结论”，正文保留原文两句。第3页是原生表格页，必须逐字保留原文4个列名和全部14行，不汇总、不省略、不替换为图片，单位为测试分。不新增封面/目录，不发明事实，不把测试图像说成真实证据。",
+        "attachments": [],
+        "requested_mode": "create_from_materials",
+        "requested_outputs": [
+          "pptx",
+          "pdf",
+          "png"
+        ]
+      },
+      "attachment_roles": []
+    }
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_3edac09b-e07b-40c1-b03f-d8b807615051",
+      "value": {
+        "field": "page_count",
+        "value": 3,
+        "level": "soft"
+      },
+      "score": 0.7,
+      "reasons": [
+        {
+          "source": "runtime_preferences.page_count",
+          "kind": "soft"
+        }
+      ],
+      "evidence_refs": [
+        "runtime_preferences.page_count"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_1cb97dca-14ea-4137-bba4-c8249cf4d9bf",
+      "value": {
+        "field": "output_formats",
+        "value": [
+          "pdf",
+          "png",
+          "pptx"
+        ],
+        "level": "hard"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "source": "TaskSpec.output.formats",
+          "kind": "hard"
+        }
+      ],
+      "evidence_refs": [
+        "TaskSpec.output.formats"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_3c739367-3194-4799-bb38-b3b0425b3601",
+      "value": {
+        "field": "requested_output_requirements",
+        "value": [
+          "pdf",
+          "png",
+          "pptx"
+        ],
+        "level": "hard"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "source": "raw_request.request.requested_outputs",
+          "kind": "hard"
+        }
+      ],
+      "evidence_refs": [
+        "raw_request.request.requested_outputs"
+      ],
+      "constraints": [
+        {
+          "known_field": false,
+          "current_execution_supported": false
+        },
+        {
+          "semantics": "required inclusion in selected output formats; additional QA intermediates may be retained"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_7cd8a9f4-1317-4655-8369-5a027dbb7380",
+      "value": {
+        "field": "page_count",
+        "value": 3,
+        "level": "soft"
+      },
+      "score": 0.7,
+      "reasons": [
+        {
+          "source": "raw_text:5:7",
+          "kind": "soft"
+        }
+      ],
+      "evidence_refs": [
+        "raw_text:5:7"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": false,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_d154b3c0-bee0-4243-8572-874c8eafacaa",
+      "value": {
+        "field": "page_count",
+        "value": 10,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.page_count",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.page_count"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": false,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_7db70f94-f2ab-4bf6-8f32-fb507910c560",
+      "value": {
+        "field": "language",
+        "value": "zh-CN",
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.language",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.language"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_5362d9dd-dea0-4ca8-a3e5-fd00e6f5204a",
+      "value": {
+        "field": "aspect_ratio",
+        "value": "16:9",
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.aspect_ratio",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.aspect_ratio"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_9be65ad5-5638-418b-bfce-316619b67082",
+      "value": {
+        "field": "minimum_font_size",
+        "value": 16,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.minimum_font_size",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.minimum_font_size"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_4cbd5cd0-a138-4bd8-9e4a-816d906e814b",
+      "value": {
+        "field": "template",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.template",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.template"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_1ed15bba-390e-4817-b589-e6c4ca8816f3",
+      "value": {
+        "field": "brand",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.brand",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.brand"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_426fa143-9b45-44c8-9b2a-fa43786a078a",
+      "value": {
+        "field": "output_formats",
+        "value": [
+          "pdf",
+          "png",
+          "pptx"
+        ],
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.output_formats",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.output_formats"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": false,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_62241300-6cb7-4fa5-ab98-c6b73b89d323",
+      "value": {
+        "field": "audience",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.audience",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.audience"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_4f92ccda-310e-44dd-9521-ad4c5ddc1cf6",
+      "value": {
+        "field": "scenario",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.scenario",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.scenario"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_234743a0-05e6-41ab-bffd-c9a1196546c3",
+      "value": {
+        "field": "duration",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.duration",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.duration"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_2b1e6877-0a72-4c7c-893b-feab6beef6d4",
+      "value": {
+        "field": "tone",
+        "value": null,
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.tone",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.tone"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_2ac84768-698a-48a3-be66-f7cff10d266d",
+      "value": {
+        "field": "citation_policy",
+        "value": "notes",
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.citation_policy",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.citation_policy"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_ecbf80d8-db79-4ddd-b5d7-666ed70eec0d",
+      "value": {
+        "field": "asset_policy",
+        "value": {
+          "allow_network": false,
+          "minimum_pixels": [
+            1,
+            1
+          ]
+        },
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.asset_policy",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.asset_policy"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-002",
+      "candidate_id": "candidate_57bed18c-490e-41da-81f7-f1235a185750",
+      "value": {
+        "field": "adaptive_policy",
+        "value": {},
+        "level": "default"
+      },
+      "score": 0.2,
+      "reasons": [
+        {
+          "source": "system_default.adaptive_policy",
+          "kind": "default"
+        }
+      ],
+      "evidence_refs": [
+        "system_default.adaptive_policy"
+      ],
+      "constraints": [
+        {
+          "known_field": true,
+          "current_execution_supported": true
+        },
+        {
+          "selected": true,
+          "handling": "hard > soft > caller default > system default; equal-precedence disagreement blocks"
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_5362d9dd-dea0-4ca8-a3e5-fd00e6f5204a",
+    "candidate_ecbf80d8-db79-4ddd-b5d7-666ed70eec0d",
+    "candidate_7db70f94-f2ab-4bf6-8f32-fb507910c560",
+    "candidate_1ed15bba-390e-4817-b589-e6c4ca8816f3",
+    "candidate_4cbd5cd0-a138-4bd8-9e4a-816d906e814b",
+    "candidate_3edac09b-e07b-40c1-b03f-d8b807615051",
+    "candidate_234743a0-05e6-41ab-bffd-c9a1196546c3",
+    "candidate_2ac84768-698a-48a3-be66-f7cff10d266d",
+    "candidate_1cb97dca-14ea-4137-bba4-c8249cf4d9bf",
+    "candidate_2b1e6877-0a72-4c7c-893b-feab6beef6d4",
+    "candidate_57bed18c-490e-41da-81f7-f1235a185750",
+    "candidate_4f92ccda-310e-44dd-9521-ad4c5ddc1cf6",
+    "candidate_62241300-6cb7-4fa5-ab98-c6b73b89d323",
+    "candidate_9be65ad5-5638-418b-bfce-316619b67082",
+    "candidate_3c739367-3194-4799-bb38-b3b0425b3601"
+  ],
+  "rules": {
+    "version": "DEC-002-1",
+    "mechanism": "Canonical aliases; bounded raw instruction extraction; explicit hard/soft/default precedence; no arbitrary tie breaking.",
+    "source_sha256": "104034f3ffbd1e24c4bf083fa3fc802a06115af2f828dd6bf56dfce569226658",
+    "fallback": "Conflict blocks; unsupported soft/default explicitly falls back to known system default."
+  },
+  "output": {
+    "status": "normalized",
+    "audience": null,
+    "scenario": null,
+    "duration": null,
+    "language": "zh-CN",
+    "tone": null,
+    "aspect_ratio": "16:9",
+    "page_target": 3,
+    "citation_policy": "notes",
+    "template": null,
+    "brand": null,
+    "values": {
+      "aspect_ratio": "16:9",
+      "asset_policy": {
+        "allow_network": false,
+        "minimum_pixels": [
+          1,
+          1
+        ]
+      },
+      "language": "zh-CN",
+      "brand": null,
+      "template": null,
+      "page_count": 3,
+      "duration": null,
+      "citation_policy": "notes",
+      "output_formats": [
+        "pdf",
+        "png",
+        "pptx"
+      ],
+      "tone": null,
+      "adaptive_policy": {},
+      "scenario": null,
+      "audience": null,
+      "minimum_font_size": 16
+    },
+    "constraints": {
+      "hard": [],
+      "soft": [
+        {
+          "constraint_id": "candidate_3edac09b-e07b-40c1-b03f-d8b807615051",
+          "field": "page_count",
+          "value": 3,
+          "source": {
+            "kind": "user_instruction",
+            "reference": "runtime_preferences.page_count"
+          },
+          "disposition": "applied",
+          "applied_value": 3,
+          "handling_reason": "Selected by DEC-002 and within current execution subset."
+        },
+        {
+          "constraint_id": "candidate_7cd8a9f4-1317-4655-8369-5a027dbb7380",
+          "field": "page_count",
+          "value": 3,
+          "source": {
+            "kind": "user_instruction",
+            "reference": "raw_text:5:7"
+          },
+          "disposition": "applied",
+          "applied_value": 3,
+          "handling_reason": "Selected by DEC-002 and within current execution subset."
+        }
+      ],
+      "defaults": [
+        {
+          "constraint_id": "system_default.page_count",
+          "field": "page_count",
+          "value": 10,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": false,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.language",
+          "field": "language",
+          "value": "zh-CN",
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.aspect_ratio",
+          "field": "aspect_ratio",
+          "value": "16:9",
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.minimum_font_size",
+          "field": "minimum_font_size",
+          "value": 16,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.template",
+          "field": "template",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.brand",
+          "field": "brand",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.output_formats",
+          "field": "output_formats",
+          "value": [
+            "pptx",
+            "pdf",
+            "png"
+          ],
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": false,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.audience",
+          "field": "audience",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.scenario",
+          "field": "scenario",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.duration",
+          "field": "duration",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.tone",
+          "field": "tone",
+          "value": null,
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.citation_policy",
+          "field": "citation_policy",
+          "value": "notes",
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.asset_policy",
+          "field": "asset_policy",
+          "value": {
+            "allow_network": false,
+            "minimum_pixels": [
+              1,
+              1
+            ]
+          },
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        },
+        {
+          "constraint_id": "system_default.adaptive_policy",
+          "field": "adaptive_policy",
+          "value": {},
+          "source": {
+            "kind": "system_default",
+            "reference": "DEC-002 versioned runtime defaults"
+          },
+          "used": true,
+          "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+        }
+      ],
+      "conflicts": []
+    },
+    "issues": [],
+    "warnings": [
+      {
+        "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+        "field": "language",
+        "location": "raw_text:145:147",
+        "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+      },
+      {
+        "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+        "field": "language",
+        "location": "raw_text:148:155",
+        "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+      }
+    ],
+    "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600"
+  },
+  "duration": 0.009067,
+  "error": null
+}

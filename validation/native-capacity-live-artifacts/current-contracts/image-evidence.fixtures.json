@@ -1,0 +1,63 @@
+{
+  "document_type": "image_evidence_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-011",
+  "fixtures": [
+    {
+      "fixture_id": "IN-011-IMAGE-NORMAL-001",
+      "kind": "normal",
+      "input": { "record_type": "image_parse_input", "source_id": "source_11111111-1111-4111-8111-111111111111", "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "raw_asset_refs": ["asset_12121212-1212-4212-8212-121212121212"], "usage": "image_to_pptx", "declared_media_type": "image/png" },
+      "synthetic_source_descriptor": { "format": "png", "width_px": 1280, "height_px": 720, "contains": ["title text", "photo", "two-column layout", "three dominant colors"] },
+      "expected_result": {
+        "record_type": "image_parse_result", "source_id": "source_11111111-1111-4111-8111-111111111111", "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "raw_asset_refs": ["asset_12121212-1212-4212-8212-121212121212"], "usage": "image_to_pptx", "status": "parsed",
+        "evidence": {
+          "model_type": "ImageEvidence", "source": { "source_id": "source_11111111-1111-4111-8111-111111111111", "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "raw_asset_refs": ["asset_12121212-1212-4212-8212-121212121212"], "sha256": null, "usage": "image_to_pptx" },
+          "metadata": { "declared_media_type": "image/png", "detected_format": "png", "detected_media_type": "image/png", "raw_width_px": 1280, "raw_height_px": 720, "display_width_px": 1280, "display_height_px": 720, "exif_orientation": null, "color_model": "RGB", "has_alpha": false },
+          "visual_elements": [
+            { "element_id": "visual-title", "kind": "text_region", "label": "title", "confidence": 0.98, "bbox": { "x": 96, "y": 70, "width": 520, "height": 82, "coordinate_space": "raw_source_pixels_top_left" }, "source_anchor": { "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "element_id": "visual-title", "bbox": { "x": 96, "y": 70, "width": 520, "height": 82, "coordinate_space": "raw_source_pixels_top_left" } } },
+            { "element_id": "visual-photo", "kind": "photo", "label": "photo", "confidence": 0.91, "bbox": { "x": 700, "y": 210, "width": 480, "height": 360, "coordinate_space": "raw_source_pixels_top_left" }, "source_anchor": { "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "element_id": "visual-photo", "bbox": { "x": 700, "y": 210, "width": 480, "height": 360, "coordinate_space": "raw_source_pixels_top_left" } } }
+          ],
+          "text_regions": [
+            { "text_id": "ocr-1", "text": "Quarterly outlook", "language": "en", "confidence": 0.96, "bbox": { "x": 96, "y": 70, "width": 520, "height": 82, "coordinate_space": "raw_source_pixels_top_left" }, "source_anchor": { "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "element_id": "ocr-1", "bbox": { "x": 96, "y": 70, "width": 520, "height": 82, "coordinate_space": "raw_source_pixels_top_left" } } },
+            { "text_id": "ocr-2", "text": "2026", "language": "en", "confidence": 0.93, "bbox": { "x": 96, "y": 170, "width": 150, "height": 54, "coordinate_space": "raw_source_pixels_top_left" }, "source_anchor": { "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "element_id": "ocr-2", "bbox": { "x": 96, "y": 170, "width": 150, "height": 54, "coordinate_space": "raw_source_pixels_top_left" } } }
+          ],
+          "palette": [
+            { "color_hex": "#17324D", "area_ratio": 0.58, "source_anchor": { "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "element_id": null, "bbox": null } },
+            { "color_hex": "#E8EDF2", "area_ratio": 0.30, "source_anchor": { "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "element_id": null, "bbox": null } },
+            { "color_hex": "#E9A23B", "area_ratio": 0.12, "source_anchor": { "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "element_id": null, "bbox": null } }
+          ],
+          "layout_regions": [
+            { "region_id": "region-header", "kind": "header", "bbox": { "x": 64, "y": 48, "width": 1152, "height": 170, "coordinate_space": "raw_source_pixels_top_left" }, "confidence": 0.89, "contained_element_ids": ["visual-title"], "source_anchor": { "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "element_id": "region-header", "bbox": { "x": 64, "y": 48, "width": 1152, "height": 170, "coordinate_space": "raw_source_pixels_top_left" } } },
+            { "region_id": "region-body", "kind": "body", "bbox": { "x": 64, "y": 200, "width": 1152, "height": 470, "coordinate_space": "raw_source_pixels_top_left" }, "confidence": 0.84, "contained_element_ids": ["visual-photo"], "source_anchor": { "source_asset_id": "asset_12121212-1212-4212-8212-121212121212", "element_id": "region-body", "bbox": { "x": 64, "y": 200, "width": 1152, "height": 470, "coordinate_space": "raw_source_pixels_top_left" } } }
+          ],
+          "analysis_method": null, "model_id": null, "model_version": null
+        },
+        "coverage": [
+          { "feature": "dimensions", "status": "complete", "reason": null }, { "feature": "visual_elements", "status": "complete", "reason": null }, { "feature": "text", "status": "complete", "reason": null }, { "feature": "palette", "status": "complete", "reason": null }, { "feature": "layout", "status": "complete", "reason": null }
+        ],
+        "errors": []
+      },
+      "verification_note": "所有分析值和置信度为契约示例占位，不是对实际图像的模型推断；未附带或解析图像文件。"
+    },
+    {
+      "fixture_id": "IN-011-BOUNDARY-INVALID-001",
+      "kind": "boundary",
+      "input": { "record_type": "image_parse_input", "source_id": "source_22222222-2222-4222-8222-222222222222", "source_asset_id": "asset_23232323-2323-4323-8323-232323232323", "raw_asset_refs": ["asset_23232323-2323-4323-8323-232323232323"], "usage": "content_source", "declared_media_type": "image/png" },
+      "synthetic_source_descriptor": { "format": "png", "bytes": "not a decodable image" },
+      "expected_result": { "record_type": "image_parse_result", "source_id": "source_22222222-2222-4222-8222-222222222222", "source_asset_id": "asset_23232323-2323-4323-8323-232323232323", "raw_asset_refs": ["asset_23232323-2323-4323-8323-232323232323"], "usage": "content_source", "status": "failed", "evidence": null, "coverage": [{ "feature": "dimensions", "status": "failed", "reason": "无法解析图像头部。" }], "errors": [{ "code": "IMAGE_DECODE_FAILED", "message": "图像数据无法解码。", "source_anchor": { "source_asset_id": "asset_23232323-2323-4323-8323-232323232323", "element_id": null, "bbox": null } }] },
+      "verification_note": "仅定义失败预期，未运行任何 decoder。"
+    },
+    {
+      "fixture_id": "IN-011-BOUNDARY-UNSUPPORTED-001",
+      "kind": "boundary",
+      "input": { "record_type": "image_parse_input", "source_id": "source_33333333-3333-4333-8333-333333333333", "source_asset_id": "asset_34343434-3434-4434-8434-343434343434", "raw_asset_refs": ["asset_34343434-3434-4434-8434-343434343434"], "usage": "style_reference", "declared_media_type": "image/svg+xml" },
+      "synthetic_source_descriptor": { "format": "svg", "reason": "预期实现尚未选型；此案例用于描述 unsupported coverage。" },
+      "expected_result": { "record_type": "image_parse_result", "source_id": "source_33333333-3333-4333-8333-333333333333", "source_asset_id": "asset_34343434-3434-4434-8434-343434343434", "raw_asset_refs": ["asset_34343434-3434-4434-8434-343434343434"], "usage": "style_reference", "status": "partial", "evidence": { "model_type": "ImageEvidence", "source": { "source_id": "source_33333333-3333-4333-8333-333333333333", "source_asset_id": "asset_34343434-3434-4434-8434-343434343434", "raw_asset_refs": ["asset_34343434-3434-4434-8434-343434343434"], "sha256": null, "usage": "style_reference" }, "metadata": { "declared_media_type": "image/svg+xml", "detected_format": "svg", "detected_media_type": "image/svg+xml", "raw_width_px": null, "raw_height_px": null, "display_width_px": null, "display_height_px": null, "exif_orientation": null, "color_model": null, "has_alpha": null }, "visual_elements": [], "text_regions": [], "palette": [], "layout_regions": [], "analysis_method": null, "model_id": null, "model_version": null }, "coverage": [{ "feature": "dimensions", "status": "unsupported", "reason": "当前实现尚无已选 SVG 安全渲染器，尺寸和视觉分析未生成。" }, { "feature": "visual_elements", "status": "unsupported", "reason": "未运行 SVG 视觉分析。" }, { "feature": "text", "status": "unsupported", "reason": "未运行 SVG OCR。" }, { "feature": "palette", "status": "unsupported", "reason": "未提取 SVG 颜色。" }, { "feature": "layout", "status": "unsupported", "reason": "未运行 SVG 布局分析。" }], "errors": [{ "code": "IMAGE_UNSUPPORTED_FORMAT", "message": "此预期状态表示未选型实现可能报告的格式支持边界。", "source_anchor": { "source_asset_id": "asset_34343434-3434-4434-8434-343434343434", "element_id": null, "bbox": null } }] },
+      "verification_note": "这是未实现时的边界预期，不表示 SVG 已被当前项目验证为不支持。"
+    }
+  ],
+  "limits": [
+    "正常样例没有绑定真实图像文件；维度、元素框、颜色和置信度均为合成占位。",
+    "边界样例为预期输出，不代表已执行解码、SVG 渲染、OCR 或布局分析。"
+  ]
+}

@@ -1,0 +1,130 @@
+{
+  "version": "gallery-source-historical32-incremental5-1",
+  "observed_at_utc": "2026-10-11T10:28:15.465764+00:00",
+  "requirements": {
+    "需求主表": [
+      {
+        "A": "AST-007",
+        "B": "素材与视觉资产",
+        "C": "裁切焦点",
+        "D": "支持 focal point/face/object-aware crop 或用户指定；裁切结果可预览。",
+        "E": "Asset requests + files/URLs",
+        "F": "素材处理必须可追溯、可校验、可复用；任何外部资源失败不得导致无解释的空洞。",
+        "G": "CropSpec",
+        "H": "构造本地/URL/生成/低质量/缺失/重复素材用例。",
+        "J": "功能",
+        "K": "P0",
+        "L": "本规划",
+        "N": "进行中",
+        "O": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/",
+        "P": "真实图片contain/显式焦点适配已接布局、裁切结果进入原生写入/渲染。人脸/对象感知裁切及全原验收待补。"
+      }
+    ],
+    "可执行任务": [
+      {
+        "A": "TASK-AST-007",
+        "B": "AST-007",
+        "C": "素材与视觉资产",
+        "D": "裁切焦点",
+        "E": "将需求转换为可实现契约并完成最小验证",
+        "F": "支持 focal point/face/object-aware crop 或用户指定；裁切结果可预览。",
+        "G": "Asset requests + files/URLs",
+        "H": "CropSpec",
+        "I": "构造本地/URL/生成/低质量/缺失/重复素材用例。",
+        "K": "P0",
+        "L": "进行中",
+        "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 真实图片contain/显式焦点适配已接布局、裁切结果进入原生写入/渲染。人脸/对象感知裁切及全原验收待补。",
+        "N": "本规划"
+      }
+    ],
+    "素材与可视化": [
+      {
+        "A": "AST-007",
+        "B": "裁切焦点",
+        "C": "支持 focal point/face/object-aware crop 或用户指定；裁切结果可预览。",
+        "D": "Asset requests + files/URLs",
+        "E": "CropSpec",
+        "F": "构造本地/URL/生成/低质量/缺失/重复素材用例。",
+        "G": "本规划",
+        "H": "进行中",
+        "I": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 真实图片contain/显式焦点适配已接布局、裁切结果进入原生写入/渲染。人脸/对象感知裁切及全原验收待补。"
+      }
+    ],
+    "验收矩阵": [
+      {
+        "A": "AC-012",
+        "B": "多图图文",
+        "C": "用户提供 8 张不同比例图片",
+        "D": "自动选图/裁切/布局；无拉伸/低质。",
+        "E": "全链路/SYS/QA",
+        "F": "P0",
+        "G": "未执行"
+      }
+    ]
+  },
+  "baseline_snapshot_sha256": "274422b7a64034ae1f7247d2a022b31b0fdbb93ce5bf35fa5046e61b42528d2e",
+  "files": {
+    "src/yoloongppt/visual.py": "bb212a1f366f103dd348fd3994c915086462b75a5ebf2327adb84100647b8903",
+    "src/yoloongppt/gallery_layout.py": "04a74148e269857bcfa486ea785b59dbf317aea783e28847041227a3e5569dba",
+    "contracts/visual-model-fields.schema.json": "79bdde5067f3ffe200658278719a0ce88b0bab19f3e36a68374ce429211599cc",
+    "validation/verify-gallery.py": "eb87d5f12fb08d64dc150a8fc44c965802a6d34c79b789b88f9e34b50ef3b558",
+    "validation/实现八图原生布局与焦点裁切.md": "99c80b7587aa23a6394cda27d3ee4512c4d0dac4d526e16dc924f10ac4397431",
+    "validation/verify-gallery-long-title.py": "311a82b76e7c58209eaab9416e739518835dd78d7082053ce06d0f26fbe7cfd5"
+  },
+  "executed_validation": {
+    "host_stdlib_in_memory_python_compile": {
+      "files": [
+        "src/yoloongppt/visual.py",
+        "src/yoloongppt/gallery_layout.py",
+        "validation/verify-gallery.py"
+      ],
+      "passed": true
+    },
+    "schema_json_parse": {
+      "file": "contracts/visual-model-fields.schema.json",
+      "passed": true
+    }
+  },
+  "runtime_validation": "32 historical checks plus 5 incremental long-title shared compiler/writer/render/native QA checks passed; original suite not repeated",
+  "runtime_attempt": {
+    "session_id": 67786,
+    "observation": "Docker exec produced no output and no first runtime directory; existing HTTP health timed out in 8s; root confirmed Docker info unresponsive",
+    "recovery": "root recovered authorized WSL/Docker; F disk checked; original no-output exec is historical"
+  },
+  "model_calls": 0,
+  "render_calls": 2,
+  "business_failures_confirmed": 0,
+  "pua_level": "L0",
+  "system_acceptance": "not_passed",
+  "runtime_report": "validation/gallery-artifacts/b81e5a47-0d59-4963-87a5-daa257d654ef/gallery-runtime.json",
+  "runtime_report_sha256": "9b3fdb4a72784c89625140a098aa5d78767e88894d509cb64648dd39ed860c20",
+  "latest_verification_render_calls": 1,
+  "confirmed_validation_failures": 1,
+  "failure_history": "First PDF extraction caption comparison failed on inserted whitespace; native/render bytes preserved and literal native captions checked; historical-first-failure.json retained",
+  "historical32_runtime_source_hashes": {
+    "src/yoloongppt/visual.py": "bb212a1f366f103dd348fd3994c915086462b75a5ebf2327adb84100647b8903",
+    "src/yoloongppt/gallery_layout.py": "8a48ad6bee0e43189e931446c9c852cf5dfcca815279317c7ecc9b2607a4e039",
+    "contracts/visual-model-fields.schema.json": "79bdde5067f3ffe200658278719a0ce88b0bab19f3e36a68374ce429211599cc",
+    "validation/verify-gallery.py": "eb87d5f12fb08d64dc150a8fc44c965802a6d34c79b789b88f9e34b50ef3b558"
+  },
+  "latest5_runtime_source_hashes": {
+    "src/yoloongppt/gallery_layout.py": "04a74148e269857bcfa486ea785b59dbf317aea783e28847041227a3e5569dba",
+    "src/yoloongppt/visual.py": "bb212a1f366f103dd348fd3994c915086462b75a5ebf2327adb84100647b8903",
+    "src/yoloongppt/planning.py": "c4519d9790c262509512ef812b9cf44cca5f326f82623ed16147b6fe32292683",
+    "src/yoloongppt/layouts.py": "fb141ef46010f4666917f92ae010b10c5818febb6014a9a149f8df960c124498",
+    "src/yoloongppt/writer.py": "a08bd6f641e172883ed04e79486d456ebf28cbf94436e8d756df09ac7ed56a99",
+    "src/yoloongppt/adaptive_layout.py": "f5ec20bb2b4673728db66cada26a72bfa2bdf7878ac31d5faca585a2dcba07c6",
+    "contracts/generation-model.schema.json": "98464e01fd6996690ea6ed41735dc1cab7fc68a5d14600ef3124193ab4405ec5",
+    "contracts/deck-execution.schema.json": "4e7f4e23ce5fa13cf0171c3332e101b55aeaeb2d4fe307cd8abdecf90957a3d4",
+    "validation/verify-gallery-long-title.py": "311a82b76e7c58209eaab9416e739518835dd78d7082053ce06d0f26fbe7cfd5"
+  },
+  "latest_runtime_report": "validation/gallery-artifacts/long-title-ae033e62/gallery-long-title-runtime.json",
+  "latest_runtime_report_sha256": "d2d46ccc2658bb657c85fcd48d3e732e530e3e3fb35e4a41c138fda92a90fa86",
+  "long_title_variant": {
+    "run_id": "ae033e62-9bf2-49a0-8145-97dc84ff864b",
+    "checks": 5,
+    "reuses_original8_input_assets": true,
+    "new_real_pages_rendered": 1,
+    "full_system_acceptance": "not_passed"
+  }
+}

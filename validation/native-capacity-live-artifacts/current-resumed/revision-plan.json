@@ -1,0 +1,217 @@
+{
+  "plan_id": "revision_plan_0c54ee5a-46d3-4e30-8da3-02f41c3e3a97",
+  "trace_id": "trace_2b9fb2af-c004-46ef-8899-b74855ac5397",
+  "parent_run_id": "468ac35a-eef5-424f-9585-2fa45ad6722a",
+  "status": "needs_input",
+  "scope": {
+    "slide_ids": [],
+    "object_ids": []
+  },
+  "locked_object_ids": [],
+  "locked_slide_ids": [],
+  "actions": [],
+  "blocked": [
+    {
+      "issue_id": "issue_7f7ae0d9-af27-43c9-b1a8-67416c8cf95a",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_dbde26c8-5406-4abd-99a1-04bbf272d5fc"
+    },
+    {
+      "issue_id": "issue_83980fc3-375c-4288-b4de-0ab2f001a31e",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_e89c1ec7-35e9-4b1c-9fca-6f990264befe"
+    },
+    {
+      "issue_id": "issue_7a5476b6-eb96-4bfa-9165-cf712ac003c5",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_fe37cf68-0390-4603-ab1d-ea0d1ab6a8a6"
+    },
+    {
+      "issue_id": "issue_6979758f-19db-4a6e-97cf-9f9e3479f9e1",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_76d38971-a593-4e1c-a148-602cd56ef8f3"
+    },
+    {
+      "issue_id": "issue_0ae8ea61-bf7b-4a0b-908f-e0526b20a633",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_121b81dc-56d0-4e2f-8ebb-e43501a22cb3"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate_dbde26c8-5406-4abd-99a1-04bbf272d5fc",
+      "issue_id": "issue_7f7ae0d9-af27-43c9-b1a8-67416c8cf95a",
+      "object_id": null,
+      "slide_id": "slide_0b9e7253-eac3-48df-b4ee-c27800ffba00",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 0,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "第1页标题为“人工绘制示意图1-8（软件验证装饰）”，但正文/图注中“人工绘制示意图1”至“人工绘制示意图8”的编号与标题中的“1-8”在视觉上被渲染为“1 - 8”带空格，且标题中“1-8”与原文“人工绘制示意图1”至“人工绘制示意图8”的逐字保留要求存在轻微排版差异（空格插入），不影响语义但属排版细节。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_7f7ae0d9-af27-43c9-b1a8-67416c8cf95a",
+          "slide_id": "slide_0b9e7253-eac3-48df-b4ee-c27800ffba00",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_e89c1ec7-35e9-4b1c-9fca-6f990264befe",
+      "issue_id": "issue_83980fc3-375c-4288-b4de-0ab2f001a31e",
+      "object_id": null,
+      "slide_id": "slide_24171c58-e340-4ac4-b9e7-5456ae039816",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 1,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "第2页长标题在渲染中换行显示，标题文字完整且可读，但标题字号较大导致三行占用较多空间；正文三句均完整显示，无裁切或重叠。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_83980fc3-375c-4288-b4de-0ab2f001a31e",
+          "slide_id": "slide_24171c58-e340-4ac4-b9e7-5456ae039816",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_fe37cf68-0390-4603-ab1d-ea0d1ab6a8a6",
+      "issue_id": "issue_7a5476b6-eb96-4bfa-9165-cf712ac003c5",
+      "object_id": null,
+      "slide_id": "slide_b61bf3ca-9a63-480b-a596-0d3b2e1aaa73",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 2,
+          "severity": "P1",
+          "kind": "consistency",
+          "detail": "第3页标题为“测试分数据表（完整14行）”，但该页仅展示样本01至样本07共7行，标题中的“完整14行”与实际可见行数不一致，可能误导读者认为本页已完整呈现14行；分页说明“【原表分页展示，完整内容见同标题各页】”已标注，但标题本身仍含“完整14行”字样。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_7a5476b6-eb96-4bfa-9165-cf712ac003c5",
+          "slide_id": "slide_b61bf3ca-9a63-480b-a596-0d3b2e1aaa73",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_76d38971-a593-4e1c-a148-602cd56ef8f3",
+      "issue_id": "issue_6979758f-19db-4a6e-97cf-9f9e3479f9e1",
+      "object_id": null,
+      "slide_id": "slide_988b1c4a-ab61-4099-a92e-6e84b6f7d304",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 3,
+          "severity": "P1",
+          "kind": "consistency",
+          "detail": "第4页标题同样为“测试分数据表（完整14行）”，但该页仅展示样本08至样本14共7行，标题中的“完整14行”与实际可见行数不一致；两页合计14行，但单页标题表述可能造成误导。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_6979758f-19db-4a6e-97cf-9f9e3479f9e1",
+          "slide_id": "slide_988b1c4a-ab61-4099-a92e-6e84b6f7d304",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_121b81dc-56d0-4e2f-8ebb-e43501a22cb3",
+      "issue_id": "issue_0ae8ea61-bf7b-4a0b-908f-e0526b20a633",
+      "object_id": null,
+      "slide_id": "slide_988b1c4a-ab61-4099-a92e-6e84b6f7d304",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 3,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "第4页左侧正文仅显示“测试分”与分页说明，缺少第3页中的“表格单位：测试分。”完整表述；虽然单位“测试分”仍可见，但表述不完整，属排版一致性细节。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_0ae8ea61-bf7b-4a0b-908f-e0526b20a633",
+          "slide_id": "slide_988b1c4a-ab61-4099-a92e-6e84b6f7d304",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    }
+  ],
+  "all_issue_ids": [
+    "issue_7f7ae0d9-af27-43c9-b1a8-67416c8cf95a",
+    "issue_83980fc3-375c-4288-b4de-0ab2f001a31e",
+    "issue_7a5476b6-eb96-4bfa-9165-cf712ac003c5",
+    "issue_6979758f-19db-4a6e-97cf-9f9e3479f9e1",
+    "issue_0ae8ea61-bf7b-4a0b-908f-e0526b20a633"
+  ],
+  "rerun_nodes": [],
+  "preserve_unselected_objects": true,
+  "full_acceptance": "not_passed"
+}

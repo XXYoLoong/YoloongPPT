@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "AssetInventory 契约（IN-012 草案）",
+  "description": "登记文件类资产的可追溯位置、识别类型、体积/哈希和扫描状态；目录清点与内容解析分离。",
+  "oneOf": [
+    { "$ref": "#/$defs/inventory_input" },
+    { "$ref": "#/$defs/inventory_result" }
+  ],
+  "$defs": {
+    "asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+    "source_id": { "$ref": "object-id.schema.json#/$defs/source_id" },
+    "asset_kind": { "type": "string", "enum": ["image", "svg", "icon", "logo", "video", "audio", "font", "template", "document", "other", "unknown"] },
+    "inventory_target": {
+      "type": "object",
+      "required": ["target_id", "kind", "locator", "requested_asset_kind", "display_name"],
+      "properties": {
+        "target_id": { "type": "string", "minLength": 1 },
+        "kind": { "type": "string", "enum": ["local_file", "local_directory", "remote_uri", "caller_upload"] },
+        "locator": { "type": "string", "minLength": 1 },
+        "requested_asset_kind": { "oneOf": [{ "$ref": "#/$defs/asset_kind" }, { "type": "null" }] },
+        "display_name": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "scan_policy": {
+      "type": "object",
+      "required": ["include_hidden", "follow_links", "max_depth", "compute_sha256"],
+      "properties": {
+        "include_hidden": { "type": "boolean" },
+        "follow_links": { "type": "string", "enum": ["never", "explicitly_allowed"] },
+        "max_depth": { "type": ["integer", "null"], "minimum": 0 },
+        "compute_sha256": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "metadata_observation": {
+      "type": "object",
+      "required": ["key", "value", "status", "reason"],
+      "properties": {
+        "key": { "type": "string", "minLength": 1 },
+        "value": { "type": ["string", "number", "boolean", "null"] },
+        "status": { "type": "string", "enum": ["observed", "unknown", "unsupported", "failed"] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "asset_entry": {
+      "type": "object",
+      "required": ["asset_id", "source_id", "source_target_id", "origin_kind", "relative_path", "locator", "locator_redaction", "display_name", "extension", "declared_kind", "detected_kind", "detected_media_type", "size_bytes", "sha256", "last_modified_utc", "scan_status", "metadata"],
+      "properties": {
+        "asset_id": { "$ref": "#/$defs/asset_id" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_target_id": { "type": "string", "minLength": 1 },
+        "origin_kind": { "type": "string", "enum": ["local_file", "remote_uri", "caller_upload"] },
+        "relative_path": { "type": ["string", "null"] },
+        "locator": { "type": ["string", "null"] },
+        "locator_redaction": { "type": "string", "enum": ["not_required", "redacted", "unavailable", "unknown"] },
+        "display_name": { "type": ["string", "null"] },
+        "extension": { "type": ["string", "null"] },
+        "declared_kind": { "oneOf": [{ "$ref": "#/$defs/asset_kind" }, { "type": "null" }] },
+        "detected_kind": { "$ref": "#/$defs/asset_kind" },
+        "detected_media_type": { "type": ["string", "null"] },
+        "size_bytes": { "type": ["integer", "null"], "minimum": 0 },
+        "sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+        "last_modified_utc": { "type": ["string", "null"], "format": "date-time" },
+        "scan_status": { "type": "string", "enum": ["indexed", "partial", "unreadable", "remote_not_fetched", "skipped_by_policy"] },
+        "metadata": { "type": "array", "items": { "$ref": "#/$defs/metadata_observation" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "origin_kind": { "const": "local_file" } }, "required": ["origin_kind"] },
+          "then": { "properties": { "relative_path": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "origin_kind": { "const": "remote_uri" } }, "required": ["origin_kind"] },
+          "then": { "properties": { "relative_path": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "scan_status": { "enum": ["unreadable", "remote_not_fetched", "skipped_by_policy"] } }, "required": ["scan_status"] },
+          "then": { "properties": { "sha256": { "type": "null" } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "inventory_issue": {
+      "type": "object",
+      "required": ["code", "message", "source_target_id", "asset_id", "recoverable"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "message": { "type": "string", "minLength": 1 },
+        "source_target_id": { "type": ["string", "null"] },
+        "asset_id": { "oneOf": [{ "$ref": "#/$defs/asset_id" }, { "type": "null" }] },
+        "recoverable": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "coverage_item": {
+      "type": "object",
+      "required": ["feature", "status", "reason"],
+      "properties": {
+        "feature": { "type": "string", "enum": ["locations", "kind_classification", "media_type", "size", "hashes", "metadata", "remote_sources", "link_policy"] },
+        "status": { "type": "string", "enum": ["complete", "partial", "not_present", "unsupported", "failed"] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "enum": ["complete", "not_present"] } }, "required": ["status"] }, "then": { "properties": { "reason": { "type": "null" } } } },
+        { "if": { "properties": { "status": { "enum": ["partial", "unsupported", "failed"] } }, "required": ["status"] }, "then": { "properties": { "reason": { "type": "string", "minLength": 1 } } } }
+      ],
+      "additionalProperties": false
+    },
+    "inventory": {
+      "type": "object",
+      "required": ["model_type", "source_id", "root_label", "scan_policy", "assets", "issues"],
+      "properties": {
+        "model_type": { "type": "string", "const": "AssetInventory" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "root_label": { "type": ["string", "null"] },
+        "scan_policy": { "$ref": "#/$defs/scan_policy" },
+        "assets": { "type": "array", "items": { "$ref": "#/$defs/asset_entry" } },
+        "issues": { "type": "array", "items": { "$ref": "#/$defs/inventory_issue" } }
+      },
+      "additionalProperties": false
+    },
+    "inventory_input": {
+      "type": "object",
+      "required": ["record_type", "source_id", "targets", "scan_policy"],
+      "properties": {
+        "record_type": { "type": "string", "const": "asset_inventory_input" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "targets": { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/inventory_target" } },
+        "scan_policy": { "$ref": "#/$defs/scan_policy" }
+      },
+      "additionalProperties": false
+    },
+    "inventory_result": {
+      "type": "object",
+      "required": ["record_type", "source_id", "status", "inventory", "coverage", "errors"],
+      "properties": {
+        "record_type": { "type": "string", "const": "asset_inventory_result" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "status": { "type": "string", "enum": ["indexed", "partial", "failed"] },
+        "inventory": { "oneOf": [{ "$ref": "#/$defs/inventory" }, { "type": "null" }] },
+        "coverage": { "type": "array", "items": { "$ref": "#/$defs/coverage_item" } },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/inventory_issue" } }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "enum": ["indexed", "partial"] } }, "required": ["status"] }, "then": { "properties": { "inventory": { "$ref": "#/$defs/inventory" } } } },
+        { "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] }, "then": { "properties": { "inventory": { "type": "null" }, "errors": { "minItems": 1 } } } }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

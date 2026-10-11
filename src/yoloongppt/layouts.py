@@ -21,6 +21,9 @@ def text(slot,role,items,bounds,size,refs,**formatting):
 
 
 def candidate(kind,content,order,count,style):
+    if kind == 'image' and content.get('images'):
+        from .gallery_layout import candidate as gallery_candidate
+        return gallery_candidate(content,order,count,style)
     refs=content['evidence_refs'];body=content['body'];dark=style['foreground'];light=style['background']
     title=text('title','title',[content['title']],[0.7,0.6,11.95,1.25],32,refs,color=dark,bold=True,margin=0)
     footer=text('footer','footer',[f'{order+1:02d} / {count:02d}'],[0.7,6.83,11.95,0.38],16,[],color=style['accent'],paragraph_spacing=0,margin=0)
@@ -105,6 +108,9 @@ def candidate(kind,content,order,count,style):
     else:
         elements.append(text('body','body',body,[0.72,2.0,11.85,4.35],24,refs,color=dark,margin=0,paragraph_spacing=15))
     elements.append(footer)
+    from .adaptive_layout import fit_elements
+    elements,page_style,adaptive_trace=fit_elements(content,elements,page_style)
+    page_style['adaptive_layout']=adaptive_trace
     for element in elements:
         if element['type']=='text':
             f=element.get('format',{})
@@ -178,4 +184,6 @@ def choose(content,order,count,style,previous_kind=None,registry=None):
            'source_sha256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
            'fallback':'Declared candidates only; reject all unsupported/capacity failures before native write.',
            'limitations':['Native subset, complete DEC-030–038 node and multi-backend/brand/template/RTL acceptance incomplete.']}
+    for key in ('gallery_selection','adaptive_layout'):
+        if key in page_style:trace[key]=page_style.pop(key)
     return elements,page_style,trace

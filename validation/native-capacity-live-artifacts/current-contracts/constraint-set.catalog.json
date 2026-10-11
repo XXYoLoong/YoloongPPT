@@ -1,0 +1,44 @@
+{
+  "contract_status": "draft",
+  "requirement_id": "GOV-003",
+  "data_object": "ConstraintSet",
+  "schema": "contracts/constraint-set.schema.json",
+  "fixtures": "contracts/constraint-set.fixtures.json",
+  "baseline_fields": ["hard", "soft", "defaults", "conflicts"],
+  "classification_rules": [
+    "每项显式用户/模板约束必须进入 hard 或 soft；不得同时归入两类。",
+    "产品默认值仅进入 defaults，并记录其来源以及本次是否采用。",
+    "硬约束的同字段值不兼容时，必须向 conflicts 写入冲突字段、冲突约束引用/值和处理结果；不得静默选值。",
+    "soft preference 可标记 degraded 或 overridden，但必须记录 handling_reason；记录偏好值与最终采用值之间的差异。"
+  ],
+  "field_proposals": {
+    "constraint_id": "用于冲突与来源追踪的临时约束标识，字段格式尚未冻结。",
+    "source": "kind 区分用户指令、模板要求或系统默认；reference 指向输入证据/模板位置/默认值定义。",
+    "hard_conflict.handling": "reported_blocking 表示冲突已呈现且不静默继续；实际产品如何让用户解决仍待定义。"
+  },
+  "acceptance_cases": [
+    {
+      "case_id": "GOV-003-HARD-CONFLICT-001",
+      "fixture_id": "GOV-003-HARD-CONFLICT-001",
+      "purpose": "两个来源对 aspect_ratio 提出互不兼容的硬约束。",
+      "acceptance": "结果中的冲突字段为 aspect_ratio，列出两条硬约束引用及其值；处理结果为 reported_blocking，未生成静默选择的生效值。"
+    },
+    {
+      "case_id": "GOV-003-SOFT-DEGRADE-001",
+      "fixture_id": "GOV-003-SOFT-DEGRADE-001",
+      "purpose": "页数 soft preference 因明确内容覆盖要求而降级。",
+      "acceptance": "保留偏好原值、记录最终采用值、标记 degraded，并提供非空原因。"
+    },
+    {
+      "case_id": "GOV-003-DEFAULT-001",
+      "fixture_id": "GOV-003-DEFAULT-001",
+      "purpose": "用户和模板未指定宽高比时应用一项产品默认值。",
+      "acceptance": "默认值归入 defaults，记录来源以及本次 used 状态；不得将其伪装成用户硬约束。"
+    }
+  ],
+  "limits": [
+    "这是契约草案及预期结果 fixture，不表示 ConstraintSet 解析器、冲突检测器或用户澄清流程已经实现。",
+    "跨数组同字段值比较属于语义验证，JSON Schema 本身不能证明冲突检测行为；需由后续实现与执行用例验证。",
+    "字段与 handling 状态必须结合用户偏好、模板锁定规则、安全策略和产品架构进一步评审。"
+  ]
+}

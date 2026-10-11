@@ -1,0 +1,17 @@
+{
+  "type": "AssertionError",
+  "error": "('normal-mixed-long-title:no_render_or_geometry_p0', [{'code': 'RENDER_TEXT_MISSING', 'detail': 'object_ff9810be-6086-426b-a60e-3148496aabf0'}])",
+  "structured": null,
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/validation/verify-adaptive-content.py\", line 165, in <module>\n    title = run('normal-mixed-long-title',[slide(mixed_title,['批准原文保持完整。标题允许多行，正文不移入备注。'])],kind='default')\n            ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/validation/verify-adaptive-content.py\", line 148, in run\n    check(name+':no_render_or_geometry_p0',qa['p0_issue_count']==0,[{'code':i['code'],'detail':i['detail']} for i in qa['issues']])\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/validation/verify-adaptive-content.py\", line 37, in check\n    raise AssertionError((name, observed))\nAssertionError: ('normal-mixed-long-title:no_render_or_geometry_p0', [{'code': 'RENDER_TEXT_MISSING', 'detail': 'object_ff9810be-6086-426b-a60e-3148496aabf0'}])\n",
+  "completed_checks": 54,
+  "cases": [
+    {
+      "name": "normal-complete-body",
+      "input_pages": 1,
+      "output_pages": 7,
+      "budget_kind": "soft",
+      "p0": 0,
+      "warnings": []
+    }
+  ]
+}

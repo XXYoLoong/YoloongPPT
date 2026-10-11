@@ -151,6 +151,12 @@
               }
             },
             "additionalProperties": false
+          },
+          "template_binding": {
+            "type": "object"
+          },
+          "locked": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -258,7 +264,7 @@
               "columns": {
                 "type": "array",
                 "minItems": 1,
-                "maxItems": 6,
+                "maxItems": 64,
                 "items": {
                   "type": "string"
                 }
@@ -266,11 +272,11 @@
               "rows": {
                 "type": "array",
                 "minItems": 1,
-                "maxItems": 8,
+                "maxItems": 10000,
                 "items": {
                   "type": "array",
                   "minItems": 1,
-                  "maxItems": 6,
+                  "maxItems": 64,
                   "items": {
                     "type": "string"
                   }
@@ -285,6 +291,12 @@
           "slot_key": {
             "type": "string",
             "minLength": 1
+          },
+          "template_binding": {
+            "type": "object"
+          },
+          "locked": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -440,6 +452,12 @@
           "slot_key": {
             "type": "string",
             "minLength": 1
+          },
+          "template_binding": {
+            "type": "object"
+          },
+          "locked": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -635,6 +653,12 @@
               }
             },
             "additionalProperties": false
+          },
+          "template_binding": {
+            "type": "object"
+          },
+          "locked": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -766,6 +790,12 @@
               }
             },
             "additionalProperties": false
+          },
+          "template_binding": {
+            "type": "object"
+          },
+          "locked": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false
@@ -899,6 +929,12 @@
               }
             },
             "additionalProperties": false
+          },
+          "template_binding": {
+            "type": "object"
+          },
+          "locked": {
+            "type": "boolean"
           }
         },
         "additionalProperties": false

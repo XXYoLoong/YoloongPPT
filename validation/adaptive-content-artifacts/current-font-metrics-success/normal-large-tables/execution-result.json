@@ -1,0 +1,2364 @@
+{
+  "library": "python-pptx",
+  "version": "1.0.2",
+  "calls": [
+    {
+      "call_id": "capability_9d3c0dd8-bec2-4188-92e5-e393f7926e12",
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "input": {
+        "slide_id": "slide_7a127fd4-fb58-4e36-bd1b-ebb0ae4c91b5",
+        "order": 0
+      },
+      "output": {
+        "native_slide_id": 256,
+        "part": "/ppt/slides/slide1.xml",
+        "order": 0
+      },
+      "warnings": [],
+      "duration_seconds": 0.0023,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_1f15c73e-80da-4a6e-ae4b-f95095214098",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_e66a2d97-9e3f-4965-819d-28aefd77ef86",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "纵向大表全部行保留"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 62,
+        "available_height_px": 120,
+        "first_line_box_px": 62,
+        "line_advance_px": 62,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 2,
+        "name": "object_e66a2d97-9e3f-4965-819d-28aefd77ef86"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0028,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_291f9aa7-f767-4ede-9b8e-5f50353ae999",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_7fbe148e-c877-4a3b-8786-56d8f7cea566",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "表格按原行顺序展示。",
+          "万元；%"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "output": {
+        "estimated_lines": 2,
+        "estimated_height_px": 105,
+        "available_height_px": 437,
+        "first_line_box_px": 42,
+        "line_advance_px": 42,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 3,
+        "name": "object_7fbe148e-c877-4a3b-8786-56d8f7cea566"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0031,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_0029d904-ea99-4379-b83c-0b67e5aa8204",
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_951de997-53c3-4f92-9c40-0b84b985bc6b",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "关键编号",
+            "月份",
+            "金额（万元）",
+            "增长率（%）"
+          ],
+          "rows": [
+            [
+              "ID01",
+              "月01",
+              "1.5",
+              "1%"
+            ],
+            [
+              "ID02",
+              "月02",
+              "2.5",
+              "2%"
+            ],
+            [
+              "ID03",
+              "月03",
+              "3.5",
+              "3%"
+            ],
+            [
+              "ID04",
+              "月04",
+              "4.5",
+              "4%"
+            ],
+            [
+              "ID05",
+              "月05",
+              "5.5",
+              "5%"
+            ],
+            [
+              "ID06",
+              "月06",
+              "6.5",
+              "6%"
+            ],
+            [
+              "ID07",
+              "月07",
+              "7.5",
+              "7%"
+            ]
+          ],
+          "units": "万元；%"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "rows": 8,
+        "columns": 4,
+        "native_table": true,
+        "shape_id": 4,
+        "name": "object_951de997-53c3-4f92-9c40-0b84b985bc6b"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0322,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_d1954d8d-bc07-439f-9e77-c7b357477683",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_eb557125-6645-4512-9233-fa50fe287554",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "01 / 10"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 32,
+        "available_height_px": 36,
+        "first_line_box_px": 32,
+        "line_advance_px": 32,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 5,
+        "name": "object_eb557125-6645-4512-9233-fa50fe287554"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0031,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_608982f2-61d9-41d2-b2c2-7f12a1390a88",
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "input": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "part": "/ppt/notesSlides/notesSlide1.xml",
+        "notes_saved": true
+      },
+      "warnings": [],
+      "duration_seconds": 0.0035,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_5e7db899-d37d-435e-a67e-789cf76259f9",
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "input": {
+        "slide_id": "slide_386ed827-f68c-4f30-8313-f34558b748bc",
+        "order": 1
+      },
+      "output": {
+        "native_slide_id": 257,
+        "part": "/ppt/slides/slide2.xml",
+        "order": 1
+      },
+      "warnings": [],
+      "duration_seconds": 0.0021,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_18dde5ec-7be0-4c0b-9b09-d76ad5c3b7bf",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_4a7d349a-1a33-40cd-8e47-dd0b6f53e487",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "纵向大表全部行保留"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 62,
+        "available_height_px": 120,
+        "first_line_box_px": 62,
+        "line_advance_px": 62,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 2,
+        "name": "object_4a7d349a-1a33-40cd-8e47-dd0b6f53e487"
+      },
+      "warnings": [],
+      "duration_seconds": 0.003,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_0fedf78c-6931-4306-a43c-e12b4420ce98",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_1a300590-39e0-44c8-b6c3-7603d99c254a",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "万元；%"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 42,
+        "available_height_px": 437,
+        "first_line_box_px": 42,
+        "line_advance_px": 42,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 3,
+        "name": "object_1a300590-39e0-44c8-b6c3-7603d99c254a"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0026,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_f3dd4aa0-9e30-48ea-bf16-7c47a68f01d5",
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_4095579e-673f-4d92-9fa2-dd0daf7e468c",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "关键编号",
+            "月份",
+            "金额（万元）",
+            "增长率（%）"
+          ],
+          "rows": [
+            [
+              "ID08",
+              "月08",
+              "8.5",
+              "8%"
+            ],
+            [
+              "ID09",
+              "月09",
+              "9.5",
+              "9%"
+            ],
+            [
+              "ID10",
+              "月10",
+              "10.5",
+              "10%"
+            ],
+            [
+              "ID11",
+              "月11",
+              "11.5",
+              "11%"
+            ],
+            [
+              "ID12",
+              "月12",
+              "12.5",
+              "12%"
+            ],
+            [
+              "ID13",
+              "月13",
+              "13.5",
+              "13%"
+            ],
+            [
+              "ID14",
+              "月14",
+              "14.5",
+              "14%"
+            ]
+          ],
+          "units": "万元；%"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "rows": 8,
+        "columns": 4,
+        "native_table": true,
+        "shape_id": 4,
+        "name": "object_4095579e-673f-4d92-9fa2-dd0daf7e468c"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0348,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_3d6ba17e-9582-4065-802d-19db2e472648",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_9508ca1d-bdb4-4c51-bcd3-322fee31edaf",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "02 / 10"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 32,
+        "available_height_px": 36,
+        "first_line_box_px": 32,
+        "line_advance_px": 32,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 5,
+        "name": "object_9508ca1d-bdb4-4c51-bcd3-322fee31edaf"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0031,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_bbfc868b-3e5c-47e0-8af5-521c02abd735",
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "input": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "part": "/ppt/notesSlides/notesSlide2.xml",
+        "notes_saved": true
+      },
+      "warnings": [],
+      "duration_seconds": 0.0035,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_ca1ac19a-6ba0-403a-860d-8dfbab095c3d",
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "input": {
+        "slide_id": "slide_76d71e2e-48f4-45c4-982b-e3d78199485a",
+        "order": 2
+      },
+      "output": {
+        "native_slide_id": 258,
+        "part": "/ppt/slides/slide3.xml",
+        "order": 2
+      },
+      "warnings": [],
+      "duration_seconds": 0.0019,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_e0eb7190-ff0b-4790-b6de-3816f383fb82",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_23a6c15b-f5eb-4fc9-8328-535e8fb6963b",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "纵向大表全部行保留"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 62,
+        "available_height_px": 120,
+        "first_line_box_px": 62,
+        "line_advance_px": 62,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 2,
+        "name": "object_23a6c15b-f5eb-4fc9-8328-535e8fb6963b"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0029,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_b001a87a-60d4-4e72-8e7e-92ef84edc13b",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_4fc7d9fb-c019-4788-acee-c9da08538e2d",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "万元；%"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 42,
+        "available_height_px": 437,
+        "first_line_box_px": 42,
+        "line_advance_px": 42,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 3,
+        "name": "object_4fc7d9fb-c019-4788-acee-c9da08538e2d"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0028,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_79e241dd-0428-41a6-98f4-7252fc943771",
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_0ddf16fe-f586-4dcd-8b37-fe17eb369b17",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "关键编号",
+            "月份",
+            "金额（万元）",
+            "增长率（%）"
+          ],
+          "rows": [
+            [
+              "ID15",
+              "月15",
+              "15.5",
+              "15%"
+            ],
+            [
+              "ID16",
+              "月16",
+              "16.5",
+              "16%"
+            ],
+            [
+              "ID17",
+              "月17",
+              "17.5",
+              "17%"
+            ],
+            [
+              "ID18",
+              "月18",
+              "18.5",
+              "18%"
+            ],
+            [
+              "ID19",
+              "月19",
+              "19.5",
+              "19%"
+            ],
+            [
+              "ID20",
+              "月20",
+              "20.5",
+              "20%"
+            ],
+            [
+              "ID21",
+              "月21",
+              "21.5",
+              "21%"
+            ]
+          ],
+          "units": "万元；%"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "rows": 8,
+        "columns": 4,
+        "native_table": true,
+        "shape_id": 4,
+        "name": "object_0ddf16fe-f586-4dcd-8b37-fe17eb369b17"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0312,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_9a0fa505-9aec-47e9-85d4-8b56b3caecce",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_01717d2e-0159-4ebc-9d0f-256b570993ec",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "03 / 10"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 32,
+        "available_height_px": 36,
+        "first_line_box_px": 32,
+        "line_advance_px": 32,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 5,
+        "name": "object_01717d2e-0159-4ebc-9d0f-256b570993ec"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0029,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_5ea1949e-cdd9-448f-8e4c-a97503d1a988",
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "input": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "part": "/ppt/notesSlides/notesSlide3.xml",
+        "notes_saved": true
+      },
+      "warnings": [],
+      "duration_seconds": 0.0027,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_e86f8bd5-b19a-409a-92b9-f5583f8bf6a7",
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "input": {
+        "slide_id": "slide_2cbcad62-f408-46a9-858f-bb0c71e85988",
+        "order": 3
+      },
+      "output": {
+        "native_slide_id": 259,
+        "part": "/ppt/slides/slide4.xml",
+        "order": 3
+      },
+      "warnings": [],
+      "duration_seconds": 0.0021,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_f9d641b5-a8c0-4792-b486-b6a79f19604b",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_64da8fcb-6816-414d-8633-2dd2a5477a88",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "纵向大表全部行保留"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 62,
+        "available_height_px": 120,
+        "first_line_box_px": 62,
+        "line_advance_px": 62,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 2,
+        "name": "object_64da8fcb-6816-414d-8633-2dd2a5477a88"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0035,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_bd61bbcd-5080-4b0a-b5c7-2b888ee18242",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_f76bd577-10e5-4222-a3d5-4979cd3982dd",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "万元；%"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 42,
+        "available_height_px": 437,
+        "first_line_box_px": 42,
+        "line_advance_px": 42,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 3,
+        "name": "object_f76bd577-10e5-4222-a3d5-4979cd3982dd"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0033,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_24bb3dab-b030-4736-93cb-8a4ec4d51fd0",
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_ee045083-4aae-4b0e-95a3-0fa6a0d7de23",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "关键编号",
+            "月份",
+            "金额（万元）",
+            "增长率（%）"
+          ],
+          "rows": [
+            [
+              "ID22",
+              "月22",
+              "22.5",
+              "22%"
+            ],
+            [
+              "ID23",
+              "月23",
+              "23.5",
+              "23%"
+            ],
+            [
+              "ID24",
+              "月24",
+              "24.5",
+              "24%"
+            ],
+            [
+              "ID25",
+              "月25",
+              "25.5",
+              "25%"
+            ],
+            [
+              "ID26",
+              "月26",
+              "26.5",
+              "26%"
+            ]
+          ],
+          "units": "万元；%"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "rows": 6,
+        "columns": 4,
+        "native_table": true,
+        "shape_id": 4,
+        "name": "object_ee045083-4aae-4b0e-95a3-0fa6a0d7de23"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0245,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_2c12ee29-34ee-43af-90f3-4955f34cad7c",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_fd290cb3-5b00-4273-9cf9-63f84bd5618a",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "04 / 10"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 32,
+        "available_height_px": 36,
+        "first_line_box_px": 32,
+        "line_advance_px": 32,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 5,
+        "name": "object_fd290cb3-5b00-4273-9cf9-63f84bd5618a"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0031,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_4d3b9e7d-56c4-433a-a267-f7c1ba5ba8d2",
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "input": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "part": "/ppt/notesSlides/notesSlide4.xml",
+        "notes_saved": true
+      },
+      "warnings": [],
+      "duration_seconds": 0.0028,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_35d1350e-9073-4f8a-9bba-e7b2faf9cf2e",
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "input": {
+        "slide_id": "slide_14001241-96e6-4d5d-8633-c8438d797a5b",
+        "order": 4
+      },
+      "output": {
+        "native_slide_id": 260,
+        "part": "/ppt/slides/slide5.xml",
+        "order": 4
+      },
+      "warnings": [],
+      "duration_seconds": 0.002,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_1d90fd72-ce54-4c89-bf11-58cf1dc821c3",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_aa30a99c-0f31-4943-8b5c-07bf4599fdd3",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "多列表格明确重复关键列"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 62,
+        "available_height_px": 120,
+        "first_line_box_px": 62,
+        "line_advance_px": 62,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 2,
+        "name": "object_aa30a99c-0f31-4943-8b5c-07bf4599fdd3"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0035,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_278ef84b-1319-43bc-ae51-2c519865ef6e",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_7b034a4c-94d0-480a-9871-8074c427e10c",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "关键列由调用方明确指定。",
+          "原文字与单位"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "output": {
+        "estimated_lines": 3,
+        "estimated_height_px": 147,
+        "available_height_px": 437,
+        "first_line_box_px": 42,
+        "line_advance_px": 42,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 3,
+        "name": "object_7b034a4c-94d0-480a-9871-8074c427e10c"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0041,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_12bb9954-3486-4e54-ba3c-3e10485a6f73",
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_69bef512-ff91-4a54-b8f6-69efd4a87637",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "明确关键列",
+            "字段01",
+            "字段02",
+            "字段03",
+            "字段04",
+            "字段05",
+            "字段06",
+            "字段07",
+            "字段08",
+            "字段09"
+          ],
+          "rows": [
+            [
+              "K01",
+              "原单元格01列01完整文字与单位",
+              "原单元格01列02完整文字与单位",
+              "原单元格01列03完整文字与单位",
+              "原单元格01列04完整文字与单位",
+              "原单元格01列05完整文字与单位",
+              "原单元格01列06完整文字与单位",
+              "原单元格01列07完整文字与单位",
+              "原单元格01列08完整文字与单位",
+              "原单元格01列09完整文字与单位"
+            ]
+          ],
+          "units": "原文字与单位"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "rows": 2,
+        "columns": 10,
+        "native_table": true,
+        "shape_id": 4,
+        "name": "object_69bef512-ff91-4a54-b8f6-69efd4a87637"
+      },
+      "warnings": [],
+      "duration_seconds": 0.024,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_e833ba97-8ac6-4832-9390-6b543afda53e",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_654ffdf1-a44a-44dd-9026-09e1eeb2cf1b",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "05 / 10"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 32,
+        "available_height_px": 36,
+        "first_line_box_px": 32,
+        "line_advance_px": 32,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 5,
+        "name": "object_654ffdf1-a44a-44dd-9026-09e1eeb2cf1b"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0033,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_96660d4d-ea50-4756-b4dd-da3badf68f8d",
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "input": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "part": "/ppt/notesSlides/notesSlide5.xml",
+        "notes_saved": true
+      },
+      "warnings": [],
+      "duration_seconds": 0.0029,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_229d95be-39bd-4ff5-92ea-7eb801bcce6e",
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "input": {
+        "slide_id": "slide_ff8df771-c25a-4133-8f02-1178824470ff",
+        "order": 5
+      },
+      "output": {
+        "native_slide_id": 261,
+        "part": "/ppt/slides/slide6.xml",
+        "order": 5
+      },
+      "warnings": [],
+      "duration_seconds": 0.0021,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_855255a7-9cf1-4043-aafc-1ef3924b6f16",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_8cf8fbe3-a074-445c-9c43-863786dbca35",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "多列表格明确重复关键列"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 62,
+        "available_height_px": 120,
+        "first_line_box_px": 62,
+        "line_advance_px": 62,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 2,
+        "name": "object_8cf8fbe3-a074-445c-9c43-863786dbca35"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0031,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_c992bd49-c737-4060-9ee3-95e5882ea550",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_5e7e7b0f-3860-4783-a43f-fd67cea7d309",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "原文字与单位"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 42,
+        "available_height_px": 437,
+        "first_line_box_px": 42,
+        "line_advance_px": 42,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 3,
+        "name": "object_5e7e7b0f-3860-4783-a43f-fd67cea7d309"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0032,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_a63556dd-dbdb-4d9e-bc75-a037f9e553d8",
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_1a0a94a5-d3ee-476c-ac7e-0e7b291a99b7",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "明确关键列",
+            "字段01",
+            "字段02",
+            "字段03",
+            "字段04",
+            "字段05",
+            "字段06",
+            "字段07",
+            "字段08",
+            "字段09"
+          ],
+          "rows": [
+            [
+              "K02",
+              "原单元格02列01完整文字与单位",
+              "原单元格02列02完整文字与单位",
+              "原单元格02列03完整文字与单位",
+              "原单元格02列04完整文字与单位",
+              "原单元格02列05完整文字与单位",
+              "原单元格02列06完整文字与单位",
+              "原单元格02列07完整文字与单位",
+              "原单元格02列08完整文字与单位",
+              "原单元格02列09完整文字与单位"
+            ]
+          ],
+          "units": "原文字与单位"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "rows": 2,
+        "columns": 10,
+        "native_table": true,
+        "shape_id": 4,
+        "name": "object_1a0a94a5-d3ee-476c-ac7e-0e7b291a99b7"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0245,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_2b8ab0fa-e17c-4992-bdab-f9be624f0a02",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_080d74be-10ea-4038-a5f9-53002e5e9fd9",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "06 / 10"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 32,
+        "available_height_px": 36,
+        "first_line_box_px": 32,
+        "line_advance_px": 32,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 5,
+        "name": "object_080d74be-10ea-4038-a5f9-53002e5e9fd9"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0029,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_239a8e4f-4e13-4b45-8801-74244d3bc6e7",
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "input": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "part": "/ppt/notesSlides/notesSlide6.xml",
+        "notes_saved": true
+      },
+      "warnings": [],
+      "duration_seconds": 0.0028,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_630ff3b6-74f1-4b34-8e21-a529611813cf",
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "input": {
+        "slide_id": "slide_b461335a-11ef-4e77-aa47-60d1f55f7fb1",
+        "order": 6
+      },
+      "output": {
+        "native_slide_id": 262,
+        "part": "/ppt/slides/slide7.xml",
+        "order": 6
+      },
+      "warnings": [],
+      "duration_seconds": 0.0019,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_bafc0335-7767-4997-bc15-e3cb6d123847",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_92fd4bad-bc0c-4999-ba43-fe83b5787570",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "多列表格明确重复关键列"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 62,
+        "available_height_px": 120,
+        "first_line_box_px": 62,
+        "line_advance_px": 62,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 2,
+        "name": "object_92fd4bad-bc0c-4999-ba43-fe83b5787570"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0031,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_d3e6f209-3c3b-462a-a1ca-1c213fedf13b",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_fc80ed03-f4e8-4c50-a009-39836d6381a4",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "原文字与单位"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 42,
+        "available_height_px": 437,
+        "first_line_box_px": 42,
+        "line_advance_px": 42,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 3,
+        "name": "object_fc80ed03-f4e8-4c50-a009-39836d6381a4"
+      },
+      "warnings": [],
+      "duration_seconds": 0.003,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_e0fc0aab-40ad-4dda-a312-2389442f89a9",
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_ed3a9539-a1b4-4589-8859-46a308c07a69",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "明确关键列",
+            "字段10",
+            "字段11",
+            "字段12",
+            "字段13",
+            "字段14",
+            "字段15",
+            "字段16",
+            "字段17",
+            "字段18"
+          ],
+          "rows": [
+            [
+              "K01",
+              "原单元格01列10完整文字与单位",
+              "原单元格01列11完整文字与单位",
+              "原单元格01列12完整文字与单位",
+              "原单元格01列13完整文字与单位",
+              "原单元格01列14完整文字与单位",
+              "原单元格01列15完整文字与单位",
+              "原单元格01列16完整文字与单位",
+              "原单元格01列17完整文字与单位",
+              "原单元格01列18完整文字与单位"
+            ]
+          ],
+          "units": "原文字与单位"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "rows": 2,
+        "columns": 10,
+        "native_table": true,
+        "shape_id": 4,
+        "name": "object_ed3a9539-a1b4-4589-8859-46a308c07a69"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0217,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_ea0e8f5d-c6f9-4f0f-b592-c72cd11ca7cd",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_3ff5fe46-f1fa-49aa-a6b9-5d2dd63b7b0d",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "07 / 10"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 32,
+        "available_height_px": 36,
+        "first_line_box_px": 32,
+        "line_advance_px": 32,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 5,
+        "name": "object_3ff5fe46-f1fa-49aa-a6b9-5d2dd63b7b0d"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0031,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_189bd965-6ca7-4426-824b-2229cb11b511",
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "input": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "part": "/ppt/notesSlides/notesSlide7.xml",
+        "notes_saved": true
+      },
+      "warnings": [],
+      "duration_seconds": 0.0028,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_f26490e1-762d-4507-94ee-1e2cdcce9c1c",
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "input": {
+        "slide_id": "slide_975df076-08a9-4b1b-b550-157ddc6bca7d",
+        "order": 7
+      },
+      "output": {
+        "native_slide_id": 263,
+        "part": "/ppt/slides/slide8.xml",
+        "order": 7
+      },
+      "warnings": [],
+      "duration_seconds": 0.002,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_80c1695f-c3d2-45ce-9ffc-fbfe4bfaa67b",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_e6e186db-452e-4b22-896d-6c2e72ca8440",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "多列表格明确重复关键列"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 62,
+        "available_height_px": 120,
+        "first_line_box_px": 62,
+        "line_advance_px": 62,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 2,
+        "name": "object_e6e186db-452e-4b22-896d-6c2e72ca8440"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0033,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_f64f196b-96fd-4100-bf37-f7677b383f01",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_e4da1cae-1b83-4ae1-b398-86525496f4cb",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "原文字与单位"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 42,
+        "available_height_px": 437,
+        "first_line_box_px": 42,
+        "line_advance_px": 42,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 3,
+        "name": "object_e4da1cae-1b83-4ae1-b398-86525496f4cb"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0029,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_f8e32150-1327-4ff3-9713-5748a47df6c1",
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_7864d9e7-e39e-4ea4-b841-2bc252033501",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "明确关键列",
+            "字段10",
+            "字段11",
+            "字段12",
+            "字段13",
+            "字段14",
+            "字段15",
+            "字段16",
+            "字段17",
+            "字段18"
+          ],
+          "rows": [
+            [
+              "K02",
+              "原单元格02列10完整文字与单位",
+              "原单元格02列11完整文字与单位",
+              "原单元格02列12完整文字与单位",
+              "原单元格02列13完整文字与单位",
+              "原单元格02列14完整文字与单位",
+              "原单元格02列15完整文字与单位",
+              "原单元格02列16完整文字与单位",
+              "原单元格02列17完整文字与单位",
+              "原单元格02列18完整文字与单位"
+            ]
+          ],
+          "units": "原文字与单位"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "rows": 2,
+        "columns": 10,
+        "native_table": true,
+        "shape_id": 4,
+        "name": "object_7864d9e7-e39e-4ea4-b841-2bc252033501"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0218,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_85d1767e-e5ea-49f1-8670-6e180ca4928b",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_86615849-7866-447d-9ffa-16c2d56d386b",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "08 / 10"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 32,
+        "available_height_px": 36,
+        "first_line_box_px": 32,
+        "line_advance_px": 32,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 5,
+        "name": "object_86615849-7866-447d-9ffa-16c2d56d386b"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0034,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_bccf17f1-0213-4ba1-acff-8f2b91913c8b",
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "input": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "part": "/ppt/notesSlides/notesSlide8.xml",
+        "notes_saved": true
+      },
+      "warnings": [],
+      "duration_seconds": 0.003,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_7a3d2a08-77c9-44d7-997c-b7ba9a6d7b7c",
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "input": {
+        "slide_id": "slide_aceec0aa-a120-4620-bd7f-180c38b33f94",
+        "order": 8
+      },
+      "output": {
+        "native_slide_id": 264,
+        "part": "/ppt/slides/slide9.xml",
+        "order": 8
+      },
+      "warnings": [],
+      "duration_seconds": 0.0019,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_4e640a22-f3ea-4346-823f-dbe69f517e08",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_4a1d05c1-82f5-4020-800c-33852c780458",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "多列表格明确重复关键列"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 62,
+        "available_height_px": 120,
+        "first_line_box_px": 62,
+        "line_advance_px": 62,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 2,
+        "name": "object_4a1d05c1-82f5-4020-800c-33852c780458"
+      },
+      "warnings": [],
+      "duration_seconds": 0.003,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_520bc0aa-daf5-4735-a992-0e8388f1376f",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_4c928569-8eef-4da6-ae77-5a3a54d4c147",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "原文字与单位"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 42,
+        "available_height_px": 437,
+        "first_line_box_px": 42,
+        "line_advance_px": 42,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 3,
+        "name": "object_4c928569-8eef-4da6-ae77-5a3a54d4c147"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0027,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_295ea8be-8176-43e5-ab18-be6677923cf1",
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_5c93ba53-f4d2-4938-8d4d-5b676071e9ca",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "明确关键列",
+            "字段19",
+            "字段20",
+            "字段21",
+            "字段22",
+            "字段23",
+            "字段24"
+          ],
+          "rows": [
+            [
+              "K01",
+              "原单元格01列19完整文字与单位",
+              "原单元格01列20完整文字与单位",
+              "原单元格01列21完整文字与单位",
+              "原单元格01列22完整文字与单位",
+              "原单元格01列23完整文字与单位",
+              "原单元格01列24完整文字与单位"
+            ]
+          ],
+          "units": "原文字与单位"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "rows": 2,
+        "columns": 7,
+        "native_table": true,
+        "shape_id": 4,
+        "name": "object_5c93ba53-f4d2-4938-8d4d-5b676071e9ca"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0162,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_29b7d8a8-6fa5-4397-9246-43e24058ad62",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_d75739ac-1f49-476b-b906-6857585c1186",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "09 / 10"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 32,
+        "available_height_px": 36,
+        "first_line_box_px": 32,
+        "line_advance_px": 32,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 5,
+        "name": "object_d75739ac-1f49-476b-b906-6857585c1186"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0031,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_9edce23e-73ee-4fbe-84d0-7af4a2d8a906",
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "input": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "part": "/ppt/notesSlides/notesSlide9.xml",
+        "notes_saved": true
+      },
+      "warnings": [],
+      "duration_seconds": 0.003,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_b8938f95-afa3-4cfe-ba0f-7917f5689db9",
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "input": {
+        "slide_id": "slide_36e5ea7b-617a-4e57-8027-9d2b880394e3",
+        "order": 9
+      },
+      "output": {
+        "native_slide_id": 265,
+        "part": "/ppt/slides/slide10.xml",
+        "order": 9
+      },
+      "warnings": [],
+      "duration_seconds": 0.0023,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_64e35668-cb60-4cfa-8e65-059b010baf9c",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_202fb867-e588-4604-80e3-497a21306b50",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "多列表格明确重复关键列"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 62,
+        "available_height_px": 120,
+        "first_line_box_px": 62,
+        "line_advance_px": 62,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 2,
+        "name": "object_202fb867-e588-4604-80e3-497a21306b50"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0031,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_0350a770-6237-45e4-a1c8-fc6317b95761",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_e21cb96e-1278-4ff7-9e75-b74418d9ea76",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "原文字与单位"
+        ],
+        "bounds": [
+          0.7,
+          1.92,
+          3.25,
+          4.55
+        ],
+        "font_size": 21,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 16
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 42,
+        "available_height_px": 437,
+        "first_line_box_px": 42,
+        "line_advance_px": 42,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 3,
+        "name": "object_e21cb96e-1278-4ff7-9e75-b74418d9ea76"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0029,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_b8dbe2ae-0e77-4cad-8ff0-6e4c5d306804",
+      "capability_id": "capability_65539302-166a-431e-8009-096a3733ab55",
+      "implementation_id": "implementation_6919f2fa-3b87-4368-8294-9e779eb6ed41",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_48c96060-9747-4a5e-aaae-1831a2d5dc53",
+        "type": "table",
+        "role": "data",
+        "slot_key": "data",
+        "data": {
+          "columns": [
+            "明确关键列",
+            "字段19",
+            "字段20",
+            "字段21",
+            "字段22",
+            "字段23",
+            "字段24"
+          ],
+          "rows": [
+            [
+              "K02",
+              "原单元格02列19完整文字与单位",
+              "原单元格02列20完整文字与单位",
+              "原单元格02列21完整文字与单位",
+              "原单元格02列22完整文字与单位",
+              "原单元格02列23完整文字与单位",
+              "原单元格02列24完整文字与单位"
+            ]
+          ],
+          "units": "原文字与单位"
+        },
+        "bounds": [
+          4.32,
+          1.96,
+          8.28,
+          4.58
+        ],
+        "font_size": 16,
+        "source_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "rows": 2,
+        "columns": 7,
+        "native_table": true,
+        "shape_id": 4,
+        "name": "object_48c96060-9747-4a5e-aaae-1831a2d5dc53"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0157,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_45d15152-e1e2-4702-bf18-286edd57b153",
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "input": {
+        "object_id": "object_c416f00f-36fa-45b7-a857-1dda34bb3189",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "10 / 10"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "output": {
+        "estimated_lines": 1,
+        "estimated_height_px": 32,
+        "available_height_px": 36,
+        "first_line_box_px": 32,
+        "line_advance_px": 32,
+        "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA",
+        "shape_id": 5,
+        "name": "object_c416f00f-36fa-45b7-a857-1dda34bb3189"
+      },
+      "warnings": [],
+      "duration_seconds": 0.0028,
+      "status": "executed"
+    },
+    {
+      "call_id": "capability_1fc4f94e-896f-47d2-a5bb-52747cda692d",
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "input": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "output": {
+        "part": "/ppt/notesSlides/notesSlide10.xml",
+        "notes_saved": true
+      },
+      "warnings": [],
+      "duration_seconds": 0.0028,
+      "status": "executed"
+    }
+  ],
+  "template_execution": null,
+  "limitations": [
+    "native text/table/category-chart/image/shape/connector/notes subset; advanced objects, full template fidelity and live editing acceptance remain unproven"
+  ]
+}

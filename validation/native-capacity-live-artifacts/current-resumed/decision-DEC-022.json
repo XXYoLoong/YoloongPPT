@@ -1,0 +1,152 @@
+{
+  "trace_id": "trace_2b9fb2af-c004-46ef-8899-b74855ac5397",
+  "node_id": "DEC-022",
+  "input": {
+    "page_count": 3,
+    "evidence_refs": [
+      "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-022",
+      "candidate_id": "candidate_4119337b-4403-4e11-980a-aa630f0f7ef3",
+      "value": {
+        "page_index": 0,
+        "expression": "text_image",
+        "kind": "image",
+        "reason": "调用方明确要求第1页为多图页并保留8个asset_id，图注按图序逐字使用原文明示文字。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "preserved_content": true
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-022",
+      "candidate_id": "candidate_93afbc4b-acca-4ea6-b795-cec1082d67be",
+      "value": {
+        "page_index": 1,
+        "expression": "cards_or_text",
+        "kind": "text",
+        "reason": "调用方明确要求第2页为纯文字页，完整标题逐字使用，正文保留原文两句。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "preserved_content": true
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-022",
+      "candidate_id": "candidate_6b5af837-b086-4ef0-90b7-547d173c421f",
+      "value": {
+        "page_index": 2,
+        "expression": "table",
+        "kind": "table",
+        "reason": "调用方明确要求第3页为原生表格页，完整保留4列14行，单位为测试分。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "preserved_content": true
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_4119337b-4403-4e11-980a-aa630f0f7ef3",
+    "candidate_93afbc4b-acca-4ea6-b795-cec1082d67be",
+    "candidate_6b5af837-b086-4ef0-90b7-547d173c421f"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "Visual_Designer/template/Executor",
+      "P02": "layout induction/reference selection/actions",
+      "P03": "slide content/layout/template/assets",
+      "P04": "PureLayout/assets/PPTAdapter",
+      "P05": "SlidePlanner/template/assets/native writer"
+    },
+    "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+    "score_semantics": "selected policy outcome, not semantic probability",
+    "fallback": "structured failure; never invent material or downgrade a requested expression"
+  },
+  "output": {
+    "pages": [
+      {
+        "page_index": 0,
+        "expression": "text_image",
+        "kind": "image",
+        "reason": "调用方明确要求第1页为多图页并保留8个asset_id，图注按图序逐字使用原文明示文字。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "preserved_content": true
+      },
+      {
+        "page_index": 1,
+        "expression": "cards_or_text",
+        "kind": "text",
+        "reason": "调用方明确要求第2页为纯文字页，完整标题逐字使用，正文保留原文两句。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "preserved_content": true
+      },
+      {
+        "page_index": 2,
+        "expression": "table",
+        "kind": "table",
+        "reason": "调用方明确要求第3页为原生表格页，完整保留4列14行，单位为测试分。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "preserved_content": true
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

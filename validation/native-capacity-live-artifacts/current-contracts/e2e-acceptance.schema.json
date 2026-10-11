@@ -1,0 +1,167 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "E2E Acceptance Gate（GOV-008 草案）",
+  "description": "定义 GOV-008 与项目整体端到端完成门槛；验收事实仍以需求矩阵和真实执行证据为准。",
+  "type": "object",
+  "required": [
+    "document_type",
+    "contract_status",
+    "requirement_id",
+    "task_id",
+    "schema",
+    "fixtures",
+    "authority",
+    "acceptance_case_ids",
+    "chain_step_ids",
+    "canonical_path",
+    "quality_dimensions",
+    "revision_closure",
+    "completion_gate",
+    "step_accounting_policy",
+    "acceptance_case_policy",
+    "insufficient_evidence",
+    "current_readiness",
+    "limits"
+  ],
+  "properties": {
+    "document_type": { "const": "e2e_acceptance_contract" },
+    "contract_status": { "const": "draft" },
+    "requirement_id": { "const": "GOV-008" },
+    "task_id": { "const": "TASK-GOV-008" },
+    "schema": { "const": "contracts/e2e-acceptance.schema.json" },
+    "fixtures": { "const": "contracts/e2e-acceptance.fixtures.json" },
+    "authority": {
+      "type": "object",
+      "required": ["pdr_section", "requirement_cell", "task_cell", "chain_range", "acceptance_range"],
+      "properties": {
+        "pdr_section": { "const": "2. 0-1 完整端到端链路" },
+        "requirement_cell": { "const": "需求主表!A9:P9" },
+        "task_cell": { "const": "可执行任务!A11:M11" },
+        "chain_range": { "const": "0-1全链路!A2:I46" },
+        "acceptance_range": { "const": "验收矩阵!A2:I31" }
+      },
+      "additionalProperties": false
+    },
+    "acceptance_case_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^AC-(?:00[1-9]|0[12][0-9]|030)$" },
+      "minItems": 30,
+      "maxItems": 30,
+      "uniqueItems": true
+    },
+    "chain_step_ids": {
+      "type": "array",
+      "items": { "type": "string", "pattern": "^S(?:0[0-9]|[1-3][0-9]|4[0-4])$" },
+      "minItems": 45,
+      "maxItems": 45,
+      "uniqueItems": true
+    },
+    "canonical_path": {
+      "type": "object",
+      "required": ["primary_case_id", "traceability_case_id", "full_chain_case_id", "input_profile", "route_mode", "required_output"],
+      "properties": {
+        "primary_case_id": { "const": "AC-002" },
+        "traceability_case_id": { "const": "AC-027" },
+        "full_chain_case_id": { "const": "AC-030" },
+        "input_profile": { "const": "含 heading/table/image/citation 的 DOCX" },
+        "route_mode": { "const": "create_from_materials" },
+        "required_output": { "const": "editable_pptx" }
+      },
+      "additionalProperties": false
+    },
+    "quality_dimensions": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["rendering", "structure", "visual", "factual", "editability"] },
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true
+    },
+    "revision_closure": {
+      "type": "object",
+      "required": ["must_exercise", "trigger", "trigger_detail", "evidence_chain", "rerun_affected_qa", "preserve_unmodified_content"],
+      "properties": {
+        "must_exercise": { "const": true },
+        "trigger": { "enum": ["actual_quality_issue", "user_requested_local_change"] },
+        "trigger_detail": { "type": "string", "minLength": 1 },
+        "evidence_chain": {
+          "const": ["QualityIssue", "RevisionPlan", "RevisionAction", "revised_artifact", "targeted_QA_recheck"]
+        },
+        "rerun_affected_qa": { "const": true },
+        "preserve_unmodified_content": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "completion_gate": {
+      "type": "object",
+      "required": ["all_acceptance_cases_pass", "all_chain_steps_accounted", "editable_pptx_verified", "all_quality_dimensions_pass", "revision_loop_closed", "requirement_and_task_scope_closed"],
+      "properties": {
+        "all_acceptance_cases_pass": { "const": true },
+        "all_chain_steps_accounted": { "const": true },
+        "editable_pptx_verified": { "const": true },
+        "all_quality_dimensions_pass": { "const": true },
+        "revision_loop_closed": { "const": true },
+        "requirement_and_task_scope_closed": {
+          "type": "object",
+          "required": ["requirement_count", "task_count", "closed_with_evidence"],
+          "properties": {
+            "requirement_count": { "const": 308 },
+            "task_count": { "const": 453 },
+            "closed_with_evidence": { "const": true }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "step_accounting_policy": {
+      "type": "object",
+      "required": ["ordered_step_inventory_is_exactly_S00_to_S44", "internal_implementation_may_merge_steps", "every_step_must_have_status_and_output_or_evidence", "not_applicable_requires_trace_reason_and_impact", "unexplained_missing_step_is_rejection"],
+      "properties": {
+        "ordered_step_inventory_is_exactly_S00_to_S44": { "const": true },
+        "internal_implementation_may_merge_steps": { "const": true },
+        "every_step_must_have_status_and_output_or_evidence": { "const": true },
+        "not_applicable_requires_trace_reason_and_impact": { "const": true },
+        "unexplained_missing_step_is_rejection": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "acceptance_case_policy": {
+      "type": "object",
+      "required": ["all_30_matrix_cases_are_required", "each_case_must_pass", "acceptance_case_not_applicable_is_allowed", "matrix_remains_authoritative_for_case_inputs_and_pass_conditions"],
+      "properties": {
+        "all_30_matrix_cases_are_required": { "const": true },
+        "each_case_must_pass": { "const": true },
+        "acceptance_case_not_applicable_is_allowed": { "const": false },
+        "matrix_remains_authoritative_for_case_inputs_and_pass_conditions": { "const": true }
+      },
+      "additionalProperties": false
+    },
+    "insufficient_evidence": {
+      "type": "array",
+      "items": { "type": "string", "enum": ["single_demo", "image_only", "pptx_without_qa", "no_local_revision", "one_acceptance_case_only"] },
+      "minItems": 5,
+      "maxItems": 5,
+      "uniqueItems": true
+    },
+    "current_readiness": {
+      "type": "object",
+      "required": ["status", "observed_acceptance_cases", "executed_acceptance_cases", "observed_chain_steps", "product_runtime_selected", "reason"],
+      "properties": {
+        "status": { "const": "pending" },
+        "observed_acceptance_cases": { "const": 30 },
+        "executed_acceptance_cases": { "const": 0 },
+        "observed_chain_steps": { "const": 45 },
+        "product_runtime_selected": { "const": false },
+        "reason": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "limits": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 3,
+      "maxItems": 3
+    }
+  },
+  "additionalProperties": false
+}

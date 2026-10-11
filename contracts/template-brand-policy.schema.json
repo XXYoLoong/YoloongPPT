@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"https://yoloongppt.local/contracts/template-brand-policy.schema.json",
+  "type":"object", "additionalProperties":false,
+  "properties":{
+    "version":{"const":"template-policy-1"},"preserve_master_style":{"const":true},
+    "layout_part":{"$ref":"#/$defs/part"},
+    "layout_by_kind":{"type":"object","additionalProperties":{"$ref":"#/$defs/part"}},
+    "field_map":{"type":"object","propertyNames":{"enum":["title","body","asset","data","footer"]},"additionalProperties":{"oneOf":[{"type":"integer","minimum":0},{"type":"string","minLength":1}]}},
+    "fallback_layouts":{"type":"array","uniqueItems":true,"items":{"$ref":"#/$defs/part"}},
+    "typography":{"type":"object","additionalProperties":false,"properties":{"font":{"type":"string","minLength":1},"sizes":{"type":"object","propertyNames":{"enum":["title","body","asset","data","footer"]},"additionalProperties":{"type":"number","minimum":16,"maximum":96}}}},
+    "brand":{"type":"object","additionalProperties":false,"properties":{
+      "locked_objects":{"type":"array","items":{"type":"object","required":["part"],"anyOf":[{"required":["shape_id"]},{"required":["name"]}],"additionalProperties":false,"properties":{"part":{"type":"string","pattern":"^ppt/(slideMasters/slideMaster|slideLayouts/slideLayout)[0-9]+\\.xml$"},"shape_id":{"type":"string","pattern":"^[0-9]+$"},"name":{"type":"string","minLength":1}}}},
+      "safe_areas":{"type":"array","items":{"$ref":"#/$defs/rect"}},"content_area":{"$ref":"#/$defs/rect"},
+      "locked_tokens":{"type":"object","additionalProperties":false,"properties":{"font":{"type":"string","minLength":1},"foreground":{"$ref":"#/$defs/color"},"background":{"$ref":"#/$defs/color"},"accent":{"$ref":"#/$defs/color"}}}
+    }}
+  },
+  "$defs":{"part":{"type":"string","pattern":"^ppt/slideLayouts/slideLayout[0-9]+\\.xml$"},"color":{"type":"string","pattern":"^[A-Fa-f0-9]{6}$"},"rect":{"type":"array","items":{"type":"number"},"minItems":4,"maxItems":4}}
+}

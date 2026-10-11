@@ -1,0 +1,584 @@
+{
+  "document_type": "notes_spec_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-013",
+  "task_id": "TASK-CNT-013",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-013-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "source_conflict_fixture_id": null,
+        "presentation_context": {
+          "notes_instruction": "把详细解释、来源和演讲稿移入 speaker notes，页面保持简洁。",
+          "speaker_script_instruction": "解释 ARR 规模与同比增长。",
+          "citation_policy": {
+            "citation_mode": "notes"
+          }
+        },
+        "slide_draft": "FY2025 annual recurring revenue was US$2.4 million. Revenue grew 8% year over year. The source is the 2025 Annual Report. Explain both measures to the audience.",
+        "required_details": [
+          {
+            "detail_key": "arr-detail",
+            "kind": "explanation",
+            "text": "FY2025 ARR was US$2.4 million.",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "growth-detail",
+            "kind": "explanation",
+            "text": "FY2025 revenue grew 8% year over year.",
+            "evidence_refs": [
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "source-detail",
+            "kind": "source",
+            "text": "2025 Annual Report",
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "speaker-script",
+            "kind": "speaker_script",
+            "text": "Explain the ARR scale and year-over-year revenue growth.",
+            "evidence_refs": [
+              "evidence_12111111-1111-4111-8111-111111111111",
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [
+              "/speaker_script_instruction"
+            ]
+          }
+        ]
+      },
+      "expected_output": {
+        "status": "complete",
+        "slide_content": "FY2025 ARR US$2.4 million; revenue growth 8% year over year.",
+        "speaker_notes": [
+          {
+            "block_key": "explanation-block",
+            "kind": "explanation",
+            "text": "For FY2025, ARR was US$2.4 million and revenue grew 8% year over year.",
+            "detail_refs": [
+              "arr-detail",
+              "growth-detail"
+            ],
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "block_key": "source-block",
+            "kind": "source",
+            "text": "Source: 2025 Annual Report.",
+            "detail_refs": [
+              "source-detail"
+            ],
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "block_key": "script-block",
+            "kind": "speaker_script",
+            "text": "Explain the ARR scale and year-over-year revenue growth.",
+            "detail_refs": [
+              "speaker-script"
+            ],
+            "evidence_refs": [
+              "evidence_12111111-1111-4111-8111-111111111111",
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [
+              "/speaker_script_instruction"
+            ]
+          }
+        ],
+        "detail_trace": [
+          {
+            "detail_key": "arr-detail",
+            "destination": "both",
+            "note_block_refs": [
+              "explanation-block"
+            ],
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "growth-detail",
+            "destination": "both",
+            "note_block_refs": [
+              "explanation-block"
+            ],
+            "evidence_refs": [
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "source-detail",
+            "destination": "speaker_notes",
+            "note_block_refs": [
+              "source-block"
+            ],
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "speaker-script",
+            "destination": "speaker_notes",
+            "note_block_refs": [
+              "script-block"
+            ],
+            "evidence_refs": [
+              "evidence_12111111-1111-4111-8111-111111111111",
+              "evidence_15111111-1111-4111-8111-111111111111",
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [
+              "/speaker_script_instruction"
+            ]
+          }
+        ]
+      },
+      "expected_action": "route_detail_to_speaker_notes_and_keep_slide_concise"
+    },
+    {
+      "fixture_id": "CNT-013-CONFLICT-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "presentation_context": {
+          "notes_instruction": "简化页面，但把两个来源值、来源说明和冲突状态保留在 speaker notes。",
+          "citation_policy": {
+            "citation_mode": "notes"
+          }
+        },
+        "slide_draft": "FY2025 revenue growth is 8% according to one source and 9% according to another. This conflict is unresolved.",
+        "required_details": [
+          {
+            "detail_key": "growth-8",
+            "kind": "explanation",
+            "text": "One source reports 8% year over year in FY2025.",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "growth-9",
+            "kind": "explanation",
+            "text": "Another source reports 9% year over year in FY2025.",
+            "evidence_refs": [
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "unresolved-status",
+            "kind": "explanation",
+            "text": "The two source values conflict and remain unresolved.",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": []
+          }
+        ]
+      },
+      "expected_output": {
+        "status": "complete",
+        "slide_content": "FY2025 revenue growth: 8% vs 9% (unresolved).",
+        "speaker_notes": [
+          {
+            "block_key": "source-a",
+            "kind": "source",
+            "text": "Source A: 8% year over year in FY2025.",
+            "detail_refs": [
+              "growth-8"
+            ],
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "block_key": "source-b",
+            "kind": "source",
+            "text": "Source B: 9% year over year in FY2025.",
+            "detail_refs": [
+              "growth-9"
+            ],
+            "evidence_refs": [
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "block_key": "conflict-explanation",
+            "kind": "explanation",
+            "text": "Keep both values visible; neither source has been selected as the winner.",
+            "detail_refs": [
+              "unresolved-status"
+            ],
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": []
+          }
+        ],
+        "detail_trace": [
+          {
+            "detail_key": "growth-8",
+            "destination": "both",
+            "note_block_refs": [
+              "source-a"
+            ],
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "growth-9",
+            "destination": "both",
+            "note_block_refs": [
+              "source-b"
+            ],
+            "evidence_refs": [
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "unresolved-status",
+            "destination": "speaker_notes",
+            "note_block_refs": [
+              "conflict-explanation"
+            ],
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": []
+          }
+        ]
+      },
+      "expected_action": "route_detail_to_speaker_notes_and_keep_slide_concise"
+    },
+    {
+      "fixture_id": "CNT-013-MISSING-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": null,
+        "presentation_context": {
+          "notes_instruction": "保留缺失日期说明；页面可用显式占位符，不得猜测日期。",
+          "citation_policy": {
+            "citation_mode": "notes"
+          }
+        },
+        "slide_draft": "The planned margin is 12% (a user-supplied assumption). The renewal date is not present.",
+        "required_details": [
+          {
+            "detail_key": "planned-margin",
+            "kind": "explanation",
+            "text": "Planned margin is 12% and is a user-supplied planning assumption.",
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "renewal-date",
+            "kind": "explanation",
+            "text": "The renewal date is not present in the source material.",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [
+              {
+                "kind": "missing_fact",
+                "fact_id": "renewal_date",
+                "error_id": "ERR-009",
+                "reason_code": "MISSING_FACT"
+              }
+            ],
+            "context_refs": [
+              "/notes_instruction"
+            ]
+          }
+        ]
+      },
+      "expected_output": {
+        "status": "complete",
+        "slide_content": "Planned margin: 12% assumption; renewal date: {{renewal_date}}.",
+        "speaker_notes": [
+          {
+            "block_key": "assumption-explanation",
+            "kind": "explanation",
+            "text": "The planned margin is 12%; it is an assumption supplied by the user, not source evidence.",
+            "detail_refs": [
+              "planned-margin"
+            ],
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "block_key": "missing-fact-explanation",
+            "kind": "explanation",
+            "text": "The renewal date was not provided. Keep {{renewal_date}} as an explicit placeholder; do not fill a date.",
+            "detail_refs": [
+              "renewal-date"
+            ],
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [
+              {
+                "kind": "missing_fact",
+                "fact_id": "renewal_date",
+                "error_id": "ERR-009",
+                "reason_code": "MISSING_FACT"
+              }
+            ],
+            "context_refs": [
+              "/notes_instruction"
+            ]
+          }
+        ],
+        "detail_trace": [
+          {
+            "detail_key": "planned-margin",
+            "destination": "both",
+            "note_block_refs": [
+              "assumption-explanation"
+            ],
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": []
+          },
+          {
+            "detail_key": "renewal-date",
+            "destination": "both",
+            "note_block_refs": [
+              "missing-fact-explanation"
+            ],
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [
+              {
+                "kind": "missing_fact",
+                "fact_id": "renewal_date",
+                "error_id": "ERR-009",
+                "reason_code": "MISSING_FACT"
+              }
+            ],
+            "context_refs": [
+              "/notes_instruction"
+            ]
+          }
+        ]
+      },
+      "expected_action": "route_detail_to_speaker_notes_and_keep_slide_concise"
+    }
+  ],
+  "limits": [
+    "每个 fixture 通过 fixture ID 引用既有 CNT-001 SourceEvidence/Assumption 与 CNT-003 EvidenceConflict；局部 detail_key/block_key 仅用于本份 NotesSpec 的关联，不是新的全局 ID。",
+    "notes_instruction、speaker_script_instruction 是 fixture 中明确提供的 PresentationContext 路径，不定义全局 PresentationContext Schema，也不设置 notes/citation 的默认模式。",
+    "冲突 notes 保留所有 8%/9% 来源值和 ERR-008；缺失 renewal_date 保留 ERR-009 与显式 placeholder；NotesSpec 不执行 DEC-004 决策。",
+    "PPT-023 Speaker Notes 的 native notes master/layout 读写能力仍为 Untested；本契约是内容规划草案，不代表 notes XML 生成、PPTX 写入或 round-trip 已实现。"
+  ]
+}

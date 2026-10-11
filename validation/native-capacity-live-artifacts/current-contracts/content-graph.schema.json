@@ -1,0 +1,143 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ContentGraph 契约（CNT-009 草案）",
+  "description": "以图结构保存有来源/假设支撑的内容节点及关系；relation type 保持开放，不把共现或相关误作因果。",
+  "type": "object",
+  "required": [
+    "nodes",
+    "edges",
+    "evidence_refs"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "nodes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/node"
+      }
+    },
+    "edges": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/edge"
+      }
+    },
+    "evidence_refs": {
+      "type": "array",
+      "items": {
+        "$ref": "object-id.schema.json#/$defs/evidence_id"
+      },
+      "uniqueItems": true,
+      "description": "所有节点/关系所引用 evidence_id 的去重汇总。"
+    }
+  },
+  "$defs": {
+    "node": {
+      "type": "object",
+      "required": [
+        "node_id",
+        "text",
+        "evidence_refs",
+        "assumption_refs"
+      ],
+      "properties": {
+        "node_id": {
+          "type": "string",
+          "minLength": 1,
+          "description": "仅在当前 ContentGraph 内使用的局部节点引用，不是 GOV-007 持久实体 ID。"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          },
+          "uniqueItems": true
+        },
+        "assumption_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          },
+          "uniqueItems": true
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "evidence_refs": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "assumption_refs": {
+              "minItems": 1
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "edge": {
+      "type": "object",
+      "required": [
+        "from_node_id",
+        "to_node_id",
+        "type",
+        "evidence_refs",
+        "assumption_refs"
+      ],
+      "properties": {
+        "from_node_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "to_node_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "type": "string",
+          "minLength": 1,
+          "description": "开放关系标签；PDR 示例不是封闭枚举。"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          },
+          "uniqueItems": true
+        },
+        "assumption_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          },
+          "uniqueItems": true
+        }
+      },
+      "anyOf": [
+        {
+          "properties": {
+            "evidence_refs": {
+              "minItems": 1
+            }
+          }
+        },
+        {
+          "properties": {
+            "assumption_refs": {
+              "minItems": 1
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

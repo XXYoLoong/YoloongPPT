@@ -1,0 +1,498 @@
+{
+  "document_type": "imported_deck_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-006",
+  "fixtures": [
+    {
+      "fixture_id": "IN-006-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "record_type": "pptx_import_input",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444",
+        "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+        "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+        "source_usage": {
+          "classification": "reference",
+          "assigned_by": "user",
+          "reason": "用户将此文件指定为参考演示文稿。"
+        }
+      },
+      "expected_result": {
+        "record_type": "pptx_import_result",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444",
+        "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+        "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+        "source_usage": {
+          "classification": "reference",
+          "assigned_by": "user",
+          "reason": "用户将此文件指定为参考演示文稿。"
+        },
+        "status": "parsed",
+        "evidence": {
+          "model_type": "ImportedDeckModel",
+          "deck_id": "deck_b2222222-2222-4222-a222-222222222222",
+          "source_id": "source_d4444444-4444-4444-b444-444444444444",
+          "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+          "source_usage": {
+            "classification": "reference",
+            "assigned_by": "user",
+            "reason": "用户将此文件指定为参考演示文稿。"
+          },
+          "presentation": {
+            "source_part": "ppt/presentation.xml",
+            "title": "光伏市场概览",
+            "creator": "示例作者",
+            "slide_size": { "cx": 9144000, "cy": 5143500, "unit": "EMU" }
+          },
+          "masters": [
+            {
+              "source_part": "ppt/slideMasters/slideMaster1.xml",
+              "name": "主母版",
+              "source_anchor": {
+                "package_part": "ppt/slideMasters/slideMaster1.xml",
+                "slide_index": null,
+                "shape_id": null,
+                "relationship_id": null,
+                "row_index": null,
+                "column_index": null,
+                "group_shape_ids": []
+              },
+              "layout_part_uris": ["ppt/slideLayouts/slideLayout1.xml"],
+              "placeholders": [
+                {
+                  "shape_id": "2",
+                  "name": "标题占位符",
+                  "placeholder_type": "title",
+                  "placeholder_index": 0,
+                  "source_anchor": {
+                    "package_part": "ppt/slideMasters/slideMaster1.xml",
+                    "slide_index": null,
+                    "shape_id": "2",
+                    "relationship_id": null,
+                    "row_index": null,
+                    "column_index": null,
+                    "group_shape_ids": []
+                  },
+                  "geometry": {
+                    "status": "measured",
+                    "coordinate_space": "slide",
+                    "unit": "EMU",
+                    "x": 457200,
+                    "y": 228600,
+                    "cx": 8229600,
+                    "cy": 914400,
+                    "rotation_degrees": 0,
+                    "flip_horizontal": false,
+                    "flip_vertical": false,
+                    "reason": null
+                  }
+                }
+              ]
+            }
+          ],
+          "layouts": [
+            {
+              "source_part": "ppt/slideLayouts/slideLayout1.xml",
+              "name": "标题与内容",
+              "master_part_uri": "ppt/slideMasters/slideMaster1.xml",
+              "source_anchor": {
+                "package_part": "ppt/slideLayouts/slideLayout1.xml",
+                "slide_index": null,
+                "shape_id": null,
+                "relationship_id": null,
+                "row_index": null,
+                "column_index": null,
+                "group_shape_ids": []
+              },
+              "placeholders": [
+                {
+                  "shape_id": "3",
+                  "name": "正文占位符",
+                  "placeholder_type": "body",
+                  "placeholder_index": 1,
+                  "source_anchor": {
+                    "package_part": "ppt/slideLayouts/slideLayout1.xml",
+                    "slide_index": null,
+                    "shape_id": "3",
+                    "relationship_id": null,
+                    "row_index": null,
+                    "column_index": null,
+                    "group_shape_ids": []
+                  },
+                  "geometry": {
+                    "status": "measured",
+                    "coordinate_space": "slide",
+                    "unit": "EMU",
+                    "x": 685800,
+                    "y": 1600200,
+                    "cx": 7772400,
+                    "cy": 3200400,
+                    "rotation_degrees": 0,
+                    "flip_horizontal": false,
+                    "flip_vertical": false,
+                    "reason": null
+                  }
+                }
+              ]
+            }
+          ],
+          "themes": [
+            {
+              "source_part": "ppt/theme/theme1.xml",
+              "name": "主题 1",
+              "source_anchor": {
+                "package_part": "ppt/theme/theme1.xml",
+                "slide_index": null,
+                "shape_id": null,
+                "relationship_id": null,
+                "row_index": null,
+                "column_index": null,
+                "group_shape_ids": []
+              },
+              "color_tokens": [
+                { "slot": "accent1", "value_type": "srgb", "value": "4472C4" }
+              ],
+              "font_tokens": [
+                { "role": "major", "script": "latin", "typeface": "Aptos Display" },
+                { "role": "minor", "script": "latin", "typeface": "Aptos" }
+              ]
+            }
+          ],
+          "slides": [
+            {
+              "slide_id": "slide_c3333333-3333-4333-8333-333333333333",
+              "order_index": 0,
+              "name": "市场概览",
+              "source_anchor": {
+                "package_part": "ppt/slides/slide1.xml",
+                "slide_index": 0,
+                "shape_id": null,
+                "relationship_id": null,
+                "row_index": null,
+                "column_index": null,
+                "group_shape_ids": []
+              },
+              "layout_part_uri": "ppt/slideLayouts/slideLayout1.xml",
+              "elements": [
+                {
+                  "kind": "text_shape",
+                  "shape_id": "2",
+                  "name": "标题 1",
+                  "z_order": 0,
+                  "placeholder_role": "title",
+                  "source_anchor": {
+                    "package_part": "ppt/slides/slide1.xml",
+                    "slide_index": 0,
+                    "shape_id": "2",
+                    "relationship_id": null,
+                    "row_index": null,
+                    "column_index": null,
+                    "group_shape_ids": []
+                  },
+                  "geometry": {
+                    "status": "measured",
+                    "coordinate_space": "slide",
+                    "unit": "EMU",
+                    "x": 457200,
+                    "y": 228600,
+                    "cx": 8229600,
+                    "cy": 914400,
+                    "rotation_degrees": 0,
+                    "flip_horizontal": false,
+                    "flip_vertical": false,
+                    "reason": null
+                  },
+                  "text_paragraphs": [
+                    {
+                      "paragraph_index": 0,
+                      "role": "title",
+                      "level": null,
+                      "runs": [{ "text": "光伏市场概览", "language": "zh-CN", "hyperlink_target": null }]
+                    }
+                  ],
+                  "table_data": null,
+                  "chart_data": null,
+                  "image_data": null,
+                  "child_shape_ids": []
+                },
+                {
+                  "kind": "text_shape",
+                  "shape_id": "3",
+                  "name": "正文 2",
+                  "z_order": 1,
+                  "placeholder_role": "body",
+                  "source_anchor": {
+                    "package_part": "ppt/slides/slide1.xml",
+                    "slide_index": 0,
+                    "shape_id": "3",
+                    "relationship_id": null,
+                    "row_index": null,
+                    "column_index": null,
+                    "group_shape_ids": []
+                  },
+                  "geometry": {
+                    "status": "measured",
+                    "coordinate_space": "slide",
+                    "unit": "EMU",
+                    "x": 685800,
+                    "y": 1600200,
+                    "cx": 7772400,
+                    "cy": 3200400,
+                    "rotation_degrees": 0,
+                    "flip_horizontal": false,
+                    "flip_vertical": false,
+                    "reason": null
+                  },
+                  "text_paragraphs": [
+                    {
+                      "paragraph_index": 0,
+                      "role": "body",
+                      "level": 0,
+                      "runs": [{ "text": "2025 年全球新增装机持续增长。", "language": "zh-CN", "hyperlink_target": null }]
+                    }
+                  ],
+                  "table_data": null,
+                  "chart_data": null,
+                  "image_data": null,
+                  "child_shape_ids": []
+                },
+                {
+                  "kind": "table",
+                  "shape_id": "4",
+                  "name": "装机数据表",
+                  "z_order": 2,
+                  "placeholder_role": "other",
+                  "source_anchor": {
+                    "package_part": "ppt/slides/slide1.xml",
+                    "slide_index": 0,
+                    "shape_id": "4",
+                    "relationship_id": null,
+                    "row_index": null,
+                    "column_index": null,
+                    "group_shape_ids": []
+                  },
+                  "geometry": {
+                    "status": "measured",
+                    "coordinate_space": "slide",
+                    "unit": "EMU",
+                    "x": 900000,
+                    "y": 3000000,
+                    "cx": 3600000,
+                    "cy": 1200000,
+                    "rotation_degrees": 0,
+                    "flip_horizontal": false,
+                    "flip_vertical": false,
+                    "reason": null
+                  },
+                  "text_paragraphs": [],
+                  "table_data": {
+                    "row_count": 2,
+                    "column_count": 2,
+                    "cells": [
+                      { "row_index": 0, "column_index": 0, "source_anchor": { "package_part": "ppt/slides/slide1.xml", "slide_index": 0, "shape_id": "4", "relationship_id": null, "row_index": 0, "column_index": 0, "group_shape_ids": [] }, "grid_span": 1, "row_span": 1, "text_runs": [{ "text": "年份", "language": "zh-CN", "hyperlink_target": null }] },
+                      { "row_index": 0, "column_index": 1, "source_anchor": { "package_part": "ppt/slides/slide1.xml", "slide_index": 0, "shape_id": "4", "relationship_id": null, "row_index": 0, "column_index": 1, "group_shape_ids": [] }, "grid_span": 1, "row_span": 1, "text_runs": [{ "text": "装机量", "language": "zh-CN", "hyperlink_target": null }] },
+                      { "row_index": 1, "column_index": 0, "source_anchor": { "package_part": "ppt/slides/slide1.xml", "slide_index": 0, "shape_id": "4", "relationship_id": null, "row_index": 1, "column_index": 0, "group_shape_ids": [] }, "grid_span": 1, "row_span": 1, "text_runs": [{ "text": "2025", "language": null, "hyperlink_target": null }] },
+                      { "row_index": 1, "column_index": 1, "source_anchor": { "package_part": "ppt/slides/slide1.xml", "slide_index": 0, "shape_id": "4", "relationship_id": null, "row_index": 1, "column_index": 1, "group_shape_ids": [] }, "grid_span": 1, "row_span": 1, "text_runs": [{ "text": "680 GW", "language": null, "hyperlink_target": null }] }
+                    ]
+                  },
+                  "chart_data": null,
+                  "image_data": null,
+                  "child_shape_ids": []
+                },
+                {
+                  "kind": "chart",
+                  "shape_id": "5",
+                  "name": "年度装机趋势",
+                  "z_order": 3,
+                  "placeholder_role": "other",
+                  "source_anchor": {
+                    "package_part": "ppt/slides/slide1.xml",
+                    "slide_index": 0,
+                    "shape_id": "5",
+                    "relationship_id": "rId6",
+                    "row_index": null,
+                    "column_index": null,
+                    "group_shape_ids": []
+                  },
+                  "geometry": {
+                    "status": "measured",
+                    "coordinate_space": "slide",
+                    "unit": "EMU",
+                    "x": 4600000,
+                    "y": 1900000,
+                    "cx": 3500000,
+                    "cy": 2600000,
+                    "rotation_degrees": 0,
+                    "flip_horizontal": false,
+                    "flip_vertical": false,
+                    "reason": null
+                  },
+                  "text_paragraphs": [],
+                  "table_data": null,
+                  "chart_data": {
+                    "chart_type": "line",
+                    "source_part": "ppt/charts/chart1.xml",
+                    "extraction_status": "complete",
+                    "series": [
+                      {
+                        "name": "全球新增装机",
+                        "categories": ["2023", "2024", "2025"],
+                        "values": [450, 560, 680],
+                        "source_range": "[workbook]Sheet1!A1:B4"
+                      }
+                    ],
+                    "embedded_workbook_asset_id": "asset_99999999-9999-4999-8999-999999999999",
+                    "reason": null
+                  },
+                  "image_data": null,
+                  "child_shape_ids": []
+                },
+                {
+                  "kind": "image",
+                  "shape_id": "6",
+                  "name": "世界地图",
+                  "z_order": 4,
+                  "placeholder_role": "other",
+                  "source_anchor": {
+                    "package_part": "ppt/slides/slide1.xml",
+                    "slide_index": 0,
+                    "shape_id": "6",
+                    "relationship_id": "rId7",
+                    "row_index": null,
+                    "column_index": null,
+                    "group_shape_ids": []
+                  },
+                  "geometry": {
+                    "status": "measured",
+                    "coordinate_space": "slide",
+                    "unit": "EMU",
+                    "x": 5200000,
+                    "y": 480000,
+                    "cx": 2600000,
+                    "cy": 1400000,
+                    "rotation_degrees": 0,
+                    "flip_horizontal": false,
+                    "flip_vertical": false,
+                    "reason": null
+                  },
+                  "text_paragraphs": [],
+                  "table_data": null,
+                  "chart_data": null,
+                  "image_data": {
+                    "asset_id": "asset_aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+                    "source_part": "ppt/media/image1.png",
+                    "relationship_id": "rId7",
+                    "mime_type": "image/png",
+                    "alt_text": "世界地图",
+                    "description": null,
+                    "crop": null
+                  },
+                  "child_shape_ids": []
+                }
+              ],
+              "notes": {
+                "status": "present",
+                "source_anchor": {
+                  "package_part": "ppt/notesSlides/notesSlide1.xml",
+                  "slide_index": 0,
+                  "shape_id": null,
+                  "relationship_id": null,
+                  "row_index": null,
+                  "column_index": null,
+                  "group_shape_ids": []
+                },
+                "paragraphs": [
+                  {
+                    "paragraph_index": 0,
+                    "role": "body",
+                    "level": null,
+                    "runs": [{ "text": "口径：年度新增装机。", "language": "zh-CN", "hyperlink_target": null }]
+                  }
+                ],
+                "reason": null
+              }
+            }
+          ],
+          "extracted_assets": [
+            {
+              "asset_id": "asset_aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+              "kind": "image",
+              "source_part": "ppt/media/image1.png",
+              "relationship_id": "rId7",
+              "mime_type": "image/png",
+              "sha256": null
+            },
+            {
+              "asset_id": "asset_99999999-9999-4999-8999-999999999999",
+              "kind": "chart_workbook",
+              "source_part": "ppt/embeddings/Microsoft_Excel_Worksheet1.xlsx",
+              "relationship_id": "rId8",
+              "mime_type": "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+              "sha256": null
+            }
+          ]
+        },
+        "coverage": [
+          { "feature": "slides", "status": "complete", "reason": null },
+          { "feature": "titles_body", "status": "complete", "reason": null },
+          { "feature": "tables", "status": "complete", "reason": null },
+          { "feature": "charts", "status": "complete", "reason": null },
+          { "feature": "images", "status": "complete", "reason": null },
+          { "feature": "notes", "status": "complete", "reason": null },
+          { "feature": "masters_layouts", "status": "complete", "reason": null },
+          { "feature": "themes", "status": "complete", "reason": null },
+          { "feature": "geometry", "status": "complete", "reason": null }
+        ],
+        "errors": []
+      },
+      "verification_note": "合成的正常预期结构；未从真实 PPTX 文件或 Office 实现运行解析。"
+    },
+    {
+      "fixture_id": "IN-006-BOUNDARY-001",
+      "kind": "boundary",
+      "input": {
+        "record_type": "pptx_import_input",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444",
+        "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+        "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+        "source_usage": {
+          "classification": "content",
+          "assigned_by": "caller",
+          "reason": "调用方将输入标记为内容源。"
+        }
+      },
+      "expected_result": {
+        "record_type": "pptx_import_result",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444",
+        "source_asset_id": "asset_f6666666-6666-4666-9666-666666666666",
+        "raw_asset_refs": ["asset_f6666666-6666-4666-9666-666666666666"],
+        "source_usage": {
+          "classification": "content",
+          "assigned_by": "caller",
+          "reason": "调用方将输入标记为内容源。"
+        },
+        "status": "failed",
+        "evidence": null,
+        "coverage": [
+          { "feature": "slides", "status": "failed", "reason": "PPTX ZIP/OOXML 包头或必要关系部件无效。" },
+          { "feature": "titles_body", "status": "failed", "reason": "输入包无法读取。" },
+          { "feature": "tables", "status": "failed", "reason": "输入包无法读取。" },
+          { "feature": "charts", "status": "failed", "reason": "输入包无法读取。" },
+          { "feature": "images", "status": "failed", "reason": "输入包无法读取。" },
+          { "feature": "notes", "status": "failed", "reason": "输入包无法读取。" },
+          { "feature": "masters_layouts", "status": "failed", "reason": "输入包无法读取。" },
+          { "feature": "themes", "status": "failed", "reason": "输入包无法读取。" },
+          { "feature": "geometry", "status": "failed", "reason": "输入包无法读取。" }
+        ],
+        "errors": [
+          {
+            "code": "PPTX_INVALID_PACKAGE",
+            "message": "PPTX 包无法解析：ZIP 或必要的 OOXML 部件缺失或损坏。",
+            "source_anchor": null
+          }
+        ]
+      },
+      "verification_note": "损坏包失败预期；待运行时 parser 验证错误码及资产回传。"
+    }
+  ]
+}

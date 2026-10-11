@@ -1,0 +1,111 @@
+{
+  "ok": true,
+  "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+  "task_id": "task_ec675b35-ef73-41cf-8ea9-b4cc60a20007",
+  "run_id": "ad03ceec-a393-48a3-840e-4e2f52c50613",
+  "operation": "generate",
+  "state": "draft_generated",
+  "artifact_root": "/runtime/runs/ad03ceec-a393-48a3-840e-4e2f52c50613",
+  "pptx": "/runtime/runs/ad03ceec-a393-48a3-840e-4e2f52c50613/deck.pptx",
+  "slide_count": 4,
+  "model": {
+    "provider": "deepseek",
+    "requested_model": "deepseek-flash",
+    "returned_model": "deepseek-flash",
+    "response_id": "2bd741c2-b24a-4be3-b785-f08035f3ea48",
+    "usage": {
+      "prompt_tokens": 22466,
+      "completion_tokens": 1757,
+      "total_tokens": 24223,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      },
+      "prompt_cache_hit_tokens": 0,
+      "prompt_cache_miss_tokens": 22466
+    },
+    "available_models": [
+      "deepseek-flash",
+      "deepseek-v4-pro"
+    ],
+    "parameters": {
+      "model": "deepseek-flash",
+      "response_format": {
+        "type": "json_object"
+      },
+      "thinking": {
+        "type": "disabled"
+      },
+      "temperature": 0.2,
+      "max_tokens": 12000,
+      "stream": false
+    },
+    "request_sha256": "95bfb6a8d629045fc720f687341219d5d9a4c3ee194c9d97981026f41c0101a2",
+    "response_content_sha256": "349e4f86b42073ddac227cfbbf4b28776c01645695e0e4c05691bc6ceb62deac",
+    "duration_seconds": 5.619,
+    "real_model_call": true
+  },
+  "qa": {
+    "status": "partial",
+    "p0_issue_count": 2,
+    "acceptance": {
+      "AC-001": "not_passed",
+      "GOV-008": "not_passed"
+    }
+  },
+  "warnings": [
+    {
+      "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+      "field": "language",
+      "location": "raw_text:145:147",
+      "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+    },
+    {
+      "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+      "field": "language",
+      "location": "raw_text:148:155",
+      "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+    }
+  ],
+  "completion": {
+    "state": "fail",
+    "final_allowed": false,
+    "p0_issue_count": 2,
+    "warning_issue_count": 2,
+    "missing_coverage": [
+      "structure",
+      "editability",
+      "geometry",
+      "fact_numeric",
+      "visual_semantic",
+      "fact_semantic",
+      "accessibility",
+      "global_consistency",
+      "powerpoint_compatibility"
+    ],
+    "missing_nodes": [],
+    "missing_acceptance": [
+      "AC-001",
+      "GOV-008"
+    ],
+    "revision_plan_status": "needs_input",
+    "reasons": [
+      "Unresolved P0 issues block final output"
+    ],
+    "retry": {
+      "count": 0,
+      "maximum": 2,
+      "allowed": false,
+      "next_action": "provide_required_input_or_fail"
+    },
+    "error": {
+      "code": "QUALITY_P0_UNRESOLVED",
+      "issue_ids": [
+        "issue_7bdcb9e4-1d84-486c-9620-ba142f7bbd0e",
+        "issue_e1bb1579-f2d3-417b-8a3c-e69395b7b630"
+      ]
+    },
+    "system_acceptance": "not_passed"
+  },
+  "revision_plan_id": "revision_plan_56a8aa1f-819c-483b-8656-7500f5fea476",
+  "boundary": "All 40 bounded decision stages connected when reached; complete decision, QA, backend and system acceptance unfinished."
+}

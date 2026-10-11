@@ -30,7 +30,8 @@ def render(pptx, deck, root):
                         'pdf:impress_pdf_Export', '--outdir', str(folder), str(pptx)])
     pdf = folder / (Path(pptx).stem + '.pdf')
     if not pdf.is_file() or pdf.stat().st_size == 0:
-        raise TaskError('RENDER_OUTPUT_MISSING', 'LibreOffice未产生PDF。', 'Renderer', ['SYS-014'], status=500)
+        raise TaskError('RENDER_OUTPUT_MISSING', 'LibreOffice未产生PDF。', 'Renderer', ['SYS-014'],
+                        [{'stdout':out[:4000],'stderr':err[:4000],'diagnostic_truncated':len(out)>4000 or len(err)>4000}],status=500)
     process(['pdftoppm', '-png', '-r', '120', str(pdf), str(folder/'slide')])
     process(['pdftotext', '-layout', str(pdf), str(folder/'deck.txt')])
     process(['pdftotext', '-bbox', str(pdf), str(folder/'deck-bbox.xhtml')])

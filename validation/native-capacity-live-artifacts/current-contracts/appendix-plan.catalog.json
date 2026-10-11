@@ -1,0 +1,72 @@
+{
+  "document_type": "appendix_plan_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-014",
+  "task_id": "TASK-CNT-014",
+  "deliverable": "AppendixPlan",
+  "schema": "contracts/appendix-plan.schema.json",
+  "fixtures": "contracts/appendix-plan.fixtures.json",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "PDR para 407：复杂证据/数据/参考资料可进入 appendix，并保留主文到附录的引用关系。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第 69 行、可执行任务第 97 行定义 SourceEvidence + PresentationContext 输入、AppendixPlan 输出及数字/冲突/缺失验收。"
+    },
+    {
+      "url": "contracts/citation-policy.catalog.json",
+      "supports": "appendix mode 使用 appendix entries with content markers，并按 evidence 引用回链 source anchor；模式需显式提供。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "CNT-001-NORMAL-001 数字/引用证据；CNT-001-BOUNDARY-001 的 8%/9%、12% 显式假设和缺失 renewal_date。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "CNT-003-BOUNDARY-001 的 8%/9% 未决冲突与 ERR-008。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "复用 evidence_id、assumption_id、source_id 与 object_id。"
+    }
+  ],
+  "field_rules": [
+    "复杂数据或来源条目可在 appendix entry 中保留原值与来源引用；正文引用 marker 指向 entry，entry 的 main_item_refs 反向指向正文项。局部 key 仅为单份计划中的关联键。",
+    "附录引用模式仅来自显式 PresentationContext.citation_mode；未提供时返回 unresolved，不默认选择 appendix。",
+    "source_reference 至少含 evidence_id，并用 SourceEvidence.source_id 回链；显式假设引用 assumption_id，不伪装成来源。",
+    "未决冲突保留 8%/9%、双方 evidence 与 ERR-008，不选择赢家；missing renewal_date 保留 ERR-009，不生成值。",
+    "AppendixPlan 未列为独立数据对象；本任务不实施页面生成、PPTX 附录排版或真实跳转验收。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-014-APPENDIX-001",
+      "fixture_id": "CNT-014-APPENDIX-001",
+      "purpose": "append_detailed_values_and_references",
+      "acceptance": "显式 appendix mode 下，正文的 [A1]/[A2] 分别链接数据条目与年度报告引用，来源锚点可回链。"
+    },
+    {
+      "case_id": "CNT-014-MODE-UNRESOLVED-001",
+      "fixture_id": "CNT-014-MODE-UNRESOLVED-001",
+      "purpose": "do_not_default_mode",
+      "acceptance": "PresentationContext 未指定模式时不创建附录或默认引用方式。"
+    },
+    {
+      "case_id": "CNT-014-CONFLICT-001",
+      "fixture_id": "CNT-014-CONFLICT-001",
+      "purpose": "preserve_unresolved_conflict",
+      "acceptance": "正文和附录保留 8%/9%、ERR-008 及双向链接，不选 winner。"
+    },
+    {
+      "case_id": "CNT-014-MISSING-001",
+      "fixture_id": "CNT-014-MISSING-001",
+      "purpose": "preserve_missing_and_assumption",
+      "acceptance": "缺失事实和 12% 假设分开回链，missing 继续 ERR-009，不填入日期。"
+    }
+  ],
+  "limits": [
+    "fixtures 是 AppendixPlan 静态预期，不代表内容生成器、附录布局器、PPTX hyperlink 或 backend 已实现。",
+    "未运行 JSON Schema 实例验证器、附录 runtime、DEC-004 或 AC-001–AC-030。"
+  ]
+}

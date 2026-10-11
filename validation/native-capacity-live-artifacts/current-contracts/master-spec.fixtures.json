@@ -1,0 +1,913 @@
+{
+  "requirement_id": "TPL-002",
+  "task_id": "TASK-TPL-002",
+  "schema": "contracts/master-spec.schema.json",
+  "fixtures": [
+    {
+      "fixture_id": "TPL002-P01-CROSSWALK",
+      "kind": "pinned_source_crosswalk",
+      "expected_status": "partial",
+      "master_spec": {
+        "spec_type": "MasterSpec",
+        "spec_id": "master_spec_ppt-master-crosswalk",
+        "requirement_id": "TPL-002",
+        "task_id": "TASK-TPL-002",
+        "source_template_record_id": null,
+        "master_id": "P01-reviewed-master",
+        "source_master_part": null,
+        "status": "partial",
+        "background": {
+          "status": "unknown",
+          "source_part": null,
+          "kind": null,
+          "raw_reference": null,
+          "resolved_color": null,
+          "evidence_refs": [],
+          "reason": "本 crosswalk 未验证可还原的 master 背景。"
+        },
+        "shapes": {
+          "status": "partial",
+          "items": [],
+          "evidence_refs": [
+            "P01_IMPORTER",
+            "P01_PACKAGE_WORKSPACE"
+          ],
+          "reason": "固定源码提供 PPTX 模板导入并枚举/导出 master 与 layout，且生成 inheritance graph；本次只做源码静态核对，没有运行导入器或保留完整 MasterSpec 字段。"
+        },
+        "text_styles": {
+          "status": "partial",
+          "items": [
+            {
+              "role": "title",
+              "levels": [],
+              "source_ref": "p:txStyles/p:titleStyle"
+            },
+            {
+              "role": "body",
+              "levels": [],
+              "source_ref": "p:txStyles/p:bodyStyle"
+            }
+          ],
+          "evidence_refs": [
+            "P01_TEXT_STYLE_READER"
+          ],
+          "reason": "源码读取 master title/body style 的声明字号；没有形成全部运行属性的通用文本样式对象。"
+        },
+        "color_map": {
+          "status": "partial",
+          "items": [],
+          "evidence_refs": [
+            "P01_COLOR_RESOLVER"
+          ],
+          "reason": "固定源码核验 direct p:clrMap 及其 scheme remap；本次未运行上游解析流程，故 fixture 不填充具体模板映射。"
+        },
+        "layout_relationships": {
+          "status": "partial",
+          "items": [],
+          "evidence_refs": [
+            "P01_IMPORTER",
+            "P01_PACKAGE_WORKSPACE"
+          ],
+          "reason": "源码暴露 master/layout roster 和 inheritance graph；本次未实际运行 relation graph 导出。"
+        },
+        "theme_relationship": {
+          "status": "partial",
+          "relationship_id": null,
+          "relationship_type": "theme",
+          "target_ref": null,
+          "target_part": null,
+          "resolution_status": "unknown",
+          "evidence_refs": [
+            "P01_COLOR_RESOLVER"
+          ],
+          "reason": "颜色解析代码同时读取 master clrMap 与 theme color scheme；未保留某个具体包中的关系 id/part。"
+        },
+        "transition": {
+          "master_declaration": {
+            "status": "unknown",
+            "source_part": null,
+            "raw_element": null,
+            "evidence_refs": [
+              "P01_IMPORTER"
+            ],
+            "reason": "静态核对未能确认其直接 XML 读取与逐页有效继承解析。"
+          },
+          "effective_resolution": {
+            "status": "unknown",
+            "target_slide_part": null,
+            "resolved_source_part": null,
+            "inheritance_chain": [],
+            "evidence_refs": [
+              "P01_IMPORTER"
+            ],
+            "reason": "transition：静态核对未能确认其直接 XML 读取与逐页有效继承解析。"
+          }
+        },
+        "timing": {
+          "master_declaration": {
+            "status": "unknown",
+            "source_part": null,
+            "raw_element": null,
+            "evidence_refs": [
+              "P01_IMPORTER"
+            ],
+            "reason": "静态核对未能确认其直接 XML 读取与逐页有效继承解析。"
+          },
+          "effective_resolution": {
+            "status": "unknown",
+            "target_slide_part": null,
+            "resolved_source_part": null,
+            "inheritance_chain": [],
+            "evidence_refs": [
+              "P01_IMPORTER"
+            ],
+            "reason": "timing：静态核对未能确认其直接 XML 读取与逐页有效继承解析。"
+          }
+        },
+        "evidence_refs": [
+          "P01_RESEARCH_BASELINE",
+          "P01_IMPORTER",
+          "P01_COLOR_RESOLVER",
+          "P01_TEXT_STYLE_READER",
+          "P01_PACKAGE_WORKSPACE"
+        ],
+        "limitations": [
+          "只描述 pinned commit 的源码静态 crosswalk；没有执行 importer、渲染或继承图生成。",
+          "不能据此选定 YoloongPPT 语言、运行时或 PPTX 后端。"
+        ]
+      },
+      "verification_note": "只证明固定源码提供部分相关模块/结构，不表示上游完整通过本项目验收。"
+    },
+    {
+      "fixture_id": "TPL002-P03-CROSSWALK",
+      "kind": "pinned_source_crosswalk",
+      "expected_status": "partial",
+      "master_spec": {
+        "spec_type": "MasterSpec",
+        "spec_id": "master_spec_presenton-crosswalk",
+        "requirement_id": "TPL-002",
+        "task_id": "TASK-TPL-002",
+        "source_template_record_id": null,
+        "master_id": "P03-reviewed-master",
+        "source_master_part": null,
+        "status": "partial",
+        "background": {
+          "status": "unknown",
+          "source_part": null,
+          "kind": null,
+          "raw_reference": null,
+          "resolved_color": null,
+          "evidence_refs": [],
+          "reason": "本 crosswalk 未验证可还原的 master 背景。"
+        },
+        "shapes": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": [],
+          "reason": "本 crosswalk 未完整枚举 master shapes。"
+        },
+        "text_styles": {
+          "status": "partial",
+          "items": [
+            {
+              "role": "title",
+              "levels": [],
+              "source_ref": "p:txStyles/p:titleStyle"
+            },
+            {
+              "role": "body",
+              "levels": [],
+              "source_ref": "p:txStyles/p:bodyStyle"
+            },
+            {
+              "role": "other",
+              "levels": [],
+              "source_ref": "p:txStyles/p:otherStyle"
+            }
+          ],
+          "evidence_refs": [
+            "P03_PPTX_FONT_UTILS"
+          ],
+          "reason": "固定源码沿 slide→layout→master 关系读取 txStyles 用于字体发现；Template V2 目标仍是 RawSlideLayout/theme，不是完整原生 MasterSpec。"
+        },
+        "color_map": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": [],
+          "reason": "本 crosswalk 未核验 clrMap 映射。"
+        },
+        "layout_relationships": {
+          "status": "partial",
+          "items": [],
+          "evidence_refs": [
+            "P03_PPTX_FONT_UTILS",
+            "P03_TEMPLATE_V2_GUIDE"
+          ],
+          "reason": "源码针对字体读取沿 slide/layout/master 关系定位 master；模板创建文档输出 raw layouts 和 derived theme，没有证据显示导出完整 master relationship model。"
+        },
+        "theme_relationship": {
+          "status": "unknown",
+          "relationship_id": null,
+          "relationship_type": null,
+          "target_ref": null,
+          "target_part": null,
+          "resolution_status": "unknown",
+          "evidence_refs": [],
+          "reason": "未验证 theme relationship。"
+        },
+        "transition": {
+          "master_declaration": {
+            "status": "unknown",
+            "source_part": null,
+            "raw_element": null,
+            "evidence_refs": [],
+            "reason": "没有逐页有效值证据。"
+          },
+          "effective_resolution": {
+            "status": "unknown",
+            "target_slide_part": null,
+            "resolved_source_part": null,
+            "inheritance_chain": [],
+            "evidence_refs": [],
+            "reason": "transition：没有逐页有效值证据。"
+          }
+        },
+        "timing": {
+          "master_declaration": {
+            "status": "unknown",
+            "source_part": null,
+            "raw_element": null,
+            "evidence_refs": [],
+            "reason": "没有逐页有效值证据。"
+          },
+          "effective_resolution": {
+            "status": "unknown",
+            "target_slide_part": null,
+            "resolved_source_part": null,
+            "inheritance_chain": [],
+            "evidence_refs": [],
+            "reason": "timing：没有逐页有效值证据。"
+          }
+        },
+        "evidence_refs": [
+          "P03_RESEARCH_BASELINE",
+          "P03_TEMPLATE_V2_GUIDE",
+          "P03_PPTX_FONT_UTILS",
+          "P03_LAYOUT_MODEL",
+          "P03_THEME_PROFILE"
+        ],
+        "limitations": [
+          "只描述固定源码中的模板生成与字体发现路径；没有运行 API 或上传 PPTX。",
+          "不把 RawSlideLayouts、字体发现或语义 theme 派生等同于完整 slide master 解析。"
+        ]
+      },
+      "verification_note": "template-v2 layout/theme 生成与 txStyles 字体发现存在，但不能替代完整 master 解析。"
+    },
+    {
+      "fixture_id": "TPL002-P04-CROSSWALK",
+      "kind": "pinned_source_crosswalk",
+      "expected_status": "partial",
+      "master_spec": {
+        "spec_type": "MasterSpec",
+        "spec_id": "master_spec_ai-agent-ppt-crosswalk",
+        "requirement_id": "TPL-002",
+        "task_id": "TASK-TPL-002",
+        "source_template_record_id": null,
+        "master_id": "P04-reviewed-template-path",
+        "source_master_part": null,
+        "status": "partial",
+        "background": {
+          "status": "unknown",
+          "source_part": null,
+          "kind": null,
+          "raw_reference": null,
+          "resolved_color": null,
+          "evidence_refs": [],
+          "reason": "本 crosswalk 未验证可还原的 master 背景。"
+        },
+        "shapes": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": [],
+          "reason": "本 crosswalk 未完整枚举 master shapes。"
+        },
+        "text_styles": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": [
+            "P04_TEMPLATE_MANAGER",
+            "P04_PITCH_TEMPLATE"
+          ],
+          "reason": "固定模板 JSON 的 fonts 字段是生成配置，不是 native p:txStyles 的逐级样式。"
+        },
+        "color_map": {
+          "status": "not_present",
+          "items": [],
+          "evidence_refs": [
+            "P04_TEMPLATE_MANAGER",
+            "P04_PITCH_TEMPLATE"
+          ],
+          "reason": "本次查看的 pitch template.json/TEMPLATE_SCHEMA 使用语义颜色字段，没有 native p:clrMap 字段；这不等于整个上游项目在其他路径都不支持。"
+        },
+        "layout_relationships": {
+          "status": "unknown",
+          "items": [],
+          "evidence_refs": [],
+          "reason": "本 crosswalk 未解析 master-layout relationship targets。"
+        },
+        "theme_relationship": {
+          "status": "unknown",
+          "relationship_id": null,
+          "relationship_type": null,
+          "target_ref": null,
+          "target_part": null,
+          "resolution_status": "unknown",
+          "evidence_refs": [],
+          "reason": "未验证 theme relationship。"
+        },
+        "transition": {
+          "master_declaration": {
+            "status": "unknown",
+            "source_part": null,
+            "raw_element": null,
+            "evidence_refs": [],
+            "reason": "没有逐页有效值证据。"
+          },
+          "effective_resolution": {
+            "status": "unknown",
+            "target_slide_part": null,
+            "resolved_source_part": null,
+            "inheritance_chain": [],
+            "evidence_refs": [],
+            "reason": "transition：没有逐页有效值证据。"
+          }
+        },
+        "timing": {
+          "master_declaration": {
+            "status": "unknown",
+            "source_part": null,
+            "raw_element": null,
+            "evidence_refs": [],
+            "reason": "没有逐页有效值证据。"
+          },
+          "effective_resolution": {
+            "status": "unknown",
+            "target_slide_part": null,
+            "resolved_source_part": null,
+            "inheritance_chain": [],
+            "evidence_refs": [],
+            "reason": "timing：没有逐页有效值证据。"
+          }
+        },
+        "evidence_refs": [
+          "P04_RESEARCH_BASELINE",
+          "P04_TEMPLATE_MANAGER",
+          "P04_CREATE_ENTRY",
+          "P04_PITCH_TEMPLATE"
+        ],
+        "limitations": [
+          "只核对固定 commit 的 TemplateManager 与 CreateCommand 配置路径；未全量断言项目任何路径都不支持 master。",
+          "没有运行 ai-agent-ppt 或检查生成的 PPTX。"
+        ]
+      },
+      "verification_note": "仅对固定 commit 的 reviewed template-config path 做范围有限的 crosswalk。"
+    },
+    {
+      "fixture_id": "TPL002-REAL-PPTX",
+      "kind": "real_pptx_package_inventory",
+      "expected_status": "partial",
+      "master_spec": {
+        "spec_type": "MasterSpec",
+        "spec_id": "master_spec_python-pptx-default-master-1",
+        "requirement_id": "TPL-002",
+        "task_id": "TASK-TPL-002",
+        "source_template_record_id": "template_source_real-pptx-sample",
+        "master_id": "slideMaster1",
+        "source_master_part": "ppt/slideMasters/slideMaster1.xml",
+        "status": "partial",
+        "background": {
+          "status": "partial",
+          "source_part": "ppt/slideMasters/slideMaster1.xml",
+          "kind": "bgRef",
+          "raw_reference": {
+            "element": "p:bg/p:bgRef",
+            "index": 1001,
+            "scheme_color": "bg1",
+            "theme_target_slot": "lt1"
+          },
+          "resolved_color": null,
+          "evidence_refs": [
+            "REAL_PPTX_SAMPLE"
+          ],
+          "reason": "已读出 master 背景引用并经 clrMap 得到 theme slot；未把主题调色板解析成最终 RGB。"
+        },
+        "shapes": {
+          "status": "partial",
+          "items": [
+            {
+              "shape_id": "2",
+              "name": "Title Placeholder 1",
+              "kind": "shape",
+              "placeholder": {
+                "type": "title",
+                "index": null
+              },
+              "geometry": {
+                "unit": "EMU",
+                "x": 457200,
+                "y": 274638,
+                "cx": 8229600,
+                "cy": 1143000,
+                "rotation": null
+              },
+              "text_presence": "present",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#shape-id-2"
+            },
+            {
+              "shape_id": "3",
+              "name": "Text Placeholder 2",
+              "kind": "shape",
+              "placeholder": {
+                "type": "body",
+                "index": "1"
+              },
+              "geometry": {
+                "unit": "EMU",
+                "x": 457200,
+                "y": 1600200,
+                "cx": 8229600,
+                "cy": 4525963,
+                "rotation": null
+              },
+              "text_presence": "present",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#shape-id-3"
+            },
+            {
+              "shape_id": "4",
+              "name": "Date Placeholder 3",
+              "kind": "shape",
+              "placeholder": {
+                "type": "dt",
+                "index": "2"
+              },
+              "geometry": {
+                "unit": "EMU",
+                "x": 457200,
+                "y": 6356350,
+                "cx": 2133600,
+                "cy": 365125,
+                "rotation": null
+              },
+              "text_presence": "present",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#shape-id-4"
+            },
+            {
+              "shape_id": "5",
+              "name": "Footer Placeholder 4",
+              "kind": "shape",
+              "placeholder": {
+                "type": "ftr",
+                "index": "3"
+              },
+              "geometry": {
+                "unit": "EMU",
+                "x": 3124200,
+                "y": 6356350,
+                "cx": 2895600,
+                "cy": 365125,
+                "rotation": null
+              },
+              "text_presence": "empty",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#shape-id-5"
+            },
+            {
+              "shape_id": "6",
+              "name": "Slide Number Placeholder 5",
+              "kind": "shape",
+              "placeholder": {
+                "type": "sldNum",
+                "index": "4"
+              },
+              "geometry": {
+                "unit": "EMU",
+                "x": 6553200,
+                "y": 6356350,
+                "cx": 2133600,
+                "cy": 365125,
+                "rotation": null
+              },
+              "text_presence": "present",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#shape-id-6"
+            }
+          ],
+          "evidence_refs": [
+            "REAL_PPTX_SAMPLE"
+          ],
+          "reason": "ZIP/XML 静态读取到 5 个 p:sp、占位符和 a:xfrm 几何；完整填充/继承样式、其他 shape 子类型处理和应用级解析尚未验证。"
+        },
+        "text_styles": {
+          "status": "partial",
+          "items": [
+            {
+              "role": "title",
+              "levels": [
+                {
+                  "level": 1,
+                  "font_size_hundredth_pt": 4400,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:titleStyle/a:lvl1pPr"
+                }
+              ],
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:titleStyle"
+            },
+            {
+              "role": "body",
+              "levels": [
+                {
+                  "level": 1,
+                  "font_size_hundredth_pt": 3200,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:bodyStyle/a:lvl1pPr"
+                },
+                {
+                  "level": 2,
+                  "font_size_hundredth_pt": 2800,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:bodyStyle/a:lvl2pPr"
+                },
+                {
+                  "level": 3,
+                  "font_size_hundredth_pt": 2400,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:bodyStyle/a:lvl3pPr"
+                },
+                {
+                  "level": 4,
+                  "font_size_hundredth_pt": 2000,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:bodyStyle/a:lvl4pPr"
+                },
+                {
+                  "level": 5,
+                  "font_size_hundredth_pt": 2000,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:bodyStyle/a:lvl5pPr"
+                },
+                {
+                  "level": 6,
+                  "font_size_hundredth_pt": 2000,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:bodyStyle/a:lvl6pPr"
+                },
+                {
+                  "level": 7,
+                  "font_size_hundredth_pt": 2000,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:bodyStyle/a:lvl7pPr"
+                },
+                {
+                  "level": 8,
+                  "font_size_hundredth_pt": 2000,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:bodyStyle/a:lvl8pPr"
+                },
+                {
+                  "level": 9,
+                  "font_size_hundredth_pt": 2000,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:bodyStyle/a:lvl9pPr"
+                }
+              ],
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:bodyStyle"
+            },
+            {
+              "role": "other",
+              "levels": [
+                {
+                  "level": 1,
+                  "font_size_hundredth_pt": 1800,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:otherStyle/a:lvl1pPr"
+                },
+                {
+                  "level": 2,
+                  "font_size_hundredth_pt": 1800,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:otherStyle/a:lvl2pPr"
+                },
+                {
+                  "level": 3,
+                  "font_size_hundredth_pt": 1800,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:otherStyle/a:lvl3pPr"
+                },
+                {
+                  "level": 4,
+                  "font_size_hundredth_pt": 1800,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:otherStyle/a:lvl4pPr"
+                },
+                {
+                  "level": 5,
+                  "font_size_hundredth_pt": 1800,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:otherStyle/a:lvl5pPr"
+                },
+                {
+                  "level": 6,
+                  "font_size_hundredth_pt": 1800,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:otherStyle/a:lvl6pPr"
+                },
+                {
+                  "level": 7,
+                  "font_size_hundredth_pt": 1800,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:otherStyle/a:lvl7pPr"
+                },
+                {
+                  "level": 8,
+                  "font_size_hundredth_pt": 1800,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:otherStyle/a:lvl8pPr"
+                },
+                {
+                  "level": 9,
+                  "font_size_hundredth_pt": 1800,
+                  "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:otherStyle/a:lvl9pPr"
+                }
+              ],
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:txStyles/p:otherStyle"
+            }
+          ],
+          "evidence_refs": [
+            "REAL_PPTX_SAMPLE"
+          ],
+          "reason": "只核对 title/body/other 的声明字号和层级数量；没有完整保留所有段落/运行属性、theme 字体解析或 placeholder 级叠加。"
+        },
+        "color_map": {
+          "status": "complete",
+          "items": [
+            {
+              "source_scheme": "bg1",
+              "target_theme_slot": "lt1",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "tx1",
+              "target_theme_slot": "dk1",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "bg2",
+              "target_theme_slot": "lt2",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "tx2",
+              "target_theme_slot": "dk2",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "accent1",
+              "target_theme_slot": "accent1",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "accent2",
+              "target_theme_slot": "accent2",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "accent3",
+              "target_theme_slot": "accent3",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "accent4",
+              "target_theme_slot": "accent4",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "accent5",
+              "target_theme_slot": "accent5",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "accent6",
+              "target_theme_slot": "accent6",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "hlink",
+              "target_theme_slot": "hlink",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            },
+            {
+              "source_scheme": "folHlink",
+              "target_theme_slot": "folHlink",
+              "source_ref": "ppt/slideMasters/slideMaster1.xml#p:clrMap"
+            }
+          ],
+          "evidence_refs": [
+            "REAL_PPTX_SAMPLE"
+          ],
+          "reason": null
+        },
+        "layout_relationships": {
+          "status": "complete",
+          "items": [
+            {
+              "status": "observed",
+              "relationship_id": "rId1",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout1.xml",
+              "target_part": "ppt/slideLayouts/slideLayout1.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            },
+            {
+              "status": "observed",
+              "relationship_id": "rId2",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout2.xml",
+              "target_part": "ppt/slideLayouts/slideLayout2.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            },
+            {
+              "status": "observed",
+              "relationship_id": "rId3",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout3.xml",
+              "target_part": "ppt/slideLayouts/slideLayout3.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            },
+            {
+              "status": "observed",
+              "relationship_id": "rId4",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout4.xml",
+              "target_part": "ppt/slideLayouts/slideLayout4.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            },
+            {
+              "status": "observed",
+              "relationship_id": "rId5",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout5.xml",
+              "target_part": "ppt/slideLayouts/slideLayout5.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            },
+            {
+              "status": "observed",
+              "relationship_id": "rId6",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout6.xml",
+              "target_part": "ppt/slideLayouts/slideLayout6.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            },
+            {
+              "status": "observed",
+              "relationship_id": "rId7",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout7.xml",
+              "target_part": "ppt/slideLayouts/slideLayout7.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            },
+            {
+              "status": "observed",
+              "relationship_id": "rId8",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout8.xml",
+              "target_part": "ppt/slideLayouts/slideLayout8.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            },
+            {
+              "status": "observed",
+              "relationship_id": "rId9",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout9.xml",
+              "target_part": "ppt/slideLayouts/slideLayout9.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            },
+            {
+              "status": "observed",
+              "relationship_id": "rId10",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout10.xml",
+              "target_part": "ppt/slideLayouts/slideLayout10.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            },
+            {
+              "status": "observed",
+              "relationship_id": "rId11",
+              "relationship_type": "slideLayout",
+              "target_ref": "../slideLayouts/slideLayout11.xml",
+              "target_part": "ppt/slideLayouts/slideLayout11.xml",
+              "resolution_status": "resolved",
+              "evidence_refs": [
+                "REAL_PPTX_SAMPLE"
+              ],
+              "reason": null
+            }
+          ],
+          "evidence_refs": [
+            "REAL_PPTX_SAMPLE"
+          ],
+          "reason": null
+        },
+        "theme_relationship": {
+          "status": "observed",
+          "relationship_id": "rId12",
+          "relationship_type": "theme",
+          "target_ref": "../theme/theme1.xml",
+          "target_part": "ppt/theme/theme1.xml",
+          "resolution_status": "resolved",
+          "evidence_refs": [
+            "REAL_PPTX_SAMPLE"
+          ],
+          "reason": null
+        },
+        "transition": {
+          "master_declaration": {
+            "status": "not_present",
+            "source_part": "ppt/slideMasters/slideMaster1.xml",
+            "raw_element": null,
+            "evidence_refs": [
+              "REAL_PPTX_SAMPLE",
+              "MS_OPENXML_MASTER"
+            ],
+            "reason": "该 master XML 中没有直接 p:transition 子元素。"
+          },
+          "effective_resolution": {
+            "status": "no_target_slide_parts",
+            "target_slide_part": null,
+            "resolved_source_part": null,
+            "inheritance_chain": [],
+            "evidence_refs": [
+              "REAL_PPTX_SAMPLE",
+              "MS_OPENXML_MASTER"
+            ],
+            "reason": "样例包有 0 个 slide XML 部件；无法按目标 slide/layout/master 覆盖链求有效 transition。"
+          }
+        },
+        "timing": {
+          "master_declaration": {
+            "status": "not_present",
+            "source_part": "ppt/slideMasters/slideMaster1.xml",
+            "raw_element": null,
+            "evidence_refs": [
+              "REAL_PPTX_SAMPLE",
+              "MS_OPENXML_MASTER"
+            ],
+            "reason": "该 master XML 中没有直接 p:timing 子元素。"
+          },
+          "effective_resolution": {
+            "status": "no_target_slide_parts",
+            "target_slide_part": null,
+            "resolved_source_part": null,
+            "inheritance_chain": [],
+            "evidence_refs": [
+              "REAL_PPTX_SAMPLE",
+              "MS_OPENXML_MASTER",
+              "MS_OPENXML_ANIMATION"
+            ],
+            "reason": "样例包有 0 个 slide XML 部件；不能从 master 缺少 p:timing 推断具体 slide 的动画时间线为空。"
+          }
+        },
+        "evidence_refs": [
+          "REAL_PPTX_SAMPLE",
+          "MS_OPENXML_MASTER",
+          "MS_OPENXML_ANIMATION"
+        ],
+        "limitations": [
+          "该 specimen 来自 python-pptx 固定上游 commit，仅作为真实 OOXML 包静态样例；不是 YoloongPPT 依赖或技术路线选择。",
+          "未执行 YoloongPPT parser、Office 渲染、PPTX round-trip、标准 JSON Schema validator 或 AC-001–AC-030。",
+          "MasterSpec 当前是任务级草案契约，正式 TemplatePack.masters 字段映射待后续任务与架构确认。"
+        ]
+      },
+      "verification_note": "通过只读 ZIP/XML 盘点直接结构与关系完整性；无 slide parts，因此不伪造逐页继承结果。"
+    }
+  ]
+}

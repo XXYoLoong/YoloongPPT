@@ -12,7 +12,7 @@ from .tasks import validate_task
 DEFAULTS = {'page_count': 10, 'language': 'zh-CN', 'aspect_ratio': '16:9', 'minimum_font_size': 16,
             'template': None, 'brand': None, 'output_formats': ['pptx','pdf','png'], 'audience': None,
             'scenario': None, 'duration': None, 'tone': None, 'citation_policy': 'notes',
-            'asset_policy': {'allow_network':False,'minimum_pixels':[1,1]}}
+            'asset_policy': {'allow_network':False,'minimum_pixels':[1,1]}, 'adaptive_policy': {}}
 ALIASES = {'page_target':'page_count', 'page_budget':'page_count', 'template_ref':'template', 'formats':'output_formats'}
 
 
@@ -34,6 +34,10 @@ def supported(field, value):
     if field == 'output_formats':return isinstance(value,list) and bool(value) and all(isinstance(x,str) and x in {'pptx','pdf','png'} for x in value)
     if field == 'template':return value is None or (isinstance(value,str) and bool(value.strip()))
     if field == 'brand':return value is None
+    if field == 'adaptive_policy':
+        if not isinstance(value,dict) or set(value)-{'table_key_columns'}:return False
+        keys=value.get('table_key_columns',{})
+        return isinstance(keys,dict) and all(isinstance(k,str) and k.isdigit() and isinstance(v,list) and bool(v) and all(type(i) is int and i>=0 for i in v) and len(set(v))==len(v) for k,v in keys.items())
     if field == 'asset_policy':
         return isinstance(value,dict) and not (set(value)-{'allow_network','minimum_pixels'}) and type(value.get('allow_network',False)) is bool and isinstance(value.get('minimum_pixels',[1,1]),list) and len(value.get('minimum_pixels',[1,1]))==2 and all(type(v) is int and v>0 for v in value.get('minimum_pixels',[1,1]))
     if field == 'citation_policy':return value == 'notes'
@@ -76,10 +80,18 @@ def normalize(task, schemas, trace):
     for field,pattern,convert in patterns:
         for m in re.finditer(pattern,text,re.I):
             prefix=text[max(0,m.start()-12):m.start()]
+            if field=='language':
+                quoted=any(q.start()<m.start()<q.end() for q in re.finditer(r'“[^”]*”|「[^」]*」|"[^"]*"',text))
+                explicit=(re.search(r'(?:使用|采用|请用|用|以|写成|输出成|语言(?:为|是|[:：])|\d+\s*页的?)\s*$',prefix)
+                          or re.match(r'\s*(?:演示|幻灯片|报告|PPT\b|presentation\b|slides\b)',text[m.end():],re.I)
+                          or text.strip().lower()==m[0].lower())
+                if quoted or not explicit:
+                    warnings.append({'code':'LANGUAGE_LITERAL_NOT_SELECTED','field':field,'location':f'raw_text:{m.start()}:{m.end()}','reason':'Language mention is quoted content or lacks an explicit presentation-language instruction.'})
+                    continue
             if field=='page_count' and prefix.endswith('第'):continue
             if re.search(r'(?:不要|不必|无需|不得|不)\s*$',prefix):
                 warnings.append({'code':'NEGATED_CONSTRAINT_NOT_SELECTED','field':field,'location':f'raw_text:{m.start()}:{m.end()}'});continue
-            level='soft' if re.search(r'希望|尽量|大约|约|最好|偏好',prefix) else 'hard'
+            level='soft' if re.search(r'希望|尽量|大约|约|最好|偏好|初始预算|目标预算',prefix) else 'hard'
             ref=f'raw_text:{m.start()}:{m.end()}'
             if field=='output_formats' and not re.search(r'仅|只',prefix):
                 _,required=canonical(field,convert(m))

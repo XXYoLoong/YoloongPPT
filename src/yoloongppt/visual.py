@@ -7,9 +7,11 @@ quality and independent semantic review are separate downstream obligations.
 import copy
 import math
 import re
+import hashlib
 
 from .artifacts import entity
-from .asset_resolver import inventory_from_task, resolve
+from .asset_resolver import inventory_from_task, resolve, allowed_path
+from .assets import inspect_image
 from .errors import TaskError, trace_id
 from .facts import approved_text
 from .template_registry import select as select_template
@@ -51,7 +53,7 @@ def prepare(task, sources, context, schemas=None, artifacts=None):
     tokens = {'font': styles.get('font', 'Noto Sans CJK SC'),
               'foreground': styles.get('foreground', '192C32'), 'background': styles.get('background', 'F6F4EE'),
               'accent': styles.get('accent', '147C80'), 'shape_language': 'native_editable',
-              'image_treatment': 'contain_without_crop', 'decoration_density': 'minimal',
+              'image_treatment': 'explicit_contain_or_focal_crop', 'decoration_density': 'minimal',
               'provenance': {'font': 'caller override or declared native renderer font',
                              'colors': 'caller override or explicit product default'},
               'template_tokens': template['record']['design_tokens'] if template['record'] else None}
@@ -74,7 +76,10 @@ def prepare(task, sources, context, schemas=None, artifacts=None):
                                   'source_type': item['source_type'], 'license': item['license'], 'usage_status': item['usage_status'],
                                   'semantic_status': item['semantic_status']} for item in assets['entries']],
               'planner_rules': ['Only listed asset_id is executable; paths are injected by the resolver, never invented by the model.',
-                  'image requires explicit role and alt_text; decorative and information roles are distinct.',
+                  'image or images (1–8, mutually exclusive) requires explicit asset_id, role, alt_text and fit. Each gallery image remains a native object.',
+                  'cover requires explicit focal_point; crop requires explicit crop and focal_point. No subject/face detection is claimed.',
+                  'Nonempty caption requires caption_source_refs selected on this page and exact approved-source text; without evidence omit caption.',
+                  'Gallery images must meet minimum_dpi (at least 96) at actual placed size; no silent replacement, upscaling or removal.',
                   'diagram labels and edge evidence_quote must be literal approved-source text; no invented causal edges.',
                   'A list can remain cards/text without connecting nodes; visual flow requires explicit relation evidence.',
                   'table/chart data remain unchanged; native chart types bar/column/line only in this execution version.'],
@@ -92,6 +97,67 @@ def _texts(sources, refs):
     if any(reference not in evidence for reference in refs):
         _fail('VISUAL_EVIDENCE_UNKNOWN', '视觉对象引用未知事实证据。', ['DEC-022', 'DEC-027'])
     return {reference: approved_text(sources, evidence[reference]) for reference in refs}
+
+
+def _images(slide, packet, sources, refs):
+    """Resolve every explicit image against real bytes, retaining the input inventory."""
+    if 'images' in slide and 'image' in slide:
+        _fail('IMAGE_DECLARATION_CONFLICT', 'image 与 images 不能同时声明。', ['DEC-023', 'AC-012'])
+    gallery = 'images' in slide
+    images = slide.get('images') if gallery else [slide.get('image')]
+    if not isinstance(images, list) or not 1 <= len(images) <= 8:
+        _fail('IMAGE_COUNT_INVALID', '图片页必须声明1–8张图片，未截断。', ['DEC-023', 'AC-012'])
+    selected = []; seen = set(); hashes = {}
+    for image in images:
+        if not isinstance(image, dict) or not isinstance(image.get('asset_id'), str) or not image['asset_id'].strip() or not isinstance(image.get('role'), str) or image['role'] not in {'information', 'decoration', 'logo', 'reference'} or not isinstance(image.get('alt_text'), str) or not image['alt_text'].strip() or image.get('required') is not True:
+            _fail('IMAGE_REQUIREMENT_INVALID', '每张图片须有asset_id、明确角色、alt_text和required=true。', ['DEC-023', 'AST-006'])
+        asset_id = image['asset_id']
+        if asset_id in seen: _fail('IMAGE_ASSET_DUPLICATE', '同页asset_id重复会破坏稳定对象绑定，未合并或忽略。', ['DEC-024', 'AC-012'])
+        seen.add(asset_id)
+        mode = image.get('fit')
+        if not isinstance(mode, str) or mode not in {'contain', 'cover', 'crop'}: _fail('IMAGE_FIT_UNSUPPORTED', '图片fit必须为contain/cover/crop。', ['AST-007'])
+        if mode in {'cover', 'crop'} and 'focal_point' not in image:
+            _fail('IMAGE_FOCAL_POINT_REQUIRED', '裁切必须显式声明焦点，未猜测主体。', ['AST-007'])
+        if mode == 'crop' and 'crop' not in image:
+            _fail('IMAGE_CROP_REQUIRED', 'crop必须显式声明四边裁切比例。', ['AST-007'])
+        minimum = image.get('minimum_dpi', 96)
+        if isinstance(minimum, bool) or not isinstance(minimum, (int, float)) or not math.isfinite(minimum) or minimum < 96:
+            _fail('IMAGE_MINIMUM_DPI_INVALID', '最低DPI须为至少96的有限数。', ['QA-001', 'AC-012'])
+        caption = image.get('caption', '')
+        caption_refs = image.get('caption_source_refs', [])
+        if not isinstance(caption, str) or not isinstance(caption_refs, list) or any(not isinstance(ref, str) for ref in caption_refs) or len(caption_refs) != len(set(caption_refs)) or set(caption_refs) - set(refs):
+            _fail('IMAGE_CAPTION_EVIDENCE_INVALID', '图注引用须为当前页面已选且不重复的事实证据。', ['DEC-024', 'CNT-003'])
+        if caption and (not caption_refs or not any(caption in value for value in _texts(sources, caption_refs).values())):
+            _fail('IMAGE_CAPTION_UNGROUNDED', '非空图注必须逐字来自所引已批准事实，未创造图注事实。', ['DEC-024', 'CNT-003'])
+        if caption and ('fact_boundary' not in sources or sources['fact_boundary'].get('status') != 'ready' or any(ref not in sources.get('approved_texts', {}) for ref in caption_refs)):
+            _fail('IMAGE_CAPTION_FACT_BOUNDARY_REQUIRED', '图注须消费已选事实投影，不能仅凭原文越过事实决策。', ['DEC-004', 'DEC-005', 'DEC-024'])
+        matches = [item for item in packet['resolved_assets']['entries'] if item['asset_id'] == asset_id]
+        if len(matches) != 1: _fail('IMAGE_ASSET_UNKNOWN', '图片没有唯一真实已解析资产。', ['DEC-024', 'SYS-009'])
+        asset = matches[0]
+        for field in ('path', 'width_px', 'height_px', 'sha256'):
+            if field in image and image[field] != asset[field]:
+                _fail('IMAGE_RESOLVED_METADATA_CONFLICT', '已声明的图片解析字段与真实资产不符，未覆盖矛盾。', ['DEC-024', 'SYS-009'], [{'asset_id': asset_id, 'field': field}])
+        image_refs = image.get('source_refs', refs)
+        if not isinstance(image_refs, list) or any(not isinstance(ref, str) for ref in image_refs) or len(image_refs) != len(set(image_refs)) or set(image_refs)-set(refs):
+            _fail('IMAGE_SOURCE_REFS_INVALID', '每张图的事实引用须来自当前页面已选来源且不重复。', ['DEC-024', 'CNT-003'])
+        _texts(sources, image_refs)
+        raw = allowed_path(asset['path']).read_bytes()
+        if raw is None or hashlib.sha256(raw).hexdigest() != asset['sha256']:
+            _fail('IMAGE_ASSET_CHANGED', '图片资产缺失或hash已改变，停止执行。', ['DEC-024', 'AST-006'])
+        actual = inspect_image(raw)
+        if actual['width'] != asset['width_px'] or actual['height'] != asset['height_px']:
+            _fail('IMAGE_DIMENSIONS_CHANGED', '图片实际像素与已解析元数据不符。', ['DEC-024', 'AST-007'])
+        if asset.get('usage_status') != 'authorized':
+            _fail('IMAGE_ASSET_UNAUTHORIZED', '图片缺少已登记的使用授权。', ['DEC-024', 'AST-015'])
+        earlier = hashes.get(asset['sha256'])
+        if earlier is not None and not (earlier.get('deliberate_reuse') and (image.get('deliberate_reuse') or asset.get('deliberate_reuse'))):
+            _fail('IMAGE_BYTES_DUPLICATE_UNCONFIRMED', '选中图片字节重复但没有显式复用声明，未去重或替换。', ['DEC-024', 'AC-012'])
+        hashes[asset['sha256']] = {'deliberate_reuse': image.get('deliberate_reuse') or asset.get('deliberate_reuse')}
+        image.update(path=asset['path'], width_px=asset['width_px'], height_px=asset['height_px'], sha256=asset['sha256'], source_refs=list(image_refs))
+        from .layout_decisions import image_fit
+        image_fit(image, [0, 0, 1, 1])  # Validate policy; this is not the actual placement/DPI gate.
+        selected.append(asset)
+    return images, selected
 
 
 def _diagram(data, sources, slide_refs):
@@ -161,24 +227,26 @@ def _slide_nodes(slide, packet, sources):
                          'kind': kind, 'reason': slide.get('rationale', 'explicit structured model proposal'), 'evidence_refs': refs,
                          'preserved_content': True}
     image = slide.get('image')
-    result['DEC-023'] = {'required': kind == 'image', 'count': 1 if kind == 'image' else 0,
+    declarations = copy.deepcopy(slide.get('images', [image] if image else []))
+    result['DEC-023'] = {'required': kind == 'image', 'count': len(declarations) if kind == 'image' else 0,
                          'role': image.get('role') if isinstance(image, dict) else None,
+                         'roles': [item.get('role') for item in declarations if isinstance(item, dict)],
                          'information_value': 'caller/model declared; independent semantic review pending' if kind == 'image' else 'not requested',
                          'fallback': 'fail on missing material'}
     selected_assets = []
     model_image = copy.deepcopy(image)
     if kind == 'image':
-        if not isinstance(image, dict) or not image.get('asset_id') or image.get('role') not in {'information', 'decoration', 'logo', 'reference'} or not image.get('alt_text'):
-            _fail('IMAGE_REQUIREMENT_INVALID', '图片页缺少asset_id、信息/装饰角色或alt_text。', ['DEC-023', 'AST-006'])
-        if image.get('fit', 'contain') != 'contain':
-            _fail('IMAGE_CROP_POLICY_REQUIRED', '当前默认只完整contain；裁切必须由明确焦点/裁切策略接入。', ['DEC-023', 'AST-007'])
-        matches = [item for item in packet['resolved_assets']['entries'] if item['asset_id'] == image['asset_id']]
-        if len(matches) != 1: _fail('IMAGE_ASSET_UNKNOWN', '模型选中的图片没有唯一真实已解析资产。', ['DEC-024', 'SYS-009'])
-        asset = matches[0]
-        image.update(path=asset['path'], width_px=asset['width_px'], height_px=asset['height_px'], sha256=asset['sha256'], source_refs=refs)
-        selected_assets.append(asset)
+        _, selected_assets = _images(slide, packet, sources, refs)
+    elif declarations:
+        _fail('IMAGE_KIND_CONFLICT', '图片声明必须由image表达实际消费，不能在其他表达下忽略。', ['DEC-022', 'DEC-023'])
     result['DEC-024'] = {'selected_asset_ids': [item['asset_id'] for item in selected_assets],
                          'model_image_declaration': model_image,
+                         'model_image_declarations': declarations,
+                         'selection_inventory': [{'asset_id': item['asset_id'], 'sha256': item['sha256'],
+                             'selected': item['asset_id'] in {entry['asset_id'] for entry in selected_assets},
+                             'score': 1 if item['asset_id'] in {entry['asset_id'] for entry in selected_assets} else 0,
+                             'reason': 'explicit model/caller selection; real bytes and policy verified' if item['asset_id'] in {entry['asset_id'] for entry in selected_assets} else 'not selected on this page; retained without deletion',
+                             'semantic_relevance': 'independent_review_pending'} for item in packet['resolved_assets']['entries']],
                          'sources': [{'asset_id': item['asset_id'], 'source_type': item['source_type'], 'sha256': item['sha256'], 'license': item['license'], 'usage_status': item['usage_status']} for item in selected_assets],
                          'all_materialized': True, 'unused_assets_retained': True, 'fallback': 'fail on unavailable or unauthorized requested asset'}
     table = slide.get('table')

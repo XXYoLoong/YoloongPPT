@@ -1,0 +1,150 @@
+{
+  "calls": [
+    {
+      "call_id": "capability_da208f2a-f5b0-4aae-bf19-26370b258c86",
+      "slide_id": "slide_7d3298b2-d220-43ec-bf15-fe57cbfaca9e",
+      "capability": "create_slide",
+      "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257",
+      "backend": "PP-05",
+      "deps": [],
+      "inputs": {
+        "slide_id": "slide_7d3298b2-d220-43ec-bf15-fe57cbfaca9e",
+        "order": 0
+      },
+      "expected_objects": [],
+      "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2"
+    },
+    {
+      "call_id": "capability_ac8ba4dd-63fb-4bb4-aa9f-f6e4a298face",
+      "slide_id": "slide_7d3298b2-d220-43ec-bf15-fe57cbfaca9e",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_da208f2a-f5b0-4aae-bf19-26370b258c86"
+      ],
+      "inputs": {
+        "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+        "type": "text",
+        "role": "title",
+        "slot_key": "title",
+        "text": [
+          "硬页预算可容纳原文"
+        ],
+        "bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "font_size": 32,
+        "source_refs": [
+          "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+        ],
+        "format": {
+          "color": "192C32",
+          "bold": true,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_b7a4b75b-5a65-4405-a9bf-9f168274d182"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_6f8b9224-8fc8-4334-8cb9-a92fa7e7ada2",
+      "slide_id": "slide_7d3298b2-d220-43ec-bf15-fe57cbfaca9e",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_da208f2a-f5b0-4aae-bf19-26370b258c86"
+      ],
+      "inputs": {
+        "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+        "type": "text",
+        "role": "body",
+        "slot_key": "body",
+        "text": [
+          "完整短正文与数字3.5 kg保留。"
+        ],
+        "bounds": [
+          0.72,
+          2.0,
+          11.85,
+          4.35
+        ],
+        "font_size": 24,
+        "source_refs": [
+          "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+        ],
+        "format": {
+          "color": "192C32",
+          "margin": 0,
+          "paragraph_spacing": 15
+        }
+      },
+      "expected_objects": [
+        "object_be960efb-abaa-429a-a168-5b1a67fe5a2e"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_70f2f915-e825-4393-a781-341deb749afb",
+      "slide_id": "slide_7d3298b2-d220-43ec-bf15-fe57cbfaca9e",
+      "capability": "add_text",
+      "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71",
+      "backend": "PP-05",
+      "deps": [
+        "capability_da208f2a-f5b0-4aae-bf19-26370b258c86"
+      ],
+      "inputs": {
+        "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+        "type": "text",
+        "role": "footer",
+        "slot_key": "footer",
+        "text": [
+          "01 / 01"
+        ],
+        "bounds": [
+          0.7,
+          6.83,
+          11.95,
+          0.38
+        ],
+        "font_size": 16,
+        "source_refs": [],
+        "format": {
+          "color": "147C80",
+          "paragraph_spacing": 0,
+          "margin": 0
+        }
+      },
+      "expected_objects": [
+        "object_927a6679-2345-4bdc-a286-07002701d48d"
+      ],
+      "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360"
+    },
+    {
+      "call_id": "capability_1cf5a18d-a557-4d53-895b-e088431c540e",
+      "slide_id": "slide_7d3298b2-d220-43ec-bf15-fe57cbfaca9e",
+      "capability": "add_notes",
+      "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd",
+      "backend": "PP-05",
+      "deps": [
+        "capability_da208f2a-f5b0-4aae-bf19-26370b258c86"
+      ],
+      "inputs": {
+        "text": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+        ]
+      },
+      "expected_objects": [],
+      "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b"
+    }
+  ],
+  "deps": "each page requires its predecessor; objects require owning page",
+  "backend": "PP-05"
+}

@@ -80,9 +80,9 @@ def dispatch(operation, document, trace, schemas=None, store=None):
         return {'ok':True,'trace_id':trace,'operation':operation,'resolved_assets':resolve(document,schemas=schemas)}
     if operation == 'register_template':
         from .template_registry import register
-        if set(document)-{'path','source','license'} or 'path' not in document:
+        if set(document)-{'path','source','license','policy'} or 'path' not in document:
             raise TaskError('TEMPLATE_REQUEST_INVALID','登记模板需要path，可声明source/license。','TemplateRegistry',['SYS-008'])
-        return {'ok':True,'trace_id':trace,'operation':operation,'template':register(document['path'],source=document.get('source'),license=document.get('license','unknown'),schemas=schemas)}
+        return {'ok':True,'trace_id':trace,'operation':operation,'template':register(document['path'],source=document.get('source'),license=document.get('license','unknown'),policy=document.get('policy'),schemas=schemas)}
     if operation == 'get_template':
         from .template_registry import get
         if set(document)!={'template_id'}:

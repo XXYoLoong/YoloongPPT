@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "事实使用、显式假设、推算、占位与阻断（DEC-005）",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/input"
+    },
+    {
+      "$ref": "#/$defs/output"
+    }
+  ],
+  "$defs": {
+    "input": {
+      "type": "object",
+      "properties": {
+        "trace_id": {
+          "$ref": "object-id.schema.json#/$defs/trace_id"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "$ref": "source-evidence.schema.json"
+          },
+          "minItems": 1
+        },
+        "interpretation": {
+          "$ref": "fact-interpretation.schema.json"
+        },
+        "policy": {
+          "$ref": "evidence-policy.schema.json"
+        },
+        "resolution": {
+          "$ref": "evidence-decision.schema.json#/$defs/output"
+        }
+      },
+      "required": [
+        "trace_id",
+        "evidence",
+        "interpretation",
+        "policy",
+        "resolution"
+      ],
+      "additionalProperties": false
+    },
+    "output": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "enum": [
+            "ready",
+            "needs_clarification"
+          ]
+        },
+        "fact_constraints": {
+          "$ref": "fact-constraint-set.schema.json"
+        },
+        "assumptions": {
+          "$ref": "assumption.schema.json"
+        },
+        "assumption_values": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "fact-constraint-set.schema.json#/$defs/fact_value"
+          }
+        },
+        "actions": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": [
+        "status",
+        "fact_constraints",
+        "assumptions",
+        "assumption_values",
+        "actions",
+        "issues"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

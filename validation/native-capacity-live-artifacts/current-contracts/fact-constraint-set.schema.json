@@ -1,0 +1,790 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FactConstraintSet 契约（CNT-001 草案）",
+  "description": "保留实体、数值、日期、单位、指标、引用及原始表述；将证据、冲突、缺失和显式假设分开记录。",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/fact_constraint_set"
+    }
+  ],
+  "$defs": {
+    "evidence_id": {
+      "$ref": "object-id.schema.json#/$defs/evidence_id"
+    },
+    "source_id": {
+      "$ref": "object-id.schema.json#/$defs/source_id"
+    },
+    "assumption_id": {
+      "$ref": "object-id.schema.json#/$defs/assumption_id"
+    },
+    "fact_value": {
+      "type": "object",
+      "required": [
+        "raw_text",
+        "normalized_text",
+        "numeric_value",
+        "date_value",
+        "date_precision",
+        "unit",
+        "currency",
+        "percentage_base",
+        "period",
+        "qualifier",
+        "citation_uri"
+      ],
+      "properties": {
+        "raw_text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "normalized_text": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "numeric_value": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^-?(?:0|[1-9][0-9]*)(?:\\.[0-9]+)?$"
+        },
+        "date_value": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "date_precision": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "year",
+            "month",
+            "day",
+            "datetime",
+            null
+          ]
+        },
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "currency": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "percentage_base": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "period": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "qualifier": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "citation_uri": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "claim": {
+      "type": "object",
+      "required": [
+        "claim_id",
+        "value",
+        "evidence_refs"
+      ],
+      "properties": {
+        "claim_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "$ref": "#/$defs/fact_value"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": [
+              "evidence_id",
+              "source_id",
+              "source_anchor"
+            ],
+            "properties": {
+              "evidence_id": {
+                "$ref": "object-id.schema.json#/$defs/evidence_id"
+              },
+              "source_id": {
+                "$ref": "object-id.schema.json#/$defs/source_id"
+              },
+              "source_anchor": {
+                "$ref": "source-anchor.schema.json#/$defs/source_anchor"
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "evidence_ref": {
+      "type": "object",
+      "required": [
+        "evidence_id",
+        "source_id",
+        "source_anchor"
+      ],
+      "properties": {
+        "evidence_id": {
+          "$ref": "object-id.schema.json#/$defs/evidence_id"
+        },
+        "source_id": {
+          "$ref": "object-id.schema.json#/$defs/source_id"
+        },
+        "source_anchor": {
+          "$ref": "source-anchor.schema.json#/$defs/source_anchor"
+        }
+      },
+      "additionalProperties": false
+    },
+    "fact_constraint": {
+      "type": "object",
+      "required": [
+        "fact_id",
+        "fact_kind",
+        "status",
+        "claims",
+        "resolution_status",
+        "selected_claim_id",
+        "assumption_ref",
+        "related_fact_ids",
+        "allowed_transformations"
+      ],
+      "properties": {
+        "fact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fact_kind": {
+          "type": "string",
+          "enum": [
+            "person",
+            "organization",
+            "product",
+            "amount",
+            "percentage",
+            "date",
+            "unit",
+            "metric",
+            "quote",
+            "citation"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "supported",
+            "conflicting",
+            "missing",
+            "assumption"
+          ]
+        },
+        "claims": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/claim"
+          }
+        },
+        "resolution_status": {
+          "type": "string",
+          "enum": [
+            "not_applicable",
+            "unresolved",
+            "user_selected"
+          ]
+        },
+        "selected_claim_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "assumption_ref": {
+          "oneOf": [
+            {
+              "$ref": "object-id.schema.json#/$defs/assumption_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "related_fact_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "allowed_transformations": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "supported"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "claims": {
+                "minItems": 1
+              },
+              "resolution_status": {
+                "const": "not_applicable"
+              },
+              "selected_claim_id": {
+                "type": "null"
+              },
+              "assumption_ref": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "conflicting"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "claims": {
+                "minItems": 2
+              },
+              "resolution_status": {
+                "enum": [
+                  "unresolved",
+                  "user_selected"
+                ]
+              },
+              "assumption_ref": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resolution_status": {
+                "const": "unresolved"
+              }
+            },
+            "required": [
+              "resolution_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "selected_claim_id": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "resolution_status": {
+                "const": "user_selected"
+              }
+            },
+            "required": [
+              "resolution_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "selected_claim_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "missing"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "claims": {
+                "maxItems": 0
+              },
+              "resolution_status": {
+                "const": "not_applicable"
+              },
+              "selected_claim_id": {
+                "type": "null"
+              },
+              "assumption_ref": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "assumption"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "claims": {
+                "maxItems": 0
+              },
+              "resolution_status": {
+                "const": "not_applicable"
+              },
+              "selected_claim_id": {
+                "type": "null"
+              },
+              "assumption_ref": {
+                "$ref": "object-id.schema.json#/$defs/assumption_id"
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "entity_constraint": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fact_constraint"
+        },
+        {
+          "properties": {
+            "fact_kind": {
+              "enum": [
+                "person",
+                "organization",
+                "product"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "number_constraint": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fact_constraint"
+        },
+        {
+          "properties": {
+            "fact_kind": {
+              "enum": [
+                "amount",
+                "percentage"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "date_constraint": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fact_constraint"
+        },
+        {
+          "properties": {
+            "fact_kind": {
+              "enum": [
+                "date"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "unit_constraint": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fact_constraint"
+        },
+        {
+          "properties": {
+            "fact_kind": {
+              "enum": [
+                "unit"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "metric_constraint": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fact_constraint"
+        },
+        {
+          "properties": {
+            "fact_kind": {
+              "enum": [
+                "metric"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "quote_constraint": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fact_constraint"
+        },
+        {
+          "properties": {
+            "fact_kind": {
+              "enum": [
+                "quote"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "citation_constraint": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/fact_constraint"
+        },
+        {
+          "properties": {
+            "fact_kind": {
+              "enum": [
+                "citation"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "fact_error": {
+      "type": "object",
+      "required": [
+        "error_id",
+        "reason_code",
+        "fact_id",
+        "source_id",
+        "evidence_id",
+        "message"
+      ],
+      "properties": {
+        "error_id": {
+          "type": "string",
+          "enum": [
+            "ERR-006",
+            "ERR-009"
+          ]
+        },
+        "reason_code": {
+          "type": "string",
+          "enum": [
+            "PARSE_PARTIAL",
+            "MISSING_FACT"
+          ]
+        },
+        "fact_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "source_id": {
+          "oneOf": [
+            {
+              "$ref": "object-id.schema.json#/$defs/source_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidence_id": {
+          "oneOf": [
+            {
+              "$ref": "object-id.schema.json#/$defs/evidence_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "error_id": {
+                "const": "ERR-006"
+              }
+            },
+            "required": [
+              "error_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason_code": {
+                "const": "PARSE_PARTIAL"
+              },
+              "source_id": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "error_id": {
+                "const": "ERR-009"
+              }
+            },
+            "required": [
+              "error_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason_code": {
+                "const": "MISSING_FACT"
+              },
+              "fact_id": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "fact_constraint_set": {
+      "type": "object",
+      "required": [
+        "record_type",
+        "requirement_id",
+        "task_id",
+        "status",
+        "entities",
+        "numbers",
+        "dates",
+        "units",
+        "metrics",
+        "quotes",
+        "citations",
+        "assumption_refs",
+        "forbidden_inference",
+        "errors"
+      ],
+      "properties": {
+        "record_type": {
+          "const": "fact_constraint_set"
+        },
+        "requirement_id": {
+          "const": "CNT-001"
+        },
+        "task_id": {
+          "const": "TASK-CNT-001"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "complete",
+            "partial",
+            "blocked"
+          ]
+        },
+        "entities": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/entity_constraint"
+          }
+        },
+        "numbers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/number_constraint"
+          }
+        },
+        "dates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/date_constraint"
+          }
+        },
+        "units": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/unit_constraint"
+          }
+        },
+        "metrics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/metric_constraint"
+          }
+        },
+        "quotes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/quote_constraint"
+          }
+        },
+        "citations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/citation_constraint"
+          }
+        },
+        "assumption_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          }
+        },
+        "forbidden_inference": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "enum": [
+              "DO_NOT_INVENT_MISSING_FACTS",
+              "DO_NOT_SELECT_UNRESOLVED_CONFLICTS",
+              "DO_NOT_CHANGE_ENTITY_IDENTITY",
+              "DO_NOT_CHANGE_NUMBER_SIGN_OR_PRECISION",
+              "DO_NOT_CHANGE_UNIT_CURRENCY_OR_DENOMINATOR",
+              "DO_NOT_CHANGE_DATE_PRECISION_PERIOD_OR_TIMEZONE",
+              "DO_NOT_DROP_QUALIFIER_OR_SCOPE",
+              "DO_NOT_INVENT_OR_REASSIGN_CITATIONS"
+            ]
+          }
+        },
+        "errors": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/fact_error"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "complete"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "errors": {
+                "maxItems": 0
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "blocked"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "errors": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

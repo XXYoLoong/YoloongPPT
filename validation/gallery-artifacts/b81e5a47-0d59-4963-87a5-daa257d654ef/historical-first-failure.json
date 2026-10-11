@@ -1,0 +1,68 @@
+{
+  "status": "failed",
+  "exec_session_id": 95938,
+  "failure": "AssertionError: every-original-caption-visible-in-render",
+  "observed_pdf_text": "素材示例 A through 素材示例 H",
+  "reason": "Poppler PDF extraction inserted whitespace between Chinese and Latin labels; native PPTX captions remain literal source text",
+  "original_source_hashes": {
+    "src/yoloongppt/visual.py": "bb212a1f366f103dd348fd3994c915086462b75a5ebf2327adb84100647b8903",
+    "src/yoloongppt/gallery_layout.py": "8a48ad6bee0e43189e931446c9c852cf5dfcca815279317c7ecc9b2607a4e039",
+    "contracts/visual-model-fields.schema.json": "79bdde5067f3ffe200658278719a0ce88b0bab19f3e36a68374ce429211599cc",
+    "validation/verify-gallery.py": "07ad885a7bfc7076cca9228b7d3a22a7613b58f2127bb86bc414abef559e8908",
+    "validation/实现八图原生布局与焦点裁切.md": "137451b7295ceb8b8cc20ce7a834b395a7cbee024d83f31933e388c57c675177"
+  },
+  "original_pptx_sha256": "4f4ac980c48ce37db2f5b6910b7ee4dae61c7df4127971b46ae8cbca88c9b2c1",
+  "actual_render_report": {
+    "artifacts": [
+      {
+        "artifact_id": "artifact_5fdc873f-a619-47c6-a1c7-3f616a1665a3",
+        "slide_id": null,
+        "type": "pdf",
+        "path": "render/gallery.pdf",
+        "hash": "0a573fa4cc37fafd08d3d0c9c44b2040a0365f4eb3e801b889f312be526a200f",
+        "renderer": "LibreOffice",
+        "version": "LibreOffice 7.4.7.2 40(Build:2)",
+        "dpi": null
+      },
+      {
+        "artifact_id": "artifact_67a8876a-8fb9-4c7c-a7a1-523be6ed9cca",
+        "slide_id": "slide_533509b1-6722-471e-8308-8483a2391965",
+        "type": "png",
+        "path": "render/slide-1.png",
+        "hash": "3f10e2d8406f913b8780d4439f55922906bc75efda236e5bdeb2561ff2e2d607",
+        "renderer": "LibreOffice + pdftoppm",
+        "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+        "dpi": 120
+      },
+      {
+        "artifact_id": "artifact_e82a3046-8801-49a9-ba1d-50df0106770d",
+        "slide_id": "slide_ae45492b-5c30-4217-b126-4b181c03d4c3",
+        "type": "png",
+        "path": "render/slide-2.png",
+        "hash": "177d1637bbcc047f32a5605a0b448abec0ec67ef461f2e7dbfa8320e68920ac9",
+        "renderer": "LibreOffice + pdftoppm",
+        "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+        "dpi": 120
+      },
+      {
+        "artifact_id": "artifact_ae59cbc3-8343-4562-b752-38bc8b5b623e",
+        "slide_id": "slide_6a0e6680-bf64-45aa-b51e-d114f136fa38",
+        "type": "png",
+        "path": "render/slide-3.png",
+        "hash": "a979c1590f83f8593abcb282195a4947b346d7d324c9653412ea73c47c6e9b1d",
+        "renderer": "LibreOffice + pdftoppm",
+        "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+        "dpi": 120
+      }
+    ],
+    "renderer_version": "LibreOffice 7.4.7.2 40(Build:2)",
+    "poppler_version": "pdftoppm version 22.12.0",
+    "stdout": "convert /runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef/gallery.pptx -> /runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef/render/gallery.pdf using filter : impress_pdf_Export",
+    "stderr": "Warning: failed to launch javaldx - java may not function correctly",
+    "powerpoint_compatibility": "not_tested",
+    "render_text_path": "render/deck.txt",
+    "render_bbox_path": "render/deck-bbox.xhtml"
+  },
+  "model_calls": 0,
+  "render_calls": 1
+}

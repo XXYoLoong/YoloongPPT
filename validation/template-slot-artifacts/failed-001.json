@@ -1,0 +1,19 @@
+{
+  "failed_experiment": 1,
+  "phase": "normal-brand-text / choose",
+  "runtime_root": "/runtime/template-slots-970ab718-45f2-4ed9-9cbd-f6a459dbc5a8",
+  "error": "TEMPLATE_NO_COMPATIBLE_LAYOUT",
+  "rejection": {
+    "reason": "TEMPLATE_FIELD_MISMATCH",
+    "role": "body",
+    "candidate_indices": []
+  },
+  "root_cause": "obj/ctrTitle/etc master placeholder type inheritance missing",
+  "primary_evidence": "python-pptx LayoutPlaceholder._base_placeholder source read in same Docker runtime; OBJECT -> BODY, CENTER_TITLE -> TITLE",
+  "source_sha256": {
+    "src/yoloongppt/templates.py": "66dff27c1ff7f0b8a7d4690991cac526c3cf1ef4ce5913a04f5da0986b648f0d",
+    "src/yoloongppt/template_registry.py": "ea8569a5e13918d7a0545492822b6f13494de78d238a59c5446566ec373dd168",
+    "src/yoloongppt/template_layout_runtime.py": "46d8aa427fa8999bf3abe54388424d6459061a9f7798af61692fc5ce9ab7d6a0",
+    "validation/verify-template-slots.py": "c87e905b4107d3b7c52aabc556f8fd7a1ccd36e37d06bf093013062d8abe7009"
+  }
+}

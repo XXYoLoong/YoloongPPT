@@ -1,0 +1,62 @@
+{
+  "document_type": "tabular_evidence_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-008",
+  "task_id": "TASK-IN-008",
+  "schema": "contracts/tabular-evidence.schema.json",
+  "fixtures": "contracts/tabular-evidence.fixtures.json",
+  "deliverable": "TabularEvidence",
+  "references": [
+    {
+      "url": "https://learn.microsoft.com/en-us/office/open-xml/spreadsheet/working-with-formulas",
+      "supports": "SpreadsheetML stores formula text separately from an optional cached cell value; the cached value reflects the last calculation."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/documentformat.openxml.spreadsheet.workbookproperties.date1904?view=openxml-3.0.1",
+      "supports": "Workbook metadata exposes the date1904 flag, so Excel serial dates must retain the workbook date system."
+    }
+  ],
+  "field_rules": [
+    "XLSX 以 workbook sheet 元数据、table/range region 与逐 cell source_anchor 输出；CSV 保留原始记录/字段位置，不虚构 worksheet 名称或 Excel 单元格地址。",
+    "单元格同时保留 raw_value、normalized_value、number_format、display_value 和 source_anchor。任何类型判断都必须能回到原始 sheet/cell 或 CSV record/field。",
+    "XLSX 日期序列值必须关联 workbook date_system（1900/1904）；日期同时保留源值和可验证的规范化值。CSV 原始文本不因外观类似日期而被静默改写。",
+    "列单位只有在表头或其他可定位元数据明确声明时标记 observed；否则标记 unknown。数值/日期/布尔类型候选要与原始存储类型区分。",
+    "公式保留原公式文本和缓存值状态/缓存显示值；缓存缺失时不得自行计算、使用零或伪装成已核验结果。",
+    "图表候选保留已有 chart 对象或明确的数据范围候选及 series/category/value 来源；candidate 不是图表适用性或视觉质量判断。",
+    "CSV 必须按引号/分隔符规则读取；坏引号、字段错列或编码问题返回稳定结构化错误或 partial coverage，不静默裁剪字段。",
+    "source_asset_id 必须属于 raw_asset_refs，结果按原顺序回传输入资产引用；sheet/range/table/cell 和 chart series 的引用一致性由运行时校验。",
+    "无效 XLSX ZIP/OOXML 或无法解析的 CSV 返回 failed、evidence=null 和稳定错误码；可读取但有缺失缓存/不支持字段时返回 partial 并逐项说明。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "IN-008-XLSX-NORMAL-001",
+      "fixture_id": "IN-008-XLSX-NORMAL-001",
+      "purpose": "验证 XLSX sheet/table、日期系统、单位表头、公式缓存值、单元格来源和图表候选。",
+      "acceptance": "sheet/table/cell anchors、原始值/显示值、公式文本/缓存状态、date system 与 chart series 均保留且可追溯。"
+    },
+    {
+      "case_id": "IN-008-CSV-NORMAL-001",
+      "fixture_id": "IN-008-CSV-NORMAL-001",
+      "purpose": "验证 CSV 表头、原始记录/字段位置、单位声明及原始字符串保留。",
+      "acceptance": "不制造 worksheet/cell 地址；保留 CSV record/field anchors，未有证据的类型和单位保持 unknown/candidate。"
+    },
+    {
+      "case_id": "IN-008-BOUNDARY-XLSX-001",
+      "fixture_id": "IN-008-BOUNDARY-XLSX-001",
+      "purpose": "验证损坏 ZIP/OOXML 工作簿。",
+      "acceptance": "结果 failed、evidence=null、errors 含 XLSX_INVALID_PACKAGE，并原样返回输入 Asset ID。"
+    },
+    {
+      "case_id": "IN-008-BOUNDARY-CSV-001",
+      "fixture_id": "IN-008-BOUNDARY-CSV-001",
+      "purpose": "验证包含未闭合引号的 CSV。",
+      "acceptance": "结果 failed、evidence=null、errors 含 CSV_MALFORMED，并原样返回输入 Asset ID。"
+    }
+  ],
+  "limits": [
+    "契约/fixtures 是语言与运行时无关草案；XLSX/CSV 库、依赖版本、许可和日期/公式渲染实现尚未选定。",
+    "所有 fixture 都是合成预期结构；未运行真实 XLSX/CSV parser、公式计算引擎、PowerPoint 图表生成或 Excel 渲染。",
+    "TabularEvidence 是 TASK-IN-008 的输出名，但“数据对象”表未单列同名对象；本任务直接关联既有 Requirement/Task，不增加对象行。",
+    "Excel 数字格式、区域设置、时区、外部链接、Power Query/数据模型、动态数组与多级合并等行为需真实文件验证；契约不宣称已完成这些能力。"
+  ]
+}

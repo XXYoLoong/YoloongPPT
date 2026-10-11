@@ -1,0 +1,32 @@
+{
+  "type": "TaskError",
+  "error": "('ADAPTIVE_MARKER_CAPACITY', '完整片段与必须可见标记不能共同容纳；未隐藏标记。', 'AdaptiveContent', ['DEC-014', 'DEC-015', 'DEC-018', 'DEC-020', 'TPL-007', 'TPL-012', 'AC-014', 'AC-015'], [{'page': 0}])",
+  "structured": {
+    "ok": false,
+    "trace_id": "trace_4a244725-0fe6-4149-83aa-21d0ded2a283",
+    "error": {
+      "code": "ADAPTIVE_MARKER_CAPACITY",
+      "message": "完整片段与必须可见标记不能共同容纳；未隐藏标记。",
+      "component": "AdaptiveContent",
+      "requirement_ids": [
+        "DEC-014",
+        "DEC-015",
+        "DEC-018",
+        "DEC-020",
+        "TPL-007",
+        "TPL-012",
+        "AC-014",
+        "AC-015"
+      ],
+      "details": [
+        {
+          "page": 0
+        }
+      ],
+      "retryable": false
+    }
+  },
+  "traceback": "Traceback (most recent call last):\n  File \"/workspace/validation/verify-adaptive-content.py\", line 161, in <module>\n    body = run('normal-complete-body',[body_slide])\n  File \"/workspace/validation/verify-adaptive-content.py\", line 103, in run\n    final, narrative = finalize(proposal, packet, sources, schemas)\n                       ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/src/yoloongppt/narrative.py\", line 273, in finalize\n    proposal, adaptation = adapt(proposal, policy, templates, schemas, artifacts)\n                           ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/src/yoloongppt/adaptive_content.py\", line 199, in adapt\n    groups = _body_pages(slide, body_geometry, reserved, index)\n  File \"/workspace/src/yoloongppt/adaptive_content.py\", line 116, in _body_pages\n    _fail('ADAPTIVE_MARKER_CAPACITY', '完整片段与必须可见标记不能共同容纳；未隐藏标记。', [{'page': original_index}])\n    ~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/src/yoloongppt/adaptive_content.py\", line 15, in _fail\n    raise TaskError(code, message, 'AdaptiveContent', IDS, details or [])\nyoloongppt.errors.TaskError: ('ADAPTIVE_MARKER_CAPACITY', '完整片段与必须可见标记不能共同容纳；未隐藏标记。', 'AdaptiveContent', ['DEC-014', 'DEC-015', 'DEC-018', 'DEC-020', 'TPL-007', 'TPL-012', 'AC-014', 'AC-015'], [{'page': 0}])\n",
+  "completed_checks": 2,
+  "cases": []
+}

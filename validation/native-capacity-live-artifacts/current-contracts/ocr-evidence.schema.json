@@ -1,0 +1,179 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "OcrEvidence 契约（IN-005 草案）",
+  "description": "检测扫描型 PDF 的无文本页并保存 OCR/视觉解析结果、页码、置信度和结构化错误。置信度是处理器给出的识别信号，不证明事实正确；本契约不选择 OCR 引擎，也不表示运行时已实现。",
+  "oneOf": [
+    { "$ref": "#/$defs/ocr_parse_input" },
+    { "$ref": "#/$defs/ocr_parse_result" }
+  ],
+  "$defs": {
+    "ocr_parse_input": {
+      "type": "object",
+      "required": ["record_type", "source_asset_id", "raw_asset_refs"],
+      "properties": {
+        "record_type": { "const": "ocr_parse_input" },
+        "source_asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+        "raw_asset_refs": {
+          "type": "array",
+          "items": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+          "description": "按原序保留用户输入的 PDF 与附件引用。"
+        }
+      },
+      "additionalProperties": false
+    },
+    "processor": {
+      "type": "object",
+      "required": ["status", "execution_status", "engine_name", "engine_version", "model_name", "license_status", "license_identifiers", "license_reason", "reason"],
+      "properties": {
+        "status": { "enum": ["observed", "not_selected", "unknown", "fixture_only"] },
+        "execution_status": { "enum": ["executed", "not_executed"] },
+        "engine_name": { "type": ["string", "null"] },
+        "engine_version": { "type": ["string", "null"] },
+        "model_name": { "type": ["string", "null"] },
+        "license_status": { "enum": ["known", "unknown", "not_applicable"] },
+        "license_identifiers": { "type": "array", "items": { "type": "string", "minLength": 1 } },
+        "license_reason": { "type": ["string", "null"] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "observed" } }, "required": ["status"] },
+          "then": { "properties": { "execution_status": { "const": "executed" }, "engine_name": { "type": "string", "minLength": 1 }, "engine_version": { "type": "string", "minLength": 1 }, "reason": { "const": null } }}
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["not_selected", "unknown", "fixture_only"] } }, "required": ["status"] },
+          "then": { "properties": { "execution_status": { "const": "not_executed" }, "engine_name": { "const": null }, "engine_version": { "const": null }, "model_name": { "const": null }, "license_status": { "const": "unknown" }, "license_identifiers": { "maxItems": 0 }, "license_reason": { "type": "string", "minLength": 1 }, "reason": { "type": "string", "minLength": 1 } }}
+        },
+        {
+          "if": { "properties": { "license_status": { "const": "known" } }, "required": ["license_status"] },
+          "then": { "properties": { "license_identifiers": { "minItems": 1 }, "license_reason": { "const": null } }}
+        },
+        {
+          "if": { "properties": { "license_status": { "enum": ["unknown", "not_applicable"] } }, "required": ["license_status"] },
+          "then": { "properties": { "license_identifiers": { "maxItems": 0 }, "license_reason": { "type": "string", "minLength": 1 } }}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "confidence": {
+      "type": "object",
+      "required": ["status", "score", "scale", "assessment", "assessment_basis"],
+      "properties": {
+        "status": { "enum": ["measured", "unavailable"] },
+        "score": { "type": ["number", "null"], "minimum": 0 },
+        "scale": { "enum": ["zero_to_one", "zero_to_100", "provider_defined", "unknown"] },
+        "assessment": { "enum": ["low", "not_low", "not_assessed"] },
+        "assessment_basis": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "measured" } }, "required": ["status"] },
+          "then": { "properties": { "score": { "type": "number" }, "assessment": { "enum": ["low", "not_low", "not_assessed"] } }}
+        },
+        {
+          "if": { "properties": { "status": { "const": "unavailable" } }, "required": ["status"] },
+          "then": { "properties": { "score": { "const": null }, "scale": { "const": "unknown" }, "assessment": { "const": "not_assessed" }, "assessment_basis": { "type": "string", "minLength": 1 } }}
+        },
+        {
+          "if": { "properties": { "scale": { "const": "zero_to_one" } }, "required": ["scale"] },
+          "then": { "properties": { "score": { "type": ["number", "null"], "minimum": 0, "maximum": 1 } }}
+        },
+        {
+          "if": { "properties": { "scale": { "const": "zero_to_100" } }, "required": ["scale"] },
+          "then": { "properties": { "score": { "type": ["number", "null"], "minimum": 0, "maximum": 100 } }}
+        },
+        {
+          "if": { "properties": { "assessment": { "enum": ["low", "not_low"] } }, "required": ["assessment"] },
+          "then": { "properties": { "assessment_basis": { "type": "string", "minLength": 1 } }}
+        },
+        {
+          "if": { "properties": { "assessment": { "const": "not_assessed" } }, "required": ["assessment"] },
+          "then": { "properties": { "assessment_basis": { "type": ["string", "null"] } }}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "text_block": {
+      "type": "object",
+      "required": ["block_index", "text", "confidence", "bbox", "source_anchor"],
+      "properties": {
+        "block_index": { "type": "integer", "minimum": 0 },
+        "text": { "type": "string" },
+        "confidence": { "$ref": "#/$defs/confidence" },
+        "bbox": { "oneOf": [{ "$ref": "pdf-evidence.schema.json#/$defs/bounding_box" }, { "type": "null" }] },
+        "source_anchor": { "$ref": "pdf-evidence.schema.json#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "page": {
+      "type": "object",
+      "required": ["page_index", "page_number", "coordinate_frame", "text_layer_status", "route", "ocr_status", "visual_status", "text_blocks"],
+      "properties": {
+        "page_index": { "type": "integer", "minimum": 0 },
+        "page_number": { "type": "integer", "minimum": 1 },
+        "coordinate_frame": { "$ref": "pdf-evidence.schema.json#/$defs/coordinate_frame" },
+        "text_layer_status": { "enum": ["present", "absent", "partial", "unknown"] },
+        "route": { "enum": ["native_text", "ocr_visual", "visual_only", "unresolved"] },
+        "ocr_status": { "enum": ["not_required", "not_run", "pending", "completed", "partial", "failed"] },
+        "visual_status": { "enum": ["not_required", "not_run", "pending", "completed", "partial", "failed"] },
+        "text_blocks": { "type": "array", "items": { "$ref": "#/$defs/text_block" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "text_layer_status": { "const": "absent" } }, "required": ["text_layer_status"] },
+          "then": { "properties": { "route": { "const": "ocr_visual" }, "ocr_status": { "enum": ["pending", "completed", "partial", "failed"] } }}
+        },
+        {
+          "if": { "properties": { "text_layer_status": { "const": "present" } }, "required": ["text_layer_status"] },
+          "then": { "properties": { "route": { "const": "native_text" }, "ocr_status": { "enum": ["not_required", "not_run"] } }}
+        }
+      ],
+      "additionalProperties": false
+    },
+    "ocr_evidence": {
+      "type": "object",
+      "required": ["model_type", "source_asset_id", "pages"],
+      "properties": {
+        "model_type": { "const": "OcrEvidence" },
+        "source_asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+        "pages": { "type": "array", "items": { "$ref": "#/$defs/page" } }
+      },
+      "additionalProperties": false
+    },
+    "parse_error": {
+      "type": "object",
+      "required": ["error_id", "reason_code", "message", "source_anchor"],
+      "properties": {
+        "error_id": { "enum": ["ERR-004", "ERR-006", "ERR-007"] },
+        "reason_code": { "enum": ["INPUT_CORRUPT", "PARSE_PARTIAL", "OCR_LOW_CONFIDENCE"] },
+        "message": { "type": "string", "minLength": 1 },
+        "source_anchor": { "oneOf": [{ "$ref": "pdf-evidence.schema.json#/$defs/source_anchor" }, { "type": "null" }] }
+      },
+      "allOf": [
+        { "if": { "properties": { "error_id": { "const": "ERR-004" } }, "required": ["error_id"] }, "then": { "properties": { "reason_code": { "const": "INPUT_CORRUPT" } } } },
+        { "if": { "properties": { "error_id": { "const": "ERR-006" } }, "required": ["error_id"] }, "then": { "properties": { "reason_code": { "const": "PARSE_PARTIAL" } } } },
+        { "if": { "properties": { "error_id": { "const": "ERR-007" } }, "required": ["error_id"] }, "then": { "properties": { "reason_code": { "const": "OCR_LOW_CONFIDENCE" } } }}
+      ],
+      "additionalProperties": false
+    },
+    "ocr_parse_result": {
+      "type": "object",
+      "required": ["record_type", "source_asset_id", "raw_asset_refs", "processor", "status", "evidence", "errors"],
+      "properties": {
+        "record_type": { "const": "ocr_parse_result" },
+        "source_asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "items": { "$ref": "object-id.schema.json#/$defs/asset_id" }, "description": "按序回传对应输入的原始资产引用；相等性由运行时校验。" },
+        "processor": { "$ref": "#/$defs/processor" },
+        "status": { "enum": ["parsed", "partial", "failed"] },
+        "evidence": { "oneOf": [{ "$ref": "#/$defs/ocr_evidence" }, { "type": "null" }] },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/parse_error" } }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "const": "parsed" } }, "required": ["status"] }, "then": { "properties": { "evidence": { "$ref": "#/$defs/ocr_evidence" }, "errors": { "maxItems": 0 } } } },
+        { "if": { "properties": { "status": { "const": "partial" } }, "required": ["status"] }, "then": { "properties": { "evidence": { "$ref": "#/$defs/ocr_evidence" }, "errors": { "minItems": 1 } } } },
+        { "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] }, "then": { "properties": { "evidence": { "type": "null" }, "errors": { "minItems": 1 } } }}
+      ],
+      "additionalProperties": false
+    }
+  }
+}

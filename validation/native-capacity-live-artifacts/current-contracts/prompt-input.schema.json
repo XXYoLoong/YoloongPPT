@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Prompt Input Contracts（IN-001 草案）",
+  "description": "RawTaskRequest 与自然语言规范化结果的语言/运行时无关契约。规范化只提取主题、要求、修改指令和上下文，不执行 TaskRoute 或 DEC 业务判断。",
+  "oneOf": [
+    { "$ref": "#/$defs/raw_task_request" },
+    { "$ref": "#/$defs/prompt_normalization_result" }
+  ],
+  "$defs": {
+    "raw_task_request": {
+      "type": "object",
+      "required": ["raw_text", "attachments", "requested_mode", "requested_outputs"],
+      "properties": {
+        "raw_text": { "type": "string", "description": "调用方原文；接收时逐字保存，不在解析过程中原位改写、裁剪或纠错。" },
+        "attachments": {
+          "type": "array",
+          "description": "调用方提供的原始素材身份引用；IN-001 只保留引用，不代替各输入格式解析任务。",
+          "items": { "$ref": "object-id.schema.json#/$defs/asset_id" }
+        },
+        "requested_mode": {
+          "type": ["string", "null"],
+          "description": "调用方显式提供的模式提示；保留原值，不在解析层推导或裁定最终 route。"
+        },
+        "requested_outputs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "description": "调用方显式请求的输出标识；不从文本解析结果静默补造。"
+        }
+      },
+      "additionalProperties": false
+    },
+    "source_location": {
+      "type": "object",
+      "required": ["source_ref", "start_offset", "end_offset", "offset_unit"],
+      "properties": {
+        "source_ref": { "const": "raw_text" },
+        "start_offset": { "type": "integer", "minimum": 0 },
+        "end_offset": { "type": "integer", "minimum": 0 },
+        "offset_unit": { "const": "unicode_code_point" }
+      },
+      "additionalProperties": false
+    },
+    "normalized_text": {
+      "type": "object",
+      "required": ["text", "source_locations"],
+      "properties": {
+        "text": { "type": "string", "minLength": 1 },
+        "source_locations": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/source_location" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "normalized_instruction": {
+      "type": "object",
+      "required": ["topic", "requirements", "modification_instructions", "context"],
+      "properties": {
+        "topic": {
+          "oneOf": [
+            { "$ref": "#/$defs/normalized_text" },
+            { "type": "null" }
+          ]
+        },
+        "requirements": { "type": "array", "items": { "$ref": "#/$defs/normalized_text" } },
+        "modification_instructions": { "type": "array", "items": { "$ref": "#/$defs/normalized_text" } },
+        "context": { "type": "array", "items": { "$ref": "#/$defs/normalized_text" } }
+      },
+      "additionalProperties": false
+    },
+    "parse_error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "message": { "type": "string", "minLength": 1 },
+        "source_location": { "$ref": "#/$defs/source_location" }
+      },
+      "additionalProperties": false
+    },
+    "prompt_normalization_result": {
+      "type": "object",
+      "required": ["raw_text", "raw_asset_refs", "status", "normalized_instruction", "errors"],
+      "properties": {
+        "raw_text": { "type": "string", "description": "必须与对应 RawTaskRequest.raw_text 完全相同。" },
+        "raw_asset_refs": {
+          "type": "array",
+          "description": "必须原序、原样回传 RawTaskRequest.attachments；引用一致性由运行时语义校验。",
+          "items": { "$ref": "object-id.schema.json#/$defs/asset_id" }
+        },
+        "status": { "type": "string", "enum": ["parsed", "failed"] },
+        "normalized_instruction": {
+          "oneOf": [
+            { "$ref": "#/$defs/normalized_instruction" },
+            { "type": "null" }
+          ]
+        },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/parse_error" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "parsed" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "normalized_instruction": { "$ref": "#/$defs/normalized_instruction" },
+              "errors": { "maxItems": 0 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "normalized_instruction": { "type": "null" },
+              "errors": { "minItems": 1 }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

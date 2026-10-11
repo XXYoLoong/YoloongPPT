@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DocxEvidence 契约（IN-003 草案）",
+  "description": "保留 DOCX 的段落/标题、表格、图片、题注、超链接和可追溯位置；文档结构解析与内容判断分离。",
+  "oneOf": [
+    { "$ref": "#/$defs/docx_parse_input" },
+    { "$ref": "#/$defs/docx_parse_result" }
+  ],
+  "$defs": {
+    "source_anchor": {
+      "type": "object",
+      "required": ["story", "paragraph_index", "table_index", "row_index", "cell_index"],
+      "properties": {
+        "story": { "type": "string", "enum": ["body", "header", "footer", "footnote", "endnote"] },
+        "paragraph_index": { "type": ["integer", "null"], "minimum": 0 },
+        "table_index": { "type": ["integer", "null"], "minimum": 0 },
+        "row_index": { "type": ["integer", "null"], "minimum": 0 },
+        "cell_index": { "type": ["integer", "null"], "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "page_location": {
+      "type": "object",
+      "required": ["status", "page_numbers", "renderer_ref", "reason"],
+      "properties": {
+        "status": { "type": "string", "enum": ["measured", "pending", "unsupported"] },
+        "page_numbers": { "type": "array", "items": { "type": "integer", "minimum": 1 } },
+        "renderer_ref": { "type": ["string", "null"] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "measured" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "page_numbers": { "minItems": 1 },
+              "renderer_ref": { "type": "string", "minLength": 1 },
+              "reason": { "type": "null" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "enum": ["pending", "unsupported"] } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "page_numbers": { "maxItems": 0 },
+              "renderer_ref": { "type": "null" },
+              "reason": { "type": "string", "minLength": 1 }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "inline_node": {
+      "oneOf": [
+        { "$ref": "#/$defs/text_run" },
+        { "$ref": "#/$defs/hyperlink_run" },
+        { "$ref": "#/$defs/image_run" }
+      ]
+    },
+    "text_run": {
+      "type": "object",
+      "required": ["kind", "text"],
+      "properties": {
+        "kind": { "const": "text" },
+        "text": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "hyperlink_run": {
+      "type": "object",
+      "required": ["kind", "display_text", "target", "target_kind"],
+      "properties": {
+        "kind": { "const": "hyperlink" },
+        "display_text": { "type": "string" },
+        "target": { "type": ["string", "null"] },
+        "target_kind": { "type": "string", "enum": ["external", "internal_anchor", "unresolved"] }
+      },
+      "additionalProperties": false
+    },
+    "image_run": {
+      "type": "object",
+      "required": ["kind", "image_index", "media_ref", "alt_text", "description"],
+      "properties": {
+        "kind": { "const": "image" },
+        "image_index": { "type": "integer", "minimum": 0 },
+        "media_ref": { "type": "string", "minLength": 1 },
+        "alt_text": { "type": ["string", "null"] },
+        "description": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "paragraph_block": {
+      "type": "object",
+      "required": ["kind", "block_index", "source_anchor", "role", "style_name", "heading_level", "caption_for_image_index", "runs", "page_location"],
+      "properties": {
+        "kind": { "const": "paragraph" },
+        "block_index": { "type": "integer", "minimum": 0 },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "role": { "type": "string", "enum": ["paragraph", "heading", "caption"] },
+        "style_name": { "type": ["string", "null"] },
+        "heading_level": { "type": ["integer", "null"], "minimum": 1, "maximum": 9 },
+        "caption_for_image_index": { "type": ["integer", "null"], "minimum": 0 },
+        "runs": { "type": "array", "items": { "$ref": "#/$defs/inline_node" } },
+        "page_location": { "$ref": "#/$defs/page_location" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "role": { "const": "heading" } }, "required": ["role"] },
+          "then": { "properties": { "heading_level": { "type": "integer", "minimum": 1, "maximum": 9 } } }
+        },
+        {
+          "if": { "properties": { "role": { "enum": ["paragraph", "caption"] } }, "required": ["role"] },
+          "then": { "properties": { "heading_level": { "type": "null" } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "table_cell": {
+      "type": "object",
+      "required": ["cell_index", "paragraphs"],
+      "properties": {
+        "cell_index": { "type": "integer", "minimum": 0 },
+        "paragraphs": { "type": "array", "items": { "$ref": "#/$defs/paragraph_block" } }
+      },
+      "additionalProperties": false
+    },
+    "table_block": {
+      "type": "object",
+      "required": ["kind", "block_index", "source_anchor", "table_index", "rows", "page_location"],
+      "properties": {
+        "kind": { "const": "table" },
+        "block_index": { "type": "integer", "minimum": 0 },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "table_index": { "type": "integer", "minimum": 0 },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/table_cell" }
+          }
+        },
+        "page_location": { "$ref": "#/$defs/page_location" }
+      },
+      "additionalProperties": false
+    },
+    "docx_block": {
+      "oneOf": [
+        { "$ref": "#/$defs/paragraph_block" },
+        { "$ref": "#/$defs/table_block" }
+      ]
+    },
+    "docx_evidence": {
+      "type": "object",
+      "required": ["model_type", "source_asset_id", "blocks"],
+      "properties": {
+        "model_type": { "const": "DocxEvidence" },
+        "source_asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+        "blocks": { "type": "array", "items": { "$ref": "#/$defs/docx_block" } }
+      },
+      "additionalProperties": false
+    },
+    "parse_error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "message": { "type": "string", "minLength": 1 },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "docx_parse_input": {
+      "type": "object",
+      "required": ["record_type", "source_asset_id", "raw_asset_refs"],
+      "properties": {
+        "record_type": { "const": "docx_parse_input" },
+        "source_asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+        "raw_asset_refs": {
+          "type": "array",
+          "items": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+          "description": "按原序保留调用方附件引用；source_asset_id 成员一致性由运行时校验。"
+        }
+      },
+      "additionalProperties": false
+    },
+    "docx_parse_result": {
+      "type": "object",
+      "required": ["record_type", "source_asset_id", "raw_asset_refs", "status", "evidence", "errors"],
+      "properties": {
+        "record_type": { "const": "docx_parse_result" },
+        "source_asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+        "raw_asset_refs": {
+          "type": "array",
+          "items": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+          "description": "必须与对应输入逐项、按序相同。"
+        },
+        "status": { "type": "string", "enum": ["parsed", "failed"] },
+        "evidence": {
+          "oneOf": [
+            { "$ref": "#/$defs/docx_evidence" },
+            { "type": "null" }
+          ]
+        },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/parse_error" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "parsed" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "evidence": { "$ref": "#/$defs/docx_evidence" },
+              "errors": { "maxItems": 0 }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] },
+          "then": {
+            "properties": {
+              "evidence": { "type": "null" },
+              "errors": { "minItems": 1 }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

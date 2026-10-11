@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SourceEvidence（SYS-004 原文证据快照）",
+  "type": "object",
+  "required": ["evidence_id", "source_id", "source_hash", "parser_version", "segment_index", "anchor", "raw_text", "raw_asset_refs", "parse_note", "content", "data", "asset_ref", "confidence", "metadata"],
+  "properties": {
+    "evidence_id": {"$ref": "object-id.schema.json#/$defs/evidence_id"},
+    "source_id": {"$ref": "object-id.schema.json#/$defs/source_id"},
+    "source_hash": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+    "parser_version": {"type": "string", "minLength": 1},
+    "segment_index": {"type": "integer", "minimum": 0},
+    "anchor": {"$ref": "source-anchor.schema.json#/$defs/source_anchor"},
+    "raw_text": {"type": "string"},
+    "content": {"type": "string"},
+    "data": {"type": ["object", "null"]},
+    "asset_ref": {"oneOf": [{"$ref": "object-id.schema.json#/$defs/asset_id"}, {"type": "null"}]},
+    "confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1},
+    "metadata": {"type": "object"},
+    "raw_asset_refs": {"type": "array", "items": {"$ref": "object-id.schema.json#/$defs/asset_id"}, "uniqueItems": true},
+    "parse_note": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,178 @@
+{
+  "plan_id": "revision_plan_56a8aa1f-819c-483b-8656-7500f5fea476",
+  "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+  "parent_run_id": "ad03ceec-a393-48a3-840e-4e2f52c50613",
+  "status": "needs_input",
+  "scope": {
+    "slide_ids": [],
+    "object_ids": []
+  },
+  "locked_object_ids": [],
+  "locked_slide_ids": [],
+  "actions": [],
+  "blocked": [
+    {
+      "issue_id": "issue_7bdcb9e4-1d84-486c-9620-ba142f7bbd0e",
+      "severity": "P0",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_e8a0f47d-df22-4588-8c94-7cb6e9ba8c49"
+    },
+    {
+      "issue_id": "issue_e1bb1579-f2d3-417b-8a3c-e69395b7b630",
+      "severity": "P0",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_3c160b7d-56c7-4a1f-b6df-1010db53c29b"
+    },
+    {
+      "issue_id": "issue_31ddda5a-d3b3-4bf2-91ff-aee0db83bfe1",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_a5781ec1-4232-45c7-bd83-df2c7cc71e09"
+    },
+    {
+      "issue_id": "issue_935a65ba-c387-43a2-b33c-99376b1b18b2",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_5671b920-397c-4977-98e3-cba72aaf7669"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate_e8a0f47d-df22-4588-8c94-7cb6e9ba8c49",
+      "issue_id": "issue_7bdcb9e4-1d84-486c-9620-ba142f7bbd0e",
+      "object_id": null,
+      "slide_id": "slide_b61bf3ca-9a63-480b-a596-0d3b2e1aaa73",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 2,
+          "severity": "P0",
+          "kind": "semantic",
+          "detail": "第3页标题为“测试分数据表（完整14行）”，但该页表格仅包含样本01至样本07共7行，未包含全部14行；完整14行被拆分为第3页和第4页，标题与页面实际内容不符，属于内容缺失/误导。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_7bdcb9e4-1d84-486c-9620-ba142f7bbd0e",
+          "slide_id": "slide_b61bf3ca-9a63-480b-a596-0d3b2e1aaa73",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_3c160b7d-56c7-4a1f-b6df-1010db53c29b",
+      "issue_id": "issue_e1bb1579-f2d3-417b-8a3c-e69395b7b630",
+      "object_id": null,
+      "slide_id": "slide_988b1c4a-ab61-4099-a92e-6e84b6f7d304",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 3,
+          "severity": "P0",
+          "kind": "semantic",
+          "detail": "第4页标题同样为“测试分数据表（完整14行）”，但该页表格仅包含样本08至样本14共7行，未包含全部14行；标题声称完整14行与实际页面内容不符。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_e1bb1579-f2d3-417b-8a3c-e69395b7b630",
+          "slide_id": "slide_988b1c4a-ab61-4099-a92e-6e84b6f7d304",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_a5781ec1-4232-45c7-bd83-df2c7cc71e09",
+      "issue_id": "issue_31ddda5a-d3b3-4bf2-91ff-aee0db83bfe1",
+      "object_id": null,
+      "slide_id": "slide_0b9e7253-eac3-48df-b4ee-c27800ffba00",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 0,
+          "severity": "P1",
+          "kind": "visual",
+          "detail": "第1页8张图片的宽高比差异较大（如1600×400、600×1200、700×1400等），在contain布局下部分图片显示区域明显偏小，图注与图片之间的对应关系在视觉上可能不够清晰，影响可读性。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_31ddda5a-d3b3-4bf2-91ff-aee0db83bfe1",
+          "slide_id": "slide_0b9e7253-eac3-48df-b4ee-c27800ffba00",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_5671b920-397c-4977-98e3-cba72aaf7669",
+      "issue_id": "issue_935a65ba-c387-43a2-b33c-99376b1b18b2",
+      "object_id": null,
+      "slide_id": "slide_24171c58-e340-4ac4-b9e7-5456ae039816",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 1,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "第2页长标题占三行，正文三个文本框布局中下方文本框与上方文本框之间存在较大空白，整体版面略显松散，但不影响内容理解。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_935a65ba-c387-43a2-b33c-99376b1b18b2",
+          "slide_id": "slide_24171c58-e340-4ac4-b9e7-5456ae039816",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    }
+  ],
+  "all_issue_ids": [
+    "issue_7bdcb9e4-1d84-486c-9620-ba142f7bbd0e",
+    "issue_e1bb1579-f2d3-417b-8a3c-e69395b7b630",
+    "issue_31ddda5a-d3b3-4bf2-91ff-aee0db83bfe1",
+    "issue_935a65ba-c387-43a2-b33c-99376b1b18b2"
+  ],
+  "rerun_nodes": [],
+  "preserve_unselected_objects": true,
+  "full_acceptance": "not_passed"
+}

@@ -1,0 +1,179 @@
+{
+  "fixture_status": "static_contract_examples",
+  "requirement_ids": [
+    "GOV-002"
+  ],
+  "task_id": "TASK-GOV-002",
+  "decision_id": "DEC-001",
+  "task_route_schema": "contracts/task-route.schema.json",
+  "cases": [
+    {
+      "case_id": "DEC-001-NORMAL-01",
+      "kind": "normal",
+      "request": "仅依据主题和页数要求，从零制作一套演示文稿。",
+      "expected_task_route": {
+        "route_status": "routed",
+        "mode": "create_from_scratch",
+        "routing_reason": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。",
+        "protection_policy_id": "protect_scratch_scope",
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "create_from_scratch"
+          ],
+          "selection_basis": "用户仅给出新建主题和页数要求，没有指定内容材料、风格参考或模板。"
+        }
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-02",
+      "kind": "normal",
+      "request": "根据用户提供的研究报告制作演示文稿，并保留关键数字及来源。",
+      "expected_task_route": {
+        "route_status": "routed",
+        "mode": "create_from_materials",
+        "routing_reason": "研究报告被明确指定为内容依据，须保留其事实、数字与来源。",
+        "protection_policy_id": "preserve_material_facts_and_sources",
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "create_from_materials"
+          ],
+          "selection_basis": "研究报告被明确指定为内容依据，须保留其事实、数字与来源。"
+        }
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-03",
+      "kind": "normal",
+      "request": "用新的内容参考所给图片的风格生成演示文稿。",
+      "expected_task_route": {
+        "route_status": "routed",
+        "mode": "create_from_reference_style",
+        "routing_reason": "用户将图片限定为风格参考，并要求使用独立的新内容。",
+        "protection_policy_id": "isolate_reference_style_from_content",
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "create_from_reference_style"
+          ],
+          "selection_basis": "用户将图片限定为风格参考，并要求使用独立的新内容。"
+        }
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-04",
+      "kind": "normal",
+      "request": "把提供的内容放入企业 PowerPoint 模板。",
+      "expected_task_route": {
+        "route_status": "routed",
+        "mode": "fill_template",
+        "routing_reason": "用户明确指定模板作为承载结构，输入内容用于填充。",
+        "protection_policy_id": "preserve_template_structure_and_locks",
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "fill_template"
+          ],
+          "selection_basis": "用户明确指定模板作为承载结构，输入内容用于填充。"
+        }
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-05",
+      "kind": "normal",
+      "request": "修改现有 PPT 的指定两页文案，其他内容保持原样。",
+      "expected_task_route": {
+        "route_status": "routed",
+        "mode": "modify_existing_deck",
+        "routing_reason": "用户要求对现有演示文稿的两个指定页面做内容修改。",
+        "protection_policy_id": "limit_edits_to_requested_targets",
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "modify_existing_deck"
+          ],
+          "selection_basis": "用户要求对现有演示文稿的两个指定页面做内容修改。"
+        }
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-06",
+      "kind": "normal",
+      "request": "按提供的一页截图重建一页尽量可编辑的 PowerPoint。",
+      "expected_task_route": {
+        "route_status": "routed",
+        "mode": "reconstruct_from_image",
+        "routing_reason": "截图是待还原页面的视觉证据，不只是风格参考。",
+        "protection_policy_id": "preserve_image_evidence_and_uncertainty",
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "reconstruct_from_image"
+          ],
+          "selection_basis": "截图是待还原页面的视觉证据，不只是风格参考。"
+        }
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-07",
+      "kind": "normal",
+      "request": "整理现有 PPT 的布局，但不改事实、数据或锁定对象。",
+      "expected_task_route": {
+        "route_status": "routed",
+        "mode": "beautify_existing_deck",
+        "routing_reason": "用户要求调整现有演示文稿视觉布局并明确保护事实、数据和锁定对象。",
+        "protection_policy_id": "preserve_facts_data_and_locked_objects",
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "beautify_existing_deck"
+          ],
+          "selection_basis": "用户要求调整现有演示文稿视觉布局并明确保护事实、数据和锁定对象。"
+        }
+      }
+    },
+    {
+      "case_id": "DEC-001-NORMAL-08",
+      "kind": "normal",
+      "request": "将现有演示文稿第 4 页替换为给定的新内容，其余页面不变。",
+      "expected_task_route": {
+        "route_status": "routed",
+        "mode": "create_or_replace_single_slide",
+        "routing_reason": "用户明确指定替换动作、目标页及其余页面的保护范围。",
+        "protection_policy_id": "limit_change_to_one_slide",
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "create_or_replace_single_slide"
+          ],
+          "selection_basis": "用户明确指定替换动作、目标页及其余页面的保护范围。"
+        }
+      }
+    },
+    {
+      "case_id": "DEC-001-BOUNDARY-01",
+      "kind": "boundary_conflict",
+      "request": "用户同时要求沿用现有 PPT 模板并做完整视觉重排，但没有说明哪些品牌/对象允许改变。",
+      "expected_task_route": {
+        "route_status": "needs_clarification",
+        "mode": null,
+        "routing_reason": "模板保留要求与完整视觉重排的范围冲突，且品牌/对象保护范围未定义。",
+        "protection_policy_id": null,
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "fill_template",
+            "beautify_existing_deck"
+          ],
+          "selection_basis": "请求同时包含模板填充和既有演示文稿视觉重排信号，但未授权覆盖品牌/锁定对象。",
+          "conflict_summary": "无法确认模板结构、品牌元素和对象是否可重排；需用户说明保护范围后再路由。"
+        }
+      }
+    }
+  ],
+  "limits": [
+    "这些样例只核对契约字段、候选模式和保护策略对应关系，不是运行时路由器测试。",
+    "TaskRoute 字段与 TaskSpec.route 的正式版本关系仍需 DEC-001 后续评审。"
+  ]
+}

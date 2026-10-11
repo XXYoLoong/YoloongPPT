@@ -1,0 +1,166 @@
+{
+  "trace_id": "trace_2b9fb2af-c004-46ef-8899-b74855ac5397",
+  "node_id": "DEC-017",
+  "input": {
+    "page_count": 4,
+    "source_evidence_refs": [
+      "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-017",
+      "candidate_id": "candidate_edac4d71-224e-4e19-a1d1-1c8f7e09495f",
+      "value": {
+        "slide_types": [
+          {
+            "page_key": "page_7ebeb8a8822d6980e446",
+            "selected_type": "cover",
+            "native_kind": "image",
+            "reason": "actual data kind takes precedence; position only classifies text pages",
+            "unselected_advanced_types": [
+              "SWOT",
+              "timeline",
+              "flow",
+              "comparison",
+              "KPI"
+            ],
+            "advanced_types_status": "not_claimed_from_unverified_keywords"
+          },
+          {
+            "page_key": "page_0d933aa839861d1e10ad",
+            "selected_type": "explanation",
+            "native_kind": "text",
+            "reason": "actual data kind takes precedence; position only classifies text pages",
+            "unselected_advanced_types": [
+              "SWOT",
+              "timeline",
+              "flow",
+              "comparison",
+              "KPI"
+            ],
+            "advanced_types_status": "not_claimed_from_unverified_keywords"
+          },
+          {
+            "page_key": "page_20ab8bfabc359b6ec15b",
+            "selected_type": "data_table",
+            "native_kind": "table",
+            "reason": "actual data kind takes precedence; position only classifies text pages",
+            "unselected_advanced_types": [
+              "SWOT",
+              "timeline",
+              "flow",
+              "comparison",
+              "KPI"
+            ],
+            "advanced_types_status": "not_claimed_from_unverified_keywords"
+          },
+          {
+            "page_key": "page_be40e25d288dc8f86228",
+            "selected_type": "data_table",
+            "native_kind": "table",
+            "reason": "actual data kind takes precedence; position only classifies text pages",
+            "unselected_advanced_types": [
+              "SWOT",
+              "timeline",
+              "flow",
+              "comparison",
+              "KPI"
+            ],
+            "advanced_types_status": "not_claimed_from_unverified_keywords"
+          }
+        ]
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_edac4d71-224e-4e19-a1d1-1c8f7e09495f"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "slide_types": [
+      {
+        "page_key": "page_7ebeb8a8822d6980e446",
+        "selected_type": "cover",
+        "native_kind": "image",
+        "reason": "actual data kind takes precedence; position only classifies text pages",
+        "unselected_advanced_types": [
+          "SWOT",
+          "timeline",
+          "flow",
+          "comparison",
+          "KPI"
+        ],
+        "advanced_types_status": "not_claimed_from_unverified_keywords"
+      },
+      {
+        "page_key": "page_0d933aa839861d1e10ad",
+        "selected_type": "explanation",
+        "native_kind": "text",
+        "reason": "actual data kind takes precedence; position only classifies text pages",
+        "unselected_advanced_types": [
+          "SWOT",
+          "timeline",
+          "flow",
+          "comparison",
+          "KPI"
+        ],
+        "advanced_types_status": "not_claimed_from_unverified_keywords"
+      },
+      {
+        "page_key": "page_20ab8bfabc359b6ec15b",
+        "selected_type": "data_table",
+        "native_kind": "table",
+        "reason": "actual data kind takes precedence; position only classifies text pages",
+        "unselected_advanced_types": [
+          "SWOT",
+          "timeline",
+          "flow",
+          "comparison",
+          "KPI"
+        ],
+        "advanced_types_status": "not_claimed_from_unverified_keywords"
+      },
+      {
+        "page_key": "page_be40e25d288dc8f86228",
+        "selected_type": "data_table",
+        "native_kind": "table",
+        "reason": "actual data kind takes precedence; position only classifies text pages",
+        "unselected_advanced_types": [
+          "SWOT",
+          "timeline",
+          "flow",
+          "comparison",
+          "KPI"
+        ],
+        "advanced_types_status": "not_claimed_from_unverified_keywords"
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

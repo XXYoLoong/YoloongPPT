@@ -1,0 +1,613 @@
+{
+  "version": "narrative-1",
+  "trace_id": "trace_d31b12a6-0ae7-4b8b-acfe-1f5f6f9dfdb7",
+  "audience": {
+    "knowledge_level": null,
+    "roles": [],
+    "concerns": [],
+    "expected_actions": [],
+    "field_provenance": []
+  },
+  "scenario": {
+    "scenario": null,
+    "duration": null,
+    "field_provenance": []
+  },
+  "language_style": {
+    "language": "zh-CN",
+    "tone": null,
+    "formal_level": null,
+    "terminology_rules": [],
+    "brand_terms": [],
+    "field_provenance": [
+      {
+        "field": "language",
+        "source": {
+          "kind": "presentation_context",
+          "context_pointer": "/values/language"
+        }
+      }
+    ]
+  },
+  "content_graph": {
+    "nodes": [
+      {
+        "node_id": "content_df9f05aa11b37e8daebc",
+        "text": "硬页预算可容纳原文\n完整短正文与数字3.5 kg保留。\n原备注只用于解释，核心正文必须在页面可见。\n",
+        "evidence_refs": [
+          "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+        ],
+        "assumption_refs": []
+      }
+    ],
+    "edges": [],
+    "evidence_refs": [
+      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+    ]
+  },
+  "relation_candidates": [],
+  "storyline": {
+    "pattern": "linear",
+    "rationale": "stable source-order presentation default",
+    "evidence_refs": [
+      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+    ]
+  },
+  "page_budget": {
+    "target": 1,
+    "minimum": 1,
+    "maximum": 1,
+    "allowed_deviation": 0,
+    "duration_original": null,
+    "source_characters": 50,
+    "policy": "hard: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+  },
+  "citation_mode": "notes",
+  "content_policy": {
+    "capacity_mechanism": "Noto font glyphs and native geometry; full literal blocks/explicit sentence boundaries",
+    "resource_limits": {
+      "title_characters": 1000,
+      "body_items": 100,
+      "body_item_characters": 20000,
+      "table_columns": 64,
+      "table_rows": 10000
+    },
+    "notes_preserve_overflow": false,
+    "no_text_truncation": true,
+    "minimum_font_size": 16,
+    "adaptive_policy": {
+      "page_budget": {
+        "kind": "hard",
+        "target": 1,
+        "minimum": 1,
+        "maximum": 1,
+        "provenance": [
+          {
+            "constraint_id": "fixture.exact-pages",
+            "field": "page_count",
+            "value": 1,
+            "source": {
+              "kind": "user_instruction",
+              "reference": "explicit component fixture"
+            }
+          }
+        ]
+      },
+      "table_key_columns": {}
+    }
+  },
+  "decision_traces": [
+    {
+      "trace_id": "trace_d31b12a6-0ae7-4b8b-acfe-1f5f6f9dfdb7",
+      "node_id": "DEC-006",
+      "input": {
+        "audience": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-006",
+          "candidate_id": "candidate_8bc9310e-0ba3-4fe4-8ff9-87c317a19dd1",
+          "value": {
+            "knowledge_level": null,
+            "roles": [],
+            "concerns": [],
+            "expected_actions": [],
+            "field_provenance": []
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_8bc9310e-0ba3-4fe4-8ff9-87c317a19dd1"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure",
+        "missing_profile": "retain null/empty; do not stereotype audience"
+      },
+      "output": {
+        "knowledge_level": null,
+        "roles": [],
+        "concerns": [],
+        "expected_actions": [],
+        "field_provenance": []
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_d31b12a6-0ae7-4b8b-acfe-1f5f6f9dfdb7",
+      "node_id": "DEC-007",
+      "input": {
+        "scenario": null,
+        "duration": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-007",
+          "candidate_id": "candidate_c31e6dbf-4579-4177-a603-e75670907a5e",
+          "value": {
+            "scenario": null,
+            "duration": null,
+            "field_provenance": []
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_c31e6dbf-4579-4177-a603-e75670907a5e"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "scenario": null,
+        "duration": null,
+        "field_provenance": []
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_d31b12a6-0ae7-4b8b-acfe-1f5f6f9dfdb7",
+      "node_id": "DEC-008",
+      "input": {
+        "language": "zh-CN",
+        "tone": null,
+        "audience": {
+          "knowledge_level": null,
+          "roles": [],
+          "concerns": [],
+          "expected_actions": [],
+          "field_provenance": []
+        }
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-008",
+          "candidate_id": "candidate_294450a1-b38b-4fde-8312-14550d6d026a",
+          "value": {
+            "language": "zh-CN",
+            "tone": null,
+            "formal_level": null,
+            "terminology_rules": [],
+            "brand_terms": [],
+            "field_provenance": [
+              {
+                "field": "language",
+                "source": {
+                  "kind": "presentation_context",
+                  "context_pointer": "/values/language"
+                }
+              }
+            ]
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_294450a1-b38b-4fde-8312-14550d6d026a"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "language": "zh-CN",
+        "tone": null,
+        "formal_level": null,
+        "terminology_rules": [],
+        "brand_terms": [],
+        "field_provenance": [
+          {
+            "field": "language",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/values/language"
+            }
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_d31b12a6-0ae7-4b8b-acfe-1f5f6f9dfdb7",
+      "node_id": "DEC-010",
+      "input": {
+        "evidence_refs": [
+          "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-010",
+          "candidate_id": "candidate_da768433-815b-4577-9dfb-e27176a498b0",
+          "value": {
+            "content_graph": {
+              "nodes": [
+                {
+                  "node_id": "content_df9f05aa11b37e8daebc",
+                  "text": "硬页预算可容纳原文\n完整短正文与数字3.5 kg保留。\n原备注只用于解释，核心正文必须在页面可见。\n",
+                  "evidence_refs": [
+                    "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                  ],
+                  "assumption_refs": []
+                }
+              ],
+              "edges": [],
+              "evidence_refs": [
+                "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+              ]
+            },
+            "relation_candidates": [],
+            "semantic_edges_status": "not_inferred"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_da768433-815b-4577-9dfb-e27176a498b0"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "content_graph": {
+          "nodes": [
+            {
+              "node_id": "content_df9f05aa11b37e8daebc",
+              "text": "硬页预算可容纳原文\n完整短正文与数字3.5 kg保留。\n原备注只用于解释，核心正文必须在页面可见。\n",
+              "evidence_refs": [
+                "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+              ],
+              "assumption_refs": []
+            }
+          ],
+          "edges": [],
+          "evidence_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ]
+        },
+        "relation_candidates": [],
+        "semantic_edges_status": "not_inferred"
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_d31b12a6-0ae7-4b8b-acfe-1f5f6f9dfdb7",
+      "node_id": "DEC-011",
+      "input": {
+        "scenario": {
+          "scenario": null,
+          "duration": null,
+          "field_provenance": []
+        },
+        "relation_candidates": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_73b78d82-d470-48fc-9151-b15f715ea61e",
+          "value": {
+            "pattern": "linear"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_96b14cbd-cbb0-4d42-b3a8-b79dc69b233a",
+          "value": {
+            "pattern": "problem_solution"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_060a9330-a72c-4f5b-b974-3fe367d9d9f3",
+          "value": {
+            "pattern": "conclusion_first"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_5a2044a8-7ea7-4910-9d3e-eab76ff892d7",
+          "value": {
+            "pattern": "timeline"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_3fa667c5-ae6d-4b79-b931-43c3d581ab96",
+          "value": {
+            "pattern": "teaching_progression"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_92453e17-05ad-4c33-a229-fb37eb75abdb",
+          "value": {
+            "pattern": "data_driven"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_73b78d82-d470-48fc-9151-b15f715ea61e"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "pattern": "linear",
+        "rationale": "stable source-order presentation default",
+        "evidence_refs": [
+          "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_d31b12a6-0ae7-4b8b-acfe-1f5f6f9dfdb7",
+      "node_id": "DEC-013",
+      "input": {
+        "page_count": 1,
+        "duration": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-013",
+          "candidate_id": "candidate_badf0346-e454-4f46-bda8-9c0eae4ee1aa",
+          "value": {
+            "target": 1,
+            "minimum": 1,
+            "maximum": 1,
+            "allowed_deviation": 0,
+            "duration_original": null,
+            "source_characters": 50,
+            "policy": "hard: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_badf0346-e454-4f46-bda8-9c0eae4ee1aa"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "target": 1,
+        "minimum": 1,
+        "maximum": 1,
+        "allowed_deviation": 0,
+        "duration_original": null,
+        "source_characters": 50,
+        "policy": "hard: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+      },
+      "duration": 0.0,
+      "error": null
+    }
+  ]
+}

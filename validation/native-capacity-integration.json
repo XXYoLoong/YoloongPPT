@@ -1,0 +1,2670 @@
+{
+  "version": "native-capacity-integration-1",
+  "created_at_utc": "2026-10-11T10:49:21.114946+00:00",
+  "system_acceptance": "not_passed",
+  "scope": "本轮模板原生槽位、八图原生布局与完整正文/表格容量的真实组件集成证据；人工字面夹具与真实模型API新任务严格分开；不替代308需求/453任务/全部AC。",
+  "template": {
+    "runtime_status": "executed",
+    "check_count": 68,
+    "note": "已在Docker实际执行68项原生模板槽位/品牌锁/字段映射/容量与显式fallback检查，4个可编辑PPTX各真实PDF/PNG渲染，另有Schema→compile→原子写入→ObjectMap→checkpoint实物。后续只增量执行2项模板多图结构化拒绝与单图cover缺crop拒绝边界，不重跑68项/渲染，分别保留源码哈希；当前模板多原生图槽及focal-only cover未支持，不以拒绝算功能通过。三上游模板族、全部页面模式、复杂品牌/OOXML语义及PowerPoint桌面与独立模型复审仍待完成。",
+    "evidence": [
+      {
+        "path": "validation/template-slot-artifacts/template-slots.json",
+        "sha256": "09bcc40ceef5574da379e8225f3d8bbef82dc50591e3d4c1eea43ec674a4cdea"
+      },
+      {
+        "path": "validation/template-slot-artifacts/export-manifest.json",
+        "sha256": "8a3c18044f59a486836ebafa5176b52ef54c4f288e8be66f1f7ede5825bbf0d9"
+      },
+      {
+        "path": "validation/模板原生槽位与品牌锁.md",
+        "sha256": "1f9a6bfb941bb47d8c69bc957394c3be2614926961ac0fe5a7aed6ec582318d5"
+      }
+    ],
+    "execution_source_versions": [
+      {
+        "path": "src/yoloongppt/templates.py",
+        "executed_sha256": "9bef714eb1be47bdbfc270b69766f7f4dcb4c237a6e2e74f282df6700c2cb18a",
+        "current_sha256_at_summary": "9bef714eb1be47bdbfc270b69766f7f4dcb4c237a6e2e74f282df6700c2cb18a",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/template_registry.py",
+        "executed_sha256": "ea8569a5e13918d7a0545492822b6f13494de78d238a59c5446566ec373dd168",
+        "current_sha256_at_summary": "ea8569a5e13918d7a0545492822b6f13494de78d238a59c5446566ec373dd168",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/template_layout_runtime.py",
+        "executed_sha256": "ba8fbb2983c049378f2f27641ece1d582b98ac67f815e9683120aca403b26a23",
+        "current_sha256_at_summary": "2365deecc390e26a48b65f9a0fe6c3e7236cfe0f3597df252bb08aa20945e7ed",
+        "matches_current_at_summary": false
+      },
+      {
+        "path": "validation/verify-template-slots.py",
+        "executed_sha256": "5b3498304ce3d4a912b9a241907a72b96cb76224099bf0f0bf0bed7b0c434bf6",
+        "current_sha256_at_summary": "5b3498304ce3d4a912b9a241907a72b96cb76224099bf0f0bf0bed7b0c434bf6",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/planning.py",
+        "executed_sha256": "c4519d9790c262509512ef812b9cf44cca5f326f82623ed16147b6fe32292683",
+        "current_sha256_at_summary": "4b07d35a73e2b99d5c555733de7e7e20e6e17cbfeabafdf7431675524ce47e41",
+        "matches_current_at_summary": false
+      },
+      {
+        "path": "src/yoloongppt/writer.py",
+        "executed_sha256": "a08bd6f641e172883ed04e79486d456ebf28cbf94436e8d756df09ac7ed56a99",
+        "current_sha256_at_summary": "a08bd6f641e172883ed04e79486d456ebf28cbf94436e8d756df09ac7ed56a99",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/layout_decisions.py",
+        "executed_sha256": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+        "current_sha256_at_summary": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+        "matches_current_at_summary": true
+      }
+    ],
+    "incremental": {
+      "check_count": 2,
+      "runtime_status": "executed",
+      "evidence": {
+        "path": "validation/template-slot-artifacts/template-gallery-guard.json",
+        "sha256": "36de8043b8852ef357619bbafe2684b2d160c85ed1952609820f1a64a25aec4c"
+      },
+      "scope": "2 incremental template boundaries only; historical 68 checks and four renders NOT rerun",
+      "execution_source_versions": [
+        {
+          "path": "src/yoloongppt/template_layout_runtime.py",
+          "executed_sha256": "2365deecc390e26a48b65f9a0fe6c3e7236cfe0f3597df252bb08aa20945e7ed",
+          "current_sha256_at_summary": "2365deecc390e26a48b65f9a0fe6c3e7236cfe0f3597df252bb08aa20945e7ed",
+          "matches_current_at_summary": true
+        }
+      ],
+      "full_suite_rerun": false,
+      "new_render_calls": 0
+    },
+    "failure_history": [
+      {
+        "path": "validation/template-slot-artifacts/failed-001.json",
+        "sha256": "edcce5671d9b77c9037e0a0997abb12ee9717a7f470a0686d1a01264caf41a77"
+      },
+      {
+        "path": "validation/template-slot-artifacts/failed-002.json",
+        "sha256": "da38085eec34cf4b3da7d03aadb1525601b5bdb9e51690a4012fb704cb7eee62"
+      },
+      {
+        "path": "validation/template-slot-artifacts/failed-003-driver-startup.json",
+        "sha256": "4fb1b52f0b9200767ce864f6904df7f88d39509896cfb3e6927114646d48921c"
+      }
+    ],
+    "remaining": [
+      "component Docker verification only; real generation integration is separate",
+      "three upstream template families not accepted",
+      "all modes/all AC/PowerPoint desktop verification remain incomplete"
+    ],
+    "model_calls": 0
+  },
+  "gallery": {
+    "runtime_status": "executed",
+    "check_count": 32,
+    "note": "已在Docker实际执行32项检查：8张不同宽高比contain、3张显式焦点cover、2张显式crop，共3页13个原生图片对象及原据可见图注，真实PDF/逐页PNG与原生QA无问题；低DPI、缺失、重复、hash/像素/来源错配等明确失败。首次PDF抽字插入空白比较失败保留原报告，在原PPTX/render字节不变下仅修比较并核对原生图注逐字一致。后续只执行5项长标题8图增量，用实际字体扩标题框而不缩字，复用8原输入，shared compile/writer、一页真实渲染/QA通过；原32项未重跑，两个版本分别保留源码hash。输入为人工光栅夹具，独立语义/图质模型复审、真实用户8图AI全链AC-012、人脸/对象感知和感知重复仍待完成。",
+    "evidence": [
+      {
+        "path": "validation/gallery-artifacts/b81e5a47-0d59-4963-87a5-daa257d654ef/gallery-runtime.json",
+        "sha256": "9b3fdb4a72784c89625140a098aa5d78767e88894d509cb64648dd39ed860c20"
+      },
+      {
+        "path": "validation/gallery-artifacts/source-evidence.json",
+        "sha256": "db292a7131b82a6f9c7abf81e9b4f20ac1f3794ba1e735c05df8a113c9b37d17"
+      },
+      {
+        "path": "validation/gallery-artifacts/b81e5a47-0d59-4963-87a5-daa257d654ef/export-manifest.json",
+        "sha256": "6c031a3222d7e5a14e1dfc626b65ac512602bb1980875333aaf274a3768d6f5f"
+      },
+      {
+        "path": "validation/实现八图原生布局与焦点裁切.md",
+        "sha256": "99c80b7587aa23a6394cda27d3ee4512c4d0dac4d526e16dc924f10ac4397431"
+      }
+    ],
+    "execution_source_versions": [
+      {
+        "path": "src/yoloongppt/visual.py",
+        "executed_sha256": "bb212a1f366f103dd348fd3994c915086462b75a5ebf2327adb84100647b8903",
+        "current_sha256_at_summary": "bb212a1f366f103dd348fd3994c915086462b75a5ebf2327adb84100647b8903",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/gallery_layout.py",
+        "executed_sha256": "8a48ad6bee0e43189e931446c9c852cf5dfcca815279317c7ecc9b2607a4e039",
+        "current_sha256_at_summary": "04a74148e269857bcfa486ea785b59dbf317aea783e28847041227a3e5569dba",
+        "matches_current_at_summary": false
+      },
+      {
+        "path": "contracts/visual-model-fields.schema.json",
+        "executed_sha256": "79bdde5067f3ffe200658278719a0ce88b0bab19f3e36a68374ce429211599cc",
+        "current_sha256_at_summary": "79bdde5067f3ffe200658278719a0ce88b0bab19f3e36a68374ce429211599cc",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "validation/verify-gallery.py",
+        "executed_sha256": "eb87d5f12fb08d64dc150a8fc44c965802a6d34c79b789b88f9e34b50ef3b558",
+        "current_sha256_at_summary": "eb87d5f12fb08d64dc150a8fc44c965802a6d34c79b789b88f9e34b50ef3b558",
+        "matches_current_at_summary": true
+      }
+    ],
+    "incremental": {
+      "check_count": 5,
+      "runtime_status": "executed",
+      "evidence": {
+        "path": "validation/gallery-artifacts/long-title-ae033e62/gallery-long-title-runtime.json",
+        "sha256": "d2d46ccc2658bb657c85fcd48d3e732e530e3e3fb35e4a41c138fda92a90fa86"
+      },
+      "manifest": {
+        "path": "validation/gallery-artifacts/long-title-ae033e62/export-manifest.json",
+        "sha256": "f76b0320a8d9c785075bd4070cc9ec1e6d4ec88ac9a2162e5dc2d75b5ba9a7a7"
+      },
+      "execution_source_versions": [
+        {
+          "path": "src/yoloongppt/gallery_layout.py",
+          "executed_sha256": "04a74148e269857bcfa486ea785b59dbf317aea783e28847041227a3e5569dba",
+          "current_sha256_at_summary": "04a74148e269857bcfa486ea785b59dbf317aea783e28847041227a3e5569dba",
+          "matches_current_at_summary": true
+        },
+        {
+          "path": "src/yoloongppt/visual.py",
+          "executed_sha256": "bb212a1f366f103dd348fd3994c915086462b75a5ebf2327adb84100647b8903",
+          "current_sha256_at_summary": "bb212a1f366f103dd348fd3994c915086462b75a5ebf2327adb84100647b8903",
+          "matches_current_at_summary": true
+        },
+        {
+          "path": "src/yoloongppt/planning.py",
+          "executed_sha256": "c4519d9790c262509512ef812b9cf44cca5f326f82623ed16147b6fe32292683",
+          "current_sha256_at_summary": "4b07d35a73e2b99d5c555733de7e7e20e6e17cbfeabafdf7431675524ce47e41",
+          "matches_current_at_summary": false
+        },
+        {
+          "path": "src/yoloongppt/layouts.py",
+          "executed_sha256": "fb141ef46010f4666917f92ae010b10c5818febb6014a9a149f8df960c124498",
+          "current_sha256_at_summary": "fb141ef46010f4666917f92ae010b10c5818febb6014a9a149f8df960c124498",
+          "matches_current_at_summary": true
+        },
+        {
+          "path": "src/yoloongppt/writer.py",
+          "executed_sha256": "a08bd6f641e172883ed04e79486d456ebf28cbf94436e8d756df09ac7ed56a99",
+          "current_sha256_at_summary": "a08bd6f641e172883ed04e79486d456ebf28cbf94436e8d756df09ac7ed56a99",
+          "matches_current_at_summary": true
+        },
+        {
+          "path": "src/yoloongppt/adaptive_layout.py",
+          "executed_sha256": "f5ec20bb2b4673728db66cada26a72bfa2bdf7878ac31d5faca585a2dcba07c6",
+          "current_sha256_at_summary": "f5ec20bb2b4673728db66cada26a72bfa2bdf7878ac31d5faca585a2dcba07c6",
+          "matches_current_at_summary": true
+        },
+        {
+          "path": "contracts/generation-model.schema.json",
+          "executed_sha256": "98464e01fd6996690ea6ed41735dc1cab7fc68a5d14600ef3124193ab4405ec5",
+          "current_sha256_at_summary": "98464e01fd6996690ea6ed41735dc1cab7fc68a5d14600ef3124193ab4405ec5",
+          "matches_current_at_summary": true
+        },
+        {
+          "path": "contracts/deck-execution.schema.json",
+          "executed_sha256": "4e7f4e23ce5fa13cf0171c3332e101b55aeaeb2d4fe307cd8abdecf90957a3d4",
+          "current_sha256_at_summary": "4e7f4e23ce5fa13cf0171c3332e101b55aeaeb2d4fe307cd8abdecf90957a3d4",
+          "matches_current_at_summary": true
+        },
+        {
+          "path": "validation/verify-gallery-long-title.py",
+          "executed_sha256": "311a82b76e7c58209eaab9416e739518835dd78d7082053ce06d0f26fbe7cfd5",
+          "current_sha256_at_summary": "311a82b76e7c58209eaab9416e739518835dd78d7082053ce06d0f26fbe7cfd5",
+          "matches_current_at_summary": true
+        }
+      ],
+      "full_suite_rerun": false,
+      "new_render_calls": 1,
+      "model_calls": 0,
+      "reuse_parent_fixture": "b81e5a47-0d59-4963-87a5-daa257d654ef"
+    },
+    "failure_history": [
+      {
+        "path": "validation/gallery-artifacts/b81e5a47-0d59-4963-87a5-daa257d654ef/historical-first-failure.json",
+        "sha256": "3b420b47f146e6d26787e863ba3ab54637027412e54021f2e6e67ec15c2c88eb"
+      }
+    ],
+    "fixture_identity": "artificial generated raster fixture, no user/AI E2E representation",
+    "remaining": [
+      "Independent image relevance/visual quality model review",
+      "Real 8-image AI full-pipeline AC-012",
+      "Face/object-aware crop and perceptual duplicate handling"
+    ],
+    "model_calls": 0
+  },
+  "adaptive": {
+    "runtime_status": "executed",
+    "check_count": 161,
+    "note": "已在Docker实际执行161项组件检查：完整正文soft 1→8页、混合长标题default 1→1页、26行纵表/25列横表soft 2→10页、hard短正文1→1页，共20页可编辑PPTX/4PDF/20PNG，确定性QA均P0=0且无警告。全部正文/表格值/单位/原引用可追溯，横向重复显式关键列；hard超容量/硬变软/缺失关键列/不可拆句/锁定模板等明确失败。另只读已有表格PDF执行228项按原生单元格几何核对，不生成/渲染/调用模型，不合并为389项同版本套件。保留标记容量与旧字体行高两次失败，成功161项绑定实际新字体版本；后续共享源码变化不冒称全套已重跑。独立语义复审、复杂合并表格、锁定模板全部适配、三上游模板与全链AC-014/015仍待完成。 后续10项分页说明定向检查及当前真实恢复的14行表格，原161项并未重跑。",
+    "evidence": [
+      {
+        "path": "validation/adaptive-content-artifacts/current-font-metrics-success/adaptive-content-verification.json",
+        "sha256": "8682ee325fdc8812a4505e4a9646e8711ea0c964bb827579d92361ee18666c4e"
+      },
+      {
+        "path": "validation/adaptive-content-artifacts/export-manifest.json",
+        "sha256": "4c12484929abf609a0ad3625dd5cb235449ab1027a26cef283374b28298fe764"
+      },
+      {
+        "path": "validation/完整正文和大表格自适应分页.md",
+        "sha256": "f1d6357a608adaa88b25a7207793375a0360480644af24805538f6f025fefd9d"
+      }
+    ],
+    "execution_source_versions": [
+      {
+        "path": "src/yoloongppt/adaptive_content.py",
+        "executed_sha256": "810e5e62b9e71bb0fe3c1afa59bb22b411e3091b79e635724d4374637f5beb91",
+        "current_sha256_at_summary": "810e5e62b9e71bb0fe3c1afa59bb22b411e3091b79e635724d4374637f5beb91",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/adaptive_layout.py",
+        "executed_sha256": "f5ec20bb2b4673728db66cada26a72bfa2bdf7878ac31d5faca585a2dcba07c6",
+        "current_sha256_at_summary": "f5ec20bb2b4673728db66cada26a72bfa2bdf7878ac31d5faca585a2dcba07c6",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/narrative.py",
+        "executed_sha256": "c94bcb39152591a2dcf925733306906f975a1225b85944d6dbd167b96547c36d",
+        "current_sha256_at_summary": "c94bcb39152591a2dcf925733306906f975a1225b85944d6dbd167b96547c36d",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/layouts.py",
+        "executed_sha256": "fb141ef46010f4666917f92ae010b10c5818febb6014a9a149f8df960c124498",
+        "current_sha256_at_summary": "fb141ef46010f4666917f92ae010b10c5818febb6014a9a149f8df960c124498",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/planning.py",
+        "executed_sha256": "c4519d9790c262509512ef812b9cf44cca5f326f82623ed16147b6fe32292683",
+        "current_sha256_at_summary": "4b07d35a73e2b99d5c555733de7e7e20e6e17cbfeabafdf7431675524ce47e41",
+        "matches_current_at_summary": false
+      },
+      {
+        "path": "src/yoloongppt/writer.py",
+        "executed_sha256": "a08bd6f641e172883ed04e79486d456ebf28cbf94436e8d756df09ac7ed56a99",
+        "current_sha256_at_summary": "a08bd6f641e172883ed04e79486d456ebf28cbf94436e8d756df09ac7ed56a99",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/quality.py",
+        "executed_sha256": "f95f271cef0b4629805530245f39a5b19aac90d058e33baa85fb977816a7189c",
+        "current_sha256_at_summary": "f95f271cef0b4629805530245f39a5b19aac90d058e33baa85fb977816a7189c",
+        "matches_current_at_summary": true
+      },
+      {
+        "path": "src/yoloongppt/rendering.py",
+        "executed_sha256": "59831608a7d5d7ef22613a70c7203407d6190afd5e9bc40361b65923f8cc14c6",
+        "current_sha256_at_summary": "79bbbbcf28b810555edd5c43708230521354572221d11d287b01fbfd55f3928a",
+        "matches_current_at_summary": false
+      }
+    ],
+    "readonly_additional": {
+      "check_count": 228,
+      "runtime_status": "executed_read_only",
+      "evidence": {
+        "path": "validation/adaptive-content-artifacts/current-font-metrics-success/table-render-bbox-audit.json",
+        "sha256": "76fc4bf3b51b6f4db935d140346705ab55288a35e100dd2bc36f9aee54612cc5"
+      },
+      "scope": "Additional bounded audit of existing real PDF words by original native cell geometry, no regeneration or model; all headers and repeated key/data cells included.",
+      "bbox_sha256": "7d3e21faca0bd457862d112bca7f5aa0fef9f9103d7157f9acd82b1cf010c36d",
+      "new_model_calls": 0,
+      "new_render_calls": 0,
+      "full_suite_rerun": false
+    },
+    "failure_history": [
+      {
+        "path": "validation/adaptive-content-artifacts/initial-marker-capacity-failure/validation-failure.json",
+        "sha256": "f26b82c43eff4c4c857905c40e1290e07ca8f38bbfce3f380daa13f98e5d1644"
+      },
+      {
+        "path": "validation/adaptive-content-artifacts/historical-font-line-height-failure/validation-failure.json",
+        "sha256": "115f34c466bd33de2e67e57296934c78aca72e4be5e190d9ae0409ede282a21b"
+      }
+    ],
+    "cases": [
+      {
+        "name": "normal-complete-body",
+        "input_pages": 1,
+        "output_pages": 8,
+        "budget_kind": "soft",
+        "p0": 0,
+        "warnings": []
+      },
+      {
+        "name": "normal-mixed-long-title",
+        "input_pages": 1,
+        "output_pages": 1,
+        "budget_kind": "default",
+        "p0": 0,
+        "warnings": []
+      },
+      {
+        "name": "normal-large-tables",
+        "input_pages": 2,
+        "output_pages": 10,
+        "budget_kind": "soft",
+        "p0": 0,
+        "warnings": []
+      },
+      {
+        "name": "boundary-hard-short",
+        "input_pages": 1,
+        "output_pages": 1,
+        "budget_kind": "hard",
+        "p0": 0,
+        "warnings": []
+      }
+    ],
+    "model_calls": 0,
+    "pagination_notice_increment": {
+      "check_count": 10,
+      "model_calls": 0,
+      "render_calls": 0,
+      "evidence": "validation/native-capacity-live-artifacts/pagination-increment/",
+      "source_sha256": "e3208630275fe1018c5c3974d0b1be955481c9600969f1753104eeda9b353673"
+    }
+  },
+  "integration_note": "三个组件已接visual→narrative/adaptive→layout/compile→原生写入→实际render/QA。实际API新生成ad03ceec复用人工原始输入，真实事实/内容/图像审查调用，产出4页但标题分页产生2项P0；增加可见原表分页说明并预留容量后，恢复468ac35a逐字复用该真实事实/内容种子，重新写入/渲染/实际模型复审，9项集成检查通过：8个原生图片、完整混合长标题、14行表格、3→4页、模型种子来源复用与真实新审查。当前P0=0、5项警告保留，DEC040=warning/final_allowed=false，完整原验收未通过。模板68/图库32/自适应161各历史版本，模板2/图库5/上下文15/分页说明10增量及同PDF228只读检查分别记录；不冒称当前全套重跑。",
+  "fresh_api": {
+    "runtime_status": "executed",
+    "owner": "root",
+    "result_pending": false,
+    "initial_real_generation": "ad03ceec-a393-48a3-840e-4e2f52c50613",
+    "current_resumed_run": "468ac35a-eef5-424f-9585-2fa45ad6722a",
+    "check_count": 9,
+    "output_pages": 4,
+    "fresh_fact_and_content_calls_this_resume": false,
+    "fresh_review_this_resume": true,
+    "p0_issue_count": 0,
+    "warning_issue_count": 5,
+    "completion": {
+      "state": "warning",
+      "final_allowed": false,
+      "p0_issue_count": 0,
+      "warning_issue_count": 5,
+      "missing_coverage": [
+        "structure",
+        "editability",
+        "geometry",
+        "fact_numeric",
+        "visual_semantic",
+        "fact_semantic",
+        "accessibility",
+        "global_consistency",
+        "powerpoint_compatibility"
+      ],
+      "missing_nodes": [],
+      "missing_acceptance": [
+        "AC-001",
+        "GOV-008"
+      ],
+      "revision_plan_status": "needs_input",
+      "reasons": [
+        "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+      ],
+      "retry": {
+        "count": 0,
+        "maximum": 2,
+        "allowed": false,
+        "next_action": "complete_missing_acceptance"
+      },
+      "error": null,
+      "system_acceptance": "not_passed"
+    },
+    "evidence": "validation/native-capacity-live-artifacts/current-resumed/",
+    "retained_failures": [
+      "language-conflict",
+      "resource-identity-missing",
+      "pagination-title-p0"
+    ],
+    "system_acceptance": "not_passed"
+  },
+  "acceptance": {
+    "AC-006": {
+      "state": "部分执行",
+      "note": "组件汇总时记录：原生模板68项及后续2项边界已执行，4套真实PPTX/PDF/PNG、品牌对象保持、正式编译/断点实物存在。原要求为真实PPTX master/layout/logo/footer、保持结构/品牌锁/内容可编辑的全链SYS/QA。三上游模板族、全部复杂品牌/页面模式/PowerPoint桌面及当前真实AI任务独立复审未完成；模板多图槽与focal-only cover显式未支持。 集成后新增：当前真实四页恢复及独立模型复审已执行（人工素材输入），P0=0、5警告保留；详见fresh_api。完整原条件仍未通过。",
+      "evidence": "validation/template-slot-artifacts/template-slots.json；validation/template-slot-artifacts/template-gallery-guard.json；validation/template-slot-artifacts/export-manifest.json；validation/native-capacity-live-artifacts/current-resumed/quality-report.json；validation/native-capacity-integration.json",
+      "system_acceptance": "not_passed",
+      "component_stage_note": "原生模板68项及后续2项边界已执行，4套真实PPTX/PDF/PNG、品牌对象保持、正式编译/断点实物存在。原要求为真实PPTX master/layout/logo/footer、保持结构/品牌锁/内容可编辑的全链SYS/QA。三上游模板族、全部复杂品牌/页面模式/PowerPoint桌面及当前真实AI任务独立复审未完成；模板多图槽与focal-only cover显式未支持。"
+    },
+    "AC-012": {
+      "state": "部分执行",
+      "note": "组件汇总时记录：8张不同宽高比人工素材的选定/显式裁切/布局/无拉伸/DPI和图注已在32项及长标题5项增量中形成原生实物；原验收要求用户8张图的自动选图/裁切/布局全链SYS/QA。真实用户图像AI独立相关性/图质复审及完整全链尚未通过，当前fresh API结果待ROOT追加，不把人工光栅夹具称作用户图验收。 集成后新增：当前真实四页恢复及独立模型复审已执行（人工素材输入），P0=0、5警告保留；详见fresh_api。完整原条件仍未通过。",
+      "evidence": "validation/gallery-artifacts/b81e5a47-0d59-4963-87a5-daa257d654ef/gallery-runtime.json；validation/gallery-artifacts/long-title-ae033e62/gallery-long-title-runtime.json；validation/gallery-artifacts/source-evidence.json；validation/native-capacity-live-artifacts/current-resumed/quality-report.json；validation/native-capacity-integration.json",
+      "system_acceptance": "not_passed",
+      "component_stage_note": "8张不同宽高比人工素材的选定/显式裁切/布局/无拉伸/DPI和图注已在32项及长标题5项增量中形成原生实物；原验收要求用户8张图的自动选图/裁切/布局全链SYS/QA。真实用户图像AI独立相关性/图质复审及完整全链尚未通过，当前fresh API结果待ROOT追加，不把人工光栅夹具称作用户图验收。"
+    },
+    "AC-014": {
+      "state": "部分执行",
+      "note": "组件汇总时记录：26行及25列表格实际自适应分页形成10页可编辑原生表格并真实渲染，161项组件套件内核对完整值/单位；已有PDF228项单元格只读核对另列。原验收为大表/多列容量超限处理且不缩至不可读的全链SYS/QA。复杂合并表格、全部模板约束、独立语义/视觉模型审查与新API全链结果仍未完成。 集成后新增：当前真实四页恢复及独立模型复审已执行（人工素材输入），P0=0、5警告保留；详见fresh_api。完整原条件仍未通过。",
+      "evidence": "validation/adaptive-content-artifacts/current-font-metrics-success/adaptive-content-verification.json；validation/adaptive-content-artifacts/current-font-metrics-success/table-render-bbox-audit.json；validation/adaptive-content-artifacts/export-manifest.json；validation/native-capacity-live-artifacts/current-resumed/quality-report.json；validation/native-capacity-integration.json",
+      "system_acceptance": "not_passed",
+      "component_stage_note": "26行及25列表格实际自适应分页形成10页可编辑原生表格并真实渲染，161项组件套件内核对完整值/单位；已有PDF228项单元格只读核对另列。原验收为大表/多列容量超限处理且不缩至不可读的全链SYS/QA。复杂合并表格、全部模板约束、独立语义/视觉模型审查与新API全链结果仍未完成。"
+    },
+    "AC-015": {
+      "state": "部分执行",
+      "note": "组件汇总时记录：混合长标题/完整列表分页已在161项组件套件执行；八图长标题另外5项增量实物扩标题框而不缩字，渲染/确定性QA无问题。原验收为超长中英混合标题与列表实际触发ContentBudget/AdaptiveLayout且无overflow的全链SYS/QA。全部页面/锁定模板/极端文本组合、独立模型复审和当前fresh API最终结果尚未完成。 集成后新增：当前真实四页恢复及独立模型复审已执行（人工素材输入），P0=0、5警告保留；详见fresh_api。完整原条件仍未通过。",
+      "evidence": "validation/adaptive-content-artifacts/current-font-metrics-success/adaptive-content-verification.json；validation/gallery-artifacts/long-title-ae033e62/gallery-long-title-runtime.json；validation/adaptive-content-artifacts/export-manifest.json；validation/native-capacity-live-artifacts/current-resumed/quality-report.json；validation/native-capacity-integration.json",
+      "system_acceptance": "not_passed",
+      "component_stage_note": "混合长标题/完整列表分页已在161项组件套件执行；八图长标题另外5项增量实物扩标题框而不缩字，渲染/确定性QA无问题。原验收为超长中英混合标题与列表实际触发ContentBudget/AdaptiveLayout且无overflow的全链SYS/QA。全部页面/锁定模板/极端文本组合、独立模型复审和当前fresh API最终结果尚未完成。"
+    }
+  },
+  "original_baseline": {
+    "xlsx": {
+      "path": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "sha256": "bf3668c548ddd4b5899b86a6532b7cfbfcc8152415e396a98322a804e382136f"
+    },
+    "docx": {
+      "path": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "sha256": "40f70cb7e4500a2833625bddf9b911c36db29567d9ea70e910242043dc3106e1"
+    },
+    "selected_ids": [
+      "TPL-002",
+      "TPL-003",
+      "TPL-004",
+      "TPL-006",
+      "TPL-008",
+      "TPL-015",
+      "TPL-016",
+      "DEC-028",
+      "DEC-032",
+      "SYS-008",
+      "AST-002",
+      "AST-007",
+      "DEC-030",
+      "DEC-031",
+      "DEC-036",
+      "DEC-014",
+      "DEC-015",
+      "DEC-016",
+      "DEC-017",
+      "DEC-018",
+      "DEC-019",
+      "QA-006",
+      "DEC-033",
+      "DEC-034",
+      "SYS-010",
+      "SYS-012",
+      "AC-006",
+      "AC-012",
+      "AC-014",
+      "AC-015"
+    ],
+    "xlsx_original_rows": {
+      "需求主表": [
+        {
+          "row": 83,
+          "cells": {
+            "A": "DEC-014",
+            "B": "决策体系",
+            "C": "章节页数分配",
+            "D": "把 page budget 分给章节和封面/目录/总结/附录。",
+            "E": "OutlineSpec + PageBudget",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "SectionBudget",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "P": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。"
+          }
+        },
+        {
+          "row": 84,
+          "cells": {
+            "A": "DEC-015",
+            "B": "决策体系",
+            "C": "分页",
+            "D": "按语义完整性和容量决定合并/拆分/跨页。",
+            "E": "OutlineSpec + SectionBudget",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "PagePlan",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "P": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。"
+          }
+        },
+        {
+          "row": 85,
+          "cells": {
+            "A": "DEC-016",
+            "B": "决策体系",
+            "C": "单页目标",
+            "D": "定义每页的作用和一句核心信息。",
+            "E": "PagePlan",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "SlideIntent",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "P": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。"
+          }
+        },
+        {
+          "row": 86,
+          "cells": {
+            "A": "DEC-017",
+            "B": "决策体系",
+            "C": "页面类型",
+            "D": "从页面目标选择封面/章节/概览/图文/数据/流程/时间线/对比/KPI/SWOT/总结等。",
+            "E": "SlideIntent",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "SlideType",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "P": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。"
+          }
+        },
+        {
+          "row": 87,
+          "cells": {
+            "A": "DEC-018",
+            "B": "决策体系",
+            "C": "内容容量",
+            "D": "计算标题、正文、列表、表格、图表、图片、notes 的容量。",
+            "E": "SlideIntent + candidate layouts",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "ContentBudget",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "P": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。"
+          }
+        },
+        {
+          "row": 88,
+          "cells": {
+            "A": "DEC-019",
+            "B": "决策体系",
+            "C": "标题与层级文案",
+            "D": "决定标题/副标题/标签/重点数字/正文层级。",
+            "E": "SlideIntent + LanguageStyleSpec",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "SlideContentSpec",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "P": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。"
+          }
+        },
+        {
+          "row": 97,
+          "cells": {
+            "A": "DEC-028",
+            "B": "决策体系",
+            "C": "模板族选择",
+            "D": "选择品牌模板、参考模板、通用模板或自由布局。",
+            "E": "DesignContext + constraints",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "TemplateCandidates",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/visual-runtime.json；validation/visual-path-guards.json；validation/visual-live-artifacts/",
+            "P": "实际登记/检索模板族，生成继承真实母版/布局/主题，尺寸不符显式拒绝。品牌锁和全部模板验收待补。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 99,
+          "cells": {
+            "A": "DEC-030",
+            "B": "决策体系",
+            "C": "版式候选检索",
+            "D": "按 SlideType、内容槽位、容量、素材比例、backend 支持生成候选。",
+            "E": "SlideSpec draft + LayoutRegistry",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "LayoutCandidates",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/",
+            "P": "原生文本/图/关系图候选、实际容量、后端支持与多样性评分已接生成，46项直接版式检查。完整语义/品牌/多后端待验收。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 100,
+          "cells": {
+            "A": "DEC-031",
+            "B": "决策体系",
+            "C": "版式评分与选择",
+            "D": "综合语义、容量、可读性、品牌一致、变化度、backend 支持评分。",
+            "E": "LayoutCandidates",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "SelectedLayout",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/",
+            "P": "原生文本/图/关系图候选、实际容量、后端支持与多样性评分已接生成，46项直接版式检查。完整语义/品牌/多后端待验收。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 101,
+          "cells": {
+            "A": "DEC-032",
+            "B": "决策体系",
+            "C": "槽位映射",
+            "D": "将内容/素材/引用/notes 映射到 placeholder/slot，处理字段不匹配。",
+            "E": "SelectedLayout",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "SlotBindingSpec",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/",
+            "P": "真实内容/图片/关系节点绑定稳定槽位，原生几何与连接端点进入对象DAG。任意模板绑定/freeform等仍未完整。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 102,
+          "cells": {
+            "A": "DEC-033",
+            "B": "决策体系",
+            "C": "几何布局",
+            "D": "决定元素 x/y/w/h、grid、margin、align、distribute、z-order、connector routing。",
+            "E": "SlotBinding + actual content",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "ElementLayoutSpec",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/",
+            "P": "真实内容/图片/关系节点绑定稳定槽位，原生几何与连接端点进入对象DAG。任意模板绑定/freeform等仍未完整。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 103,
+          "cells": {
+            "A": "DEC-034",
+            "B": "决策体系",
+            "C": "字体与文本适配",
+            "D": "处理字号、字重、line height、autosize、fit、CJK/RTL、字体 fallback。",
+            "E": "Text + geometry + tokens",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "TypographySpec",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/",
+            "P": "CJK字形/字号/边距/容量实测；不靠截字或不可读缩字过关。RTL与全部字体替代链待补。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 105,
+          "cells": {
+            "A": "DEC-036",
+            "B": "决策体系",
+            "C": "图片裁切与适配",
+            "D": "决定 contain/cover/crop/focal point/mask/ratio/quality。",
+            "E": "Asset + slot geometry",
+            "F": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "G": "ImageFitSpec",
+            "H": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "I": "RES-031",
+            "J": "决策",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/",
+            "P": "原生图片contain/显式适配策略、尺寸/hash进入执行与QA。人脸/主体感知裁切/mask等全范围待验收。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 111,
+          "cells": {
+            "A": "TPL-002",
+            "B": "模板/版式/风格",
+            "C": "Master 解析",
+            "D": "解析 slide master 的背景、shape、text style、color map、layout relationships、transition/timing inheritance。",
+            "E": "Template/Reference/DesignContext",
+            "F": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "G": "MasterSpec",
+            "H": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "J": "功能",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/input-format-artifacts/；validation/parallel-integration.json",
+            "P": "真实解析母版/布局/主题/占位符/继承/尺寸，CLI/API/MCP入口可调用；真实原生文本槽位实例化且母版/布局/主题保持。容量/全部tokens/品牌锁/全部比例转换和三上游模板验收待完成，普通generate尚不替换自定义模板。"
+          }
+        },
+        {
+          "row": 112,
+          "cells": {
+            "A": "TPL-003",
+            "B": "模板/版式/风格",
+            "C": "Layout 解析",
+            "D": "解析 layout name/type、placeholder type/index、geometry、inheritance、showMasterShapes 等。",
+            "E": "Template/Reference/DesignContext",
+            "F": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "G": "LayoutTemplate",
+            "H": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "J": "功能",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/input-format-artifacts/；validation/parallel-integration.json",
+            "P": "真实解析母版/布局/主题/占位符/继承/尺寸，CLI/API/MCP入口可调用；真实原生文本槽位实例化且母版/布局/主题保持。容量/全部tokens/品牌锁/全部比例转换和三上游模板验收待完成，普通generate尚不替换自定义模板。"
+          }
+        },
+        {
+          "row": 113,
+          "cells": {
+            "A": "TPL-004",
+            "B": "模板/版式/风格",
+            "C": "Placeholder/Slot 模型",
+            "D": "每个 slot 必须有 role、bounds、content types、required/repeatable、capacity、style、overflow policy。",
+            "E": "Template/Reference/DesignContext",
+            "F": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "G": "LayoutSlot",
+            "H": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "J": "功能",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/input-format-artifacts/；validation/parallel-integration.json",
+            "P": "真实解析母版/布局/主题/占位符/继承/尺寸，CLI/API/MCP入口可调用；真实原生文本槽位实例化且母版/布局/主题保持。容量/全部tokens/品牌锁/全部比例转换和三上游模板验收待完成，普通generate尚不替换自定义模板。"
+          }
+        },
+        {
+          "row": 115,
+          "cells": {
+            "A": "TPL-006",
+            "B": "模板/版式/风格",
+            "C": "页面类型映射",
+            "D": "建立 SlideType ↔ LayoutTemplate 适用关系与限制。",
+            "E": "Template/Reference/DesignContext",
+            "F": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "G": "LayoutApplicability",
+            "H": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "J": "功能",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "contracts/layout-applicability.schema.json、catalog.json、fixtures.json；contracts/layout-template.schema.json/catalog.json/fixtures.json；PROJECT_PLAN.md",
+            "P": "已建立带证据的候选/未知关系；产品 parser/runtime、决策评分、渲染和 AC 验证待完成"
+          }
+        },
+        {
+          "row": 117,
+          "cells": {
+            "A": "TPL-008",
+            "B": "模板/版式/风格",
+            "C": "模板字段映射",
+            "D": "模板字段名称与统一内容角色之间建立 mapping；处理命名不一致。",
+            "E": "Template/Reference/DesignContext",
+            "F": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "G": "TemplateFieldMap",
+            "H": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "J": "功能",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "contracts/template-field-map.*.json; PROJECT_PLAN.md#TASK-TPL-008",
+            "P": "静态 crosswalk 覆盖 4 类来源；P03=unknown、subTitle=unmapped；runtime 待验。"
+          }
+        },
+        {
+          "row": 124,
+          "cells": {
+            "A": "TPL-015",
+            "B": "模板/版式/风格",
+            "C": "品牌锁定",
+            "D": "logo、安全区、品牌颜色、字体、页脚等可标记 locked，不得被自动移动/重绘。",
+            "E": "Template/Reference/DesignContext",
+            "F": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "G": "BrandLockSpec",
+            "H": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "J": "功能",
+            "K": "P0",
+            "L": "本规划",
+            "N": "未开始"
+          }
+        },
+        {
+          "row": 125,
+          "cells": {
+            "A": "TPL-016",
+            "B": "模板/版式/风格",
+            "C": "模板降级",
+            "D": "模板缺失某能力/容量不足时使用指定 fallback layout，并记录差异。",
+            "E": "Template/Reference/DesignContext",
+            "F": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "G": "TemplateFallbackRecord",
+            "H": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "J": "功能",
+            "K": "P0",
+            "L": "本规划",
+            "N": "未开始"
+          }
+        },
+        {
+          "row": 127,
+          "cells": {
+            "A": "AST-002",
+            "B": "素材与视觉资产",
+            "C": "来源策略",
+            "D": "资产支持 user/local/template/url/search/generation/derived 六类来源。",
+            "E": "Asset requests + files/URLs",
+            "F": "素材处理必须可追溯、可校验、可复用；任何外部资源失败不得导致无解释的空洞。",
+            "G": "AssetSourceType",
+            "H": "构造本地/URL/生成/低质量/缺失/重复素材用例。",
+            "J": "功能",
+            "K": "P0",
+            "L": "本规划",
+            "N": "未开始"
+          }
+        },
+        {
+          "row": 132,
+          "cells": {
+            "A": "AST-007",
+            "B": "素材与视觉资产",
+            "C": "裁切焦点",
+            "D": "支持 focal point/face/object-aware crop 或用户指定；裁切结果可预览。",
+            "E": "Asset requests + files/URLs",
+            "F": "素材处理必须可追溯、可校验、可复用；任何外部资源失败不得导致无解释的空洞。",
+            "G": "CropSpec",
+            "H": "构造本地/URL/生成/低质量/缺失/重复素材用例。",
+            "J": "功能",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/",
+            "P": "真实图片contain/显式焦点适配已接布局、裁切结果进入原生写入/渲染。人脸/对象感知裁切及全原验收待补。"
+          }
+        },
+        {
+          "row": 191,
+          "cells": {
+            "A": "SYS-008",
+            "B": "系统组件与编排",
+            "C": "Template Registry",
+            "D": "存储/检索 TemplatePack/LayoutTemplate/DesignTokens/Preview/License。",
+            "E": "统一内部对象",
+            "F": "所有组件使用 schema/ID/trace；失败返回结构化错误，不直接吞异常。",
+            "G": "TemplateRegistry",
+            "H": "至少一个 E2E 用例实际经过该组件；组件可单独测试。",
+            "J": "系统",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/visual-runtime.json；validation/visual-path-guards.json；validation/visual-live-artifacts/",
+            "P": "持久登记真实模板文件、来源/license/hash、母版/布局/主题、tokens和结构预览；生成已实际消费。渲染预览/全模板规则待验收。"
+          }
+        },
+        {
+          "row": 193,
+          "cells": {
+            "A": "SYS-010",
+            "B": "系统组件与编排",
+            "C": "Slide Compiler",
+            "D": "把内容/布局/样式/素材合并成不依赖具体 backend 的 SlideSpec。",
+            "E": "统一内部对象",
+            "F": "所有组件使用 schema/ID/trace；失败返回结构化错误，不直接吞异常。",
+            "G": "SlideSpec",
+            "H": "至少一个 E2E 用例实际经过该组件；组件可单独测试。",
+            "J": "系统",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/",
+            "P": "生成将实际图片及流程节点/边转统一规格、槽位、原子DAG/ObjectMap，23项组件直接执行。全部对象/后端/能力门控待补。"
+          }
+        },
+        {
+          "row": 195,
+          "cells": {
+            "A": "SYS-012",
+            "B": "系统组件与编排",
+            "C": "Page Executor",
+            "D": "执行原子能力、建立 ObjectMap、记录每次调用输入输出和 warning。",
+            "E": "统一内部对象",
+            "F": "所有组件使用 schema/ID/trace；失败返回结构化错误，不直接吞异常。",
+            "G": "DraftSlide",
+            "H": "至少一个 E2E 用例实际经过该组件；组件可单独测试。",
+            "J": "系统",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/",
+            "P": "生成将实际图片及流程节点/边转统一规格、槽位、原子DAG/ObjectMap，23项组件直接执行。全部对象/后端/能力门控待补。"
+          }
+        },
+        {
+          "row": 221,
+          "cells": {
+            "A": "QA-006",
+            "B": "质量与验收",
+            "C": "文本溢出",
+            "D": "检测文本框 overflow、极小字号、裁切、超出 safe area。",
+            "E": "PPTX + RenderArtifacts + Specs + Evidence",
+            "F": "QA 分 structural/visual/semantic/factual/editability/accessibility；每条规则定义 severity 和修订映射。",
+            "G": "QualityIssue[]",
+            "H": "至少一个正例和一个故障注入用例；P0 issue 在 final 前必须解决或 fail。",
+            "J": "质量",
+            "K": "P0",
+            "L": "本规划",
+            "N": "进行中",
+            "O": "validation/quality-stage-artifacts/；validation/revision-plan-artifacts/quality-design-variation.json；validation/visual-live-artifacts/；validation/visual-live-artifacts/",
+            "P": "部分原生结构、边界/碰撞/溢出、层级/对比/DPI、一致性/可访问性规则与DEC039/040实跑。历史38项和设计变化3/尺寸4分别保留；完整原QA验收未通过。"
+          }
+        }
+      ],
+      "可执行任务": [
+        {
+          "row": 124,
+          "cells": {
+            "A": "TASK-DEC-014",
+            "B": "DEC-014",
+            "C": "决策体系",
+            "D": "章节页数分配",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "把 page budget 分给章节和封面/目录/总结/附录。",
+            "G": "OutlineSpec + PageBudget",
+            "H": "SectionBudget",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 125,
+          "cells": {
+            "A": "VERIFY-DEC-014",
+            "B": "DEC-014",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "SectionBudget",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-014",
+            "K": "P0",
+            "L": "进行中",
+            "M": "模块正常/边界与真实模型消费已有证据；节点全部原验收尚未完成。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 126,
+          "cells": {
+            "A": "TASK-DEC-015",
+            "B": "DEC-015",
+            "C": "决策体系",
+            "D": "分页",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "按语义完整性和容量决定合并/拆分/跨页。",
+            "G": "OutlineSpec + SectionBudget",
+            "H": "PagePlan",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 127,
+          "cells": {
+            "A": "VERIFY-DEC-015",
+            "B": "DEC-015",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "PagePlan",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-015",
+            "K": "P0",
+            "L": "进行中",
+            "M": "模块正常/边界与真实模型消费已有证据；节点全部原验收尚未完成。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 128,
+          "cells": {
+            "A": "TASK-DEC-016",
+            "B": "DEC-016",
+            "C": "决策体系",
+            "D": "单页目标",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "定义每页的作用和一句核心信息。",
+            "G": "PagePlan",
+            "H": "SlideIntent",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 129,
+          "cells": {
+            "A": "VERIFY-DEC-016",
+            "B": "DEC-016",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "SlideIntent",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-016",
+            "K": "P0",
+            "L": "进行中",
+            "M": "模块正常/边界与真实模型消费已有证据；节点全部原验收尚未完成。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 130,
+          "cells": {
+            "A": "TASK-DEC-017",
+            "B": "DEC-017",
+            "C": "决策体系",
+            "D": "页面类型",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "从页面目标选择封面/章节/概览/图文/数据/流程/时间线/对比/KPI/SWOT/总结等。",
+            "G": "SlideIntent",
+            "H": "SlideType",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 131,
+          "cells": {
+            "A": "VERIFY-DEC-017",
+            "B": "DEC-017",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "SlideType",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-017",
+            "K": "P0",
+            "L": "进行中",
+            "M": "模块正常/边界与真实模型消费已有证据；节点全部原验收尚未完成。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 132,
+          "cells": {
+            "A": "TASK-DEC-018",
+            "B": "DEC-018",
+            "C": "决策体系",
+            "D": "内容容量",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "计算标题、正文、列表、表格、图表、图片、notes 的容量。",
+            "G": "SlideIntent + candidate layouts",
+            "H": "ContentBudget",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 133,
+          "cells": {
+            "A": "VERIFY-DEC-018",
+            "B": "DEC-018",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "ContentBudget",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-018",
+            "K": "P0",
+            "L": "进行中",
+            "M": "模块正常/边界与真实模型消费已有证据；节点全部原验收尚未完成。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 134,
+          "cells": {
+            "A": "TASK-DEC-019",
+            "B": "DEC-019",
+            "C": "决策体系",
+            "D": "标题与层级文案",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "决定标题/副标题/标签/重点数字/正文层级。",
+            "G": "SlideIntent + LanguageStyleSpec",
+            "H": "SlideContentSpec",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 135,
+          "cells": {
+            "A": "VERIFY-DEC-019",
+            "B": "DEC-019",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "SlideContentSpec",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-019",
+            "K": "P0",
+            "L": "进行中",
+            "M": "模块正常/边界与真实模型消费已有证据；节点全部原验收尚未完成。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 152,
+          "cells": {
+            "A": "TASK-DEC-028",
+            "B": "DEC-028",
+            "C": "决策体系",
+            "D": "模板族选择",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "选择品牌模板、参考模板、通用模板或自由布局。",
+            "G": "DesignContext + constraints",
+            "H": "TemplateCandidates",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/visual-runtime.json；validation/visual-path-guards.json；validation/visual-live-artifacts/ 实际登记/检索模板族，生成继承真实母版/布局/主题，尺寸不符显式拒绝。品牌锁和全部模板验收待补。完整原验收仍未通过。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 153,
+          "cells": {
+            "A": "VERIFY-DEC-028",
+            "B": "DEC-028",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "TemplateCandidates",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-028",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/visual-runtime.json；validation/visual-path-guards.json；validation/visual-live-artifacts/ 本版直接/历史证据范围分别记录，完整原验收待补。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 156,
+          "cells": {
+            "A": "TASK-DEC-030",
+            "B": "DEC-030",
+            "C": "决策体系",
+            "D": "版式候选检索",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "按 SlideType、内容槽位、容量、素材比例、backend 支持生成候选。",
+            "G": "SlideSpec draft + LayoutRegistry",
+            "H": "LayoutCandidates",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 原生文本/图/关系图候选、实际容量、后端支持与多样性评分已接生成，46项直接版式检查。完整语义/品牌/多后端待验收。完整原验收仍未通过。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 157,
+          "cells": {
+            "A": "VERIFY-DEC-030",
+            "B": "DEC-030",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "LayoutCandidates",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-030",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 本版直接/历史证据范围分别记录，完整原验收待补。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 158,
+          "cells": {
+            "A": "TASK-DEC-031",
+            "B": "DEC-031",
+            "C": "决策体系",
+            "D": "版式评分与选择",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "综合语义、容量、可读性、品牌一致、变化度、backend 支持评分。",
+            "G": "LayoutCandidates",
+            "H": "SelectedLayout",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 原生文本/图/关系图候选、实际容量、后端支持与多样性评分已接生成，46项直接版式检查。完整语义/品牌/多后端待验收。完整原验收仍未通过。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 159,
+          "cells": {
+            "A": "VERIFY-DEC-031",
+            "B": "DEC-031",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "SelectedLayout",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 本版直接/历史证据范围分别记录，完整原验收待补。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 160,
+          "cells": {
+            "A": "TASK-DEC-032",
+            "B": "DEC-032",
+            "C": "决策体系",
+            "D": "槽位映射",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "将内容/素材/引用/notes 映射到 placeholder/slot，处理字段不匹配。",
+            "G": "SelectedLayout",
+            "H": "SlotBindingSpec",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 真实内容/图片/关系节点绑定稳定槽位，原生几何与连接端点进入对象DAG。任意模板绑定/freeform等仍未完整。完整原验收仍未通过。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 161,
+          "cells": {
+            "A": "VERIFY-DEC-032",
+            "B": "DEC-032",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "SlotBindingSpec",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-032",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 本版直接/历史证据范围分别记录，完整原验收待补。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 162,
+          "cells": {
+            "A": "TASK-DEC-033",
+            "B": "DEC-033",
+            "C": "决策体系",
+            "D": "几何布局",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "决定元素 x/y/w/h、grid、margin、align、distribute、z-order、connector routing。",
+            "G": "SlotBinding + actual content",
+            "H": "ElementLayoutSpec",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 真实内容/图片/关系节点绑定稳定槽位，原生几何与连接端点进入对象DAG。任意模板绑定/freeform等仍未完整。完整原验收仍未通过。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 163,
+          "cells": {
+            "A": "VERIFY-DEC-033",
+            "B": "DEC-033",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "ElementLayoutSpec",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-033",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 本版直接/历史证据范围分别记录，完整原验收待补。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 164,
+          "cells": {
+            "A": "TASK-DEC-034",
+            "B": "DEC-034",
+            "C": "决策体系",
+            "D": "字体与文本适配",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "处理字号、字重、line height、autosize、fit、CJK/RTL、字体 fallback。",
+            "G": "Text + geometry + tokens",
+            "H": "TypographySpec",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ CJK字形/字号/边距/容量实测；不靠截字或不可读缩字过关。RTL与全部字体替代链待补。完整原验收仍未通过。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 165,
+          "cells": {
+            "A": "VERIFY-DEC-034",
+            "B": "DEC-034",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "TypographySpec",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-034",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 本版直接/历史证据范围分别记录，完整原验收待补。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 168,
+          "cells": {
+            "A": "TASK-DEC-036",
+            "B": "DEC-036",
+            "C": "决策体系",
+            "D": "图片裁切与适配",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "决定 contain/cover/crop/focal point/mask/ratio/quality。",
+            "G": "Asset + slot geometry",
+            "H": "ImageFitSpec",
+            "I": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "J": "RES-031",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 原生图片contain/显式适配策略、尺寸/hash进入执行与QA。人脸/主体感知裁切/mask等全范围待验收。完整原验收仍未通过。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 169,
+          "cells": {
+            "A": "VERIFY-DEC-036",
+            "B": "DEC-036",
+            "C": "决策体系",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "ImageFitSpec",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "DEC-036",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 本版直接/历史证据范围分别记录，完整原验收待补。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 179,
+          "cells": {
+            "A": "TASK-TPL-002",
+            "B": "TPL-002",
+            "C": "模板/版式/风格",
+            "D": "Master 解析",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "解析 slide master 的背景、shape、text style、color map、layout relationships、transition/timing inheritance。",
+            "G": "Template/Reference/DesignContext",
+            "H": "MasterSpec",
+            "I": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "K": "P0",
+            "L": "进行中",
+            "M": "真实解析母版/布局/主题/占位符/继承/尺寸，CLI/API/MCP入口可调用；真实原生文本槽位实例化且母版/布局/主题保持。容量/全部tokens/品牌锁/全部比例转换和三上游模板验收待完成，普通generate尚不替换自定义模板。 validation/input-format-artifacts/；validation/parallel-integration.json",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 180,
+          "cells": {
+            "A": "TASK-TPL-003",
+            "B": "TPL-003",
+            "C": "模板/版式/风格",
+            "D": "Layout 解析",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "解析 layout name/type、placeholder type/index、geometry、inheritance、showMasterShapes 等。",
+            "G": "Template/Reference/DesignContext",
+            "H": "LayoutTemplate",
+            "I": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "K": "P0",
+            "L": "进行中",
+            "M": "真实解析母版/布局/主题/占位符/继承/尺寸，CLI/API/MCP入口可调用；真实原生文本槽位实例化且母版/布局/主题保持。容量/全部tokens/品牌锁/全部比例转换和三上游模板验收待完成，普通generate尚不替换自定义模板。 validation/input-format-artifacts/；validation/parallel-integration.json",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 181,
+          "cells": {
+            "A": "TASK-TPL-004",
+            "B": "TPL-004",
+            "C": "模板/版式/风格",
+            "D": "Placeholder/Slot 模型",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "每个 slot 必须有 role、bounds、content types、required/repeatable、capacity、style、overflow policy。",
+            "G": "Template/Reference/DesignContext",
+            "H": "LayoutSlot",
+            "I": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "K": "P0",
+            "L": "进行中",
+            "M": "真实解析母版/布局/主题/占位符/继承/尺寸，CLI/API/MCP入口可调用；真实原生文本槽位实例化且母版/布局/主题保持。容量/全部tokens/品牌锁/全部比例转换和三上游模板验收待完成，普通generate尚不替换自定义模板。 validation/input-format-artifacts/；validation/parallel-integration.json",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 183,
+          "cells": {
+            "A": "TASK-TPL-006",
+            "B": "TPL-006",
+            "C": "模板/版式/风格",
+            "D": "页面类型映射",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "建立 SlideType ↔ LayoutTemplate 适用关系与限制。",
+            "G": "Template/Reference/DesignContext",
+            "H": "LayoutApplicability",
+            "I": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "K": "P0",
+            "L": "进行中",
+            "M": "contracts/layout-applicability.schema.json、catalog.json、fixtures.json；contracts/layout-template.schema.json/catalog.json/fixtures.json；PROJECT_PLAN.md",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 185,
+          "cells": {
+            "A": "TASK-TPL-008",
+            "B": "TPL-008",
+            "C": "模板/版式/风格",
+            "D": "模板字段映射",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "模板字段名称与统一内容角色之间建立 mapping；处理命名不一致。",
+            "G": "Template/Reference/DesignContext",
+            "H": "TemplateFieldMap",
+            "I": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "K": "P0",
+            "L": "进行中",
+            "M": "contracts/template-field-map.*.json; PROJECT_PLAN.md#TASK-TPL-008",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 192,
+          "cells": {
+            "A": "TASK-TPL-015",
+            "B": "TPL-015",
+            "C": "模板/版式/风格",
+            "D": "品牌锁定",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "logo、安全区、品牌颜色、字体、页脚等可标记 locked，不得被自动移动/重绘。",
+            "G": "Template/Reference/DesignContext",
+            "H": "BrandLockSpec",
+            "I": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "K": "P0",
+            "L": "未开始",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 193,
+          "cells": {
+            "A": "TASK-TPL-016",
+            "B": "TPL-016",
+            "C": "模板/版式/风格",
+            "D": "模板降级",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "模板缺失某能力/容量不足时使用指定 fallback layout，并记录差异。",
+            "G": "Template/Reference/DesignContext",
+            "H": "TemplateFallbackRecord",
+            "I": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "K": "P0",
+            "L": "未开始",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 195,
+          "cells": {
+            "A": "TASK-AST-002",
+            "B": "AST-002",
+            "C": "素材与视觉资产",
+            "D": "来源策略",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "资产支持 user/local/template/url/search/generation/derived 六类来源。",
+            "G": "Asset requests + files/URLs",
+            "H": "AssetSourceType",
+            "I": "构造本地/URL/生成/低质量/缺失/重复素材用例。",
+            "K": "P0",
+            "L": "未开始",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 200,
+          "cells": {
+            "A": "TASK-AST-007",
+            "B": "AST-007",
+            "C": "素材与视觉资产",
+            "D": "裁切焦点",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "支持 focal point/face/object-aware crop 或用户指定；裁切结果可预览。",
+            "G": "Asset requests + files/URLs",
+            "H": "CropSpec",
+            "I": "构造本地/URL/生成/低质量/缺失/重复素材用例。",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 真实图片contain/显式焦点适配已接布局、裁切结果进入原生写入/渲染。人脸/对象感知裁切及全原验收待补。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 300,
+          "cells": {
+            "A": "TASK-SYS-008",
+            "B": "SYS-008",
+            "C": "系统组件与编排",
+            "D": "Template Registry",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "存储/检索 TemplatePack/LayoutTemplate/DesignTokens/Preview/License。",
+            "G": "统一内部对象",
+            "H": "TemplateRegistry",
+            "I": "至少一个 E2E 用例实际经过该组件；组件可单独测试。",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/visual-runtime.json；validation/visual-path-guards.json；validation/visual-live-artifacts/ 持久登记真实模板文件、来源/license/hash、母版/布局/主题、tokens和结构预览；生成已实际消费。渲染预览/全模板规则待验收。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 302,
+          "cells": {
+            "A": "TASK-SYS-010",
+            "B": "SYS-010",
+            "C": "系统组件与编排",
+            "D": "Slide Compiler",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "把内容/布局/样式/素材合并成不依赖具体 backend 的 SlideSpec。",
+            "G": "统一内部对象",
+            "H": "SlideSpec",
+            "I": "至少一个 E2E 用例实际经过该组件；组件可单独测试。",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 生成将实际图片及流程节点/边转统一规格、槽位、原子DAG/ObjectMap，23项组件直接执行。全部对象/后端/能力门控待补。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 304,
+          "cells": {
+            "A": "TASK-SYS-012",
+            "B": "SYS-012",
+            "C": "系统组件与编排",
+            "D": "Page Executor",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "执行原子能力、建立 ObjectMap、记录每次调用输入输出和 warning。",
+            "G": "统一内部对象",
+            "H": "DraftSlide",
+            "I": "至少一个 E2E 用例实际经过该组件；组件可单独测试。",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 生成将实际图片及流程节点/边转统一规格、槽位、原子DAG/ObjectMap，23项组件直接执行。全部对象/后端/能力门控待补。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 335,
+          "cells": {
+            "A": "TASK-QA-006",
+            "B": "QA-006",
+            "C": "质量与验收",
+            "D": "文本溢出",
+            "E": "将需求转换为可实现契约并完成最小验证",
+            "F": "检测文本框 overflow、极小字号、裁切、超出 safe area。",
+            "G": "PPTX + RenderArtifacts + Specs + Evidence",
+            "H": "QualityIssue[]",
+            "I": "至少一个正例和一个故障注入用例；P0 issue 在 final 前必须解决或 fail。",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/quality-stage-artifacts/；validation/revision-plan-artifacts/quality-design-variation.json；validation/visual-live-artifacts/；validation/visual-live-artifacts/ 部分原生结构、边界/碰撞/溢出、层级/对比/DPI、一致性/可访问性规则与DEC039/040实跑。历史38项和设计变化3/尺寸4分别保留；完整原QA验收未通过。",
+            "N": "本规划"
+          }
+        },
+        {
+          "row": 336,
+          "cells": {
+            "A": "VERIFY-QA-006",
+            "B": "QA-006",
+            "C": "质量与验收",
+            "D": "验证/证据",
+            "E": "建立验证用例与证据",
+            "F": "为该需求准备正常/边界/失败样例；记录实际结果、日志/截图/PPTX/trace，并回填 Capability/Status。",
+            "G": "QualityIssue[]",
+            "H": "Test/PoC evidence",
+            "I": "存在可复现证据；失败有 error code/阻塞原因。",
+            "J": "QA-006",
+            "K": "P0",
+            "L": "进行中",
+            "M": "validation/quality-stage-artifacts/；validation/revision-plan-artifacts/quality-design-variation.json；validation/visual-live-artifacts/；validation/visual-live-artifacts/ 本版直接/历史证据范围分别记录，完整原验收待补。",
+            "N": "本规划"
+          }
+        }
+      ],
+      "决策链": [
+        {
+          "row": 15,
+          "cells": {
+            "A": "DEC-014",
+            "B": "章节页数分配",
+            "C": "把 page budget 分给章节和封面/目录/总结/附录。",
+            "D": "OutlineSpec + PageBudget",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "SectionBudget",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md"
+          }
+        },
+        {
+          "row": 16,
+          "cells": {
+            "A": "DEC-015",
+            "B": "分页",
+            "C": "按语义完整性和容量决定合并/拆分/跨页。",
+            "D": "OutlineSpec + SectionBudget",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "PagePlan",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md"
+          }
+        },
+        {
+          "row": 17,
+          "cells": {
+            "A": "DEC-016",
+            "B": "单页目标",
+            "C": "定义每页的作用和一句核心信息。",
+            "D": "PagePlan",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "SlideIntent",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md"
+          }
+        },
+        {
+          "row": 18,
+          "cells": {
+            "A": "DEC-017",
+            "B": "页面类型",
+            "C": "从页面目标选择封面/章节/概览/图文/数据/流程/时间线/对比/KPI/SWOT/总结等。",
+            "D": "SlideIntent",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "SlideType",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md"
+          }
+        },
+        {
+          "row": 19,
+          "cells": {
+            "A": "DEC-018",
+            "B": "内容容量",
+            "C": "计算标题、正文、列表、表格、图表、图片、notes 的容量。",
+            "D": "SlideIntent + candidate layouts",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "ContentBudget",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md"
+          }
+        },
+        {
+          "row": 20,
+          "cells": {
+            "A": "DEC-019",
+            "B": "标题与层级文案",
+            "C": "决定标题/副标题/标签/重点数字/正文层级。",
+            "D": "SlideIntent + LanguageStyleSpec",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "SlideContentSpec",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "prepare/real model/finalize实际消费16节点：受众、场景、叙事候选、页/章预算、页意图、容量、正文/备注和引用位置；75项模块检查与真实8页生成通过。自动推断、语义关系、多级章节、时长换算、语义拆合及全部引用模式仍未完成，节点原完整验收保持进行中。 validation/narrative-runtime.json；validation/parallel-integration.json；validation/叙事决策并行实现.md"
+          }
+        },
+        {
+          "row": 29,
+          "cells": {
+            "A": "DEC-028",
+            "B": "模板族选择",
+            "C": "选择品牌模板、参考模板、通用模板或自由布局。",
+            "D": "DesignContext + constraints",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "TemplateCandidates",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "validation/visual-runtime.json；validation/visual-path-guards.json；validation/visual-live-artifacts/ 实际登记/检索模板族，生成继承真实母版/布局/主题，尺寸不符显式拒绝。品牌锁和全部模板验收待补。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 31,
+          "cells": {
+            "A": "DEC-030",
+            "B": "版式候选检索",
+            "C": "按 SlideType、内容槽位、容量、素材比例、backend 支持生成候选。",
+            "D": "SlideSpec draft + LayoutRegistry",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "LayoutCandidates",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 原生文本/图/关系图候选、实际容量、后端支持与多样性评分已接生成，46项直接版式检查。完整语义/品牌/多后端待验收。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 32,
+          "cells": {
+            "A": "DEC-031",
+            "B": "版式评分与选择",
+            "C": "综合语义、容量、可读性、品牌一致、变化度、backend 支持评分。",
+            "D": "LayoutCandidates",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "SelectedLayout",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 原生文本/图/关系图候选、实际容量、后端支持与多样性评分已接生成，46项直接版式检查。完整语义/品牌/多后端待验收。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 33,
+          "cells": {
+            "A": "DEC-032",
+            "B": "槽位映射",
+            "C": "将内容/素材/引用/notes 映射到 placeholder/slot，处理字段不匹配。",
+            "D": "SelectedLayout",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "SlotBindingSpec",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 真实内容/图片/关系节点绑定稳定槽位，原生几何与连接端点进入对象DAG。任意模板绑定/freeform等仍未完整。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 34,
+          "cells": {
+            "A": "DEC-033",
+            "B": "几何布局",
+            "C": "决定元素 x/y/w/h、grid、margin、align、distribute、z-order、connector routing。",
+            "D": "SlotBinding + actual content",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "ElementLayoutSpec",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 真实内容/图片/关系节点绑定稳定槽位，原生几何与连接端点进入对象DAG。任意模板绑定/freeform等仍未完整。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 35,
+          "cells": {
+            "A": "DEC-034",
+            "B": "字体与文本适配",
+            "C": "处理字号、字重、line height、autosize、fit、CJK/RTL、字体 fallback。",
+            "D": "Text + geometry + tokens",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "TypographySpec",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ CJK字形/字号/边距/容量实测；不靠截字或不可读缩字过关。RTL与全部字体替代链待补。完整原验收仍未通过。"
+          }
+        },
+        {
+          "row": 37,
+          "cells": {
+            "A": "DEC-036",
+            "B": "图片裁切与适配",
+            "C": "决定 contain/cover/crop/focal point/mask/ratio/quality。",
+            "D": "Asset + slot geometry",
+            "E": "每个决策节点必须定义 input schema、candidate generation、判断机制、output schema、constraint、fallback、trace；并映射 P01-P05 对应实现。",
+            "F": "ImageFitSpec",
+            "G": "至少 3 个常规样例 + 1 个边界/冲突样例；节点可单独运行并可解释选择。",
+            "H": "routing/Strategist/design_spec/spec_lock/template/QC",
+            "I": "induction/outline/reference/action/reflection/eval",
+            "J": "Standard/Smart/layout/template/API/MCP",
+            "K": "outline/content/layout/PureLayout/PPTAdapter",
+            "L": "planning/schema/theme/layout/render/QA/revise/MCP",
+            "M": "进行中",
+            "N": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 原生图片contain/显式适配策略、尺寸/hash进入执行与QA。人脸/主体感知裁切/mask等全范围待验收。完整原验收仍未通过。"
+          }
+        }
+      ],
+      "模板版式要求": [
+        {
+          "row": 3,
+          "cells": {
+            "A": "TPL-002",
+            "B": "Master 解析",
+            "C": "解析 slide master 的背景、shape、text style、color map、layout relationships、transition/timing inheritance。",
+            "D": "Template/Reference/DesignContext",
+            "E": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "F": "MasterSpec",
+            "G": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "H": "进行中",
+            "I": "真实解析母版/布局/主题/占位符/继承/尺寸，CLI/API/MCP入口可调用；真实原生文本槽位实例化且母版/布局/主题保持。容量/全部tokens/品牌锁/全部比例转换和三上游模板验收待完成，普通generate尚不替换自定义模板。 validation/input-format-artifacts/；validation/parallel-integration.json"
+          }
+        },
+        {
+          "row": 4,
+          "cells": {
+            "A": "TPL-003",
+            "B": "Layout 解析",
+            "C": "解析 layout name/type、placeholder type/index、geometry、inheritance、showMasterShapes 等。",
+            "D": "Template/Reference/DesignContext",
+            "E": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "F": "LayoutTemplate",
+            "G": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "H": "进行中",
+            "I": "真实解析母版/布局/主题/占位符/继承/尺寸，CLI/API/MCP入口可调用；真实原生文本槽位实例化且母版/布局/主题保持。容量/全部tokens/品牌锁/全部比例转换和三上游模板验收待完成，普通generate尚不替换自定义模板。 validation/input-format-artifacts/；validation/parallel-integration.json"
+          }
+        },
+        {
+          "row": 5,
+          "cells": {
+            "A": "TPL-004",
+            "B": "Placeholder/Slot 模型",
+            "C": "每个 slot 必须有 role、bounds、content types、required/repeatable、capacity、style、overflow policy。",
+            "D": "Template/Reference/DesignContext",
+            "E": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "F": "LayoutSlot",
+            "G": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "H": "进行中",
+            "I": "真实解析母版/布局/主题/占位符/继承/尺寸，CLI/API/MCP入口可调用；真实原生文本槽位实例化且母版/布局/主题保持。容量/全部tokens/品牌锁/全部比例转换和三上游模板验收待完成，普通generate尚不替换自定义模板。 validation/input-format-artifacts/；validation/parallel-integration.json"
+          }
+        },
+        {
+          "row": 7,
+          "cells": {
+            "A": "TPL-006",
+            "B": "页面类型映射",
+            "C": "建立 SlideType ↔ LayoutTemplate 适用关系与限制。",
+            "D": "Template/Reference/DesignContext",
+            "E": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "F": "LayoutApplicability",
+            "G": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "H": "未开始"
+          }
+        },
+        {
+          "row": 9,
+          "cells": {
+            "A": "TPL-008",
+            "B": "模板字段映射",
+            "C": "模板字段名称与统一内容角色之间建立 mapping；处理命名不一致。",
+            "D": "Template/Reference/DesignContext",
+            "E": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "F": "TemplateFieldMap",
+            "G": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "H": "未开始"
+          }
+        },
+        {
+          "row": 16,
+          "cells": {
+            "A": "TPL-015",
+            "B": "品牌锁定",
+            "C": "logo、安全区、品牌颜色、字体、页脚等可标记 locked，不得被自动移动/重绘。",
+            "D": "Template/Reference/DesignContext",
+            "E": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "F": "BrandLockSpec",
+            "G": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "H": "未开始"
+          }
+        },
+        {
+          "row": 17,
+          "cells": {
+            "A": "TPL-016",
+            "B": "模板降级",
+            "C": "模板缺失某能力/容量不足时使用指定 fallback layout，并记录差异。",
+            "D": "Template/Reference/DesignContext",
+            "E": "模板系统必须可被决策引擎查询、评分和实例化；不能只保存截图。",
+            "F": "TemplateFallbackRecord",
+            "G": "通过至少 PPT Master、Presenton、ai-agent-ppt 与真实 PPTX master/layout 样例验证。",
+            "H": "未开始"
+          }
+        }
+      ],
+      "素材与可视化": [
+        {
+          "row": 3,
+          "cells": {
+            "A": "AST-002",
+            "B": "来源策略",
+            "C": "资产支持 user/local/template/url/search/generation/derived 六类来源。",
+            "D": "Asset requests + files/URLs",
+            "E": "AssetSourceType",
+            "F": "构造本地/URL/生成/低质量/缺失/重复素材用例。",
+            "G": "本规划",
+            "H": "未开始"
+          }
+        },
+        {
+          "row": 8,
+          "cells": {
+            "A": "AST-007",
+            "B": "裁切焦点",
+            "C": "支持 focal point/face/object-aware crop 或用户指定；裁切结果可预览。",
+            "D": "Asset requests + files/URLs",
+            "E": "CropSpec",
+            "F": "构造本地/URL/生成/低质量/缺失/重复素材用例。",
+            "G": "本规划",
+            "H": "进行中",
+            "I": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 真实图片contain/显式焦点适配已接布局、裁切结果进入原生写入/渲染。人脸/对象感知裁切及全原验收待补。"
+          }
+        }
+      ],
+      "系统组件接口": [
+        {
+          "row": 9,
+          "cells": {
+            "A": "SYS-008",
+            "B": "系统组件",
+            "C": "Template Registry",
+            "D": "存储/检索 TemplatePack/LayoutTemplate/DesignTokens/Preview/License。",
+            "E": "统一内部对象",
+            "F": "TemplateRegistry",
+            "G": "至少一个 E2E 用例实际经过该组件；组件可单独测试。",
+            "H": "进行中",
+            "I": "validation/visual-runtime.json；validation/visual-path-guards.json；validation/visual-live-artifacts/ 持久登记真实模板文件、来源/license/hash、母版/布局/主题、tokens和结构预览；生成已实际消费。渲染预览/全模板规则待验收。"
+          }
+        },
+        {
+          "row": 11,
+          "cells": {
+            "A": "SYS-010",
+            "B": "系统组件",
+            "C": "Slide Compiler",
+            "D": "把内容/布局/样式/素材合并成不依赖具体 backend 的 SlideSpec。",
+            "E": "统一内部对象",
+            "F": "SlideSpec",
+            "G": "至少一个 E2E 用例实际经过该组件；组件可单独测试。",
+            "H": "进行中",
+            "I": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 生成将实际图片及流程节点/边转统一规格、槽位、原子DAG/ObjectMap，23项组件直接执行。全部对象/后端/能力门控待补。"
+          }
+        },
+        {
+          "row": 13,
+          "cells": {
+            "A": "SYS-012",
+            "B": "系统组件",
+            "C": "Page Executor",
+            "D": "执行原子能力、建立 ObjectMap、记录每次调用输入输出和 warning。",
+            "E": "统一内部对象",
+            "F": "DraftSlide",
+            "G": "至少一个 E2E 用例实际经过该组件；组件可单独测试。",
+            "H": "进行中",
+            "I": "validation/layout-stage-artifacts/；validation/visual-execution-artifacts/；validation/visual-live-artifacts/ 生成将实际图片及流程节点/边转统一规格、槽位、原子DAG/ObjectMap，23项组件直接执行。全部对象/后端/能力门控待补。"
+          }
+        }
+      ],
+      "验收矩阵": [
+        {
+          "row": 7,
+          "cells": {
+            "A": "AC-006",
+            "B": "企业模板填充",
+            "C": "真实 PPTX master/layout/logo/footer",
+            "D": "保持模板结构和品牌锁定；内容可编辑。",
+            "E": "全链路/SYS/QA",
+            "F": "P0",
+            "G": "未执行"
+          }
+        },
+        {
+          "row": 13,
+          "cells": {
+            "A": "AC-012",
+            "B": "多图图文",
+            "C": "用户提供 8 张不同比例图片",
+            "D": "自动选图/裁切/布局；无拉伸/低质。",
+            "E": "全链路/SYS/QA",
+            "F": "P0",
+            "G": "未执行"
+          }
+        },
+        {
+          "row": 15,
+          "cells": {
+            "A": "AC-014",
+            "B": "复杂表格",
+            "C": "大表格/多列",
+            "D": "容量超限时拆页/缩减/表格方案，而非不可读缩小。",
+            "E": "全链路/SYS/QA",
+            "F": "P0",
+            "G": "未执行"
+          }
+        },
+        {
+          "row": 16,
+          "cells": {
+            "A": "AC-015",
+            "B": "长标题/极端文本",
+            "C": "超长中英混合标题与列表",
+            "D": "触发 ContentBudget/AdaptiveLayout；无 overflow。",
+            "E": "全链路/SYS/QA",
+            "F": "P0",
+            "G": "未执行"
+          }
+        }
+      ]
+    },
+    "docx_original_paragraphs": [
+      {
+        "paragraph_index_zero_based": 422,
+        "ids": [
+          "DEC-014"
+        ],
+        "text": "DEC-014  章节页数分配：把 page budget 分给章节和封面/目录/总结/附录。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 423,
+        "ids": [
+          "DEC-015"
+        ],
+        "text": "DEC-015  分页：按语义完整性和容量决定合并/拆分/跨页。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 424,
+        "ids": [
+          "DEC-016"
+        ],
+        "text": "DEC-016  单页目标：定义每页的作用和一句核心信息。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 425,
+        "ids": [
+          "DEC-017"
+        ],
+        "text": "DEC-017  页面类型：从页面目标选择封面/章节/概览/图文/数据/流程/时间线/对比/KPI/SWOT/总结等。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 426,
+        "ids": [
+          "DEC-018"
+        ],
+        "text": "DEC-018  内容容量：计算标题、正文、列表、表格、图表、图片、notes 的容量。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 427,
+        "ids": [
+          "DEC-019"
+        ],
+        "text": "DEC-019  标题与层级文案：决定标题/副标题/标签/重点数字/正文层级。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 436,
+        "ids": [
+          "DEC-028"
+        ],
+        "text": "DEC-028  模板族选择：选择品牌模板、参考模板、通用模板或自由布局。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 438,
+        "ids": [
+          "DEC-030"
+        ],
+        "text": "DEC-030  版式候选检索：按 SlideType、内容槽位、容量、素材比例、backend 支持生成候选。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 439,
+        "ids": [
+          "DEC-031"
+        ],
+        "text": "DEC-031  版式评分与选择：综合语义、容量、可读性、品牌一致、变化度、backend 支持评分。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 440,
+        "ids": [
+          "DEC-032"
+        ],
+        "text": "DEC-032  槽位映射：将内容/素材/引用/notes 映射到 placeholder/slot，处理字段不匹配。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 441,
+        "ids": [
+          "DEC-033"
+        ],
+        "text": "DEC-033  几何布局：决定元素 x/y/w/h、grid、margin、align、distribute、z-order、connector routing。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 442,
+        "ids": [
+          "DEC-034"
+        ],
+        "text": "DEC-034  字体与文本适配：处理字号、字重、line height、autosize、fit、CJK/RTL、字体 fallback。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 444,
+        "ids": [
+          "DEC-036"
+        ],
+        "text": "DEC-036  图片裁切与适配：决定 contain/cover/crop/focal point/mask/ratio/quality。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 452,
+        "ids": [
+          "TPL-002"
+        ],
+        "text": "TPL-002  Master 解析：解析 slide master 的背景、shape、text style、color map、layout relationships、transition/timing inheritance。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 453,
+        "ids": [
+          "TPL-003"
+        ],
+        "text": "TPL-003  Layout 解析：解析 layout name/type、placeholder type/index、geometry、inheritance、showMasterShapes 等。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 454,
+        "ids": [
+          "TPL-004"
+        ],
+        "text": "TPL-004  Placeholder/Slot 模型：每个 slot 必须有 role、bounds、content types、required/repeatable、capacity、style、overflow policy。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 456,
+        "ids": [
+          "TPL-006"
+        ],
+        "text": "TPL-006  页面类型映射：建立 SlideType ↔ LayoutTemplate 适用关系与限制。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 458,
+        "ids": [
+          "TPL-008"
+        ],
+        "text": "TPL-008  模板字段映射：模板字段名称与统一内容角色之间建立 mapping；处理命名不一致。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 465,
+        "ids": [
+          "TPL-015"
+        ],
+        "text": "TPL-015  品牌锁定：logo、安全区、品牌颜色、字体、页脚等可标记 locked，不得被自动移动/重绘。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 466,
+        "ids": [
+          "TPL-016"
+        ],
+        "text": "TPL-016  模板降级：模板缺失某能力/容量不足时使用指定 fallback layout，并记录差异。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 470,
+        "ids": [
+          "AST-002"
+        ],
+        "text": "AST-002  来源策略：资产支持 user/local/template/url/search/generation/derived 六类来源。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 475,
+        "ids": [
+          "AST-007"
+        ],
+        "text": "AST-007  裁切焦点：支持 focal point/face/object-aware crop 或用户指定；裁切结果可预览。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 540,
+        "ids": [
+          "SYS-008"
+        ],
+        "text": "SYS-008  Template Registry：存储/检索 TemplatePack/LayoutTemplate/DesignTokens/Preview/License。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 542,
+        "ids": [
+          "SYS-010"
+        ],
+        "text": "SYS-010  Slide Compiler：把内容/布局/样式/素材合并成不依赖具体 backend 的 SlideSpec。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 544,
+        "ids": [
+          "SYS-012"
+        ],
+        "text": "SYS-012  Page Executor：执行原子能力、建立 ObjectMap、记录每次调用输入输出和 warning。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 574,
+        "ids": [
+          "QA-006"
+        ],
+        "text": "QA-006  文本溢出：检测文本框 overflow、极小字号、裁切、超出 safe area。",
+        "following_paragraphs": []
+      },
+      {
+        "paragraph_index_zero_based": 1167,
+        "ids": [
+          "AC-006"
+        ],
+        "text": "AC-006",
+        "following_paragraphs": [
+          "企业模板填充",
+          "真实 PPTX master/layout/logo/footer",
+          "保持模板结构和品牌锁定；内容可编辑。",
+          "AC-007"
+        ]
+      },
+      {
+        "paragraph_index_zero_based": 1191,
+        "ids": [
+          "AC-012"
+        ],
+        "text": "AC-012",
+        "following_paragraphs": [
+          "多图图文",
+          "用户提供 8 张不同比例图片",
+          "自动选图/裁切/布局；无拉伸/低质。",
+          "AC-013"
+        ]
+      },
+      {
+        "paragraph_index_zero_based": 1199,
+        "ids": [
+          "AC-014"
+        ],
+        "text": "AC-014",
+        "following_paragraphs": [
+          "复杂表格",
+          "大表格/多列",
+          "容量超限时拆页/缩减/表格方案，而非不可读缩小。",
+          "AC-015"
+        ]
+      },
+      {
+        "paragraph_index_zero_based": 1203,
+        "ids": [
+          "AC-015"
+        ],
+        "text": "AC-015",
+        "following_paragraphs": [
+          "长标题/极端文本",
+          "超长中英混合标题与列表",
+          "触发 ContentBudget/AdaptiveLayout；无 overflow。",
+          "AC-016"
+        ]
+      }
+    ],
+    "dependency_policy": "可执行任务J列原依赖和I列原验收完整保留；空依赖不表示全链AC已满足；不以组件夹具代替原验收。"
+  },
+  "version_boundary": "每个组件主报告与增量各自保存实际执行源码hash；current_sha256_at_summary仅为本汇总时只读观测，匹配不是新测试。历史全套未重新运行，新的API结果由ROOT后续追加。",
+  "context_increment": {
+    "check_count": 15,
+    "model_calls": 0,
+    "render_calls": 0,
+    "evidence": "validation/native-capacity-live-artifacts/context-increment/"
+  },
+  "environment_recovery": {
+    "uac_recovery_executed": false,
+    "uac_result": "User saw no dialog; administrator launch returned cancelled.",
+    "actual_recovery": "Stop hanging user WSL/Docker processes; WSL shutdown; disable failing optional default Ubuntu Docker integration with backup; restart Docker Desktop and compose app.",
+    "docker_engine_observed": "27.4.0",
+    "docker_data_directory": "F:/DockerDesktopWSL",
+    "ubuntu_directory": "F:/WSL/Ubuntu",
+    "ubuntu_user": "yoloong",
+    "ubuntu_user_command": "wsl -d Ubuntu -u yoloong /bin/true returned 0 after authorized missing-user creation.",
+    "product_runtime_dependencies": "Docker only",
+    "sensitive_values_recorded": false
+  },
+  "current_source_and_contract_hashes": {
+    "runtime": {
+      "python": "3.13.16",
+      "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.36"
+    },
+    "commit": null,
+    "commit_status": "git_unavailable_in_runtime",
+    "source_hashes": {
+      "src/yoloongppt/__init__.py": "8bdb38ff28f3a548d91af566ff0637444a48c296386952e669f73a2b9f7aa90b",
+      "src/yoloongppt/__main__.py": "8a89800fbef367b8a8384b6460537368cc6e57b3bf43ee8f6400edad4d2876c0",
+      "src/yoloongppt/adaptive_content.py": "e3208630275fe1018c5c3974d0b1be955481c9600969f1753104eeda9b353673",
+      "src/yoloongppt/adaptive_layout.py": "f5ec20bb2b4673728db66cada26a72bfa2bdf7878ac31d5faca585a2dcba07c6",
+      "src/yoloongppt/api.py": "ba8e1234b8d578b3bba518124b51b7d466e0230b2b529f677fc6556e1fcb3bf6",
+      "src/yoloongppt/artifacts.py": "122a72e8a81d991daf5a4237c573bbfb4a43fce0e7f4427d9aa264b1a5334e8f",
+      "src/yoloongppt/asset_resolver.py": "b043189a1017e54b3cd01f2b56a6c27f476186101beb83046da17b85f555fafc",
+      "src/yoloongppt/assets.py": "763da1b80811776de01fc37173d98174718894a214fac372edff373e36fa7982",
+      "src/yoloongppt/atomic.py": "77447e7c5c31a1307c0b055feedd9cfb85c681188ac7590c16740ae5c456ff57",
+      "src/yoloongppt/capabilities.py": "dec12d838d8c53ed04695dfad173229d37aaa52857162f377ba997a34bd9a10d",
+      "src/yoloongppt/context.py": "104034f3ffbd1e24c4bf083fa3fc802a06115af2f828dd6bf56dfce569226658",
+      "src/yoloongppt/errors.py": "877d710a888b55a173c3c376735c2796510d3b5733174fab02a37fff2d76f355",
+      "src/yoloongppt/evidence.py": "2e66c94e2a5d8eeea70006f98b525bca84930f64b70112d042ee96973e6bac3a",
+      "src/yoloongppt/existing_deck.py": "aa88ab55fedc8350629cf3e6e12be76a64553428cb5ea589644b4ec788de4e74",
+      "src/yoloongppt/facts.py": "36fb5db8b885d4539378c3af165a81efa3663ccb37b76372ec85d9a9ae1f3bc2",
+      "src/yoloongppt/gallery_layout.py": "04a74148e269857bcfa486ea785b59dbf317aea783e28847041227a3e5569dba",
+      "src/yoloongppt/generation.py": "aa5355caf8dcde4137966bb737979f6667a0fb6e0ab8b32657c68a40768aa136",
+      "src/yoloongppt/input_formats.py": "53b4513c32314f4928fa1bd8504539634327ceac2d36263baad433f54c46aa36",
+      "src/yoloongppt/job_worker.py": "170468882f35ccbf23f891a5c0f55b96189dd5360ae7dc7f7eb22eb31af9c633",
+      "src/yoloongppt/jobs.py": "7131a2b0598db9e915289e914eab51e24801e47de0f536c5d814f47baf26dafb",
+      "src/yoloongppt/jsonio.py": "7eede0b149d96093f63a9d0eaa9416b2acba2745535ef8fe76921a99323d8fb9",
+      "src/yoloongppt/layout_decisions.py": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+      "src/yoloongppt/layouts.py": "fb141ef46010f4666917f92ae010b10c5818febb6014a9a149f8df960c124498",
+      "src/yoloongppt/markdown.py": "a4ee49169ab79914e3e9a99fcde6b5ae3af6bc9d5200199463acfcd1a32d812a",
+      "src/yoloongppt/mcp_server.py": "eea478eb09c18680d8b0b4d15dd87f72e487dee7d9cf82459aaea26ce14dce19",
+      "src/yoloongppt/narrative.py": "c94bcb39152591a2dcf925733306906f975a1225b85944d6dbd167b96547c36d",
+      "src/yoloongppt/native_objects.py": "f4dbe032a8e77ebeff521f0eb995331287bf0f2e1b26b19e94196ad87d749817",
+      "src/yoloongppt/observability.py": "9810fc6416b2d6499cb151706d26c792525467e2e6f1cccfde87c7b35e31441a",
+      "src/yoloongppt/operations.py": "95901a3639e7eb5d2e2ba6e127df1f32092b4067bf2c7d5841211e6be1b4708f",
+      "src/yoloongppt/planning.py": "4b07d35a73e2b99d5c555733de7e7e20e6e17cbfeabafdf7431675524ce47e41",
+      "src/yoloongppt/providers.py": "269a90d1e498d54cb9f16fba8f6735ec586c1f26e8298ce784ab43d601bf7d99",
+      "src/yoloongppt/quality.py": "f95f271cef0b4629805530245f39a5b19aac90d058e33baa85fb977816a7189c",
+      "src/yoloongppt/quality_decisions.py": "ff20b5542d65f62adae7d62c84f5c5f389386e18aed2e6dc32b8d6880206e2ff",
+      "src/yoloongppt/quality_rules.py": "83cdf01f7611aabf73efd331d95ef2df4b97ba2c2c5112c8f37db030d38dc099",
+      "src/yoloongppt/rendering.py": "79bbbbcf28b810555edd5c43708230521354572221d11d287b01fbfd55f3928a",
+      "src/yoloongppt/review.py": "73c81f3b19ef6a4d3d7abff91411c121143d67ac8d10701502e085c59fd29db3",
+      "src/yoloongppt/revision.py": "24d98865206352966fef2030acf536b3cc35bb25f4164fc2e452ffe07c0362cc",
+      "src/yoloongppt/revision_plans.py": "107314c594eebd228563bb3c9f3b6f38ec10e8059d73371582e749b7e09de183",
+      "src/yoloongppt/routing.py": "c5cd66cb20e33de813403623db7f5f935a5433494ae048f2838091e6ed967438",
+      "src/yoloongppt/schemas.py": "f58337c8a7199056b131b7e43f46e7d994804eab2a3889a38e9c8a6ed45071bb",
+      "src/yoloongppt/source_roles.py": "17abca434fcdc61145cfbf556a5fa7a9495d9eee63812e7bdcb99aa400cf9916",
+      "src/yoloongppt/sources.py": "add49699cde32a20d903222e7605e49e79efbc445c7766e33e452bbd77ed464d",
+      "src/yoloongppt/tasks.py": "e00553086474db58a632cfe0d3b042a53a37e8b6203694ff998b0d8dd4abcdaf",
+      "src/yoloongppt/template_layout_runtime.py": "2365deecc390e26a48b65f9a0fe6c3e7236cfe0f3597df252bb08aa20945e7ed",
+      "src/yoloongppt/template_registry.py": "ea8569a5e13918d7a0545492822b6f13494de78d238a59c5446566ec373dd168",
+      "src/yoloongppt/templates.py": "9bef714eb1be47bdbfc270b69766f7f4dcb4c237a6e2e74f282df6700c2cb18a",
+      "src/yoloongppt/visual.py": "bb212a1f366f103dd348fd3994c915086462b75a5ebf2327adb84100647b8903",
+      "src/yoloongppt/writer.py": "a08bd6f641e172883ed04e79486d456ebf28cbf94436e8d756df09ac7ed56a99"
+    },
+    "dependency_lock": "72e4a860ea06575c90b25b7041080f58cbfa1212964426ed13ecd850fb1207f5",
+    "schemas": {
+      "adaptive-content-policy.schema.json": "9af4571d5137883ec880dbe77679f7283dafda32e7a342b43264b86933ecbfb2",
+      "adaptive-content-result.schema.json": "00c3575b0203c2cbc0a4e8333c19bc8281a2fcc16c51084d9755c10b8ec95163",
+      "adaptive-layout-result.schema.json": "0176295072706dc97330e9d107f94988a81dee896d11c470d47a2801ab7e78ae",
+      "appendix-plan.schema.json": "3007536e2c512542af67226d10fa4be773cc64aae8e1de7988c5dabc17fb5fc8",
+      "asset-image-inspection.schema.json": "4f12bf92ce95d2af768629cbb3f97916173e1a960f236c98e241f4f614791448",
+      "asset-inventory.schema.json": "7c39b5bdbd98b1da5569be45ef253ed3990606b0c6f588ee1f5b18aecb1b8843",
+      "asset-resolver-plan.schema.json": "7cb41b44f3985ba7b3b23a5c6b101c08ece5a5a36e153ea82b230423c325ad4f",
+      "asset-resolver-result.schema.json": "83439fcc41517b3fb19c477482bc1098c4a544d0b80279d82b4752f645bc314c",
+      "assumption.schema.json": "d97c782aee28197d6fa70e706946c9daf494531f5e8bb2ccadb97d807e826705",
+      "atomic-registry.schema.json": "60958b0554b593a98a7bf5c241544073b5bfe27d02cf58f5132b16e801ad3e8c",
+      "audience-profile.schema.json": "721451a107ea8f1ac2bbb90f89669f7304bcb6e72d8a48cd58744140420518ea",
+      "capability-status.schema.json": "85f61dd9042d4f67ecf18880c41f7f0c8cbadd65131c3cb5941430965b3b199e",
+      "capacity-rules.schema.json": "8149bfcf23c9fe855cad20015917759b64db47d1f63b3c14312064e806a074a7",
+      "citation-policy.schema.json": "d93113e3a5eb84513ddbb4e8c7cfcc5a1575968315af3f00443e2b3ae6a81924",
+      "config-schema.schema.json": "80408956daab254cb770a003544a10510f2955d38824f322245a5725c5e2bb53",
+      "constraint-set.schema.json": "9361ae7a641c5ded5a09737b1e47eb1e26440819bdac1abe63fa059a07432061",
+      "content-graph.schema.json": "c9ea32414abf2b6e0b620ae0aaa548971b56e595b787a3e48015fff105afad84",
+      "content-rewrite-trace.schema.json": "28028d4f04e88e7970b232214bddd1a7be98373e6d80348306d09a192db2e83a",
+      "data-binding.schema.json": "57ce8f4f95bc058461ec0136bbeaab524699570d76176bc7f309d3ad25cd07d8",
+      "decision-trace.schema.json": "b676f34d25ab78b5198565813132ea0a82f42aa0fb5c72f675455c9e7458b8a8",
+      "deck-execution.schema.json": "4e7f4e23ce5fa13cf0171c3332e101b55aeaeb2d4fe307cd8abdecf90957a3d4",
+      "deck-thesis.schema.json": "f5069adf10609da7c4f91cb953bed45f4d556d9f75196fab39025f1691b7ff03",
+      "design-tokens.schema.json": "ea92e761daa1d51fce434ab681f87d2727c47da5788cdaae1ec215816ae96785",
+      "docx-evidence.schema.json": "c2704b4b6a65e6204ba4c4ac46d07bbd04a96fef59fda282fa93baba4bbe0a83",
+      "e2e-acceptance.schema.json": "5134ad6e170ede359343e79651b9c873d05178cdae70ba9f1b64abbaf18feac4",
+      "evidence-conflict.schema.json": "f0e96bb92cd62d1d9909a1dd906eeb3a8f7c528dafd3e72793384ae38357879d",
+      "evidence-decision.schema.json": "970a1566c285e94d6758cc5dcf54797de2c930397f2d78ea2083216efb3ee944",
+      "evidence-policy.schema.json": "9004e1ad546147c170f5f85edc77d627e5942666a5e4b9c30540a36773174516",
+      "existing-deck-patch.schema.json": "58347bcf6e38ad9bf2a75cde9c01074b0b90c47ed0c6dc23c5af8293a87a35db",
+      "fact-boundary.schema.json": "e80b58d3dec025593aa7b200e1e84cdd2db6d743b1e3f68d0661f7153fdd30f7",
+      "fact-constraint-set.schema.json": "fdbd51369f51219e5445cc3d7efbfefb4010b56ca8893bb233329403b4fade8c",
+      "fact-interpretation.schema.json": "1cb9e5cae34fe7f9048b36c87fd209f9f4aa0a3971839b2387e2c3d3c6822586",
+      "fallback-record.schema.json": "23bf5f91980e6698b5c123042777641971d938be98c59ad5ae4e8dc0a647cc74",
+      "generation-model.schema.json": "98464e01fd6996690ea6ed41735dc1cab7fc68a5d14600ef3124193ab4405ec5",
+      "hallucination-guard.schema.json": "048c05dc6acbd1de274a8c30063d789c24ad09a0a2b65f081314f4f7696e950c",
+      "image-evidence.schema.json": "74c49df1d3ef83d053f3bc6edf83e12cba525b1b886bc3e317159c69f1bf6e01",
+      "imported-deck.schema.json": "2bd6cab7dc2a80c244497b747e36cc673ad468814bc8c224dfd8fc7db7b2c620",
+      "input-format-result.schema.json": "52d2f808702cd4ca229fede1fb6be901c1e7eb078949969abbce9ed367467da9",
+      "input-issue.schema.json": "8d0c45eeae8bca1a857755614c09728aa5de7bdb2ac8e71fb5917810ab5f6f8a",
+      "job-request.schema.json": "740c4b887143f3244c46ec11fc81aa8e371daa02224a3c9fa88a8483bb313a3e",
+      "language-style-spec.schema.json": "22ebec367dfcf8907f6bc57d1c3c55ccaf952237505d2fcf52fa206b5073797e",
+      "layout-applicability.schema.json": "31dd8629f7d9e39183fe79de33765b1f570f8124c8733951196eb9fa1c22d3df",
+      "layout-slot.schema.json": "728812880ca9924bd624207169bc6181b94199cee23c132f9f41955a780e0cca",
+      "layout-stage-node.schema.json": "d4dd4cb9fe9939512d7962b674fb6f7a4d7c32078f68ad4cb1b8a4473baf24c5",
+      "layout-template.schema.json": "cb0cfe9f52f19cb21fe52ae9ca51ff4e1ce97f651f8b1ce479941a8e34c41f28",
+      "master-spec.schema.json": "75fa4438489dd9b70fb00170c36b230ae64d988aa932dd5c78b8f654364c0cc1",
+      "narrative-context.schema.json": "8e7fcaac49919960e0d44164e0fa9b476db70c8175a8414ff581f30a695c3e4b",
+      "narrative-request.schema.json": "6d25f1a0fc43c9e2ab32a8dbbf69e4b152a64495c9115e478c2d38aaa04d65e4",
+      "narrative-result.schema.json": "464ffb30814fff2dc364be04208a21d9ed89247b2a9e17f94f4a57679e1bc2d7",
+      "narrative-trace.schema.json": "6bfeff0d1d5239fec9243672bc61c8c7ac140deff2223852124821e75f89ad83",
+      "native-object-spec.schema.json": "e8a967a4711588e23e117835440de6dde994f94ceee1abe181a3f8c9d02f2988",
+      "notes-spec.schema.json": "7739670238c7a3d7ad790b1c52bc961d9e8f9947b2d6b4e156ff3bc7db984127",
+      "object-id.schema.json": "21e614a8966fc58aab56f7b81a9f4e414d1ef9ddb37cb68c742026fd4feaaf26",
+      "ocr-evidence.schema.json": "44a98123f17f9aebb328501b5dbd5efeaa1c9dce16cb5a6ace4a2163ea1106d9",
+      "pdf-evidence.schema.json": "b37bc58d33bfed533d990a89df2eacc1a95c343699aa67a162c0b0db65f538fe",
+      "presentation-context.schema.json": "7374b8bcd2cbcca2095a494f24018db7af6b1259ad5c0352739f677ebbbccc4d",
+      "presentation-scenario.schema.json": "55bc709a4c0a07dd46d70c708935f02a4f5839b5d34eecf5aff62cf460106b4a",
+      "prompt-input.schema.json": "096ae377313f92f78df61be38e4f2ec9e061b55fada68d24acef402f2fd52d00",
+      "quality-stage-input.schema.json": "82d8c76e46c053082bc9289cd90ff01e7e0de29790b3c1392aea43c925d61a7d",
+      "quality-stage-output.schema.json": "7e3b25edca33c104ca32b9d5be372a4f172b67f132566d139b552af4efa7cd85",
+      "revision-plan-runtime-output.schema.json": "0257f7e6ff8b7a93ba80d308c77aa89f100282ba23249f85477bccf5575eb0e5",
+      "revision-request.schema.json": "3fa2de13eeded6c7155deeca2326f8abdcbb5034c72dd2b55c3c65186c657541",
+      "route-request.schema.json": "e48b2357d73340d0a6089efd1f90f80d5274c3851a11b7721642579c6d374722",
+      "route-trace.schema.json": "518e211e9f9499fc6a0cdfd5be7f8d80184c5362f925fa5dd5e5790aeab852b7",
+      "source-anchor.schema.json": "4fe43d038ddde4697da99dc9e68cda8f635654594c0bdf9da79c263a9bfa1608",
+      "source-bundle.schema.json": "90dd4487e16e93744942b18b823bfd807e3eb4aa059d59f6bc3319a2ce3a30d9",
+      "source-evidence.schema.json": "479361fd7b924ac3ed2df2fe5f3463fa81876345ed16c78bf302163ac66a8715",
+      "source-role-map.schema.json": "23f05b9a2e80d79876583f3eb9663a6a1ed3c1bb8a3f0a645a5c85d3a9409d79",
+      "structured-evidence.schema.json": "22560b71fd939f4a054ccd0fbcd688d85298ce6625e60e0d7301882f8ff54c0e",
+      "style-reference.schema.json": "f2e95037f4b00814b27eca3db37000dbc742e60d2c2d31c39348ea2da69322e1",
+      "tabular-evidence.schema.json": "afb1f97e04b4d0dc397d2c6da21db9c60c03f2149ceca5119a3a0d89cd3363cd",
+      "task-route.schema.json": "5adb591e32e0e7bf6b419a5ef2d8e7cb14fe07db45fd2f2dbfbe3836bedeeb04",
+      "task-spec.schema.json": "e107163822a6c50eec88df8937016dd45338e020c5e944df7d3ac2c4b8d89f02",
+      "template-brand-policy.schema.json": "009c00bd433c7039e159d12797ff6a6fbc3965f3997abd5cd512b73e6b31f07a",
+      "template-field-map.schema.json": "9fd627ef26eb23f8c4b8d115d69ef415f4ae94a0b05cc5d1939a0cbe69a55d88",
+      "template-import-report.schema.json": "711cc508b5d16cf4aa15075e5bd62a711d887ac0af9fbce068137f239b8906c5",
+      "template-layout-runtime.schema.json": "9db7efc40700a36dcd7a6e271e88db30ac728aae50b8b5117370d07508611567",
+      "template-native-pack.schema.json": "f8c502f60634023f0ac33ce4028763c7886b19c1ca892b1a2a3aa6cea35b1606",
+      "template-pack.schema.json": "35d129ae94713b3c2819238cc89c4b60746c8379ba6524fb2643f7908f8b6f6d",
+      "template-registry-record.schema.json": "67d2665b012c554e16cbe6a458a09e2e23b137ed85f92279c713a1547c8ff8aa",
+      "template-source-record.schema.json": "aab26cef803b270d79a627a45b4f0ff6d2cefd050d5c055fe342b0d13410515b",
+      "text-document.schema.json": "5838db9a14b413f00989f2e5bb68f5975036cfd83864b34d4b47aa253849579a",
+      "version-manifest.schema.json": "b1cf2eeb3f1834b9ca596b4f5f0548d4e3d6ab286d27d2f982286416a7fa3b23",
+      "visual-model-fields.schema.json": "79bdde5067f3ffe200658278719a0ce88b0bab19f3e36a68374ce429211599cc",
+      "visual-packet.schema.json": "932f5490ee8b9ebdc2770a9dd076c7120ddd3d769a3f11fdbe1fca61ac1dd52b",
+      "visual-request.schema.json": "e721531e5f5503f19fce8f200da3bd7e8bc6450256da5c789f92e21670cbe471",
+      "visual-result.schema.json": "ee4d59afeda64193b5db080277c8510b77149821aa3fa9aa6bd0cf0f58bb109d",
+      "visual-trace.schema.json": "2d9ecfe7658b7dcef6f94b7798c3ea80378ab41308eeb81f493a19f7878aca28",
+      "web-evidence.schema.json": "7681e0ac361b21ab608cdedf8838ef70b8fdbc82bcc96e971d5ab3ad35c1ff26"
+    },
+    "backend": {
+      "id": "PP-05",
+      "library": "python-pptx",
+      "version": "1.0.2"
+    },
+    "office_api_set": {
+      "status": "not_available",
+      "reason": "Docker OOXML backend does not run Microsoft Office"
+    },
+    "templates": {
+      "status": "per_run_import_report"
+    },
+    "renderer": {
+      "id": "LibreOffice",
+      "version": "7.4.7.2"
+    }
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DEC-001 独立入口：RawTaskRequest及明确附件角色；不读取附件指令",
+  "type": "object",
+  "required": [
+    "raw_request"
+  ],
+  "properties": {
+    "raw_request": {
+      "type": "object",
+      "required": [
+        "request",
+        "attachment_roles"
+      ],
+      "properties": {
+        "request": {
+          "$ref": "prompt-input.schema.json#/$defs/raw_task_request"
+        },
+        "attachment_roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "asset_id",
+              "role",
+              "kind"
+            ],
+            "properties": {
+              "asset_id": {
+                "$ref": "object-id.schema.json#/$defs/asset_id"
+              },
+              "role": {
+                "enum": [
+                  "content",
+                  "style_reference",
+                  "template",
+                  "existing_deck",
+                  "reconstruction"
+                ]
+              },
+              "kind": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "single_slide": {
+          "type": "object",
+          "required": [
+            "action",
+            "target"
+          ],
+          "properties": {
+            "action": {
+              "enum": [
+                "create",
+                "replace"
+              ]
+            },
+            "target": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "runtime_snapshot": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false
+}

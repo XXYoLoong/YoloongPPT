@@ -1,0 +1,148 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yoloongppt.local/contracts/asset-resolver-plan.schema.json",
+  "type": "object",
+  "required": [
+    "requests"
+  ],
+  "properties": {
+    "requests": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "asset_id",
+          "source_type",
+          "license",
+          "usage_status"
+        ],
+        "properties": {
+          "asset_id": {
+            "$ref": "object-id.schema.json#/$defs/asset_id"
+          },
+          "source_type": {
+            "enum": [
+              "user",
+              "local",
+              "template",
+              "url",
+              "search",
+              "generation",
+              "derived"
+            ]
+          },
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "expected_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "license": {
+            "type": "string",
+            "minLength": 1
+          },
+          "usage_status": {
+            "enum": [
+              "authorized",
+              "unverified",
+              "denied"
+            ]
+          },
+          "authorization_basis": {
+            "type": "string",
+            "minLength": 1
+          },
+          "attribution": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "transform_history": {
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "minItems": 0
+          },
+          "request_metadata": {
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "source_refs": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": {
+              "$ref": "object-id.schema.json#/$defs/evidence_id"
+            }
+          },
+          "deliberate_reuse": {
+            "type": "boolean"
+          },
+          "source_id": {
+            "oneOf": [
+              {
+                "type": "null"
+              },
+              {
+                "$ref": "object-id.schema.json#/$defs/source_id"
+              }
+            ]
+          }
+        },
+        "additionalProperties": false,
+        "oneOf": [
+          {
+            "required": [
+              "path"
+            ],
+            "not": {
+              "required": [
+                "url"
+              ]
+            }
+          },
+          {
+            "required": [
+              "url"
+            ],
+            "not": {
+              "required": [
+                "path"
+              ]
+            }
+          }
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 2048
+    },
+    "allow_network": {
+      "type": "boolean"
+    },
+    "minimum_pixels": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    }
+  },
+  "additionalProperties": false
+}

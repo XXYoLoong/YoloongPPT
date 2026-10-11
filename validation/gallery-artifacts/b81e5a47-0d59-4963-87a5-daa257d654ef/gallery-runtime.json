@@ -1,0 +1,957 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "normal-eight-ratios",
+      "passed": true,
+      "observation": {
+        "image_count": 8,
+        "selected": "gallery.4columns",
+        "dpis": [
+          631.03,
+          1139.24,
+          886.08,
+          841.37,
+          1518.99,
+          759.49,
+          1012.66,
+          701.14
+        ]
+      }
+    },
+    {
+      "name": "eight-stable-native-slots",
+      "passed": true,
+      "observation": {
+        "asset_ids": [
+          "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+          "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+          "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+          "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+          "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+          "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+          "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+          "asset_e85c74de-714f-4757-ba40-a8908f36e488"
+        ]
+      }
+    },
+    {
+      "name": "every-input-asset-selected-and-inventory-preserved",
+      "passed": true,
+      "observation": [
+        {
+          "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+          "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+          "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+          "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+          "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+          "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+          "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+          "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+          "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        }
+      ]
+    },
+    {
+      "name": "normal-cover-explicit-focus",
+      "passed": true,
+      "observation": {
+        "image_count": 3,
+        "selected": "gallery.3columns",
+        "dpis": [
+          231.96,
+          232.96,
+          360.82
+        ]
+      }
+    },
+    {
+      "name": "unused-assets-retained-with-reason",
+      "passed": true,
+      "observation": [
+        {
+          "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+          "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+          "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+          "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+          "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+          "selected": false,
+          "score": 0,
+          "reason": "not selected on this page; retained without deletion",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+          "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+          "selected": false,
+          "score": 0,
+          "reason": "not selected on this page; retained without deletion",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+          "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+          "selected": false,
+          "score": 0,
+          "reason": "not selected on this page; retained without deletion",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+          "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+          "selected": false,
+          "score": 0,
+          "reason": "not selected on this page; retained without deletion",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+          "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+          "selected": false,
+          "score": 0,
+          "reason": "not selected on this page; retained without deletion",
+          "semantic_relevance": "independent_review_pending"
+        }
+      ]
+    },
+    {
+      "name": "normal-explicit-crop",
+      "passed": true,
+      "observation": {
+        "image_count": 2,
+        "selected": "gallery.2columns",
+        "dpis": [
+          197.16,
+          129.99
+        ]
+      }
+    },
+    {
+      "name": "legacy-single-compatible",
+      "passed": true,
+      "observation": {
+        "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+        "role": "information",
+        "alt_text": "人工栅格样例A",
+        "fit": "contain",
+        "required": true,
+        "caption": "素材示例A",
+        "caption_source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ],
+        "path": "/runtime/assets/9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e.png",
+        "width_px": 1800,
+        "height_px": 900,
+        "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+        "source_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      }
+    },
+    {
+      "name": "cover-missing-focus",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_FOCAL_POINT_REQUIRED",
+        "details": []
+      }
+    },
+    {
+      "name": "focus-outside-image",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_FOCAL_POINT_INVALID",
+        "details": []
+      }
+    },
+    {
+      "name": "empty-gallery-no-text-fallback",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_COUNT_INVALID",
+        "details": []
+      }
+    },
+    {
+      "name": "missing-asset",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_ASSET_UNKNOWN",
+        "details": []
+      }
+    },
+    {
+      "name": "duplicate-asset-id",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_ASSET_DUPLICATE",
+        "details": []
+      }
+    },
+    {
+      "name": "caption-cannot-use-unselected-raw-text",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_CAPTION_UNGROUNDED",
+        "details": []
+      }
+    },
+    {
+      "name": "caption-without-evidence",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_CAPTION_UNGROUNDED",
+        "details": []
+      }
+    },
+    {
+      "name": "crop-removes-all-pixels",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_CROP_INVALID",
+        "details": []
+      }
+    },
+    {
+      "name": "low-dpi-no-replacement",
+      "passed": true,
+      "observation": {
+        "code": "GALLERY_CAPACITY_UNSUPPORTED",
+        "details": [
+          {
+            "candidate": "gallery.4columns",
+            "columns": 4,
+            "eligible": false,
+            "score": null,
+            "score_semantics": "geometric retained-pixel ratio and occupied native area; not semantic confidence",
+            "rejection": {
+              "code": "GALLERY_IMAGE_DPI_INSUFFICIENT",
+              "message": "图片在实际适配尺寸低于最低DPI，未删图、替图或虚构放大。",
+              "details": [
+                {
+                  "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "slot_key": "asset.asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "declared_fit": "contain",
+                  "focal_point": null,
+                  "fit": {
+                    "mode": "contain",
+                    "bounds": [
+                      1.33625,
+                      2.1,
+                      1.58,
+                      1.58
+                    ],
+                    "crop": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "focal_point": [
+                      0.5,
+                      0.5
+                    ],
+                    "effective_dpi": 10.13,
+                    "quality": "low_resolution",
+                    "warning": "Below 96 DPI at display size; no fabricated upscaling.",
+                    "pixel_removal_explicit": false
+                  },
+                  "minimum_dpi": 96,
+                  "effective_dpi_unrounded": 10.126582278481012,
+                  "dpi_pass": false,
+                  "retained_pixel_fraction": 1,
+                  "caption": "素材示例A",
+                  "caption_source_refs": [
+                    "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                  ],
+                  "aspect_check": "source aspect preserved after explicit crop; no stretch",
+                  "semantic_relevance": "independent_review_pending"
+                }
+              ]
+            }
+          },
+          {
+            "candidate": "gallery.3columns",
+            "columns": 3,
+            "eligible": false,
+            "score": null,
+            "score_semantics": "geometric retained-pixel ratio and occupied native area; not semantic confidence",
+            "rejection": {
+              "code": "GALLERY_IMAGE_DPI_INSUFFICIENT",
+              "message": "图片在实际适配尺寸低于最低DPI，未删图、替图或虚构放大。",
+              "details": [
+                {
+                  "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "slot_key": "asset.asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "declared_fit": "contain",
+                  "focal_point": null,
+                  "fit": {
+                    "mode": "contain",
+                    "bounds": [
+                      2.2249999999999996,
+                      2.1,
+                      0.8133333333333334,
+                      0.8133333333333334
+                    ],
+                    "crop": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "focal_point": [
+                      0.5,
+                      0.5
+                    ],
+                    "effective_dpi": 19.67,
+                    "quality": "low_resolution",
+                    "warning": "Below 96 DPI at display size; no fabricated upscaling.",
+                    "pixel_removal_explicit": false
+                  },
+                  "minimum_dpi": 96,
+                  "effective_dpi_unrounded": 19.672131147540984,
+                  "dpi_pass": false,
+                  "retained_pixel_fraction": 1,
+                  "caption": "素材示例A",
+                  "caption_source_refs": [
+                    "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                  ],
+                  "aspect_check": "source aspect preserved after explicit crop; no stretch",
+                  "semantic_relevance": "independent_review_pending"
+                }
+              ]
+            }
+          },
+          {
+            "candidate": "gallery.2columns",
+            "columns": 2,
+            "eligible": false,
+            "score": null,
+            "score_semantics": "geometric retained-pixel ratio and occupied native area; not semantic confidence",
+            "rejection": {
+              "code": "GALLERY_IMAGE_DPI_INSUFFICIENT",
+              "message": "图片在实际适配尺寸低于最低DPI，未删图、替图或虚构放大。",
+              "details": [
+                {
+                  "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "slot_key": "asset.asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "declared_fit": "contain",
+                  "focal_point": null,
+                  "fit": {
+                    "mode": "contain",
+                    "bounds": [
+                      3.4275,
+                      2.1,
+                      0.43,
+                      0.43
+                    ],
+                    "crop": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "focal_point": [
+                      0.5,
+                      0.5
+                    ],
+                    "effective_dpi": 37.21,
+                    "quality": "low_resolution",
+                    "warning": "Below 96 DPI at display size; no fabricated upscaling.",
+                    "pixel_removal_explicit": false
+                  },
+                  "minimum_dpi": 96,
+                  "effective_dpi_unrounded": 37.2093023255814,
+                  "dpi_pass": false,
+                  "retained_pixel_fraction": 1,
+                  "caption": "素材示例A",
+                  "caption_source_refs": [
+                    "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                  ],
+                  "aspect_check": "source aspect preserved after explicit crop; no stretch",
+                  "semantic_relevance": "independent_review_pending"
+                }
+              ]
+            }
+          },
+          {
+            "candidate": "gallery.1columns",
+            "columns": 1,
+            "eligible": false,
+            "score": null,
+            "score_semantics": "geometric retained-pixel ratio and occupied native area; not semantic confidence",
+            "rejection": {
+              "code": "GALLERY_CAPACITY_UNSUPPORTED",
+              "message": "正文占满页面，未删正文或缩小字号。",
+              "details": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "caller-dpi-threshold-enforced",
+      "passed": true,
+      "observation": {
+        "code": "GALLERY_CAPACITY_UNSUPPORTED",
+        "details": [
+          {
+            "candidate": "gallery.4columns",
+            "columns": 4,
+            "eligible": false,
+            "score": null,
+            "score_semantics": "geometric retained-pixel ratio and occupied native area; not semantic confidence",
+            "rejection": {
+              "code": "GALLERY_IMAGE_DPI_INSUFFICIENT",
+              "message": "图片在实际适配尺寸低于最低DPI，未删图、替图或虚构放大。",
+              "details": [
+                {
+                  "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "slot_key": "asset.asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "declared_fit": "contain",
+                  "focal_point": null,
+                  "fit": {
+                    "mode": "contain",
+                    "bounds": [
+                      0.7,
+                      2.176875,
+                      2.8525,
+                      1.42625
+                    ],
+                    "crop": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "focal_point": [
+                      0.5,
+                      0.5
+                    ],
+                    "effective_dpi": 631.03,
+                    "quality": "nominal_96dpi_or_above",
+                    "warning": null,
+                    "pixel_removal_explicit": false
+                  },
+                  "minimum_dpi": 10000,
+                  "effective_dpi_unrounded": 631.0254163014899,
+                  "dpi_pass": false,
+                  "retained_pixel_fraction": 1,
+                  "caption": "素材示例A",
+                  "caption_source_refs": [
+                    "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                  ],
+                  "aspect_check": "source aspect preserved after explicit crop; no stretch",
+                  "semantic_relevance": "independent_review_pending"
+                }
+              ]
+            }
+          },
+          {
+            "candidate": "gallery.3columns",
+            "columns": 3,
+            "eligible": false,
+            "score": null,
+            "score_semantics": "geometric retained-pixel ratio and occupied native area; not semantic confidence",
+            "rejection": {
+              "code": "GALLERY_IMAGE_DPI_INSUFFICIENT",
+              "message": "图片在实际适配尺寸低于最低DPI，未删图、替图或虚构放大。",
+              "details": [
+                {
+                  "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "slot_key": "asset.asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "declared_fit": "contain",
+                  "focal_point": null,
+                  "fit": {
+                    "mode": "contain",
+                    "bounds": [
+                      1.8183333333333331,
+                      2.1,
+                      1.6266666666666667,
+                      0.8133333333333334
+                    ],
+                    "crop": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "focal_point": [
+                      0.5,
+                      0.5
+                    ],
+                    "effective_dpi": 1106.56,
+                    "quality": "nominal_96dpi_or_above",
+                    "warning": null,
+                    "pixel_removal_explicit": false
+                  },
+                  "minimum_dpi": 10000,
+                  "effective_dpi_unrounded": 1106.5573770491803,
+                  "dpi_pass": false,
+                  "retained_pixel_fraction": 1,
+                  "caption": "素材示例A",
+                  "caption_source_refs": [
+                    "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                  ],
+                  "aspect_check": "source aspect preserved after explicit crop; no stretch",
+                  "semantic_relevance": "independent_review_pending"
+                }
+              ]
+            }
+          },
+          {
+            "candidate": "gallery.2columns",
+            "columns": 2,
+            "eligible": false,
+            "score": null,
+            "score_semantics": "geometric retained-pixel ratio and occupied native area; not semantic confidence",
+            "rejection": {
+              "code": "GALLERY_IMAGE_DPI_INSUFFICIENT",
+              "message": "图片在实际适配尺寸低于最低DPI，未删图、替图或虚构放大。",
+              "details": [
+                {
+                  "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "slot_key": "asset.asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                  "declared_fit": "contain",
+                  "focal_point": null,
+                  "fit": {
+                    "mode": "contain",
+                    "bounds": [
+                      3.2124999999999995,
+                      2.1,
+                      0.86,
+                      0.43
+                    ],
+                    "crop": [
+                      0,
+                      0,
+                      0,
+                      0
+                    ],
+                    "focal_point": [
+                      0.5,
+                      0.5
+                    ],
+                    "effective_dpi": 2093.02,
+                    "quality": "nominal_96dpi_or_above",
+                    "warning": null,
+                    "pixel_removal_explicit": false
+                  },
+                  "minimum_dpi": 10000,
+                  "effective_dpi_unrounded": 2093.0232558139537,
+                  "dpi_pass": false,
+                  "retained_pixel_fraction": 1,
+                  "caption": "素材示例A",
+                  "caption_source_refs": [
+                    "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                  ],
+                  "aspect_check": "source aspect preserved after explicit crop; no stretch",
+                  "semantic_relevance": "independent_review_pending"
+                }
+              ]
+            }
+          },
+          {
+            "candidate": "gallery.1columns",
+            "columns": 1,
+            "eligible": false,
+            "score": null,
+            "score_semantics": "geometric retained-pixel ratio and occupied native area; not semantic confidence",
+            "rejection": {
+              "code": "GALLERY_CAPACITY_UNSUPPORTED",
+              "message": "正文占满页面，未删正文或缩小字号。",
+              "details": []
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "single-and-gallery-conflict",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_DECLARATION_CONFLICT",
+        "details": []
+      }
+    },
+    {
+      "name": "stale-asset-hash",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_ASSET_CHANGED",
+        "details": []
+      }
+    },
+    {
+      "name": "stale-asset-pixels",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_DIMENSIONS_CHANGED",
+        "details": []
+      }
+    },
+    {
+      "name": "real-asset-file-missing",
+      "passed": true,
+      "observation": {
+        "code": "ASSET_FILE_MISSING",
+        "details": []
+      }
+    },
+    {
+      "name": "asset-usage-denied",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_ASSET_UNAUTHORIZED",
+        "details": []
+      }
+    },
+    {
+      "name": "declared-stale-hash-not-overwritten",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_RESOLVED_METADATA_CONFLICT",
+        "details": [
+          {
+            "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+            "field": "sha256"
+          }
+        ]
+      }
+    },
+    {
+      "name": "image-unknown-source-refs",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_SOURCE_REFS_INVALID",
+        "details": []
+      }
+    },
+    {
+      "name": "duplicate-bytes-unconfirmed",
+      "passed": true,
+      "observation": {
+        "code": "IMAGE_BYTES_DUPLICATE_UNCONFIRMED",
+        "details": []
+      }
+    },
+    {
+      "name": "duplicate-bytes-explicit-reuse-retained",
+      "passed": true,
+      "observation": {
+        "same_hash": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e"
+      }
+    },
+    {
+      "name": "resolved-image-schema-valid",
+      "passed": true,
+      "observation": {
+        "images": 8
+      }
+    },
+    {
+      "name": "native-pptx-reopen-13-editable-pictures",
+      "passed": true,
+      "observation": {
+        "slides": 3,
+        "picture_counts": [
+          8,
+          3,
+          2
+        ]
+      }
+    },
+    {
+      "name": "reuse-native-pptx-and-render-bytes-unchanged",
+      "passed": true,
+      "observation": {
+        "pptx_sha256": "4f4ac980c48ce37db2f5b6910b7ee4dae61c7df4127971b46ae8cbca88c9b2c1",
+        "render_artifacts": [
+          {
+            "artifact_id": "artifact_5fdc873f-a619-47c6-a1c7-3f616a1665a3",
+            "slide_id": null,
+            "type": "pdf",
+            "path": "render/gallery.pdf",
+            "hash": "0a573fa4cc37fafd08d3d0c9c44b2040a0365f4eb3e801b889f312be526a200f",
+            "renderer": "LibreOffice",
+            "version": "LibreOffice 7.4.7.2 40(Build:2)",
+            "dpi": null
+          },
+          {
+            "artifact_id": "artifact_67a8876a-8fb9-4c7c-a7a1-523be6ed9cca",
+            "slide_id": "slide_533509b1-6722-471e-8308-8483a2391965",
+            "type": "png",
+            "path": "render/slide-1.png",
+            "hash": "3f10e2d8406f913b8780d4439f55922906bc75efda236e5bdeb2561ff2e2d607",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          },
+          {
+            "artifact_id": "artifact_e82a3046-8801-49a9-ba1d-50df0106770d",
+            "slide_id": "slide_ae45492b-5c30-4217-b126-4b181c03d4c3",
+            "type": "png",
+            "path": "render/slide-2.png",
+            "hash": "177d1637bbcc047f32a5605a0b448abec0ec67ef461f2e7dbfa8320e68920ac9",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          },
+          {
+            "artifact_id": "artifact_ae59cbc3-8343-4562-b752-38bc8b5b623e",
+            "slide_id": "slide_6a0e6680-bf64-45aa-b51e-d114f136fa38",
+            "type": "png",
+            "path": "render/slide-3.png",
+            "hash": "a979c1590f83f8593abcb282195a4947b346d7d324c9653412ea73c47c6e9b1d",
+            "renderer": "LibreOffice + pdftoppm",
+            "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+            "dpi": 120
+          }
+        ]
+      }
+    },
+    {
+      "name": "three-pages-real-render",
+      "passed": true,
+      "observation": [
+        {
+          "artifact_id": "artifact_5fdc873f-a619-47c6-a1c7-3f616a1665a3",
+          "slide_id": null,
+          "type": "pdf",
+          "path": "render/gallery.pdf",
+          "hash": "0a573fa4cc37fafd08d3d0c9c44b2040a0365f4eb3e801b889f312be526a200f",
+          "renderer": "LibreOffice",
+          "version": "LibreOffice 7.4.7.2 40(Build:2)",
+          "dpi": null
+        },
+        {
+          "artifact_id": "artifact_67a8876a-8fb9-4c7c-a7a1-523be6ed9cca",
+          "slide_id": "slide_533509b1-6722-471e-8308-8483a2391965",
+          "type": "png",
+          "path": "render/slide-1.png",
+          "hash": "3f10e2d8406f913b8780d4439f55922906bc75efda236e5bdeb2561ff2e2d607",
+          "renderer": "LibreOffice + pdftoppm",
+          "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+          "dpi": 120
+        },
+        {
+          "artifact_id": "artifact_e82a3046-8801-49a9-ba1d-50df0106770d",
+          "slide_id": "slide_ae45492b-5c30-4217-b126-4b181c03d4c3",
+          "type": "png",
+          "path": "render/slide-2.png",
+          "hash": "177d1637bbcc047f32a5605a0b448abec0ec67ef461f2e7dbfa8320e68920ac9",
+          "renderer": "LibreOffice + pdftoppm",
+          "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+          "dpi": 120
+        },
+        {
+          "artifact_id": "artifact_ae59cbc3-8343-4562-b752-38bc8b5b623e",
+          "slide_id": "slide_6a0e6680-bf64-45aa-b51e-d114f136fa38",
+          "type": "png",
+          "path": "render/slide-3.png",
+          "hash": "a979c1590f83f8593abcb282195a4947b346d7d324c9653412ea73c47c6e9b1d",
+          "renderer": "LibreOffice + pdftoppm",
+          "version": "LibreOffice 7.4.7.2 40(Build:2); pdftoppm version 22.12.0",
+          "dpi": 120
+        }
+      ]
+    },
+    {
+      "name": "every-original-caption-visible-in-render",
+      "passed": true,
+      "observation": {
+        "captions": [
+          "素材示例A",
+          "素材示例B",
+          "素材示例C",
+          "素材示例D",
+          "素材示例E",
+          "素材示例F",
+          "素材示例G",
+          "素材示例H"
+        ],
+        "render_text_path": "render/deck.txt",
+        "comparison": "native caption exact; PDF extraction whitespace only normalized; actual text not rewritten"
+      }
+    },
+    {
+      "name": "native-product-quality-audit",
+      "passed": true,
+      "observation": {
+        "issue_codes": [],
+        "checks": [
+          {
+            "slide_id": "slide_533509b1-6722-471e-8308-8483a2391965",
+            "kind": "global_consistency",
+            "check": "native/background/design_variation",
+            "status": "executed",
+            "explicit_variation": false,
+            "actual_background": "F6F4EE",
+            "spec_background": "F6F4EE",
+            "deck_background": "F6F4EE",
+            "selected_layout": null,
+            "selected_candidate_ids": []
+          },
+          {
+            "slide_id": "slide_533509b1-6722-471e-8308-8483a2391965",
+            "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+            "status": "executed"
+          },
+          {
+            "slide_id": "slide_ae45492b-5c30-4217-b126-4b181c03d4c3",
+            "kind": "global_consistency",
+            "check": "native/background/design_variation",
+            "status": "executed",
+            "explicit_variation": false,
+            "actual_background": "F6F4EE",
+            "spec_background": "F6F4EE",
+            "deck_background": "F6F4EE",
+            "selected_layout": null,
+            "selected_candidate_ids": []
+          },
+          {
+            "slide_id": "slide_ae45492b-5c30-4217-b126-4b181c03d4c3",
+            "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+            "status": "executed"
+          },
+          {
+            "slide_id": "slide_6a0e6680-bf64-45aa-b51e-d114f136fa38",
+            "kind": "global_consistency",
+            "check": "native/background/design_variation",
+            "status": "executed",
+            "explicit_variation": false,
+            "actual_background": "F6F4EE",
+            "spec_background": "F6F4EE",
+            "deck_background": "F6F4EE",
+            "selected_layout": null,
+            "selected_candidate_ids": []
+          },
+          {
+            "slide_id": "slide_6a0e6680-bf64-45aa-b51e-d114f136fa38",
+            "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+            "status": "executed"
+          },
+          {
+            "kind": "structure",
+            "check": "Content_Types declarations and all internal relationship targets/IDs",
+            "status": "executed"
+          }
+        ],
+        "coverage": {
+          "accessibility": "partial_native_alt_font_contrast_table_header_reading_order",
+          "global_consistency": "partial_style_font_footer_hierarchy",
+          "visual_geometry": "partial_collision_geometry_contrast_image_dpi",
+          "image_semantics": "not_executed",
+          "powerpoint_compatibility": "not_executed",
+          "full_semantic_reading_order": "not_executed"
+        }
+      }
+    }
+  ],
+  "fixture_identity": "artificial generated raster fixture, no user/AI E2E representation",
+  "native_cases": [
+    {
+      "name": "normal-eight-ratios",
+      "images": 8
+    },
+    {
+      "name": "normal-cover-explicit-focus",
+      "images": 3
+    },
+    {
+      "name": "normal-explicit-crop",
+      "images": 2
+    }
+  ],
+  "source_hashes": {
+    "src/yoloongppt/visual.py": "bb212a1f366f103dd348fd3994c915086462b75a5ebf2327adb84100647b8903",
+    "src/yoloongppt/gallery_layout.py": "8a48ad6bee0e43189e931446c9c852cf5dfcca815279317c7ecc9b2607a4e039",
+    "contracts/visual-model-fields.schema.json": "79bdde5067f3ffe200658278719a0ce88b0bab19f3e36a68374ce429211599cc",
+    "validation/verify-gallery.py": "eb87d5f12fb08d64dc150a8fc44c965802a6d34c79b789b88f9e34b50ef3b558"
+  },
+  "model_calls": 0,
+  "render_calls": 0,
+  "total_render_calls_for_fixture": 1,
+  "reused_existing_native_render": true,
+  "system_acceptance": "not_passed",
+  "remaining": [
+    "Independent image relevance/visual quality model review",
+    "Real 8-image AI full-pipeline AC-012",
+    "Face/object-aware crop and perceptual duplicate handling"
+  ],
+  "output_path": "/runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef"
+}

@@ -1,0 +1,465 @@
+{
+  "version": "adaptive-content-1",
+  "status": "adapted",
+  "system_acceptance": "not_claimed",
+  "policy": {
+    "page_budget": {
+      "kind": "soft",
+      "target": 2,
+      "minimum": 1,
+      "maximum": 30,
+      "provenance": [
+        {
+          "constraint_id": "candidate_91385189-4e55-476e-817f-f5603858ab98",
+          "field": "page_count",
+          "value": 2,
+          "source": {
+            "kind": "user_instruction",
+            "reference": "runtime_preferences.page_count"
+          },
+          "disposition": "applied",
+          "applied_value": 2,
+          "handling_reason": "Selected by DEC-002 and within current execution subset."
+        }
+      ]
+    },
+    "table_key_columns": {
+      "1": [
+        0
+      ]
+    },
+    "assumption_markers": {}
+  },
+  "input_pages": 2,
+  "output_pages": 10,
+  "deviation": 8,
+  "page_mappings": [
+    {
+      "original_page": 0,
+      "original_title": "纵向大表全部行保留",
+      "original_body_sha256": "1a69259087ce62d0503403403ba52daf53e9e33a42f919a87af5951811fce81b",
+      "original_notes_sha256": "546c643690f49d048818707ccaa47372e27e6cabe86baf292875b9f1a6417701",
+      "evidence_refs": [
+        "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+      ],
+      "assumption_refs": [],
+      "outputs": [
+        {
+          "output_page": 0,
+          "kind": "table",
+          "body_segments": [
+            {
+              "body_item": 0,
+              "start": 0,
+              "end": 10,
+              "text": "表格按原行顺序展示。"
+            }
+          ],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "万元；%",
+            "source": "table.units",
+            "added_to_body": true
+          },
+          "table_coordinates": {
+            "columns": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "rows": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6
+            ],
+            "repeated_key_columns": []
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        },
+        {
+          "output_page": 1,
+          "kind": "table",
+          "body_segments": [],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "万元；%",
+            "source": "table.units",
+            "added_to_body": true
+          },
+          "table_coordinates": {
+            "columns": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "rows": [
+              7,
+              8,
+              9,
+              10,
+              11,
+              12,
+              13
+            ],
+            "repeated_key_columns": []
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        },
+        {
+          "output_page": 2,
+          "kind": "table",
+          "body_segments": [],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "万元；%",
+            "source": "table.units",
+            "added_to_body": true
+          },
+          "table_coordinates": {
+            "columns": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "rows": [
+              14,
+              15,
+              16,
+              17,
+              18,
+              19,
+              20
+            ],
+            "repeated_key_columns": []
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        },
+        {
+          "output_page": 3,
+          "kind": "table",
+          "body_segments": [],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "万元；%",
+            "source": "table.units",
+            "added_to_body": true
+          },
+          "table_coordinates": {
+            "columns": [
+              0,
+              1,
+              2,
+              3
+            ],
+            "rows": [
+              21,
+              22,
+              23,
+              24,
+              25
+            ],
+            "repeated_key_columns": []
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        }
+      ],
+      "geometry": {
+        "title_bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "body_bounds": [
+          0.7,
+          2.0100000000000002,
+          3.25,
+          4.529999999999999
+        ],
+        "body_size": 21,
+        "body_spacing": 16,
+        "data_bounds": [
+          4.32,
+          2.0100000000000002,
+          8.28,
+          4.529999999999999
+        ],
+        "table_size": 16,
+        "minimum_size": 16,
+        "measurement": "adaptive-layout-1"
+      },
+      "original_table_sha256": "1d85b8d498292b74e05f22503e79ff492dba1934650c1457c88845f4410fb52f",
+      "original_visual_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "visual_object_policy": "original visual declaration preserved once; visible text continuation carries no visual declaration",
+      "gallery_capacity_policy": null
+    },
+    {
+      "original_page": 1,
+      "original_title": "多列表格明确重复关键列",
+      "original_body_sha256": "5db011669ec3080777d249be5825b87b876614b0d7806a0807f9de235ae79461",
+      "original_notes_sha256": "546c643690f49d048818707ccaa47372e27e6cabe86baf292875b9f1a6417701",
+      "evidence_refs": [
+        "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+      ],
+      "assumption_refs": [],
+      "outputs": [
+        {
+          "output_page": 4,
+          "kind": "table",
+          "body_segments": [
+            {
+              "body_item": 0,
+              "start": 0,
+              "end": 12,
+              "text": "关键列由调用方明确指定。"
+            }
+          ],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "原文字与单位",
+            "source": "table.units",
+            "added_to_body": true
+          },
+          "table_coordinates": {
+            "columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "rows": [
+              0
+            ],
+            "repeated_key_columns": [
+              0
+            ]
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        },
+        {
+          "output_page": 5,
+          "kind": "table",
+          "body_segments": [],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "原文字与单位",
+            "source": "table.units",
+            "added_to_body": true
+          },
+          "table_coordinates": {
+            "columns": [
+              0,
+              1,
+              2,
+              3,
+              4,
+              5,
+              6,
+              7,
+              8,
+              9
+            ],
+            "rows": [
+              1
+            ],
+            "repeated_key_columns": [
+              0
+            ]
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        },
+        {
+          "output_page": 6,
+          "kind": "table",
+          "body_segments": [],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "原文字与单位",
+            "source": "table.units",
+            "added_to_body": true
+          },
+          "table_coordinates": {
+            "columns": [
+              0,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "rows": [
+              0
+            ],
+            "repeated_key_columns": [
+              0
+            ]
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        },
+        {
+          "output_page": 7,
+          "kind": "table",
+          "body_segments": [],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "原文字与单位",
+            "source": "table.units",
+            "added_to_body": true
+          },
+          "table_coordinates": {
+            "columns": [
+              0,
+              10,
+              11,
+              12,
+              13,
+              14,
+              15,
+              16,
+              17,
+              18
+            ],
+            "rows": [
+              1
+            ],
+            "repeated_key_columns": [
+              0
+            ]
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        },
+        {
+          "output_page": 8,
+          "kind": "table",
+          "body_segments": [],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "原文字与单位",
+            "source": "table.units",
+            "added_to_body": true
+          },
+          "table_coordinates": {
+            "columns": [
+              0,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "rows": [
+              0
+            ],
+            "repeated_key_columns": [
+              0
+            ]
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        },
+        {
+          "output_page": 9,
+          "kind": "table",
+          "body_segments": [],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "原文字与单位",
+            "source": "table.units",
+            "added_to_body": true
+          },
+          "table_coordinates": {
+            "columns": [
+              0,
+              19,
+              20,
+              21,
+              22,
+              23,
+              24
+            ],
+            "rows": [
+              1
+            ],
+            "repeated_key_columns": [
+              0
+            ]
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        }
+      ],
+      "geometry": {
+        "title_bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "body_bounds": [
+          0.7,
+          2.0100000000000002,
+          3.25,
+          4.529999999999999
+        ],
+        "body_size": 21,
+        "body_spacing": 16,
+        "data_bounds": [
+          4.32,
+          2.0100000000000002,
+          8.28,
+          4.529999999999999
+        ],
+        "table_size": 16,
+        "minimum_size": 16,
+        "measurement": "adaptive-layout-1"
+      },
+      "original_table_sha256": "29c4e1a88e42e3c1a32d9f3e263cc715f179bcfd4a1e892b279c1cf05e388f56",
+      "original_visual_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "visual_object_policy": "original visual declaration preserved once; visible text continuation carries no visual declaration",
+      "gallery_capacity_policy": null
+    }
+  ],
+  "input_sha256": "7a11bb77cf9bd3432881870aea64eb8938598f1f0c5d494ce804134824fb57d1",
+  "output_sha256": "e6dc6bfe93c49bb51ea36298e4eb311cb18d5d02da563f54aaaa56b6ecad01d4",
+  "conservation": {
+    "all_body_characters": true,
+    "all_table_cells": true,
+    "titles": true,
+    "notes_unchanged": true,
+    "evidence_refs": true,
+    "assumption_refs": true
+  },
+  "fallback": "structured_failure_without_truncation",
+  "remaining_limits": [
+    "explicit sentence boundaries only; no semantic paraphrase or compression",
+    "content pagination uses declared default Noto native grammar; selected typography is remeasured before writing",
+    "locked template slot adaptation requires a declared geometry contract",
+    "physical render and independent fact review remain required"
+  ]
+}

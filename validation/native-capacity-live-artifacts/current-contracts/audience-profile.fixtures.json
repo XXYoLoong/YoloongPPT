@@ -1,0 +1,171 @@
+{
+  "document_type": "audience_profile_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-005",
+  "task_id": "TASK-CNT-005",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-005-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "presentation_context": {
+          "audience": {
+            "knowledge_level": "熟悉财务规划",
+            "roles": [
+              "财务负责人"
+            ],
+            "concerns": [
+              "预算对现金流的影响"
+            ],
+            "expected_actions": [
+              "评估并批准预算方案"
+            ]
+          }
+        }
+      },
+      "expected_output": {
+        "knowledge_level": "熟悉财务规划",
+        "roles": [
+          "财务负责人"
+        ],
+        "concerns": [
+          "预算对现金流的影响"
+        ],
+        "expected_actions": [
+          "评估并批准预算方案"
+        ],
+        "field_provenance": [
+          {
+            "field": "knowledge_level",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/audience/knowledge_level"
+            }
+          },
+          {
+            "field": "roles",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/audience/roles"
+            }
+          },
+          {
+            "field": "concerns",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/audience/concerns"
+            }
+          },
+          {
+            "field": "expected_actions",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/audience/expected_actions"
+            }
+          }
+        ]
+      },
+      "expected_action": "preserve_explicit_audience_context"
+    },
+    {
+      "fixture_id": "CNT-005-CONFLICT-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "presentation_context": {
+          "audience": {
+            "knowledge_level": "熟悉财务规划",
+            "roles": [
+              "财务负责人"
+            ],
+            "concerns": [
+              "预算对现金流的影响"
+            ],
+            "expected_actions": [
+              "评估并批准预算方案"
+            ]
+          }
+        }
+      },
+      "expected_output": {
+        "knowledge_level": "熟悉财务规划",
+        "roles": [
+          "财务负责人"
+        ],
+        "concerns": [
+          "预算对现金流的影响"
+        ],
+        "expected_actions": [
+          "评估并批准预算方案"
+        ],
+        "field_provenance": [
+          {
+            "field": "knowledge_level",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/audience/knowledge_level"
+            }
+          },
+          {
+            "field": "roles",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/audience/roles"
+            }
+          },
+          {
+            "field": "concerns",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/audience/concerns"
+            }
+          },
+          {
+            "field": "expected_actions",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/audience/expected_actions"
+            }
+          }
+        ]
+      },
+      "expected_conflict_ref": {
+        "fixture_id": "CNT-003-BOUNDARY-001",
+        "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+        "resolution_status": "unresolved",
+        "error_id": "ERR-008",
+        "reason_code": "SOURCE_CONFLICT"
+      },
+      "expected_missing_fact_ref": {
+        "fact_id": "renewal_date",
+        "error_id": "ERR-009",
+        "reason_code": "MISSING_FACT"
+      },
+      "expected_action": "preserve_profile_without_resolving_source_conflict"
+    },
+    {
+      "fixture_id": "CNT-005-MISSING-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "presentation_context": {}
+      },
+      "expected_output": {
+        "knowledge_level": null,
+        "roles": [],
+        "concerns": [],
+        "expected_actions": [],
+        "field_provenance": []
+      },
+      "expected_action": "leave_audience_unspecified"
+    }
+  ],
+  "limits": [
+    "样例数值、来源冲突和 renewal_date 缺失均引用 CNT-001/CNT-003 上游合成 fixture；AudienceProfile 不复制、裁决或填补这些事实。",
+    "缺少受众信息时 null/空数组只表示没有记录，不代表受众属性不存在，也不触发未在上下文中指定的默认值或询问动作。",
+    "AudienceProfile 的枚举、角色体系、推断策略和完整数据对象字段尚无矩阵基线；当前 schema 是任务输出草案，不新增“数据对象”行。",
+    "未实现受众抽取、来源/假设语义校验、内容深度/术语调整运行时；未运行 JSON Schema 实例验证器或 AC-001–AC-030。"
+  ]
+}

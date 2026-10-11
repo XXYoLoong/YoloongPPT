@@ -1,0 +1,212 @@
+{
+  "requirement_id": "IN-009",
+  "task_id": "TASK-IN-009",
+  "fixtures_are_synthetic": true,
+  "cases": [
+    {
+      "case_id": "IN-009-NORMAL-PROVIDED-HTML-001",
+      "purpose": "覆盖 title、正文、嵌套列表、表格、图片引用、metadata、来源锚点和原始资产引用；图片不下载。",
+      "input": {
+        "record_type": "web_parse_input",
+        "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09",
+        "input_mode": "provided_html",
+        "source_url": "https://example.test/report",
+        "html_content": "<html lang=\"zh-CN\"><head><title>季度回顾</title><meta name=\"description\" content=\"示例摘要\"></head><body><main><h1>季度回顾</h1><p>收入保持稳定。</p><ul><li>产品<ul><li>续约增加</li></ul></li></ul><table><tr><th>指标</th><th>数值</th></tr><tr><td>收入</td><td>24</td></tr></table><img src=\"/assets/chart.png\" alt=\"收入图\"></main></body></html>",
+        "source_asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d",
+        "raw_asset_refs": ["asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d"],
+        "retrieval_policy": null
+      },
+      "expected_result": {
+        "record_type": "web_parse_result",
+        "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09",
+        "source_asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d",
+        "raw_asset_refs": ["asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d"],
+        "status": "parsed",
+        "evidence": {
+          "model_type": "WebEvidence",
+          "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09",
+          "source_asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d",
+          "source_url_redacted": "https://example.test/report",
+          "retrieval_status": "not_applicable",
+          "response_metadata": null,
+          "retrieved_media_type": "text/html",
+          "content_sha256": null,
+          "title": "季度回顾",
+          "html_language": "zh-CN",
+          "document_metadata": [
+            { "element_index": 0, "key_kind": "name", "key": "description", "value": "示例摘要", "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/head[1]/meta[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } }
+          ],
+          "content_blocks": [
+            { "kind": "heading", "element_index": 0, "level": 1, "text": "季度回顾", "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/h1[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } },
+            { "kind": "paragraph", "element_index": 1, "text": "收入保持稳定。", "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/p[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } },
+            { "kind": "list", "element_index": 2, "ordered": false, "items": [{ "text": "产品", "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/ul[1]/li[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null }, "children": [{ "text": "续约增加", "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/ul[1]/li[1]/ul[1]/li[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null }, "children": [] }] }], "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/ul[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } },
+            { "kind": "table", "element_index": 3, "caption": null, "rows": [{ "row_index": 0, "cells": [{ "row_index": 0, "column_index": 0, "header": true, "row_span": 1, "column_span": 1, "text": "指标", "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/table[1]/tr[1]/th[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } }, { "row_index": 0, "column_index": 1, "header": true, "row_span": 1, "column_span": 1, "text": "数值", "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/table[1]/tr[1]/th[2]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } }] }, { "row_index": 1, "cells": [{ "row_index": 1, "column_index": 0, "header": false, "row_span": 1, "column_span": 1, "text": "收入", "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/table[1]/tr[2]/td[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } }, { "row_index": 1, "column_index": 1, "header": false, "row_span": 1, "column_span": 1, "text": "24", "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/table[1]/tr[2]/td[2]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } }] }], "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/table[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } },
+            { "kind": "image", "element_index": 4, "source_url_redacted": "https://example.test/assets/chart.png", "alt_text": "收入图", "title": null, "declared_media_type": null, "resource_status": "reference_only_not_fetched", "source_anchor": { "source_id": "source_8bc32c4d-7547-4e9f-985b-18f8d4336c09", "asset_id": "asset_6f24776a-900c-4e98-8e43-0456fa1f7a3d", "native_locator": "/html[1]/body[1]/main[1]/img[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/report", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } }
+          ],
+          "links": []
+        },
+        "errors": [],
+        "security_audit": { "policy_id": null, "decision": "not_applicable", "requests": [] },
+        "processor": { "execution_status": "fixture_only", "name": null, "version": null, "license_status": "unknown", "license_reason": "synthetic expected result; no parser executed" }
+      }
+    },
+    {
+      "case_id": "IN-009-NORMAL-REMOTE-HTML-001",
+      "purpose": "覆盖显式 HTTP 安全策略允许的远程 HTML 获取与响应 metadata；不自动获取嵌入图片。",
+      "input": {
+        "record_type": "web_parse_input",
+        "source_id": "source_86d5f332-ff15-4784-9862-903dfbf24ef8",
+        "input_mode": "remote_url",
+        "source_url": "https://example.test/brief",
+        "html_content": null,
+        "source_asset_id": null,
+        "raw_asset_refs": [],
+        "retrieval_policy": { "policy_id": "fixture-public-html-fetch", "policy_source": "caller", "allowed_schemes": ["https"], "private_target_mode": "block", "max_redirects": 1, "max_response_bytes": 1048576, "allowed_media_types": ["text/html"], "revalidate_redirect_targets": true, "embedded_resource_fetch_mode": "reference_only" }
+      },
+      "expected_result": {
+        "record_type": "web_parse_result",
+        "source_id": "source_86d5f332-ff15-4784-9862-903dfbf24ef8",
+        "source_asset_id": "asset_2c4275e0-36ee-43e0-8d06-59f840e4fed0",
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "evidence": {
+          "model_type": "WebEvidence",
+          "source_id": "source_86d5f332-ff15-4784-9862-903dfbf24ef8",
+          "source_asset_id": "asset_2c4275e0-36ee-43e0-8d06-59f840e4fed0",
+          "source_url_redacted": "https://example.test/brief",
+          "retrieval_status": "fetched",
+          "response_metadata": { "status_code": 200, "content_type": "text/html", "charset": "utf-8", "content_length_bytes": null },
+          "retrieved_media_type": "text/html",
+          "content_sha256": null,
+          "title": "发布说明",
+          "html_language": "zh-CN",
+          "document_metadata": [],
+          "content_blocks": [{ "kind": "paragraph", "element_index": 0, "text": "此页包含公开内容。", "source_anchor": { "source_id": "source_86d5f332-ff15-4784-9862-903dfbf24ef8", "asset_id": "asset_2c4275e0-36ee-43e0-8d06-59f840e4fed0", "native_locator": "/html[1]/body[1]/p[1]", "locator": { "kind": "web_resource", "redacted_url": "https://example.test/brief", "url_redaction": "not_required", "fragment": null, "retrieval_status": "fetched", "content_sha256": null }, "locator_status": "located", "reason": null } }],
+          "links": []
+        },
+        "errors": [],
+        "security_audit": { "policy_id": "fixture-public-html-fetch", "decision": "allowed", "requests": [{ "resource_kind": "document_fetch", "url_redacted": "https://example.test/brief", "decision": "allowed", "target_class": "public", "redirect_index": 0, "error_id": null }] },
+        "processor": { "execution_status": "fixture_only", "name": null, "version": null, "license_status": "unknown", "license_reason": "synthetic expected result; no network request or parser executed" }
+      }
+    },
+    {
+      "case_id": "IN-009-BOUNDARY-SSRF-PRIVATE-001",
+      "purpose": "命中私网/loopback 安全策略时返回 ERR-014 与被拒目标审计；不得发起请求。",
+      "input": {
+        "record_type": "web_parse_input",
+        "source_id": "source_a3b1c4d5-61e7-4d58-a42b-e95c9441c842",
+        "input_mode": "remote_url",
+        "source_url": "http://127.0.0.1/admin",
+        "html_content": null,
+        "source_asset_id": null,
+        "raw_asset_refs": [],
+        "retrieval_policy": { "policy_id": "fixture-private-target-block", "policy_source": "caller", "allowed_schemes": ["http", "https"], "private_target_mode": "block", "max_redirects": 2, "max_response_bytes": 1048576, "allowed_media_types": ["text/html"], "revalidate_redirect_targets": true, "embedded_resource_fetch_mode": "reference_only" }
+      },
+      "expected_result": {
+        "record_type": "web_parse_result",
+        "source_id": "source_a3b1c4d5-61e7-4d58-a42b-e95c9441c842",
+        "source_asset_id": null,
+        "raw_asset_refs": [],
+        "status": "failed",
+        "evidence": null,
+        "errors": [{ "error_id": "ERR-014", "code": "ASSET_UNSAFE_URL", "phase": "policy_check", "message": "远程目标按显式策略拒绝；未发起网络请求。", "source_anchor": null }],
+        "security_audit": { "policy_id": "fixture-private-target-block", "decision": "blocked", "requests": [{ "resource_kind": "document_fetch", "url_redacted": "http://127.0.0.1/admin", "decision": "blocked", "target_class": "loopback", "redirect_index": null, "error_id": "ERR-014" }] },
+        "processor": { "execution_status": "fixture_only", "name": null, "version": null, "license_status": "unknown", "license_reason": "synthetic expected result; no network request or parser executed" }
+      }
+    },
+    {
+      "case_id": "IN-009-BOUNDARY-REDIRECT-RECHECK-001",
+      "purpose": "每个重定向目标都重新检查；公网初始目标跳转到 link-local 时拒绝第二跳。",
+      "input": {
+        "record_type": "web_parse_input",
+        "source_id": "source_cadbc7bd-2d34-46ec-b9ce-50ac5f840e16",
+        "input_mode": "remote_url",
+        "source_url": "https://example.test/start",
+        "html_content": null,
+        "source_asset_id": null,
+        "raw_asset_refs": [],
+        "retrieval_policy": { "policy_id": "fixture-redirect-recheck", "policy_source": "caller", "allowed_schemes": ["https"], "private_target_mode": "block", "max_redirects": 3, "max_response_bytes": 2097152, "allowed_media_types": ["text/html"], "revalidate_redirect_targets": true, "embedded_resource_fetch_mode": "reference_only" }
+      },
+      "expected_result": {
+        "record_type": "web_parse_result",
+        "source_id": "source_cadbc7bd-2d34-46ec-b9ce-50ac5f840e16",
+        "source_asset_id": null,
+        "raw_asset_refs": [],
+        "status": "failed",
+        "evidence": null,
+        "errors": [{ "error_id": "ERR-014", "code": "ASSET_UNSAFE_URL", "phase": "policy_check", "message": "重定向目标命中 link-local 安全策略；未请求该目标。", "source_anchor": null }],
+        "security_audit": { "policy_id": "fixture-redirect-recheck", "decision": "blocked", "requests": [{ "resource_kind": "document_fetch", "url_redacted": "https://example.test/start", "decision": "allowed", "target_class": "public", "redirect_index": 0, "error_id": null }, { "resource_kind": "document_fetch", "url_redacted": "http://169.254.169.254/latest/meta-data/", "decision": "blocked", "target_class": "link_local", "redirect_index": 1, "error_id": "ERR-014" }] },
+        "processor": { "execution_status": "fixture_only", "name": null, "version": null, "license_status": "unknown", "license_reason": "synthetic expected result; no network request or parser executed" }
+      }
+    },
+    {
+      "case_id": "IN-009-PARTIAL-HTML-STRUCTURE-001",
+      "purpose": "HTML 中局部表格结构损坏时保留已解析块并给出 ERR-006 结构化原因。",
+      "input": {
+        "record_type": "web_parse_input",
+        "source_id": "source_63473d2b-1974-493d-83ad-e2aaec7a51a0",
+        "input_mode": "provided_html",
+        "source_url": null,
+        "html_content": "<html><head><title>残缺示例</title></head><body><h1>可解析标题</h1><p>保留段落</p><table><tr><td>缺少闭合单元格</tr></table></body></html>",
+        "source_asset_id": "asset_814f7092-1cf5-4a90-a3e0-f633b9f67b50",
+        "raw_asset_refs": ["asset_814f7092-1cf5-4a90-a3e0-f633b9f67b50"],
+        "retrieval_policy": null
+      },
+      "expected_result": {
+        "record_type": "web_parse_result",
+        "source_id": "source_63473d2b-1974-493d-83ad-e2aaec7a51a0",
+        "source_asset_id": "asset_814f7092-1cf5-4a90-a3e0-f633b9f67b50",
+        "raw_asset_refs": ["asset_814f7092-1cf5-4a90-a3e0-f633b9f67b50"],
+        "status": "partial",
+        "evidence": {
+          "model_type": "WebEvidence",
+          "source_id": "source_63473d2b-1974-493d-83ad-e2aaec7a51a0",
+          "source_asset_id": "asset_814f7092-1cf5-4a90-a3e0-f633b9f67b50",
+          "source_url_redacted": null,
+          "retrieval_status": "not_applicable",
+          "response_metadata": null,
+          "retrieved_media_type": "text/html",
+          "content_sha256": null,
+          "title": "残缺示例",
+          "html_language": null,
+          "document_metadata": [],
+          "content_blocks": [{ "kind": "heading", "element_index": 0, "level": 1, "text": "可解析标题", "source_anchor": { "source_id": "source_63473d2b-1974-493d-83ad-e2aaec7a51a0", "asset_id": "asset_814f7092-1cf5-4a90-a3e0-f633b9f67b50", "native_locator": "/html[1]/body[1]/h1[1]", "locator": { "kind": "web_resource", "redacted_url": "about:provided-html", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } }, { "kind": "paragraph", "element_index": 1, "text": "保留段落", "source_anchor": { "source_id": "source_63473d2b-1974-493d-83ad-e2aaec7a51a0", "asset_id": "asset_814f7092-1cf5-4a90-a3e0-f633b9f67b50", "native_locator": "/html[1]/body[1]/p[1]", "locator": { "kind": "web_resource", "redacted_url": "about:provided-html", "url_redaction": "not_required", "fragment": null, "retrieval_status": "not_fetched", "content_sha256": null }, "locator_status": "located", "reason": null } }],
+          "links": []
+        },
+        "errors": [{ "error_id": "ERR-006", "code": "PARSE_PARTIAL", "phase": "parse", "message": "表格结构无法完整恢复；保留已成功解析的标题和段落。", "source_anchor": null }],
+        "security_audit": { "policy_id": null, "decision": "not_applicable", "requests": [] },
+        "processor": { "execution_status": "fixture_only", "name": null, "version": null, "license_status": "unknown", "license_reason": "synthetic expected result; no parser executed" }
+      }
+    },
+    {
+      "case_id": "IN-009-FAILED-DOWNLOAD-001",
+      "purpose": "安全策略允许的远程请求发生失败时返回 ERR-013，不伪造 WebEvidence。",
+      "input": {
+        "record_type": "web_parse_input",
+        "source_id": "source_d831103f-84ad-4b86-b936-5909a1c0eb2e",
+        "input_mode": "remote_url",
+        "source_url": "https://example.test/unavailable",
+        "html_content": null,
+        "source_asset_id": null,
+        "raw_asset_refs": [],
+        "retrieval_policy": { "policy_id": "fixture-explicit-fetch-limits", "policy_source": "caller", "allowed_schemes": ["https"], "private_target_mode": "block", "max_redirects": 2, "max_response_bytes": 1048576, "allowed_media_types": ["text/html"], "revalidate_redirect_targets": true, "embedded_resource_fetch_mode": "reference_only" }
+      },
+      "expected_result": {
+        "record_type": "web_parse_result",
+        "source_id": "source_d831103f-84ad-4b86-b936-5909a1c0eb2e",
+        "source_asset_id": null,
+        "raw_asset_refs": [],
+        "status": "failed",
+        "evidence": null,
+        "errors": [{ "error_id": "ERR-013", "code": "ASSET_DOWNLOAD_FAIL", "phase": "fetch", "message": "远程内容未能获取；保留结构化失败原因。", "source_anchor": null }],
+        "security_audit": { "policy_id": "fixture-explicit-fetch-limits", "decision": "failed", "requests": [{ "resource_kind": "document_fetch", "url_redacted": "https://example.test/unavailable", "decision": "allowed", "target_class": "public", "redirect_index": 0, "error_id": null }] },
+        "processor": { "execution_status": "fixture_only", "name": null, "version": null, "license_status": "unknown", "license_reason": "synthetic expected result; no network request or parser executed" }
+      }
+    }
+  ],
+  "notes": [
+    "所有结果均为静态合成期望，不是实际 HTML parser、HTTP client 或 SSRF 防护执行输出。",
+    "示例中的重定向次数、响应字节数和 content-type 集合仅是 fixture 的显式输入值，不是产品默认参数。",
+    "HTML 文本中的命令或指令必须作为来源数据处理，不得覆盖系统或用户约束（SEC-007）。"
+  ]
+}

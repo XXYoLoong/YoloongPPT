@@ -1,0 +1,154 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "VersionManifest（GOV-010 草案）",
+  "description": "记录项目代码、研究仓库、依赖、模型、Office/API set、模板、schema、renderer、容器基础镜像和测试数据的版本或 hash。分支/标签仅作可读引用；可复现记录必须落到不可变 commit、package version、hash 或 OCI digest。",
+  "type": "object",
+  "required": ["document_type", "contract_status", "requirement_id", "captured_at", "repository_basis", "code_commit", "coverage_summary", "resources", "acceptance_readiness"],
+  "properties": {
+    "document_type": { "const": "version_manifest" },
+    "contract_status": { "const": "draft" },
+    "requirement_id": { "const": "GOV-010" },
+    "captured_at": { "type": "string", "format": "date-time" },
+    "repository_basis": {
+      "type": "object",
+      "required": ["commit", "branch", "purpose"],
+      "properties": {
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "branch": { "const": "yoloongdevlop" },
+        "purpose": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "code_commit": {
+      "type": "object",
+      "required": ["commit", "branch", "recorded_scope"],
+      "properties": {
+        "commit": { "type": "string", "pattern": "^[0-9a-f]{40}$" },
+        "branch": { "type": "string", "minLength": 1 },
+        "recorded_scope": { "type": "string", "minLength": 1 }
+      },
+      "additionalProperties": false
+    },
+    "coverage_summary": {
+      "type": "object",
+      "required": ["code_commit", "dependencies", "models", "adapters", "office_api_sets", "templates", "schemas", "renderers", "test_data", "docker_base_image"],
+      "properties": {
+        "code_commit": { "enum": ["pinned", "partial", "not_selected"] },
+        "dependencies": { "enum": ["pinned", "partial", "not_selected"] },
+        "models": { "enum": ["pinned", "partial", "not_selected"] },
+        "adapters": { "enum": ["pinned", "partial", "not_selected"] },
+        "office_api_sets": { "enum": ["pinned", "partial", "not_selected"] },
+        "templates": { "enum": ["pinned", "partial", "not_selected"] },
+        "schemas": { "enum": ["pinned", "partial", "not_selected"] },
+        "renderers": { "enum": ["pinned", "partial", "not_selected"] },
+        "test_data": { "enum": ["pinned", "partial", "not_selected"] },
+        "docker_base_image": { "enum": ["pinned", "partial", "not_selected"] }
+      },
+      "additionalProperties": false
+    },
+    "resources": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/resource" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "acceptance_readiness": {
+      "type": "object",
+      "required": ["status", "reasons"],
+      "properties": {
+        "status": { "type": "string", "enum": ["ready", "pending"] },
+        "reasons": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "ready" } }, "required": ["status"] },
+          "then": { "properties": { "reasons": { "maxItems": 0 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "pending" } }, "required": ["status"] },
+          "then": { "properties": { "reasons": { "minItems": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$defs": {
+    "resource": {
+      "type": "object",
+      "required": ["resource_id", "kind", "name", "usage", "version_status", "version_kind", "version_value", "declared_ref", "declared_constraint", "unresolved_reason", "source_url", "license", "requirement_refs", "evidence_refs"],
+      "properties": {
+        "resource_id": { "type": "string", "pattern": "^[A-Z0-9][A-Z0-9._-]+$" },
+        "kind": {
+          "type": "string",
+          "enum": ["project_commit", "baseline_document", "source_repository", "dependency_specification", "library", "model", "office_api_set", "adapter", "template", "project_schema", "renderer", "test_data", "container_base_image", "container_packages"]
+        },
+        "name": { "type": "string", "minLength": 1 },
+        "usage": { "type": "string", "enum": ["project_baseline", "research_only", "candidate", "product", "development_environment", "not_selected"] },
+        "version_status": { "type": "string", "enum": ["pinned", "unlocked", "not_selected"] },
+        "version_kind": { "type": "string", "enum": ["git_commit", "git_tag_target", "sha256", "oci_index_digest", "package_version", "office_api_set", "dependency_specification", "none", "other"] },
+        "version_value": { "type": ["string", "null"], "not": { "enum": ["latest", "main", "master"] } },
+        "declared_ref": { "type": ["string", "null"] },
+        "tag_object_sha": { "type": ["string", "null"], "pattern": "^([0-9a-f]{40})?$" },
+        "declared_constraint": { "type": ["string", "null"] },
+        "unresolved_reason": { "type": ["string", "null"] },
+        "source_url": { "type": ["string", "null"], "format": "uri" },
+        "license": {
+          "type": "object",
+          "required": ["status", "spdx_id", "evidence_ref"],
+          "properties": {
+            "status": { "type": "string", "enum": ["verified", "baseline_reported", "not_assessed", "not_applicable"] },
+            "spdx_id": { "type": ["string", "null"] },
+            "evidence_ref": { "type": ["string", "null"] }
+          },
+          "additionalProperties": false
+        },
+        "requirement_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "evidence_refs": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "version_status": { "const": "pinned" } }, "required": ["version_status"] },
+          "then": {
+            "properties": { "version_value": { "type": "string", "minLength": 1 }, "unresolved_reason": { "type": "null" } }
+          }
+        },
+        {
+          "if": { "properties": { "version_status": { "const": "unlocked" } }, "required": ["version_status"] },
+          "then": {
+            "properties": { "version_value": { "type": "null" }, "unresolved_reason": { "type": "string", "minLength": 1 } },
+            "required": ["declared_constraint"]
+          }
+        },
+        {
+          "if": { "properties": { "version_status": { "const": "not_selected" } }, "required": ["version_status"] },
+          "then": {
+            "properties": { "version_value": { "type": "null" }, "version_kind": { "const": "none" }, "unresolved_reason": { "type": "string", "minLength": 1 } }
+          }
+        },
+        {
+          "if": { "properties": { "version_kind": { "enum": ["git_commit", "git_tag_target"] } }, "required": ["version_kind"] },
+          "then": { "properties": { "version_value": { "type": "string", "pattern": "^[0-9a-f]{40}$" } } }
+        },
+        {
+          "if": { "properties": { "version_kind": { "enum": ["sha256", "oci_index_digest"] } }, "required": ["version_kind"] },
+          "then": { "properties": { "version_value": { "type": "string", "pattern": "^sha256:[0-9a-f]{64}$" } } }
+        }
+      ],
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

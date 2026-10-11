@@ -1,0 +1,355 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "web-evidence.schema.json",
+  "title": "WebEvidence 契约（IN-009 草案）",
+  "description": "HTML/URL 输入的运行时无关契约。远程请求须显式携带安全策略；外部图片和链接只抽取引用，不自动请求。",
+  "oneOf": [
+    { "$ref": "#/$defs/web_parse_input" },
+    { "$ref": "#/$defs/web_parse_result" }
+  ],
+  "$defs": {
+    "source_id": { "$ref": "object-id.schema.json#/$defs/source_id" },
+    "asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+    "source_anchor": { "$ref": "source-anchor.schema.json#/$defs/source_anchor" },
+    "web_retrieval_policy": {
+      "type": "object",
+      "required": [
+        "policy_id",
+        "policy_source",
+        "allowed_schemes",
+        "private_target_mode",
+        "max_redirects",
+        "max_response_bytes",
+        "allowed_media_types",
+        "revalidate_redirect_targets",
+        "embedded_resource_fetch_mode"
+      ],
+      "properties": {
+        "policy_id": { "type": "string", "minLength": 1 },
+        "policy_source": { "type": "string", "enum": ["caller", "effective_config"] },
+        "allowed_schemes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "enum": ["http", "https"] },
+          "description": "仅允许需求基线指定的 HTTP/HTTPS；数组内容必须来自显式策略。"
+        },
+        "private_target_mode": {
+          "type": "string",
+          "enum": ["block", "explicit_allowlist"],
+          "description": "SEC-002 的默认行为是阻止 loopback/link-local/private network；例外必须由明确策略表达。"
+        },
+        "max_redirects": { "type": "integer", "minimum": 0 },
+        "max_response_bytes": { "type": "integer", "minimum": 1 },
+        "allowed_media_types": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "revalidate_redirect_targets": {
+          "const": true,
+          "description": "每个重定向目标都重新经过同一安全策略检查。"
+        },
+        "embedded_resource_fetch_mode": {
+          "const": "reference_only",
+          "description": "本任务只抽取 HTML 中图片/链接引用；资源下载属于独立授权与素材流程。"
+        }
+      },
+      "additionalProperties": false
+    },
+    "web_parse_input": {
+      "type": "object",
+      "required": ["record_type", "source_id", "input_mode", "source_url", "html_content", "source_asset_id", "raw_asset_refs", "retrieval_policy"],
+      "properties": {
+        "record_type": { "const": "web_parse_input" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "input_mode": { "type": "string", "enum": ["remote_url", "provided_html"] },
+        "source_url": { "type": ["string", "null"], "format": "uri" },
+        "html_content": { "type": ["string", "null"] },
+        "source_asset_id": { "oneOf": [{ "$ref": "#/$defs/asset_id" }, { "type": "null" }] },
+        "raw_asset_refs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/asset_id" },
+          "description": "按输入顺序原样传递；运行时须验证结果与输入一致。"
+        },
+        "retrieval_policy": {
+          "oneOf": [{ "$ref": "#/$defs/web_retrieval_policy" }, { "type": "null" }]
+        }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "input_mode": { "const": "remote_url" } }, "required": ["input_mode"] },
+          "then": {
+            "properties": {
+              "source_url": { "type": "string", "format": "uri", "pattern": "^https?://" },
+              "html_content": { "type": "null" },
+              "retrieval_policy": { "$ref": "#/$defs/web_retrieval_policy" }
+            }
+          }
+        },
+        {
+          "if": { "properties": { "input_mode": { "const": "provided_html" } }, "required": ["input_mode"] },
+          "then": {
+            "properties": {
+              "source_url": { "type": ["string", "null"], "format": "uri" },
+              "html_content": { "type": "string" },
+              "retrieval_policy": { "type": "null" }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "metadata_item": {
+      "type": "object",
+      "required": ["element_index", "key_kind", "key", "value", "source_anchor"],
+      "properties": {
+        "element_index": { "type": "integer", "minimum": 0 },
+        "key_kind": { "type": "string", "enum": ["name", "property", "http_equiv", "itemprop", "other"] },
+        "key": { "type": "string", "minLength": 1 },
+        "value": { "type": "string" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "heading_block": {
+      "type": "object",
+      "required": ["kind", "element_index", "level", "text", "source_anchor"],
+      "properties": {
+        "kind": { "const": "heading" },
+        "element_index": { "type": "integer", "minimum": 0 },
+        "level": { "type": "integer", "minimum": 1, "maximum": 6 },
+        "text": { "type": "string" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "paragraph_block": {
+      "type": "object",
+      "required": ["kind", "element_index", "text", "source_anchor"],
+      "properties": {
+        "kind": { "const": "paragraph" },
+        "element_index": { "type": "integer", "minimum": 0 },
+        "text": { "type": "string" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "list_item": {
+      "type": "object",
+      "required": ["text", "source_anchor", "children"],
+      "properties": {
+        "text": { "type": "string" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "children": { "type": "array", "items": { "$ref": "#/$defs/list_item" } }
+      },
+      "additionalProperties": false
+    },
+    "list_block": {
+      "type": "object",
+      "required": ["kind", "element_index", "ordered", "items", "source_anchor"],
+      "properties": {
+        "kind": { "const": "list" },
+        "element_index": { "type": "integer", "minimum": 0 },
+        "ordered": { "type": "boolean" },
+        "items": { "type": "array", "items": { "$ref": "#/$defs/list_item" } },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "table_cell": {
+      "type": "object",
+      "required": ["row_index", "column_index", "header", "row_span", "column_span", "text", "source_anchor"],
+      "properties": {
+        "row_index": { "type": "integer", "minimum": 0 },
+        "column_index": { "type": "integer", "minimum": 0 },
+        "header": { "type": "boolean" },
+        "row_span": { "type": "integer", "minimum": 1 },
+        "column_span": { "type": "integer", "minimum": 1 },
+        "text": { "type": "string" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "table_row": {
+      "type": "object",
+      "required": ["row_index", "cells"],
+      "properties": {
+        "row_index": { "type": "integer", "minimum": 0 },
+        "cells": { "type": "array", "items": { "$ref": "#/$defs/table_cell" } }
+      },
+      "additionalProperties": false
+    },
+    "table_block": {
+      "type": "object",
+      "required": ["kind", "element_index", "caption", "rows", "source_anchor"],
+      "properties": {
+        "kind": { "const": "table" },
+        "element_index": { "type": "integer", "minimum": 0 },
+        "caption": { "type": ["string", "null"] },
+        "rows": { "type": "array", "items": { "$ref": "#/$defs/table_row" } },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "image_block": {
+      "type": "object",
+      "required": ["kind", "element_index", "source_url_redacted", "alt_text", "title", "declared_media_type", "resource_status", "source_anchor"],
+      "properties": {
+        "kind": { "const": "image" },
+        "element_index": { "type": "integer", "minimum": 0 },
+        "source_url_redacted": { "type": ["string", "null"] },
+        "alt_text": { "type": ["string", "null"] },
+        "title": { "type": ["string", "null"] },
+        "declared_media_type": { "type": ["string", "null"] },
+        "resource_status": { "const": "reference_only_not_fetched" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "link_reference": {
+      "type": "object",
+      "required": ["element_index", "href_redacted", "text", "rel", "fetch_status", "source_anchor"],
+      "properties": {
+        "element_index": { "type": "integer", "minimum": 0 },
+        "href_redacted": { "type": ["string", "null"] },
+        "text": { "type": "string" },
+        "rel": { "type": ["string", "null"] },
+        "fetch_status": { "const": "not_requested" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "content_block": {
+      "oneOf": [
+        { "$ref": "#/$defs/heading_block" },
+        { "$ref": "#/$defs/paragraph_block" },
+        { "$ref": "#/$defs/list_block" },
+        { "$ref": "#/$defs/table_block" },
+        { "$ref": "#/$defs/image_block" }
+      ]
+    },
+    "web_evidence": {
+      "type": "object",
+      "required": ["model_type", "source_id", "source_asset_id", "source_url_redacted", "retrieval_status", "response_metadata", "retrieved_media_type", "content_sha256", "title", "html_language", "document_metadata", "content_blocks", "links"],
+      "properties": {
+        "model_type": { "const": "WebEvidence" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "oneOf": [{ "$ref": "#/$defs/asset_id" }, { "type": "null" }] },
+        "source_url_redacted": { "type": ["string", "null"] },
+        "retrieval_status": { "type": "string", "enum": ["not_applicable", "fetched"] },
+        "response_metadata": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "required": ["status_code", "content_type", "charset", "content_length_bytes"],
+              "properties": {
+                "status_code": { "type": "integer", "minimum": 100, "maximum": 599 },
+                "content_type": { "type": ["string", "null"] },
+                "charset": { "type": ["string", "null"] },
+                "content_length_bytes": { "type": ["integer", "null"], "minimum": 0 }
+              },
+              "additionalProperties": false
+            }
+          ]
+        },
+        "retrieved_media_type": { "type": ["string", "null"] },
+        "content_sha256": { "type": ["string", "null"], "pattern": "^[0-9a-f]{64}$" },
+        "title": { "type": ["string", "null"] },
+        "html_language": { "type": ["string", "null"] },
+        "document_metadata": { "type": "array", "items": { "$ref": "#/$defs/metadata_item" } },
+        "content_blocks": { "type": "array", "items": { "$ref": "#/$defs/content_block" } },
+        "links": { "type": "array", "items": { "$ref": "#/$defs/link_reference" } }
+      },
+      "additionalProperties": false
+    },
+    "parse_error": {
+      "type": "object",
+      "required": ["error_id", "code", "phase", "message", "source_anchor"],
+      "properties": {
+        "error_id": { "type": "string", "enum": ["ERR-002", "ERR-006", "ERR-013", "ERR-014"] },
+        "code": { "type": "string", "enum": ["INPUT_UNSUPPORTED", "PARSE_PARTIAL", "ASSET_DOWNLOAD_FAIL", "ASSET_UNSAFE_URL"] },
+        "phase": { "type": "string", "enum": ["policy_check", "fetch", "decode", "parse", "extract"] },
+        "message": { "type": "string", "minLength": 1 },
+        "source_anchor": { "oneOf": [{ "$ref": "#/$defs/source_anchor" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "security_audit_item": {
+      "type": "object",
+      "required": ["resource_kind", "url_redacted", "decision", "target_class", "redirect_index", "error_id"],
+      "properties": {
+        "resource_kind": { "const": "document_fetch" },
+        "url_redacted": { "type": "string", "minLength": 1 },
+        "decision": { "type": "string", "enum": ["allowed", "blocked", "not_attempted"] },
+        "target_class": { "type": "string", "enum": ["public", "loopback", "link_local", "private_network", "mixed", "unknown", "not_resolved"] },
+        "redirect_index": { "type": ["integer", "null"], "minimum": 0 },
+        "error_id": { "type": ["string", "null"], "enum": ["ERR-014", null] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "decision": { "const": "blocked" } }, "required": ["decision"] },
+          "then": { "properties": { "error_id": { "const": "ERR-014" } } }
+        },
+        {
+          "if": { "properties": { "decision": { "enum": ["allowed", "not_attempted"] } }, "required": ["decision"] },
+          "then": { "properties": { "error_id": { "type": "null" } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "processor_record": {
+      "type": "object",
+      "required": ["execution_status", "name", "version", "license_status", "license_reason"],
+      "properties": {
+        "execution_status": { "type": "string", "enum": ["fixture_only", "not_executed", "executed", "failed"] },
+        "name": { "type": ["string", "null"] },
+        "version": { "type": ["string", "null"] },
+        "license_status": { "type": "string", "enum": ["known", "unknown", "not_applicable"] },
+        "license_reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "web_parse_result": {
+      "type": "object",
+      "required": ["record_type", "source_id", "source_asset_id", "raw_asset_refs", "status", "evidence", "errors", "security_audit", "processor"],
+      "properties": {
+        "record_type": { "const": "web_parse_result" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "oneOf": [{ "$ref": "#/$defs/asset_id" }, { "type": "null" }] },
+        "raw_asset_refs": { "type": "array", "items": { "$ref": "#/$defs/asset_id" } },
+        "status": { "type": "string", "enum": ["parsed", "partial", "failed"] },
+        "evidence": { "oneOf": [{ "$ref": "#/$defs/web_evidence" }, { "type": "null" }] },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/parse_error" } },
+        "security_audit": {
+          "type": "object",
+          "required": ["policy_id", "decision", "requests"],
+          "properties": {
+            "policy_id": { "type": ["string", "null"] },
+            "decision": { "type": "string", "enum": ["not_applicable", "allowed", "blocked", "failed"] },
+            "requests": { "type": "array", "items": { "$ref": "#/$defs/security_audit_item" } }
+          },
+          "additionalProperties": false
+        },
+        "processor": { "$ref": "#/$defs/processor_record" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "parsed" } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "$ref": "#/$defs/web_evidence" }, "errors": { "maxItems": 0 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "partial" } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "$ref": "#/$defs/web_evidence" }, "errors": { "minItems": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "type": "null" }, "errors": { "minItems": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

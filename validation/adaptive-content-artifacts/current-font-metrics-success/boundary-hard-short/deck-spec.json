@@ -1,0 +1,2528 @@
+{
+  "deck_id": "deck_82a9a393-ac82-437b-bf32-f41c9c65b3a7",
+  "title": "boundary-hard-short",
+  "aspect_ratio": "16:9",
+  "width_inches": 13.333333,
+  "height_inches": 7.5,
+  "style": {
+    "font": "Noto Sans CJK SC",
+    "background": "F6F4EE",
+    "foreground": "192C32",
+    "accent": "147C80",
+    "title_size": 30,
+    "body_size": 22,
+    "minimum_size": 16
+  },
+  "slides": [
+    {
+      "slide_id": "slide_7d3298b2-d220-43ec-bf15-fe57cbfaca9e",
+      "order": 0,
+      "intent": {
+        "goal": "完整展示已批准的字面夹具",
+        "core_message": "硬页预算可容纳原文"
+      },
+      "content": {
+        "kind": "text",
+        "title": "硬页预算可容纳原文",
+        "body": [
+          "完整短正文与数字3.5 kg保留。"
+        ],
+        "goal": "完整展示已批准的字面夹具",
+        "rationale": "按原文顺序保留，容量调整不改变事实",
+        "notes": "原备注只用于解释，核心正文必须在页面可见。",
+        "evidence_refs": [
+          "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+        ],
+        "table": null,
+        "chart": null
+      },
+      "assets": [],
+      "layout": {
+        "kind": "text",
+        "master": "library-default-blank",
+        "design_version": "native-editorial-1",
+        "selected_layout": "editorial",
+        "selection_trace": {
+          "version": "native-layout-stages-2",
+          "input": {
+            "content": {
+              "kind": "text",
+              "title": "硬页预算可容纳原文",
+              "body": [
+                "完整短正文与数字3.5 kg保留。"
+              ],
+              "goal": "完整展示已批准的字面夹具",
+              "rationale": "按原文顺序保留，容量调整不改变事实",
+              "notes": "原备注只用于解释，核心正文必须在页面可见。",
+              "evidence_refs": [
+                "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+              ],
+              "table": null,
+              "chart": null
+            },
+            "order": 0,
+            "page_count": 1,
+            "style": {
+              "font": "Noto Sans CJK SC",
+              "background": "F6F4EE",
+              "foreground": "192C32",
+              "accent": "147C80",
+              "title_size": 30,
+              "body_size": 22,
+              "minimum_size": 16
+            },
+            "previous_layout": null
+          },
+          "candidates": [
+            {
+              "candidate_id": "candidate_98017d0b-cf37-4372-8255-2a7b8ac3cfc7",
+              "layout_id": "layout_2db6d228-cf42-4e80-aecb-960958b664b9",
+              "layout": "editorial",
+              "score": 40,
+              "reasons": [
+                "Broad native text slot with every original paragraph."
+              ],
+              "eligible": true,
+              "capacity_pass": true,
+              "backend_support": {
+                "backend": "PP-05",
+                "checked": true,
+                "required_capabilities": [
+                  "create_slide",
+                  "add_text",
+                  "add_notes"
+                ]
+              },
+              "rejection": null
+            },
+            {
+              "candidate_id": "candidate_beda2bb0-c2fa-4631-82f9-1316a2b1d901",
+              "layout_id": "layout_5aa82fb8-104d-4bbf-906c-2d1b698f5ae2",
+              "layout": "columns",
+              "score": 65,
+              "reasons": [
+                "Original point sets balanced without rewriting."
+              ],
+              "eligible": false,
+              "capacity_pass": false,
+              "backend_support": {
+                "backend": "PP-05",
+                "checked": true,
+                "required_capabilities": [
+                  "create_slide",
+                  "add_text",
+                  "add_notes"
+                ]
+              },
+              "rejection": {
+                "code": "LAYOUT_CONTENT_MISMATCH",
+                "reason": "Position/body cardinality mismatches declared layout."
+              }
+            },
+            {
+              "candidate_id": "candidate_1f3d932b-34aa-4226-8739-0ba5569017b2",
+              "layout_id": "layout_fef2c84c-5348-452f-87cf-23bdea99eb7c",
+              "layout": "cards",
+              "score": 75,
+              "reasons": [
+                "Original items in individual editable panels; semantic relation is unchanged and not inferred."
+              ],
+              "eligible": false,
+              "capacity_pass": false,
+              "backend_support": {
+                "backend": "PP-05",
+                "checked": true,
+                "required_capabilities": [
+                  "create_slide",
+                  "add_text",
+                  "add_notes"
+                ]
+              },
+              "rejection": {
+                "code": "LAYOUT_CONTENT_MISMATCH",
+                "reason": "Position/body cardinality mismatches declared layout."
+              }
+            },
+            {
+              "candidate_id": "candidate_8fe0a345-7422-47cd-b200-c7f6a2b5f5bc",
+              "layout_id": "layout_ed4738a0-89d8-4a82-9fad-3ef816fe8844",
+              "layout": "cover",
+              "score": 100,
+              "reasons": [
+                "First text page: clear opening and side summary."
+              ],
+              "eligible": false,
+              "capacity_pass": false,
+              "backend_support": {
+                "backend": "PP-05",
+                "checked": true,
+                "required_capabilities": [
+                  "create_slide",
+                  "add_text",
+                  "add_notes"
+                ]
+              },
+              "rejection": {
+                "code": "LAYOUT_CONTENT_MISMATCH",
+                "reason": "Position/body cardinality mismatches declared layout."
+              }
+            },
+            {
+              "candidate_id": "candidate_6303fbca-1e0d-4511-8b26-d53ff153bc34",
+              "layout_id": "layout_94b9f663-55cd-4540-960d-9968fa8ec7fa",
+              "layout": "closing",
+              "score": 95,
+              "reasons": [
+                "Last text page: strong conclusion and preserved action points."
+              ],
+              "eligible": false,
+              "capacity_pass": false,
+              "backend_support": {
+                "backend": "PP-05",
+                "checked": true,
+                "required_capabilities": [
+                  "create_slide",
+                  "add_text",
+                  "add_notes"
+                ]
+              },
+              "rejection": {
+                "code": "LAYOUT_CONTENT_MISMATCH",
+                "reason": "Position/body cardinality mismatches declared layout."
+              }
+            }
+          ],
+          "selected": "candidate_98017d0b-cf37-4372-8255-2a7b8ac3cfc7",
+          "selected_layout": "editorial",
+          "mechanism": "Heuristic hierarchy, capacity, contrast, and adjacent variation; no semantic score claim.",
+          "decisions": [
+            {
+              "node_id": "DEC-030",
+              "result": {
+                "candidates": [
+                  {
+                    "candidate_id": "candidate_98017d0b-cf37-4372-8255-2a7b8ac3cfc7",
+                    "layout_id": "layout_2db6d228-cf42-4e80-aecb-960958b664b9",
+                    "layout": "editorial",
+                    "score": 40,
+                    "reasons": [
+                      "Broad native text slot with every original paragraph."
+                    ],
+                    "eligible": true,
+                    "capacity_pass": true,
+                    "backend_support": {
+                      "backend": "PP-05",
+                      "checked": true,
+                      "required_capabilities": [
+                        "create_slide",
+                        "add_text",
+                        "add_notes"
+                      ]
+                    },
+                    "rejection": null
+                  },
+                  {
+                    "candidate_id": "candidate_beda2bb0-c2fa-4631-82f9-1316a2b1d901",
+                    "layout_id": "layout_5aa82fb8-104d-4bbf-906c-2d1b698f5ae2",
+                    "layout": "columns",
+                    "score": 65,
+                    "reasons": [
+                      "Original point sets balanced without rewriting."
+                    ],
+                    "eligible": false,
+                    "capacity_pass": false,
+                    "backend_support": {
+                      "backend": "PP-05",
+                      "checked": true,
+                      "required_capabilities": [
+                        "create_slide",
+                        "add_text",
+                        "add_notes"
+                      ]
+                    },
+                    "rejection": {
+                      "code": "LAYOUT_CONTENT_MISMATCH",
+                      "reason": "Position/body cardinality mismatches declared layout."
+                    }
+                  },
+                  {
+                    "candidate_id": "candidate_1f3d932b-34aa-4226-8739-0ba5569017b2",
+                    "layout_id": "layout_fef2c84c-5348-452f-87cf-23bdea99eb7c",
+                    "layout": "cards",
+                    "score": 75,
+                    "reasons": [
+                      "Original items in individual editable panels; semantic relation is unchanged and not inferred."
+                    ],
+                    "eligible": false,
+                    "capacity_pass": false,
+                    "backend_support": {
+                      "backend": "PP-05",
+                      "checked": true,
+                      "required_capabilities": [
+                        "create_slide",
+                        "add_text",
+                        "add_notes"
+                      ]
+                    },
+                    "rejection": {
+                      "code": "LAYOUT_CONTENT_MISMATCH",
+                      "reason": "Position/body cardinality mismatches declared layout."
+                    }
+                  },
+                  {
+                    "candidate_id": "candidate_8fe0a345-7422-47cd-b200-c7f6a2b5f5bc",
+                    "layout_id": "layout_ed4738a0-89d8-4a82-9fad-3ef816fe8844",
+                    "layout": "cover",
+                    "score": 100,
+                    "reasons": [
+                      "First text page: clear opening and side summary."
+                    ],
+                    "eligible": false,
+                    "capacity_pass": false,
+                    "backend_support": {
+                      "backend": "PP-05",
+                      "checked": true,
+                      "required_capabilities": [
+                        "create_slide",
+                        "add_text",
+                        "add_notes"
+                      ]
+                    },
+                    "rejection": {
+                      "code": "LAYOUT_CONTENT_MISMATCH",
+                      "reason": "Position/body cardinality mismatches declared layout."
+                    }
+                  },
+                  {
+                    "candidate_id": "candidate_6303fbca-1e0d-4511-8b26-d53ff153bc34",
+                    "layout_id": "layout_94b9f663-55cd-4540-960d-9968fa8ec7fa",
+                    "layout": "closing",
+                    "score": 95,
+                    "reasons": [
+                      "Last text page: strong conclusion and preserved action points."
+                    ],
+                    "eligible": false,
+                    "capacity_pass": false,
+                    "backend_support": {
+                      "backend": "PP-05",
+                      "checked": true,
+                      "required_capabilities": [
+                        "create_slide",
+                        "add_text",
+                        "add_notes"
+                      ]
+                    },
+                    "rejection": {
+                      "code": "LAYOUT_CONTENT_MISMATCH",
+                      "reason": "Position/body cardinality mismatches declared layout."
+                    }
+                  }
+                ]
+              },
+              "trace": {
+                "trace_id": "trace_36271be3-d238-481b-b7cf-9eb0e5bc18f7",
+                "version": "native-layout-stages-2",
+                "input": {
+                  "content": {
+                    "kind": "text",
+                    "title": "硬页预算可容纳原文",
+                    "body": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "goal": "完整展示已批准的字面夹具",
+                    "rationale": "按原文顺序保留，容量调整不改变事实",
+                    "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                    "evidence_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "table": null,
+                    "chart": null
+                  },
+                  "order": 0,
+                  "page_count": 1,
+                  "style": {
+                    "font": "Noto Sans CJK SC",
+                    "background": "F6F4EE",
+                    "foreground": "192C32",
+                    "accent": "147C80",
+                    "title_size": 30,
+                    "body_size": 22,
+                    "minimum_size": 16
+                  },
+                  "previous_layout": null
+                },
+                "mechanism": "Declared content types and geometric capacity; image ratio included in explicit fit.",
+                "constraint": "Preserve source text, source refs, dimensions, explicit policy and stable slot keys.",
+                "fallback": "Declared next layout candidate only; no semantic rewrite, data removal, font substitution or backend substitution.",
+                "research_mapping": {
+                  "P01": {
+                    "project": "PPT Master",
+                    "evidence_path": "research/P01/project_decision_map.json",
+                    "evidence_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P02": {
+                    "project": "PPTAgent / DeepPresenter",
+                    "evidence_path": "research/P02/decision-map.json",
+                    "evidence_sha256": "160a84855f8d741c2e180b3622f961274c5eec07f2eca0bf3a952fe446abf46c",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P03": {
+                    "project": "Presenton",
+                    "evidence_path": "research/P03/decision-map.json",
+                    "evidence_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P04": {
+                    "project": "ai-agent-ppt",
+                    "evidence_path": "research/P04/decision-map.json",
+                    "evidence_sha256": "3947623e533ebd93199a12a9a646d667e3d29c4f797dcd31a48f1c23ea024f33",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P05": {
+                    "project": "Auto PPT Engine",
+                    "evidence_path": "research/P05/ProjectDecisionMap.json",
+                    "evidence_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  }
+                },
+                "product_implementation": "Independent declared PP-05 python-pptx runtime, not copied upstream application code.",
+                "source_sha256": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+                "status": "partial",
+                "limitations": [
+                  "Native 16:9 text/table/category chart/image/basic shape/connector subset; full node, brand/template/RTL and system acceptance remain incomplete."
+                ]
+              }
+            },
+            {
+              "node_id": "DEC-031",
+              "result": {
+                "selected": "candidate_98017d0b-cf37-4372-8255-2a7b8ac3cfc7",
+                "selected_layout": "editorial",
+                "selected_candidate": {
+                  "candidate_id": "candidate_98017d0b-cf37-4372-8255-2a7b8ac3cfc7",
+                  "layout_id": "layout_2db6d228-cf42-4e80-aecb-960958b664b9",
+                  "layout": "editorial",
+                  "score": 40,
+                  "reasons": [
+                    "Broad native text slot with every original paragraph."
+                  ],
+                  "eligible": true,
+                  "capacity_pass": true,
+                  "backend_support": {
+                    "backend": "PP-05",
+                    "checked": true,
+                    "required_capabilities": [
+                      "create_slide",
+                      "add_text",
+                      "add_notes"
+                    ]
+                  },
+                  "rejection": null
+                },
+                "tie_break": "stable declared catalog order"
+              },
+              "trace": {
+                "trace_id": "trace_a05a4a58-bbfd-4459-9919-f9504c119dc1",
+                "version": "native-layout-stages-2",
+                "input": {
+                  "content": {
+                    "kind": "text",
+                    "title": "硬页预算可容纳原文",
+                    "body": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "goal": "完整展示已批准的字面夹具",
+                    "rationale": "按原文顺序保留，容量调整不改变事实",
+                    "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                    "evidence_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "table": null,
+                    "chart": null
+                  },
+                  "order": 0,
+                  "page_count": 1,
+                  "style": {
+                    "font": "Noto Sans CJK SC",
+                    "background": "F6F4EE",
+                    "foreground": "192C32",
+                    "accent": "147C80",
+                    "title_size": 30,
+                    "body_size": 22,
+                    "minimum_size": 16
+                  },
+                  "previous_layout": null,
+                  "candidates": [
+                    {
+                      "candidate_id": "candidate_98017d0b-cf37-4372-8255-2a7b8ac3cfc7",
+                      "layout_id": "layout_2db6d228-cf42-4e80-aecb-960958b664b9",
+                      "layout": "editorial",
+                      "score": 40,
+                      "reasons": [
+                        "Broad native text slot with every original paragraph."
+                      ],
+                      "eligible": true,
+                      "capacity_pass": true,
+                      "backend_support": {
+                        "backend": "PP-05",
+                        "checked": true,
+                        "required_capabilities": [
+                          "create_slide",
+                          "add_text",
+                          "add_notes"
+                        ]
+                      },
+                      "rejection": null
+                    },
+                    {
+                      "candidate_id": "candidate_beda2bb0-c2fa-4631-82f9-1316a2b1d901",
+                      "layout_id": "layout_5aa82fb8-104d-4bbf-906c-2d1b698f5ae2",
+                      "layout": "columns",
+                      "score": 65,
+                      "reasons": [
+                        "Original point sets balanced without rewriting."
+                      ],
+                      "eligible": false,
+                      "capacity_pass": false,
+                      "backend_support": {
+                        "backend": "PP-05",
+                        "checked": true,
+                        "required_capabilities": [
+                          "create_slide",
+                          "add_text",
+                          "add_notes"
+                        ]
+                      },
+                      "rejection": {
+                        "code": "LAYOUT_CONTENT_MISMATCH",
+                        "reason": "Position/body cardinality mismatches declared layout."
+                      }
+                    },
+                    {
+                      "candidate_id": "candidate_1f3d932b-34aa-4226-8739-0ba5569017b2",
+                      "layout_id": "layout_fef2c84c-5348-452f-87cf-23bdea99eb7c",
+                      "layout": "cards",
+                      "score": 75,
+                      "reasons": [
+                        "Original items in individual editable panels; semantic relation is unchanged and not inferred."
+                      ],
+                      "eligible": false,
+                      "capacity_pass": false,
+                      "backend_support": {
+                        "backend": "PP-05",
+                        "checked": true,
+                        "required_capabilities": [
+                          "create_slide",
+                          "add_text",
+                          "add_notes"
+                        ]
+                      },
+                      "rejection": {
+                        "code": "LAYOUT_CONTENT_MISMATCH",
+                        "reason": "Position/body cardinality mismatches declared layout."
+                      }
+                    },
+                    {
+                      "candidate_id": "candidate_8fe0a345-7422-47cd-b200-c7f6a2b5f5bc",
+                      "layout_id": "layout_ed4738a0-89d8-4a82-9fad-3ef816fe8844",
+                      "layout": "cover",
+                      "score": 100,
+                      "reasons": [
+                        "First text page: clear opening and side summary."
+                      ],
+                      "eligible": false,
+                      "capacity_pass": false,
+                      "backend_support": {
+                        "backend": "PP-05",
+                        "checked": true,
+                        "required_capabilities": [
+                          "create_slide",
+                          "add_text",
+                          "add_notes"
+                        ]
+                      },
+                      "rejection": {
+                        "code": "LAYOUT_CONTENT_MISMATCH",
+                        "reason": "Position/body cardinality mismatches declared layout."
+                      }
+                    },
+                    {
+                      "candidate_id": "candidate_6303fbca-1e0d-4511-8b26-d53ff153bc34",
+                      "layout_id": "layout_94b9f663-55cd-4540-960d-9968fa8ec7fa",
+                      "layout": "closing",
+                      "score": 95,
+                      "reasons": [
+                        "Last text page: strong conclusion and preserved action points."
+                      ],
+                      "eligible": false,
+                      "capacity_pass": false,
+                      "backend_support": {
+                        "backend": "PP-05",
+                        "checked": true,
+                        "required_capabilities": [
+                          "create_slide",
+                          "add_text",
+                          "add_notes"
+                        ]
+                      },
+                      "rejection": {
+                        "code": "LAYOUT_CONTENT_MISMATCH",
+                        "reason": "Position/body cardinality mismatches declared layout."
+                      }
+                    }
+                  ]
+                },
+                "mechanism": "Heuristic hierarchy, capacity, contrast, and adjacent variation; no semantic score claim.",
+                "constraint": "Preserve source text, source refs, dimensions, explicit policy and stable slot keys.",
+                "fallback": "Declared next layout candidate only; no semantic rewrite, data removal, font substitution or backend substitution.",
+                "research_mapping": {
+                  "P01": {
+                    "project": "PPT Master",
+                    "evidence_path": "research/P01/project_decision_map.json",
+                    "evidence_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P02": {
+                    "project": "PPTAgent / DeepPresenter",
+                    "evidence_path": "research/P02/decision-map.json",
+                    "evidence_sha256": "160a84855f8d741c2e180b3622f961274c5eec07f2eca0bf3a952fe446abf46c",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P03": {
+                    "project": "Presenton",
+                    "evidence_path": "research/P03/decision-map.json",
+                    "evidence_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P04": {
+                    "project": "ai-agent-ppt",
+                    "evidence_path": "research/P04/decision-map.json",
+                    "evidence_sha256": "3947623e533ebd93199a12a9a646d667e3d29c4f797dcd31a48f1c23ea024f33",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P05": {
+                    "project": "Auto PPT Engine",
+                    "evidence_path": "research/P05/ProjectDecisionMap.json",
+                    "evidence_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  }
+                },
+                "product_implementation": "Independent declared PP-05 python-pptx runtime, not copied upstream application code.",
+                "source_sha256": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+                "status": "partial",
+                "limitations": [
+                  "Native 16:9 text/table/category chart/image/basic shape/connector subset; full node, brand/template/RTL and system acceptance remain incomplete."
+                ]
+              }
+            },
+            {
+              "node_id": "DEC-032",
+              "result": {
+                "bindings": [
+                  {
+                    "slot_key": "title",
+                    "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+                    "role": "title",
+                    "content_type": "text",
+                    "source_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "required": true,
+                    "overflow": "reject"
+                  },
+                  {
+                    "slot_key": "body",
+                    "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+                    "role": "body",
+                    "content_type": "text",
+                    "source_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "required": true,
+                    "overflow": "reject"
+                  },
+                  {
+                    "slot_key": "footer",
+                    "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+                    "role": "footer",
+                    "content_type": "text",
+                    "source_refs": [],
+                    "required": true,
+                    "overflow": "reject"
+                  }
+                ],
+                "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                "evidence_refs": [
+                  "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                ],
+                "unmapped_fields": []
+              },
+              "trace": {
+                "trace_id": "trace_2e26a95f-a5cb-460b-b966-29973df695d4",
+                "version": "native-layout-stages-2",
+                "input": {
+                  "content": {
+                    "kind": "text",
+                    "title": "硬页预算可容纳原文",
+                    "body": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "goal": "完整展示已批准的字面夹具",
+                    "rationale": "按原文顺序保留，容量调整不改变事实",
+                    "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                    "evidence_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "table": null,
+                    "chart": null
+                  },
+                  "order": 0,
+                  "page_count": 1,
+                  "style": {
+                    "font": "Noto Sans CJK SC",
+                    "background": "F6F4EE",
+                    "foreground": "192C32",
+                    "accent": "147C80",
+                    "title_size": 30,
+                    "body_size": 22,
+                    "minimum_size": 16,
+                    "adaptive_layout": {
+                      "version": "adaptive-layout-1",
+                      "status": "measured",
+                      "changes": [],
+                      "measurements": [
+                        {
+                          "slot_key": "title",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 62,
+                          "available_height_px": 120,
+                          "first_line_box_px": 62,
+                          "line_advance_px": 62,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "body",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 48,
+                          "available_height_px": 418,
+                          "first_line_box_px": 48,
+                          "line_advance_px": 48,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "footer",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 32,
+                          "available_height_px": 36,
+                          "first_line_box_px": 32,
+                          "line_advance_px": 32,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        }
+                      ],
+                      "text_preserved": true,
+                      "font_sizes_preserved": true,
+                      "semantic_acceptance": "not_claimed",
+                      "render_acceptance": "required"
+                    }
+                  },
+                  "previous_layout": null,
+                  "elements": [
+                    {
+                      "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+                      "type": "text",
+                      "role": "title",
+                      "slot_key": "title",
+                      "text": [
+                        "硬页预算可容纳原文"
+                      ],
+                      "bounds": [
+                        0.7,
+                        0.6,
+                        11.95,
+                        1.25
+                      ],
+                      "font_size": 32,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "bold": true,
+                        "margin": 0
+                      }
+                    },
+                    {
+                      "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+                      "type": "text",
+                      "role": "body",
+                      "slot_key": "body",
+                      "text": [
+                        "完整短正文与数字3.5 kg保留。"
+                      ],
+                      "bounds": [
+                        0.72,
+                        2.0,
+                        11.85,
+                        4.35
+                      ],
+                      "font_size": 24,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "margin": 0,
+                        "paragraph_spacing": 15
+                      }
+                    },
+                    {
+                      "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+                      "type": "text",
+                      "role": "footer",
+                      "slot_key": "footer",
+                      "text": [
+                        "01 / 01"
+                      ],
+                      "bounds": [
+                        0.7,
+                        6.83,
+                        11.95,
+                        0.38
+                      ],
+                      "font_size": 16,
+                      "source_refs": [],
+                      "format": {
+                        "color": "147C80",
+                        "paragraph_spacing": 0,
+                        "margin": 0
+                      }
+                    }
+                  ]
+                },
+                "mechanism": "Exact content-to-native slots, original notes and citations retained.",
+                "constraint": "Preserve source text, source refs, dimensions, explicit policy and stable slot keys.",
+                "fallback": "Declared next layout candidate only; no semantic rewrite, data removal, font substitution or backend substitution.",
+                "research_mapping": {
+                  "P01": {
+                    "project": "PPT Master",
+                    "evidence_path": "research/P01/project_decision_map.json",
+                    "evidence_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P02": {
+                    "project": "PPTAgent / DeepPresenter",
+                    "evidence_path": "research/P02/decision-map.json",
+                    "evidence_sha256": "160a84855f8d741c2e180b3622f961274c5eec07f2eca0bf3a952fe446abf46c",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P03": {
+                    "project": "Presenton",
+                    "evidence_path": "research/P03/decision-map.json",
+                    "evidence_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P04": {
+                    "project": "ai-agent-ppt",
+                    "evidence_path": "research/P04/decision-map.json",
+                    "evidence_sha256": "3947623e533ebd93199a12a9a646d667e3d29c4f797dcd31a48f1c23ea024f33",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P05": {
+                    "project": "Auto PPT Engine",
+                    "evidence_path": "research/P05/ProjectDecisionMap.json",
+                    "evidence_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  }
+                },
+                "product_implementation": "Independent declared PP-05 python-pptx runtime, not copied upstream application code.",
+                "source_sha256": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+                "status": "partial",
+                "limitations": [
+                  "Native 16:9 text/table/category chart/image/basic shape/connector subset; full node, brand/template/RTL and system acceptance remain incomplete."
+                ]
+              }
+            },
+            {
+              "node_id": "DEC-033",
+              "result": {
+                "elements": [
+                  {
+                    "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+                    "type": "text",
+                    "role": "title",
+                    "slot_key": "title",
+                    "text": [
+                      "硬页预算可容纳原文"
+                    ],
+                    "bounds": [
+                      0.7,
+                      0.6,
+                      11.95,
+                      1.25
+                    ],
+                    "font_size": 32,
+                    "source_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "format": {
+                      "color": "192C32",
+                      "bold": true,
+                      "margin": 0
+                    }
+                  },
+                  {
+                    "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+                    "type": "text",
+                    "role": "body",
+                    "slot_key": "body",
+                    "text": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "bounds": [
+                      0.72,
+                      2.0,
+                      11.85,
+                      4.35
+                    ],
+                    "font_size": 24,
+                    "source_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "format": {
+                      "color": "192C32",
+                      "margin": 0,
+                      "paragraph_spacing": 15
+                    }
+                  },
+                  {
+                    "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+                    "type": "text",
+                    "role": "footer",
+                    "slot_key": "footer",
+                    "text": [
+                      "01 / 01"
+                    ],
+                    "bounds": [
+                      0.7,
+                      6.83,
+                      11.95,
+                      0.38
+                    ],
+                    "font_size": 16,
+                    "source_refs": [],
+                    "format": {
+                      "color": "147C80",
+                      "paragraph_spacing": 0,
+                      "margin": 0
+                    }
+                  }
+                ],
+                "unit": "inches",
+                "grid": "declared deterministic native slots",
+                "z_order": [
+                  "title",
+                  "body",
+                  "footer"
+                ],
+                "alignment": "explicit geometry",
+                "connector_routing": "explicit endpoints; advanced rerouting unsupported",
+                "overlap_check": "passed"
+              },
+              "trace": {
+                "trace_id": "trace_c7597486-ede1-46b2-9072-0eae6a4835bf",
+                "version": "native-layout-stages-2",
+                "input": {
+                  "content": {
+                    "kind": "text",
+                    "title": "硬页预算可容纳原文",
+                    "body": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "goal": "完整展示已批准的字面夹具",
+                    "rationale": "按原文顺序保留，容量调整不改变事实",
+                    "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                    "evidence_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "table": null,
+                    "chart": null
+                  },
+                  "order": 0,
+                  "page_count": 1,
+                  "style": {
+                    "font": "Noto Sans CJK SC",
+                    "background": "F6F4EE",
+                    "foreground": "192C32",
+                    "accent": "147C80",
+                    "title_size": 30,
+                    "body_size": 22,
+                    "minimum_size": 16,
+                    "adaptive_layout": {
+                      "version": "adaptive-layout-1",
+                      "status": "measured",
+                      "changes": [],
+                      "measurements": [
+                        {
+                          "slot_key": "title",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 62,
+                          "available_height_px": 120,
+                          "first_line_box_px": 62,
+                          "line_advance_px": 62,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "body",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 48,
+                          "available_height_px": 418,
+                          "first_line_box_px": 48,
+                          "line_advance_px": 48,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "footer",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 32,
+                          "available_height_px": 36,
+                          "first_line_box_px": 32,
+                          "line_advance_px": 32,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        }
+                      ],
+                      "text_preserved": true,
+                      "font_sizes_preserved": true,
+                      "semantic_acceptance": "not_claimed",
+                      "render_acceptance": "required"
+                    }
+                  },
+                  "previous_layout": null,
+                  "elements": [
+                    {
+                      "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+                      "type": "text",
+                      "role": "title",
+                      "slot_key": "title",
+                      "text": [
+                        "硬页预算可容纳原文"
+                      ],
+                      "bounds": [
+                        0.7,
+                        0.6,
+                        11.95,
+                        1.25
+                      ],
+                      "font_size": 32,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "bold": true,
+                        "margin": 0
+                      }
+                    },
+                    {
+                      "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+                      "type": "text",
+                      "role": "body",
+                      "slot_key": "body",
+                      "text": [
+                        "完整短正文与数字3.5 kg保留。"
+                      ],
+                      "bounds": [
+                        0.72,
+                        2.0,
+                        11.85,
+                        4.35
+                      ],
+                      "font_size": 24,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "margin": 0,
+                        "paragraph_spacing": 15
+                      }
+                    },
+                    {
+                      "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+                      "type": "text",
+                      "role": "footer",
+                      "slot_key": "footer",
+                      "text": [
+                        "01 / 01"
+                      ],
+                      "bounds": [
+                        0.7,
+                        6.83,
+                        11.95,
+                        0.38
+                      ],
+                      "font_size": 16,
+                      "source_refs": [],
+                      "format": {
+                        "color": "147C80",
+                        "paragraph_spacing": 0,
+                        "margin": 0
+                      }
+                    }
+                  ]
+                },
+                "mechanism": "Finite page geometry, non-overlap, explicit connector endpoints and z-order.",
+                "constraint": "Preserve source text, source refs, dimensions, explicit policy and stable slot keys.",
+                "fallback": "Declared next layout candidate only; no semantic rewrite, data removal, font substitution or backend substitution.",
+                "research_mapping": {
+                  "P01": {
+                    "project": "PPT Master",
+                    "evidence_path": "research/P01/project_decision_map.json",
+                    "evidence_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P02": {
+                    "project": "PPTAgent / DeepPresenter",
+                    "evidence_path": "research/P02/decision-map.json",
+                    "evidence_sha256": "160a84855f8d741c2e180b3622f961274c5eec07f2eca0bf3a952fe446abf46c",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P03": {
+                    "project": "Presenton",
+                    "evidence_path": "research/P03/decision-map.json",
+                    "evidence_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P04": {
+                    "project": "ai-agent-ppt",
+                    "evidence_path": "research/P04/decision-map.json",
+                    "evidence_sha256": "3947623e533ebd93199a12a9a646d667e3d29c4f797dcd31a48f1c23ea024f33",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P05": {
+                    "project": "Auto PPT Engine",
+                    "evidence_path": "research/P05/ProjectDecisionMap.json",
+                    "evidence_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  }
+                },
+                "product_implementation": "Independent declared PP-05 python-pptx runtime, not copied upstream application code.",
+                "source_sha256": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+                "status": "partial",
+                "limitations": [
+                  "Native 16:9 text/table/category chart/image/basic shape/connector subset; full node, brand/template/RTL and system acceptance remain incomplete."
+                ]
+              }
+            },
+            {
+              "node_id": "DEC-034",
+              "result": {
+                "font": "Noto Sans CJK SC",
+                "font_fallback": "none; unsupported font fails",
+                "autosize": false,
+                "content_truncated": false,
+                "measurements": [
+                  {
+                    "slot_key": "title",
+                    "font_size": 32,
+                    "measurement": {
+                      "estimated_lines": 1,
+                      "estimated_height_px": 62,
+                      "available_height_px": 120,
+                      "first_line_box_px": 62,
+                      "line_advance_px": 62,
+                      "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                      "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                    }
+                  },
+                  {
+                    "slot_key": "body",
+                    "font_size": 24,
+                    "measurement": {
+                      "estimated_lines": 1,
+                      "estimated_height_px": 48,
+                      "available_height_px": 418,
+                      "first_line_box_px": 48,
+                      "line_advance_px": 48,
+                      "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                      "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                    }
+                  },
+                  {
+                    "slot_key": "footer",
+                    "font_size": 16,
+                    "measurement": {
+                      "estimated_lines": 1,
+                      "estimated_height_px": 32,
+                      "available_height_px": 36,
+                      "first_line_box_px": 32,
+                      "line_advance_px": 32,
+                      "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                      "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                    }
+                  }
+                ],
+                "limitations": [
+                  "RTL unavailable; glyph measurement does not replace rendered QA."
+                ]
+              },
+              "trace": {
+                "trace_id": "trace_1f947d64-9fa8-4b08-a0fa-cd255c8f97cb",
+                "version": "native-layout-stages-2",
+                "input": {
+                  "content": {
+                    "kind": "text",
+                    "title": "硬页预算可容纳原文",
+                    "body": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "goal": "完整展示已批准的字面夹具",
+                    "rationale": "按原文顺序保留，容量调整不改变事实",
+                    "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                    "evidence_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "table": null,
+                    "chart": null
+                  },
+                  "order": 0,
+                  "page_count": 1,
+                  "style": {
+                    "font": "Noto Sans CJK SC",
+                    "background": "F6F4EE",
+                    "foreground": "192C32",
+                    "accent": "147C80",
+                    "title_size": 30,
+                    "body_size": 22,
+                    "minimum_size": 16,
+                    "adaptive_layout": {
+                      "version": "adaptive-layout-1",
+                      "status": "measured",
+                      "changes": [],
+                      "measurements": [
+                        {
+                          "slot_key": "title",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 62,
+                          "available_height_px": 120,
+                          "first_line_box_px": 62,
+                          "line_advance_px": 62,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "body",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 48,
+                          "available_height_px": 418,
+                          "first_line_box_px": 48,
+                          "line_advance_px": 48,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "footer",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 32,
+                          "available_height_px": 36,
+                          "first_line_box_px": 32,
+                          "line_advance_px": 32,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        }
+                      ],
+                      "text_preserved": true,
+                      "font_sizes_preserved": true,
+                      "semantic_acceptance": "not_claimed",
+                      "render_acceptance": "required"
+                    }
+                  },
+                  "previous_layout": null,
+                  "elements": [
+                    {
+                      "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+                      "type": "text",
+                      "role": "title",
+                      "slot_key": "title",
+                      "text": [
+                        "硬页预算可容纳原文"
+                      ],
+                      "bounds": [
+                        0.7,
+                        0.6,
+                        11.95,
+                        1.25
+                      ],
+                      "font_size": 32,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "bold": true,
+                        "margin": 0
+                      }
+                    },
+                    {
+                      "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+                      "type": "text",
+                      "role": "body",
+                      "slot_key": "body",
+                      "text": [
+                        "完整短正文与数字3.5 kg保留。"
+                      ],
+                      "bounds": [
+                        0.72,
+                        2.0,
+                        11.85,
+                        4.35
+                      ],
+                      "font_size": 24,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "margin": 0,
+                        "paragraph_spacing": 15
+                      }
+                    },
+                    {
+                      "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+                      "type": "text",
+                      "role": "footer",
+                      "slot_key": "footer",
+                      "text": [
+                        "01 / 01"
+                      ],
+                      "bounds": [
+                        0.7,
+                        6.83,
+                        11.95,
+                        0.38
+                      ],
+                      "font_size": 16,
+                      "source_refs": [],
+                      "format": {
+                        "color": "147C80",
+                        "paragraph_spacing": 0,
+                        "margin": 0
+                      }
+                    }
+                  ]
+                },
+                "mechanism": "Installed Noto glyph measurement and fixed minimum font; no truncation.",
+                "constraint": "Preserve source text, source refs, dimensions, explicit policy and stable slot keys.",
+                "fallback": "Declared next layout candidate only; no semantic rewrite, data removal, font substitution or backend substitution.",
+                "research_mapping": {
+                  "P01": {
+                    "project": "PPT Master",
+                    "evidence_path": "research/P01/project_decision_map.json",
+                    "evidence_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P02": {
+                    "project": "PPTAgent / DeepPresenter",
+                    "evidence_path": "research/P02/decision-map.json",
+                    "evidence_sha256": "160a84855f8d741c2e180b3622f961274c5eec07f2eca0bf3a952fe446abf46c",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P03": {
+                    "project": "Presenton",
+                    "evidence_path": "research/P03/decision-map.json",
+                    "evidence_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P04": {
+                    "project": "ai-agent-ppt",
+                    "evidence_path": "research/P04/decision-map.json",
+                    "evidence_sha256": "3947623e533ebd93199a12a9a646d667e3d29c4f797dcd31a48f1c23ea024f33",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P05": {
+                    "project": "Auto PPT Engine",
+                    "evidence_path": "research/P05/ProjectDecisionMap.json",
+                    "evidence_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  }
+                },
+                "product_implementation": "Independent declared PP-05 python-pptx runtime, not copied upstream application code.",
+                "source_sha256": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+                "status": "partial",
+                "limitations": [
+                  "Native 16:9 text/table/category chart/image/basic shape/connector subset; full node, brand/template/RTL and system acceptance remain incomplete."
+                ]
+              }
+            },
+            {
+              "node_id": "DEC-035",
+              "result": {
+                "background": "F6F4EE",
+                "elements": [
+                  {
+                    "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+                    "type": "text",
+                    "role": "title",
+                    "slot_key": "title",
+                    "text": [
+                      "硬页预算可容纳原文"
+                    ],
+                    "bounds": [
+                      0.7,
+                      0.6,
+                      11.95,
+                      1.25
+                    ],
+                    "font_size": 32,
+                    "source_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "format": {
+                      "color": "192C32",
+                      "bold": true,
+                      "margin": 0
+                    }
+                  },
+                  {
+                    "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+                    "type": "text",
+                    "role": "body",
+                    "slot_key": "body",
+                    "text": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "bounds": [
+                      0.72,
+                      2.0,
+                      11.85,
+                      4.35
+                    ],
+                    "font_size": 24,
+                    "source_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "format": {
+                      "color": "192C32",
+                      "margin": 0,
+                      "paragraph_spacing": 15
+                    }
+                  },
+                  {
+                    "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+                    "type": "text",
+                    "role": "footer",
+                    "slot_key": "footer",
+                    "text": [
+                      "01 / 01"
+                    ],
+                    "bounds": [
+                      0.7,
+                      6.83,
+                      11.95,
+                      0.38
+                    ],
+                    "font_size": 16,
+                    "source_refs": [],
+                    "format": {
+                      "color": "147C80",
+                      "paragraph_spacing": 0,
+                      "margin": 0
+                    }
+                  }
+                ],
+                "contrast": [
+                  {
+                    "slot_key": "title",
+                    "foreground": "192C32",
+                    "background": "F6F4EE",
+                    "ratio": 13.1891,
+                    "minimum": 3
+                  },
+                  {
+                    "slot_key": "body",
+                    "foreground": "192C32",
+                    "background": "F6F4EE",
+                    "ratio": 13.1891,
+                    "minimum": 3
+                  },
+                  {
+                    "slot_key": "footer",
+                    "foreground": "147C80",
+                    "background": "F6F4EE",
+                    "ratio": 4.5197,
+                    "minimum": 4.5
+                  }
+                ],
+                "effects": "solid fill and stroke only; unsupported requested effects fail"
+              },
+              "trace": {
+                "trace_id": "trace_53f900ee-1687-42a2-a06d-f9a9a1ade777",
+                "version": "native-layout-stages-2",
+                "input": {
+                  "content": {
+                    "kind": "text",
+                    "title": "硬页预算可容纳原文",
+                    "body": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "goal": "完整展示已批准的字面夹具",
+                    "rationale": "按原文顺序保留，容量调整不改变事实",
+                    "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                    "evidence_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "table": null,
+                    "chart": null
+                  },
+                  "order": 0,
+                  "page_count": 1,
+                  "style": {
+                    "font": "Noto Sans CJK SC",
+                    "background": "F6F4EE",
+                    "foreground": "192C32",
+                    "accent": "147C80",
+                    "title_size": 30,
+                    "body_size": 22,
+                    "minimum_size": 16,
+                    "adaptive_layout": {
+                      "version": "adaptive-layout-1",
+                      "status": "measured",
+                      "changes": [],
+                      "measurements": [
+                        {
+                          "slot_key": "title",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 62,
+                          "available_height_px": 120,
+                          "first_line_box_px": 62,
+                          "line_advance_px": 62,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "body",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 48,
+                          "available_height_px": 418,
+                          "first_line_box_px": 48,
+                          "line_advance_px": 48,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "footer",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 32,
+                          "available_height_px": 36,
+                          "first_line_box_px": 32,
+                          "line_advance_px": 32,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        }
+                      ],
+                      "text_preserved": true,
+                      "font_sizes_preserved": true,
+                      "semantic_acceptance": "not_claimed",
+                      "render_acceptance": "required"
+                    }
+                  },
+                  "previous_layout": null,
+                  "elements": [
+                    {
+                      "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+                      "type": "text",
+                      "role": "title",
+                      "slot_key": "title",
+                      "text": [
+                        "硬页预算可容纳原文"
+                      ],
+                      "bounds": [
+                        0.7,
+                        0.6,
+                        11.95,
+                        1.25
+                      ],
+                      "font_size": 32,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "bold": true,
+                        "margin": 0
+                      }
+                    },
+                    {
+                      "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+                      "type": "text",
+                      "role": "body",
+                      "slot_key": "body",
+                      "text": [
+                        "完整短正文与数字3.5 kg保留。"
+                      ],
+                      "bounds": [
+                        0.72,
+                        2.0,
+                        11.85,
+                        4.35
+                      ],
+                      "font_size": 24,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "margin": 0,
+                        "paragraph_spacing": 15
+                      }
+                    },
+                    {
+                      "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+                      "type": "text",
+                      "role": "footer",
+                      "slot_key": "footer",
+                      "text": [
+                        "01 / 01"
+                      ],
+                      "bounds": [
+                        0.7,
+                        6.83,
+                        11.95,
+                        0.38
+                      ],
+                      "font_size": 16,
+                      "source_refs": [],
+                      "format": {
+                        "color": "147C80",
+                        "paragraph_spacing": 0,
+                        "margin": 0
+                      }
+                    }
+                  ]
+                },
+                "mechanism": "Solid native RGB and computed text contrast; unsupported effects reject.",
+                "constraint": "Preserve source text, source refs, dimensions, explicit policy and stable slot keys.",
+                "fallback": "Declared next layout candidate only; no semantic rewrite, data removal, font substitution or backend substitution.",
+                "research_mapping": {
+                  "P01": {
+                    "project": "PPT Master",
+                    "evidence_path": "research/P01/project_decision_map.json",
+                    "evidence_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P02": {
+                    "project": "PPTAgent / DeepPresenter",
+                    "evidence_path": "research/P02/decision-map.json",
+                    "evidence_sha256": "160a84855f8d741c2e180b3622f961274c5eec07f2eca0bf3a952fe446abf46c",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P03": {
+                    "project": "Presenton",
+                    "evidence_path": "research/P03/decision-map.json",
+                    "evidence_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P04": {
+                    "project": "ai-agent-ppt",
+                    "evidence_path": "research/P04/decision-map.json",
+                    "evidence_sha256": "3947623e533ebd93199a12a9a646d667e3d29c4f797dcd31a48f1c23ea024f33",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P05": {
+                    "project": "Auto PPT Engine",
+                    "evidence_path": "research/P05/ProjectDecisionMap.json",
+                    "evidence_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  }
+                },
+                "product_implementation": "Independent declared PP-05 python-pptx runtime, not copied upstream application code.",
+                "source_sha256": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+                "status": "partial",
+                "limitations": [
+                  "Native 16:9 text/table/category chart/image/basic shape/connector subset; full node, brand/template/RTL and system acceptance remain incomplete."
+                ]
+              }
+            },
+            {
+              "node_id": "DEC-036",
+              "result": {
+                "images": []
+              },
+              "trace": {
+                "trace_id": "trace_b4d4c191-d1b7-4cde-9ddc-353a3427b076",
+                "version": "native-layout-stages-2",
+                "input": {
+                  "content": {
+                    "kind": "text",
+                    "title": "硬页预算可容纳原文",
+                    "body": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "goal": "完整展示已批准的字面夹具",
+                    "rationale": "按原文顺序保留，容量调整不改变事实",
+                    "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                    "evidence_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "table": null,
+                    "chart": null
+                  },
+                  "order": 0,
+                  "page_count": 1,
+                  "style": {
+                    "font": "Noto Sans CJK SC",
+                    "background": "F6F4EE",
+                    "foreground": "192C32",
+                    "accent": "147C80",
+                    "title_size": 30,
+                    "body_size": 22,
+                    "minimum_size": 16,
+                    "adaptive_layout": {
+                      "version": "adaptive-layout-1",
+                      "status": "measured",
+                      "changes": [],
+                      "measurements": [
+                        {
+                          "slot_key": "title",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 62,
+                          "available_height_px": 120,
+                          "first_line_box_px": 62,
+                          "line_advance_px": 62,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "body",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 48,
+                          "available_height_px": 418,
+                          "first_line_box_px": 48,
+                          "line_advance_px": 48,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "footer",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 32,
+                          "available_height_px": 36,
+                          "first_line_box_px": 32,
+                          "line_advance_px": 32,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        }
+                      ],
+                      "text_preserved": true,
+                      "font_sizes_preserved": true,
+                      "semantic_acceptance": "not_claimed",
+                      "render_acceptance": "required"
+                    }
+                  },
+                  "previous_layout": null,
+                  "elements": [
+                    {
+                      "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+                      "type": "text",
+                      "role": "title",
+                      "slot_key": "title",
+                      "text": [
+                        "硬页预算可容纳原文"
+                      ],
+                      "bounds": [
+                        0.7,
+                        0.6,
+                        11.95,
+                        1.25
+                      ],
+                      "font_size": 32,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "bold": true,
+                        "margin": 0
+                      }
+                    },
+                    {
+                      "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+                      "type": "text",
+                      "role": "body",
+                      "slot_key": "body",
+                      "text": [
+                        "完整短正文与数字3.5 kg保留。"
+                      ],
+                      "bounds": [
+                        0.72,
+                        2.0,
+                        11.85,
+                        4.35
+                      ],
+                      "font_size": 24,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "margin": 0,
+                        "paragraph_spacing": 15
+                      }
+                    },
+                    {
+                      "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+                      "type": "text",
+                      "role": "footer",
+                      "slot_key": "footer",
+                      "text": [
+                        "01 / 01"
+                      ],
+                      "bounds": [
+                        0.7,
+                        6.83,
+                        11.95,
+                        0.38
+                      ],
+                      "font_size": 16,
+                      "source_refs": [],
+                      "format": {
+                        "color": "147C80",
+                        "paragraph_spacing": 0,
+                        "margin": 0
+                      }
+                    }
+                  ]
+                },
+                "mechanism": "Caller-approved contain/cover/crop and actual dimensions; no subject inference.",
+                "constraint": "Preserve source text, source refs, dimensions, explicit policy and stable slot keys.",
+                "fallback": "Declared next layout candidate only; no semantic rewrite, data removal, font substitution or backend substitution.",
+                "research_mapping": {
+                  "P01": {
+                    "project": "PPT Master",
+                    "evidence_path": "research/P01/project_decision_map.json",
+                    "evidence_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P02": {
+                    "project": "PPTAgent / DeepPresenter",
+                    "evidence_path": "research/P02/decision-map.json",
+                    "evidence_sha256": "160a84855f8d741c2e180b3622f961274c5eec07f2eca0bf3a952fe446abf46c",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P03": {
+                    "project": "Presenton",
+                    "evidence_path": "research/P03/decision-map.json",
+                    "evidence_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P04": {
+                    "project": "ai-agent-ppt",
+                    "evidence_path": "research/P04/decision-map.json",
+                    "evidence_sha256": "3947623e533ebd93199a12a9a646d667e3d29c4f797dcd31a48f1c23ea024f33",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P05": {
+                    "project": "Auto PPT Engine",
+                    "evidence_path": "research/P05/ProjectDecisionMap.json",
+                    "evidence_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  }
+                },
+                "product_implementation": "Independent declared PP-05 python-pptx runtime, not copied upstream application code.",
+                "source_sha256": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+                "status": "partial",
+                "limitations": [
+                  "Native 16:9 text/table/category chart/image/basic shape/connector subset; full node, brand/template/RTL and system acceptance remain incomplete."
+                ]
+              }
+            },
+            {
+              "node_id": "DEC-037",
+              "result": {
+                "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                "animation": "none",
+                "transition": "none",
+                "progressive_reveal": false,
+                "reason": "Default static deck; no unsupported enhancement is silently discarded."
+              },
+              "trace": {
+                "trace_id": "trace_e41ff6b6-40d0-422d-91b8-e9c2e5a84e95",
+                "version": "native-layout-stages-2",
+                "input": {
+                  "content": {
+                    "kind": "text",
+                    "title": "硬页预算可容纳原文",
+                    "body": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "goal": "完整展示已批准的字面夹具",
+                    "rationale": "按原文顺序保留，容量调整不改变事实",
+                    "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                    "evidence_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "table": null,
+                    "chart": null
+                  },
+                  "order": 0,
+                  "page_count": 1,
+                  "style": {
+                    "font": "Noto Sans CJK SC",
+                    "background": "F6F4EE",
+                    "foreground": "192C32",
+                    "accent": "147C80",
+                    "title_size": 30,
+                    "body_size": 22,
+                    "minimum_size": 16,
+                    "adaptive_layout": {
+                      "version": "adaptive-layout-1",
+                      "status": "measured",
+                      "changes": [],
+                      "measurements": [
+                        {
+                          "slot_key": "title",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 62,
+                          "available_height_px": 120,
+                          "first_line_box_px": 62,
+                          "line_advance_px": 62,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "body",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 48,
+                          "available_height_px": 418,
+                          "first_line_box_px": 48,
+                          "line_advance_px": 48,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "footer",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 32,
+                          "available_height_px": 36,
+                          "first_line_box_px": 32,
+                          "line_advance_px": 32,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        }
+                      ],
+                      "text_preserved": true,
+                      "font_sizes_preserved": true,
+                      "semantic_acceptance": "not_claimed",
+                      "render_acceptance": "required"
+                    }
+                  },
+                  "previous_layout": null,
+                  "elements": [
+                    {
+                      "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+                      "type": "text",
+                      "role": "title",
+                      "slot_key": "title",
+                      "text": [
+                        "硬页预算可容纳原文"
+                      ],
+                      "bounds": [
+                        0.7,
+                        0.6,
+                        11.95,
+                        1.25
+                      ],
+                      "font_size": 32,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "bold": true,
+                        "margin": 0
+                      }
+                    },
+                    {
+                      "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+                      "type": "text",
+                      "role": "body",
+                      "slot_key": "body",
+                      "text": [
+                        "完整短正文与数字3.5 kg保留。"
+                      ],
+                      "bounds": [
+                        0.72,
+                        2.0,
+                        11.85,
+                        4.35
+                      ],
+                      "font_size": 24,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "margin": 0,
+                        "paragraph_spacing": 15
+                      }
+                    },
+                    {
+                      "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+                      "type": "text",
+                      "role": "footer",
+                      "slot_key": "footer",
+                      "text": [
+                        "01 / 01"
+                      ],
+                      "bounds": [
+                        0.7,
+                        6.83,
+                        11.95,
+                        0.38
+                      ],
+                      "font_size": 16,
+                      "source_refs": [],
+                      "format": {
+                        "color": "147C80",
+                        "paragraph_spacing": 0,
+                        "margin": 0
+                      }
+                    }
+                  ]
+                },
+                "mechanism": "Explicit static default, original notes, requested unsupported animation fails.",
+                "constraint": "Preserve source text, source refs, dimensions, explicit policy and stable slot keys.",
+                "fallback": "Declared next layout candidate only; no semantic rewrite, data removal, font substitution or backend substitution.",
+                "research_mapping": {
+                  "P01": {
+                    "project": "PPT Master",
+                    "evidence_path": "research/P01/project_decision_map.json",
+                    "evidence_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P02": {
+                    "project": "PPTAgent / DeepPresenter",
+                    "evidence_path": "research/P02/decision-map.json",
+                    "evidence_sha256": "160a84855f8d741c2e180b3622f961274c5eec07f2eca0bf3a952fe446abf46c",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P03": {
+                    "project": "Presenton",
+                    "evidence_path": "research/P03/decision-map.json",
+                    "evidence_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P04": {
+                    "project": "ai-agent-ppt",
+                    "evidence_path": "research/P04/decision-map.json",
+                    "evidence_sha256": "3947623e533ebd93199a12a9a646d667e3d29c4f797dcd31a48f1c23ea024f33",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P05": {
+                    "project": "Auto PPT Engine",
+                    "evidence_path": "research/P05/ProjectDecisionMap.json",
+                    "evidence_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  }
+                },
+                "product_implementation": "Independent declared PP-05 python-pptx runtime, not copied upstream application code.",
+                "source_sha256": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+                "status": "partial",
+                "limitations": [
+                  "Native 16:9 text/table/category chart/image/basic shape/connector subset; full node, brand/template/RTL and system acceptance remain incomplete."
+                ]
+              }
+            },
+            {
+              "node_id": "DEC-038",
+              "result": {
+                "backend": "PP-05",
+                "required_capabilities": [
+                  "create_slide",
+                  "add_notes",
+                  "add_text"
+                ],
+                "checks": [
+                  {
+                    "capability": "create_slide",
+                    "checked": true,
+                    "status": "available",
+                    "capability_id": "capability_c4c77d42-8ec0-465b-9b0f-020c8198b7e2",
+                    "implementation_id": "implementation_47877e61-fba5-4441-985b-9d37b1ced257"
+                  },
+                  {
+                    "capability": "add_notes",
+                    "checked": true,
+                    "status": "available",
+                    "capability_id": "capability_14c9a60d-ad33-4be6-8ad0-08d6442a7c9b",
+                    "implementation_id": "implementation_5ac63f34-9cf8-4f66-ba86-90e4ccafa1bd"
+                  },
+                  {
+                    "capability": "add_text",
+                    "checked": true,
+                    "status": "available",
+                    "capability_id": "capability_15f1336e-b296-48ce-a94e-218cd9cf1360",
+                    "implementation_id": "implementation_16a0e180-f5fa-4bd9-a9a9-5080fb44aa71"
+                  }
+                ],
+                "preflight": "passed",
+                "limitations": [
+                  "Availability is not complete object or Office round-trip acceptance; PP-01–04/06–09 not selected."
+                ]
+              },
+              "trace": {
+                "trace_id": "trace_8d9c172f-c70a-4f32-97d6-11e1c3227c52",
+                "version": "native-layout-stages-2",
+                "input": {
+                  "content": {
+                    "kind": "text",
+                    "title": "硬页预算可容纳原文",
+                    "body": [
+                      "完整短正文与数字3.5 kg保留。"
+                    ],
+                    "goal": "完整展示已批准的字面夹具",
+                    "rationale": "按原文顺序保留，容量调整不改变事实",
+                    "notes": "原备注只用于解释，核心正文必须在页面可见。",
+                    "evidence_refs": [
+                      "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                    ],
+                    "table": null,
+                    "chart": null
+                  },
+                  "order": 0,
+                  "page_count": 1,
+                  "style": {
+                    "font": "Noto Sans CJK SC",
+                    "background": "F6F4EE",
+                    "foreground": "192C32",
+                    "accent": "147C80",
+                    "title_size": 30,
+                    "body_size": 22,
+                    "minimum_size": 16,
+                    "adaptive_layout": {
+                      "version": "adaptive-layout-1",
+                      "status": "measured",
+                      "changes": [],
+                      "measurements": [
+                        {
+                          "slot_key": "title",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 62,
+                          "available_height_px": 120,
+                          "first_line_box_px": 62,
+                          "line_advance_px": 62,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "body",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 48,
+                          "available_height_px": 418,
+                          "first_line_box_px": 48,
+                          "line_advance_px": 48,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        },
+                        {
+                          "slot_key": "footer",
+                          "estimated_lines": 1,
+                          "estimated_height_px": 32,
+                          "available_height_px": 36,
+                          "first_line_box_px": 32,
+                          "line_advance_px": 32,
+                          "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                          "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+                        }
+                      ],
+                      "text_preserved": true,
+                      "font_sizes_preserved": true,
+                      "semantic_acceptance": "not_claimed",
+                      "render_acceptance": "required"
+                    }
+                  },
+                  "previous_layout": null,
+                  "elements": [
+                    {
+                      "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+                      "type": "text",
+                      "role": "title",
+                      "slot_key": "title",
+                      "text": [
+                        "硬页预算可容纳原文"
+                      ],
+                      "bounds": [
+                        0.7,
+                        0.6,
+                        11.95,
+                        1.25
+                      ],
+                      "font_size": 32,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "bold": true,
+                        "margin": 0
+                      }
+                    },
+                    {
+                      "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+                      "type": "text",
+                      "role": "body",
+                      "slot_key": "body",
+                      "text": [
+                        "完整短正文与数字3.5 kg保留。"
+                      ],
+                      "bounds": [
+                        0.72,
+                        2.0,
+                        11.85,
+                        4.35
+                      ],
+                      "font_size": 24,
+                      "source_refs": [
+                        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+                      ],
+                      "format": {
+                        "color": "192C32",
+                        "margin": 0,
+                        "paragraph_spacing": 15
+                      }
+                    },
+                    {
+                      "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+                      "type": "text",
+                      "role": "footer",
+                      "slot_key": "footer",
+                      "text": [
+                        "01 / 01"
+                      ],
+                      "bounds": [
+                        0.7,
+                        6.83,
+                        11.95,
+                        0.38
+                      ],
+                      "font_size": 16,
+                      "source_refs": [],
+                      "format": {
+                        "color": "147C80",
+                        "paragraph_spacing": 0,
+                        "margin": 0
+                      }
+                    }
+                  ]
+                },
+                "mechanism": "Exact registered PP-05 capabilities/platform versions; required gap rejects.",
+                "constraint": "Preserve source text, source refs, dimensions, explicit policy and stable slot keys.",
+                "fallback": "Declared next layout candidate only; no semantic rewrite, data removal, font substitution or backend substitution.",
+                "research_mapping": {
+                  "P01": {
+                    "project": "PPT Master",
+                    "evidence_path": "research/P01/project_decision_map.json",
+                    "evidence_sha256": "e03d680b1b15991d0b71e13ff105f17f857516fdc5010cf678cab4114a95ae7e",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P02": {
+                    "project": "PPTAgent / DeepPresenter",
+                    "evidence_path": "research/P02/decision-map.json",
+                    "evidence_sha256": "160a84855f8d741c2e180b3622f961274c5eec07f2eca0bf3a952fe446abf46c",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P03": {
+                    "project": "Presenton",
+                    "evidence_path": "research/P03/decision-map.json",
+                    "evidence_sha256": "9edb5589cad597e6d88d15ccaf3415495d58ee98c133ed68f98cd103ebf8f5ad",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P04": {
+                    "project": "ai-agent-ppt",
+                    "evidence_path": "research/P04/decision-map.json",
+                    "evidence_sha256": "3947623e533ebd93199a12a9a646d667e3d29c4f797dcd31a48f1c23ea024f33",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  },
+                  "P05": {
+                    "project": "Auto PPT Engine",
+                    "evidence_path": "research/P05/ProjectDecisionMap.json",
+                    "evidence_sha256": "99cfccc45a03dd8093509d89118f28f9435fc4de07a4eb6fa6ab151d46dc6c88",
+                    "stable_node_reference": "recorded",
+                    "product_status": "research_reference_not_runtime"
+                  }
+                },
+                "product_implementation": "Independent declared PP-05 python-pptx runtime, not copied upstream application code.",
+                "source_sha256": "5a6717e37a1b643841f11f2e70ba1eb2d261c8a94743ed83621d0eddb2c65190",
+                "status": "partial",
+                "limitations": [
+                  "Native 16:9 text/table/category chart/image/basic shape/connector subset; full node, brand/template/RTL and system acceptance remain incomplete."
+                ]
+              }
+            }
+          ],
+          "bindings": [
+            {
+              "slot_key": "title",
+              "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+              "role": "title",
+              "content_type": "text",
+              "source_refs": [
+                "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+              ],
+              "required": true,
+              "overflow": "reject"
+            },
+            {
+              "slot_key": "body",
+              "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+              "role": "body",
+              "content_type": "text",
+              "source_refs": [
+                "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+              ],
+              "required": true,
+              "overflow": "reject"
+            },
+            {
+              "slot_key": "footer",
+              "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+              "role": "footer",
+              "content_type": "text",
+              "source_refs": [],
+              "required": true,
+              "overflow": "reject"
+            }
+          ],
+          "enhancements": {
+            "notes": "原备注只用于解释，核心正文必须在页面可见。",
+            "animation": "none",
+            "transition": "none",
+            "progressive_reveal": false,
+            "reason": "Default static deck; no unsupported enhancement is silently discarded."
+          },
+          "source_sha256": "fb141ef46010f4666917f92ae010b10c5818febb6014a9a149f8df960c124498",
+          "fallback": "Declared candidates only; reject all unsupported/capacity failures before native write.",
+          "limitations": [
+            "Native subset, complete DEC-030–038 node and multi-backend/brand/template/RTL acceptance incomplete."
+          ],
+          "adaptive_layout": {
+            "version": "adaptive-layout-1",
+            "status": "measured",
+            "changes": [],
+            "measurements": [
+              {
+                "slot_key": "title",
+                "estimated_lines": 1,
+                "estimated_height_px": 62,
+                "available_height_px": 120,
+                "first_line_box_px": 62,
+                "line_advance_px": 62,
+                "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+              },
+              {
+                "slot_key": "body",
+                "estimated_lines": 1,
+                "estimated_height_px": 48,
+                "available_height_px": 418,
+                "first_line_box_px": 48,
+                "line_advance_px": 48,
+                "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+              },
+              {
+                "slot_key": "footer",
+                "estimated_lines": 1,
+                "estimated_height_px": 32,
+                "available_height_px": 36,
+                "first_line_box_px": 32,
+                "line_advance_px": 32,
+                "font_file": "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+                "measurement": "Pillow installed font advances and ascent/descent; conservative, not visual QA"
+              }
+            ],
+            "text_preserved": true,
+            "font_sizes_preserved": true,
+            "semantic_acceptance": "not_claimed",
+            "render_acceptance": "required"
+          }
+        }
+      },
+      "bindings": [
+        {
+          "slot_key": "title",
+          "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+          "role": "title",
+          "content_type": "text",
+          "source_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ],
+          "required": true,
+          "overflow": "reject"
+        },
+        {
+          "slot_key": "body",
+          "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+          "role": "body",
+          "content_type": "text",
+          "source_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ],
+          "required": true,
+          "overflow": "reject"
+        },
+        {
+          "slot_key": "footer",
+          "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+          "role": "footer",
+          "content_type": "text",
+          "source_refs": [],
+          "required": true,
+          "overflow": "reject"
+        }
+      ],
+      "elements": [
+        {
+          "object_id": "object_b7a4b75b-5a65-4405-a9bf-9f168274d182",
+          "type": "text",
+          "role": "title",
+          "slot_key": "title",
+          "text": [
+            "硬页预算可容纳原文"
+          ],
+          "bounds": [
+            0.7,
+            0.6,
+            11.95,
+            1.25
+          ],
+          "font_size": 32,
+          "source_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ],
+          "format": {
+            "color": "192C32",
+            "bold": true,
+            "margin": 0
+          }
+        },
+        {
+          "object_id": "object_be960efb-abaa-429a-a168-5b1a67fe5a2e",
+          "type": "text",
+          "role": "body",
+          "slot_key": "body",
+          "text": [
+            "完整短正文与数字3.5 kg保留。"
+          ],
+          "bounds": [
+            0.72,
+            2.0,
+            11.85,
+            4.35
+          ],
+          "font_size": 24,
+          "source_refs": [
+            "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+          ],
+          "format": {
+            "color": "192C32",
+            "margin": 0,
+            "paragraph_spacing": 15
+          }
+        },
+        {
+          "object_id": "object_927a6679-2345-4bdc-a286-07002701d48d",
+          "type": "text",
+          "role": "footer",
+          "slot_key": "footer",
+          "text": [
+            "01 / 01"
+          ],
+          "bounds": [
+            0.7,
+            6.83,
+            11.95,
+            0.38
+          ],
+          "font_size": 16,
+          "source_refs": [],
+          "format": {
+            "color": "147C80",
+            "paragraph_spacing": 0,
+            "margin": 0
+          }
+        }
+      ],
+      "style": {
+        "font": "Noto Sans CJK SC",
+        "background": "F6F4EE",
+        "foreground": "192C32",
+        "accent": "147C80",
+        "title_size": 30,
+        "body_size": 22,
+        "minimum_size": 16
+      },
+      "enhancements": {
+        "notes": "原备注只用于解释，核心正文必须在页面可见。",
+        "animation": "none",
+        "transition": "none",
+        "progressive_reveal": false,
+        "reason": "Default static deck; no unsupported enhancement is silently discarded."
+      },
+      "source_refs": [
+        "evidence_11ab974f-2af2-4744-9ff3-e57f4ebbcf8a"
+      ]
+    }
+  ],
+  "trace_id": "trace_d31b12a6-0ae7-4b8b-acfe-1f5f6f9dfdb7"
+}

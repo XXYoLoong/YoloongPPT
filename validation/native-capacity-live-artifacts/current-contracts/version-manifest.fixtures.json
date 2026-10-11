@@ -1,0 +1,186 @@
+{
+  "document_type": "version_manifest_fixture_suite",
+  "contract_status": "draft",
+  "requirement_id": "GOV-010",
+  "schema_ref": "contracts/version-manifest.schema.json#/$defs/resource",
+  "cases": [
+    {
+      "fixture_id": "pinned_git_commit",
+      "expected_schema_valid": true,
+      "resource": {
+        "resource_id": "FIXTURE-GIT-COMMIT",
+        "kind": "source_repository",
+        "name": "FIXTURE-GIT-COMMIT",
+        "usage": "research_only",
+        "version_status": "pinned",
+        "version_kind": "git_commit",
+        "version_value": "6b3939d72e5e867b90b269c603a6b8e79ca1c9f9",
+        "declared_ref": "refs/heads/main",
+        "tag_object_sha": null,
+        "declared_constraint": null,
+        "unresolved_reason": null,
+        "source_url": "https://github.com/Ayushmaniar/powerpoint-mcp",
+        "license": {
+          "status": "not_assessed",
+          "spdx_id": null,
+          "evidence_ref": null
+        },
+        "requirement_refs": [
+          "GOV-010"
+        ],
+        "evidence_refs": [
+          "fixture:FIXTURE-GIT-COMMIT"
+        ]
+      }
+    },
+    {
+      "fixture_id": "pinned_oci_index_digest",
+      "expected_schema_valid": true,
+      "resource": {
+        "resource_id": "FIXTURE-OCI-INDEX",
+        "kind": "container_base_image",
+        "name": "FIXTURE-OCI-INDEX",
+        "usage": "development_environment",
+        "version_status": "pinned",
+        "version_kind": "oci_index_digest",
+        "version_value": "sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587",
+        "declared_ref": "debian:bookworm-slim@sha256:7c7b2c966bc9ee8cedfeef67e0e279108992c77681fa595db4a9d65c06ccc587",
+        "tag_object_sha": null,
+        "declared_constraint": null,
+        "unresolved_reason": null,
+        "source_url": "https://example.org/source",
+        "license": {
+          "status": "not_assessed",
+          "spdx_id": null,
+          "evidence_ref": null
+        },
+        "requirement_refs": [
+          "GOV-010"
+        ],
+        "evidence_refs": [
+          "fixture:FIXTURE-OCI-INDEX"
+        ]
+      }
+    },
+    {
+      "fixture_id": "unlocked_dependency_with_reason",
+      "expected_schema_valid": true,
+      "resource": {
+        "resource_id": "FIXTURE-UNLOCKED-DEPENDENCY",
+        "kind": "dependency_specification",
+        "name": "FIXTURE-UNLOCKED-DEPENDENCY",
+        "usage": "research_only",
+        "version_status": "unlocked",
+        "version_kind": "dependency_specification",
+        "version_value": null,
+        "declared_ref": null,
+        "tag_object_sha": null,
+        "declared_constraint": ">=1",
+        "unresolved_reason": "No lockfile.",
+        "source_url": "https://example.org/source",
+        "license": {
+          "status": "not_assessed",
+          "spdx_id": null,
+          "evidence_ref": null
+        },
+        "requirement_refs": [
+          "GOV-010"
+        ],
+        "evidence_refs": [
+          "fixture:FIXTURE-UNLOCKED-DEPENDENCY"
+        ]
+      }
+    },
+    {
+      "fixture_id": "not_selected_with_reason",
+      "expected_schema_valid": true,
+      "resource": {
+        "resource_id": "FIXTURE-NOT-SELECTED",
+        "kind": "model",
+        "name": "FIXTURE-NOT-SELECTED",
+        "usage": "not_selected",
+        "version_status": "not_selected",
+        "version_kind": "none",
+        "version_value": null,
+        "declared_ref": null,
+        "tag_object_sha": null,
+        "declared_constraint": null,
+        "unresolved_reason": "Model not selected.",
+        "source_url": "https://example.org/source",
+        "license": {
+          "status": "not_assessed",
+          "spdx_id": null,
+          "evidence_ref": null
+        },
+        "requirement_refs": [
+          "GOV-010"
+        ],
+        "evidence_refs": [
+          "fixture:FIXTURE-NOT-SELECTED"
+        ]
+      }
+    },
+    {
+      "fixture_id": "reject_mutable_main_as_git_commit",
+      "expected_schema_valid": false,
+      "resource": {
+        "resource_id": "FIXTURE-MUTABLE-MAIN",
+        "kind": "source_repository",
+        "name": "FIXTURE-MUTABLE-MAIN",
+        "usage": "research_only",
+        "version_status": "pinned",
+        "version_kind": "git_commit",
+        "version_value": "main",
+        "declared_ref": null,
+        "tag_object_sha": null,
+        "declared_constraint": null,
+        "unresolved_reason": null,
+        "source_url": "https://example.org/source",
+        "license": {
+          "status": "not_assessed",
+          "spdx_id": null,
+          "evidence_ref": null
+        },
+        "requirement_refs": [
+          "GOV-010"
+        ],
+        "evidence_refs": [
+          "fixture:FIXTURE-MUTABLE-MAIN"
+        ]
+      }
+    },
+    {
+      "fixture_id": "reject_latest_alias",
+      "expected_schema_valid": false,
+      "resource": {
+        "resource_id": "FIXTURE-LATEST",
+        "kind": "source_repository",
+        "name": "FIXTURE-LATEST",
+        "usage": "research_only",
+        "version_status": "pinned",
+        "version_kind": "package_version",
+        "version_value": "latest",
+        "declared_ref": null,
+        "tag_object_sha": null,
+        "declared_constraint": null,
+        "unresolved_reason": null,
+        "source_url": "https://example.org/source",
+        "license": {
+          "status": "not_assessed",
+          "spdx_id": null,
+          "evidence_ref": null
+        },
+        "requirement_refs": [
+          "GOV-010"
+        ],
+        "evidence_refs": [
+          "fixture:FIXTURE-LATEST"
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "fixtures assert the GOV-010 resource contract; they are not application dependency installation or a product end-to-end test.",
+    "source repository commits identify research snapshots or candidates and do not imply a selected product backend."
+  ]
+}

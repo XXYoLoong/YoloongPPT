@@ -21,9 +21,9 @@ from .atomic import AtomicRegistry
 FONT_FILE = '/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc'
 
 
-def capacity(texts, bounds, size, padding=0.12, paragraph_spacing=10):
+def capacity(texts, bounds, size, padding=0.12, paragraph_spacing=10, font_file=None):
     """Conservative CJK glyph measurement; actual rendered QA remains necessary."""
-    font = ImageFont.truetype(FONT_FILE, int(size * 4 / 3))
+    font = ImageFont.truetype(font_file or FONT_FILE, int(size * 4 / 3))
     width = (bounds[2] - padding * 2) * 96
     height = (bounds[3] - padding * 2) * 96
     lines = 0
@@ -39,18 +39,25 @@ def capacity(texts, bounds, size, padding=0.12, paragraph_spacing=10):
                 lines += 1; current = advance
             else:
                 current += advance
-    used = lines * size * 4 / 3 * 1.25 + max(0, len(texts)-1) * paragraph_spacing * 4/3
+    # Actual Noto ascender/descender can exceed the old 1.25*point estimate.
+    # Use a conservative installed-font line box without reducing font size.
+    line_height=max(size * 4 / 3 * 1.25,sum(font.getmetrics()))
+    used = lines * line_height + max(0, len(texts)-1) * paragraph_spacing * 4/3
     if used > height:
         raise TaskError('TEXT_CAPACITY_EXCEEDED', '文字超出已测量槽位容量；未缩小字号、截断或改为图片。',
                         'PageExecutor', ['SYS-012'], [{'estimated_height_px': round(used), 'available_height_px': round(height)}])
-    return {'estimated_lines': lines, 'estimated_height_px': round(used), 'available_height_px': round(height), 'measurement': 'Pillow Noto glyph advances; conservative, not visual QA'}
+    return {'estimated_lines': lines, 'estimated_height_px': round(used), 'available_height_px': round(height), 'first_line_box_px':line_height,'line_advance_px':line_height,'font_file':font_file or FONT_FILE,'measurement': 'Pillow installed font advances and ascent/descent; conservative, not visual QA'}
 
 
 def text_shape(slide, element, style):
+    from .template_layout_runtime import bind_placeholder
     formatting=element.get('format',{})
-    measurement = capacity(element['text'], element['bounds'], element['font_size'],padding=formatting.get('margin',0.12),paragraph_spacing=formatting.get('paragraph_spacing',10))
-    shape = slide.shapes.add_textbox(*(Inches(x) for x in element['bounds']))
+    typography=element.get('template_binding',{}).get('typography',{})
+    measurement = capacity(element['text'], element['bounds'], element['font_size'],padding=formatting.get('margin',0.12),paragraph_spacing=formatting.get('paragraph_spacing',10),font_file=typography.get('font_file'))
+    shape = bind_placeholder(slide,element)
+    if shape is None:shape=slide.shapes.add_textbox(*(Inches(x) for x in element['bounds']))
     frame = shape.text_frame
+    frame.clear()
     frame.word_wrap = True
     frame.auto_size = MSO_AUTO_SIZE.NONE
     frame.margin_left = frame.margin_right = Inches(formatting.get('margin',0.12))
@@ -63,24 +70,29 @@ def text_shape(slide, element, style):
         p.text = text
         p.space_after = Pt(formatting.get('paragraph_spacing',10))
         p.line_spacing = 1.15
-        p.font.name = style['font']; p.font.size = Pt(element['font_size'])
-        p.font.bold = formatting.get('bold',element['role'] == 'title')
+        p.font.name = typography.get('font',style['font']); p.font.size = Pt(element['font_size'])
+        if 'bold' in formatting or not element.get('template_binding'):
+            p.font.bold = formatting.get('bold',element['role'] == 'title')
         p.font.color.rgb = RGBColor.from_string(formatting.get('color',style['accent'] if element['role'] == 'title' else style['foreground']))
         # Explicit East Asian typeface; do not rely on the host's theme fallback.
         props = p._p.get_or_add_pPr()
         default = props.find('{http://schemas.openxmlformats.org/drawingml/2006/main}defRPr')
         if default is not None:
-            ea = OxmlElement('a:ea'); ea.set('typeface', style['font']); default.append(ea)
+            ea = OxmlElement('a:ea'); ea.set('typeface', typography.get('font',style['font'])); default.append(ea)
     return shape, measurement
 
 
 def table_shape(slide, element, style):
+    from .template_layout_runtime import bind_placeholder
     data = element['data']; rows = [data['columns'], *data['rows']]
     count = len(rows); cols = len(data['columns'])
     for row in rows:
         for text in row:
-            capacity([text], [0, 0, element['bounds'][2]/cols, element['bounds'][3]/count], 16, padding=0.07, paragraph_spacing=0)
-    shape = slide.shapes.add_table(count, cols, *(Inches(v) for v in element['bounds']))
+            capacity([text], [0, 0, element['bounds'][2]/cols, element['bounds'][3]/count], 16, padding=0.07, paragraph_spacing=0,font_file=element.get('template_binding',{}).get('typography',{}).get('font_file'))
+    placeholder=bind_placeholder(slide,element)
+    shape = placeholder.insert_table(count,cols) if placeholder is not None else slide.shapes.add_table(count, cols, *(Inches(v) for v in element['bounds']))
+    shape.left,shape.top,shape.width,shape.height=(Inches(v) for v in element['bounds'])
+    for row in shape.table.rows:row.height=Inches(element['bounds'][3]/count)
     table = shape.table
     for r, row in enumerate(rows):
         for c, text in enumerate(row):
@@ -95,6 +107,7 @@ def table_shape(slide, element, style):
 
 
 def chart_shape(slide, element, style):
+    from .template_layout_runtime import bind_placeholder
     spec = element['data']; data = CategoryChartData()
     data.categories = spec['categories']
     for series in spec['series']:
@@ -102,7 +115,9 @@ def chart_shape(slide, element, style):
             raise TaskError('CHART_NONFINITE_DATA', '图表包含非有限数值。', 'PageExecutor', ['SYS-012'])
         data.add_series(series['name'], series['values'])
     kind = {'column': XL_CHART_TYPE.COLUMN_CLUSTERED, 'bar': XL_CHART_TYPE.BAR_CLUSTERED, 'line': XL_CHART_TYPE.LINE}[spec['type']]
-    shape = slide.shapes.add_chart(kind, *(Inches(v) for v in element['bounds']), data)
+    placeholder=bind_placeholder(slide,element)
+    shape = placeholder.insert_chart(kind,data) if placeholder is not None else slide.shapes.add_chart(kind, *(Inches(v) for v in element['bounds']), data)
+    shape.left,shape.top,shape.width,shape.height=(Inches(v) for v in element['bounds'])
     chart = shape.chart
     chart.has_legend = True; chart.legend.position = XL_LEGEND_POSITION.BOTTOM
     chart.legend.include_in_layout = False; chart.legend.font.size = Pt(16); chart.legend.font.name = style['font']
@@ -123,6 +138,7 @@ def chart_shape(slide, element, style):
 
 def image_shape(slide, element, style):
     from .native_objects import local_asset
+    from .template_layout_runtime import bind_placeholder
     from PIL import Image
     data = element['data']; path = local_asset(data['path'])
     digest = hashlib.sha256(path.read_bytes()).hexdigest()
@@ -132,7 +148,9 @@ def image_shape(slide, element, style):
         if image.format not in {'PNG','JPEG'} or image.size != (data['width_px'], data['height_px']) or image.width*image.height > 40_000_000:
             raise TaskError('EXECUTION_IMAGE_UNSUPPORTED', '图片格式、尺寸或像素数量不符合已核验记录。', 'PageExecutor', ['PPT-014'])
         image.verify()
-    shape = slide.shapes.add_picture(str(path), *(Inches(v) for v in element['bounds']))
+    placeholder=bind_placeholder(slide,element)
+    shape = placeholder.insert_picture(str(path)) if placeholder is not None else slide.shapes.add_picture(str(path), *(Inches(v) for v in element['bounds']))
+    shape.left,shape.top,shape.width,shape.height=(Inches(v) for v in element['bounds'])
     crop = data.get('crop', [0,0,0,0])
     if len(crop)!=4 or any(not math.isfinite(v) or not 0<=v<1 for v in crop) or crop[0]+crop[2]>=1 or crop[1]+crop[3]>=1:
         raise TaskError('EXECUTION_IMAGE_CROP_INVALID', '图片裁剪比例无效，未替换为拉伸。', 'PageExecutor', ['DEC-036'])
@@ -183,18 +201,21 @@ def execute(deck, execution, destination, schemas):
     for call in execution['calls']:
         registry.check_call(call)
     template=deck.get('template')
+    native_template=bool(template) and all(s['layout'].get('template_binding') for s in deck['slides'])
+    template_bytes=None
     blank_layout=None
     if template:
         from .native_objects import local_asset
         template_path=local_asset(template['path'])
+        template_bytes=template_path.read_bytes()
         if hashlib.sha256(template_path.read_bytes()).hexdigest()!=template['sha256']:
             raise TaskError('EXECUTION_TEMPLATE_CHANGED','所选模板hash改变，未替换为默认模板。','PageExecutor',['SYS-008','DEC-038'])
         presentation=Presentation(template_path)
         latent={PP_PLACEHOLDER.DATE,PP_PLACEHOLDER.FOOTER,PP_PLACEHOLDER.SLIDE_NUMBER}
         candidates=[layout for layout in presentation.slide_layouts if all(p.placeholder_format.type in latent for p in layout.placeholders)]
-        if len(candidates)!=1:
+        if not native_template and len(candidates)!=1:
             raise TaskError('EXECUTION_TEMPLATE_LAYOUT_AMBIGUOUS','当前几何编译需唯一无占位符模板版式；其他模板槽位仍需明确绑定。','PageExecutor',['DEC-032','SYS-008'])
-        blank_layout=candidates[0]
+        blank_layout=candidates[0] if candidates else None
         # A generation output uses the caller's masters/layouts/theme. Existing
         # exemplar pages remain in the immutable source template, not the new deck.
         for item in list(presentation.slides._sldIdLst):
@@ -211,8 +232,11 @@ def execute(deck, execution, destination, schemas):
             raise TaskError('EXECUTION_DAG_INVALID', '执行依赖未满足或调用ID重复。', 'PageExecutor', ['SYS-011', 'SYS-012'])
         begin = time.monotonic(); spec = specs[call['slide_id']]
         if call['capability'] == 'create_slide':
-            slide = presentation.slides.add_slide(blank_layout)
-            slide.background.fill.solid(); slide.background.fill.fore_color.rgb = RGBColor.from_string(spec['style']['background'])
+            from .template_layout_runtime import create_slide
+            slide = create_slide(presentation,spec) if native_template else None
+            if slide is None:
+                slide = presentation.slides.add_slide(blank_layout)
+                slide.background.fill.solid(); slide.background.fill.fore_color.rgb = RGBColor.from_string(spec['style']['background'])
             slides[call['slide_id']] = slide
             observed = {'native_slide_id': slide.slide_id, 'part': str(slide.part.partname), 'order': spec['order']}
         elif call['capability'] == 'add_notes':
@@ -238,7 +262,10 @@ def execute(deck, execution, destination, schemas):
     schemas.validate('deck-execution.schema.json', object_map)
     temporary = Path(destination).with_suffix('.tmp.pptx')
     presentation.save(temporary)
+    if template_bytes is not None:
+        from .template_layout_runtime import preserve_package
+        temporary.write_bytes(preserve_package(template_bytes,temporary.read_bytes()))
     temporary.replace(destination)
     return object_map, {'library': 'python-pptx', 'version': version('python-pptx'), 'calls': outputs,
-                        'template_execution':{'source_sha256':template['sha256'],'template_id':template['template_id'],'native_layout_part':str(blank_layout.part.partname),'policy':'new generated pages retain selected template master/layout/theme; source exemplar pages stay in immutable template; explicit native geometry/style overlay, not full placeholder/style fidelity'} if template else None,
+                        'template_execution':{'source_sha256':template['sha256'],'template_id':template['template_id'],'native_layout_parts':[s['layout'].get('template_binding',{}).get('native_layout_part',str(blank_layout.part.partname) if blank_layout is not None else None) for s in deck['slides']],'policy':'native placeholder bindings and protected master/layout/theme/media preserved; original exemplar pages remain in the immutable source; complete template acceptance remains unproven'} if template else None,
                         'limitations': ['native text/table/category-chart/image/shape/connector/notes subset; advanced objects, full template fidelity and live editing acceptance remain unproven']}

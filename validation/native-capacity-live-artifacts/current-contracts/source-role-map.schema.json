@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DEC-003加载后来源角色及事实输入选择；不删除原始来源",
+  "oneOf": [
+    {
+      "type": "object",
+      "required": [
+        "task",
+        "source_bundle"
+      ],
+      "properties": {
+        "task": {
+          "$ref": "task-spec.schema.json"
+        },
+        "source_bundle": {
+          "$ref": "source-bundle.schema.json"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "status",
+        "source_roles",
+        "fact_source_ids",
+        "preserved_source_ids",
+        "issues",
+        "trace_id",
+        "fallback"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "assigned",
+            "needs_clarification"
+          ]
+        },
+        "source_roles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "source_id",
+              "asset_refs",
+              "role",
+              "candidate_refs",
+              "loading_strategy",
+              "reason"
+            ],
+            "properties": {
+              "source_id": {
+                "$ref": "object-id.schema.json#/$defs/source_id"
+              },
+              "asset_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "object-id.schema.json#/$defs/asset_id"
+                }
+              },
+              "role": {
+                "enum": [
+                  "fact",
+                  "template",
+                  "style",
+                  "asset",
+                  "existing_deck",
+                  "reconstruction",
+                  null
+                ]
+              },
+              "candidate_refs": {
+                "type": "array",
+                "items": {
+                  "$ref": "object-id.schema.json#/$defs/candidate_id"
+                }
+              },
+              "loading_strategy": {
+                "type": "object"
+              },
+              "reason": {
+                "type": "string"
+              }
+            },
+            "additionalProperties": false
+          }
+        },
+        "fact_source_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/source_id"
+          }
+        },
+        "preserved_source_ids": {
+          "type": "array",
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/source_id"
+          }
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        },
+        "trace_id": {
+          "$ref": "object-id.schema.json#/$defs/trace_id"
+        },
+        "fallback": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

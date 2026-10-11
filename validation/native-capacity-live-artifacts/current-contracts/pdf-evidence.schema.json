@@ -1,0 +1,221 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PdfEvidence 契约（IN-004 草案）",
+  "description": "按页保存 PDF 文本层、文本/表格/图片几何位置和标题候选；不执行 OCR 或业务内容判断。",
+  "oneOf": [
+    { "$ref": "#/$defs/pdf_parse_input" },
+    { "$ref": "#/$defs/pdf_parse_result" }
+  ],
+  "$defs": {
+    "bounding_box": {
+      "type": "object",
+      "required": ["x_min", "y_min", "x_max", "y_max"],
+      "properties": {
+        "x_min": { "type": "number", "minimum": 0 },
+        "y_min": { "type": "number", "minimum": 0 },
+        "x_max": { "type": "number", "minimum": 0 },
+        "y_max": { "type": "number", "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "coordinate_frame": {
+      "type": "object",
+      "required": ["units", "origin", "page_box", "rotation_degrees", "width", "height"],
+      "properties": {
+        "units": { "const": "pt_1_over_72_inch" },
+        "origin": { "const": "top_left" },
+        "page_box": { "const": "rotated_crop_box" },
+        "rotation_degrees": { "type": "integer", "enum": [0, 90, 180, 270] },
+        "width": { "type": "number", "exclusiveMinimum": 0 },
+        "height": { "type": "number", "exclusiveMinimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "source_anchor": {
+      "type": "object",
+      "required": ["source_ref", "page_index", "page_number", "element_index", "object_kind", "row_index", "cell_index"],
+      "properties": {
+        "source_ref": { "const": "pdf_asset" },
+        "page_index": { "type": "integer", "minimum": 0 },
+        "page_number": { "type": "integer", "minimum": 1 },
+        "element_index": { "type": "integer", "minimum": 0 },
+        "object_kind": { "type": "string", "enum": ["text", "table", "table_cell", "image"] },
+        "row_index": { "type": ["integer", "null"], "minimum": 0 },
+        "cell_index": { "type": ["integer", "null"], "minimum": 0 }
+      },
+      "additionalProperties": false
+    },
+    "text_element": {
+      "type": "object",
+      "required": ["kind", "element_index", "reading_order_index", "text", "bbox", "source_anchor", "extraction_method"],
+      "properties": {
+        "kind": { "const": "text" },
+        "element_index": { "type": "integer", "minimum": 0 },
+        "reading_order_index": { "type": "integer", "minimum": 0 },
+        "text": { "type": "string" },
+        "bbox": { "$ref": "#/$defs/bounding_box" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "extraction_method": { "const": "native_text_layer" }
+      },
+      "additionalProperties": false
+    },
+    "table_cell": {
+      "type": "object",
+      "required": ["cell_index", "text", "bbox", "source_anchor"],
+      "properties": {
+        "cell_index": { "type": "integer", "minimum": 0 },
+        "text": { "type": "string" },
+        "bbox": { "$ref": "#/$defs/bounding_box" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "table_element": {
+      "type": "object",
+      "required": ["kind", "element_index", "reading_order_index", "bbox", "source_anchor", "rows"],
+      "properties": {
+        "kind": { "const": "table" },
+        "element_index": { "type": "integer", "minimum": 0 },
+        "reading_order_index": { "type": "integer", "minimum": 0 },
+        "bbox": { "$ref": "#/$defs/bounding_box" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": { "$ref": "#/$defs/table_cell" }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "image_element": {
+      "type": "object",
+      "required": ["kind", "element_index", "reading_order_index", "bbox", "source_anchor", "resource_status", "resource_ref", "reason"],
+      "properties": {
+        "kind": { "const": "image" },
+        "element_index": { "type": "integer", "minimum": 0 },
+        "reading_order_index": { "type": "integer", "minimum": 0 },
+        "bbox": { "$ref": "#/$defs/bounding_box" },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "resource_status": { "type": "string", "enum": ["extracted", "geometry_only", "unsupported"] },
+        "resource_ref": { "type": ["string", "null"] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "resource_status": { "const": "extracted" } }, "required": ["resource_status"] },
+          "then": { "properties": { "resource_ref": { "type": "string", "minLength": 1 }, "reason": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "resource_status": { "enum": ["geometry_only", "unsupported"] } }, "required": ["resource_status"] },
+          "then": { "properties": { "resource_ref": { "type": "null" }, "reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "page_element": {
+      "oneOf": [
+        { "$ref": "#/$defs/text_element" },
+        { "$ref": "#/$defs/table_element" },
+        { "$ref": "#/$defs/image_element" }
+      ]
+    },
+    "heading_candidate": {
+      "type": "object",
+      "required": ["text_element_index", "candidate_level", "signals", "source_anchor"],
+      "properties": {
+        "text_element_index": { "type": "integer", "minimum": 0 },
+        "candidate_level": { "type": ["integer", "null"], "minimum": 1, "maximum": 6 },
+        "signals": {
+          "type": "array",
+          "items": { "type": "string", "enum": ["font_size", "weight", "position", "spacing", "alignment", "numbering"] }
+        },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "page_record": {
+      "type": "object",
+      "required": ["page_index", "page_number", "coordinate_frame", "elements", "heading_candidates"],
+      "properties": {
+        "page_index": { "type": "integer", "minimum": 0 },
+        "page_number": { "type": "integer", "minimum": 1 },
+        "coordinate_frame": { "$ref": "#/$defs/coordinate_frame" },
+        "elements": { "type": "array", "items": { "$ref": "#/$defs/page_element" } },
+        "heading_candidates": { "type": "array", "items": { "$ref": "#/$defs/heading_candidate" } }
+      },
+      "additionalProperties": false
+    },
+    "pdf_evidence": {
+      "type": "object",
+      "required": ["model_type", "source_asset_id", "pages"],
+      "properties": {
+        "model_type": { "const": "PdfEvidence" },
+        "source_asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+        "pages": { "type": "array", "items": { "$ref": "#/$defs/page_record" } }
+      },
+      "additionalProperties": false
+    },
+    "parse_error": {
+      "type": "object",
+      "required": ["code", "message"],
+      "properties": {
+        "code": { "type": "string", "pattern": "^[A-Z][A-Z0-9_]*$" },
+        "message": { "type": "string", "minLength": 1 },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" }
+      },
+      "additionalProperties": false
+    },
+    "pdf_parse_input": {
+      "type": "object",
+      "required": ["record_type", "source_asset_id", "raw_asset_refs"],
+      "properties": {
+        "record_type": { "const": "pdf_parse_input" },
+        "source_asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+        "raw_asset_refs": {
+          "type": "array",
+          "items": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+          "description": "按原序保留用户提供的 PDF/附件引用；source_asset_id 成员一致性由运行时校验。"
+        }
+      },
+      "additionalProperties": false
+    },
+    "pdf_parse_result": {
+      "type": "object",
+      "required": ["record_type", "source_asset_id", "raw_asset_refs", "status", "evidence", "errors"],
+      "properties": {
+        "record_type": { "const": "pdf_parse_result" },
+        "source_asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+        "raw_asset_refs": {
+          "type": "array",
+          "items": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+          "description": "必须与对应输入逐项、按序相同。"
+        },
+        "status": { "type": "string", "enum": ["parsed", "partial", "failed"] },
+        "evidence": {
+          "oneOf": [
+            { "$ref": "#/$defs/pdf_evidence" },
+            { "type": "null" }
+          ]
+        },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/parse_error" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "const": "parsed" } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "$ref": "#/$defs/pdf_evidence" }, "errors": { "maxItems": 0 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "partial" } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "$ref": "#/$defs/pdf_evidence" }, "errors": { "minItems": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "type": "null" }, "errors": { "minItems": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

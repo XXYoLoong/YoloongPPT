@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "$id": "https://yoloongppt.local/contracts/adaptive-content-policy.schema.json",
+  "title": "原约束驱动的完整内容分页策略",
+  "required": [
+    "page_budget",
+    "table_key_columns",
+    "assumption_markers"
+  ],
+  "properties": {
+    "page_budget": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "target",
+        "minimum",
+        "maximum"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "hard",
+            "soft",
+            "default"
+          ]
+        },
+        "target": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "minimum": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "maximum": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "provenance": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "table_key_columns": {
+      "type": "object",
+      "patternProperties": {
+        "^[0-9]+$": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 63
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "assumption_markers": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "minLength": 1
+      }
+    }
+  }
+}

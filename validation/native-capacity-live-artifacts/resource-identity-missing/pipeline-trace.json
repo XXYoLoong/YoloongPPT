@@ -1,0 +1,55 @@
+{
+  "trace_id": "trace_ff30d52b-c6f3-4e24-8e41-a464baf609a3",
+  "steps": [
+    {
+      "component": "DEC-001",
+      "status": "executed",
+      "duration_seconds": 0.067
+    },
+    {
+      "component": "DEC-002",
+      "status": "executed",
+      "duration_seconds": 0.012
+    },
+    {
+      "component": "SYS-003/004",
+      "status": "executed",
+      "duration_seconds": 0.502
+    },
+    {
+      "component": "DEC-003",
+      "status": "executed",
+      "duration_seconds": 0.015
+    },
+    {
+      "component": "FactInterpreter DEC-004/005",
+      "status": "executed",
+      "duration_seconds": 15.059
+    },
+    {
+      "component": "DEC-004",
+      "status": "executed",
+      "duration_seconds": 0.035
+    },
+    {
+      "component": "DEC-005",
+      "status": "executed",
+      "duration_seconds": 0.103
+    }
+  ],
+  "warnings": [
+    {
+      "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+      "field": "language",
+      "location": "raw_text:145:147",
+      "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+    },
+    {
+      "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+      "field": "language",
+      "location": "raw_text:148:155",
+      "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+    }
+  ],
+  "decision_coverage": "DEC-001–040 bounded execution when reached; complete original decision acceptance remains incomplete"
+}

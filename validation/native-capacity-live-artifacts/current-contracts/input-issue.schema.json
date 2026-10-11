@@ -1,0 +1,723 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "InputIssue 契约（IN-015 草案）",
+  "description": "统一记录受密码保护、损坏、格式不支持/伪装、资源超限和不可读输入；复用既有错误码，缺口明确登记评审。",
+  "oneOf": [
+    {
+      "$ref": "#/$defs/input_assessment_input"
+    },
+    {
+      "$ref": "#/$defs/input_assessment_result"
+    }
+  ],
+  "$defs": {
+    "asset_id": {
+      "$ref": "object-id.schema.json#/$defs/asset_id"
+    },
+    "source_id": {
+      "$ref": "object-id.schema.json#/$defs/source_id"
+    },
+    "registered_reason_code": {
+      "type": "string",
+      "enum": [
+        "INPUT_NOT_FOUND",
+        "INPUT_UNSUPPORTED",
+        "INPUT_PASSWORD_PROTECTED",
+        "INPUT_CORRUPT",
+        "ZIP_BOMB_LIMIT"
+      ]
+    },
+    "input_asset_observation": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "asset_id",
+        "display_name",
+        "declared_format",
+        "signature_format",
+        "size_bytes",
+        "expanded_size_bytes",
+        "access_status",
+        "encryption_status",
+        "integrity_status"
+      ],
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/source_id"
+        },
+        "asset_id": {
+          "$ref": "#/$defs/asset_id"
+        },
+        "display_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "declared_format": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "signature_format": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "size_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "expanded_size_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "access_status": {
+          "type": "string",
+          "enum": [
+            "readable",
+            "missing",
+            "unreadable",
+            "unknown"
+          ]
+        },
+        "encryption_status": {
+          "type": "string",
+          "enum": [
+            "not_encrypted",
+            "encrypted",
+            "unknown",
+            "not_applicable"
+          ]
+        },
+        "integrity_status": {
+          "type": "string",
+          "enum": [
+            "valid",
+            "corrupt",
+            "unknown",
+            "not_applicable"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "assessment_policy": {
+      "type": "object",
+      "required": [
+        "supported_formats",
+        "max_file_size_bytes",
+        "max_expanded_size_bytes",
+        "signature_check",
+        "password_handling"
+      ],
+      "properties": {
+        "supported_formats": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "max_file_size_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "max_expanded_size_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "signature_check": {
+          "type": "string",
+          "enum": [
+            "enabled",
+            "unsupported",
+            "not_configured"
+          ]
+        },
+        "password_handling": {
+          "type": "string",
+          "const": "reject_without_bruteforce"
+        }
+      },
+      "additionalProperties": false
+    },
+    "input_issue": {
+      "type": "object",
+      "required": [
+        "issue_id",
+        "source_id",
+        "asset_id",
+        "issue_type",
+        "severity",
+        "registry_status",
+        "error_id",
+        "reason_code",
+        "review_ref",
+        "message",
+        "observed_format",
+        "declared_format",
+        "observed_size_bytes",
+        "configured_limit_bytes",
+        "action",
+        "safe_to_parse"
+      ],
+      "properties": {
+        "issue_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source_id": {
+          "$ref": "#/$defs/source_id"
+        },
+        "asset_id": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/asset_id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "issue_type": {
+          "type": "string",
+          "enum": [
+            "input_missing",
+            "unsupported_format",
+            "password_protected",
+            "corrupt_input",
+            "format_signature_mismatch",
+            "input_size_limit",
+            "archive_expansion_limit",
+            "unreadable_input"
+          ]
+        },
+        "severity": {
+          "type": "string",
+          "enum": [
+            "blocking",
+            "warning"
+          ]
+        },
+        "registry_status": {
+          "type": "string",
+          "enum": [
+            "registered",
+            "review_required"
+          ]
+        },
+        "error_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "enum": [
+            "ERR-001",
+            "ERR-002",
+            "ERR-003",
+            "ERR-004",
+            "ERR-005",
+            null
+          ]
+        },
+        "reason_code": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/registered_reason_code"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "review_ref": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observed_format": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "declared_format": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observed_size_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "configured_limit_bytes": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "provide_unlocked_copy",
+            "replace_or_repair",
+            "convert_to_supported_format",
+            "confirm_format",
+            "reduce_size",
+            "review_error_registry",
+            "retry_with_access",
+            "none"
+          ]
+        },
+        "safe_to_parse": {
+          "type": "boolean"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "registry_status": {
+                "const": "registered"
+              }
+            },
+            "required": [
+              "registry_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "error_id": {
+                "type": "string"
+              },
+              "reason_code": {
+                "$ref": "#/$defs/registered_reason_code"
+              },
+              "review_ref": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "registry_status": {
+                "const": "review_required"
+              }
+            },
+            "required": [
+              "registry_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "error_id": {
+                "type": "null"
+              },
+              "reason_code": {
+                "type": "null"
+              },
+              "review_ref": {
+                "type": "string",
+                "minLength": 1
+              },
+              "action": {
+                "const": "review_error_registry"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "error_id": {
+                "const": "ERR-001"
+              }
+            },
+            "required": [
+              "error_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason_code": {
+                "const": "INPUT_NOT_FOUND"
+              },
+              "issue_type": {
+                "const": "input_missing"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "error_id": {
+                "const": "ERR-002"
+              }
+            },
+            "required": [
+              "error_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason_code": {
+                "const": "INPUT_UNSUPPORTED"
+              },
+              "issue_type": {
+                "const": "unsupported_format"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "error_id": {
+                "const": "ERR-003"
+              }
+            },
+            "required": [
+              "error_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason_code": {
+                "const": "INPUT_PASSWORD_PROTECTED"
+              },
+              "issue_type": {
+                "const": "password_protected"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "error_id": {
+                "const": "ERR-004"
+              }
+            },
+            "required": [
+              "error_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason_code": {
+                "const": "INPUT_CORRUPT"
+              },
+              "issue_type": {
+                "const": "corrupt_input"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "error_id": {
+                "const": "ERR-005"
+              }
+            },
+            "required": [
+              "error_id"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason_code": {
+                "const": "ZIP_BOMB_LIMIT"
+              },
+              "issue_type": {
+                "const": "archive_expansion_limit"
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "asset_assessment": {
+      "type": "object",
+      "required": [
+        "source_id",
+        "asset_id",
+        "status",
+        "issue_ids"
+      ],
+      "properties": {
+        "source_id": {
+          "$ref": "#/$defs/source_id"
+        },
+        "asset_id": {
+          "$ref": "#/$defs/asset_id"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "partial",
+            "blocked",
+            "needs_review"
+          ]
+        },
+        "issue_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "registry_review": {
+      "type": "object",
+      "required": [
+        "review_ref",
+        "issue_type",
+        "reason",
+        "status"
+      ],
+      "properties": {
+        "review_ref": {
+          "type": "string",
+          "minLength": 1
+        },
+        "issue_type": {
+          "type": "string",
+          "enum": [
+            "format_signature_mismatch",
+            "input_size_limit",
+            "unreadable_input"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "const": "required"
+        }
+      },
+      "additionalProperties": false
+    },
+    "coverage_item": {
+      "type": "object",
+      "required": [
+        "feature",
+        "status",
+        "reason"
+      ],
+      "properties": {
+        "feature": {
+          "type": "string",
+          "enum": [
+            "password_protection",
+            "integrity",
+            "format_signature",
+            "size_limits",
+            "unsupported_formats",
+            "visibility"
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "complete",
+            "partial",
+            "not_present",
+            "unsupported",
+            "failed"
+          ]
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "complete",
+                  "not_present"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "type": "null"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "enum": [
+                  "partial",
+                  "unsupported",
+                  "failed"
+                ]
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "input_assessment_input": {
+      "type": "object",
+      "required": [
+        "record_type",
+        "assets",
+        "policy"
+      ],
+      "properties": {
+        "record_type": {
+          "type": "string",
+          "const": "input_assessment_input"
+        },
+        "assets": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/input_asset_observation"
+          }
+        },
+        "policy": {
+          "$ref": "#/$defs/assessment_policy"
+        }
+      },
+      "additionalProperties": false
+    },
+    "input_assessment_result": {
+      "type": "object",
+      "required": [
+        "record_type",
+        "status",
+        "assessments",
+        "issues",
+        "registry_reviews",
+        "coverage"
+      ],
+      "properties": {
+        "record_type": {
+          "type": "string",
+          "const": "input_assessment_result"
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "ready",
+            "partial",
+            "blocked"
+          ]
+        },
+        "assessments": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/asset_assessment"
+          }
+        },
+        "issues": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/input_issue"
+          }
+        },
+        "registry_reviews": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/registry_review"
+          }
+        },
+        "coverage": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/coverage_item"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "ready"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "issues": {
+                "maxItems": 0
+              },
+              "registry_reviews": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

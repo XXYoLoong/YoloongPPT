@@ -63,7 +63,7 @@ def geometry(elements, width=13.333333, height=7.5):
 
 
 def typography(elements, style):
-    if style.get('font') != 'Noto Sans CJK SC':
+    if style.get('font') != 'Noto Sans CJK SC' and not all(e.get('template_binding',{}).get('typography',{}).get('font_file') for e in elements if e['type']=='text'):
         fail('LAYOUT_FONT_UNSUPPORTED', '当前仅允许已安装并测量的 Noto Sans CJK SC；未替换字体。', 'DEC-034')
     measurements = []
     for element in elements:
@@ -76,13 +76,14 @@ def typography(elements, style):
         if any(re.search('[\u0590-\u08ff]', value) for value in texts):
             fail('LAYOUT_RTL_UNSUPPORTED', 'RTL 排版尚未执行验收；未按 LTR 静默写入。', 'DEC-034')
         f = element.get('format', {})
+        font_file=element.get('template_binding',{}).get('typography',{}).get('font_file')
         if element['type'] == 'table':
             rows = [element['data']['columns'], *element['data']['rows']]
             if not rows[0] or any(len(row) != len(rows[0]) for row in rows):
                 fail('LAYOUT_TABLE_INVALID', '表格必须保留完整等宽列。', 'DEC-034')
-            m = [capacity([value], [0,0,element['bounds'][2]/len(rows[0]),element['bounds'][3]/len(rows)], element['font_size'], padding=.07, paragraph_spacing=0) for row in rows for value in row]
+            m = [capacity([value], [0,0,element['bounds'][2]/len(rows[0]),element['bounds'][3]/len(rows)], element['font_size'], padding=.07, paragraph_spacing=0,font_file=font_file) for row in rows for value in row]
         else:
-            m = capacity(texts, element['bounds'], element['font_size'], padding=f.get('margin',.12), paragraph_spacing=f.get('paragraph_spacing',10))
+            m = capacity(texts, element['bounds'], element['font_size'], padding=f.get('margin',.12), paragraph_spacing=f.get('paragraph_spacing',10),font_file=font_file)
         measurements.append({'slot_key':element['slot_key'], 'font_size':element['font_size'], 'measurement':m})
     return {'font':style['font'], 'font_fallback':'none; unsupported font fails', 'autosize':False,
             'content_truncated':False, 'measurements':measurements, 'limitations':['RTL unavailable; glyph measurement does not replace rendered QA.']}

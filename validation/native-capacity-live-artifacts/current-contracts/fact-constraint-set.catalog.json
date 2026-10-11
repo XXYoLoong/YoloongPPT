@@ -1,0 +1,64 @@
+{
+  "document_type": "fact_constraint_set_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-001",
+  "task_id": "TASK-CNT-001",
+  "data_object": "FactConstraintSet",
+  "schema": "contracts/fact-constraint-set.schema.json",
+  "fixtures": "contracts/fact-constraint-set.fixtures.json",
+  "deliverable": "FactConstraintSet",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "CNT-001 要保真人名、组织、产品、日期、金额、百分比、单位、指标和引用的含义。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "CNT-001 输入 SourceEvidence + PresentationContext；数据对象最低字段和数字/冲突/缺失验收。"
+    },
+    {
+      "url": "contracts/source-anchor.schema.json",
+      "supports": "每个证据引用使用统一 SourceAnchor。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "evidence_id、source_id 与 assumption_id 标识约定。"
+    },
+    {
+      "url": "contracts/source-bundle.schema.json",
+      "supports": "来源冲突保留全部 claims；DEC-004 未决时不选全局胜者。"
+    },
+    {
+      "url": "contracts/fallback-record.catalog.json",
+      "supports": "ERR-006/PARSE_PARTIAL、ERR-009/MISSING_FACT 是已登记错误码。"
+    }
+  ],
+  "field_rules": [
+    "每条 fact constraint 分为 supported、conflicting、missing 或 assumption；保留原始 raw_text 和可选规范值，金额、比例、日期精度、单位/币种、分母、期间、限定词、引用 URI 分字段记录。",
+    "每个 fact claim 至少绑定一条 SourceEvidence 的 evidence_id、source_id 与 SourceAnchor；anchor.source_id 必须等于 evidence_ref.source_id。不得在事实改写、摘要或图表内容中脱离证据/假设 ID。",
+    "conflicting 状态保留不少于两个 claim 和全部值；DEC-004 未决时 resolution_status=unresolved、selected_claim_id=null。只有显式 user selection 才允许 user_selected，语义校验须确认所选 ID 存在。",
+    "missing 状态无 claims、无规范值、无 assumption_ref，并报告 ERR-009/MISSING_FACT；不能自动填补。assumption 状态只能引用已有 assumption_id，不得把推测伪装成 evidence。",
+    "实际证据解析部分失败使用 ERR-006/PARSE_PARTIAL 并关联源/证据；静态 fixture 或未执行解析不能声称该错误已触发。",
+    "allowed_transformations 原样反映 PresentationContext 的显式许可；空数组表示本契约没有记录任何允许转换，不推断产品默认规则。单位转换、翻译、日期展示转换均需保留原值并有明确授权。",
+    "forbidden_inference 项是本地事实保真规则标签，不是全局 ErrorFallback 错误码。数值规则使用十进制字符串，避免浮点数表示替换来源原值。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-001-NORMAL-001",
+      "fixture_id": "CNT-001-NORMAL-001",
+      "purpose": "覆盖实体、数字、日期、单位、指标、原文引用和 URL 引用的保真。",
+      "acceptance": "每项 constraint 可通过 evidence_id 和 SourceAnchor 回溯；raw_text 与规范值分开保存，数值单位和限定信息可见。"
+    },
+    {
+      "case_id": "CNT-001-BOUNDARY-001",
+      "fixture_id": "CNT-001-BOUNDARY-001",
+      "purpose": "覆盖两个来源数值冲突、必需日期缺失、显式假设和部分解析失败。",
+      "acceptance": "两个数值 claims 均保留且未选胜者；缺失日期无值并报 ERR-009；假设引用 assumption_id；解析部分失败报 ERR-006。"
+    }
+  ],
+  "limits": [
+    "本契约和 fixtures 是静态预期；未实现 SourceEvidence 解析器、事实抽取/匹配器、改写验证器或冲突 UI。",
+    "数值、单位、日期精度、范围、引用和语义等价检查需要运行时与业务规则验证；JSON Schema 不能证明它们。",
+    "AC-001–AC-030 未执行；FactConstraintSet 数据对象行保持同一基线，只更新状态与草案备注。"
+  ]
+}

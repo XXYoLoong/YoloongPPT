@@ -1,0 +1,63 @@
+{
+  "document_type": "prompt_input_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "IN-001",
+  "fixtures": [
+    {
+      "fixture_id": "IN-001-NORMAL-001",
+      "kind": "normal",
+      "input": {
+        "raw_text": "请做一份光伏主题的介绍，面向高中生。删去行话，作为课堂介绍使用。",
+        "attachments": ["asset_123e4567-e89b-42d3-a456-426614174000"],
+        "requested_mode": null,
+        "requested_outputs": ["pptx"]
+      },
+      "expected_result": {
+        "raw_text": "请做一份光伏主题的介绍，面向高中生。删去行话，作为课堂介绍使用。",
+        "raw_asset_refs": ["asset_123e4567-e89b-42d3-a456-426614174000"],
+        "status": "parsed",
+        "normalized_instruction": {
+          "topic": {
+            "text": "光伏",
+            "source_locations": [{"source_ref": "raw_text", "start_offset": 4, "end_offset": 6, "offset_unit": "unicode_code_point"}]
+          },
+          "requirements": [
+            {"text": "面向高中生", "source_locations": [{"source_ref": "raw_text", "start_offset": 12, "end_offset": 17, "offset_unit": "unicode_code_point"}]}
+          ],
+          "modification_instructions": [
+            {"text": "删去行话", "source_locations": [{"source_ref": "raw_text", "start_offset": 18, "end_offset": 22, "offset_unit": "unicode_code_point"}]}
+          ],
+          "context": [
+            {"text": "作为课堂介绍使用", "source_locations": [{"source_ref": "raw_text", "start_offset": 23, "end_offset": 31, "offset_unit": "unicode_code_point"}]}
+          ]
+        },
+        "errors": []
+      },
+      "verification_note": "契约预期 fixture；运行时 parser 尚未实现。"
+    },
+    {
+      "fixture_id": "IN-001-BOUNDARY-001",
+      "kind": "boundary",
+      "input": {
+        "raw_text": "   ",
+        "attachments": [],
+        "requested_mode": null,
+        "requested_outputs": []
+      },
+      "expected_result": {
+        "raw_text": "   ",
+        "raw_asset_refs": [],
+        "status": "failed",
+        "normalized_instruction": null,
+        "errors": [
+          {
+            "code": "PROMPT_EMPTY",
+            "message": "Prompt 为空或仅包含空白，无法提取主题、要求、修改指令或上下文。",
+            "source_location": {"source_ref": "raw_text", "start_offset": 0, "end_offset": 3, "offset_unit": "unicode_code_point"}
+          }
+        ]
+      },
+      "verification_note": "契约预期 fixture；实际错误由运行时 parser 后续验证。"
+    }
+  ]
+}

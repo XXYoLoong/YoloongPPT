@@ -1,0 +1,312 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "NotesSpec 契约（CNT-013 草案）",
+  "description": "把详细解释、来源与演讲稿分配到 speaker notes，同时在页面保留简洁且可追溯的内容。",
+  "type": "object",
+  "required": [
+    "status",
+    "slide_content",
+    "speaker_notes",
+    "detail_trace"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "blocked"
+      ]
+    },
+    "slide_content": {
+      "type": "string",
+      "minLength": 1
+    },
+    "speaker_notes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/note_block"
+      }
+    },
+    "detail_trace": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/detail_trace"
+      }
+    }
+  },
+  "$defs": {
+    "conflict_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "conflict_id",
+        "error_id",
+        "reason_code",
+        "evidence_refs"
+      ],
+      "properties": {
+        "kind": {
+          "const": "unresolved_conflict"
+        },
+        "conflict_id": {
+          "$ref": "object-id.schema.json#/$defs/object_id"
+        },
+        "error_id": {
+          "const": "ERR-008"
+        },
+        "reason_code": {
+          "const": "SOURCE_CONFLICT"
+        },
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "missing_fact_ref": {
+      "type": "object",
+      "required": [
+        "kind",
+        "fact_id",
+        "error_id",
+        "reason_code"
+      ],
+      "properties": {
+        "kind": {
+          "const": "missing_fact"
+        },
+        "fact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "error_id": {
+          "const": "ERR-009"
+        },
+        "reason_code": {
+          "const": "MISSING_FACT"
+        }
+      },
+      "additionalProperties": false
+    },
+    "note_block": {
+      "type": "object",
+      "required": [
+        "block_key",
+        "kind",
+        "text",
+        "detail_refs",
+        "evidence_refs",
+        "assumption_refs",
+        "conflict_refs",
+        "missing_fact_refs",
+        "context_refs"
+      ],
+      "properties": {
+        "block_key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "NotesSpec 范围内的局部块键。"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "explanation",
+            "source",
+            "speaker_script"
+          ]
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1
+        },
+        "detail_refs": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        },
+        "assumption_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          }
+        },
+        "conflict_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/conflict_ref"
+          }
+        },
+        "missing_fact_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/missing_fact_ref"
+          }
+        },
+        "context_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^/"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "source"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "evidence_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "detail_trace": {
+      "type": "object",
+      "required": [
+        "detail_key",
+        "destination",
+        "note_block_refs",
+        "evidence_refs",
+        "assumption_refs",
+        "conflict_refs",
+        "missing_fact_refs",
+        "context_refs"
+      ],
+      "properties": {
+        "detail_key": {
+          "type": "string",
+          "minLength": 1,
+          "description": "输入必需细节的局部键。"
+        },
+        "destination": {
+          "type": "string",
+          "enum": [
+            "slide",
+            "speaker_notes",
+            "both"
+          ]
+        },
+        "note_block_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "evidence_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/evidence_id"
+          }
+        },
+        "assumption_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "object-id.schema.json#/$defs/assumption_id"
+          }
+        },
+        "conflict_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/conflict_ref"
+          }
+        },
+        "missing_fact_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/missing_fact_ref"
+          }
+        },
+        "context_refs": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^/"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "destination": {
+                "enum": [
+                  "speaker_notes",
+                  "both"
+                ]
+              }
+            },
+            "required": [
+              "destination"
+            ]
+          },
+          "then": {
+            "properties": {
+              "note_block_refs": {
+                "minItems": 1
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "destination": {
+                "const": "slide"
+              }
+            },
+            "required": [
+              "destination"
+            ]
+          },
+          "then": {
+            "properties": {
+              "note_block_refs": {
+                "maxItems": 0
+              }
+            }
+          }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

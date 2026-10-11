@@ -1,0 +1,71 @@
+{
+  "document_type": "language_style_spec_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-007",
+  "task_id": "TASK-CNT-007",
+  "data_object": "LanguageStyleSpec",
+  "schema": "contracts/language-style-spec.schema.json",
+  "fixtures": "contracts/language-style-spec.fixtures.json",
+  "deliverable": "LanguageStyleSpec",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "PDR para 400：支持中文/英文/混合语言；记录 tone、formal level、术语规则、品牌词。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第 62 行、任务第 90 行定义输入、输出和数字/冲突/缺失验收；PresentationContext 第 11 行列 language/tone。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "字段来源引用复用 evidence_id 与 assumption_id 既有格式。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "数值、未决冲突和关键事实缺失上游案例，验证语言风格不改写事实。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "引用 CNT-003 未解决冲突；不由语言样式任务选择来源。"
+    }
+  ],
+  "field_rules": [
+    "LanguageStyleSpec 字段对应矩阵已有语言与语气要求；本任务不定义 PresentationContext 完整 Schema，也不添加 LanguageStyleSpec 数据对象基线行。",
+    "language 原样记录中文、英文或混合语言要求，不转换成未批准的 locale/code 清单、不静默选择默认语言，也不声称翻译已实现。",
+    "tone 与 formal_level 保留用户/来源原文，不引入固定级别、阈值或 tone taxonomy。",
+    "terminology_rules 与 brand_terms 保持逐项原文和顺序；契约只记录要求，不补术语、不改变品牌词大小写、不决定冲突词条优先级。",
+    "每个非空字段须有一个或多个 field_provenance 项，引用 evidence_id、assumption_id 或 PresentationContext JSON Pointer；ID 沿用既有标识，不新造。",
+    "SourceEvidence 的数字/单位、未决 EvidenceConflict 与 missing fact 不可因语言或语气要求改变；冲突由 CNT-003 表达，缺失事实由 CNT-001/ERR-009 表达。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-007-NORMAL-001",
+      "fixture_id": "CNT-007-NORMAL-001",
+      "purpose": "明确指定中文/英文混合、tone、formal level、术语规则和品牌词，同时输入含数值事实。",
+      "acceptance": "所有字段原文保留并逐字段回链；不从数值推断语言或修改事实。"
+    },
+    {
+      "case_id": "CNT-007-CHINESE-001",
+      "fixture_id": "CNT-007-CHINESE-001",
+      "purpose": "调用方仅明确指定中文语言。",
+      "acceptance": "language 原文保留为“中文”；其余未给出的风格字段保持 null/空数组，不套默认。"
+    },
+    {
+      "case_id": "CNT-007-CONFLICT-001",
+      "fixture_id": "CNT-007-CONFLICT-001",
+      "purpose": "语言/术语要求与未决来源冲突和缺失事实同时存在。",
+      "acceptance": "原文风格字段保留；来源冲突继续 unresolved/ERR-008，renewal_date 继续 ERR-009。"
+    },
+    {
+      "case_id": "CNT-007-MISSING-001",
+      "fixture_id": "CNT-007-MISSING-001",
+      "purpose": "PresentationContext 未提供语言或风格字段。",
+      "acceptance": "标量为 null、列表为空、provenance 为空；不套默认语言或术语。"
+    }
+  ],
+  "limits": [
+    "中文/英文/混合语言支持是 PDR 产品要求；本草案不证明翻译、语言识别、混排或字体覆盖已实现。",
+    "语言码、tone/formality taxonomy、术语冲突规则与品牌合规细节尚未在基线定义。",
+    "矩阵数据对象未列 LanguageStyleSpec；本任务不增加基线行，仅回填 CNT-007/TASK-CNT-007 状态和证据。"
+  ]
+}

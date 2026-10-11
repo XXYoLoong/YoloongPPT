@@ -66,8 +66,10 @@ def parse_template(raw, *, source=None, license=None):
                 if item['placeholder'] is None:continue
                 inherited=None
                 if master:
-                    inherited=next((s for s in master['shapes'] if s['placeholder'] is not None and s['placeholder_index']==item['placeholder_index'] and s['role']==item['role']),None)
-                    if inherited is None:inherited=next((s for s in master['shapes'] if s['placeholder'] is not None and s['role']==item['role']),None)
+                    # Layout inheritance uses master placeholder type rather than
+                    # idx equality; object/picture/chart/table slots inherit BODY.
+                    base_role={'ctrTitle':'title','subTitle':'body','obj':'body','pic':'body','chart':'body','tbl':'body','media':'body','clipArt':'body','dgm':'body'}.get(item['role'],item['role'])
+                    inherited=next((s for s in master['shapes'] if s['placeholder'] is not None and s['role']==base_role),None)
                 geometry=item['bounds'] or (inherited['bounds'] if inherited else None)
                 role=item['role']; types={'pic':['image'],'chart':['chart'],'tbl':['table'],'media':['media'],'obj':['text','image','table','chart']}.get(role,['text'])
                 slots.append({'slot_id':f'{part}#placeholder={item["placeholder_index"]}', 'placeholder_index':item['placeholder_index'],
@@ -82,11 +84,15 @@ def parse_template(raw, *, source=None, license=None):
             layouts.append({'part':part,'name':cslide.get('name') if cslide is not None else None,'type':node.get('type'),'preserve':node.get('preserve'),
                             'show_master_shapes':node.get('showMasterSp','1') not in {'0','false'},'master_part':master['part'] if master else None,
                             'slots':slots,'shapes':local,'relationships':rels,'raw_xml':ET.tostring(node,encoding='unicode')})
-        issues.append({'code':'TEMPLATE_CAPACITY_UNMEASURED','message':'原生母版/布局/字体/颜色/占位符已抽取；容量、品牌授权、安全区和非OOXML设计tokens不能凭XML猜测。'})
+        inventory=part_inventory(archive)
+        from .template_layout_runtime import preserved_part_names
+        preserved=preserved_part_names(names)
+        preservation={'parts':[p for p in inventory if p['part'] in preserved], 'policy':'immutable master/layout/theme/media plus unknown OOXML parts', 'unknown_semantics':'retained without claiming execution'}
+        issues.append({'code':'TEMPLATE_CAPACITY_UNMEASURED','message':'结构解析不等于内容容量；实际填充须调用原生槽位测量与显式品牌策略。'})
         return {'record_type':'native_template_pack','status':'partial','package_sha256':hashlib.sha256(raw).hexdigest(),
                 'source':source,'license':license or 'unknown','version':'sha256:'+hashlib.sha256(raw).hexdigest(),
                 'slide_size':dimensions,'masters':masters,'layouts':layouts,'themes':themes,
-                'assets':[p for p in part_inventory(archive) if p['part'].startswith('ppt/media/')],
+                'assets':[p for p in inventory if p['part'].startswith('ppt/media/')], 'part_inventory':inventory,'preservation':preservation,
                 'coverage':{'master_layout_theme':'parsed','placeholder_geometry':'parsed_with_explicit_unresolved','slot_capacity':'unmeasured',
                             'brand_lock':'user_policy_required','preview':'not_rendered','editable_instantiation':'available_for_text_placeholders'},
                 'issues':issues}
@@ -134,7 +140,9 @@ def instantiate_template(raw, layout_part, slot_content):
         except KeyError:raise TaskError('TEMPLATE_PLACEHOLDER_UNAVAILABLE','该占位符未继承到实际新建页面。','TemplateRegistry',['TPL-009']) from None
         if not placeholder.has_text_frame:raise TaskError('TEMPLATE_SLOT_UNSUPPORTED','原生占位符不是文本框。','TemplateRegistry',['TPL-009'])
         placeholder.text=text
-    output=io.BytesIO(); presentation.save(output); result=output.getvalue()
+    output=io.BytesIO(); presentation.save(output)
+    from .template_layout_runtime import preserve_package
+    result=preserve_package(raw,output.getvalue())
     with package(raw,'ppt/presentation.xml') as before, package(result,'ppt/presentation.xml') as after:
         protected=[p for p in before.namelist() if p.startswith(('ppt/slideMasters/','ppt/slideLayouts/','ppt/theme/')) and not p.endswith('.rels')]
         mismatches=[p for p in protected if p not in after.namelist() or ET.tostring(xml(before.read(p)))!=ET.tostring(xml(after.read(p)))]

@@ -1,0 +1,140 @@
+{
+  "trace_id": "trace_4521bf5d-68d3-47e6-8589-e2c293770600",
+  "node_id": "DEC-027",
+  "input": {
+    "page_count": 3,
+    "evidence_refs": [
+      "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-027",
+      "candidate_id": "candidate_cb6e407e-bd95-483f-9197-d800f8c1ea4a",
+      "value": {
+        "page_index": 0,
+        "required": false,
+        "diagram": null,
+        "type": "none",
+        "lexical_relation_inference": "disabled",
+        "fallback": "fail rather than raster-only or inferred relation"
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-027",
+      "candidate_id": "candidate_5660f4ea-7950-4d15-b08b-770f60dae4d3",
+      "value": {
+        "page_index": 1,
+        "required": false,
+        "diagram": null,
+        "type": "none",
+        "lexical_relation_inference": "disabled",
+        "fallback": "fail rather than raster-only or inferred relation"
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-027",
+      "candidate_id": "candidate_fd3b96d3-a2ac-4075-9012-ab9d18b03f78",
+      "value": {
+        "page_index": 2,
+        "required": false,
+        "diagram": null,
+        "type": "none",
+        "lexical_relation_inference": "disabled",
+        "fallback": "fail rather than raster-only or inferred relation"
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_cb6e407e-bd95-483f-9197-d800f8c1ea4a",
+    "candidate_5660f4ea-7950-4d15-b08b-770f60dae4d3",
+    "candidate_fd3b96d3-a2ac-4075-9012-ab9d18b03f78"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "Visual_Designer/template/Executor",
+      "P02": "layout induction/reference selection/actions",
+      "P03": "slide content/layout/template/assets",
+      "P04": "PureLayout/assets/PPTAdapter",
+      "P05": "SlidePlanner/template/assets/native writer"
+    },
+    "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+    "score_semantics": "selected policy outcome, not semantic probability",
+    "fallback": "structured failure; never invent material or downgrade a requested expression"
+  },
+  "output": {
+    "pages": [
+      {
+        "page_index": 0,
+        "required": false,
+        "diagram": null,
+        "type": "none",
+        "lexical_relation_inference": "disabled",
+        "fallback": "fail rather than raster-only or inferred relation"
+      },
+      {
+        "page_index": 1,
+        "required": false,
+        "diagram": null,
+        "type": "none",
+        "lexical_relation_inference": "disabled",
+        "fallback": "fail rather than raster-only or inferred relation"
+      },
+      {
+        "page_index": 2,
+        "required": false,
+        "diagram": null,
+        "type": "none",
+        "lexical_relation_inference": "disabled",
+        "fallback": "fail rather than raster-only or inferred relation"
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

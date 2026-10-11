@@ -1,0 +1,29 @@
+{
+  "document_type": "image_evidence_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-011",
+  "task_id": "TASK-IN-011",
+  "schema": "contracts/image-evidence.schema.json",
+  "fixtures": "contracts/image-evidence.fixtures.json",
+  "deliverable": "ImageEvidence",
+  "field_rules": [
+    "输入用途由调用方明确指定为 content_source、style_reference、image_to_pptx 或 unassigned；解析器不得从图像外观推断业务用途。",
+    "保留 declared/detected media type、格式、原始/显示尺寸、可观察方向和颜色模式；无法确定时使用 null/unknown 并在 coverage 说明。",
+    "所有 bbox 必须注明 coordinate_space；raw/display pixel 使用左上原点，orientation 转换不得静默覆盖原始坐标，归一化坐标保持 0 到 1。",
+    "视觉元素 label 与布局 region 是候选判断，保留 confidence 和 source_anchor；不能把 OCR/视觉分类当作确定事实。OCR 文本不静默纠错或补全。",
+    "主色以色值和估计 area_ratio 表示；颜色候选不是品牌色、可访问性或视觉质量判定。",
+    "分析方法、模型 ID 和版本只有在实际可得时填写；未选择视觉模型或测量器时使用 null，不记录开发机版本冒充产品能力。",
+    "raw_asset_refs 按输入顺序回传；source_asset_id 必须属于该列表，所有视觉/OCR/布局锚点必须引用同一原始图像 Asset ID。",
+    "损坏/无法解码返回 failed、evidence=null 和稳定错误码；可读但格式或分析特征不支持时返回 partial/unsupported coverage 与明确原因。"
+  ],
+  "acceptance_cases": [
+    { "case_id": "IN-011-IMAGE-NORMAL-001", "fixture_id": "IN-011-IMAGE-NORMAL-001", "purpose": "验证尺寸、视觉元素候选、OCR 文字、主色、布局 bbox、用途及来源锚点。", "acceptance": "图像尺寸和坐标空间显式记录；OCR/视觉输出保留 confidence 与原图锚点；输入用途原样传递。" },
+    { "case_id": "IN-011-BOUNDARY-INVALID-001", "fixture_id": "IN-011-BOUNDARY-INVALID-001", "purpose": "验证无法解码的图像字节。", "acceptance": "结果 failed、evidence=null、errors 含 IMAGE_DECODE_FAILED，并保留 Asset ID。" },
+    { "case_id": "IN-011-BOUNDARY-UNSUPPORTED-001", "fixture_id": "IN-011-BOUNDARY-UNSUPPORTED-001", "purpose": "验证解析器不支持 SVG 的部分处理表达。", "acceptance": "若当前实现不能解码/渲染，则明确 partial/unsupported 和 IMAGE_UNSUPPORTED_FORMAT，不编造尺寸、OCR 或布局。" }
+  ],
+  "limits": [
+    "contract 与 fixture 是合成预期结构；未运行图像解码器、OCR、视觉模型、颜色抽取或版面分析。",
+    "格式支持、EXIF orientation、色彩管理、SVG 安全与渲染、坐标精度、模型阈值/版本及许可须在实际架构和库选型后验证。",
+    "ImageEvidence 不承诺对任何图像格式或截图完成可编辑 PPTX 重建；其结果是有来源和置信度的证据候选。"
+  ]
+}

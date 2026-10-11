@@ -1,0 +1,550 @@
+{
+  "document_type": "hallucination_guard_contract_fixtures",
+  "contract_status": "draft",
+  "requirement_id": "CNT-012",
+  "task_id": "TASK-CNT-012",
+  "fixtures": [
+    {
+      "fixture_id": "CNT-012-SUPPORTED-001",
+      "kind": "normal",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "source_conflict_fixture_id": null,
+        "presentation_context": {},
+        "candidate_text": "Aster Labs reported ARR of US$2.4 million and 8% year-over-year revenue growth; cite the 2025 Annual Report.",
+        "candidate_assertions": [
+          {
+            "assertion_key": "company-name",
+            "claim_type": "customer_name",
+            "text": "Aster Labs",
+            "evidence_refs": [
+              "evidence_12111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          },
+          {
+            "assertion_key": "arr-amount",
+            "claim_type": "number",
+            "text": "US$2.4 million",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          },
+          {
+            "assertion_key": "growth-rate",
+            "claim_type": "number",
+            "text": "8% year-over-year revenue growth",
+            "evidence_refs": [
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          },
+          {
+            "assertion_key": "citation-label",
+            "claim_type": "citation_source",
+            "text": "2025 Annual Report",
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          }
+        ]
+      },
+      "expected_output": {
+        "status": "pass",
+        "candidate_text": "Aster Labs reported ARR of US$2.4 million and 8% year-over-year revenue growth; cite the 2025 Annual Report.",
+        "findings": [
+          {
+            "assertion_key": "company-name",
+            "claim_type": "customer_name",
+            "text": "Aster Labs",
+            "evidence_refs": [
+              "evidence_12111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "supported",
+            "reason": "客户名称与上游结构化组织证据一致。"
+          },
+          {
+            "assertion_key": "arr-amount",
+            "claim_type": "number",
+            "text": "US$2.4 million",
+            "evidence_refs": [
+              "evidence_15111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "supported",
+            "reason": "金额原值与上游 SourceEvidence 一致。"
+          },
+          {
+            "assertion_key": "growth-rate",
+            "claim_type": "number",
+            "text": "8% year-over-year revenue growth",
+            "evidence_refs": [
+              "evidence_16111111-1111-4111-8111-111111111111"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "supported",
+            "reason": "增长率及同比限定与上游 SourceEvidence 一致。"
+          },
+          {
+            "assertion_key": "citation-label",
+            "claim_type": "citation_source",
+            "text": "2025 Annual Report",
+            "evidence_refs": [
+              "evidence_20222222-2222-4222-8222-222222222222"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "supported",
+            "reason": "引用来源标签有既有 evidence_id 支持。"
+          }
+        ]
+      },
+      "expected_action": "accept_only_claims_linked_to_source_evidence"
+    },
+    {
+      "fixture_id": "CNT-012-UNSUPPORTED-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-NORMAL-001",
+        "source_conflict_fixture_id": null,
+        "presentation_context": {},
+        "candidate_text": "Acme ARR reached US$3.1 million. Gartner 2026 report proves category leadership.",
+        "candidate_assertions": [
+          {
+            "assertion_key": "customer-name",
+            "claim_type": "customer_name",
+            "text": "Acme",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          },
+          {
+            "assertion_key": "arr-amount",
+            "claim_type": "number",
+            "text": "US$3.1 million",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          },
+          {
+            "assertion_key": "citation-source",
+            "claim_type": "citation_source",
+            "text": "Gartner 2026 report",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          },
+          {
+            "assertion_key": "research-conclusion",
+            "claim_type": "research_conclusion",
+            "text": "proves category leadership",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          }
+        ]
+      },
+      "expected_output": {
+        "status": "blocked",
+        "candidate_text": null,
+        "findings": [
+          {
+            "assertion_key": "customer-name",
+            "claim_type": "customer_name",
+            "text": "Acme",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "unsupported",
+            "reason": "客户名称未出现在本 fixture 的 SourceEvidence 或 Assumption 中。"
+          },
+          {
+            "assertion_key": "arr-amount",
+            "claim_type": "number",
+            "text": "US$3.1 million",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "unsupported",
+            "reason": "金额没有 SourceEvidence 或 Assumption 支持。"
+          },
+          {
+            "assertion_key": "citation-source",
+            "claim_type": "citation_source",
+            "text": "Gartner 2026 report",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "unsupported",
+            "reason": "引用来源没有 SourceEvidence 支持。"
+          },
+          {
+            "assertion_key": "research-conclusion",
+            "claim_type": "research_conclusion",
+            "text": "proves category leadership",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "unsupported",
+            "reason": "调研结论没有 SourceEvidence 或显式推导依据支持。"
+          }
+        ]
+      },
+      "expected_action": "block_unsupported_number_name_citation_and_research_conclusion"
+    },
+    {
+      "fixture_id": "CNT-012-CONFLICT-PRESERVED-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "presentation_context": {},
+        "candidate_text": "FY2025 revenue growth remains unresolved: one source reports 8% year over year and another reports 9% year over year.",
+        "candidate_assertions": [
+          {
+            "assertion_key": "growth-conflict",
+            "claim_type": "number",
+            "text": "8% year over year and 9% year over year",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          }
+        ]
+      },
+      "expected_output": {
+        "status": "pass",
+        "candidate_text": "FY2025 revenue growth remains unresolved: one source reports 8% year over year and another reports 9% year over year.",
+        "findings": [
+          {
+            "assertion_key": "growth-conflict",
+            "claim_type": "number",
+            "text": "8% year over year and 9% year over year",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "conflict_preserved",
+            "reason": "同时保留两个来源值并显式保留未决冲突，不选择赢家。"
+          }
+        ]
+      },
+      "expected_action": "preserve_both_values_and_ERR_008_without_resolution"
+    },
+    {
+      "fixture_id": "CNT-012-CONFLICT-WINNER-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": "CNT-003-BOUNDARY-001",
+        "presentation_context": {},
+        "candidate_text": "Revenue grew 9% year over year in FY2025.",
+        "candidate_assertions": [
+          {
+            "assertion_key": "growth-winner",
+            "claim_type": "number",
+            "text": "9% year over year",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          }
+        ]
+      },
+      "expected_output": {
+        "status": "blocked",
+        "candidate_text": null,
+        "findings": [
+          {
+            "assertion_key": "growth-winner",
+            "claim_type": "number",
+            "text": "9% year over year",
+            "evidence_refs": [
+              "evidence_33333333-3333-4333-8333-333333333333",
+              "evidence_34333333-3333-4333-8333-333333333333"
+            ],
+            "assumption_refs": [],
+            "conflict_refs": [
+              {
+                "kind": "unresolved_conflict",
+                "conflict_id": "object_33333333-3333-4333-8333-333333333333",
+                "error_id": "ERR-008",
+                "reason_code": "SOURCE_CONFLICT",
+                "evidence_refs": [
+                  "evidence_33333333-3333-4333-8333-333333333333",
+                  "evidence_34333333-3333-4333-8333-333333333333"
+                ]
+              }
+            ],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "conflict_winner_selected",
+            "reason": "只输出 9% 作为单一结论，但 DEC-004 仍未决；必须阻断而不能替来源选择赢家。"
+          }
+        ]
+      },
+      "expected_action": "block_single_value_selected_from_unresolved_conflict"
+    },
+    {
+      "fixture_id": "CNT-012-MISSING-PLACEHOLDER-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": null,
+        "presentation_context": {
+          "placeholder_instruction": "续约日期缺失时使用明确占位符 {{renewal_date}}，不要填造日期。"
+        },
+        "candidate_text": "Renewal date: {{renewal_date}}. Planned margin remains a 12% user-supplied planning assumption.",
+        "candidate_assertions": [
+          {
+            "assertion_key": "renewal-date-placeholder",
+            "claim_type": "other_fact",
+            "text": "{{renewal_date}}",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [
+              {
+                "kind": "missing_fact",
+                "fact_id": "renewal_date",
+                "error_id": "ERR-009",
+                "reason_code": "MISSING_FACT"
+              }
+            ],
+            "context_refs": [
+              "/placeholder_instruction"
+            ],
+            "placeholder_token": "{{renewal_date}}"
+          },
+          {
+            "assertion_key": "planned-margin",
+            "claim_type": "number",
+            "text": "12% user-supplied planning assumption",
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null
+          }
+        ]
+      },
+      "expected_output": {
+        "status": "pass",
+        "candidate_text": "Renewal date: {{renewal_date}}. Planned margin remains a 12% user-supplied planning assumption.",
+        "findings": [
+          {
+            "assertion_key": "renewal-date-placeholder",
+            "claim_type": "other_fact",
+            "text": "{{renewal_date}}",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [
+              {
+                "kind": "missing_fact",
+                "fact_id": "renewal_date",
+                "error_id": "ERR-009",
+                "reason_code": "MISSING_FACT"
+              }
+            ],
+            "context_refs": [
+              "/placeholder_instruction"
+            ],
+            "placeholder_token": "{{renewal_date}}",
+            "disposition": "explicit_placeholder",
+            "reason": "缺失日期保持显式 token，并链接 ERR-009 和输入上下文路径。"
+          },
+          {
+            "assertion_key": "planned-margin",
+            "claim_type": "number",
+            "text": "12% user-supplied planning assumption",
+            "evidence_refs": [],
+            "assumption_refs": [
+              "assumption_35333333-3333-4333-8333-333333333333"
+            ],
+            "conflict_refs": [],
+            "missing_fact_refs": [],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "supported",
+            "reason": "12% 作为用户提供的规划假设保留其 assumption_id。"
+          }
+        ]
+      },
+      "expected_action": "allow_explicit_placeholder_without_treating_it_as_fact"
+    },
+    {
+      "fixture_id": "CNT-012-MISSING-INVENTED-001",
+      "kind": "boundary",
+      "input": {
+        "source_fact_set_fixture_id": "CNT-001-BOUNDARY-001",
+        "source_conflict_fixture_id": null,
+        "presentation_context": {},
+        "candidate_text": "The renewal date is 2026-12-31.",
+        "candidate_assertions": [
+          {
+            "assertion_key": "renewal-date-value",
+            "claim_type": "other_fact",
+            "text": "2026-12-31",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [
+              {
+                "kind": "missing_fact",
+                "fact_id": "renewal_date",
+                "error_id": "ERR-009",
+                "reason_code": "MISSING_FACT"
+              }
+            ],
+            "context_refs": [],
+            "placeholder_token": null
+          }
+        ]
+      },
+      "expected_output": {
+        "status": "blocked",
+        "candidate_text": null,
+        "findings": [
+          {
+            "assertion_key": "renewal-date-value",
+            "claim_type": "other_fact",
+            "text": "2026-12-31",
+            "evidence_refs": [],
+            "assumption_refs": [],
+            "conflict_refs": [],
+            "missing_fact_refs": [
+              {
+                "kind": "missing_fact",
+                "fact_id": "renewal_date",
+                "error_id": "ERR-009",
+                "reason_code": "MISSING_FACT"
+              }
+            ],
+            "context_refs": [],
+            "placeholder_token": null,
+            "disposition": "invented_missing_value",
+            "reason": "renewal_date 在输入中缺失；候选输出填入 2026-12-31，必须阻断并保持 ERR-009。"
+          }
+        ]
+      },
+      "expected_action": "block_generated_value_for_missing_fact"
+    }
+  ],
+  "limits": [
+    "fixtures 通过 fixture ID 引用 CNT-001 的 SourceEvidence/Assumption 与 CNT-003 的 EvidenceConflict；不复制或改写上游来源记录。",
+    "supported 仅以实际 evidence_id 或 assumption_id 追溯；PresentationContext 可要求显式占位符，但不能单独充当事实来源。",
+    "conflict_preserved 表示两侧值和 ERR-008 均保留，不代表 DEC-004 已解决；单值选赢家为 blocked。",
+    "HallucinationGuardResult、Schema 与 fixtures 是语言/运行时无关的草案；本任务不新增数据对象行，也不代表模型防幻觉运行时或语义检测器已实现。"
+  ]
+}

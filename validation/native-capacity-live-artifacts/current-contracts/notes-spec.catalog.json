@@ -1,0 +1,78 @@
+{
+  "document_type": "notes_spec_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "CNT-013",
+  "task_id": "TASK-CNT-013",
+  "deliverable": "NotesSpec",
+  "schema": "contracts/notes-spec.schema.json",
+  "fixtures": "contracts/notes-spec.fixtures.json",
+  "references": [
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx",
+      "supports": "PDR para 406：详细解释、来源、演讲稿可移入 speaker notes，同时页面保持简洁。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx",
+      "supports": "需求主表第 68 行、可执行任务第 96 行定义 SourceEvidence + PresentationContext 输入、NotesSpec 输出和数字/冲突/缺失验收。"
+    },
+    {
+      "url": "AI_PPT_PDR_完整需求定义_V0.3.docx#PPT-023",
+      "supports": "PDR para 510：Speaker Notes 读取/写入需保留 notes master/layout 与来源/演讲稿。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx#数据对象",
+      "supports": "SlideContentSpec 已列 notes、citation_refs；本任务不新增 NotesSpec 数据对象行。"
+    },
+    {
+      "url": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx#AC-017",
+      "supports": "Notes/来源验收要求讲稿与来源 notes、页面简洁、notes 可追溯；验收仍未执行。"
+    },
+    {
+      "url": "contracts/fact-constraint-set.fixtures.json",
+      "supports": "CNT-001 现有数字、引用、assumption、renewal_date 缺失与 ERR-009 输入。"
+    },
+    {
+      "url": "contracts/evidence-conflict.fixtures.json",
+      "supports": "CNT-003-BOUNDARY-001 的未决 8%/9% 冲突、ERR-008。"
+    },
+    {
+      "url": "contracts/citation-policy.catalog.json",
+      "supports": "notes 引用模式显式路由到 speaker_notes 并保留 source anchor 回链；未提供模式时不设默认。"
+    },
+    {
+      "url": "contracts/object-id.schema.json",
+      "supports": "复用 evidence_id、assumption_id、object_id 格式。"
+    }
+  ],
+  "field_rules": [
+    "slide_content 与 speaker_notes 分开记录；仅在显式 PresentationContext 指示时路由来源/解释/演讲稿。没有固定字数阈值；本草案用输入中的 required_details、转移轨迹和较短页面文案核对完整度。",
+    "每个 required_detail 必须在 detail_trace 中恰好出现一次；若进入 speaker_notes，必须引用现有 note block，且 note block 复用相同 evidence_id、assumption_id 与上下文路径。局部 key 不是全局实体 ID。",
+    "说明、来源、讲稿均不得新增无来源事实。Source 类型 note block 必须带 evidence_refs；明确假设继续标记为 assumption，不伪装成来源证据。",
+    "未决冲突的页面与 notes 均保留两侧值和 ERR-008，不选 winner；缺失事实继续保留 ERR-009，不生成日期值，允许按显式上下文放置 placeholder。",
+    "PPT-023 的 notes master/layout、OOXML notes part 与 round-trip 不由本任务验证；能力矩阵中的 PPT-023 状态不变。AC-017/AC-001–AC-030 仍未执行。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "CNT-013-NORMAL-001",
+      "fixture_id": "CNT-013-NORMAL-001",
+      "purpose": "move_explanation_source_and_script_to_notes",
+      "acceptance": "页面保留 ARR 与增长摘要；详细解释、2025 Annual Report 来源及讲稿进入 notes 并保留 evidence 引用。"
+    },
+    {
+      "case_id": "CNT-013-CONFLICT-001",
+      "fixture_id": "CNT-013-CONFLICT-001",
+      "purpose": "preserve_conflict_in_slide_and_notes",
+      "acceptance": "页面和 notes 保留 8%/9%、FY2025、未决说明及 ERR-008。"
+    },
+    {
+      "case_id": "CNT-013-MISSING-001",
+      "fixture_id": "CNT-013-MISSING-001",
+      "purpose": "preserve_missing_and_assumption",
+      "acceptance": "页面/notes 显示 renewal_date 缺失和显式 placeholder，沿用 ERR-009 与原 assumption_id。"
+    }
+  ],
+  "limits": [
+    "fixture 是 NotesSpec 静态预期，不代表生成器、PPTX notes writer 或 PowerPoint 打开/回写能力已实现。",
+    "未运行 JSON Schema 实例验证器、notes runtime、PPT-023 backend PoC 或 AC-017/AC-001–AC-030。"
+  ]
+}

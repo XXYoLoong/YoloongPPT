@@ -1,0 +1,107 @@
+{
+  "document_type": "object_id_fixture_suite",
+  "contract_status": "draft",
+  "requirement_id": "GOV-007",
+  "schema_ref": "contracts/object-id.schema.json",
+  "valid_cases": [
+    {
+      "fixture_id": "shape_to_evidence_traceability",
+      "task_spec": { "task_id": "task_a1111111-1111-4111-8111-111111111111" },
+      "artifact_manifest": {
+        "artifact_id": "artifact_3aaaaaaa-aaaa-4aaa-aaaa-aaaaaaaaaaaa",
+        "deck_id": "deck_b2222222-2222-4222-a222-222222222222"
+      },
+      "slide_spec": {
+        "slide_id": "slide_c3333333-3333-4333-8333-333333333333",
+        "source_refs": ["evidence_e5555555-5555-4555-8555-555555555555"]
+      },
+      "source_evidence": {
+        "evidence_id": "evidence_e5555555-5555-4555-8555-555555555555",
+        "source_id": "source_d4444444-4444-4444-b444-444444444444"
+      },
+      "source_record": {
+        "source_id": "source_d4444444-4444-4444-b444-444444444444"
+      },
+      "asset_record": {
+        "asset_id": "asset_f6666666-6666-4666-9666-666666666666"
+      },
+      "additional_entities": {
+        "assumption_id": "assumption_4bbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+        "section_id": "section_5ccccccc-cccc-4ccc-accc-cccccccccccc",
+        "layout_id": "layout_6ddddddd-dddd-4ddd-8ddd-dddddddddddd",
+        "slot_id": "slot_7eeeeeee-eeee-4eee-aeee-eeeeeeeeeeee",
+        "capability_id": "capability_8fffffff-ffff-4fff-bfff-ffffffffffff",
+        "implementation_id": "implementation_90000000-0000-4000-8000-000000000000",
+        "adapter_id": "adapter_aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+        "candidate_id": "candidate_bbbbbbbb-bbbb-4bbb-9bbb-bbbbbbbbbbbb"
+      },
+      "object_map": {
+        "logical_object_id": "object_07777777-7777-4777-a777-777777777777",
+        "slide_id": "slide_c3333333-3333-4333-8333-333333333333",
+        "backend_object_id": "pptx-shape-42",
+        "shape_id": "42",
+        "source_ref": "evidence_e5555555-5555-4555-8555-555555555555"
+      },
+      "decision_trace": {
+        "trace_id": "trace_18888888-8888-4888-b888-888888888888",
+        "node_id": "DEC-001"
+      },
+      "quality_issue": {
+        "issue_id": "issue_29999999-9999-4999-8999-999999999999",
+        "slide_id": "slide_c3333333-3333-4333-8333-333333333333",
+        "object_ids": ["object_07777777-7777-4777-a777-777777777777"]
+      },
+      "references": {
+        "execution_plan_implementation_id": "implementation_90000000-0000-4000-8000-000000000000",
+        "revision_action_issue_id": "issue_29999999-9999-4999-8999-999999999999",
+        "provenance_target_id": "object_07777777-7777-4777-a777-777777777777"
+      },
+      "expected": "各逻辑 ID 格式有效；最终 shape 可由 logical_object_id 定位到 SlideSpec，再由 source_ref 定位到 SourceEvidence 和 SourceRecord。"
+    },
+    {
+      "fixture_id": "revision_keeps_logical_ids",
+      "before": {
+        "task_id": "task_a1111111-1111-4111-8111-111111111111",
+        "deck_id": "deck_b2222222-2222-4222-a222-222222222222",
+        "slide_id": "slide_c3333333-3333-4333-8333-333333333333",
+        "object_id": "object_07777777-7777-4777-a777-777777777777",
+        "backend_object_id": "pptx-shape-42"
+      },
+      "after": {
+        "task_id": "task_a1111111-1111-4111-8111-111111111111",
+        "deck_id": "deck_b2222222-2222-4222-a222-222222222222",
+        "slide_id": "slide_c3333333-3333-4333-8333-333333333333",
+        "object_id": "object_07777777-7777-4777-a777-777777777777",
+        "backend_object_id": "pptx-shape-57"
+      },
+      "expected_same": ["task_id", "deck_id", "slide_id", "object_id"],
+      "expected_may_change": ["backend_object_id"]
+    }
+  ],
+  "invalid_cases": [
+    {
+      "fixture_id": "registry_task_id_is_not_runtime_task_id",
+      "id_kind": "task_id",
+      "value": "TASK-GOV-007",
+      "expected_rejected": true
+    },
+    {
+      "fixture_id": "unknown_decision_definition",
+      "id_kind": "decision_id",
+      "value": "DEC-041",
+      "expected_rejected": true
+    },
+    {
+      "fixture_id": "non_v4_runtime_id",
+      "id_kind": "object_id",
+      "value": "object_07777777-7777-5777-a777-777777777777",
+      "expected_rejected": true
+    },
+    {
+      "fixture_id": "source_reference_cannot_replace_evidence_reference",
+      "field": "ObjectMap.source_ref",
+      "value": "source_d4444444-4444-4444-b444-444444444444",
+      "expected_rejected": true
+    }
+  ]
+}

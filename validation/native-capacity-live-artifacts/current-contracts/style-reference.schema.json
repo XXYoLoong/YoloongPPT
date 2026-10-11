@@ -1,0 +1,255 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "style-reference.schema.json",
+  "title": "StyleReference 契约（IN-013 草案）",
+  "description": "从明确指定的风格参考图/情绪板提取可追溯的视觉倾向；不得把受保护的 logo 或内容复制进风格描述。",
+  "oneOf": [
+    { "$ref": "#/$defs/style_reference_input" },
+    { "$ref": "#/$defs/style_reference_result" }
+  ],
+  "$defs": {
+    "source_id": { "$ref": "object-id.schema.json#/$defs/source_id" },
+    "asset_id": { "$ref": "object-id.schema.json#/$defs/asset_id" },
+    "source_anchor": { "$ref": "source-anchor.schema.json#/$defs/source_anchor" },
+    "rights_context": {
+      "type": "object",
+      "required": ["asset_origin", "user_provided_asset", "reproduction_authorized", "authorization_evidence_ref", "license_status", "license_ref", "license_reason"],
+      "properties": {
+        "asset_origin": { "type": "string", "enum": ["user_upload", "user_supplied_url", "template", "external_url", "generated", "unknown"] },
+        "user_provided_asset": { "type": "boolean", "description": "只表示图像资产本身由用户提供，不等同于获得复制授权。" },
+        "reproduction_authorized": { "type": ["boolean", "null"] },
+        "authorization_evidence_ref": { "type": ["string", "null"] },
+        "license_status": { "type": "string", "enum": ["known", "unknown", "not_applicable"] },
+        "license_ref": { "type": ["string", "null"] },
+        "license_reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "reproduction_authorized": { "const": true } }, "required": ["reproduction_authorized"] },
+          "then": { "properties": { "user_provided_asset": { "const": true }, "authorization_evidence_ref": { "type": "string", "minLength": 1 } } }
+        },
+        {
+          "if": { "properties": { "user_provided_asset": { "const": false } }, "required": ["user_provided_asset"] },
+          "then": { "properties": { "reproduction_authorized": { "type": ["boolean", "null"], "not": { "const": true } } } }
+        },
+        {
+          "if": { "properties": { "license_status": { "const": "known" } }, "required": ["license_status"] },
+          "then": { "properties": { "license_ref": { "type": "string", "minLength": 1 }, "license_reason": { "type": "null" } } }
+        },
+        {
+          "if": { "properties": { "license_status": { "const": "unknown" } }, "required": ["license_status"] },
+          "then": { "properties": { "license_reason": { "type": "string", "minLength": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    },
+    "style_reference_input": {
+      "type": "object",
+      "required": ["record_type", "source_id", "source_asset_id", "raw_asset_refs", "usage", "declared_media_type", "rights_context"],
+      "properties": {
+        "record_type": { "const": "style_reference_input" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "usage": { "const": "style_reference" },
+        "declared_media_type": { "type": ["string", "null"] },
+        "rights_context": { "oneOf": [{ "$ref": "#/$defs/rights_context" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "confidence": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "number", "minimum": 0, "maximum": 1 }
+      ],
+      "description": "Optional analytic confidence in the visual observation; it is not a legal authorization or a product acceptance threshold."
+    },
+    "color_observation": {
+      "type": "object",
+      "required": ["color_hex", "role_tendency", "source_anchor", "confidence"],
+      "properties": {
+        "color_hex": { "type": "string", "pattern": "^#[0-9A-Fa-f]{6}([0-9A-Fa-f]{2})?$" },
+        "role_tendency": { "type": "string", "enum": ["background", "text", "accent", "surface", "unknown"] },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "confidence": { "$ref": "#/$defs/confidence" }
+      },
+      "additionalProperties": false
+    },
+    "typography_observation": {
+      "type": "object",
+      "required": ["family_tendency", "weight_tendency", "emphasis_tendency", "source_anchor", "confidence"],
+      "properties": {
+        "family_tendency": { "type": "string", "enum": ["serif", "sans_serif", "monospace", "display", "handwritten", "mixed", "unknown"] },
+        "weight_tendency": { "type": "string", "enum": ["light", "regular", "bold", "mixed", "unknown"] },
+        "emphasis_tendency": { "type": "string", "enum": ["low_contrast", "high_contrast", "mixed", "unknown"] },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "confidence": { "$ref": "#/$defs/confidence" }
+      },
+      "description": "从图像观测字体倾向，不声称识别到可安装/可复用的具体字体名称。",
+      "additionalProperties": false
+    },
+    "composition_observation": {
+      "type": "object",
+      "required": ["pattern", "description", "source_anchor", "confidence"],
+      "properties": {
+        "pattern": { "type": "string", "enum": ["centered", "left_aligned", "single_column", "multi_column", "split", "grid", "asymmetric", "other", "unknown"] },
+        "description": { "type": "string", "minLength": 1 },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "confidence": { "$ref": "#/$defs/confidence" }
+      },
+      "additionalProperties": false
+    },
+    "density_observation": {
+      "type": "object",
+      "required": ["level", "description", "source_anchor", "confidence"],
+      "properties": {
+        "level": { "type": "string", "enum": ["sparse", "moderate", "dense", "unknown"] },
+        "description": { "type": ["string", "null"] },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "confidence": { "$ref": "#/$defs/confidence" }
+      },
+      "additionalProperties": false
+    },
+    "image_treatment_observation": {
+      "type": "object",
+      "required": ["treatment", "description", "source_anchor", "confidence"],
+      "properties": {
+        "treatment": { "type": "string", "enum": ["cropped", "contained", "grayscale", "duotone", "overlay", "framed", "masked", "texture", "other", "unknown"] },
+        "description": { "type": "string", "minLength": 1 },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "confidence": { "$ref": "#/$defs/confidence" }
+      },
+      "additionalProperties": false
+    },
+    "decorative_language_observation": {
+      "type": "object",
+      "required": ["motif", "description", "source_anchor", "confidence"],
+      "properties": {
+        "motif": { "type": "string", "enum": ["geometric", "linework", "texture", "illustrative", "framing", "ornamental", "other", "unknown"] },
+        "description": { "type": "string", "minLength": 1 },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "confidence": { "$ref": "#/$defs/confidence" }
+      },
+      "additionalProperties": false
+    },
+    "protected_element": {
+      "type": "object",
+      "required": ["element_kind", "detection_status", "source_anchor", "reproduction_decision"],
+      "properties": {
+        "element_kind": { "type": "string", "enum": ["logo", "brand_mark", "copyrighted_text", "character", "artwork", "other", "unknown"] },
+        "detection_status": { "type": "string", "enum": ["candidate", "uncertain", "confirmed"] },
+        "source_anchor": { "$ref": "#/$defs/source_anchor" },
+        "reproduction_decision": { "type": "string", "enum": ["not_reproduced", "excluded_rights_unknown", "excluded_not_authorized", "eligible_for_separate_authorized_asset_flow"] }
+      },
+      "description": "只记录类型、位置与处理决定；不得复制 logo 位图、品牌标识或受保护正文。授权资产如需复用，应进入单独资产/许可流程。",
+      "additionalProperties": false
+    },
+    "style_reference": {
+      "type": "object",
+      "required": ["model_type", "source", "visual_style", "protected_elements"],
+      "properties": {
+        "model_type": { "const": "StyleReference" },
+        "source": {
+          "type": "object",
+          "required": ["source_id", "source_asset_id", "raw_asset_refs", "usage", "rights_context"],
+          "properties": {
+            "source_id": { "$ref": "#/$defs/source_id" },
+            "source_asset_id": { "$ref": "#/$defs/asset_id" },
+            "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+            "usage": { "const": "style_reference" },
+            "rights_context": { "oneOf": [{ "$ref": "#/$defs/rights_context" }, { "type": "null" }] }
+          },
+          "additionalProperties": false
+        },
+        "visual_style": {
+          "type": "object",
+          "required": ["colors", "typography", "composition", "density", "image_treatment", "decorative_language"],
+          "properties": {
+            "colors": { "type": "array", "items": { "$ref": "#/$defs/color_observation" } },
+            "typography": { "type": "array", "items": { "$ref": "#/$defs/typography_observation" } },
+            "composition": { "type": "array", "items": { "$ref": "#/$defs/composition_observation" } },
+            "density": { "type": "array", "items": { "$ref": "#/$defs/density_observation" } },
+            "image_treatment": { "type": "array", "items": { "$ref": "#/$defs/image_treatment_observation" } },
+            "decorative_language": { "type": "array", "items": { "$ref": "#/$defs/decorative_language_observation" } }
+          },
+          "additionalProperties": false
+        },
+        "protected_elements": { "type": "array", "items": { "$ref": "#/$defs/protected_element" } }
+      },
+      "additionalProperties": false
+    },
+    "coverage_item": {
+      "type": "object",
+      "required": ["feature", "status", "reason"],
+      "properties": {
+        "feature": { "type": "string", "enum": ["colors", "typography", "composition", "density", "image_treatment", "decorative_language"] },
+        "status": { "type": "string", "enum": ["complete", "partial", "not_observed", "unsupported", "failed"] },
+        "reason": { "type": ["string", "null"] }
+      },
+      "allOf": [
+        { "if": { "properties": { "status": { "enum": ["complete", "not_observed"] } }, "required": ["status"] }, "then": { "properties": { "reason": { "type": "null" } } } },
+        { "if": { "properties": { "status": { "enum": ["partial", "unsupported", "failed"] } }, "required": ["status"] }, "then": { "properties": { "reason": { "type": "string", "minLength": 1 } } } }
+      ],
+      "additionalProperties": false
+    },
+    "parse_error": {
+      "type": "object",
+      "required": ["error_id", "code", "phase", "message", "source_anchor"],
+      "properties": {
+        "error_id": { "type": "string", "enum": ["ERR-002", "ERR-006"] },
+        "code": { "type": "string", "enum": ["INPUT_UNSUPPORTED", "PARSE_PARTIAL"] },
+        "phase": { "type": "string", "enum": ["decode", "feature_extraction", "source_location"] },
+        "message": { "type": "string", "minLength": 1 },
+        "source_anchor": { "oneOf": [{ "$ref": "#/$defs/source_anchor" }, { "type": "null" }] }
+      },
+      "additionalProperties": false
+    },
+    "processor_record": {
+      "type": "object",
+      "required": ["execution_status", "name", "version", "license_status", "license_reason"],
+      "properties": {
+        "execution_status": { "type": "string", "enum": ["fixture_only", "not_executed", "executed", "failed"] },
+        "name": { "type": ["string", "null"] },
+        "version": { "type": ["string", "null"] },
+        "license_status": { "type": "string", "enum": ["known", "unknown", "not_applicable"] },
+        "license_reason": { "type": ["string", "null"] }
+      },
+      "additionalProperties": false
+    },
+    "style_reference_result": {
+      "type": "object",
+      "required": ["record_type", "source_id", "source_asset_id", "raw_asset_refs", "usage", "status", "evidence", "coverage", "errors", "processor"],
+      "properties": {
+        "record_type": { "const": "style_reference_result" },
+        "source_id": { "$ref": "#/$defs/source_id" },
+        "source_asset_id": { "$ref": "#/$defs/asset_id" },
+        "raw_asset_refs": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "$ref": "#/$defs/asset_id" } },
+        "usage": { "const": "style_reference" },
+        "status": { "type": "string", "enum": ["parsed", "partial", "failed"] },
+        "evidence": { "oneOf": [{ "$ref": "#/$defs/style_reference" }, { "type": "null" }] },
+        "coverage": { "type": "array", "items": { "$ref": "#/$defs/coverage_item" } },
+        "errors": { "type": "array", "items": { "$ref": "#/$defs/parse_error" } },
+        "processor": { "$ref": "#/$defs/processor_record" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "status": { "enum": ["parsed", "partial"] } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "$ref": "#/$defs/style_reference" } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "parsed" } }, "required": ["status"] },
+          "then": { "properties": { "errors": { "maxItems": 0 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "partial" } }, "required": ["status"] },
+          "then": { "properties": { "errors": { "minItems": 1 } } }
+        },
+        {
+          "if": { "properties": { "status": { "const": "failed" } }, "required": ["status"] },
+          "then": { "properties": { "evidence": { "type": "null" }, "errors": { "minItems": 1 } } }
+        }
+      ],
+      "additionalProperties": false
+    }
+  }
+}

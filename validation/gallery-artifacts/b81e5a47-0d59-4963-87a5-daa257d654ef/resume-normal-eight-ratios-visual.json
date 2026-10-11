@@ -1,0 +1,2215 @@
+{
+  "version": "visual-1",
+  "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+  "status": "executed_partial",
+  "decision_traces": [
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-022",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_c9a30a26-4f8f-4ff6-a05b-29f4e67e68c4",
+          "value": {
+            "page_index": 0,
+            "expression": "text_image",
+            "kind": "image",
+            "reason": "explicit structured model proposal",
+            "evidence_refs": [
+              "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_c9a30a26-4f8f-4ff6-a05b-29f4e67e68c4"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "expression": "text_image",
+            "kind": "image",
+            "reason": "explicit structured model proposal",
+            "evidence_refs": [
+              "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+            ],
+            "preserved_content": true
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-023",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_f4db1f45-63f8-435b-a8ba-79712f6cf9f3",
+          "value": {
+            "page_index": 0,
+            "required": true,
+            "count": 8,
+            "role": null,
+            "roles": [
+              "information",
+              "decoration",
+              "logo",
+              "reference",
+              "information",
+              "decoration",
+              "logo",
+              "reference"
+            ],
+            "information_value": "caller/model declared; independent semantic review pending",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_f4db1f45-63f8-435b-a8ba-79712f6cf9f3"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": true,
+            "count": 8,
+            "role": null,
+            "roles": [
+              "information",
+              "decoration",
+              "logo",
+              "reference",
+              "information",
+              "decoration",
+              "logo",
+              "reference"
+            ],
+            "information_value": "caller/model declared; independent semantic review pending",
+            "fallback": "fail on missing material"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-024",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_b521451c-5922-4e03-9c58-ca5841cb760e",
+          "value": {
+            "page_index": 0,
+            "selected_asset_ids": [
+              "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+              "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+              "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+              "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+              "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+              "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+              "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+              "asset_e85c74de-714f-4757-ba40-a8908f36e488"
+            ],
+            "model_image_declaration": null,
+            "model_image_declarations": [
+              {
+                "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                "role": "information",
+                "alt_text": "人工栅格样例A",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例A",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+                "role": "decoration",
+                "alt_text": "人工栅格样例B",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例B",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+                "role": "logo",
+                "alt_text": "人工栅格样例C",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例C",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+                "role": "reference",
+                "alt_text": "人工栅格样例D",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例D",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+                "role": "information",
+                "alt_text": "人工栅格样例E",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例E",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+                "role": "decoration",
+                "alt_text": "人工栅格样例F",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例F",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+                "role": "logo",
+                "alt_text": "人工栅格样例G",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例G",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+                "role": "reference",
+                "alt_text": "人工栅格样例H",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例H",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              }
+            ],
+            "selection_inventory": [
+              {
+                "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+                "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+                "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+                "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+                "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+                "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+                "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+                "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              }
+            ],
+            "sources": [
+              {
+                "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                "source_type": "user",
+                "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+                "source_type": "user",
+                "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+                "source_type": "user",
+                "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+                "source_type": "user",
+                "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+                "source_type": "user",
+                "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+                "source_type": "user",
+                "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+                "source_type": "user",
+                "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+                "source_type": "user",
+                "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              }
+            ],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_b521451c-5922-4e03-9c58-ca5841cb760e"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "selected_asset_ids": [
+              "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+              "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+              "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+              "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+              "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+              "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+              "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+              "asset_e85c74de-714f-4757-ba40-a8908f36e488"
+            ],
+            "model_image_declaration": null,
+            "model_image_declarations": [
+              {
+                "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                "role": "information",
+                "alt_text": "人工栅格样例A",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例A",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+                "role": "decoration",
+                "alt_text": "人工栅格样例B",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例B",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+                "role": "logo",
+                "alt_text": "人工栅格样例C",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例C",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+                "role": "reference",
+                "alt_text": "人工栅格样例D",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例D",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+                "role": "information",
+                "alt_text": "人工栅格样例E",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例E",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+                "role": "decoration",
+                "alt_text": "人工栅格样例F",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例F",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+                "role": "logo",
+                "alt_text": "人工栅格样例G",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例G",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              },
+              {
+                "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+                "role": "reference",
+                "alt_text": "人工栅格样例H",
+                "fit": "contain",
+                "required": true,
+                "caption": "素材示例H",
+                "caption_source_refs": [
+                  "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+                ]
+              }
+            ],
+            "selection_inventory": [
+              {
+                "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+                "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+                "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+                "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+                "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+                "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+                "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              },
+              {
+                "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+                "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+                "selected": true,
+                "score": 1,
+                "reason": "explicit model/caller selection; real bytes and policy verified",
+                "semantic_relevance": "independent_review_pending"
+              }
+            ],
+            "sources": [
+              {
+                "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+                "source_type": "user",
+                "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+                "source_type": "user",
+                "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+                "source_type": "user",
+                "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+                "source_type": "user",
+                "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+                "source_type": "user",
+                "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+                "source_type": "user",
+                "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+                "source_type": "user",
+                "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              },
+              {
+                "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+                "source_type": "user",
+                "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+                "license": "fixture_owned",
+                "usage_status": "authorized"
+              }
+            ],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-025",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_cfc9d1fb-a5d1-43e5-b489-abe66415c5e7",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_cfc9d1fb-a5d1-43e5-b489-abe66415c5e7"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-026",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_48bd9197-850e-4760-932f-d70afa07043c",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": null,
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_48bd9197-850e-4760-932f-d70afa07043c"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": null,
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-027",
+      "input": {
+        "page_count": 1,
+        "evidence_refs": [
+          "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_6c3e7122-d51a-4319-81a1-af0dd4899daa",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_6c3e7122-d51a-4319-81a1-af0dd4899daa"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-028",
+      "input": {
+        "template_ref": null,
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "candidate_9c31a0bf-826b-49f7-ae61-79da11ccc1d1",
+              "field": "page_count",
+              "value": 6,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "raw_text:13:15"
+              }
+            },
+            {
+              "constraint_id": "candidate_335efc9a-bca8-465b-99f1-0f7f535a9f6a",
+              "field": "language",
+              "value": "zh-CN",
+              "source": {
+                "kind": "user_instruction",
+                "reference": "raw_text:15:17"
+              }
+            }
+          ],
+          "soft": [
+            {
+              "constraint_id": "candidate_295e3d19-cf33-48d7-af03-35788ff33ab9",
+              "field": "page_count",
+              "value": 6,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "runtime_preferences.page_count"
+              },
+              "disposition": "applied",
+              "applied_value": 6,
+              "handling_reason": "Selected by DEC-002 and within current execution subset."
+            }
+          ],
+          "defaults": [
+            {
+              "constraint_id": "system_default.page_count",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.language",
+              "field": "language",
+              "value": "zh-CN",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.aspect_ratio",
+              "field": "aspect_ratio",
+              "value": "16:9",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.minimum_font_size",
+              "field": "minimum_font_size",
+              "value": 16,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.template",
+              "field": "template",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.brand",
+              "field": "brand",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.output_formats",
+              "field": "output_formats",
+              "value": [
+                "pptx",
+                "pdf",
+                "png"
+              ],
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.audience",
+              "field": "audience",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.scenario",
+              "field": "scenario",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.duration",
+              "field": "duration",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.tone",
+              "field": "tone",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.citation_policy",
+              "field": "citation_policy",
+              "value": "notes",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.asset_policy",
+              "field": "asset_policy",
+              "value": {
+                "allow_network": false,
+                "minimum_pixels": [
+                  1,
+                  1
+                ]
+              },
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            }
+          ],
+          "conflicts": []
+        },
+        "evidence_refs": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-028",
+          "candidate_id": "candidate_467513a8-a43f-49e9-a8d2-6f5f2beff600",
+          "value": {
+            "family": "generic",
+            "eligible": true,
+            "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-028",
+          "candidate_id": "candidate_d88e96bc-cbf8-4800-9fe9-0c669b527ecc",
+          "value": {
+            "family": "free_layout",
+            "eligible": true,
+            "reason": "Native geometry compiler is available as explicit alternative."
+          },
+          "score": 0,
+          "reasons": [
+            {
+              "reason": "Native geometry compiler is available as explicit alternative."
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_467513a8-a43f-49e9-a8d2-6f5f2beff600"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "family": "generic",
+        "template_id": null,
+        "template_status": "selected",
+        "fallback": "fail on incompatible capacity"
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-029",
+      "input": {
+        "style": {},
+        "template_id": null,
+        "evidence_refs": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-029",
+          "candidate_id": "candidate_38b6c2a9-350d-49ea-aa20-d838cf4c8c6b",
+          "value": {
+            "font": "Noto Sans CJK SC",
+            "foreground": "192C32",
+            "background": "F6F4EE",
+            "accent": "147C80",
+            "shape_language": "native_editable",
+            "image_treatment": "contain_without_crop",
+            "decoration_density": "minimal",
+            "provenance": {
+              "font": "caller override or declared native renderer font",
+              "colors": "caller override or explicit product default"
+            },
+            "template_tokens": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "explicit caller values/product defaults; template originals retained without assuming font availability"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_38b6c2a9-350d-49ea-aa20-d838cf4c8c6b"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "font": "Noto Sans CJK SC",
+        "foreground": "192C32",
+        "background": "F6F4EE",
+        "accent": "147C80",
+        "shape_language": "native_editable",
+        "image_treatment": "contain_without_crop",
+        "decoration_density": "minimal",
+        "provenance": {
+          "font": "caller override or declared native renderer font",
+          "colors": "caller override or explicit product default"
+        },
+        "template_tokens": null
+      },
+      "duration": 0.0,
+      "error": null
+    }
+  ],
+  "visual_specs": [
+    {
+      "page_index": 0,
+      "expression": "text_image",
+      "kind": "image",
+      "reason": "explicit structured model proposal",
+      "evidence_refs": [
+        "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+      ],
+      "preserved_content": true
+    }
+  ],
+  "image_requirements": [
+    {
+      "page_index": 0,
+      "required": true,
+      "count": 8,
+      "role": null,
+      "roles": [
+        "information",
+        "decoration",
+        "logo",
+        "reference",
+        "information",
+        "decoration",
+        "logo",
+        "reference"
+      ],
+      "information_value": "caller/model declared; independent semantic review pending",
+      "fallback": "fail on missing material"
+    }
+  ],
+  "asset_plan": [
+    {
+      "page_index": 0,
+      "selected_asset_ids": [
+        "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+        "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+        "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+        "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+        "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+        "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+        "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+        "asset_e85c74de-714f-4757-ba40-a8908f36e488"
+      ],
+      "model_image_declaration": null,
+      "model_image_declarations": [
+        {
+          "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+          "role": "information",
+          "alt_text": "人工栅格样例A",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例A",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ]
+        },
+        {
+          "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+          "role": "decoration",
+          "alt_text": "人工栅格样例B",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例B",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ]
+        },
+        {
+          "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+          "role": "logo",
+          "alt_text": "人工栅格样例C",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例C",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ]
+        },
+        {
+          "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+          "role": "reference",
+          "alt_text": "人工栅格样例D",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例D",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ]
+        },
+        {
+          "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+          "role": "information",
+          "alt_text": "人工栅格样例E",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例E",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ]
+        },
+        {
+          "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+          "role": "decoration",
+          "alt_text": "人工栅格样例F",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例F",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ]
+        },
+        {
+          "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+          "role": "logo",
+          "alt_text": "人工栅格样例G",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例G",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ]
+        },
+        {
+          "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+          "role": "reference",
+          "alt_text": "人工栅格样例H",
+          "fit": "contain",
+          "required": true,
+          "caption": "素材示例H",
+          "caption_source_refs": [
+            "evidence_c6b8e9aa-29a2-487b-a0ef-191613e7954b"
+          ]
+        }
+      ],
+      "selection_inventory": [
+        {
+          "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+          "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+          "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+          "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+          "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+          "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+          "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+          "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        },
+        {
+          "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+          "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+          "selected": true,
+          "score": 1,
+          "reason": "explicit model/caller selection; real bytes and policy verified",
+          "semantic_relevance": "independent_review_pending"
+        }
+      ],
+      "sources": [
+        {
+          "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+          "source_type": "user",
+          "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+          "license": "fixture_owned",
+          "usage_status": "authorized"
+        },
+        {
+          "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+          "source_type": "user",
+          "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+          "license": "fixture_owned",
+          "usage_status": "authorized"
+        },
+        {
+          "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+          "source_type": "user",
+          "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+          "license": "fixture_owned",
+          "usage_status": "authorized"
+        },
+        {
+          "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+          "source_type": "user",
+          "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+          "license": "fixture_owned",
+          "usage_status": "authorized"
+        },
+        {
+          "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+          "source_type": "user",
+          "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+          "license": "fixture_owned",
+          "usage_status": "authorized"
+        },
+        {
+          "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+          "source_type": "user",
+          "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+          "license": "fixture_owned",
+          "usage_status": "authorized"
+        },
+        {
+          "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+          "source_type": "user",
+          "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+          "license": "fixture_owned",
+          "usage_status": "authorized"
+        },
+        {
+          "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+          "source_type": "user",
+          "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+          "license": "fixture_owned",
+          "usage_status": "authorized"
+        }
+      ],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    }
+  ],
+  "table_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    }
+  ],
+  "chart_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": null,
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    }
+  ],
+  "diagram_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    }
+  ],
+  "template_selection": {
+    "family": "generic",
+    "record": null,
+    "candidates": [
+      {
+        "family": "generic",
+        "eligible": true,
+        "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+      },
+      {
+        "family": "free_layout",
+        "eligible": true,
+        "reason": "Native geometry compiler is available as explicit alternative."
+      }
+    ],
+    "fallback": "fail on incompatible capacity",
+    "status": "selected"
+  },
+  "design_tokens": {
+    "font": "Noto Sans CJK SC",
+    "foreground": "192C32",
+    "background": "F6F4EE",
+    "accent": "147C80",
+    "shape_language": "native_editable",
+    "image_treatment": "contain_without_crop",
+    "decoration_density": "minimal",
+    "provenance": {
+      "font": "caller override or declared native renderer font",
+      "colors": "caller override or explicit product default"
+    },
+    "template_tokens": null
+  },
+  "resolved_assets": {
+    "status": "resolved",
+    "entries": [
+      {
+        "asset_id": "asset_d34a5042-be29-435e-91c2-1ed67cf87304",
+        "source_id": null,
+        "source_type": "user",
+        "source_locator": "/runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef/fixture-1.png",
+        "source_url": null,
+        "path": "/runtime/assets/9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e.png",
+        "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+        "bytes": 7664,
+        "mime_type": "image/png",
+        "width_px": 1800,
+        "height_px": 900,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "9c3bff51e61c7f78b4b0c76d4c73c113ec2a68b25d3fabc5b12b7fcf0dde3d3e",
+          "bytes": 7664,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 1800,
+          "height": 900,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 2.0,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "c0267b6b6b2b26c0"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#1E5A78",
+              "fraction": 0.875
+            },
+            {
+              "color": "#43768F",
+              "fraction": 0.043213
+            },
+            {
+              "color": "#C9D7DF",
+              "fraction": 0.030029
+            },
+            {
+              "color": "#1A5776",
+              "fraction": 0.026489
+            },
+            {
+              "color": "#165473",
+              "fraction": 0.023926
+            },
+            {
+              "color": "#1D5A78",
+              "fraction": 0.001343
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "fixture_owned",
+        "usage_status": "authorized",
+        "authorization_basis": "explicit caller authorization",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      },
+      {
+        "asset_id": "asset_27c3cc5b-fb12-4769-8b15-db1382415009",
+        "source_id": null,
+        "source_type": "user",
+        "source_locator": "/runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef/fixture-2.png",
+        "source_url": null,
+        "path": "/runtime/assets/604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91.png",
+        "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+        "bytes": 9570,
+        "mime_type": "image/png",
+        "width_px": 900,
+        "height_px": 1800,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "604e6c687490b1c02bb65b46fdfae4f008a587d58c63a0a6abdaa28ca12eca91",
+          "bytes": 9570,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 900,
+          "height": 1800,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 0.5,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "84236b6b6b6b2280"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#346682",
+              "fraction": 0.87146
+            },
+            {
+              "color": "#48758E",
+              "fraction": 0.038452
+            },
+            {
+              "color": "#C1D0D9",
+              "fraction": 0.038452
+            },
+            {
+              "color": "#316480",
+              "fraction": 0.025757
+            },
+            {
+              "color": "#2C607D",
+              "fraction": 0.02478
+            },
+            {
+              "color": "#336682",
+              "fraction": 0.001099
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "fixture_owned",
+        "usage_status": "authorized",
+        "authorization_basis": "explicit caller authorization",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      },
+      {
+        "asset_id": "asset_7a4e55d0-dc9f-489c-9eda-9b51079efbcf",
+        "source_id": null,
+        "source_type": "user",
+        "source_locator": "/runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef/fixture-3.png",
+        "source_url": null,
+        "path": "/runtime/assets/0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0.png",
+        "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+        "bytes": 9962,
+        "mime_type": "image/png",
+        "width_px": 1400,
+        "height_px": 1400,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "0cfaa9ebdf2162bc2b105c57185fb205f1790de0134d7b44507f717803eba1a0",
+          "bytes": 9962,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 1400,
+          "height": 1400,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 1.0,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "80236b6b6b6b2680"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#4A728C",
+              "fraction": 0.917725
+            },
+            {
+              "color": "#ECF0F3",
+              "fraction": 0.029724
+            },
+            {
+              "color": "#47708A",
+              "fraction": 0.021423
+            },
+            {
+              "color": "#6E8EA3",
+              "fraction": 0.017761
+            },
+            {
+              "color": "#436C87",
+              "fraction": 0.008667
+            },
+            {
+              "color": "#49728C",
+              "fraction": 0.0047
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "fixture_owned",
+        "usage_status": "authorized",
+        "authorization_basis": "explicit caller authorization",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      },
+      {
+        "asset_id": "asset_340afd95-34f5-4679-9c67-ad6be17482c1",
+        "source_id": null,
+        "source_type": "user",
+        "source_locator": "/runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef/fixture-4.png",
+        "source_url": null,
+        "path": "/runtime/assets/c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829.png",
+        "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+        "bytes": 8392,
+        "mime_type": "image/png",
+        "width_px": 2400,
+        "height_px": 800,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "c8144b1df1c1dd6298002b8e4c4e1cc2035eff468b82862ab3fdef1bfa2af829",
+          "bytes": 8392,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 2400,
+          "height": 800,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 3.0,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "c0266b6b6b2306c0"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#607E96",
+              "fraction": 0.862282
+            },
+            {
+              "color": "#8098AB",
+              "fraction": 0.034884
+            },
+            {
+              "color": "#CDD6DE",
+              "fraction": 0.034157
+            },
+            {
+              "color": "#5A7992",
+              "fraction": 0.026526
+            },
+            {
+              "color": "#5C7B94",
+              "fraction": 0.023983
+            },
+            {
+              "color": "#5F7E96",
+              "fraction": 0.018169
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "fixture_owned",
+        "usage_status": "authorized",
+        "authorization_basis": "explicit caller authorization",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      },
+      {
+        "asset_id": "asset_dcdb93b4-6314-45db-a608-f62b1ddbb960",
+        "source_id": null,
+        "source_type": "user",
+        "source_locator": "/runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef/fixture-5.png",
+        "source_url": null,
+        "path": "/runtime/assets/fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83.png",
+        "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+        "bytes": 11824,
+        "mime_type": "image/png",
+        "width_px": 800,
+        "height_px": 2400,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "fae66abc8f3e84abb6d55f85ea2f8183333d22c2b79e8111af963f7e84414b83",
+          "bytes": 11824,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 800,
+          "height": 2400,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 0.3333333333333333,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "846b6b6b6b6b2250"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#768AA0",
+              "fraction": 0.868641
+            },
+            {
+              "color": "#DEE3E8",
+              "fraction": 0.03343
+            },
+            {
+              "color": "#99A8B8",
+              "fraction": 0.029797
+            },
+            {
+              "color": "#758AA0",
+              "fraction": 0.025618
+            },
+            {
+              "color": "#73879E",
+              "fraction": 0.025073
+            },
+            {
+              "color": "#71859C",
+              "fraction": 0.017442
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "fixture_owned",
+        "usage_status": "authorized",
+        "authorization_basis": "explicit caller authorization",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      },
+      {
+        "asset_id": "asset_8fd8e60c-9b79-4d6d-a699-e45465922904",
+        "source_id": null,
+        "source_type": "user",
+        "source_locator": "/runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef/fixture-6.png",
+        "source_url": null,
+        "path": "/runtime/assets/980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6.png",
+        "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+        "bytes": 9411,
+        "mime_type": "image/png",
+        "width_px": 1600,
+        "height_px": 1200,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "980ac4d3997e0c241c5299d23f90ee4f7b37289f21dc48a43a0df6763c997ed6",
+          "bytes": 9411,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 1600,
+          "height": 1200,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 1.3333333333333333,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "80226b6b6b6b0640"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#8C96AA",
+              "fraction": 0.920492
+            },
+            {
+              "color": "#F4F5F7",
+              "fraction": 0.025879
+            },
+            {
+              "color": "#8993A7",
+              "fraction": 0.023682
+            },
+            {
+              "color": "#8B96AA",
+              "fraction": 0.015788
+            },
+            {
+              "color": "#D9DDE3",
+              "fraction": 0.013835
+            },
+            {
+              "color": "#ABB2C1",
+              "fraction": 0.000326
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "fixture_owned",
+        "usage_status": "authorized",
+        "authorization_basis": "explicit caller authorization",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      },
+      {
+        "asset_id": "asset_37cb551c-0a3e-44d6-ad58-66d53e38d952",
+        "source_id": null,
+        "source_type": "user",
+        "source_locator": "/runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef/fixture-7.png",
+        "source_url": null,
+        "path": "/runtime/assets/ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e.png",
+        "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+        "bytes": 9918,
+        "mime_type": "image/png",
+        "width_px": 1200,
+        "height_px": 1600,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "ad3ab4bfefd43ba1e2760741aefadc19195e10639d212e7bcaf90fe516bd011e",
+          "bytes": 9918,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 1200,
+          "height": 1600,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 0.75,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "84226b6b6b6b2240"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#A2A2B4",
+              "fraction": 0.911051
+            },
+            {
+              "color": "#FCFCFC",
+              "fraction": 0.019857
+            },
+            {
+              "color": "#DADAE2",
+              "fraction": 0.019694
+            },
+            {
+              "color": "#9E9EB1",
+              "fraction": 0.017822
+            },
+            {
+              "color": "#A0A0B3",
+              "fraction": 0.016683
+            },
+            {
+              "color": "#B2B2C1",
+              "fraction": 0.014893
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "fixture_owned",
+        "usage_status": "authorized",
+        "authorization_basis": "explicit caller authorization",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      },
+      {
+        "asset_id": "asset_e85c74de-714f-4757-ba40-a8908f36e488",
+        "source_id": null,
+        "source_type": "user",
+        "source_locator": "/runtime/gallery-validation/b81e5a47-0d59-4963-87a5-daa257d654ef/fixture-8.png",
+        "source_url": null,
+        "path": "/runtime/assets/0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d.png",
+        "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+        "bytes": 9914,
+        "mime_type": "image/png",
+        "width_px": 2000,
+        "height_px": 1100,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "0b21eb81a0690b816f31eca9038e5ce848ee5104682c76c06631cbba8640813d",
+          "bytes": 9914,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 2000,
+          "height": 1100,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 1.8181818181818181,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "40266b6363230640"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#B8AEBE",
+              "fraction": 0.891406
+            },
+            {
+              "color": "#B5ABBC",
+              "fraction": 0.030915
+            },
+            {
+              "color": "#C3BBC8",
+              "fraction": 0.02433
+            },
+            {
+              "color": "#F6F5F7",
+              "fraction": 0.02433
+            },
+            {
+              "color": "#B7ADBD",
+              "fraction": 0.016964
+            },
+            {
+              "color": "#DCD8E0",
+              "fraction": 0.012054
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "fixture_owned",
+        "usage_status": "authorized",
+        "authorization_basis": "explicit caller authorization",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      }
+    ],
+    "issues": [],
+    "duplicate_groups": [],
+    "boundary": "Real bytes/hash/MIME/pixels and caller authorization checked; semantic appropriateness, watermark, perceptual duplicates and full AST acceptance remain unproven."
+  },
+  "remaining_limits": [
+    "Independent semantic image relevance/quality review remains required.",
+    "Hierarchy/network/matrix/funnel/swimlane relation semantics and complete node acceptance remain incomplete.",
+    "Source search and image generation services are not called; materialized outputs retain query/request provenance.",
+    "Template capacity, complete styles and brand lock require downstream validation."
+  ],
+  "system_acceptance": "not_claimed"
+}

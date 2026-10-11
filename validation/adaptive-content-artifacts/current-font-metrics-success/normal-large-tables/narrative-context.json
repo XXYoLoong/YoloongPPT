@@ -1,0 +1,620 @@
+{
+  "version": "narrative-1",
+  "trace_id": "trace_6ff1732a-4606-4161-8966-7b0c98e9e960",
+  "audience": {
+    "knowledge_level": null,
+    "roles": [],
+    "concerns": [],
+    "expected_actions": [],
+    "field_provenance": []
+  },
+  "scenario": {
+    "scenario": null,
+    "duration": null,
+    "field_provenance": []
+  },
+  "language_style": {
+    "language": "zh-CN",
+    "tone": null,
+    "formal_level": null,
+    "terminology_rules": [],
+    "brand_terms": [],
+    "field_provenance": [
+      {
+        "field": "language",
+        "source": {
+          "kind": "presentation_context",
+          "context_pointer": "/values/language"
+        }
+      }
+    ]
+  },
+  "content_graph": {
+    "nodes": [
+      {
+        "node_id": "content_4444decd8d6cf7414884",
+        "text": "纵向大表全部行保留\n表格按原行顺序展示。\n原备注只用于解释，核心正文必须在页面可见。\n关键编号\t月份\t金额（万元）\t增长率（%）\nID01\t月01\t1.5\t1%\nID02\t月02\t2.5\t2%\nID03\t月03\t3.5\t3%\nID04\t月04\t4.5\t4%\nID05\t月05\t5.5\t5%\nID06\t月06\t6.5\t6%\nID07\t月07\t7.5\t7%\nID08\t月08\t8.5\t8%\nID09\t月09\t9.5\t9%\nID10\t月10\t10.5\t10%\nID11\t月11\t11.5\t11%\nID12\t月12\t12.5\t12%\nID13\t月13\t13.5\t13%\nID14\t月14\t14.5\t14%\nID15\t月15\t15.5\t15%\nID16\t月16\t16.5\t16%\nID17\t月17\t17.5\t17%\nID18\t月18\t18.5\t18%\nID19\t月19\t19.5\t19%\nID20\t月20\t20.5\t20%\nID21\t月21\t21.5\t21%\nID22\t月22\t22.5\t22%\nID23\t月23\t23.5\t23%\nID24\t月24\t24.5\t24%\nID25\t月25\t25.5\t25%\nID26\t月26\t26.5\t26%\n万元；%\n多列表格明确重复关键列\n关键列由调用方明确指定。\n原备注只用于解释，核心正文必须在页面可见。\n明确关键列\t字段01\t字段02\t字段03\t字段04\t字段05\t字段06\t字段07\t字段08\t字段09\t字段10\t字段11\t字段12\t字段13\t字段14\t字段15\t字段16\t字段17\t字段18\t字段19\t字段20\t字段21\t字段22\t字段23\t字段24\nK01\t原单元格01列01完整文字与单位\t原单元格01列02完整文字与单位\t原单元格01列03完整文字与单位\t原单元格01列04完整文字与单位\t原单元格01列05完整文字与单位\t原单元格01列06完整文字与单位\t原单元格01列07完整文字与单位\t原单元格01列08完整文字与单位\t原单元格01列09完整文字与单位\t原单元格01列10完整文字与单位\t原单元格01列11完整文字与单位\t原单元格01列12完整文字与单位\t原单元格01列13完整文字与单位\t原单元格01列14完整文字与单位\t原单元格01列15完整文字与单位\t原单元格01列16完整文字与单位\t原单元格01列17完整文字与单位\t原单元格01列18完整文字与单位\t原单元格01列19完整文字与单位\t原单元格01列20完整文字与单位\t原单元格01列21完整文字与单位\t原单元格01列22完整文字与单位\t原单元格01列23完整文字与单位\t原单元格01列24完整文字与单位\nK02\t原单元格02列01完整文字与单位\t原单元格02列02完整文字与单位\t原单元格02列03完整文字与单位\t原单元格02列04完整文字与单位\t原单元格02列05完整文字与单位\t原单元格02列06完整文字与单位\t原单元格02列07完整文字与单位\t原单元格02列08完整文字与单位\t原单元格02列09完整文字与单位\t原单元格02列10完整文字与单位\t原单元格02列11完整文字与单位\t原单元格02列12完整文字与单位\t原单元格02列13完整文字与单位\t原单元格02列14完整文字与单位\t原单元格02列15完整文字与单位\t原单元格02列16完整文字与单位\t原单元格02列17完整文字与单位\t原单元格02列18完整文字与单位\t原单元格02列19完整文字与单位\t原单元格02列20完整文字与单位\t原单元格02列21完整文字与单位\t原单元格02列22完整文字与单位\t原单元格02列23完整文字与单位\t原单元格02列24完整文字与单位\n原文字与单位",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ],
+        "assumption_refs": []
+      }
+    ],
+    "edges": [],
+    "evidence_refs": [
+      "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+    ]
+  },
+  "relation_candidates": [],
+  "storyline": {
+    "pattern": "data_driven",
+    "rationale": "selected evidence contains percentages; use only grounded values",
+    "evidence_refs": [
+      "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+    ]
+  },
+  "page_budget": {
+    "target": 2,
+    "minimum": 1,
+    "maximum": 30,
+    "allowed_deviation": 28,
+    "duration_original": null,
+    "source_characters": 1523,
+    "policy": "soft: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+  },
+  "citation_mode": "notes",
+  "content_policy": {
+    "capacity_mechanism": "Noto font glyphs and native geometry; full literal blocks/explicit sentence boundaries",
+    "resource_limits": {
+      "title_characters": 1000,
+      "body_items": 100,
+      "body_item_characters": 20000,
+      "table_columns": 64,
+      "table_rows": 10000
+    },
+    "notes_preserve_overflow": false,
+    "no_text_truncation": true,
+    "minimum_font_size": 16,
+    "adaptive_policy": {
+      "page_budget": {
+        "kind": "soft",
+        "target": 2,
+        "minimum": 1,
+        "maximum": 30,
+        "provenance": [
+          {
+            "constraint_id": "candidate_91385189-4e55-476e-817f-f5603858ab98",
+            "field": "page_count",
+            "value": 2,
+            "source": {
+              "kind": "user_instruction",
+              "reference": "runtime_preferences.page_count"
+            },
+            "disposition": "applied",
+            "applied_value": 2,
+            "handling_reason": "Selected by DEC-002 and within current execution subset."
+          }
+        ]
+      },
+      "table_key_columns": {
+        "1": [
+          0
+        ]
+      }
+    }
+  },
+  "decision_traces": [
+    {
+      "trace_id": "trace_6ff1732a-4606-4161-8966-7b0c98e9e960",
+      "node_id": "DEC-006",
+      "input": {
+        "audience": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-006",
+          "candidate_id": "candidate_132074a6-3604-4108-8527-9ed949f38ea9",
+          "value": {
+            "knowledge_level": null,
+            "roles": [],
+            "concerns": [],
+            "expected_actions": [],
+            "field_provenance": []
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_132074a6-3604-4108-8527-9ed949f38ea9"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure",
+        "missing_profile": "retain null/empty; do not stereotype audience"
+      },
+      "output": {
+        "knowledge_level": null,
+        "roles": [],
+        "concerns": [],
+        "expected_actions": [],
+        "field_provenance": []
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_6ff1732a-4606-4161-8966-7b0c98e9e960",
+      "node_id": "DEC-007",
+      "input": {
+        "scenario": null,
+        "duration": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-007",
+          "candidate_id": "candidate_ec23da56-63fd-4274-9d98-aafb59fb2328",
+          "value": {
+            "scenario": null,
+            "duration": null,
+            "field_provenance": []
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_ec23da56-63fd-4274-9d98-aafb59fb2328"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "scenario": null,
+        "duration": null,
+        "field_provenance": []
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_6ff1732a-4606-4161-8966-7b0c98e9e960",
+      "node_id": "DEC-008",
+      "input": {
+        "language": "zh-CN",
+        "tone": null,
+        "audience": {
+          "knowledge_level": null,
+          "roles": [],
+          "concerns": [],
+          "expected_actions": [],
+          "field_provenance": []
+        }
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-008",
+          "candidate_id": "candidate_d29f5897-2741-41da-9bbe-48ff2711da02",
+          "value": {
+            "language": "zh-CN",
+            "tone": null,
+            "formal_level": null,
+            "terminology_rules": [],
+            "brand_terms": [],
+            "field_provenance": [
+              {
+                "field": "language",
+                "source": {
+                  "kind": "presentation_context",
+                  "context_pointer": "/values/language"
+                }
+              }
+            ]
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_d29f5897-2741-41da-9bbe-48ff2711da02"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "language": "zh-CN",
+        "tone": null,
+        "formal_level": null,
+        "terminology_rules": [],
+        "brand_terms": [],
+        "field_provenance": [
+          {
+            "field": "language",
+            "source": {
+              "kind": "presentation_context",
+              "context_pointer": "/values/language"
+            }
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_6ff1732a-4606-4161-8966-7b0c98e9e960",
+      "node_id": "DEC-010",
+      "input": {
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-010",
+          "candidate_id": "candidate_ae3ab543-929a-45ef-ad3b-3b14b55eed30",
+          "value": {
+            "content_graph": {
+              "nodes": [
+                {
+                  "node_id": "content_4444decd8d6cf7414884",
+                  "text": "纵向大表全部行保留\n表格按原行顺序展示。\n原备注只用于解释，核心正文必须在页面可见。\n关键编号\t月份\t金额（万元）\t增长率（%）\nID01\t月01\t1.5\t1%\nID02\t月02\t2.5\t2%\nID03\t月03\t3.5\t3%\nID04\t月04\t4.5\t4%\nID05\t月05\t5.5\t5%\nID06\t月06\t6.5\t6%\nID07\t月07\t7.5\t7%\nID08\t月08\t8.5\t8%\nID09\t月09\t9.5\t9%\nID10\t月10\t10.5\t10%\nID11\t月11\t11.5\t11%\nID12\t月12\t12.5\t12%\nID13\t月13\t13.5\t13%\nID14\t月14\t14.5\t14%\nID15\t月15\t15.5\t15%\nID16\t月16\t16.5\t16%\nID17\t月17\t17.5\t17%\nID18\t月18\t18.5\t18%\nID19\t月19\t19.5\t19%\nID20\t月20\t20.5\t20%\nID21\t月21\t21.5\t21%\nID22\t月22\t22.5\t22%\nID23\t月23\t23.5\t23%\nID24\t月24\t24.5\t24%\nID25\t月25\t25.5\t25%\nID26\t月26\t26.5\t26%\n万元；%\n多列表格明确重复关键列\n关键列由调用方明确指定。\n原备注只用于解释，核心正文必须在页面可见。\n明确关键列\t字段01\t字段02\t字段03\t字段04\t字段05\t字段06\t字段07\t字段08\t字段09\t字段10\t字段11\t字段12\t字段13\t字段14\t字段15\t字段16\t字段17\t字段18\t字段19\t字段20\t字段21\t字段22\t字段23\t字段24\nK01\t原单元格01列01完整文字与单位\t原单元格01列02完整文字与单位\t原单元格01列03完整文字与单位\t原单元格01列04完整文字与单位\t原单元格01列05完整文字与单位\t原单元格01列06完整文字与单位\t原单元格01列07完整文字与单位\t原单元格01列08完整文字与单位\t原单元格01列09完整文字与单位\t原单元格01列10完整文字与单位\t原单元格01列11完整文字与单位\t原单元格01列12完整文字与单位\t原单元格01列13完整文字与单位\t原单元格01列14完整文字与单位\t原单元格01列15完整文字与单位\t原单元格01列16完整文字与单位\t原单元格01列17完整文字与单位\t原单元格01列18完整文字与单位\t原单元格01列19完整文字与单位\t原单元格01列20完整文字与单位\t原单元格01列21完整文字与单位\t原单元格01列22完整文字与单位\t原单元格01列23完整文字与单位\t原单元格01列24完整文字与单位\nK02\t原单元格02列01完整文字与单位\t原单元格02列02完整文字与单位\t原单元格02列03完整文字与单位\t原单元格02列04完整文字与单位\t原单元格02列05完整文字与单位\t原单元格02列06完整文字与单位\t原单元格02列07完整文字与单位\t原单元格02列08完整文字与单位\t原单元格02列09完整文字与单位\t原单元格02列10完整文字与单位\t原单元格02列11完整文字与单位\t原单元格02列12完整文字与单位\t原单元格02列13完整文字与单位\t原单元格02列14完整文字与单位\t原单元格02列15完整文字与单位\t原单元格02列16完整文字与单位\t原单元格02列17完整文字与单位\t原单元格02列18完整文字与单位\t原单元格02列19完整文字与单位\t原单元格02列20完整文字与单位\t原单元格02列21完整文字与单位\t原单元格02列22完整文字与单位\t原单元格02列23完整文字与单位\t原单元格02列24完整文字与单位\n原文字与单位",
+                  "evidence_refs": [
+                    "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+                  ],
+                  "assumption_refs": []
+                }
+              ],
+              "edges": [],
+              "evidence_refs": [
+                "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+              ]
+            },
+            "relation_candidates": [],
+            "semantic_edges_status": "not_inferred"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_ae3ab543-929a-45ef-ad3b-3b14b55eed30"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "content_graph": {
+          "nodes": [
+            {
+              "node_id": "content_4444decd8d6cf7414884",
+              "text": "纵向大表全部行保留\n表格按原行顺序展示。\n原备注只用于解释，核心正文必须在页面可见。\n关键编号\t月份\t金额（万元）\t增长率（%）\nID01\t月01\t1.5\t1%\nID02\t月02\t2.5\t2%\nID03\t月03\t3.5\t3%\nID04\t月04\t4.5\t4%\nID05\t月05\t5.5\t5%\nID06\t月06\t6.5\t6%\nID07\t月07\t7.5\t7%\nID08\t月08\t8.5\t8%\nID09\t月09\t9.5\t9%\nID10\t月10\t10.5\t10%\nID11\t月11\t11.5\t11%\nID12\t月12\t12.5\t12%\nID13\t月13\t13.5\t13%\nID14\t月14\t14.5\t14%\nID15\t月15\t15.5\t15%\nID16\t月16\t16.5\t16%\nID17\t月17\t17.5\t17%\nID18\t月18\t18.5\t18%\nID19\t月19\t19.5\t19%\nID20\t月20\t20.5\t20%\nID21\t月21\t21.5\t21%\nID22\t月22\t22.5\t22%\nID23\t月23\t23.5\t23%\nID24\t月24\t24.5\t24%\nID25\t月25\t25.5\t25%\nID26\t月26\t26.5\t26%\n万元；%\n多列表格明确重复关键列\n关键列由调用方明确指定。\n原备注只用于解释，核心正文必须在页面可见。\n明确关键列\t字段01\t字段02\t字段03\t字段04\t字段05\t字段06\t字段07\t字段08\t字段09\t字段10\t字段11\t字段12\t字段13\t字段14\t字段15\t字段16\t字段17\t字段18\t字段19\t字段20\t字段21\t字段22\t字段23\t字段24\nK01\t原单元格01列01完整文字与单位\t原单元格01列02完整文字与单位\t原单元格01列03完整文字与单位\t原单元格01列04完整文字与单位\t原单元格01列05完整文字与单位\t原单元格01列06完整文字与单位\t原单元格01列07完整文字与单位\t原单元格01列08完整文字与单位\t原单元格01列09完整文字与单位\t原单元格01列10完整文字与单位\t原单元格01列11完整文字与单位\t原单元格01列12完整文字与单位\t原单元格01列13完整文字与单位\t原单元格01列14完整文字与单位\t原单元格01列15完整文字与单位\t原单元格01列16完整文字与单位\t原单元格01列17完整文字与单位\t原单元格01列18完整文字与单位\t原单元格01列19完整文字与单位\t原单元格01列20完整文字与单位\t原单元格01列21完整文字与单位\t原单元格01列22完整文字与单位\t原单元格01列23完整文字与单位\t原单元格01列24完整文字与单位\nK02\t原单元格02列01完整文字与单位\t原单元格02列02完整文字与单位\t原单元格02列03完整文字与单位\t原单元格02列04完整文字与单位\t原单元格02列05完整文字与单位\t原单元格02列06完整文字与单位\t原单元格02列07完整文字与单位\t原单元格02列08完整文字与单位\t原单元格02列09完整文字与单位\t原单元格02列10完整文字与单位\t原单元格02列11完整文字与单位\t原单元格02列12完整文字与单位\t原单元格02列13完整文字与单位\t原单元格02列14完整文字与单位\t原单元格02列15完整文字与单位\t原单元格02列16完整文字与单位\t原单元格02列17完整文字与单位\t原单元格02列18完整文字与单位\t原单元格02列19完整文字与单位\t原单元格02列20完整文字与单位\t原单元格02列21完整文字与单位\t原单元格02列22完整文字与单位\t原单元格02列23完整文字与单位\t原单元格02列24完整文字与单位\n原文字与单位",
+              "evidence_refs": [
+                "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+              ],
+              "assumption_refs": []
+            }
+          ],
+          "edges": [],
+          "evidence_refs": [
+            "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+          ]
+        },
+        "relation_candidates": [],
+        "semantic_edges_status": "not_inferred"
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_6ff1732a-4606-4161-8966-7b0c98e9e960",
+      "node_id": "DEC-011",
+      "input": {
+        "scenario": {
+          "scenario": null,
+          "duration": null,
+          "field_provenance": []
+        },
+        "relation_candidates": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_f1f00a64-a1bc-47c1-adde-37e3522ef7d2",
+          "value": {
+            "pattern": "linear"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_a1a42e57-65ec-408b-8faf-553974394155",
+          "value": {
+            "pattern": "problem_solution"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_3be1cd58-1b08-4a6a-8a77-9547325b4c89",
+          "value": {
+            "pattern": "conclusion_first"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_cae42132-162b-4079-8c25-33b0b7f2de44",
+          "value": {
+            "pattern": "timeline"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_014e69d3-84b0-461a-959a-dd910d2540f6",
+          "value": {
+            "pattern": "teaching_progression"
+          },
+          "score": 0.0,
+          "reasons": [
+            {
+              "rule": "stable source-order presentation default"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-011",
+          "candidate_id": "candidate_d51748be-5946-404b-87c0-7ab5203c18a7",
+          "value": {
+            "pattern": "data_driven"
+          },
+          "score": 1.5,
+          "reasons": [
+            {
+              "rule": "selected evidence contains percentages; use only grounded values"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+          ],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_d51748be-5946-404b-87c0-7ab5203c18a7"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "pattern": "data_driven",
+        "rationale": "selected evidence contains percentages; use only grounded values",
+        "evidence_refs": [
+          "evidence_4807dc30-f603-4d09-9452-a5ef0ec9828c"
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_6ff1732a-4606-4161-8966-7b0c98e9e960",
+      "node_id": "DEC-013",
+      "input": {
+        "page_count": 2,
+        "duration": null
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-013",
+          "candidate_id": "candidate_187d8896-371e-4db3-87c1-c92696541758",
+          "value": {
+            "target": 2,
+            "minimum": 1,
+            "maximum": 30,
+            "allowed_deviation": 28,
+            "duration_original": null,
+            "source_characters": 1523,
+            "policy": "soft: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+          },
+          "score": 1.0,
+          "reasons": [
+            {
+              "rule": "execute validated policy; retain uncertainty explicitly"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "preserve_evidence": true,
+              "no_implicit_fact_inference": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_187d8896-371e-4db3-87c1-c92696541758"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+          "P02": "induction/outline/reference/action/reflection/eval",
+          "P03": "Standard/Smart/layout/template/API/MCP",
+          "P04": "outline/content/layout/PureLayout/PPTAdapter",
+          "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+        },
+        "score_semantics": "policy ranking, not calibrated confidence",
+        "confidence": "unknown",
+        "fallback": "explicit unknown or structured failure"
+      },
+      "output": {
+        "target": 2,
+        "minimum": 1,
+        "maximum": 30,
+        "allowed_deviation": 28,
+        "duration_original": null,
+        "source_characters": 1523,
+        "policy": "soft: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+      },
+      "duration": 0.0,
+      "error": null
+    }
+  ]
+}

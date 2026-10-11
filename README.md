@@ -1,6 +1,6 @@
 # YoloongPPT
 
-AI PPT 生成系统项目。Docker 内已有多格式输入/证据、DEC-001–040 有界消费、真实模型规划、可编辑 PPTX、图片/原生流程/表格/图表、有限模板生成、PDF/PNG 渲染、部分结构/视觉/事实检查、质量驱动局部几何/颜色修订及已有 PPT 定向编辑；CLI/API/MCP 共享核心，长任务有持久状态、取消、重试和显式恢复。全 308/453 与完整节点/对象/后端/系统 AC 验收仍未完成。
+AI PPT 生成系统项目。Docker 内已有多格式输入/证据、DEC-001–040 有界消费、真实模型规划、可编辑 PPTX、最多八图图文/原生流程/表格/图表、真实模板槽位与显式品牌锁、完整正文和大表格自适应分页、PDF/PNG 渲染、部分结构/视觉/事实检查、质量驱动局部几何/颜色修订及已有 PPT 定向编辑；CLI/API/MCP 共享核心，长任务有持久状态、取消、重试和显式恢复。全 308/453 与完整节点/对象/后端/系统 AC 验收仍未完成。
 
 完整交付目标与防偏离规则见 [GOAL.md](GOAL.md)，执行计划见 [PROJECT_PLAN.md](PROJECT_PLAN.md)，17 小时进度审计见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
 
@@ -48,11 +48,27 @@ Markdown保留原文结构；原生格式保留表格/对象/媒体关系及格�
 
 先用 `./scripts/configure-model.ps1` 读取已授权的系统环境变量，再 `./scripts/project.ps1 start`。密钥只保存到忽略的F盘runtime/data/secrets，不通过Docker build、TaskSpec或日志传递。
 
-在app容器中执行 `python -m yoloongppt generate /workspace/validation/generation-task.json`；HTTP为POST `/generate`，输入同一TaskSpec。返回的是draft_generated和实际产物目录，不表示AC验收通过。生成前实际经过DEC-001核对，保存原始请求/能力快照/候选/选择/冲突与保护策略；旧TaskSpec.route作为显式断言，未伪造原文。当前后续执行支持材料/从零新建、中文 16:9及文本/原生表格/分类图表/图片/有来源节点与边的原生图示/备注。模型从已登记真实 asset_id 中选择图片，实际文件和 hash 由资产解析补入；不猜路径、关系或因果。所选模板需匹配尺寸、hash 与当前可明确选择的内容空白版式；保留 master/layout/theme，不能满足时写入前失败。未知硬约束、样式、运行选项和未实现高级能力明确拒绝。可用 `resume <run_id>` 复用已保存模型阶段，来源变化会拒绝复用。
+在app容器中执行 `python -m yoloongppt generate /workspace/validation/generation-task.json`；HTTP为POST `/generate`，输入同一TaskSpec。返回的是draft_generated和实际产物目录，不表示AC验收通过。生成前实际经过DEC-001核对，保存原始请求/能力快照/候选/选择/冲突与保护策略；旧TaskSpec.route作为显式断言，未伪造原文。当前后续执行支持材料/从零新建、中文 16:9及文本/原生表格/分类图表/单图或最多八图图文/有来源节点与边的原生图示/备注。模型从已登记真实 asset_id 中选择图片，实际文件和 hash 由资产解析补入；不猜路径、关系或因果。所选模板需匹配尺寸和 hash，实际选择原生 layout 并填写 text/picture/table/chart placeholder，保留 master/layout/theme 和未知部件；槽位/容量/品牌锁不符时失败，fallback 仅按调用者显式策略。未知硬约束、样式、运行选项和未实现高级能力明确拒绝。可用 `resume <run_id>` 复用已保存模型阶段，来源变化会拒绝复用。
 
 `python -m yoloongppt revise <run_id> <request.json>`（HTTP POST `/revise/{run_id}`）保留单标题/正文请求 object_id、replacement_text 数组和 reason；请求包含 `plan` 时消费 DEC-039 的 RevisionPlan，当前支持有明确范围的几何/颜色修复。写入前核对 parent run、before spec、对象/页面范围和锁，非法/过期/事实修改请求拒绝。保存原稿、before/after、实际差异与局部复审，逐字节保留未选 OOXML parts 和实体 ID；完整内容/对象/模板重排仍按原验收推进。`recheck <run_id>` 或POST `/recheck/{run_id}`只恢复QA，校验并复用已有PPTX/render字节，不重新生成。
 
 实物：[原稿](validation/generation-artifacts/original/deck.pptx)、[局部修订稿](validation/generation-artifacts/revised/deck.pptx)、[修订稿PDF](validation/generation-artifacts/revised/render/deck.pdf)、[当前HTTP真实生成](validation/generation-artifacts/http-generated/deck.pptx)。[31项组件核验](validation/generation-runtime.json)与[实物说明](validation/首条真实生成与修订链路.md)记录模型调用、真实视觉/事实审查、ObjectMap、失败及修订差异；P0为0只适用于这些已执行检查，AC-001/GOV-008仍未通过。
+
+## 原生模板、八图与完整内容分页（2026-10-11）
+
+本轮对照 AC-006/012/014/015、TPL-002/003/004/006/008/015/016、AST-007 与 DEC-014–021 接入以下运行行为；原完整验收仍未通过。
+
+- 模板：字段按实际 idx/name 映射到现有原生槽位，测量实际字体文件与行高；明确锁定 logo/页脚/安全区/颜色字体 token，保持原母版、布局、主题及未知 OOXML 部件。缺字体、容量不足和未经授权 fallback 均拒绝。
+- 图文：保留指定的全部 1–8 张真实图片、来源/许可/hash、题注与引用；不同比例图片使用 contain、明确焦点 cover 或显式 crop，原生图片保持可编辑。人脸/对象感知裁切及完整素材服务仍待验收。
+- 正文/大表格：保留完整可见正文、原标题和全部单元格；按容量生成可追溯续页，横向拆表要求调用者明确重复关键列。硬页数不够时失败，软/default 预算才允许在明确范围内增页；不截字、不删格、不把核心正文藏到备注或缩成不可读字号。
+
+| 已执行的限定验证 | 分版本证据 |
+| --- | --- |
+| 模板 68 项组件/正式编译写入检查，另 2 项增量输入边界 | [原生模板与品牌锁](validation/模板原生槽位与品牌锁.md) |
+| 图文 32 项，另 5 项长标题增量检查 | [图库报告](validation/gallery-artifacts/b81e5a47-0d59-4963-87a5-daa257d654ef/gallery-runtime.json)、[长标题报告](validation/gallery-artifacts/long-title-ae033e62/gallery-long-title-runtime.json) |
+| 自适应 161 项，另 228 项同一已保存 PDF 的单元格核对 | [完整正文与大表格](validation/完整正文和大表格自适应分页.md) |
+
+这些数字属于各自版本的人工夹具组件与实物检查，未合并成一次全套重跑。真实 API 新调用已生成四页；修复资源ID误判、混合标题语言识别和可见分页说明后，恢复逐字复用真实内容，重新渲染及模型审查，9项集成检查通过，P0=0、5警告保留、final_allowed=false。另有15项上下文/断点和10项分页说明增量检查。[当前PPTX](validation/native-capacity-live-artifacts/current-resumed/deck.pptx)、[PDF](validation/native-capacity-live-artifacts/current-resumed/render/deck.pdf)、[版本与失败证据](validation/native-capacity-integration.json)。自定义模板多图原生槽位尚不支持；模板 cover 仅 focal、没有已解析 crop 时明确拒绝；三上游模板兼容、锁定模板自适应、完整语义拆合、所有 QA/修订/对象/后端及原 AC 仍需完成。
 
 ## Git 工作约定
 
@@ -64,7 +80,7 @@ Markdown保留原文结构；原生格式保留表格/对象/媒体关系及格�
 
 `python -m yoloongppt mcp-serve` 在Docker内启动stdio MCP；客户端应通过 `docker --context desktop-linux compose exec -T app python -m yoloongppt mcp-serve` 的stdin/stdout连接，不能使用TTY。工具至少包含create_deck/revise_deck/inspect/validate/capabilities/debug，另有已有PPT、模板、资产与原生执行入口。当前只实现stdio，有界初始化和串行调用；完整客户端/取消能力仍待验收。
 
-新CLI命令 `inspect-deck/edit-deck/parse-template/instantiate-template/compose-native/inventory-assets/compare-runs` 接收JSON文件；HTTP对应 `/inspect-deck`、`/edit-deck`、`/parse-template`、`/instantiate-template`、`/compose-native`、`/inventory-assets`、`/compare-runs`。AI 生成入口消费声明的原生版式与有限 caller 模板路线；`register-template/get-template/resolve-assets` 对应 HTTP `/register-template`、`/get-template`、`/resolve-assets`。真实模板文本槽位实例化仍有独立入口，复杂槽位/品牌锁/容量/比例/完整 style 待按原验收补齐，未支持模板不会替换为默认模板。
+新CLI命令 `inspect-deck/edit-deck/parse-template/instantiate-template/compose-native/inventory-assets/compare-runs` 接收JSON文件；HTTP对应 `/inspect-deck`、`/edit-deck`、`/parse-template`、`/instantiate-template`、`/compose-native`、`/inventory-assets`、`/compare-runs`。AI 生成入口消费声明的原生版式与 caller 模板实际槽位；`register-template/get-template/resolve-assets` 对应 HTTP `/register-template`、`/get-template`、`/resolve-assets`。登记时保存显式 template_policy，已登记策略不能由调用 metadata 改写；模板文本槽位实例化仍有独立入口。当前 text/picture/table/chart 与明确品牌锁已有实物，复杂槽位、全比例/完整 style 和三上游兼容仍待按原验收补齐，未支持模板不会替换为默认模板。
 
 本轮真实产物：[8页可编辑PPTX](validation/parallel-artifacts/generated/deck.pptx)、[PDF](validation/parallel-artifacts/generated/render/deck.pdf)。[并行集成记录](validation/并行核心功能集成.md)说明177项检查、初次失败、真实恢复及剩余条件。整体仍为部分交付，P0=0不表示系统AC通过。
 
@@ -82,7 +98,7 @@ app内 `python -m yoloongppt route /workspace/validation/route-request.json` 或
 
 容器内 `python -m yoloongppt context /workspace/validation/context-generation-task.json` 或 POST `/context` 消费TaskSpec；`source-roles <input.json>` 或 POST `/source-roles` 消费包含task与已解析source_bundle的JSON。两节点可独立运行，并保存输入、候选、选择、规则、输出、时长和错误。
 
-DEC-002按硬约束、偏好、调用方默认、系统默认的顺序选择，同级不同值阻断；原始请求中明确的页数、比例、语言、输出要求也参与处理。当前原文识别是有界规则，非任意自然语言理解。模板、品牌等值可归一化保留；当前有限模板路线真实执行，其余品牌锁/槽位/容量要求未满足时明确拒绝。输出要求不能静默忽略，偏好无法满足须保存原因。
+DEC-002按硬约束、偏好、调用方默认、系统默认的顺序选择，同级不同值阻断；原始请求中明确的页数、比例、语言、输出要求也参与处理。当前原文识别是有界规则，非任意自然语言理解。模板、品牌等值可归一化保留；当前真实原生槽位和显式品牌策略已接入，其余未满足的品牌/槽位/容量要求明确拒绝。精确硬页数不可改成软预算；输出要求不能静默忽略，偏好无法满足须保存原因。
 
 DEC-003绑定真实source_id/asset_ref，保留事实、模板、风格、素材、已有deck及还原来源六种角色。来源解析现覆盖上节列出的有界格式；角色分类本身仍不等于语义抽取、OCR、完整模板或图片意义已通过验收。生成、QA及后续修订/复查只消费事实集合，全部原材料另行保存；角色冲突和身份未绑定在模型调用前阻断。
 
@@ -90,7 +106,7 @@ DEC-003绑定真实source_id/asset_ref，保留事实、模板、风格、素材
 
 ## 当前页面编译与真实产物
 
-SYS-010/012/013 保留开场、宽栏、双栏、面板、结尾、表格和图表版式，并加入图片与原生图示。DEC-030–038 实际消费候选、评分、槽位/引用/notes、几何、实测字体容量、固色/文字对比度、明确图片适配、静态增强与 PP-05 能力预检查。全部候选不适配时失败，不删文字、缩字号或用截图替代原生对象；稳定旧槽位维持恢复对象 ID。复杂语义评分、品牌锁、模板完整槽位、RTL/字体 fallback、效果/动画与多后端原验收仍进行中。
+SYS-010/012/013 保留开场、宽栏、双栏、面板、结尾、表格和图表版式，并加入最多八图图文、原生图示、实际模板槽位和完整内容自适应。DEC-030–038 实际消费候选、评分、槽位/引用/notes、几何、实测字体容量、固色/文字对比度、明确图片适配、静态增强与 PP-05 能力预检查。可读容量分页后全部候选仍不适配时失败，不删文字、缩字号或用截图替代原生对象；稳定旧槽位维持恢复对象 ID。复杂语义评分、完整品牌策略/模板槽位、RTL/字体 fallback、效果/动画与多后端原验收仍进行中。
 
 多栏QA按实际PDF字词坐标核对每个对象，独立删除PDF词反例仍检出缺字；旧单栏产物保持既有检查兼容。[23项组件核验](validation/layout-runtime.json)、[本版10页PPTX](validation/layout-artifacts/deck.pptx)、[PDF](validation/layout-artifacts/render/deck.pdf)及[实施说明](validation/版式编译与链路进度修复.md)保留初次9个P0问题、修正后当前P0=0及真实复审。当前模型内容从真实初次调用断点复用，引用修正和复审是新增实际调用；完整AC仍未通过。
 

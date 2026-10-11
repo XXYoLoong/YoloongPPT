@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "$id": "https://yoloongppt.local/contracts/adaptive-layout-result.schema.json",
+  "title": "不改文字字号的几何适配结果",
+  "required": [
+    "version",
+    "status",
+    "changes",
+    "measurements",
+    "text_preserved",
+    "font_sizes_preserved",
+    "semantic_acceptance",
+    "render_acceptance"
+  ],
+  "properties": {
+    "version": {
+      "const": "adaptive-layout-1"
+    },
+    "status": {
+      "const": "measured"
+    },
+    "changes": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "measurements": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "text_preserved": {
+      "const": true
+    },
+    "font_sizes_preserved": {
+      "const": true
+    },
+    "semantic_acceptance": {
+      "const": "not_claimed"
+    },
+    "render_acceptance": {
+      "const": "required"
+    }
+  }
+}

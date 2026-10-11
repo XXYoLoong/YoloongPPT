@@ -1,0 +1,25 @@
+{
+  "ok": false,
+  "trace_id": "trace_ff30d52b-c6f3-4e24-8e41-a464baf609a3",
+  "error": {
+    "code": "FACT_DECISION_UNRESOLVED",
+    "message": "来源冲突、含糊解释或必需事实缺失，停止生成。",
+    "component": "FactBoundary",
+    "requirement_ids": [
+      "DEC-004",
+      "DEC-005"
+    ],
+    "details": [
+      {
+        "code": "MISSING_FACT",
+        "fact_key": "asset_id_list",
+        "handling": "ask"
+      },
+      {
+        "run_id": "5bd522b9-c1af-4008-be10-98957da53cdc",
+        "artifact_root": "/runtime/runs/5bd522b9-c1af-4008-be10-98957da53cdc"
+      }
+    ],
+    "retryable": false
+  }
+}

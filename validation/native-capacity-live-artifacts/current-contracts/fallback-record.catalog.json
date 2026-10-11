@@ -1,0 +1,92 @@
+{
+  "contract_status": "draft",
+  "requirement_id": "GOV-004",
+  "task_id": "TASK-GOV-004",
+  "output_name": "FallbackRecord[]",
+  "schema": "contracts/fallback-record.schema.json",
+  "reason_code_source": "AI_PPT_完整需求与任务矩阵_V0.3.xlsx / 错误Fallback / Error Code（ERR-001–ERR-032）",
+  "traceability_rules": [
+    "reason_code 表示实际触发原因，不表示 fallback 动作；动作与原因分开保存。",
+    "reason_code 必须来自矩阵中 32 个 Error Code；不得使用自由文本冒充枚举。",
+    "每条记录包含请求行为、实际行为、影响、Trace 引用和最终报告引用；最终报告能按 fallback_id 定位。",
+    "trigger_summary、行为摘要与引用必须经过敏感信息过滤，不保存密钥或原始敏感值。",
+    "矩阵中的策略例子若无法由现有 Error Code 准确说明触发原因，应显式提出错误码登记评审，不能静默借用不匹配的代码。"
+  ],
+  "reason_code_registry": [
+    { "error_id": "ERR-001", "reason_code": "INPUT_NOT_FOUND" },
+    { "error_id": "ERR-002", "reason_code": "INPUT_UNSUPPORTED" },
+    { "error_id": "ERR-003", "reason_code": "INPUT_PASSWORD_PROTECTED" },
+    { "error_id": "ERR-004", "reason_code": "INPUT_CORRUPT" },
+    { "error_id": "ERR-005", "reason_code": "ZIP_BOMB_LIMIT" },
+    { "error_id": "ERR-006", "reason_code": "PARSE_PARTIAL" },
+    { "error_id": "ERR-007", "reason_code": "OCR_LOW_CONFIDENCE" },
+    { "error_id": "ERR-008", "reason_code": "SOURCE_CONFLICT" },
+    { "error_id": "ERR-009", "reason_code": "MISSING_FACT" },
+    { "error_id": "ERR-010", "reason_code": "MODEL_TIMEOUT" },
+    { "error_id": "ERR-011", "reason_code": "MODEL_INVALID_SCHEMA" },
+    { "error_id": "ERR-012", "reason_code": "MODEL_CONTEXT_LIMIT" },
+    { "error_id": "ERR-013", "reason_code": "ASSET_DOWNLOAD_FAIL" },
+    { "error_id": "ERR-014", "reason_code": "ASSET_UNSAFE_URL" },
+    { "error_id": "ERR-015", "reason_code": "ASSET_LOW_QUALITY" },
+    { "error_id": "ERR-016", "reason_code": "FONT_MISSING" },
+    { "error_id": "ERR-017", "reason_code": "LAYOUT_NOT_FOUND" },
+    { "error_id": "ERR-018", "reason_code": "LAYOUT_CAPACITY" },
+    { "error_id": "ERR-019", "reason_code": "CHART_INVALID_DATA" },
+    { "error_id": "ERR-020", "reason_code": "ADAPTER_UNAVAILABLE" },
+    { "error_id": "ERR-021", "reason_code": "POWERPOINT_NOT_RUNNING" },
+    { "error_id": "ERR-022", "reason_code": "OFFICE_API_UNSUPPORTED" },
+    { "error_id": "ERR-023", "reason_code": "PPTX_WRITE_FAIL" },
+    { "error_id": "ERR-024", "reason_code": "PPTX_INVALID" },
+    { "error_id": "ERR-025", "reason_code": "RENDER_FAIL" },
+    { "error_id": "ERR-026", "reason_code": "STRUCTURAL_QA_FAIL" },
+    { "error_id": "ERR-027", "reason_code": "SEMANTIC_QA_FAIL" },
+    { "error_id": "ERR-028", "reason_code": "ROUNDTRIP_LOSS" },
+    { "error_id": "ERR-029", "reason_code": "REVISION_EXHAUSTED" },
+    { "error_id": "ERR-030", "reason_code": "CANCELLED" },
+    { "error_id": "ERR-031", "reason_code": "DISK_LIMIT" },
+    { "error_id": "ERR-032", "reason_code": "SECRET_EXPOSURE_RISK" }
+  ],
+  "category_reason_guidance": [
+    {
+      "category": "object_flattening",
+      "possible_reasons": ["OFFICE_API_UNSUPPORTED", "ROUNDTRIP_LOSS"],
+      "selection_rule": "按对象能力限制或 round-trip 损失这个真实触发原因选择；不能因为动作是 flatten 就固定套用某一 reason_code。"
+    },
+    {
+      "category": "font_substitution",
+      "possible_reasons": ["FONT_MISSING"],
+      "selection_rule": "记录缺失字体、所采用的配置 fallback 以及可编辑性/视觉影响；实际替代字体来自尚待定义的 FontPolicy。"
+    },
+    {
+      "category": "chart_to_image",
+      "possible_reasons": ["CHART_INVALID_DATA", "OFFICE_API_UNSUPPORTED"],
+      "selection_rule": "分别记录无效图表数据或 API/host 不支持的触发原因；说明转图片带来的编辑能力影响。"
+    },
+    {
+      "category": "template_replacement",
+      "possible_reasons": ["INPUT_UNSUPPORTED", "LAYOUT_NOT_FOUND", "OFFICE_API_UNSUPPORTED"],
+      "selection_rule": "按模板输入、可用 layout 或 backend 能力的真实原因选择；锁定模板冲突不得用替换来绕过。"
+    },
+    {
+      "category": "data_truncation",
+      "possible_reasons": ["MODEL_CONTEXT_LIMIT", "DISK_LIMIT"],
+      "selection_rule": "记录来源、被裁剪字段/范围和数据量；若找不到准确原因码，应先补错误码定义，不得静默裁剪。"
+    },
+    {
+      "category": "page_count_deviation",
+      "possible_reasons": ["LAYOUT_CAPACITY", "REVISION_EXHAUSTED"],
+      "selection_rule": "记录目标与实际页数及产生偏差的节点；偏差必须可见。"
+    }
+  ],
+  "acceptance_cases": [
+    { "fixture_id": "GOV-004-FONT-001", "expected": "reason_code 为 FONT_MISSING，替代字体动作及影响可定位。" },
+    { "fixture_id": "GOV-004-CHART-001", "expected": "图表转图片记录真实原因、行为差异及编辑能力影响。" },
+    { "fixture_id": "GOV-004-TRUNCATION-001", "expected": "数据裁剪记录原因码、范围/数量、实际输出影响；未知原因码不得静默放行。" },
+    { "fixture_id": "GOV-004-PAGE-001", "expected": "目标/实际页数及偏差原因在报告中可定位。" }
+  ],
+  "limits": [
+    "需求基线未定义 FallbackRecord 独立 Schema；本文件不向“数据对象”表增加新行以免破坏其 49 项覆盖计数。",
+    "此草案和 fixture 不代表 fallback 运行时、最终报告、Trace 或错误处理已经实现。",
+    "VERIFY-GOV-004 的故意触发、实际日志与报告证据必须由后续可执行 PoC 完成。"
+  ]
+}

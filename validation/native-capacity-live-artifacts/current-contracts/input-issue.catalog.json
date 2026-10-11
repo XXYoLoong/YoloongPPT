@@ -1,0 +1,49 @@
+{
+  "document_type": "input_issue_contract_catalog",
+  "contract_status": "draft",
+  "requirement_id": "IN-015",
+  "task_id": "TASK-IN-015",
+  "schema": "contracts/input-issue.schema.json",
+  "fixtures": "contracts/input-issue.fixtures.json",
+  "deliverable": "InputIssue[]",
+  "references": [
+    {
+      "url": "contracts/fallback-record.schema.json",
+      "supports": "The existing ErrorFallback registry has 32 approved reason codes; this task reuses matching input codes instead of adding free-form product codes."
+    },
+    {
+      "url": "contracts/fallback-record.catalog.json",
+      "supports": "If no existing reason code accurately describes a trigger, explicitly request registry review rather than borrowing a mismatched code."
+    }
+  ],
+  "field_rules": [
+    "每个输入资产分别记录 declared_format、signature_format、size/expanded_size、access 和 encryption 状态；扩展名或调用方 MIME 声明不能单独证明真实格式。",
+    "密码保护使用 ERR-003/INPUT_PASSWORD_PROTECTED；不得暴力破解或绕过。损坏使用 ERR-004/INPUT_CORRUPT，不支持格式使用 ERR-002/INPUT_UNSUPPORTED，归档解压超限使用 ERR-005/ZIP_BOMB_LIMIT；缺失路径可用 ERR-001/INPUT_NOT_FOUND。",
+    "扩展名/签名不一致和普通文件大小超限没有精确匹配的已登记 Error Code。本契约把它们标为 registry_status=review_required、reason_code/error_id=null 并写入 registry_reviews，不新增代码、不挪用 ZIP_BOMB_LIMIT 或其他近似代码。",
+    "只有 confirmed supported 且可安全读取的输入才 status=ready。blocking issue 标记 safe_to_parse=false；不能因为单个资产被跳过而把 batch 伪装为完整成功。",
+    "已注册代码的 ID/code 必须与矩阵“错误Fallback”表一致；错误摘要应脱敏，不记录密码、密钥、敏感 query 或原始私密内容。",
+    "size/archive thresholds 由调用方或后续已批准配置显式提供；null 表示尚未设定，不从开发环境或容器推断产品默认。",
+    "每个 issue 保留 source_id/asset_id、观察值、配置阈值、用户动作和代码注册状态；状态不支持或无法检查时以 coverage 标明，不静默跳过。",
+    "integrity_status 单独记录容器/包完整性；损坏不能仅由通用 ZIP 魔数推断。OOXML 的有效类型识别需读取相应包元数据；已确认损坏时优先报告损坏，不把解析失败误报为格式伪装。",
+    "result.status 只有在无 issue/registry review 时为 ready；存在问题但至少一个资产 safe_to_parse=true 时为 partial；所有资产均不能安全解析时为 blocked。"
+  ],
+  "acceptance_cases": [
+    {
+      "case_id": "IN-015-NORMAL-001",
+      "fixture_id": "IN-015-NORMAL-001",
+      "purpose": "验证支持格式、可读、未加密且未超限制的输入通过预检。",
+      "acceptance": "assessment ready、issues 空、阈值由输入显式给出，所有来源资产可追溯。"
+    },
+    {
+      "case_id": "IN-015-BOUNDARY-BATCH-001",
+      "fixture_id": "IN-015-BOUNDARY-BATCH-001",
+      "purpose": "验证加密、损坏、格式伪装、文件大小超限、归档解压超限和 unsupported 格式。",
+      "acceptance": "已注册场景使用准确的 ERR-002/003/004/005；格式伪装/普通大小限制标记 registry review，不静默跳过或产生新代码。"
+    }
+  ],
+  "limits": [
+    "schema 与 fixtures 是预检契约草案；未实现签名识别、加密探测、解压预算、解析器适配、恶意文件扫描或密码处理。",
+    "文件大小限制与格式伪装的 Error Code 注册评审尚未完成；不能因为该缺口关闭本任务或宣称全部触发可由 registry 表达。",
+    "没有选择产品运行时、压缩包库、格式识别库、阈值默认值、依赖版本或许可。"
+  ]
+}
