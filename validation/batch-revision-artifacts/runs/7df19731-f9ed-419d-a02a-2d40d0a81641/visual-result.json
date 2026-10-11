@@ -1,0 +1,2727 @@
+{
+  "version": "visual-1",
+  "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+  "status": "executed_partial",
+  "decision_traces": [
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-022",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_4445d5a8-def4-45ff-9fd4-b171e477ff88",
+          "value": {
+            "page_index": 0,
+            "expression": "cards_or_text",
+            "kind": "text",
+            "reason": "先交代单位、窗口与统计对象，避免后续数据被误读为真实统计。",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_a78b7c34-4d66-42e2-984c-f6182e18d8c3",
+          "value": {
+            "page_index": 1,
+            "expression": "text_image",
+            "kind": "image",
+            "reason": "满足图片页要求，同时按原文声明素材仅装饰、不证明事实。",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_0e643032-8a32-47db-8c3a-0ee373dd9e9f",
+          "value": {
+            "page_index": 2,
+            "expression": "process",
+            "kind": "diagram",
+            "reason": "流程页只复现原文明示的顺序关系，不推断因果。",
+            "evidence_refs": [
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843",
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_70c3344d-ed9e-4eed-8a9b-2364924856f6",
+          "value": {
+            "page_index": 3,
+            "expression": "table",
+            "kind": "table",
+            "reason": "用表格并列呈现原文数值，不做差值或效果解读。",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_8beccd12-1ed5-4672-9087-d611455f436f",
+          "value": {
+            "page_index": 4,
+            "expression": "chart",
+            "kind": "chart",
+            "reason": "以原生柱图并列呈现原文数值，保持与表格一致的口径。",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_3fc09ec3-421d-4747-9186-27d7e5c9444f",
+          "value": {
+            "page_index": 5,
+            "expression": "cards_or_text",
+            "kind": "text",
+            "reason": "以原文结论收尾，并再次声明虚构测试与无因果推断的边界。",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_4445d5a8-def4-45ff-9fd4-b171e477ff88",
+        "candidate_a78b7c34-4d66-42e2-984c-f6182e18d8c3",
+        "candidate_0e643032-8a32-47db-8c3a-0ee373dd9e9f",
+        "candidate_70c3344d-ed9e-4eed-8a9b-2364924856f6",
+        "candidate_8beccd12-1ed5-4672-9087-d611455f436f",
+        "candidate_3fc09ec3-421d-4747-9186-27d7e5c9444f"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "expression": "cards_or_text",
+            "kind": "text",
+            "reason": "先交代单位、窗口与统计对象，避免后续数据被误读为真实统计。",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "preserved_content": true
+          },
+          {
+            "page_index": 1,
+            "expression": "text_image",
+            "kind": "image",
+            "reason": "满足图片页要求，同时按原文声明素材仅装饰、不证明事实。",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "preserved_content": true
+          },
+          {
+            "page_index": 2,
+            "expression": "process",
+            "kind": "diagram",
+            "reason": "流程页只复现原文明示的顺序关系，不推断因果。",
+            "evidence_refs": [
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843",
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "preserved_content": true
+          },
+          {
+            "page_index": 3,
+            "expression": "table",
+            "kind": "table",
+            "reason": "用表格并列呈现原文数值，不做差值或效果解读。",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "preserved_content": true
+          },
+          {
+            "page_index": 4,
+            "expression": "chart",
+            "kind": "chart",
+            "reason": "以原生柱图并列呈现原文数值，保持与表格一致的口径。",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "preserved_content": true
+          },
+          {
+            "page_index": 5,
+            "expression": "cards_or_text",
+            "kind": "text",
+            "reason": "以原文结论收尾，并再次声明虚构测试与无因果推断的边界。",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+            ],
+            "preserved_content": true
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-023",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_4c089edd-2bc5-477c-8b3c-4f16704fa743",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_6ba1f0bd-166f-4808-9cb6-47be8d01d61e",
+          "value": {
+            "page_index": 1,
+            "required": true,
+            "count": 1,
+            "role": "decoration",
+            "information_value": "caller/model declared; independent semantic review pending",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_e3debcaa-4868-4ab1-8b2e-adb509ce2b9a",
+          "value": {
+            "page_index": 2,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_41acbffe-4325-46ca-b467-90bd38d79efe",
+          "value": {
+            "page_index": 3,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_088fbd76-aee6-4a15-9dac-8b5eaa0e6e38",
+          "value": {
+            "page_index": 4,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_907f9ea4-b769-45c5-9188-9e32747fca0f",
+          "value": {
+            "page_index": 5,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_4c089edd-2bc5-477c-8b3c-4f16704fa743",
+        "candidate_6ba1f0bd-166f-4808-9cb6-47be8d01d61e",
+        "candidate_e3debcaa-4868-4ab1-8b2e-adb509ce2b9a",
+        "candidate_41acbffe-4325-46ca-b467-90bd38d79efe",
+        "candidate_088fbd76-aee6-4a15-9dac-8b5eaa0e6e38",
+        "candidate_907f9ea4-b769-45c5-9188-9e32747fca0f"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          {
+            "page_index": 1,
+            "required": true,
+            "count": 1,
+            "role": "decoration",
+            "information_value": "caller/model declared; independent semantic review pending",
+            "fallback": "fail on missing material"
+          },
+          {
+            "page_index": 2,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          {
+            "page_index": 3,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          {
+            "page_index": 4,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          {
+            "page_index": 5,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-024",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_e70db5c8-07c0-4bfc-835d-f963d425151f",
+          "value": {
+            "page_index": 0,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_bb81a2da-8caf-4807-b4d9-c5d7a6f97ef3",
+          "value": {
+            "page_index": 1,
+            "selected_asset_ids": [
+              "asset_53df89e2-f082-4680-9411-8abc446ad30b"
+            ],
+            "model_image_declaration": {
+              "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+              "role": "decoration",
+              "alt_text": "程序人工绘制的测试示意图，仅用于装饰",
+              "fit": "contain",
+              "required": true
+            },
+            "sources": [
+              {
+                "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+                "source_type": "user",
+                "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                "license": "test-fixture-authorized",
+                "usage_status": "authorized"
+              }
+            ],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_c01f91a1-ac1f-4ba2-bf9d-9cc5f0b59c15",
+          "value": {
+            "page_index": 2,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_22237fc4-df0b-4fc3-bde8-6663a78cfa90",
+          "value": {
+            "page_index": 3,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_81b83f4f-840f-4ed0-951f-5b947b805576",
+          "value": {
+            "page_index": 4,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_7a7291fc-abff-44f2-aeba-e2141b557b13",
+          "value": {
+            "page_index": 5,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_e70db5c8-07c0-4bfc-835d-f963d425151f",
+        "candidate_bb81a2da-8caf-4807-b4d9-c5d7a6f97ef3",
+        "candidate_c01f91a1-ac1f-4ba2-bf9d-9cc5f0b59c15",
+        "candidate_22237fc4-df0b-4fc3-bde8-6663a78cfa90",
+        "candidate_81b83f4f-840f-4ed0-951f-5b947b805576",
+        "candidate_7a7291fc-abff-44f2-aeba-e2141b557b13"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          {
+            "page_index": 1,
+            "selected_asset_ids": [
+              "asset_53df89e2-f082-4680-9411-8abc446ad30b"
+            ],
+            "model_image_declaration": {
+              "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+              "role": "decoration",
+              "alt_text": "程序人工绘制的测试示意图，仅用于装饰",
+              "fit": "contain",
+              "required": true
+            },
+            "sources": [
+              {
+                "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+                "source_type": "user",
+                "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+                "license": "test-fixture-authorized",
+                "usage_status": "authorized"
+              }
+            ],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          {
+            "page_index": 2,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          {
+            "page_index": 3,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          {
+            "page_index": 4,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          {
+            "page_index": 5,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-025",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_74f48c41-5d69-4b14-9235-0ce94552e865",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_544ae74f-8930-4c9e-aeb5-7eff7c7e388e",
+          "value": {
+            "page_index": 1,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_ef3d60c7-a8bc-4153-8743-7d5489f24c1c",
+          "value": {
+            "page_index": 2,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_f6c34429-7c56-464c-9827-9730e8fe3701",
+          "value": {
+            "page_index": 3,
+            "required": true,
+            "rows": 3,
+            "columns": 3,
+            "emphasis_fields": [],
+            "pagination": "one native table; physical capacity gate must pass",
+            "data": {
+              "columns": [
+                "楼栋",
+                "基线",
+                "本期"
+              ],
+              "rows": [
+                [
+                  "A楼",
+                  "100",
+                  "90"
+                ],
+                [
+                  "B楼",
+                  "80",
+                  "72"
+                ],
+                [
+                  "C楼",
+                  "60",
+                  "54"
+                ]
+              ],
+              "units": "千瓦时"
+            }
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_cb6a6dec-3306-4e3d-bc8f-7ff1d08cfc01",
+          "value": {
+            "page_index": 4,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_a784a2be-85c5-4bb9-8379-6cd4e2f4096f",
+          "value": {
+            "page_index": 5,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_74f48c41-5d69-4b14-9235-0ce94552e865",
+        "candidate_544ae74f-8930-4c9e-aeb5-7eff7c7e388e",
+        "candidate_ef3d60c7-a8bc-4153-8743-7d5489f24c1c",
+        "candidate_f6c34429-7c56-464c-9827-9730e8fe3701",
+        "candidate_cb6a6dec-3306-4e3d-bc8f-7ff1d08cfc01",
+        "candidate_a784a2be-85c5-4bb9-8379-6cd4e2f4096f"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          {
+            "page_index": 1,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          {
+            "page_index": 2,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          {
+            "page_index": 3,
+            "required": true,
+            "rows": 3,
+            "columns": 3,
+            "emphasis_fields": [],
+            "pagination": "one native table; physical capacity gate must pass",
+            "data": {
+              "columns": [
+                "楼栋",
+                "基线",
+                "本期"
+              ],
+              "rows": [
+                [
+                  "A楼",
+                  "100",
+                  "90"
+                ],
+                [
+                  "B楼",
+                  "80",
+                  "72"
+                ],
+                [
+                  "C楼",
+                  "60",
+                  "54"
+                ]
+              ],
+              "units": "千瓦时"
+            }
+          },
+          {
+            "page_index": 4,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          {
+            "page_index": 5,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-026",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_2d6266a3-2184-4ec5-9457-670c760fc5ab",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "说明演示性质与范围",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_76c3abfc-0de2-464b-8648-3304afa1603a",
+          "value": {
+            "page_index": 1,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "展示已授权素材并声明其性质",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_04160462-a235-437b-97bf-2c7c35cc8d2f",
+          "value": {
+            "page_index": 2,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "按原文呈现流程顺序",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_129a3efe-1c2f-46ab-b959-c9d5adf8c785",
+          "value": {
+            "page_index": 3,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "并列展示三栋楼的虚构记录值",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_e02634c6-61af-4e55-8c6a-74e4607e5e5f",
+          "value": {
+            "page_index": 4,
+            "required": true,
+            "type": "column",
+            "analysis_purpose": "以柱图并列呈现同一组虚构数值",
+            "data": {
+              "type": "column",
+              "categories": [
+                "A楼",
+                "B楼",
+                "C楼"
+              ],
+              "series": [
+                {
+                  "name": "基线",
+                  "values": [
+                    100,
+                    80,
+                    60
+                  ]
+                },
+                {
+                  "name": "本期",
+                  "values": [
+                    90,
+                    72,
+                    54
+                  ]
+                }
+              ],
+              "units": "千瓦时"
+            },
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_fd5c8945-7f5a-42ed-86cc-9a7f16b4d63b",
+          "value": {
+            "page_index": 5,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "收束全篇并重申边界",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_2d6266a3-2184-4ec5-9457-670c760fc5ab",
+        "candidate_76c3abfc-0de2-464b-8648-3304afa1603a",
+        "candidate_04160462-a235-437b-97bf-2c7c35cc8d2f",
+        "candidate_129a3efe-1c2f-46ab-b959-c9d5adf8c785",
+        "candidate_e02634c6-61af-4e55-8c6a-74e4607e5e5f",
+        "candidate_fd5c8945-7f5a-42ed-86cc-9a7f16b4d63b"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "说明演示性质与范围",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          {
+            "page_index": 1,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "展示已授权素材并声明其性质",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          {
+            "page_index": 2,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "按原文呈现流程顺序",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          {
+            "page_index": 3,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "并列展示三栋楼的虚构记录值",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          {
+            "page_index": 4,
+            "required": true,
+            "type": "column",
+            "analysis_purpose": "以柱图并列呈现同一组虚构数值",
+            "data": {
+              "type": "column",
+              "categories": [
+                "A楼",
+                "B楼",
+                "C楼"
+              ],
+              "series": [
+                {
+                  "name": "基线",
+                  "values": [
+                    100,
+                    80,
+                    60
+                  ]
+                },
+                {
+                  "name": "本期",
+                  "values": [
+                    90,
+                    72,
+                    54
+                  ]
+                }
+              ],
+              "units": "千瓦时"
+            },
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          {
+            "page_index": 5,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "收束全篇并重申边界",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-027",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_35b3c6c0-554a-44b6-9a48-c0684cffb40d",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_ccb89640-de0d-4559-bb59-273ae26ca3cc",
+          "value": {
+            "page_index": 1,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_61033779-6c1b-479e-8b5d-ebb8475540b6",
+          "value": {
+            "page_index": 2,
+            "required": true,
+            "diagram": {
+              "type": "process",
+              "direction": "horizontal",
+              "nodes": [
+                {
+                  "node_id": "n1",
+                  "label": "检查照明",
+                  "evidence_refs": [
+                    "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+                  ]
+                },
+                {
+                  "node_id": "n2",
+                  "label": "设置定时",
+                  "evidence_refs": [
+                    "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+                  ]
+                },
+                {
+                  "node_id": "n3",
+                  "label": "记录变化",
+                  "evidence_refs": [
+                    "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "from": "n1",
+                  "to": "n2",
+                  "relation": "sequence",
+                  "evidence_refs": [
+                    "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+                  ],
+                  "evidence_quote": "检查照明→设置定时→记录变化"
+                },
+                {
+                  "from": "n2",
+                  "to": "n3",
+                  "relation": "sequence",
+                  "evidence_refs": [
+                    "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+                  ],
+                  "evidence_quote": "检查照明→设置定时→记录变化"
+                }
+              ],
+              "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+              "editable_representation": "native_shapes_and_connectors",
+              "causal_proof": "not_claimed"
+            },
+            "type": "process",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_796f302e-e462-411a-b6c7-5adb87eb91be",
+          "value": {
+            "page_index": 3,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_dd9ed0b9-3f45-430b-9a95-b8cc10ed688e",
+          "value": {
+            "page_index": 4,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_97a9a658-16f7-461e-87a3-48c67850581e",
+          "value": {
+            "page_index": 5,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+            "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_35b3c6c0-554a-44b6-9a48-c0684cffb40d",
+        "candidate_ccb89640-de0d-4559-bb59-273ae26ca3cc",
+        "candidate_61033779-6c1b-479e-8b5d-ebb8475540b6",
+        "candidate_796f302e-e462-411a-b6c7-5adb87eb91be",
+        "candidate_dd9ed0b9-3f45-430b-9a95-b8cc10ed688e",
+        "candidate_97a9a658-16f7-461e-87a3-48c67850581e"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          {
+            "page_index": 1,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          {
+            "page_index": 2,
+            "required": true,
+            "diagram": {
+              "type": "process",
+              "direction": "horizontal",
+              "nodes": [
+                {
+                  "node_id": "n1",
+                  "label": "检查照明",
+                  "evidence_refs": [
+                    "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+                  ]
+                },
+                {
+                  "node_id": "n2",
+                  "label": "设置定时",
+                  "evidence_refs": [
+                    "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+                  ]
+                },
+                {
+                  "node_id": "n3",
+                  "label": "记录变化",
+                  "evidence_refs": [
+                    "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+                  ]
+                }
+              ],
+              "edges": [
+                {
+                  "from": "n1",
+                  "to": "n2",
+                  "relation": "sequence",
+                  "evidence_refs": [
+                    "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+                  ],
+                  "evidence_quote": "检查照明→设置定时→记录变化"
+                },
+                {
+                  "from": "n2",
+                  "to": "n3",
+                  "relation": "sequence",
+                  "evidence_refs": [
+                    "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+                  ],
+                  "evidence_quote": "检查照明→设置定时→记录变化"
+                }
+              ],
+              "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+              "editable_representation": "native_shapes_and_connectors",
+              "causal_proof": "not_claimed"
+            },
+            "type": "process",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          {
+            "page_index": 3,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          {
+            "page_index": 4,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          {
+            "page_index": 5,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-028",
+      "input": {
+        "template_ref": null,
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "candidate_9c31a0bf-826b-49f7-ae61-79da11ccc1d1",
+              "field": "page_count",
+              "value": 6,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "raw_text:13:15"
+              }
+            },
+            {
+              "constraint_id": "candidate_335efc9a-bca8-465b-99f1-0f7f535a9f6a",
+              "field": "language",
+              "value": "zh-CN",
+              "source": {
+                "kind": "user_instruction",
+                "reference": "raw_text:15:17"
+              }
+            }
+          ],
+          "soft": [
+            {
+              "constraint_id": "candidate_295e3d19-cf33-48d7-af03-35788ff33ab9",
+              "field": "page_count",
+              "value": 6,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "runtime_preferences.page_count"
+              },
+              "disposition": "applied",
+              "applied_value": 6,
+              "handling_reason": "Selected by DEC-002 and within current execution subset."
+            }
+          ],
+          "defaults": [
+            {
+              "constraint_id": "system_default.page_count",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.language",
+              "field": "language",
+              "value": "zh-CN",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.aspect_ratio",
+              "field": "aspect_ratio",
+              "value": "16:9",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.minimum_font_size",
+              "field": "minimum_font_size",
+              "value": 16,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.template",
+              "field": "template",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.brand",
+              "field": "brand",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.output_formats",
+              "field": "output_formats",
+              "value": [
+                "pptx",
+                "pdf",
+                "png"
+              ],
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.audience",
+              "field": "audience",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.scenario",
+              "field": "scenario",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.duration",
+              "field": "duration",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.tone",
+              "field": "tone",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.citation_policy",
+              "field": "citation_policy",
+              "value": "notes",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.asset_policy",
+              "field": "asset_policy",
+              "value": {
+                "allow_network": false,
+                "minimum_pixels": [
+                  1,
+                  1
+                ]
+              },
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            }
+          ],
+          "conflicts": []
+        },
+        "evidence_refs": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-028",
+          "candidate_id": "candidate_467513a8-a43f-49e9-a8d2-6f5f2beff600",
+          "value": {
+            "family": "generic",
+            "eligible": true,
+            "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-028",
+          "candidate_id": "candidate_d88e96bc-cbf8-4800-9fe9-0c669b527ecc",
+          "value": {
+            "family": "free_layout",
+            "eligible": true,
+            "reason": "Native geometry compiler is available as explicit alternative."
+          },
+          "score": 0,
+          "reasons": [
+            {
+              "reason": "Native geometry compiler is available as explicit alternative."
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_467513a8-a43f-49e9-a8d2-6f5f2beff600"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "family": "generic",
+        "template_id": null,
+        "template_status": "selected",
+        "fallback": "fail on incompatible capacity"
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+      "node_id": "DEC-029",
+      "input": {
+        "style": {},
+        "template_id": null,
+        "evidence_refs": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-029",
+          "candidate_id": "candidate_38b6c2a9-350d-49ea-aa20-d838cf4c8c6b",
+          "value": {
+            "font": "Noto Sans CJK SC",
+            "foreground": "192C32",
+            "background": "F6F4EE",
+            "accent": "147C80",
+            "shape_language": "native_editable",
+            "image_treatment": "contain_without_crop",
+            "decoration_density": "minimal",
+            "provenance": {
+              "font": "caller override or declared native renderer font",
+              "colors": "caller override or explicit product default"
+            },
+            "template_tokens": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "explicit caller values/product defaults; template originals retained without assuming font availability"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_38b6c2a9-350d-49ea-aa20-d838cf4c8c6b"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "font": "Noto Sans CJK SC",
+        "foreground": "192C32",
+        "background": "F6F4EE",
+        "accent": "147C80",
+        "shape_language": "native_editable",
+        "image_treatment": "contain_without_crop",
+        "decoration_density": "minimal",
+        "provenance": {
+          "font": "caller override or declared native renderer font",
+          "colors": "caller override or explicit product default"
+        },
+        "template_tokens": null
+      },
+      "duration": 0.0,
+      "error": null
+    }
+  ],
+  "visual_specs": [
+    {
+      "page_index": 0,
+      "expression": "cards_or_text",
+      "kind": "text",
+      "reason": "先交代单位、窗口与统计对象，避免后续数据被误读为真实统计。",
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+      ],
+      "preserved_content": true
+    },
+    {
+      "page_index": 1,
+      "expression": "text_image",
+      "kind": "image",
+      "reason": "满足图片页要求，同时按原文声明素材仅装饰、不证明事实。",
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+      ],
+      "preserved_content": true
+    },
+    {
+      "page_index": 2,
+      "expression": "process",
+      "kind": "diagram",
+      "reason": "流程页只复现原文明示的顺序关系，不推断因果。",
+      "evidence_refs": [
+        "evidence_5f4eff91-ebde-4001-a150-76782604e843",
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+      ],
+      "preserved_content": true
+    },
+    {
+      "page_index": 3,
+      "expression": "table",
+      "kind": "table",
+      "reason": "用表格并列呈现原文数值，不做差值或效果解读。",
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+      ],
+      "preserved_content": true
+    },
+    {
+      "page_index": 4,
+      "expression": "chart",
+      "kind": "chart",
+      "reason": "以原生柱图并列呈现原文数值，保持与表格一致的口径。",
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+      ],
+      "preserved_content": true
+    },
+    {
+      "page_index": 5,
+      "expression": "cards_or_text",
+      "kind": "text",
+      "reason": "以原文结论收尾，并再次声明虚构测试与无因果推断的边界。",
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+        "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+      ],
+      "preserved_content": true
+    }
+  ],
+  "image_requirements": [
+    {
+      "page_index": 0,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    },
+    {
+      "page_index": 1,
+      "required": true,
+      "count": 1,
+      "role": "decoration",
+      "information_value": "caller/model declared; independent semantic review pending",
+      "fallback": "fail on missing material"
+    },
+    {
+      "page_index": 2,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    },
+    {
+      "page_index": 3,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    },
+    {
+      "page_index": 4,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    },
+    {
+      "page_index": 5,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    }
+  ],
+  "asset_plan": [
+    {
+      "page_index": 0,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    },
+    {
+      "page_index": 1,
+      "selected_asset_ids": [
+        "asset_53df89e2-f082-4680-9411-8abc446ad30b"
+      ],
+      "model_image_declaration": {
+        "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+        "role": "decoration",
+        "alt_text": "程序人工绘制的测试示意图，仅用于装饰",
+        "fit": "contain",
+        "required": true
+      },
+      "sources": [
+        {
+          "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+          "source_type": "user",
+          "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+          "license": "test-fixture-authorized",
+          "usage_status": "authorized"
+        }
+      ],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    },
+    {
+      "page_index": 2,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    },
+    {
+      "page_index": 3,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    },
+    {
+      "page_index": 4,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    },
+    {
+      "page_index": 5,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    }
+  ],
+  "table_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    },
+    {
+      "page_index": 1,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    },
+    {
+      "page_index": 2,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    },
+    {
+      "page_index": 3,
+      "required": true,
+      "rows": 3,
+      "columns": 3,
+      "emphasis_fields": [],
+      "pagination": "one native table; physical capacity gate must pass",
+      "data": {
+        "columns": [
+          "楼栋",
+          "基线",
+          "本期"
+        ],
+        "rows": [
+          [
+            "A楼",
+            "100",
+            "90"
+          ],
+          [
+            "B楼",
+            "80",
+            "72"
+          ],
+          [
+            "C楼",
+            "60",
+            "54"
+          ]
+        ],
+        "units": "千瓦时"
+      }
+    },
+    {
+      "page_index": 4,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    },
+    {
+      "page_index": 5,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    }
+  ],
+  "chart_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": "说明演示性质与范围",
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    },
+    {
+      "page_index": 1,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": "展示已授权素材并声明其性质",
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    },
+    {
+      "page_index": 2,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": "按原文呈现流程顺序",
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    },
+    {
+      "page_index": 3,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": "并列展示三栋楼的虚构记录值",
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    },
+    {
+      "page_index": 4,
+      "required": true,
+      "type": "column",
+      "analysis_purpose": "以柱图并列呈现同一组虚构数值",
+      "data": {
+        "type": "column",
+        "categories": [
+          "A楼",
+          "B楼",
+          "C楼"
+        ],
+        "series": [
+          {
+            "name": "基线",
+            "values": [
+              100,
+              80,
+              60
+            ]
+          },
+          {
+            "name": "本期",
+            "values": [
+              90,
+              72,
+              54
+            ]
+          }
+        ],
+        "units": "千瓦时"
+      },
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    },
+    {
+      "page_index": 5,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": "收束全篇并重申边界",
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    }
+  ],
+  "diagram_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    },
+    {
+      "page_index": 1,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    },
+    {
+      "page_index": 2,
+      "required": true,
+      "diagram": {
+        "type": "process",
+        "direction": "horizontal",
+        "nodes": [
+          {
+            "node_id": "n1",
+            "label": "检查照明",
+            "evidence_refs": [
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+            ]
+          },
+          {
+            "node_id": "n2",
+            "label": "设置定时",
+            "evidence_refs": [
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+            ]
+          },
+          {
+            "node_id": "n3",
+            "label": "记录变化",
+            "evidence_refs": [
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+            ]
+          }
+        ],
+        "edges": [
+          {
+            "from": "n1",
+            "to": "n2",
+            "relation": "sequence",
+            "evidence_refs": [
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+            ],
+            "evidence_quote": "检查照明→设置定时→记录变化"
+          },
+          {
+            "from": "n2",
+            "to": "n3",
+            "relation": "sequence",
+            "evidence_refs": [
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+            ],
+            "evidence_quote": "检查照明→设置定时→记录变化"
+          }
+        ],
+        "grounding_status": "literal_nodes_and_explicit_edges_checked_semantic_review_pending",
+        "editable_representation": "native_shapes_and_connectors",
+        "causal_proof": "not_claimed"
+      },
+      "type": "process",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    },
+    {
+      "page_index": 3,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    },
+    {
+      "page_index": 4,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    },
+    {
+      "page_index": 5,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    }
+  ],
+  "template_selection": {
+    "family": "generic",
+    "record": null,
+    "candidates": [
+      {
+        "family": "generic",
+        "eligible": true,
+        "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+      },
+      {
+        "family": "free_layout",
+        "eligible": true,
+        "reason": "Native geometry compiler is available as explicit alternative."
+      }
+    ],
+    "fallback": "fail on incompatible capacity",
+    "status": "selected"
+  },
+  "design_tokens": {
+    "font": "Noto Sans CJK SC",
+    "foreground": "192C32",
+    "background": "F6F4EE",
+    "accent": "147C80",
+    "shape_language": "native_editable",
+    "image_treatment": "contain_without_crop",
+    "decoration_density": "minimal",
+    "provenance": {
+      "font": "caller override or declared native renderer font",
+      "colors": "caller override or explicit product default"
+    },
+    "template_tokens": null
+  },
+  "resolved_assets": {
+    "status": "resolved",
+    "entries": [
+      {
+        "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+        "source_id": "source_2ce3a059-f498-491c-9f3c-15a2636283d9",
+        "source_type": "user",
+        "source_locator": "/runtime/visual-validation/declared-image.png",
+        "source_url": null,
+        "path": "/runtime/assets/39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e.png",
+        "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+        "bytes": 552,
+        "mime_type": "image/png",
+        "width_px": 320,
+        "height_px": 160,
+        "inspection": {
+          "asset_kind": "image",
+          "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+          "bytes": 552,
+          "format": "PNG",
+          "mime_type": "image/png",
+          "width": 320,
+          "height": 160,
+          "mode": "RGB",
+          "frame_count": 1,
+          "aspect_ratio": 2.0,
+          "dpi": null,
+          "color_profile_sha256": null,
+          "perceptual_hash": {
+            "algorithm": "dhash-9x8-white-composite-frame0",
+            "value": "0000000000000000"
+          },
+          "has_alpha": false,
+          "dominant_colors": [
+            {
+              "color": "#1A5043",
+              "fraction": 1.0
+            }
+          ],
+          "dominant_color_method": "128px thumbnail, white alpha composite, Pillow quantize 6",
+          "semantic_status": "not_inferred",
+          "ocr_status": "unsupported",
+          "issues": [
+            {
+              "code": "IMAGE_OCR_NOT_EXECUTED",
+              "requirement_ids": [
+                "IN-011"
+              ],
+              "message": "仅提取像素元数据和主色，未声称提取图片文字、语义元素或可编辑布局。"
+            }
+          ]
+        },
+        "license": "test-fixture-authorized",
+        "usage_status": "authorized",
+        "authorization_basis": "Artificial fixture authored for product integration verification",
+        "attribution": null,
+        "transform_history": [],
+        "request_metadata": null,
+        "source_refs": [],
+        "semantic_status": "caller_role_declared_not_independently_reviewed",
+        "deliberate_reuse": false,
+        "cache_status": "complete_and_hash_verified"
+      }
+    ],
+    "issues": [],
+    "duplicate_groups": [],
+    "boundary": "Real bytes/hash/MIME/pixels and caller authorization checked; semantic appropriateness, watermark, perceptual duplicates and full AST acceptance remain unproven."
+  },
+  "remaining_limits": [
+    "Independent semantic image relevance/quality review remains required.",
+    "Hierarchy/network/matrix/funnel/swimlane relation semantics and complete node acceptance remain incomplete.",
+    "Source search and image generation services are not called; materialized outputs retain query/request provenance.",
+    "Template capacity, complete styles and brand lock require downstream validation."
+  ],
+  "system_acceptance": "not_claimed"
+}

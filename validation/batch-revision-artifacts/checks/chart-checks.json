@@ -1,0 +1,205 @@
+{
+  "case": "chart",
+  "parent_run_id": "39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a",
+  "result": {
+    "ok": true,
+    "trace_id": "trace_baabc8e4-6d94-4cdc-93f8-55a3d56df4f6",
+    "operation": "revise",
+    "state": "draft_revised",
+    "run_id": "d941e05b-06bf-409a-92ff-a1eddb9569ca",
+    "parent_run_id": "39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a",
+    "artifact_root": "/runtime/runs/d941e05b-06bf-409a-92ff-a1eddb9569ca",
+    "pptx": "/runtime/runs/d941e05b-06bf-409a-92ff-a1eddb9569ca/deck.pptx",
+    "scope": {
+      "slide_ids": [
+        "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510"
+      ],
+      "object_ids": [
+        "object_212d2db5-d8b2-483d-9868-5f1e3eabb81c"
+      ]
+    },
+    "changed_parts": [
+      "ppt/charts/chart1.xml",
+      "ppt/embeddings/Microsoft_Excel_Sheet1.xlsx"
+    ],
+    "qa": {
+      "p0_issue_count": 0,
+      "status": "partial"
+    },
+    "completion": {
+      "state": "warning",
+      "final_allowed": false,
+      "p0_issue_count": 0,
+      "warning_issue_count": 4,
+      "missing_coverage": [
+        "structure",
+        "editability",
+        "geometry",
+        "fact_numeric",
+        "visual_semantic",
+        "fact_semantic",
+        "accessibility",
+        "global_consistency",
+        "powerpoint_compatibility"
+      ],
+      "missing_nodes": [],
+      "missing_acceptance": [
+        "AC-001",
+        "GOV-008"
+      ],
+      "revision_plan_status": "needs_input",
+      "reasons": [
+        "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+      ],
+      "retry": {
+        "count": 0,
+        "maximum": 2,
+        "allowed": false,
+        "next_action": "complete_missing_acceptance"
+      },
+      "error": null,
+      "system_acceptance": "not_passed"
+    },
+    "system_acceptance": "not_passed"
+  },
+  "checks": [
+    {
+      "name": "api_success",
+      "passed": true,
+      "detail": {
+        "ok": true,
+        "trace_id": "trace_baabc8e4-6d94-4cdc-93f8-55a3d56df4f6",
+        "operation": "revise",
+        "state": "draft_revised",
+        "run_id": "d941e05b-06bf-409a-92ff-a1eddb9569ca",
+        "parent_run_id": "39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a",
+        "artifact_root": "/runtime/runs/d941e05b-06bf-409a-92ff-a1eddb9569ca",
+        "pptx": "/runtime/runs/d941e05b-06bf-409a-92ff-a1eddb9569ca/deck.pptx",
+        "scope": {
+          "slide_ids": [
+            "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510"
+          ],
+          "object_ids": [
+            "object_212d2db5-d8b2-483d-9868-5f1e3eabb81c"
+          ]
+        },
+        "changed_parts": [
+          "ppt/charts/chart1.xml",
+          "ppt/embeddings/Microsoft_Excel_Sheet1.xlsx"
+        ],
+        "qa": {
+          "p0_issue_count": 0,
+          "status": "partial"
+        },
+        "completion": {
+          "state": "warning",
+          "final_allowed": false,
+          "p0_issue_count": 0,
+          "warning_issue_count": 4,
+          "missing_coverage": [
+            "structure",
+            "editability",
+            "geometry",
+            "fact_numeric",
+            "visual_semantic",
+            "fact_semantic",
+            "accessibility",
+            "global_consistency",
+            "powerpoint_compatibility"
+          ],
+          "missing_nodes": [],
+          "missing_acceptance": [
+            "AC-001",
+            "GOV-008"
+          ],
+          "revision_plan_status": "needs_input",
+          "reasons": [
+            "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+          ],
+          "retry": {
+            "count": 0,
+            "maximum": 2,
+            "allowed": false,
+            "next_action": "complete_missing_acceptance"
+          },
+          "error": null,
+          "system_acceptance": "not_passed"
+        },
+        "system_acceptance": "not_passed"
+      }
+    },
+    {
+      "name": "precise_target_scope",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_fresh_review_selected_pages",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_review_preserved_unselected_issues",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_pages_actual_render",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mapping_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "selected_fact_snapshots_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "history_has_before_after_qa",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "final_gate_still_original_baseline",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "decision_chain_ancestry_retained",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "package_members_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unselected_slides_byte_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unselected_objects_page_4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual_changed_parts_recorded",
+      "passed": true,
+      "detail": [
+        "ppt/charts/chart1.xml",
+        "ppt/embeddings/Microsoft_Excel_Sheet1.xlsx"
+      ]
+    },
+    {
+      "name": "actual_native_chart_data_matches",
+      "passed": true,
+      "detail": null
+    }
+  ]
+}

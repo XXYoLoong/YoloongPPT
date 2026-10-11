@@ -1,0 +1,256 @@
+{
+  "plan_id": "revision_plan_321830b4-35bf-4442-a907-23f951f235d5",
+  "trace_id": "trace_cbf0d314-9509-4e46-a920-3c18efd7cf30",
+  "parent_run_id": "1c6fe0b7-ed96-41f7-b4e6-fc6ecc62fdd3",
+  "status": "needs_input",
+  "scope": {
+    "slide_ids": [],
+    "object_ids": []
+  },
+  "locked_object_ids": [],
+  "locked_slide_ids": [],
+  "actions": [],
+  "blocked": [
+    {
+      "issue_id": "issue_83980fc3-375c-4288-b4de-0ab2f001a31e",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_7ad7aa66-89cb-46ad-a466-2de4a32a42de"
+    },
+    {
+      "issue_id": "issue_7a5476b6-eb96-4bfa-9165-cf712ac003c5",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_00985cef-a6cc-4966-a9fa-573ed0f61eeb"
+    },
+    {
+      "issue_id": "issue_6979758f-19db-4a6e-97cf-9f9e3479f9e1",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_fb27eaec-546f-413c-aab7-43781d5af6bf"
+    },
+    {
+      "issue_id": "issue_0ae8ea61-bf7b-4a0b-908f-e0526b20a633",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_02db7c57-19f6-483c-8e1e-ae5746733415"
+    },
+    {
+      "issue_id": "issue_ab834198-c2fd-4f57-8fcf-28c0d3a09663",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_a8b6b2dc-617d-4536-921c-c28ef10576a5"
+    },
+    {
+      "issue_id": "issue_684d0be9-db73-4ffb-98f5-11ab9c4a536d",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_e49a7923-60b0-4d90-afd1-f3e27af792fe"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate_7ad7aa66-89cb-46ad-a466-2de4a32a42de",
+      "issue_id": "issue_83980fc3-375c-4288-b4de-0ab2f001a31e",
+      "object_id": null,
+      "slide_id": "slide_24171c58-e340-4ac4-b9e7-5456ae039816",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 1,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "第2页长标题在渲染中换行显示，标题文字完整且可读，但标题字号较大导致三行占用较多空间；正文三句均完整显示，无裁切或重叠。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_83980fc3-375c-4288-b4de-0ab2f001a31e",
+          "slide_id": "slide_24171c58-e340-4ac4-b9e7-5456ae039816",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_00985cef-a6cc-4966-a9fa-573ed0f61eeb",
+      "issue_id": "issue_7a5476b6-eb96-4bfa-9165-cf712ac003c5",
+      "object_id": null,
+      "slide_id": "slide_b61bf3ca-9a63-480b-a596-0d3b2e1aaa73",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 2,
+          "severity": "P1",
+          "kind": "consistency",
+          "detail": "第3页标题为“测试分数据表（完整14行）”，但该页仅展示样本01至样本07共7行，标题中的“完整14行”与实际可见行数不一致，可能误导读者认为本页已完整呈现14行；分页说明“【原表分页展示，完整内容见同标题各页】”已标注，但标题本身仍含“完整14行”字样。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_7a5476b6-eb96-4bfa-9165-cf712ac003c5",
+          "slide_id": "slide_b61bf3ca-9a63-480b-a596-0d3b2e1aaa73",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_fb27eaec-546f-413c-aab7-43781d5af6bf",
+      "issue_id": "issue_6979758f-19db-4a6e-97cf-9f9e3479f9e1",
+      "object_id": null,
+      "slide_id": "slide_988b1c4a-ab61-4099-a92e-6e84b6f7d304",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 3,
+          "severity": "P1",
+          "kind": "consistency",
+          "detail": "第4页标题同样为“测试分数据表（完整14行）”，但该页仅展示样本08至样本14共7行，标题中的“完整14行”与实际可见行数不一致；两页合计14行，但单页标题表述可能造成误导。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_6979758f-19db-4a6e-97cf-9f9e3479f9e1",
+          "slide_id": "slide_988b1c4a-ab61-4099-a92e-6e84b6f7d304",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_02db7c57-19f6-483c-8e1e-ae5746733415",
+      "issue_id": "issue_0ae8ea61-bf7b-4a0b-908f-e0526b20a633",
+      "object_id": null,
+      "slide_id": "slide_988b1c4a-ab61-4099-a92e-6e84b6f7d304",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 3,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "第4页左侧正文仅显示“测试分”与分页说明，缺少第3页中的“表格单位：测试分。”完整表述；虽然单位“测试分”仍可见，但表述不完整，属排版一致性细节。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_0ae8ea61-bf7b-4a0b-908f-e0526b20a633",
+          "slide_id": "slide_988b1c4a-ab61-4099-a92e-6e84b6f7d304",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_a8b6b2dc-617d-4536-921c-c28ef10576a5",
+      "issue_id": "issue_ab834198-c2fd-4f57-8fcf-28c0d3a09663",
+      "object_id": null,
+      "slide_id": "slide_0b9e7253-eac3-48df-b4ee-c27800ffba00",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 0,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "第0页标题为“人工绘制示意图1-8（软件验证装饰）”，与调用方原文标题“人工绘制示意图1-8（软件验证装饰）”基本一致，但渲染中数字与括号间存在空格（“示意图 1-8 （软件验证装饰）”），属于排版空格差异，不影响理解。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_ab834198-c2fd-4f57-8fcf-28c0d3a09663",
+          "slide_id": "slide_0b9e7253-eac3-48df-b4ee-c27800ffba00",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_e49a7923-60b0-4d90-afd1-f3e27af792fe",
+      "issue_id": "issue_684d0be9-db73-4ffb-98f5-11ab9c4a536d",
+      "object_id": null,
+      "slide_id": "slide_0b9e7253-eac3-48df-b4ee-c27800ffba00",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 0,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "8张图片均为占位色块（深蓝/灰蓝色矩形），图注“人工绘制示意图1”至“人工绘制示意图8”逐字与原文一致，未发现裁切、重叠或错字；但图片本身为装饰性占位，未证明任何统计、关系或因果，与页面声明一致。",
+          "evidence_refs": [
+            "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+          ],
+          "issue_id": "issue_684d0be9-db73-4ffb-98f5-11ab9c4a536d",
+          "slide_id": "slide_0b9e7253-eac3-48df-b4ee-c27800ffba00",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    }
+  ],
+  "all_issue_ids": [
+    "issue_83980fc3-375c-4288-b4de-0ab2f001a31e",
+    "issue_7a5476b6-eb96-4bfa-9165-cf712ac003c5",
+    "issue_6979758f-19db-4a6e-97cf-9f9e3479f9e1",
+    "issue_0ae8ea61-bf7b-4a0b-908f-e0526b20a633",
+    "issue_ab834198-c2fd-4f57-8fcf-28c0d3a09663",
+    "issue_684d0be9-db73-4ffb-98f5-11ab9c4a536d"
+  ],
+  "rerun_nodes": [],
+  "preserve_unselected_objects": true,
+  "full_acceptance": "not_passed"
+}

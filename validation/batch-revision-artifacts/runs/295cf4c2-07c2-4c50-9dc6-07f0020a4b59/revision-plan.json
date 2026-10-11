@@ -1,0 +1,286 @@
+{
+  "plan_id": "revision_plan_e913a9db-def5-42e9-9c05-037347096a61",
+  "trace_id": "trace_f411e629-c88f-4004-a13a-f4b86cc93589",
+  "parent_run_id": "295cf4c2-07c2-4c50-9dc6-07f0020a4b59",
+  "status": "needs_input",
+  "scope": {
+    "slide_ids": [],
+    "object_ids": []
+  },
+  "locked_object_ids": [],
+  "locked_slide_ids": [],
+  "actions": [],
+  "blocked": [
+    {
+      "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_5315698e-3686-450e-babd-575012c743af"
+    },
+    {
+      "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_97041a89-4018-41d9-bec0-3b50ac635d42"
+    },
+    {
+      "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_89233da8-9ca9-45a0-b2ef-468012a45015"
+    },
+    {
+      "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_267c25a3-aec5-44b1-8961-971005a01e11"
+    },
+    {
+      "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_c3916ecc-1fd5-4d47-b552-9bdbb8e32acb"
+    },
+    {
+      "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_2f46319c-8d1a-40bc-be46-dde4a6702306"
+    },
+    {
+      "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_a7a10df3-f6ad-4d07-ae3a-8b7ac9a0954d"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate_5315698e-3686-450e-babd-575012c743af",
+      "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+      "object_id": null,
+      "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 1,
+          "severity": "P1",
+          "kind": "visual",
+          "detail": "占位符文本为超长英文键名（school_energy_saving_pilot.energy_consumption_reduction_target.baseline / .metric_name），在卡片内强制换行且被截断为多行，可读性差，且未显示完整键名。",
+          "evidence_refs": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+          ],
+          "issue_id": "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+          "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_97041a89-4018-41d9-bec0-3b50ac635d42",
+      "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+      "object_id": null,
+      "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 1,
+          "severity": "P2",
+          "kind": "semantic",
+          "detail": "正文以原始键名占位符呈现缺失项，对管理层读者不友好，建议改为中文可读标签（如“基线口径待补充”“指标名称待补充”）。",
+          "evidence_refs": [],
+          "issue_id": "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+          "slide_id": "slide_dfffae06-4ee8-4a1f-8a60-119d557e0bd0",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_89233da8-9ca9-45a0-b2ef-468012a45015",
+      "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+      "object_id": null,
+      "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 2,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "两个内容卡片高度远大于文本量，右侧卡片仅两行文字却占据整块区域，留白过多，版面失衡。",
+          "evidence_refs": [],
+          "issue_id": "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+          "slide_id": "slide_a1eb63f7-732f-4dfe-b89a-315691e3591a",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_267c25a3-aec5-44b1-8961-971005a01e11",
+      "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+      "object_id": null,
+      "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 3,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "三个卡片高度不一致且内容极少，下方卡片与上方卡片对齐松散，版面留白过多。",
+          "evidence_refs": [],
+          "issue_id": "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+          "slide_id": "slide_1d3bc966-2225-4fb1-890d-59b6614347d3",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_c3916ecc-1fd5-4d47-b552-9bdbb8e32acb",
+      "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+      "object_id": null,
+      "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 4,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "表格左侧说明文字与表格间距偏大，表格行高较大，整体偏空；表格本身可读，无裁切。",
+          "evidence_refs": [],
+          "issue_id": "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+          "slide_id": "slide_7a6b9da6-998c-4a30-882c-87e9223c01ad",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_2f46319c-8d1a-40bc-be46-dde4a6702306",
+      "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+      "object_id": null,
+      "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 5,
+          "severity": "P2",
+          "kind": "semantic",
+          "detail": "图表仅呈现单一8%柱状值，信息量极低，作为独立一页略显冗余，可考虑与目标页合并。",
+          "evidence_refs": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "issue_id": "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+          "slide_id": "slide_44a26c16-7074-40e4-a062-e9b7a1bb7e5a",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_a7a10df3-f6ad-4d07-ae3a-8b7ac9a0954d",
+      "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+      "object_id": null,
+      "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 7,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "标题“下一步：补齐口径后复核”在左侧换行断为“复/核”，断行位置不佳，影响标题观感。",
+          "evidence_refs": [],
+          "issue_id": "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a",
+          "slide_id": "slide_3a42b0d6-3b6f-4918-a1d9-4e0e12ada8d9",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    }
+  ],
+  "all_issue_ids": [
+    "issue_bfdacbb6-e8e8-4c29-b1cd-0fcd64370d24",
+    "issue_83690591-20c5-4802-9152-f8a9c6f5e3ed",
+    "issue_3088ad01-e549-4062-b8de-e415b065bb0e",
+    "issue_2402458b-dc85-40b8-9a4d-5b46492f81e3",
+    "issue_d2bd7e5b-3e0d-47c5-8315-9a76b2252943",
+    "issue_2479236a-b1da-4f5e-ab57-2835cd1e4433",
+    "issue_076e2ff4-7595-4207-9b9d-e978acc7e78a"
+  ],
+  "rerun_nodes": [],
+  "preserve_unselected_objects": true,
+  "full_acceptance": "not_passed"
+}

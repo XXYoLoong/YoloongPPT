@@ -1,0 +1,259 @@
+{
+  "plan_id": "revision_plan_69b88f82-4287-4717-9c5d-03950dd631dd",
+  "trace_id": "trace_c75e9fdb-cab0-4067-a818-d0c2d4d56f80",
+  "parent_run_id": "7df19731-f9ed-419d-a02a-2d40d0a81641",
+  "status": "needs_input",
+  "scope": {
+    "slide_ids": [],
+    "object_ids": []
+  },
+  "locked_object_ids": [],
+  "locked_slide_ids": [],
+  "actions": [],
+  "blocked": [
+    {
+      "issue_id": "issue_ab317447-af4b-4fbc-a9a9-444f17e2396c",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Needs explicit geometry/asset/order choice; related objects must remain unchanged",
+      "candidate_id": "candidate_f34e85f7-ee9c-4f62-a2b4-75fda19f3531"
+    },
+    {
+      "issue_id": "issue_8c75a5f1-9701-47d0-bb6a-6a4d4722fd68",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_0c26f109-245a-4a53-8db4-8e13e966e888"
+    },
+    {
+      "issue_id": "issue_b29fc558-c500-4f0f-b720-691ecfbafe68",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_66a8b537-f130-4129-aba8-5c4b2630c720"
+    },
+    {
+      "issue_id": "issue_a36e2186-5bb2-43b1-bfc1-6fbf78e09b55",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_772d06a5-8e17-4f2c-931a-e1f67a356cae"
+    },
+    {
+      "issue_id": "issue_d5b02f85-afe7-48fb-acc7-6478702ea08b",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_d5a23bb5-c9dd-43ad-84ed-d45c087bbeb7"
+    },
+    {
+      "issue_id": "issue_cc7c1b97-b446-432c-83b6-51fa5280f238",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_db2a26ff-0c24-4758-8e81-4c3cd6bc7550"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate_f34e85f7-ee9c-4f62-a2b4-75fda19f3531",
+      "issue_id": "issue_ab317447-af4b-4fbc-a9a9-444f17e2396c",
+      "object_id": "object_ed4abf06-e682-43ad-bb05-abd7ba940826",
+      "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+      "node": "asset",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Needs explicit geometry/asset/order choice; related objects must remain unchanged",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "issue_id": "issue_ab317447-af4b-4fbc-a9a9-444f17e2396c",
+          "code": "IMAGE_RESOLUTION_LOW",
+          "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+          "object_id": "object_ed4abf06-e682-43ad-bb05-abd7ba940826",
+          "severity": "P1",
+          "detail": "Image below rendering policy resolution",
+          "requirement_id": "QA-010",
+          "measurement": {
+            "pixels": [
+              320,
+              160
+            ],
+            "effective_dpi": 38.64734299516908
+          },
+          "threshold": {
+            "minimum_dpi": 96
+          },
+          "action": {
+            "node": "asset",
+            "mode": "local_revision",
+            "reason": "IMAGE_RESOLUTION_LOW"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_0c26f109-245a-4a53-8db4-8e13e966e888",
+      "issue_id": "issue_8c75a5f1-9701-47d0-bb6a-6a4d4722fd68",
+      "object_id": null,
+      "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 1,
+          "severity": "P1",
+          "kind": "visual",
+          "detail": "图片页的图片区域渲染为纯深绿色色块，未显示任何可辨识的示意图内容；虽然声明为装饰素材，但视觉上无法确认素材内容，且与“程序人工绘制的测试示意图”描述不符，影响页面可读性与素材展示目的。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_8c75a5f1-9701-47d0-bb6a-6a4d4722fd68",
+          "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_66a8b537-f130-4129-aba8-5c4b2630c720",
+      "issue_id": "issue_b29fc558-c500-4f0f-b720-691ecfbafe68",
+      "object_id": null,
+      "slide_id": "slide_74faa075-a256-44d9-8dc8-423d323d723f",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 3,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "表格行高较大，A楼、B楼、C楼三行之间留白明显，表格整体偏松散，但数值与表头清晰可读，不影响理解。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_b29fc558-c500-4f0f-b720-691ecfbafe68",
+          "slide_id": "slide_74faa075-a256-44d9-8dc8-423d323d723f",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_772d06a5-8e17-4f2c-931a-e1f67a356cae",
+      "issue_id": "issue_a36e2186-5bb2-43b1-bfc1-6fbf78e09b55",
+      "object_id": null,
+      "slide_id": "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 4,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "柱图纵轴标签“千瓦时”为竖排文字，与图表整体横向布局略不协调，但数值刻度与图例清晰，不影响数据读取。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_a36e2186-5bb2-43b1-bfc1-6fbf78e09b55",
+          "slide_id": "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_d5a23bb5-c9dd-43ad-84ed-d45c087bbeb7",
+      "issue_id": "issue_d5b02f85-afe7-48fb-acc7-6478702ea08b",
+      "object_id": null,
+      "slide_id": "slide_d59bff37-1552-4156-8997-a969e9dc6a33",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 0,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "封面标题“虚构测试：周照明用电演示”在“演”与“示”之间折行，末字“示”单独成行，标题断行不美观，建议调整字号或文本框宽度使标题完整成行。",
+          "evidence_refs": [],
+          "issue_id": "issue_d5b02f85-afe7-48fb-acc7-6478702ea08b",
+          "slide_id": "slide_d59bff37-1552-4156-8997-a969e9dc6a33",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_db2a26ff-0c24-4758-8e81-4c3cd6bc7550",
+      "issue_id": "issue_cc7c1b97-b446-432c-83b6-51fa5280f238",
+      "object_id": null,
+      "slide_id": "slide_b4ca96d3-e7af-4a26-ac30-3c4c41e4519d",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 5,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "结论页标题“结论：核对资料并按原文流程执行”在“原”与“文”之间折行，将“原文”一词拆开，影响阅读流畅性，建议调整标题宽度或字号。",
+          "evidence_refs": [],
+          "issue_id": "issue_cc7c1b97-b446-432c-83b6-51fa5280f238",
+          "slide_id": "slide_b4ca96d3-e7af-4a26-ac30-3c4c41e4519d",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    }
+  ],
+  "all_issue_ids": [
+    "issue_ab317447-af4b-4fbc-a9a9-444f17e2396c",
+    "issue_8c75a5f1-9701-47d0-bb6a-6a4d4722fd68",
+    "issue_b29fc558-c500-4f0f-b720-691ecfbafe68",
+    "issue_a36e2186-5bb2-43b1-bfc1-6fbf78e09b55",
+    "issue_d5b02f85-afe7-48fb-acc7-6478702ea08b",
+    "issue_cc7c1b97-b446-432c-83b6-51fa5280f238"
+  ],
+  "rerun_nodes": [],
+  "preserve_unselected_objects": true,
+  "full_acceptance": "not_passed"
+}

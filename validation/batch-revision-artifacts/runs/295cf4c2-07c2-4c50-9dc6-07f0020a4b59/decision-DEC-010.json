@@ -1,0 +1,123 @@
+{
+  "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+  "node_id": "DEC-010",
+  "input": {
+    "evidence_refs": [
+      "evidence_85794346-3802-4b3d-b792-359536e81038",
+      "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+      "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-010",
+      "candidate_id": "candidate_34ac1ee9-f506-4025-ba1d-6709b6867d11",
+      "value": {
+        "content_graph": {
+          "nodes": [
+            {
+              "node_id": "content_1a2e8e7bea57af133642",
+              "text": "学校节能试点",
+              "evidence_refs": [
+                "evidence_85794346-3802-4b3d-b792-359536e81038"
+              ],
+              "assumption_refs": []
+            },
+            {
+              "node_id": "content_1618ca0c9da7a43a9de1",
+              "text": "8%；%；能耗；2026年；试点\n试点2026年能耗降低8%。\n2026年；试点",
+              "evidence_refs": [
+                "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+              ],
+              "assumption_refs": []
+            },
+            {
+              "node_id": "content_0a885421ff1275b7135a",
+              "text": "8%；%；能耗；2026年；试点\n8%",
+              "evidence_refs": [
+                "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+              ],
+              "assumption_refs": []
+            }
+          ],
+          "edges": [],
+          "evidence_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038",
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ]
+        },
+        "relation_candidates": [],
+        "semantic_edges_status": "not_inferred"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_34ac1ee9-f506-4025-ba1d-6709b6867d11"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "content_graph": {
+      "nodes": [
+        {
+          "node_id": "content_1a2e8e7bea57af133642",
+          "text": "学校节能试点",
+          "evidence_refs": [
+            "evidence_85794346-3802-4b3d-b792-359536e81038"
+          ],
+          "assumption_refs": []
+        },
+        {
+          "node_id": "content_1618ca0c9da7a43a9de1",
+          "text": "8%；%；能耗；2026年；试点\n试点2026年能耗降低8%。\n2026年；试点",
+          "evidence_refs": [
+            "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+          ],
+          "assumption_refs": []
+        },
+        {
+          "node_id": "content_0a885421ff1275b7135a",
+          "text": "8%；%；能耗；2026年；试点\n8%",
+          "evidence_refs": [
+            "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+          ],
+          "assumption_refs": []
+        }
+      ],
+      "edges": [],
+      "evidence_refs": [
+        "evidence_85794346-3802-4b3d-b792-359536e81038",
+        "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+        "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+      ]
+    },
+    "relation_candidates": [],
+    "semantic_edges_status": "not_inferred"
+  },
+  "duration": 0.0,
+  "error": null
+}

@@ -1,0 +1,116 @@
+{
+  "trace_id": "trace_2b9fb2af-c004-46ef-8899-b74855ac5397",
+  "node_id": "DEC-009",
+  "input": {
+    "model_main_takeaway": "这些均为人工构造的软件验证资料，不代表现实业务；图片仅作软件验证装饰，表格数值单位为测试分。"
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-009",
+      "candidate_id": "candidate_ac35fc9f-5124-4acb-beb9-b7cbe3e6e192",
+      "value": {
+        "main_takeaway": "这些均为人工构造的软件验证资料，不代表现实业务；图片仅作软件验证装饰，表格数值单位为测试分。",
+        "supporting_points": [
+          {
+            "text": "按调用方要求用images数组保留全部8张提供的图片，逐字使用原文图注。",
+            "evidence_refs": [
+              "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "text": "完整逐字保留调用方指定的长标题与原文两句正文。",
+            "evidence_refs": [
+              "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "text": "逐字保留原文4个列名与全部14行数据，单位为测试分。",
+            "evidence_refs": [
+              "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "text": "逐字保留原文4个列名与全部14行数据，单位为测试分。",
+            "evidence_refs": [
+              "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+            ],
+            "assumption_refs": []
+          }
+        ],
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ]
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_ac35fc9f-5124-4acb-beb9-b7cbe3e6e192"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure",
+    "semantic_truth": "requires independent fact review; reference existence is not entailment proof"
+  },
+  "output": {
+    "main_takeaway": "这些均为人工构造的软件验证资料，不代表现实业务；图片仅作软件验证装饰，表格数值单位为测试分。",
+    "supporting_points": [
+      {
+        "text": "按调用方要求用images数组保留全部8张提供的图片，逐字使用原文图注。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "text": "完整逐字保留调用方指定的长标题与原文两句正文。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "text": "逐字保留原文4个列名与全部14行数据，单位为测试分。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "text": "逐字保留原文4个列名与全部14行数据，单位为测试分。",
+        "evidence_refs": [
+          "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+        ],
+        "assumption_refs": []
+      }
+    ],
+    "evidence_refs": [
+      "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

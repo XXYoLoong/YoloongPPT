@@ -1,0 +1,179 @@
+{
+  "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+  "node_id": "DEC-016",
+  "input": {
+    "page_count": 6,
+    "source_evidence_refs": [
+      "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+      "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-016",
+      "candidate_id": "candidate_4df3a9c5-0a5d-419f-bdb1-83c7cd614447",
+      "value": {
+        "intents": [
+          {
+            "page_key": "page_04bdfb478b85e43ec4dd",
+            "page_index": 0,
+            "goal": "说明演示性质与范围",
+            "core_message": "虚构测试周照明用电演示",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "page_key": "page_f07a7536ee5fd0f614c7",
+            "page_index": 1,
+            "goal": "展示已授权素材并声明其性质",
+            "core_message": "装饰素材：程序人工绘制测试示意图",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "page_key": "page_84497a06e972e407a5dd",
+            "page_index": 2,
+            "goal": "按原文呈现流程顺序",
+            "core_message": "原文明示流程：三节点与箭头",
+            "evidence_refs": [
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843",
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "page_key": "page_199a4ae1ab49b30fe534",
+            "page_index": 3,
+            "goal": "并列展示三栋楼的虚构记录值",
+            "core_message": "虚构测试数据：基线与本期并列",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "page_key": "page_fb1e4ef6bc7e09b53d85",
+            "page_index": 4,
+            "goal": "以柱图并列呈现同一组虚构数值",
+            "core_message": "虚构测试数据柱图：基线与本期",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "page_key": "page_95061d5b30f6740be5b9",
+            "page_index": 5,
+            "goal": "收束全篇并重申边界",
+            "core_message": "结论：先核对资料，再按原文流程执行",
+            "evidence_refs": [
+              "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+              "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+            ],
+            "assumption_refs": []
+          }
+        ]
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_4df3a9c5-0a5d-419f-bdb1-83c7cd614447"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "intents": [
+      {
+        "page_key": "page_04bdfb478b85e43ec4dd",
+        "page_index": 0,
+        "goal": "说明演示性质与范围",
+        "core_message": "虚构测试周照明用电演示",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "page_key": "page_f07a7536ee5fd0f614c7",
+        "page_index": 1,
+        "goal": "展示已授权素材并声明其性质",
+        "core_message": "装饰素材：程序人工绘制测试示意图",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "page_key": "page_84497a06e972e407a5dd",
+        "page_index": 2,
+        "goal": "按原文呈现流程顺序",
+        "core_message": "原文明示流程：三节点与箭头",
+        "evidence_refs": [
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843",
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "page_key": "page_199a4ae1ab49b30fe534",
+        "page_index": 3,
+        "goal": "并列展示三栋楼的虚构记录值",
+        "core_message": "虚构测试数据：基线与本期并列",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "page_key": "page_fb1e4ef6bc7e09b53d85",
+        "page_index": 4,
+        "goal": "以柱图并列呈现同一组虚构数值",
+        "core_message": "虚构测试数据柱图：基线与本期",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "page_key": "page_95061d5b30f6740be5b9",
+        "page_index": 5,
+        "goal": "收束全篇并重申边界",
+        "core_message": "结论：先核对资料，再按原文流程执行",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+        ],
+        "assumption_refs": []
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

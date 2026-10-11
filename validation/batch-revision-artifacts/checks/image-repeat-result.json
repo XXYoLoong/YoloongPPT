@@ -1,0 +1,65 @@
+{
+  "ok": true,
+  "trace_id": "trace_cbf0d314-9509-4e46-a920-3c18efd7cf30",
+  "operation": "revise",
+  "state": "draft_revised",
+  "run_id": "1c6fe0b7-ed96-41f7-b4e6-fc6ecc62fdd3",
+  "parent_run_id": "d429ecdf-96b2-4877-b88f-b3b436281e69",
+  "artifact_root": "/runtime/runs/1c6fe0b7-ed96-41f7-b4e6-fc6ecc62fdd3",
+  "pptx": "/runtime/runs/1c6fe0b7-ed96-41f7-b4e6-fc6ecc62fdd3/deck.pptx",
+  "scope": {
+    "slide_ids": [
+      "slide_0b9e7253-eac3-48df-b4ee-c27800ffba00"
+    ],
+    "object_ids": [
+      "object_1e5d5858-98d1-46ff-91a2-dcb6d58fc1db",
+      "object_03eac4e2-a48b-4902-9dd1-e10316ed78e6",
+      "object_f3fde6e2-2308-4ce6-a92e-ca3786ca6b2e",
+      "object_06713c41-b983-4515-be48-8407c62367b4"
+    ]
+  },
+  "changed_parts": [
+    "ppt/slides/slide1.xml",
+    "ppt/media/image1.png",
+    "ppt/media/image2.png"
+  ],
+  "qa": {
+    "p0_issue_count": 0,
+    "status": "partial"
+  },
+  "completion": {
+    "state": "warning",
+    "final_allowed": false,
+    "p0_issue_count": 0,
+    "warning_issue_count": 6,
+    "missing_coverage": [
+      "structure",
+      "editability",
+      "geometry",
+      "fact_numeric",
+      "visual_semantic",
+      "fact_semantic",
+      "accessibility",
+      "global_consistency",
+      "powerpoint_compatibility"
+    ],
+    "missing_nodes": [],
+    "missing_acceptance": [
+      "AC-001",
+      "GOV-008"
+    ],
+    "revision_plan_status": "needs_input",
+    "reasons": [
+      "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+    ],
+    "retry": {
+      "count": 0,
+      "maximum": 2,
+      "allowed": false,
+      "next_action": "complete_missing_acceptance"
+    },
+    "error": null,
+    "system_acceptance": "not_passed"
+  },
+  "system_acceptance": "not_passed"
+}

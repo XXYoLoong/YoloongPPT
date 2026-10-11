@@ -1,0 +1,455 @@
+{
+  "case": "chart",
+  "parent_run_id": "39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a",
+  "run_id": "d941e05b-06bf-409a-92ff-a1eddb9569ca",
+  "checks": [
+    {
+      "name": "api_success",
+      "passed": true,
+      "detail": {
+        "ok": true,
+        "trace_id": "trace_baabc8e4-6d94-4cdc-93f8-55a3d56df4f6",
+        "operation": "revise",
+        "state": "draft_revised",
+        "run_id": "d941e05b-06bf-409a-92ff-a1eddb9569ca",
+        "parent_run_id": "39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a",
+        "artifact_root": "/runtime/runs/d941e05b-06bf-409a-92ff-a1eddb9569ca",
+        "pptx": "/runtime/runs/d941e05b-06bf-409a-92ff-a1eddb9569ca/deck.pptx",
+        "scope": {
+          "slide_ids": [
+            "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510"
+          ],
+          "object_ids": [
+            "object_212d2db5-d8b2-483d-9868-5f1e3eabb81c"
+          ]
+        },
+        "changed_parts": [
+          "ppt/charts/chart1.xml",
+          "ppt/embeddings/Microsoft_Excel_Sheet1.xlsx"
+        ],
+        "qa": {
+          "p0_issue_count": 0,
+          "status": "partial"
+        },
+        "completion": {
+          "state": "warning",
+          "final_allowed": false,
+          "p0_issue_count": 0,
+          "warning_issue_count": 4,
+          "missing_coverage": [
+            "structure",
+            "editability",
+            "geometry",
+            "fact_numeric",
+            "visual_semantic",
+            "fact_semantic",
+            "accessibility",
+            "global_consistency",
+            "powerpoint_compatibility"
+          ],
+          "missing_nodes": [],
+          "missing_acceptance": [
+            "AC-001",
+            "GOV-008"
+          ],
+          "revision_plan_status": "needs_input",
+          "reasons": [
+            "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+          ],
+          "retry": {
+            "count": 0,
+            "maximum": 2,
+            "allowed": false,
+            "next_action": "complete_missing_acceptance"
+          },
+          "error": null,
+          "system_acceptance": "not_passed"
+        },
+        "system_acceptance": "not_passed"
+      }
+    },
+    {
+      "name": "precise_target_scope",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_fresh_review_selected_pages",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_review_preserved_unselected_issues",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "all_pages_actual_render",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "mapping_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "selected_fact_snapshots_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "history_has_before_after_qa",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "final_gate_still_original_baseline",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "decision_chain_ancestry_retained",
+      "passed": true,
+      "detail": []
+    },
+    {
+      "name": "package_members_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unselected_slides_byte_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unselected_objects_page_4",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "actual_changed_parts_recorded",
+      "passed": true,
+      "detail": [
+        "ppt/charts/chart1.xml",
+        "ppt/embeddings/Microsoft_Excel_Sheet1.xlsx"
+      ]
+    },
+    {
+      "name": "actual_native_chart_data_matches",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": true,
+  "qa": {
+    "qa_id": "artifact_763096d5-6ce3-4eda-9e24-c75f8ac4a456",
+    "status": "partial",
+    "issues": [
+      {
+        "issue_id": "issue_94c279ba-97b5-4598-b0b9-a3966435c3ab",
+        "code": "IMAGE_RESOLUTION_LOW",
+        "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+        "object_id": "object_ed4abf06-e682-43ad-bb05-abd7ba940826",
+        "severity": "P1",
+        "detail": "Image below rendering policy resolution",
+        "requirement_id": "QA-010",
+        "measurement": {
+          "pixels": [
+            320,
+            160
+          ],
+          "effective_dpi": 38.64734299516908
+        },
+        "threshold": {
+          "minimum_dpi": 96
+        },
+        "action": {
+          "node": "asset",
+          "mode": "local_revision",
+          "reason": "IMAGE_RESOLUTION_LOW"
+        }
+      }
+    ],
+    "checks": [
+      {
+        "kind": "structure",
+        "check": "OOXML ZIP CRC and XML parsing",
+        "status": "executed"
+      },
+      {
+        "kind": "structure",
+        "check": "Content_Types declarations and all internal relationship targets/IDs",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_d59bff37-1552-4156-8997-a969e9dc6a33",
+        "kind": "global_consistency",
+        "check": "native/background/design_variation",
+        "status": "executed",
+        "explicit_variation": true,
+        "actual_background": "192C32",
+        "spec_background": "192C32",
+        "deck_background": "F6F4EE",
+        "selected_layout": "cover",
+        "selected_candidate_ids": [
+          "candidate_06378239-c4ae-47b7-868c-759ff2d995de"
+        ]
+      },
+      {
+        "slide_id": "slide_d59bff37-1552-4156-8997-a969e9dc6a33",
+        "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+        "kind": "global_consistency",
+        "check": "native/background/design_variation",
+        "status": "executed",
+        "explicit_variation": false,
+        "actual_background": "F6F4EE",
+        "spec_background": "F6F4EE",
+        "deck_background": "F6F4EE",
+        "selected_layout": "image",
+        "selected_candidate_ids": [
+          "candidate_556f62dc-3620-4f96-a0da-498d7ccf78e5"
+        ]
+      },
+      {
+        "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+        "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_6e8ba510-53c2-4ce5-a8e7-9a438733b528",
+        "kind": "global_consistency",
+        "check": "native/background/design_variation",
+        "status": "executed",
+        "explicit_variation": false,
+        "actual_background": "F6F4EE",
+        "spec_background": "F6F4EE",
+        "deck_background": "F6F4EE",
+        "selected_layout": "diagram",
+        "selected_candidate_ids": [
+          "candidate_198cebbc-3dea-49da-9b0a-97c86dbb28a9"
+        ]
+      },
+      {
+        "slide_id": "slide_6e8ba510-53c2-4ce5-a8e7-9a438733b528",
+        "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_74faa075-a256-44d9-8dc8-423d323d723f",
+        "kind": "global_consistency",
+        "check": "native/background/design_variation",
+        "status": "executed",
+        "explicit_variation": false,
+        "actual_background": "F6F4EE",
+        "spec_background": "F6F4EE",
+        "deck_background": "F6F4EE",
+        "selected_layout": "table",
+        "selected_candidate_ids": [
+          "candidate_04ff710f-2195-4d8f-9037-d8c295cf0dfe"
+        ]
+      },
+      {
+        "slide_id": "slide_74faa075-a256-44d9-8dc8-423d323d723f",
+        "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510",
+        "kind": "global_consistency",
+        "check": "native/background/design_variation",
+        "status": "executed",
+        "explicit_variation": false,
+        "actual_background": "F6F4EE",
+        "spec_background": "F6F4EE",
+        "deck_background": "F6F4EE",
+        "selected_layout": "chart",
+        "selected_candidate_ids": [
+          "candidate_8c134d7a-ec32-41f6-a282-70e3c99b63f5"
+        ]
+      },
+      {
+        "slide_id": "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510",
+        "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_b4ca96d3-e7af-4a26-ac30-3c4c41e4519d",
+        "kind": "global_consistency",
+        "check": "native/background/design_variation",
+        "status": "executed",
+        "explicit_variation": true,
+        "actual_background": "F6F4EE",
+        "spec_background": "F6F4EE",
+        "deck_background": "F6F4EE",
+        "selected_layout": "closing",
+        "selected_candidate_ids": [
+          "candidate_28d90d32-bb5d-438c-bb25-83bc4f087cb4"
+        ]
+      },
+      {
+        "slide_id": "slide_b4ca96d3-e7af-4a26-ac30-3c4c41e4519d",
+        "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_d59bff37-1552-4156-8997-a969e9dc6a33",
+        "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+        "object_id": "object_ed4abf06-e682-43ad-bb05-abd7ba940826",
+        "kind": "asset_metadata_namespace",
+        "check": "same-page native image bytes/sha256 and pixel dimensions",
+        "status": "executed",
+        "namespace": "native_image_dimensions",
+        "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+        "sha256": "39d342647263fb6293f038dd7d983b606c79469f62f9cbdee673b6fd76b48e0e",
+        "actual_dimensions_px": [
+          320,
+          160
+        ],
+        "native_format": "png",
+        "matched_span": "320×160 PNG",
+        "span_start": 54,
+        "span_end": 65,
+        "reason": "Only this explicit verified dimension token is metadata, not a business fact allowance"
+      },
+      {
+        "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab",
+        "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_6e8ba510-53c2-4ce5-a8e7-9a438733b528",
+        "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_74faa075-a256-44d9-8dc8-423d323d723f",
+        "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510",
+        "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+        "status": "executed"
+      },
+      {
+        "slide_id": "slide_b4ca96d3-e7af-4a26-ac30-3c4c41e4519d",
+        "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+        "status": "executed"
+      }
+    ],
+    "p0_issue_count": 0,
+    "coverage": {
+      "structure": "partial",
+      "editability": "partial",
+      "geometry": "partial",
+      "fact_numeric": "partial",
+      "visual_semantic": "model_review_executed_with_unchanged_page_evidence_reuse",
+      "fact_semantic": "model_review_executed_with_unchanged_page_evidence_reuse",
+      "accessibility": "partial_native_alt_font_contrast_table_header_reading_order",
+      "powerpoint_compatibility": "not_executed",
+      "global_consistency": "partial_style_font_footer_hierarchy",
+      "visual_geometry": "partial_collision_geometry_contrast_image_dpi",
+      "image_semantics": "not_executed",
+      "full_semantic_reading_order": "not_executed"
+    },
+    "acceptance": {
+      "AC-001": "not_passed",
+      "GOV-008": "not_passed"
+    },
+    "reason": "Numeric membership is not semantic truth; PNG/text presence is not visual approval. Full DEC/QA/revision acceptance remains required.",
+    "model_review": {
+      "checked_slide_orders": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "fresh_checked_slide_orders": [
+        4
+      ],
+      "issues": [
+        {
+          "slide_order": 1,
+          "severity": "P1",
+          "kind": "visual",
+          "detail": "图片页的图片区域渲染为纯深绿色色块，未显示任何可辨识的示意图内容；虽然声明为装饰素材，但视觉上无法确认素材内容，且与“程序人工绘制的测试示意图”描述不符，影响页面可读性与素材展示目的。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_8c75a5f1-9701-47d0-bb6a-6a4d4722fd68",
+          "slide_id": "slide_ed87186a-ecad-4a1f-93c2-a632193400ab"
+        },
+        {
+          "slide_order": 3,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "表格行高较大，A楼、B楼、C楼三行之间留白明显，表格整体偏松散，但数值与表头清晰可读，不影响理解。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_b29fc558-c500-4f0f-b720-691ecfbafe68",
+          "slide_id": "slide_74faa075-a256-44d9-8dc8-423d323d723f"
+        },
+        {
+          "slide_order": 4,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "柱图图例顺序为“本期、基线”，与标题“基线与本期”及左侧正文“基线与本期”的叙述顺序相反；同时柱体排列为每组先本期后基线，与标题顺序不一致。虽不影响数值读取，但顺序不统一可能造成轻微阅读混淆。",
+          "evidence_refs": [
+            "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+          ],
+          "issue_id": "issue_7635329d-a38c-4330-a8a8-18fe51b560fc",
+          "slide_id": "slide_7b0e971b-2ffc-45f6-bc6b-825aa688c510"
+        }
+      ],
+      "summary": "本次仅复审第4页（柱图页）。该页标题、正文、图表数值与单位均与证据一致：A楼基线100/本期90、B楼基线80/本期72、C楼基线60/本期54，单位千瓦时，且明确标注为虚构记录值、只做并列展示、不推断因果，未出现降幅或趋势等被禁止的推断。图表可读，无裁切、重叠或错字。唯一发现为P2级顺序一致性问题：图例与柱体顺序（本期在前）与标题/正文“基线与本期”的叙述顺序相反。未附图页面未做视觉复审，其质量维持先前结论。",
+      "carried_from_run": "39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a"
+    }
+  },
+  "completion": {
+    "state": "warning",
+    "final_allowed": false,
+    "p0_issue_count": 0,
+    "warning_issue_count": 4,
+    "missing_coverage": [
+      "structure",
+      "editability",
+      "geometry",
+      "fact_numeric",
+      "visual_semantic",
+      "fact_semantic",
+      "accessibility",
+      "global_consistency",
+      "powerpoint_compatibility"
+    ],
+    "missing_nodes": [],
+    "missing_acceptance": [
+      "AC-001",
+      "GOV-008"
+    ],
+    "revision_plan_status": "needs_input",
+    "reasons": [
+      "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+    ],
+    "retry": {
+      "count": 0,
+      "maximum": 2,
+      "allowed": false,
+      "next_action": "complete_missing_acceptance"
+    },
+    "error": null,
+    "system_acceptance": "not_passed"
+  }
+}

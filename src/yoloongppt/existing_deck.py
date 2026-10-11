@@ -171,6 +171,45 @@ def _text_property_child(prop, tag):
     prop.insert(index,child);return child
 
 
+def _patch_targets(before, request, parts):
+    """Resolve the complete batch, then reject locks/conflicting writes before execution."""
+    selected=[]
+    for patch in request['patches']:
+        item=select_objects(before, {'object_id':patch['object_id']} if 'object_id' in patch else patch['selector'])
+        selected.append((patch,item))
+    locked=set(request.get('locked_object_ids',[])); protected=set(locked)
+    # A locked native group protects its children, even if a child is selected directly.
+    for sid,part in _slides(parts):
+        for node,identity in _objects(_xml(parts[part])):
+            if f'pptx:s{sid}:shape{identity.get("id")}' in locked:
+                protected.update(f'pptx:s{sid}:shape{i.get("id")}' for _,i in _objects_in_group(node))
+    if any(item['object_id'] in protected for _,item in selected):
+        fail('REVISION_OBJECT_LOCKED','批次包含已锁定对象或锁定组合的子对象，未执行修改。')
+    writes=set()
+    for patch,item in selected:
+        operation=patch['operation'];value=patch['value']
+        if operation=='notes':
+            # Notes are slide-scoped; different selected shapes can still address the same body.
+            notes=next((v['target'] for v in _rels(parts,item['part']).values() if v['type'].endswith('/notesSlide') and not v['external']),None)
+            key=(notes or item['part'],operation)
+        elif operation=='table_cell':
+            key=(item['object_id'],operation,value['row'],value['column'])
+        else: key=(item['object_id'],operation)
+        if key in writes: fail('REVISION_PATCH_CONFLICT','批次重复修改同一属性、单元格或备注，未选择隐式覆盖顺序。')
+        writes.add(key)
+    return selected
+
+
+def _objects_in_group(node):
+    for child in node.xpath('.//p:sp|.//p:pic|.//p:graphicFrame|.//p:cxnSp|.//p:grpSp',namespaces=NS):
+        identity=child.xpath('./p:nvSpPr/p:cNvPr|./p:nvPicPr/p:cNvPr|./p:nvGraphicFramePr/p:cNvPr|./p:nvCxnSpPr/p:cNvPr|./p:nvGrpSpPr/p:cNvPr',namespaces=NS)
+        if identity: yield child,identity[0]
+
+
+def _incoming(parts, target):
+    return sum(v['target']==target for n in parts if n.endswith('.xml') for v in _rels(parts,n).values() if not v['external'])
+
+
 def apply_patch(source_path, output_path, request):
     """Atomic save-as; audit all changed and untouched payload hashes."""
     source_path=Path(source_path); output_path=Path(output_path)
@@ -183,12 +222,10 @@ def apply_patch(source_path, output_path, request):
         fail('REVISION_OPERATION_UNSUPPORTED','修改操作未实现，未执行降级。')
     from .schemas import SchemaRegistry
     SchemaRegistry().validate('existing-deck-patch.schema.json',request)
-    infos,parts=_package(source_path); original=dict(parts); roots={}; history=[]; locked=set(request.get('locked_object_ids',[]))
+    infos,parts=_package(source_path); original=dict(parts); roots={}; history=[]
     if any(n.startswith('_xmlsignatures/') for n in parts): fail('SIGNED_DECK_UNSUPPORTED','签名演示文稿不能在未处理签名策略时修改。')
-    for patch in request['patches']:
-        if set(patch)-{'object_id','selector','operation','value'} or ('object_id' in patch) == ('selector' in patch): fail('REVISION_PATCH_INVALID','补丁须提供一种对象选择方式。')
-        item=select_objects(before, {'object_id':patch['object_id']} if 'object_id' in patch else patch['selector'])
-        if item['object_id'] in locked: fail('REVISION_OBJECT_LOCKED','对象已锁定，未执行修改。')
+    selected=_patch_targets(before,request,parts)
+    for patch,item in selected:
         part=item['part']; root=roots.setdefault(part,_xml(parts[part]))
         node,identity=next((n,i) for n,i in _objects(root) if int(i.get('id'))==item['shape_id'])
         operation=patch.get('operation'); value=patch.get('value')
@@ -205,6 +242,7 @@ def apply_patch(source_path, output_path, request):
             xfrm=node.xpath('./p:spPr/a:xfrm|./p:xfrm',namespaces=NS)
             if not xfrm: fail('OBJECT_GEOMETRY_UNSUPPORTED','目标没有本地几何；不覆盖继承属性。')
             off=xfrm[0].find('a:off',NS);ext=xfrm[0].find('a:ext',NS)
+            if off is None or ext is None: fail('OBJECT_GEOMETRY_UNSUPPORTED','目标本地几何缺少位置或尺寸。')
             for name,v in zip(('x','y'),value[:2]): off.set(name,str(round(v*914400)))
             for name,v in zip(('cx','cy'),value[2:]): ext.set(name,str(round(v*914400)))
         elif operation == 'format':
@@ -248,8 +286,20 @@ def apply_patch(source_path, output_path, request):
             _set_text(cell.find('a:txBody',NS),value['text'])
         elif operation == 'chart_data':
             if 'chart_part' not in item: fail('OBJECT_TYPE_UNSUPPORTED','目标不是原生图表。')
-            chart_part=item['chart_part']; incoming=sum(v['target']==chart_part for n in parts if n.endswith('.xml') for v in _rels(parts,n).values() if not v['external'])
-            if incoming!=1: fail('SHARED_CHART_UNSUPPORTED','共享图表部件不能局部替换。')
+            chart_part=item['chart_part']
+            chart_rid=node.xpath('.//c:chart/@r:id',namespaces=NS)[0]
+            occurrences=len(root.xpath('//c:chart[@r:id=$rid]',namespaces=NS,rid=chart_rid))
+            if _incoming(parts,chart_part)!=1 or occurrences!=1: fail('SHARED_CHART_UNSUPPORTED','共享图表部件不能局部替换。')
+            plots=_xml(parts[chart_part]).xpath('//c:plotArea/*[c:ser]',namespaces=NS)
+            if len(plots)!=1 or etree.QName(plots[0]).localname not in {'barChart','lineChart','pieChart','areaChart'}:
+                fail('CHART_TYPE_UNSUPPORTED','当前类别数据修订未实现该图表类型或组合图表。')
+            allowed_parts={chart_part}; related=_rels(parts,chart_part)
+            for v in related.values():
+                if v['external']: fail('LINKED_CHART_UNSUPPORTED','外部链接图表需要单独策略。')
+                if v['type'].endswith('/package'):
+                    if _incoming(parts,v['target'])!=1: fail('SHARED_CHART_WORKBOOK_UNSUPPORTED','共享内嵌工作簿不能局部替换。')
+                    allowed_parts.add(v['target'])
+            if len(allowed_parts)!=2 or not any(n.endswith('.xlsx') for n in allowed_parts): fail('CHART_WORKBOOK_UNSUPPORTED','图表须有唯一已存在的内嵌工作簿。')
             # Load current edited package so multiple chart patches cannot reset earlier ones.
             current=dict(parts)
             for n,r in roots.items(): current[n]=_write_xml(r)
@@ -262,11 +312,6 @@ def apply_patch(source_path, output_path, request):
                     yield shape
                     if hasattr(shape,'shapes'): yield from recursive(shape.shapes)
             shape=next(s for s in recursive(slide.shapes) if s.shape_id==item['shape_id'])
-            allowed_parts={chart_part}; related=_rels(parts,chart_part)
-            for v in related.values():
-                if v['external']: fail('LINKED_CHART_UNSUPPORTED','外部链接图表需要单独策略。')
-                if v['type'].endswith('/package'): allowed_parts.add(v['target'])
-            if not any(n.endswith('.xlsx') for n in allowed_parts): fail('CHART_WORKBOOK_UNSUPPORTED','图表缺少已存在的内嵌工作簿。')
             shape.chart.replace_data(chart_data(value)); saved=io.BytesIO();prs.save(saved)
             with zipfile.ZipFile(saved) as z:
                 for n in allowed_parts: parts[n]=z.read(n)
@@ -275,21 +320,24 @@ def apply_patch(source_path, output_path, request):
             if not blips or not isinstance(value,dict) or set(value)!={'path'}: fail('OBJECT_TYPE_UNSUPPORTED','图片替换需要图片对象和文件路径。')
             rel=_rels(parts,part).get(blips[0].get('{'+NS['r']+'}embed'))
             if not rel or rel['external']: fail('LINKED_IMAGE_UNSUPPORTED','链接图片不能隐式改为嵌入图片。')
-            target=rel['target']; refs=sum(v['target']==target for n in parts if n.endswith('.xml') for v in _rels(parts,n).values() if not v['external'])
+            target=rel['target']; refs=_incoming(parts,target)
             occurrences=len(root.xpath('//a:blip[@r:embed=$rid]',namespaces=NS,rid=blips[0].get('{'+NS['r']+'}embed')))
             if refs!=1 or occurrences>1: fail('SHARED_IMAGE_UNSUPPORTED','共享图片替换会扩大范围，已阻断。')
             from PIL import Image
             replacement=local_asset(value['path']);blob=replacement.read_bytes()
             if len(blob)>32*1024*1024: fail('IMAGE_SIZE_LIMIT','替换图片超过 32 MiB。')
-            with Image.open(io.BytesIO(blob)) as image:
-                ext={'.png':'PNG','.jpeg':'JPEG','.jpg':'JPEG'}.get(Path(target).suffix.lower())
-                if ext is None or image.format!=ext: fail('IMAGE_FORMAT_CHANGED','须保持图片原部件格式；未静默转换。')
-                if image.width*image.height>40_000_000: fail('IMAGE_SIZE_LIMIT','替换图片超过 4000 万像素。')
-                image.verify()
+            try:
+                with Image.open(io.BytesIO(blob)) as image:
+                    ext={'.png':'PNG','.jpeg':'JPEG','.jpg':'JPEG'}.get(Path(target).suffix.lower())
+                    if ext is None or image.format!=ext: fail('IMAGE_FORMAT_CHANGED','须保持图片原部件格式；未静默转换。')
+                    if image.width*image.height>40_000_000: fail('IMAGE_SIZE_LIMIT','替换图片超过 4000 万像素。')
+                    image.verify()
+            except (OSError,ValueError): fail('IMAGE_FILE_INVALID','替换图片损坏或无法解码。')
             parts[target]=blob
         elif operation == 'notes':
             notes=next((v['target'] for v in _rels(parts,part).values() if v['type'].endswith('/notesSlide') and not v['external']),None)
             if not notes: fail('NOTES_CREATION_UNSUPPORTED','没有既有备注部件，未隐式创建。')
+            if _incoming(parts,notes)!=1: fail('SHARED_NOTES_UNSUPPORTED','共享备注部件不能局部替换。')
             note=roots.setdefault(notes,_xml(parts[notes])); candidates=note.xpath('//p:sp[p:nvSpPr/p:nvPr/p:ph[@type="body"]]/p:txBody',namespaces=NS)
             if len(candidates)!=1: fail('NOTES_BODY_UNSUPPORTED','备注正文占位符不唯一。')
             _set_text(candidates[0],value)
@@ -317,12 +365,22 @@ def apply_patch(source_path, output_path, request):
             for shape_id,blob in old.items():
                 descendants={f'pptx:s{sid}:shape{i.get("id")}' for i in original_nodes[shape_id].xpath('.//p:cNvPr',namespaces=NS)}
                 if f'pptx:s{sid}:shape{shape_id}' not in targeted and not descendants.intersection(targeted) and blob!=new.get(shape_id): fail('PRESERVATION_OBJECT_CHANGED','非目标对象发生变化。')
+        if hashlib.sha256(source_path.read_bytes()).hexdigest()!=before['source_sha256']:
+            fail('REVISION_SOURCE_CHANGED','执行期间源文件发生变化，未发布输出。')
+        after_objects={o['object_id']:o for s in after['slides'] for o in s['objects']}
+        for entry in history:
+            entry['after']=after_objects[entry['object_id']]
+            if entry['operation']=='notes':
+                entry['before_notes']=next(s['notes'] for s in before['slides'] if s['part']==entry['before']['part'])
+                entry['after_notes']=next(s['notes'] for s in after['slides'] if s['part']==entry['after']['part'])
         # Hard-link atomically refuses an output created by another writer.
         os.link(temporary,output_path); temporary.unlink()
     except Exception:
         if temporary.exists(): temporary.unlink()
         raise
     return {'source_sha256':before['source_sha256'],'output_sha256':after['source_sha256'],'changed_parts':changed,
-            'preserved_parts':[n for n in parts if n not in changed], 'part_hashes':after['parts'], 'history':history,
+            'preserved_parts':[n for n in parts if n not in changed], 'part_hashes':after['parts'], 'part_hashes_before':before['parts'], 'history':history,
+            'scope':{'object_ids':list(dict.fromkeys(item['object_id'] for _,item in selected)),
+                     'slide_parts':list(dict.fromkeys(item['part'] for _,item in selected))},
             'after':after,'preservation':{'unchanged_member_payloads':'byte_identical','untargeted_shapes':'XML_identical',
             'system_acceptance':'not_passed','qa':'not_executed','limitations':before['limitations']}}

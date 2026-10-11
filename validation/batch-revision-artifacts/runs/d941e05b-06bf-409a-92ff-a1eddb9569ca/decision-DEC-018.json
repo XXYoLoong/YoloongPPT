@@ -1,0 +1,247 @@
+{
+  "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+  "node_id": "DEC-018",
+  "input": {
+    "page_count": 6,
+    "source_evidence_refs": [
+      "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+      "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-018",
+      "candidate_id": "candidate_c2c01055-0a90-4290-9e82-35a59df2491f",
+      "value": {
+        "content_budgets": [
+          {
+            "page_key": "page_04bdfb478b85e43ec4dd",
+            "title_max_characters": 60,
+            "body_max_characters": 180,
+            "list_max_items": 6,
+            "table_max_columns": 6,
+            "table_max_rows": 8,
+            "actual_title_characters": 11,
+            "actual_body_characters": 43,
+            "notes_characters": 60,
+            "images": {
+              "capacity": 0,
+              "status": "not_selected"
+            },
+            "geometry_capacity_status": "subsequent native-layout capacity decision required"
+          },
+          {
+            "page_key": "page_f07a7536ee5fd0f614c7",
+            "title_max_characters": 60,
+            "body_max_characters": 100,
+            "list_max_items": 2,
+            "table_max_columns": 6,
+            "table_max_rows": 8,
+            "actual_title_characters": 16,
+            "actual_body_characters": 48,
+            "notes_characters": 131,
+            "images": {
+              "capacity": 0,
+              "status": "not_selected"
+            },
+            "geometry_capacity_status": "subsequent native-layout capacity decision required"
+          },
+          {
+            "page_key": "page_84497a06e972e407a5dd",
+            "title_max_characters": 60,
+            "body_max_characters": 100,
+            "list_max_items": 2,
+            "table_max_columns": 6,
+            "table_max_rows": 8,
+            "actual_title_characters": 13,
+            "actual_body_characters": 35,
+            "notes_characters": 108,
+            "images": {
+              "capacity": 0,
+              "status": "not_selected"
+            },
+            "geometry_capacity_status": "subsequent native-layout capacity decision required"
+          },
+          {
+            "page_key": "page_199a4ae1ab49b30fe534",
+            "title_max_characters": 60,
+            "body_max_characters": 100,
+            "list_max_items": 2,
+            "table_max_columns": 6,
+            "table_max_rows": 8,
+            "actual_title_characters": 14,
+            "actual_body_characters": 36,
+            "notes_characters": 96,
+            "images": {
+              "capacity": 0,
+              "status": "not_selected"
+            },
+            "geometry_capacity_status": "subsequent native-layout capacity decision required"
+          },
+          {
+            "page_key": "page_fb1e4ef6bc7e09b53d85",
+            "title_max_characters": 60,
+            "body_max_characters": 100,
+            "list_max_items": 2,
+            "table_max_columns": 6,
+            "table_max_rows": 8,
+            "actual_title_characters": 14,
+            "actual_body_characters": 36,
+            "notes_characters": 67,
+            "images": {
+              "capacity": 0,
+              "status": "not_selected"
+            },
+            "geometry_capacity_status": "subsequent native-layout capacity decision required"
+          },
+          {
+            "page_key": "page_95061d5b30f6740be5b9",
+            "title_max_characters": 60,
+            "body_max_characters": 180,
+            "list_max_items": 6,
+            "table_max_columns": 6,
+            "table_max_rows": 8,
+            "actual_title_characters": 17,
+            "actual_body_characters": 66,
+            "notes_characters": 101,
+            "images": {
+              "capacity": 0,
+              "status": "not_selected"
+            },
+            "geometry_capacity_status": "subsequent native-layout capacity decision required"
+          }
+        ]
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_c2c01055-0a90-4290-9e82-35a59df2491f"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "content_budgets": [
+      {
+        "page_key": "page_04bdfb478b85e43ec4dd",
+        "title_max_characters": 60,
+        "body_max_characters": 180,
+        "list_max_items": 6,
+        "table_max_columns": 6,
+        "table_max_rows": 8,
+        "actual_title_characters": 11,
+        "actual_body_characters": 43,
+        "notes_characters": 60,
+        "images": {
+          "capacity": 0,
+          "status": "not_selected"
+        },
+        "geometry_capacity_status": "subsequent native-layout capacity decision required"
+      },
+      {
+        "page_key": "page_f07a7536ee5fd0f614c7",
+        "title_max_characters": 60,
+        "body_max_characters": 100,
+        "list_max_items": 2,
+        "table_max_columns": 6,
+        "table_max_rows": 8,
+        "actual_title_characters": 16,
+        "actual_body_characters": 48,
+        "notes_characters": 131,
+        "images": {
+          "capacity": 0,
+          "status": "not_selected"
+        },
+        "geometry_capacity_status": "subsequent native-layout capacity decision required"
+      },
+      {
+        "page_key": "page_84497a06e972e407a5dd",
+        "title_max_characters": 60,
+        "body_max_characters": 100,
+        "list_max_items": 2,
+        "table_max_columns": 6,
+        "table_max_rows": 8,
+        "actual_title_characters": 13,
+        "actual_body_characters": 35,
+        "notes_characters": 108,
+        "images": {
+          "capacity": 0,
+          "status": "not_selected"
+        },
+        "geometry_capacity_status": "subsequent native-layout capacity decision required"
+      },
+      {
+        "page_key": "page_199a4ae1ab49b30fe534",
+        "title_max_characters": 60,
+        "body_max_characters": 100,
+        "list_max_items": 2,
+        "table_max_columns": 6,
+        "table_max_rows": 8,
+        "actual_title_characters": 14,
+        "actual_body_characters": 36,
+        "notes_characters": 96,
+        "images": {
+          "capacity": 0,
+          "status": "not_selected"
+        },
+        "geometry_capacity_status": "subsequent native-layout capacity decision required"
+      },
+      {
+        "page_key": "page_fb1e4ef6bc7e09b53d85",
+        "title_max_characters": 60,
+        "body_max_characters": 100,
+        "list_max_items": 2,
+        "table_max_columns": 6,
+        "table_max_rows": 8,
+        "actual_title_characters": 14,
+        "actual_body_characters": 36,
+        "notes_characters": 67,
+        "images": {
+          "capacity": 0,
+          "status": "not_selected"
+        },
+        "geometry_capacity_status": "subsequent native-layout capacity decision required"
+      },
+      {
+        "page_key": "page_95061d5b30f6740be5b9",
+        "title_max_characters": 60,
+        "body_max_characters": 180,
+        "list_max_items": 6,
+        "table_max_columns": 6,
+        "table_max_rows": 8,
+        "actual_title_characters": 17,
+        "actual_body_characters": 66,
+        "notes_characters": 101,
+        "images": {
+          "capacity": 0,
+          "status": "not_selected"
+        },
+        "geometry_capacity_status": "subsequent native-layout capacity decision required"
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

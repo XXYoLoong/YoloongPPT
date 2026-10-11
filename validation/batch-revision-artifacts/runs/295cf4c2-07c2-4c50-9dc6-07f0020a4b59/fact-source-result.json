@@ -1,0 +1,655 @@
+{
+  "ok": true,
+  "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+  "operation": "inspect_sources",
+  "task_id": "task_c2474677-adeb-48b1-8b43-6db30ffebf56",
+  "source_bundle": {
+    "record_type": "source_bundle_result",
+    "status": "partial",
+    "bundle": {
+      "model_type": "SourceBundle",
+      "sources": [
+        {
+          "source_id": "source_820463fd-5ac5-42b0-9391-c30e23edb096",
+          "input_order": 0,
+          "kind": "text",
+          "locator": null,
+          "raw_text": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [],
+          "content_sha256": "c6d45f7eea1ee434b66491f12a952977eb2e473cf6cc6dbd2376f8d7c98d4b1d",
+          "priority_rank": null,
+          "claims": []
+        },
+        {
+          "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+          "input_order": 1,
+          "kind": "file",
+          "locator": "/runtime/input-format-validation/school-source.docx",
+          "raw_text": null,
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [
+            "asset_21c4da42-0f49-4ea6-888c-43a50b006b73"
+          ],
+          "content_sha256": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+          "priority_rank": null,
+          "claims": []
+        }
+      ],
+      "source_priority_policy": {
+        "status": "unresolved",
+        "decision_id": "DEC-004",
+        "task_id": "TASK-DEC-004",
+        "precedence_source_ids": [],
+        "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+      },
+      "dedup_policy": {
+        "mode": "hash_candidates_only",
+        "keep_all_sources": true
+      },
+      "duplicate_groups": [],
+      "conflicts": []
+    },
+    "coverage": [
+      {
+        "feature": "source_identity",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "source_anchors",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "priority",
+        "status": "partial",
+        "reason": "DEC-004尚未执行。"
+      },
+      {
+        "feature": "conflict_detection",
+        "status": "unsupported",
+        "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+      },
+      {
+        "feature": "deduplication",
+        "status": "partial",
+        "reason": "仅SHA候选，不删除来源。"
+      }
+    ],
+    "errors": []
+  },
+  "documents": [
+    {
+      "source_id": "source_820463fd-5ac5-42b0-9391-c30e23edb096",
+      "document": {
+        "record_type": "markdown_parse_result",
+        "raw_markdown": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+        "source": {
+          "kind": "raw_text",
+          "source_ref": "raw_markdown"
+        },
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "document": {
+          "model_type": "TextDocumentModel",
+          "source": {
+            "kind": "raw_text",
+            "source_ref": "raw_markdown"
+          },
+          "blocks": [
+            {
+              "kind": "paragraph",
+              "block_index": 0,
+              "source_location": {
+                "source_ref": "raw_markdown",
+                "start_offset": 0,
+                "end_offset": 114,
+                "offset_unit": "unicode_code_point",
+                "line_start": 1,
+                "line_end": 1
+              },
+              "content": [
+                {
+                  "kind": "text",
+                  "text": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+                  "source_location": {
+                    "source_ref": "raw_markdown",
+                    "start_offset": 0,
+                    "end_offset": 114,
+                    "offset_unit": "unicode_code_point",
+                    "line_start": 1,
+                    "line_end": 1
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted."
+    },
+    {
+      "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+      "document": {
+        "format": "docx",
+        "stories": [
+          {
+            "part": "word/document.xml",
+            "story": "body",
+            "blocks": [
+              {
+                "kind": "heading",
+                "text": "学校节能试点",
+                "style_id": "Heading1",
+                "hyperlinks": [],
+                "images": [],
+                "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:pPr><ns0:pStyle ns0:val=\"Heading1\" /></ns0:pPr><ns0:r><ns0:t>学校节能试点</ns0:t></ns0:r></ns0:p>\n",
+                "paragraph_index": 0,
+                "style_name": "heading 1"
+              },
+              {
+                "kind": "paragraph",
+                "text": "试点2026年能耗降低8%。",
+                "style_id": null,
+                "hyperlinks": [
+                  {
+                    "relationship_id": "rId1",
+                    "anchor": null,
+                    "text": "试点2026年能耗降低8%。"
+                  }
+                ],
+                "images": [],
+                "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:ns1=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"><ns0:hyperlink ns1:id=\"rId1\"><ns0:r><ns0:t>试点2026年能耗降低8%。</ns0:t></ns0:r></ns0:hyperlink></ns0:p>\n",
+                "paragraph_index": 1,
+                "style_name": null
+              },
+              {
+                "kind": "table",
+                "table_index": 0,
+                "rows": [
+                  [
+                    {
+                      "kind": "table_cell",
+                      "paragraphs": [
+                        {
+                          "kind": "paragraph",
+                          "text": "指标",
+                          "style_id": null,
+                          "hyperlinks": [],
+                          "images": [],
+                          "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:r><ns0:t>指标</ns0:t></ns0:r></ns0:p>"
+                        }
+                      ],
+                      "text": "指标",
+                      "nested_table_count": 0,
+                      "raw_xml": "<ns0:tc xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:p><ns0:r><ns0:t>指标</ns0:t></ns0:r></ns0:p></ns0:tc>"
+                    },
+                    {
+                      "kind": "table_cell",
+                      "paragraphs": [
+                        {
+                          "kind": "paragraph",
+                          "text": "8%",
+                          "style_id": null,
+                          "hyperlinks": [],
+                          "images": [],
+                          "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:r><ns0:t>8%</ns0:t></ns0:r></ns0:p>"
+                        }
+                      ],
+                      "text": "8%",
+                      "nested_table_count": 0,
+                      "raw_xml": "<ns0:tc xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:p><ns0:r><ns0:t>8%</ns0:t></ns0:r></ns0:p></ns0:tc>"
+                    }
+                  ]
+                ],
+                "raw_xml": "<ns0:tbl xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:tr><ns0:tc><ns0:p><ns0:r><ns0:t>指标</ns0:t></ns0:r></ns0:p></ns0:tc><ns0:tc><ns0:p><ns0:r><ns0:t>8%</ns0:t></ns0:r></ns0:p></ns0:tc></ns0:tr></ns0:tbl>\n"
+              },
+              {
+                "kind": "paragraph",
+                "text": "",
+                "style_id": null,
+                "hyperlinks": [],
+                "images": [
+                  {
+                    "relationship_id": "rId2",
+                    "external_relationship_id": null
+                  }
+                ],
+                "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:ns1=\"http://schemas.openxmlformats.org/drawingml/2006/main\" xmlns:ns2=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"><ns0:r><ns0:drawing><ns1:blip ns2:embed=\"rId2\" /></ns0:drawing></ns0:r></ns0:p>",
+                "paragraph_index": 2,
+                "style_name": null
+              }
+            ],
+            "relationships": [
+              {
+                "id": "rId1",
+                "type": "hyperlink",
+                "target": "https://example.invalid/source",
+                "target_part": null,
+                "external": true,
+                "retrieval": "not_fetched"
+              },
+              {
+                "id": "rId2",
+                "type": "image",
+                "target": "media/image1.png",
+                "target_part": "word/media/image1.png",
+                "external": false,
+                "retrieval": "package_part"
+              }
+            ]
+          }
+        ],
+        "styles": {
+          "Heading1": "heading 1"
+        },
+        "package_parts": [
+          {
+            "part": "[Content_Types].xml",
+            "bytes": 77,
+            "sha256": "8db260cc3071a769c10e5d8856ed36bd45a30e4a5d5b3dbd85c7458ce0c65d51"
+          },
+          {
+            "part": "word/document.xml",
+            "bytes": 663,
+            "sha256": "c56088262a3b739e03152b8a84443080db0538ba8dffd25ef60f5c604ef04327"
+          },
+          {
+            "part": "word/_rels/document.xml.rels",
+            "bytes": 268,
+            "sha256": "0b873fac534cd6cba403068d394739310e9fe9105739028e0ec5531a9384aaa6"
+          },
+          {
+            "part": "word/styles.xml",
+            "bytes": 159,
+            "sha256": "1eaf57999dcf4f454bb66f4d57736090273c96e2981ae40d8a277e2bac30d8d7"
+          }
+        ],
+        "raw_asset_refs": [
+          "asset_21c4da42-0f49-4ea6-888c-43a50b006b73"
+        ]
+      },
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "warnings": [
+        {
+          "code": "DOCX_PAGE_LOCATION_PENDING",
+          "message": "段落/表格原生锚点已保存；物理分页需要实际渲染，不由段落序号推测。"
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "source_id": "source_820463fd-5ac5-42b0-9391-c30e23edb096",
+      "source_hash": "c6d45f7eea1ee434b66491f12a952977eb2e473cf6cc6dbd2376f8d7c98d4b1d",
+      "parser_version": "text-1:cb6707ccfd2db91ecc747723be0fbae25d971c8d3e58b721c871bcc3705209a3:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:text",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_820463fd-5ac5-42b0-9391-c30e23edb096",
+        "asset_id": null,
+        "native_locator": "chars:0:114",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 0,
+          "start_char": 0,
+          "end_char": 114,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+      "content": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "block_index": 0,
+        "source_location": {
+          "source_ref": "raw_markdown",
+          "start_offset": 0,
+          "end_offset": 114,
+          "offset_unit": "unicode_code_point",
+          "line_start": 1,
+          "line_end": 1
+        },
+        "content": [
+          {
+            "kind": "text",
+            "text": "以下为明确虚构的学校节能演示测试材料。试点先检查教室照明，再设置定时关灯，随后记录变化。目标是让管理层理解执行方法。团队先培训值班人员，再每周回看记录。发现异常时先核实记录，再调整设备。试点只讨论照明管理，不对全校节能作出承诺。",
+            "source_location": {
+              "source_ref": "raw_markdown",
+              "start_offset": 0,
+              "end_offset": 114,
+              "offset_unit": "unicode_code_point",
+              "line_start": 1,
+              "line_end": 1
+            }
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "text",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Plain text paragraphs preserve original Unicode; Markdown syntax is not interpreted.",
+      "evidence_id": "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+    },
+    {
+      "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-1:50b65df1fedba039ad1adaad9015a4b4f87af3f24b145b4bfe55c20e97521340:kind:docx",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+        "asset_id": "asset_21c4da42-0f49-4ea6-888c-43a50b006b73",
+        "native_locator": "word/document.xml#paragraph=0",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": 0,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "学校节能试点",
+      "content": "学校节能试点",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "text": "学校节能试点",
+        "style_id": "Heading1",
+        "hyperlinks": [],
+        "images": [],
+        "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:pPr><ns0:pStyle ns0:val=\"Heading1\" /></ns0:pPr><ns0:r><ns0:t>学校节能试点</ns0:t></ns0:r></ns0:p>\n",
+        "paragraph_index": 0,
+        "style_name": "heading 1"
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。"
+      },
+      "asset_ref": "asset_21c4da42-0f49-4ea6-888c-43a50b006b73",
+      "raw_asset_refs": [
+        "asset_21c4da42-0f49-4ea6-888c-43a50b006b73"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_85794346-3802-4b3d-b792-359536e81038"
+    },
+    {
+      "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-1:50b65df1fedba039ad1adaad9015a4b4f87af3f24b145b4bfe55c20e97521340:kind:docx",
+      "segment_index": 1,
+      "anchor": {
+        "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+        "asset_id": "asset_21c4da42-0f49-4ea6-888c-43a50b006b73",
+        "native_locator": "word/document.xml#paragraph=1",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": 1,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "试点2026年能耗降低8%。",
+      "content": "试点2026年能耗降低8%。",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "text": "试点2026年能耗降低8%。",
+        "style_id": null,
+        "hyperlinks": [
+          {
+            "relationship_id": "rId1",
+            "anchor": null,
+            "text": "试点2026年能耗降低8%。"
+          }
+        ],
+        "images": [],
+        "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:ns1=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"><ns0:hyperlink ns1:id=\"rId1\"><ns0:r><ns0:t>试点2026年能耗降低8%。</ns0:t></ns0:r></ns0:hyperlink></ns0:p>\n",
+        "paragraph_index": 1,
+        "style_name": null
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。"
+      },
+      "asset_ref": "asset_21c4da42-0f49-4ea6-888c-43a50b006b73",
+      "raw_asset_refs": [
+        "asset_21c4da42-0f49-4ea6-888c-43a50b006b73"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+    },
+    {
+      "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-1:50b65df1fedba039ad1adaad9015a4b4f87af3f24b145b4bfe55c20e97521340:kind:docx",
+      "segment_index": 2,
+      "anchor": {
+        "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+        "asset_id": "asset_21c4da42-0f49-4ea6-888c-43a50b006b73",
+        "native_locator": "word/document.xml#table=0,row=0,cell=0",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": null,
+          "table_index": 0,
+          "row_index": 0,
+          "cell_index": 0,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "指标",
+      "content": "指标",
+      "confidence": null,
+      "data": {
+        "kind": "table_cell",
+        "paragraphs": [
+          {
+            "kind": "paragraph",
+            "text": "指标",
+            "style_id": null,
+            "hyperlinks": [],
+            "images": [],
+            "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:r><ns0:t>指标</ns0:t></ns0:r></ns0:p>"
+          }
+        ],
+        "text": "指标",
+        "nested_table_count": 0,
+        "raw_xml": "<ns0:tc xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:p><ns0:r><ns0:t>指标</ns0:t></ns0:r></ns0:p></ns0:tc>"
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。"
+      },
+      "asset_ref": "asset_21c4da42-0f49-4ea6-888c-43a50b006b73",
+      "raw_asset_refs": [
+        "asset_21c4da42-0f49-4ea6-888c-43a50b006b73"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_8a28f6ab-c955-49f8-8c75-90cd1ee22b2c"
+    },
+    {
+      "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-1:50b65df1fedba039ad1adaad9015a4b4f87af3f24b145b4bfe55c20e97521340:kind:docx",
+      "segment_index": 3,
+      "anchor": {
+        "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+        "asset_id": "asset_21c4da42-0f49-4ea6-888c-43a50b006b73",
+        "native_locator": "word/document.xml#table=0,row=0,cell=1",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": null,
+          "table_index": 0,
+          "row_index": 0,
+          "cell_index": 1,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "8%",
+      "content": "8%",
+      "confidence": null,
+      "data": {
+        "kind": "table_cell",
+        "paragraphs": [
+          {
+            "kind": "paragraph",
+            "text": "8%",
+            "style_id": null,
+            "hyperlinks": [],
+            "images": [],
+            "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:r><ns0:t>8%</ns0:t></ns0:r></ns0:p>"
+          }
+        ],
+        "text": "8%",
+        "nested_table_count": 0,
+        "raw_xml": "<ns0:tc xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:p><ns0:r><ns0:t>8%</ns0:t></ns0:r></ns0:p></ns0:tc>"
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。"
+      },
+      "asset_ref": "asset_21c4da42-0f49-4ea6-888c-43a50b006b73",
+      "raw_asset_refs": [
+        "asset_21c4da42-0f49-4ea6-888c-43a50b006b73"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+    }
+  ],
+  "trace": [
+    {
+      "component": "TaskSpec",
+      "requirement_id": "SYS-001",
+      "status": "validated"
+    },
+    {
+      "component": "SchemaRegistry",
+      "requirement_id": "SYS-006",
+      "status": "validated"
+    },
+    {
+      "component": "SourceLoader",
+      "requirement_id": "SYS-003",
+      "status": "partial"
+    },
+    {
+      "component": "EvidenceStore",
+      "requirement_id": "SYS-004",
+      "status": "saved"
+    }
+  ],
+  "boundary": "Source parsing and evidence only; no fact extraction, model routing, PPTX generation or QA acceptance.",
+  "nontext_evidence": [
+    {
+      "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-1:50b65df1fedba039ad1adaad9015a4b4f87af3f24b145b4bfe55c20e97521340:kind:docx",
+      "segment_index": 4,
+      "anchor": {
+        "source_id": "source_34e821e6-169b-4ef1-a20d-055891a227bf",
+        "asset_id": "asset_21c4da42-0f49-4ea6-888c-43a50b006b73",
+        "native_locator": "word/document.xml#paragraph=2",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": 2,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "",
+      "content": "",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "text": "",
+        "style_id": null,
+        "hyperlinks": [],
+        "images": [
+          {
+            "relationship_id": "rId2",
+            "external_relationship_id": null
+          }
+        ],
+        "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:ns1=\"http://schemas.openxmlformats.org/drawingml/2006/main\" xmlns:ns2=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"><ns0:r><ns0:drawing><ns1:blip ns2:embed=\"rId2\" /></ns0:drawing></ns0:r></ns0:p>",
+        "paragraph_index": 2,
+        "style_name": null
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。"
+      },
+      "asset_ref": "asset_21c4da42-0f49-4ea6-888c-43a50b006b73",
+      "raw_asset_refs": [
+        "asset_21c4da42-0f49-4ea6-888c-43a50b006b73"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_22b716a1-5cf2-4d01-bed8-df5be84663ee"
+    }
+  ],
+  "selection": {
+    "producer": "DEC-003",
+    "fact_source_ids": [
+      "source_820463fd-5ac5-42b0-9391-c30e23edb096",
+      "source_34e821e6-169b-4ef1-a20d-055891a227bf"
+    ],
+    "all_sources_preserved_in": "source-result.json",
+    "nontext_evidence_ids": [
+      "evidence_22b716a1-5cf2-4d01-bed8-df5be84663ee"
+    ],
+    "nontext_handling": "Original evidence retained in nontext_evidence; empty structure carries no textual fact; OCR/visual fact inference not executed."
+  }
+}

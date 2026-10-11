@@ -1,4 +1,4 @@
-"""SYS-016: selected text edit; unchanged OOXML parts are byte-preserved."""
+"""SYS-016: scoped text, plan and batch revisions with native preservation and QA."""
 import copy
 import json
 from pathlib import Path
@@ -22,6 +22,7 @@ DECISION_FILES = ['fact-source-result.json','task-effective.json','decision-rout
                   'presentation-context.json','decision-source-roles.json','source-role-map.json','fact-interpretation.json',
                   'decision-evidence.json','evidence-resolution.json','decision-fact-boundary.json','fact-boundary.json','approved-source-result.json']
 DECISION_FILES += ['narrative-result.json','visual-packet.json','visual-result.json','resolved-assets.json','template-selection.json','layout-selection.json']
+DECISION_FILES += ['template-import-report.json','adaptive-content-result.json','atomic-registry.json']
 DECISION_FILES += ['decision-DEC-'+str(i).zfill(3)+'.json' for i in range(6,39)]
 
 
@@ -29,6 +30,7 @@ def _finish_quality(task,deck,sources,object_map,renders,artifacts,prior,orders,
     """Only changed pages require fresh model review; preserve all other issues."""
     from .quality_decisions import decide
     quality=check(deck,artifacts.path/'deck.pptx',object_map,sources,renders,artifacts.path)
+    artifacts.json('quality-report.json',quality)
     fresh=review(task,deck,sources,renders,artifacts,orders)
     old=json.loads((prior/'quality-report.json').read_text('utf-8')).get('model_review',{})
     carried=[i for i in old.get('issues',[]) if i['slide_order'] not in orders]
@@ -38,7 +40,9 @@ def _finish_quality(task,deck,sources,object_map,renders,artifacts,prior,orders,
     quality['p0_issue_count']+=sum(i['severity']=='P0' for i in quality['model_review']['issues'])
     quality['coverage']['visual_semantic']=quality['coverage']['fact_semantic']='model_review_executed_with_unchanged_page_evidence_reuse'
     artifacts.json('quality-report.json',quality)
-    decision=decide({'quality_report':quality,'deck':deck,'object_map':object_map,'parent_run_id':artifacts.run_id},schemas,trace)
+    prior_traces=[json.loads((prior/p.name).read_text('utf-8')) for p in prior.glob('decision-*.json') if p.name not in {'decision-DEC-039.json','decision-DEC-040.json'}]
+    prior_traces += [{'node_id':d['node_id'],'input':d['trace']['input'],'output':d['result'],'error':None} for s in deck['slides'] for d in s['layout'].get('selection_trace',{}).get('decisions',[])]
+    decision=decide({'quality_report':quality,'deck':deck,'object_map':object_map,'prior_traces':prior_traces,'parent_run_id':artifacts.run_id},schemas,trace)
     artifacts.json('revision-plan.json',decision['revision_plan']);artifacts.json('completion-decision.json',decision['completion'])
     for item in decision['decision_traces']:artifacts.json('decision-'+item['node_id']+'.json',item)
     return quality,decision
@@ -130,6 +134,9 @@ def revision_sources(prior):
 
 
 def revise(run_id, request, schemas, trace):
+    if isinstance(request,dict) and ('instruction' in request or 'edits' in request):
+        from .batch_revision import revise_batch
+        return revise_batch(run_id,request,schemas,trace)
     schemas.validate('revision-request.schema.json', request)
     try:
         if str(UUID(run_id)) != run_id:raise ValueError()

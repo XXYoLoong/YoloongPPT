@@ -1,0 +1,83 @@
+{
+  "requirement_ids": [
+    "REV-003",
+    "REV-004",
+    "REV-006",
+    "REV-009",
+    "SYS-016"
+  ],
+  "mechanism": "deterministic_explicit_edits",
+  "real_model_call": false,
+  "instruction": "美化第一页两个指定对象：恢复正文的原始可读布局并恢复标题与背景的对比度。所有文字、数据、图片保持，其他对象锁定。",
+  "mode": "beautify",
+  "authorized_scope": {
+    "object_ids": [
+      "object_37c9b1de-67ea-4d7a-8094-fd467bf70a8d",
+      "object_310785a5-fe5b-451c-96d1-9b16083df0a5"
+    ]
+  },
+  "resolved_scope": {
+    "slide_ids": [
+      "slide_abf75a03-69bd-4513-bdc3-3fb660bd41e8"
+    ],
+    "object_ids": [
+      "object_37c9b1de-67ea-4d7a-8094-fd467bf70a8d",
+      "object_310785a5-fe5b-451c-96d1-9b16083df0a5"
+    ]
+  },
+  "scope_level": "object",
+  "selections": [
+    {
+      "object_id": "object_37c9b1de-67ea-4d7a-8094-fd467bf70a8d",
+      "selector": null,
+      "basis": "caller_explicit_edit"
+    },
+    {
+      "object_id": "object_310785a5-fe5b-451c-96d1-9b16083df0a5",
+      "selector": null,
+      "basis": "caller_explicit_edit"
+    }
+  ],
+  "lock_union": [
+    "object_058480ae-4f5a-45be-9cf2-9bfae0386298",
+    "object_09b96bca-02e1-4064-838b-b1b114eb9cea",
+    "object_1a82fd8f-306a-4134-8f3d-c7199c07ccde",
+    "object_1e1f65c3-ec71-4d0f-88b5-fd91a422e516",
+    "object_3be7dd1e-51ac-4dfe-b3c8-eeed638d6e30",
+    "object_43b145be-3775-42e3-b6f9-a2e99c37392c",
+    "object_447ab263-4142-41f3-8589-efdc74c60109",
+    "object_4ab15402-a7b8-4ca4-be3d-feef613f9c2f",
+    "object_4c4141f4-b2a5-4db2-a793-bc117339dc58",
+    "object_571ca927-2436-4bba-b93e-85aa1a7dea58",
+    "object_5a56972e-f56e-48a9-9aa5-9caeb63cdb6b",
+    "object_5a9d69a7-97b9-4ec8-9864-fe8b651725fc",
+    "object_5c46659a-a6f4-44fe-92fa-8f6224b2c31b",
+    "object_6286ca99-89a0-4bf2-9604-fb7294655413",
+    "object_676d404a-619f-4c83-99e0-d30059a3508b",
+    "object_6925a4f3-29ed-403b-831e-68b1e4e86ab6",
+    "object_69d03004-17d9-4017-9428-28293d70fc53",
+    "object_6b627f73-01e4-4423-ac95-a11cc5b21559",
+    "object_6eb1e7aa-425f-4e0a-a86e-af9f3a3d6b24",
+    "object_707c9f36-5cbf-4819-86a9-d9bf3b920f9c",
+    "object_711b2f01-9161-4e44-9a36-92061824911d",
+    "object_a883e663-cdf5-4968-aad4-6ed99b5e4a47",
+    "object_ade868f0-ec47-4d88-9c88-cb34b49c9a93",
+    "object_b79b31c4-d19e-49ed-8d0b-f4ae2865d4a0",
+    "object_b8dc4239-0d4c-4365-bd54-52e766c51f4d",
+    "object_bb87fef3-92ea-4457-ad4e-4f07d6a1fdea",
+    "object_dc86d78c-106d-48bd-9552-22ff58694afa",
+    "object_dd8f4f44-625c-43c3-ba97-d420480786c5",
+    "object_df02f740-c76e-4148-b74e-49ba25000241",
+    "object_ec1c9fd3-9f5e-430e-92a1-fc9fe30757e7",
+    "object_f4d786ad-d9b3-4700-b942-cbd639116233"
+  ],
+  "parent_spec_sha256": "08301b179d1704faa5448c4284a64e7cedb9613047fe56a5c66eb881c0b44a09",
+  "parent_object_map_sha256": "4c7838ee06efe5f2e22747e62d5930e74062616600ab9b1e428db127dbf6a616",
+  "native_source_sha256": "37963bf13ac6fa7f6de44a241d7602d88c4f96a46600b9908936abb218860cfd",
+  "schema_sha256": "a9dbf1d701d344bda0559fc724108de930bfeb4e3503d265b16358521b80f891",
+  "edits_sha256": "24d467252d63a9453fe2a886e24f4ac53437820c5b7e78f38bff095584d28962",
+  "limitations": [
+    "Semantic model selection needs independent post-edit QA; candidate declarations are not semantic truth.",
+    "Only registered logical objects are editable; unmodeled native parts remain outside the edit scope."
+  ]
+}

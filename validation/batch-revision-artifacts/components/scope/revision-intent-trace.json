@@ -1,0 +1,43 @@
+{
+  "requirement_ids": [
+    "REV-003",
+    "REV-004",
+    "REV-006",
+    "REV-009",
+    "SYS-016"
+  ],
+  "mechanism": "real_model_intent_with_registered_identity_validation",
+  "real_model_call": false,
+  "instruction": "把第一页标题改成明确标题",
+  "mode": "revision",
+  "authorized_scope": null,
+  "resolved_scope": {
+    "slide_ids": [
+      "slide_23f56789-36eb-4eb7-b2d3-7655657cb89c"
+    ],
+    "object_ids": [
+      "object_2b2b0db9-87c6-41a8-b5b1-011bfb5773d7"
+    ]
+  },
+  "scope_level": "object",
+  "selections": [
+    {
+      "object_id": "object_2b2b0db9-87c6-41a8-b5b1-011bfb5773d7",
+      "instruction_quote": "把第一页标题改成明确标题",
+      "candidate_object_ids": [
+        "object_2b2b0db9-87c6-41a8-b5b1-011bfb5773d7"
+      ],
+      "reason": "明确页序和标题"
+    }
+  ],
+  "lock_union": [],
+  "parent_spec_sha256": "6d448e38958501ed7dd3540b4cfe62974ec9a62ed9ccbb1e2fc02c10ae75b207",
+  "parent_object_map_sha256": "c5d30ccd2bcaf8448ccae72d20577b11f3407b8e3bd80732e501ca85790f49e7",
+  "native_source_sha256": "4056515b5eeb2131e3c96b5d2fe83d23818ab9eea63bbc0a4a6d60f71891886c",
+  "schema_sha256": "a9dbf1d701d344bda0559fc724108de930bfeb4e3503d265b16358521b80f891",
+  "edits_sha256": "aae1c25b15bb2751b21e5a6d1a50fb76d3e2f8deb2c30d0b1a644937b54431a1",
+  "limitations": [
+    "Semantic model selection needs independent post-edit QA; candidate declarations are not semantic truth.",
+    "Only registered logical objects are editable; unmodeled native parts remain outside the edit scope."
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "status": "assigned",
+  "source_roles": [
+    {
+      "source_id": "source_9c891057-5781-44af-ae12-fa24d72479f8",
+      "asset_refs": [],
+      "role": "fact",
+      "candidate_refs": [
+        "candidate_302b9cfe-0b42-4a77-95e4-358e81d56473"
+      ],
+      "loading_strategy": {
+        "kind": "text",
+        "locator": null,
+        "fact_input": true
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    },
+    {
+      "source_id": "source_e617be69-0e4a-4c97-ac6a-1900692e4bf2",
+      "asset_refs": [],
+      "role": "fact",
+      "candidate_refs": [
+        "candidate_2f6f6584-e59b-4575-8831-7fcee6928eb3"
+      ],
+      "loading_strategy": {
+        "kind": "text",
+        "locator": null,
+        "fact_input": true
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    },
+    {
+      "source_id": "source_2ce3a059-f498-491c-9f3c-15a2636283d9",
+      "asset_refs": [
+        "asset_65be3b0f-65f0-467e-bee2-75daf35a5410"
+      ],
+      "role": "asset",
+      "candidate_refs": [
+        "candidate_8b32ac05-3a8a-469d-9b83-9626ba4c8321"
+      ],
+      "loading_strategy": {
+        "kind": "image",
+        "locator": "/runtime/visual-validation/declared-image.png",
+        "fact_input": false
+      },
+      "reason": "Explicit role or bounded content-source default; original input retained."
+    }
+  ],
+  "fact_source_ids": [
+    "source_9c891057-5781-44af-ae12-fa24d72479f8",
+    "source_e617be69-0e4a-4c97-ac6a-1900692e4bf2"
+  ],
+  "preserved_source_ids": [
+    "source_9c891057-5781-44af-ae12-fa24d72479f8",
+    "source_e617be69-0e4a-4c97-ac6a-1900692e4bf2",
+    "source_2ce3a059-f498-491c-9f3c-15a2636283d9"
+  ],
+  "issues": [],
+  "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+  "fallback": "No guessing unknown roles or treating style/template/assets as factual evidence; preserve sources and clarify."
+}

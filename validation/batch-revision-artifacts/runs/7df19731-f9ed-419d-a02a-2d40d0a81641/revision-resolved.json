@@ -1,0 +1,87 @@
+{
+  "scope": {
+    "slide_ids": [
+      "slide_d59bff37-1552-4156-8997-a969e9dc6a33",
+      "slide_b4ca96d3-e7af-4a26-ac30-3c4c41e4519d"
+    ],
+    "object_ids": [
+      "object_30ee87cb-ab98-477a-b495-03603b016b76",
+      "object_ef3e354a-fabb-499a-92f2-8593164b34f3"
+    ]
+  },
+  "edits": [
+    {
+      "object_id": "object_30ee87cb-ab98-477a-b495-03603b016b76",
+      "operation": "text",
+      "value": [
+        "虚构测试：周照明用电演示"
+      ]
+    },
+    {
+      "object_id": "object_ef3e354a-fabb-499a-92f2-8593164b34f3",
+      "operation": "text",
+      "value": [
+        "结论：核对资料并按原文流程执行"
+      ]
+    }
+  ],
+  "locked_object_ids": [],
+  "intent_trace": {
+    "requirement_ids": [
+      "REV-003",
+      "REV-004",
+      "REV-006",
+      "REV-009",
+      "SYS-016"
+    ],
+    "mechanism": "real_model_intent_with_registered_identity_validation",
+    "real_model_call": true,
+    "instruction": "只修改第1页标题为“虚构测试：周照明用电演示”，第6页标题为“结论：核对资料并按原文流程执行”。其他页、正文、对象和事实不变。",
+    "mode": "revision",
+    "authorized_scope": {
+      "slide_ids": [
+        "slide_d59bff37-1552-4156-8997-a969e9dc6a33",
+        "slide_b4ca96d3-e7af-4a26-ac30-3c4c41e4519d"
+      ]
+    },
+    "resolved_scope": {
+      "slide_ids": [
+        "slide_d59bff37-1552-4156-8997-a969e9dc6a33",
+        "slide_b4ca96d3-e7af-4a26-ac30-3c4c41e4519d"
+      ],
+      "object_ids": [
+        "object_30ee87cb-ab98-477a-b495-03603b016b76",
+        "object_ef3e354a-fabb-499a-92f2-8593164b34f3"
+      ]
+    },
+    "scope_level": "slide",
+    "selections": [
+      {
+        "object_id": "object_30ee87cb-ab98-477a-b495-03603b016b76",
+        "instruction_quote": "第1页标题为“虚构测试：周照明用电演示”",
+        "candidate_object_ids": [
+          "object_30ee87cb-ab98-477a-b495-03603b016b76"
+        ],
+        "reason": "第1页（slide_index 0）仅有一个 role=title 的文本对象，其当前文本为“虚构测试周照明用电演示”，是标题修改的唯一目标。"
+      },
+      {
+        "object_id": "object_ef3e354a-fabb-499a-92f2-8593164b34f3",
+        "instruction_quote": "第6页标题为“结论：核对资料并按原文流程执行”",
+        "candidate_object_ids": [
+          "object_ef3e354a-fabb-499a-92f2-8593164b34f3"
+        ],
+        "reason": "第6页（slide_index 5）仅有一个 role=title 的文本对象，其当前文本为“结论：先核对资料，再按原文流程执行”，是标题修改的唯一目标。"
+      }
+    ],
+    "lock_union": [],
+    "parent_spec_sha256": "92c68219bc04a9aa1cb746d4a46e7ca722016d64b4bb5b3c91420b3f1fc0ac36",
+    "parent_object_map_sha256": "1fb23a2039bc3c9227c4f016d66dfda97dac2eb65b18bebb4f4da432e2c4418a",
+    "native_source_sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733",
+    "schema_sha256": "a9dbf1d701d344bda0559fc724108de930bfeb4e3503d265b16358521b80f891",
+    "edits_sha256": "d6dd437472a926703230283f449a793a884f5cb3786cecf9a915d280e7aa13b7",
+    "limitations": [
+      "Semantic model selection needs independent post-edit QA; candidate declarations are not semantic truth.",
+      "Only registered logical objects are editable; unmodeled native parts remain outside the edit scope."
+    ]
+  }
+}

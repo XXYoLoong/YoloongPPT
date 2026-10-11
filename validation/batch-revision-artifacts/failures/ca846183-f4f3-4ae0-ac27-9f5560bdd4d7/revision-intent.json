@@ -1,0 +1,64 @@
+{
+  "scope": {
+    "slide_ids": [
+      "slide_d59bff37-1552-4156-8997-a969e9dc6a33"
+    ],
+    "object_ids": [
+      "object_30ee87cb-ab98-477a-b495-03603b016b76"
+    ]
+  },
+  "edits": [
+    {
+      "object_id": "object_30ee87cb-ab98-477a-b495-03603b016b76",
+      "operation": "text",
+      "value": [
+        "无来源数值987654321"
+      ]
+    }
+  ],
+  "locked_object_ids": [],
+  "intent_trace": {
+    "requirement_ids": [
+      "REV-003",
+      "REV-004",
+      "REV-006",
+      "REV-009",
+      "SYS-016"
+    ],
+    "mechanism": "deterministic_explicit_edits",
+    "real_model_call": false,
+    "instruction": "明确局部修改验证",
+    "mode": "revision",
+    "authorized_scope": {
+      "object_ids": [
+        "object_30ee87cb-ab98-477a-b495-03603b016b76"
+      ]
+    },
+    "resolved_scope": {
+      "slide_ids": [
+        "slide_d59bff37-1552-4156-8997-a969e9dc6a33"
+      ],
+      "object_ids": [
+        "object_30ee87cb-ab98-477a-b495-03603b016b76"
+      ]
+    },
+    "scope_level": "object",
+    "selections": [
+      {
+        "object_id": "object_30ee87cb-ab98-477a-b495-03603b016b76",
+        "selector": null,
+        "basis": "caller_explicit_edit"
+      }
+    ],
+    "lock_union": [],
+    "parent_spec_sha256": "92c68219bc04a9aa1cb746d4a46e7ca722016d64b4bb5b3c91420b3f1fc0ac36",
+    "parent_object_map_sha256": "1fb23a2039bc3c9227c4f016d66dfda97dac2eb65b18bebb4f4da432e2c4418a",
+    "native_source_sha256": "25ee366566ddafc9f1ad5bff08df09b5aa803adef2117bcd3bc6b711c3dca733",
+    "schema_sha256": "a9dbf1d701d344bda0559fc724108de930bfeb4e3503d265b16358521b80f891",
+    "edits_sha256": "09ee084d513b89a299eb48c0a3c73eb2ce99ab4bdb854d3cf5b1acb886ba792b",
+    "limitations": [
+      "Semantic model selection needs independent post-edit QA; candidate declarations are not semantic truth.",
+      "Only registered logical objects are editable; unmodeled native parts remain outside the edit scope."
+    ]
+  }
+}

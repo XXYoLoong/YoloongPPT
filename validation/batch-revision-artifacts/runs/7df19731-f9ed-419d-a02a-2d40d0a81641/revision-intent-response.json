@@ -1,0 +1,50 @@
+{
+  "status": "resolved",
+  "scope_level": "slide",
+  "scope": {
+    "slide_ids": [
+      "slide_d59bff37-1552-4156-8997-a969e9dc6a33",
+      "slide_b4ca96d3-e7af-4a26-ac30-3c4c41e4519d"
+    ],
+    "object_ids": [
+      "object_30ee87cb-ab98-477a-b495-03603b016b76",
+      "object_ef3e354a-fabb-499a-92f2-8593164b34f3"
+    ]
+  },
+  "edits": [
+    {
+      "object_id": "object_30ee87cb-ab98-477a-b495-03603b016b76",
+      "operation": "text",
+      "value": [
+        "虚构测试：周照明用电演示"
+      ]
+    },
+    {
+      "object_id": "object_ef3e354a-fabb-499a-92f2-8593164b34f3",
+      "operation": "text",
+      "value": [
+        "结论：核对资料并按原文流程执行"
+      ]
+    }
+  ],
+  "selections": [
+    {
+      "object_id": "object_30ee87cb-ab98-477a-b495-03603b016b76",
+      "instruction_quote": "第1页标题为“虚构测试：周照明用电演示”",
+      "candidate_object_ids": [
+        "object_30ee87cb-ab98-477a-b495-03603b016b76"
+      ],
+      "reason": "第1页（slide_index 0）仅有一个 role=title 的文本对象，其当前文本为“虚构测试周照明用电演示”，是标题修改的唯一目标。"
+    },
+    {
+      "object_id": "object_ef3e354a-fabb-499a-92f2-8593164b34f3",
+      "instruction_quote": "第6页标题为“结论：核对资料并按原文流程执行”",
+      "candidate_object_ids": [
+        "object_ef3e354a-fabb-499a-92f2-8593164b34f3"
+      ],
+      "reason": "第6页（slide_index 5）仅有一个 role=title 的文本对象，其当前文本为“结论：先核对资料，再按原文流程执行”，是标题修改的唯一目标。"
+    }
+  ],
+  "ambiguities": [],
+  "reason": "用户仅要求修改第1页和第6页的标题文本，两页各只有一个标题对象，目标唯一且均在授权范围内；其余页面、正文、对象和事实保持不变。"
+}

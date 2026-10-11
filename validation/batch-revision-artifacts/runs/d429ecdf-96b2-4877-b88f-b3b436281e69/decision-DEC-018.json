@@ -1,0 +1,332 @@
+{
+  "trace_id": "trace_2b9fb2af-c004-46ef-8899-b74855ac5397",
+  "node_id": "DEC-018",
+  "input": {
+    "page_count": 4,
+    "source_evidence_refs": [
+      "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-018",
+      "candidate_id": "candidate_05325d28-83a4-49da-b3d1-9e81e1d678e3",
+      "value": {
+        "content_budgets": [
+          {
+            "page_key": "page_7ebeb8a8822d6980e446",
+            "capacity_policy": "actual font/geometry; preserve all core text visibly",
+            "actual_title_characters": 18,
+            "actual_body_characters": 10,
+            "notes_characters": 117,
+            "minimum_font_size": 16,
+            "geometry": {
+              "title_bounds": [
+                0.7,
+                0.6,
+                11.95,
+                1.25
+              ],
+              "body_bounds": [
+                0.7,
+                2.0100000000000002,
+                3.25,
+                4.529999999999999
+              ],
+              "body_size": 21,
+              "body_spacing": 16,
+              "data_bounds": [
+                4.32,
+                2.0100000000000002,
+                8.28,
+                4.529999999999999
+              ],
+              "table_size": 16,
+              "minimum_size": 16,
+              "measurement": "adaptive-layout-1"
+            },
+            "original_page": 0,
+            "original_page_outputs": 1,
+            "geometry_capacity_status": "measured conservative; actual layout/render verification required"
+          },
+          {
+            "page_key": "page_0d933aa839861d1e10ad",
+            "capacity_policy": "actual font/geometry; preserve all core text visibly",
+            "actual_title_characters": 69,
+            "actual_body_characters": 66,
+            "notes_characters": 88,
+            "minimum_font_size": 16,
+            "geometry": {
+              "title_bounds": [
+                0.7,
+                0.6,
+                11.95,
+                1.978
+              ],
+              "body_bounds": [
+                0.72,
+                2.738,
+                11.85,
+                3.802
+              ],
+              "body_size": 24,
+              "body_spacing": 15,
+              "data_bounds": null,
+              "table_size": 16,
+              "minimum_size": 16,
+              "measurement": "adaptive-layout-1"
+            },
+            "original_page": 1,
+            "original_page_outputs": 1,
+            "geometry_capacity_status": "measured conservative; actual layout/render verification required"
+          },
+          {
+            "page_key": "page_20ab8bfabc359b6ec15b",
+            "capacity_policy": "actual font/geometry; preserve all core text visibly",
+            "actual_title_characters": 13,
+            "actual_body_characters": 28,
+            "notes_characters": 56,
+            "minimum_font_size": 16,
+            "geometry": {
+              "title_bounds": [
+                0.7,
+                0.6,
+                11.95,
+                1.25
+              ],
+              "body_bounds": [
+                0.7,
+                2.0100000000000002,
+                3.25,
+                4.529999999999999
+              ],
+              "body_size": 21,
+              "body_spacing": 16,
+              "data_bounds": [
+                4.32,
+                2.0100000000000002,
+                8.28,
+                4.529999999999999
+              ],
+              "table_size": 16,
+              "minimum_size": 16,
+              "measurement": "adaptive-layout-1"
+            },
+            "original_page": 2,
+            "original_page_outputs": 2,
+            "geometry_capacity_status": "measured conservative; actual layout/render verification required"
+          },
+          {
+            "page_key": "page_be40e25d288dc8f86228",
+            "capacity_policy": "actual font/geometry; preserve all core text visibly",
+            "actual_title_characters": 13,
+            "actual_body_characters": 22,
+            "notes_characters": 56,
+            "minimum_font_size": 16,
+            "geometry": {
+              "title_bounds": [
+                0.7,
+                0.6,
+                11.95,
+                1.25
+              ],
+              "body_bounds": [
+                0.7,
+                2.0100000000000002,
+                3.25,
+                4.529999999999999
+              ],
+              "body_size": 21,
+              "body_spacing": 16,
+              "data_bounds": [
+                4.32,
+                2.0100000000000002,
+                8.28,
+                4.529999999999999
+              ],
+              "table_size": 16,
+              "minimum_size": 16,
+              "measurement": "adaptive-layout-1"
+            },
+            "original_page": 2,
+            "original_page_outputs": 2,
+            "geometry_capacity_status": "measured conservative; actual layout/render verification required"
+          }
+        ]
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_05325d28-83a4-49da-b3d1-9e81e1d678e3"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "content_budgets": [
+      {
+        "page_key": "page_7ebeb8a8822d6980e446",
+        "capacity_policy": "actual font/geometry; preserve all core text visibly",
+        "actual_title_characters": 18,
+        "actual_body_characters": 10,
+        "notes_characters": 117,
+        "minimum_font_size": 16,
+        "geometry": {
+          "title_bounds": [
+            0.7,
+            0.6,
+            11.95,
+            1.25
+          ],
+          "body_bounds": [
+            0.7,
+            2.0100000000000002,
+            3.25,
+            4.529999999999999
+          ],
+          "body_size": 21,
+          "body_spacing": 16,
+          "data_bounds": [
+            4.32,
+            2.0100000000000002,
+            8.28,
+            4.529999999999999
+          ],
+          "table_size": 16,
+          "minimum_size": 16,
+          "measurement": "adaptive-layout-1"
+        },
+        "original_page": 0,
+        "original_page_outputs": 1,
+        "geometry_capacity_status": "measured conservative; actual layout/render verification required"
+      },
+      {
+        "page_key": "page_0d933aa839861d1e10ad",
+        "capacity_policy": "actual font/geometry; preserve all core text visibly",
+        "actual_title_characters": 69,
+        "actual_body_characters": 66,
+        "notes_characters": 88,
+        "minimum_font_size": 16,
+        "geometry": {
+          "title_bounds": [
+            0.7,
+            0.6,
+            11.95,
+            1.978
+          ],
+          "body_bounds": [
+            0.72,
+            2.738,
+            11.85,
+            3.802
+          ],
+          "body_size": 24,
+          "body_spacing": 15,
+          "data_bounds": null,
+          "table_size": 16,
+          "minimum_size": 16,
+          "measurement": "adaptive-layout-1"
+        },
+        "original_page": 1,
+        "original_page_outputs": 1,
+        "geometry_capacity_status": "measured conservative; actual layout/render verification required"
+      },
+      {
+        "page_key": "page_20ab8bfabc359b6ec15b",
+        "capacity_policy": "actual font/geometry; preserve all core text visibly",
+        "actual_title_characters": 13,
+        "actual_body_characters": 28,
+        "notes_characters": 56,
+        "minimum_font_size": 16,
+        "geometry": {
+          "title_bounds": [
+            0.7,
+            0.6,
+            11.95,
+            1.25
+          ],
+          "body_bounds": [
+            0.7,
+            2.0100000000000002,
+            3.25,
+            4.529999999999999
+          ],
+          "body_size": 21,
+          "body_spacing": 16,
+          "data_bounds": [
+            4.32,
+            2.0100000000000002,
+            8.28,
+            4.529999999999999
+          ],
+          "table_size": 16,
+          "minimum_size": 16,
+          "measurement": "adaptive-layout-1"
+        },
+        "original_page": 2,
+        "original_page_outputs": 2,
+        "geometry_capacity_status": "measured conservative; actual layout/render verification required"
+      },
+      {
+        "page_key": "page_be40e25d288dc8f86228",
+        "capacity_policy": "actual font/geometry; preserve all core text visibly",
+        "actual_title_characters": 13,
+        "actual_body_characters": 22,
+        "notes_characters": 56,
+        "minimum_font_size": 16,
+        "geometry": {
+          "title_bounds": [
+            0.7,
+            0.6,
+            11.95,
+            1.25
+          ],
+          "body_bounds": [
+            0.7,
+            2.0100000000000002,
+            3.25,
+            4.529999999999999
+          ],
+          "body_size": 21,
+          "body_spacing": 16,
+          "data_bounds": [
+            4.32,
+            2.0100000000000002,
+            8.28,
+            4.529999999999999
+          ],
+          "table_size": 16,
+          "minimum_size": 16,
+          "measurement": "adaptive-layout-1"
+        },
+        "original_page": 2,
+        "original_page_outputs": 2,
+        "geometry_capacity_status": "measured conservative; actual layout/render verification required"
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

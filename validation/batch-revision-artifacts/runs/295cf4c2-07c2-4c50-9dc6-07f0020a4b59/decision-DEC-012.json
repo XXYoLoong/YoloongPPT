@@ -1,0 +1,297 @@
+{
+  "trace_id": "trace_4e097214-ea61-4520-83e7-bc61bb052cbe",
+  "node_id": "DEC-012",
+  "input": {
+    "storyline": {
+      "pattern": "conclusion_first",
+      "rationale": "caller scenario benefits from presenting the selected thesis first",
+      "evidence_refs": [
+        "evidence_85794346-3802-4b3d-b792-359536e81038",
+        "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+        "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+      ]
+    },
+    "titles": [
+      "试点定位：教室照明管理",
+      "目标：2026年能耗降低8%",
+      "执行方法：检查、定时、记录",
+      "人员与复核机制",
+      "试点目标一览",
+      "目标数值呈现",
+      "待补充事项与边界",
+      "下一步：补齐口径后复核"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-012",
+      "candidate_id": "candidate_b4a8bf57-80c8-42cd-b8ed-6f87ce296fbe",
+      "value": {
+        "sections": [
+          {
+            "section_id": "section_9edfbf8e97cd130aaf00",
+            "order": 0,
+            "title": "试点定位：教室照明管理",
+            "parent_section_id": null,
+            "transition": "open",
+            "page_indices": [
+              0
+            ],
+            "evidence_refs": [
+              "evidence_85794346-3802-4b3d-b792-359536e81038",
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+            ]
+          },
+          {
+            "section_id": "section_03643d96d5ccd4a258a7",
+            "order": 1,
+            "title": "目标：2026年能耗降低8%",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              1
+            ],
+            "evidence_refs": [
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+              "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+            ]
+          },
+          {
+            "section_id": "section_925b181d371df960142d",
+            "order": 2,
+            "title": "执行方法：检查、定时、记录",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              2
+            ],
+            "evidence_refs": [
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+            ]
+          },
+          {
+            "section_id": "section_6df7e5c2f7b7484c88e8",
+            "order": 3,
+            "title": "人员与复核机制",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              3
+            ],
+            "evidence_refs": [
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+            ]
+          },
+          {
+            "section_id": "section_55c3a2e8f5f3e435ed5b",
+            "order": 4,
+            "title": "试点目标一览",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              4
+            ],
+            "evidence_refs": [
+              "evidence_85794346-3802-4b3d-b792-359536e81038",
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+              "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+            ]
+          },
+          {
+            "section_id": "section_de06a116fa440f1f8e9b",
+            "order": 5,
+            "title": "目标数值呈现",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              5
+            ],
+            "evidence_refs": [
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+              "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+            ]
+          },
+          {
+            "section_id": "section_d5f61a7e5fc4cb3e1d68",
+            "order": 6,
+            "title": "待补充事项与边界",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              6
+            ],
+            "evidence_refs": [
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+            ]
+          },
+          {
+            "section_id": "section_3d0158b639f2cc49e1e0",
+            "order": 7,
+            "title": "下一步：补齐口径后复核",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              7
+            ],
+            "evidence_refs": [
+              "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+              "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+            ]
+          }
+        ],
+        "ordering": "conclusion_first",
+        "ordering_origin": "model consumes selected narrative_context; literal model page order retained",
+        "subsections_status": "not_requested"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_b4a8bf57-80c8-42cd-b8ed-6f87ce296fbe"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "sections": [
+      {
+        "section_id": "section_9edfbf8e97cd130aaf00",
+        "order": 0,
+        "title": "试点定位：教室照明管理",
+        "parent_section_id": null,
+        "transition": "open",
+        "page_indices": [
+          0
+        ],
+        "evidence_refs": [
+          "evidence_85794346-3802-4b3d-b792-359536e81038",
+          "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+        ]
+      },
+      {
+        "section_id": "section_03643d96d5ccd4a258a7",
+        "order": 1,
+        "title": "目标：2026年能耗降低8%",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          1
+        ],
+        "evidence_refs": [
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+          "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+        ]
+      },
+      {
+        "section_id": "section_925b181d371df960142d",
+        "order": 2,
+        "title": "执行方法：检查、定时、记录",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          2
+        ],
+        "evidence_refs": [
+          "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+        ]
+      },
+      {
+        "section_id": "section_6df7e5c2f7b7484c88e8",
+        "order": 3,
+        "title": "人员与复核机制",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          3
+        ],
+        "evidence_refs": [
+          "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815"
+        ]
+      },
+      {
+        "section_id": "section_55c3a2e8f5f3e435ed5b",
+        "order": 4,
+        "title": "试点目标一览",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          4
+        ],
+        "evidence_refs": [
+          "evidence_85794346-3802-4b3d-b792-359536e81038",
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+          "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+        ]
+      },
+      {
+        "section_id": "section_de06a116fa440f1f8e9b",
+        "order": 5,
+        "title": "目标数值呈现",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          5
+        ],
+        "evidence_refs": [
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+          "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+        ]
+      },
+      {
+        "section_id": "section_d5f61a7e5fc4cb3e1d68",
+        "order": 6,
+        "title": "待补充事项与边界",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          6
+        ],
+        "evidence_refs": [
+          "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+        ]
+      },
+      {
+        "section_id": "section_3d0158b639f2cc49e1e0",
+        "order": 7,
+        "title": "下一步：补齐口径后复核",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          7
+        ],
+        "evidence_refs": [
+          "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+          "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a"
+        ]
+      }
+    ],
+    "ordering": "conclusion_first",
+    "ordering_origin": "model consumes selected narrative_context; literal model page order retained",
+    "subsections_status": "not_requested"
+  },
+  "duration": 0.0,
+  "error": null
+}

@@ -1,0 +1,164 @@
+{
+  "trace_id": "trace_2b9fb2af-c004-46ef-8899-b74855ac5397",
+  "node_id": "DEC-023",
+  "input": {
+    "page_count": 3,
+    "evidence_refs": [
+      "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-023",
+      "candidate_id": "candidate_9b3de775-e139-4e3f-9287-748c68f8acb6",
+      "value": {
+        "page_index": 0,
+        "required": true,
+        "count": 8,
+        "role": null,
+        "roles": [
+          "decoration",
+          "decoration",
+          "decoration",
+          "decoration",
+          "decoration",
+          "decoration",
+          "decoration",
+          "decoration"
+        ],
+        "information_value": "caller/model declared; independent semantic review pending",
+        "fallback": "fail on missing material"
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-023",
+      "candidate_id": "candidate_89ae5a08-7408-41d8-8cac-cbabbd87b403",
+      "value": {
+        "page_index": 1,
+        "required": false,
+        "count": 0,
+        "role": null,
+        "roles": [],
+        "information_value": "not requested",
+        "fallback": "fail on missing material"
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-023",
+      "candidate_id": "candidate_ab1056ca-d606-4af2-bc29-45fc5abe6f9a",
+      "value": {
+        "page_index": 2,
+        "required": false,
+        "count": 0,
+        "role": null,
+        "roles": [],
+        "information_value": "not requested",
+        "fallback": "fail on missing material"
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_9b3de775-e139-4e3f-9287-748c68f8acb6",
+    "candidate_89ae5a08-7408-41d8-8cac-cbabbd87b403",
+    "candidate_ab1056ca-d606-4af2-bc29-45fc5abe6f9a"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "Visual_Designer/template/Executor",
+      "P02": "layout induction/reference selection/actions",
+      "P03": "slide content/layout/template/assets",
+      "P04": "PureLayout/assets/PPTAdapter",
+      "P05": "SlidePlanner/template/assets/native writer"
+    },
+    "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+    "score_semantics": "selected policy outcome, not semantic probability",
+    "fallback": "structured failure; never invent material or downgrade a requested expression"
+  },
+  "output": {
+    "pages": [
+      {
+        "page_index": 0,
+        "required": true,
+        "count": 8,
+        "role": null,
+        "roles": [
+          "decoration",
+          "decoration",
+          "decoration",
+          "decoration",
+          "decoration",
+          "decoration",
+          "decoration",
+          "decoration"
+        ],
+        "information_value": "caller/model declared; independent semantic review pending",
+        "fallback": "fail on missing material"
+      },
+      {
+        "page_index": 1,
+        "required": false,
+        "count": 0,
+        "role": null,
+        "roles": [],
+        "information_value": "not requested",
+        "fallback": "fail on missing material"
+      },
+      {
+        "page_index": 2,
+        "required": false,
+        "count": 0,
+        "role": null,
+        "roles": [],
+        "information_value": "not requested",
+        "fallback": "fail on missing material"
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

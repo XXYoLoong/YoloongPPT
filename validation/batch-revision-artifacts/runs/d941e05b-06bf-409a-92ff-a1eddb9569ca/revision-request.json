@@ -1,0 +1,39 @@
+{
+  "instruction": "仅将原柱状图两系列的顺序改为本期、基线，保持类别、数值和千瓦时单位；其余对象保持。",
+  "scope": {
+    "object_ids": [
+      "object_212d2db5-d8b2-483d-9868-5f1e3eabb81c"
+    ]
+  },
+  "edits": [
+    {
+      "object_id": "object_212d2db5-d8b2-483d-9868-5f1e3eabb81c",
+      "operation": "chart_data",
+      "value": {
+        "categories": [
+          "A楼",
+          "B楼",
+          "C楼"
+        ],
+        "series": [
+          {
+            "name": "本期",
+            "values": [
+              90,
+              72,
+              54
+            ]
+          },
+          {
+            "name": "基线",
+            "values": [
+              100,
+              80,
+              60
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "case": "negative",
+  "checks": [
+    {
+      "name": "unselected_numeric",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "trace_id": "trace_8a5d0297-fc9b-4963-a89b-b67531087003",
+        "error": {
+          "code": "REVISION_FACT_UNSUPPORTED",
+          "message": "修订使用未选或无来源数值，未写入PPT。",
+          "component": "RevisionEngine",
+          "requirement_ids": [
+            "REV-003",
+            "REV-004",
+            "REV-005",
+            "REV-010",
+            "SYS-016"
+          ],
+          "details": [
+            {
+              "numbers": [
+                "987654321"
+              ],
+              "slide_id": "slide_d59bff37-1552-4156-8997-a969e9dc6a33"
+            },
+            {
+              "run_id": "ca846183-f4f3-4ae0-ac27-9f5560bdd4d7",
+              "failure_recorded": true
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "name": "locked",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "trace_id": "trace_a3e7a2ea-a388-42a2-a7c6-d3838e9b6c82",
+        "error": {
+          "code": "REVISION_OBJECT_LOCKED",
+          "message": "编辑目标为用户/模板/品牌锁定对象，未执行修改。",
+          "component": "RevisionScope",
+          "requirement_ids": [
+            "REV-003",
+            "REV-004",
+            "REV-006",
+            "REV-009",
+            "SYS-016"
+          ],
+          "details": [
+            {
+              "object_id": "object_30ee87cb-ab98-477a-b495-03603b016b76"
+            },
+            {
+              "run_id": "e4ada1dd-b3c6-4006-a2ab-56cda1d3654a",
+              "failure_recorded": true
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "name": "scope",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "trace_id": "trace_b93221ca-f838-4686-b2d6-3e3fd04113e7",
+        "error": {
+          "code": "REVISION_SCOPE_EXCEEDED",
+          "message": "编辑目标越出调用方明确范围。",
+          "component": "RevisionScope",
+          "requirement_ids": [
+            "REV-003",
+            "REV-004",
+            "REV-006",
+            "REV-009",
+            "SYS-016"
+          ],
+          "details": [
+            {
+              "object_id": "object_30ee87cb-ab98-477a-b495-03603b016b76",
+              "slide_id": "slide_d59bff37-1552-4156-8997-a969e9dc6a33"
+            },
+            {
+              "run_id": "fe689aab-dab6-416f-ad6c-5c20e2e69256",
+              "failure_recorded": true
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "name": "beautify_content",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "trace_id": "trace_bcc733d8-b505-4797-a5c2-b5ad84768b2f",
+        "error": {
+          "code": "REVISION_BEAUTIFY_CONTENT_CHANGE",
+          "message": "Beautify只允许几何和格式，事实/文字/图片/数据未修改。",
+          "component": "RevisionScope",
+          "requirement_ids": [
+            "REV-003",
+            "REV-004",
+            "REV-006",
+            "REV-009",
+            "SYS-016"
+          ],
+          "details": [
+            {
+              "run_id": "c8299659-15eb-49e0-96c8-dcda63cb41af",
+              "failure_recorded": true
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "name": "duplicate",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "trace_id": "trace_51febe41-c704-465b-8915-ee44abcb9b6f",
+        "error": {
+          "code": "REVISION_EDIT_CONFLICT",
+          "message": "同一对象属性/单元格/页面备注重复赋值，不选择最后一项。",
+          "component": "RevisionScope",
+          "requirement_ids": [
+            "REV-003",
+            "REV-004",
+            "REV-006",
+            "REV-009",
+            "SYS-016"
+          ],
+          "details": [
+            {
+              "run_id": "ec1b6b19-3066-4a48-8e92-fa31b56c0b4d",
+              "failure_recorded": true
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "name": "parent_unchanged",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": true
+}

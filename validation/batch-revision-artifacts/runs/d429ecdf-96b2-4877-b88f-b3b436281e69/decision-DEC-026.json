@@ -1,0 +1,146 @@
+{
+  "trace_id": "trace_2b9fb2af-c004-46ef-8899-b74855ac5397",
+  "node_id": "DEC-026",
+  "input": {
+    "page_count": 3,
+    "evidence_refs": [
+      "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-026",
+      "candidate_id": "candidate_4d9419db-5763-41c3-9a31-eafd8cbc72b0",
+      "value": {
+        "page_index": 0,
+        "required": false,
+        "type": "none",
+        "analysis_purpose": "按调用方要求用images数组保留全部8张提供的图片，逐字使用原文图注。",
+        "data": null,
+        "data_semantic_status": "subsequent evidence/numeric and independent review required",
+        "image_fallback": "not_permitted"
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-026",
+      "candidate_id": "candidate_416de7f6-0d04-4338-83f1-06aee25a6af4",
+      "value": {
+        "page_index": 1,
+        "required": false,
+        "type": "none",
+        "analysis_purpose": "完整逐字保留调用方指定的长标题与原文两句正文。",
+        "data": null,
+        "data_semantic_status": "subsequent evidence/numeric and independent review required",
+        "image_fallback": "not_permitted"
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-026",
+      "candidate_id": "candidate_449d28d2-a926-4960-b94e-305b3afef04c",
+      "value": {
+        "page_index": 2,
+        "required": false,
+        "type": "none",
+        "analysis_purpose": "逐字保留原文4个列名与全部14行数据，单位为测试分。",
+        "data": null,
+        "data_semantic_status": "subsequent evidence/numeric and independent review required",
+        "image_fallback": "not_permitted"
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_b7c17273-e3f3-43ce-9d04-78793230d19e"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_4d9419db-5763-41c3-9a31-eafd8cbc72b0",
+    "candidate_416de7f6-0d04-4338-83f1-06aee25a6af4",
+    "candidate_449d28d2-a926-4960-b94e-305b3afef04c"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "Visual_Designer/template/Executor",
+      "P02": "layout induction/reference selection/actions",
+      "P03": "slide content/layout/template/assets",
+      "P04": "PureLayout/assets/PPTAdapter",
+      "P05": "SlidePlanner/template/assets/native writer"
+    },
+    "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+    "score_semantics": "selected policy outcome, not semantic probability",
+    "fallback": "structured failure; never invent material or downgrade a requested expression"
+  },
+  "output": {
+    "pages": [
+      {
+        "page_index": 0,
+        "required": false,
+        "type": "none",
+        "analysis_purpose": "按调用方要求用images数组保留全部8张提供的图片，逐字使用原文图注。",
+        "data": null,
+        "data_semantic_status": "subsequent evidence/numeric and independent review required",
+        "image_fallback": "not_permitted"
+      },
+      {
+        "page_index": 1,
+        "required": false,
+        "type": "none",
+        "analysis_purpose": "完整逐字保留调用方指定的长标题与原文两句正文。",
+        "data": null,
+        "data_semantic_status": "subsequent evidence/numeric and independent review required",
+        "image_fallback": "not_permitted"
+      },
+      {
+        "page_index": 2,
+        "required": false,
+        "type": "none",
+        "analysis_purpose": "逐字保留原文4个列名与全部14行数据，单位为测试分。",
+        "data": null,
+        "data_semantic_status": "subsequent evidence/numeric and independent review required",
+        "image_fallback": "not_permitted"
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

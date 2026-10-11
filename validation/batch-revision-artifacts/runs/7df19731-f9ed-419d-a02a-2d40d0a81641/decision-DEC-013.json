@@ -1,0 +1,62 @@
+{
+  "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+  "node_id": "DEC-013",
+  "input": {
+    "page_count": 6,
+    "duration": null
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-013",
+      "candidate_id": "candidate_53528281-510c-4dfd-90eb-f1febacc4417",
+      "value": {
+        "target": 6,
+        "minimum": 6,
+        "maximum": 6,
+        "allowed_deviation": 0,
+        "duration_original": null,
+        "source_characters": 351,
+        "policy": "normalized page count is binding; duration guides density and speaker notes, not implicit count replacement"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_53528281-510c-4dfd-90eb-f1febacc4417"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "target": 6,
+    "minimum": 6,
+    "maximum": 6,
+    "allowed_deviation": 0,
+    "duration_original": null,
+    "source_characters": 351,
+    "policy": "normalized page count is binding; duration guides density and speaker notes, not implicit count replacement"
+  },
+  "duration": 0.0,
+  "error": null
+}

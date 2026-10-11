@@ -1,0 +1,99 @@
+{
+  "checks": [
+    {
+      "name": "repeat_caption_binding_uses_stable_slot",
+      "passed": true
+    },
+    {
+      "name": "caption_refs_changed_to_exact_selected_evidence",
+      "passed": true
+    },
+    {
+      "name": "caption_and_image_projection_agree",
+      "passed": true
+    },
+    {
+      "name": "ambiguous_caption_provenance_rejected",
+      "passed": true
+    },
+    {
+      "name": "body_swap_and_length_change_use_immutable_spans",
+      "passed": true
+    },
+    {
+      "name": "overlapping_body_edits_rejected",
+      "passed": true
+    },
+    {
+      "name": "connector_relation_not_overwritten",
+      "passed": true
+    },
+    {
+      "name": "geometry_then_image_native_matches_final_contain",
+      "passed": true
+    },
+    {
+      "name": "cli_consumes_batch_and_rejects_lock",
+      "passed": true
+    },
+    {
+      "name": "mcp_consumes_same_batch_and_rejects_lock",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "scope": "Synthetic regressions for proven binding defects plus real CLI/MCP negative entrances; no real model or system acceptance claimed.",
+  "real_model_calls": 0,
+  "cli_result": {
+    "ok": false,
+    "trace_id": "trace_7437513f-45fb-40fc-ac8c-addaeea2d3ca",
+    "error": {
+      "code": "REVISION_OBJECT_LOCKED",
+      "message": "编辑目标为用户/模板/品牌锁定对象，未执行修改。",
+      "component": "RevisionScope",
+      "requirement_ids": [
+        "REV-003",
+        "REV-004",
+        "REV-006",
+        "REV-009",
+        "SYS-016"
+      ],
+      "details": [
+        {
+          "object_id": "object_30ee87cb-ab98-477a-b495-03603b016b76"
+        },
+        {
+          "run_id": "8ae3956a-f51e-4b9c-9fcd-182b5955e537",
+          "failure_recorded": true
+        }
+      ],
+      "retryable": false
+    }
+  },
+  "mcp_result": {
+    "ok": false,
+    "trace_id": "trace_650848c4-fbe3-4022-85f5-90a7e92d3e5e",
+    "error": {
+      "code": "REVISION_OBJECT_LOCKED",
+      "message": "编辑目标为用户/模板/品牌锁定对象，未执行修改。",
+      "component": "RevisionScope",
+      "requirement_ids": [
+        "REV-003",
+        "REV-004",
+        "REV-006",
+        "REV-009",
+        "SYS-016"
+      ],
+      "details": [
+        {
+          "object_id": "object_30ee87cb-ab98-477a-b495-03603b016b76"
+        },
+        {
+          "run_id": "f5efc2d0-a81f-44b3-bc49-9f5325329903",
+          "failure_recorded": true
+        }
+      ],
+      "retryable": false
+    }
+  }
+}

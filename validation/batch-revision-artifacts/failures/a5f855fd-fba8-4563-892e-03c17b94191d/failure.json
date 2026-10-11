@@ -1,0 +1,23 @@
+{
+  "ok": false,
+  "trace_id": "trace_1b626ed6-fbc1-48b6-aed5-4bf290759c8b",
+  "error": {
+    "code": "REVISION_ASSET_REGISTRY_CONFLICT",
+    "message": "同一素材ID具有冲突登记，不选择任一版本。",
+    "component": "RevisionScope",
+    "requirement_ids": [
+      "REV-003",
+      "REV-004",
+      "REV-006",
+      "REV-009",
+      "SYS-016"
+    ],
+    "details": [
+      {
+        "asset_id": "asset_53df89e2-f082-4680-9411-8abc446ad30b",
+        "field": "source_refs"
+      }
+    ],
+    "retryable": false
+  }
+}

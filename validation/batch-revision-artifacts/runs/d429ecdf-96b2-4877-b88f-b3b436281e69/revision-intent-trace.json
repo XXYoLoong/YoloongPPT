@@ -1,0 +1,75 @@
+{
+  "requirement_ids": [
+    "REV-003",
+    "REV-004",
+    "REV-006",
+    "REV-009",
+    "SYS-016"
+  ],
+  "mechanism": "deterministic_explicit_edits",
+  "real_model_call": false,
+  "instruction": "互换前两张已提供图片及其原文图注和替代文字；使用contain保持全部像素，保留其余对象。",
+  "mode": "revision",
+  "authorized_scope": {
+    "object_ids": [
+      "object_1e5d5858-98d1-46ff-91a2-dcb6d58fc1db",
+      "object_03eac4e2-a48b-4902-9dd1-e10316ed78e6",
+      "object_f3fde6e2-2308-4ce6-a92e-ca3786ca6b2e",
+      "object_06713c41-b983-4515-be48-8407c62367b4"
+    ]
+  },
+  "resolved_scope": {
+    "slide_ids": [
+      "slide_0b9e7253-eac3-48df-b4ee-c27800ffba00"
+    ],
+    "object_ids": [
+      "object_1e5d5858-98d1-46ff-91a2-dcb6d58fc1db",
+      "object_03eac4e2-a48b-4902-9dd1-e10316ed78e6",
+      "object_f3fde6e2-2308-4ce6-a92e-ca3786ca6b2e",
+      "object_06713c41-b983-4515-be48-8407c62367b4"
+    ]
+  },
+  "scope_level": "object",
+  "selections": [
+    {
+      "object_id": "object_1e5d5858-98d1-46ff-91a2-dcb6d58fc1db",
+      "selector": null,
+      "basis": "caller_explicit_edit"
+    },
+    {
+      "object_id": "object_03eac4e2-a48b-4902-9dd1-e10316ed78e6",
+      "selector": null,
+      "basis": "caller_explicit_edit"
+    },
+    {
+      "object_id": "object_1e5d5858-98d1-46ff-91a2-dcb6d58fc1db",
+      "selector": null,
+      "basis": "caller_explicit_edit"
+    },
+    {
+      "object_id": "object_03eac4e2-a48b-4902-9dd1-e10316ed78e6",
+      "selector": null,
+      "basis": "caller_explicit_edit"
+    },
+    {
+      "object_id": "object_f3fde6e2-2308-4ce6-a92e-ca3786ca6b2e",
+      "selector": null,
+      "basis": "caller_explicit_edit"
+    },
+    {
+      "object_id": "object_06713c41-b983-4515-be48-8407c62367b4",
+      "selector": null,
+      "basis": "caller_explicit_edit"
+    }
+  ],
+  "lock_union": [],
+  "parent_spec_sha256": "da1f83ac94431fb84099aedbd5609d1928100f3486ab7a226052d0a8db8f15cf",
+  "parent_object_map_sha256": "d07c696f5218990b0337661af4c0a596db89fa2d3903236aad6c78c78e5ab4ef",
+  "native_source_sha256": "2113ef0e7053c646d4dc13a3afa835309af0a1a04091f8aca95f2c30de44a3c0",
+  "schema_sha256": "a9dbf1d701d344bda0559fc724108de930bfeb4e3503d265b16358521b80f891",
+  "edits_sha256": "8d36394f4d5a5955dc30153a66c4c03971f56bd0d77d5b6767a7512a112d1caf",
+  "limitations": [
+    "Semantic model selection needs independent post-edit QA; candidate declarations are not semantic truth.",
+    "Only registered logical objects are editable; unmodeled native parts remain outside the edit scope."
+  ]
+}

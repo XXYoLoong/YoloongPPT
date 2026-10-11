@@ -1,0 +1,131 @@
+{
+  "coverage": [
+    {
+      "evidence_id": "evidence_dc928737-77ab-4312-8bc5-350f3fdfe815",
+      "classification": "context",
+      "reason": "该段为明确虚构的学校节能演示测试材料，描述试点流程、培训与异常处理等背景性内容，未给出可核验的具体数值、日期或指标，属于上下文说明。"
+    },
+    {
+      "evidence_id": "evidence_85794346-3802-4b3d-b792-359536e81038",
+      "classification": "facts",
+      "reason": "该段给出试点名称“学校节能试点”，属于可提取的事实性实体名称。"
+    },
+    {
+      "evidence_id": "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+      "classification": "facts",
+      "reason": "该段给出试点在2026年能耗降低8%的目标性数值与期间，属于可提取的事实。"
+    },
+    {
+      "evidence_id": "evidence_8a28f6ab-c955-49f8-8c75-90cd1ee22b2c",
+      "classification": "context",
+      "reason": "该段仅为“指标”一词，未给出具体指标名称、数值或限定，属于不完整上下文，无法单独构成事实。"
+    },
+    {
+      "evidence_id": "evidence_f2a54824-ecc4-4929-abbf-29495eae4125",
+      "classification": "facts",
+      "reason": "该段给出数值“8%”，与同一来源中“试点2026年能耗降低8%”对应，属于可提取的百分比事实。"
+    }
+  ],
+  "claims": [
+    {
+      "fact_key": "school_energy_saving_pilot.name",
+      "fact_kind": "organization",
+      "value": {
+        "raw_text": "学校节能试点",
+        "normalized_text": "学校节能试点",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_85794346-3802-4b3d-b792-359536e81038",
+          "quote": "学校节能试点"
+        }
+      ],
+      "reason": "来源明确给出试点名称“学校节能试点”，作为该试点的实体名称事实。"
+    },
+    {
+      "fact_key": "school_energy_saving_pilot.energy_consumption_reduction_target",
+      "fact_kind": "percentage",
+      "value": {
+        "raw_text": "8%",
+        "normalized_text": "8%",
+        "numeric_value": "8",
+        "date_value": null,
+        "date_precision": null,
+        "unit": "%",
+        "currency": null,
+        "percentage_base": "能耗",
+        "period": "2026年",
+        "qualifier": "试点",
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+          "quote": "试点2026年能耗降低8%。"
+        },
+        {
+          "evidence_id": "evidence_f2a54824-ecc4-4929-abbf-29495eae4125",
+          "quote": "8%"
+        }
+      ],
+      "reason": "来源明确给出试点在2026年能耗降低8%的目标，数值、期间、限定与百分比基准均逐字保留。"
+    },
+    {
+      "fact_key": "school_energy_saving_pilot.energy_consumption_reduction_target.period",
+      "fact_kind": "date",
+      "value": {
+        "raw_text": "2026年",
+        "normalized_text": "2026年",
+        "numeric_value": null,
+        "date_value": "2026",
+        "date_precision": "year",
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": "试点",
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+          "quote": "试点2026年能耗降低8%。"
+        }
+      ],
+      "reason": "来源明确给出目标期间为2026年，作为该目标的时间限定事实。"
+    }
+  ],
+  "missing": [
+    {
+      "fact_key": "school_energy_saving_pilot.energy_consumption_reduction_target.baseline",
+      "fact_kind": "amount",
+      "required": true,
+      "reason": "原文仅给出“能耗降低8%”的目标，未提供基线能耗数值或基线年份，无法判断相对基准。",
+      "evidence_refs": [
+        "evidence_3f0bbeaa-090f-4288-86cd-36f1b006f40a",
+        "evidence_f2a54824-ecc4-4929-abbf-29495eae4125"
+      ]
+    },
+    {
+      "fact_key": "school_energy_saving_pilot.energy_consumption_reduction_target.metric_name",
+      "fact_kind": "metric",
+      "required": true,
+      "reason": "原文仅出现“指标”一词，未明确该8%对应的具体指标名称（如总能耗、单位面积能耗等）。",
+      "evidence_refs": [
+        "evidence_8a28f6ab-c955-49f8-8c75-90cd1ee22b2c"
+      ]
+    }
+  ]
+}

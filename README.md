@@ -52,6 +52,12 @@ Markdown保留原文结构；原生格式保留表格/对象/媒体关系及格�
 
 `python -m yoloongppt revise <run_id> <request.json>`（HTTP POST `/revise/{run_id}`）保留单标题/正文请求 object_id、replacement_text 数组和 reason；请求包含 `plan` 时消费 DEC-039 的 RevisionPlan，当前支持有明确范围的几何/颜色修复。写入前核对 parent run、before spec、对象/页面范围和锁，非法/过期/事实修改请求拒绝。保存原稿、before/after、实际差异与局部复审，逐字节保留未选 OOXML parts 和实体 ID；完整内容/对象/模板重排仍按原验收推进。`recheck <run_id>` 或POST `/recheck/{run_id}`只恢复QA，校验并复用已有PPTX/render字节，不重新生成。
 
+同一 `revise` 入口也消费 [批量请求契约](contracts/revision-batch-request.schema.json)：`instruction` 配合可选 `scope.slide_ids/object_ids`、`locked_object_ids` 和 `edits`。明确 edits 使用逻辑 object_id 或唯一 selector（slide_id/index、shape_id/name/text/placeholder_idx）；没有 edits 时，真实模型依据登记对象与已选事实解释指令，保存目标候选和原文依据，歧义或越界失败。CLI、API、MCP `revise_deck` 与既有作业路由共享消费者。
+
+批次支持文字、登记且已授权图片、分类图表数据、表格单元格、几何、文本 color/bold/font_size、图片/形状替代文字及备注。`mode: "beautify"` 只允许几何/格式，保留事实、数据与锁。图片当前要求 contain，无旧裁切，并在原对象范围内按真实比例适配；共享媒体/图表工作簿/备注可能影响未选对象时明确拒绝。连接线端点重排、任意 section 语义、全部格式/模板/复杂对象尚未接入，不把低层原生编辑支持当成全系统支持。每次保存父子 run、版本/hash、逐操作准备状态和最终 before/after、原生差异、实际渲染及选页独立模型复审；未选页的原 issue 保留。
+
+复现与当前实物见 [批量局部修订与原生保真](validation/批量局部修订与原生保真.md)。五次实际 API 修订分别覆盖两页文案、图表系列重排、换图、故障注入美化及再次换图，P0=0，仍有警告且 final_allowed=false；AC-008/009/010/028 均未通过完整原验收。
+
 实物：[原稿](validation/generation-artifacts/original/deck.pptx)、[局部修订稿](validation/generation-artifacts/revised/deck.pptx)、[修订稿PDF](validation/generation-artifacts/revised/render/deck.pdf)、[当前HTTP真实生成](validation/generation-artifacts/http-generated/deck.pptx)。[31项组件核验](validation/generation-runtime.json)与[实物说明](validation/首条真实生成与修订链路.md)记录模型调用、真实视觉/事实审查、ObjectMap、失败及修订差异；P0为0只适用于这些已执行检查，AC-001/GOV-008仍未通过。
 
 ## 原生模板、八图与完整内容分页（2026-10-11）

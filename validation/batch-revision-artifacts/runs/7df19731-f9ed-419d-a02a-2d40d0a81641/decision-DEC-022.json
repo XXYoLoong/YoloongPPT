@@ -1,0 +1,283 @@
+{
+  "trace_id": "trace_64fac4db-71f7-4aab-8f30-3c92ca86337f",
+  "node_id": "DEC-022",
+  "input": {
+    "page_count": 6,
+    "evidence_refs": [
+      "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+      "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-022",
+      "candidate_id": "candidate_4445d5a8-def4-45ff-9fd4-b171e477ff88",
+      "value": {
+        "page_index": 0,
+        "expression": "cards_or_text",
+        "kind": "text",
+        "reason": "先交代单位、窗口与统计对象，避免后续数据被误读为真实统计。",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "preserved_content": true
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+        "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-022",
+      "candidate_id": "candidate_a78b7c34-4d66-42e2-984c-f6182e18d8c3",
+      "value": {
+        "page_index": 1,
+        "expression": "text_image",
+        "kind": "image",
+        "reason": "满足图片页要求，同时按原文声明素材仅装饰、不证明事实。",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "preserved_content": true
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+        "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-022",
+      "candidate_id": "candidate_0e643032-8a32-47db-8c3a-0ee373dd9e9f",
+      "value": {
+        "page_index": 2,
+        "expression": "process",
+        "kind": "diagram",
+        "reason": "流程页只复现原文明示的顺序关系，不推断因果。",
+        "evidence_refs": [
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843",
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "preserved_content": true
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+        "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-022",
+      "candidate_id": "candidate_70c3344d-ed9e-4eed-8a9b-2364924856f6",
+      "value": {
+        "page_index": 3,
+        "expression": "table",
+        "kind": "table",
+        "reason": "用表格并列呈现原文数值，不做差值或效果解读。",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "preserved_content": true
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+        "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-022",
+      "candidate_id": "candidate_8beccd12-1ed5-4672-9087-d611455f436f",
+      "value": {
+        "page_index": 4,
+        "expression": "chart",
+        "kind": "chart",
+        "reason": "以原生柱图并列呈现原文数值，保持与表格一致的口径。",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "preserved_content": true
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+        "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-022",
+      "candidate_id": "candidate_3fc09ec3-421d-4747-9186-27d7e5c9444f",
+      "value": {
+        "page_index": 5,
+        "expression": "cards_or_text",
+        "kind": "text",
+        "reason": "以原文结论收尾，并再次声明虚构测试与无因果推断的边界。",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+        ],
+        "preserved_content": true
+      },
+      "score": 1,
+      "reasons": [
+        {
+          "reason": "validated explicit structured visual choice; facts unchanged"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+        "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+      ],
+      "constraints": [
+        {
+          "no_implicit_fact_inference": true,
+          "no_silent_fallback": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_4445d5a8-def4-45ff-9fd4-b171e477ff88",
+    "candidate_a78b7c34-4d66-42e2-984c-f6182e18d8c3",
+    "candidate_0e643032-8a32-47db-8c3a-0ee373dd9e9f",
+    "candidate_70c3344d-ed9e-4eed-8a9b-2364924856f6",
+    "candidate_8beccd12-1ed5-4672-9087-d611455f436f",
+    "candidate_3fc09ec3-421d-4747-9186-27d7e5c9444f"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "Visual_Designer/template/Executor",
+      "P02": "layout induction/reference selection/actions",
+      "P03": "slide content/layout/template/assets",
+      "P04": "PureLayout/assets/PPTAdapter",
+      "P05": "SlidePlanner/template/assets/native writer"
+    },
+    "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+    "score_semantics": "selected policy outcome, not semantic probability",
+    "fallback": "structured failure; never invent material or downgrade a requested expression"
+  },
+  "output": {
+    "pages": [
+      {
+        "page_index": 0,
+        "expression": "cards_or_text",
+        "kind": "text",
+        "reason": "先交代单位、窗口与统计对象，避免后续数据被误读为真实统计。",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "preserved_content": true
+      },
+      {
+        "page_index": 1,
+        "expression": "text_image",
+        "kind": "image",
+        "reason": "满足图片页要求，同时按原文声明素材仅装饰、不证明事实。",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "preserved_content": true
+      },
+      {
+        "page_index": 2,
+        "expression": "process",
+        "kind": "diagram",
+        "reason": "流程页只复现原文明示的顺序关系，不推断因果。",
+        "evidence_refs": [
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843",
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "preserved_content": true
+      },
+      {
+        "page_index": 3,
+        "expression": "table",
+        "kind": "table",
+        "reason": "用表格并列呈现原文数值，不做差值或效果解读。",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "preserved_content": true
+      },
+      {
+        "page_index": 4,
+        "expression": "chart",
+        "kind": "chart",
+        "reason": "以原生柱图并列呈现原文数值，保持与表格一致的口径。",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448"
+        ],
+        "preserved_content": true
+      },
+      {
+        "page_index": 5,
+        "expression": "cards_or_text",
+        "kind": "text",
+        "reason": "以原文结论收尾，并再次声明虚构测试与无因果推断的边界。",
+        "evidence_refs": [
+          "evidence_31d66b61-ee64-4f26-800f-472bd40e1448",
+          "evidence_5f4eff91-ebde-4001-a150-76782604e843"
+        ],
+        "preserved_content": true
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}
