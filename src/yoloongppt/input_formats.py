@@ -316,11 +316,21 @@ def parse_input(kind, raw, *, source_id, asset_id=None, locator=None):
     kind = kind.lower()
     if kind not in SUPPORTED_FORMATS:failure('INPUT_UNSUPPORTED', '该格式未支持，未静默跳过。', details=[{'kind': kind, 'supported': sorted(SUPPORTED_FORMATS)}])
     try:
-        if kind == 'docx':document, segments, issues = parse_docx(raw, source_id, asset_id)
-        elif kind == 'xlsx':document, segments, issues = parse_xlsx(raw, source_id, asset_id)
+        if kind == 'docx':
+            document, segments, issues = parse_docx(raw, source_id, asset_id)
+            from .docx_evidence import enhance_docx
+            document, segments, added = enhance_docx(raw, document, segments); issues += added
+        elif kind == 'xlsx':
+            document, segments, issues = parse_xlsx(raw, source_id, asset_id)
+            from .xlsx_evidence import enhance_xlsx
+            document, segments, added = enhance_xlsx(document, segments)
+            issues = [i for i in issues if i['code'] != 'XLSX_DISPLAY_FORMAT_NOT_RENDERED'] + added
         elif kind == 'csv':document, segments, issues = parse_csv(raw, source_id, asset_id)
         elif kind in {'pptx','potx'}:document, segments, issues = parse_pptx(raw, source_id, asset_id)
-        elif kind == 'pdf':document, segments, issues = parse_pdf(raw, source_id, asset_id)
+        elif kind == 'pdf':
+            document, segments, issues = parse_pdf(raw, source_id, asset_id)
+            from .pdf_evidence import enhance_pdf
+            document, segments, added = enhance_pdf(document, segments); issues += added
         elif kind == 'image':
             document = inspect_image(raw, locator); issues = document['issues']
             loc = {'kind': 'image_region', 'element_id': None, 'bbox': {'x': 0, 'y': 0, 'width': document['width'], 'height': document['height'], 'coordinate_space': 'raw_source_pixels_top_left'}}
@@ -344,7 +354,9 @@ def parse_input(kind, raw, *, source_id, asset_id=None, locator=None):
         failure('INPUT_PARSE_FAILED', '结构文件损坏或解析失败，未继续采用部分结果。')
     if not segments:
         failure('INPUT_NO_PARSED_EVIDENCE','文件没有可解析的文本或定位对象；原文件不可作为已解析来源继续生成。')
-    version = 'binary-1:'+hashlib.sha256(Path(__file__).read_bytes()+Path(__file__).with_name('templates.py').read_bytes()+Path(__file__).with_name('assets.py').read_bytes()).hexdigest()
+    version_files = ['input_formats.py','templates.py','assets.py']
+    version_files += {'docx':['docx_evidence.py'],'xlsx':['xlsx_evidence.py'],'pdf':['pdf_evidence.py']}.get(kind,[])
+    version = 'binary-2:'+hashlib.sha256(b''.join(Path(__file__).with_name(name).read_bytes() for name in version_files)).hexdigest()
     return {'status': 'partial' if issues else 'parsed', 'document': document, 'segments': segments,
             'warnings': issues, 'parser_version': version+':kind:'+kind, 'source_sha256': hashlib.sha256(raw).hexdigest(),
             'boundary': 'Original bytes must be snapshotted; structure/anchors are not semantic fact extraction or system acceptance.'}

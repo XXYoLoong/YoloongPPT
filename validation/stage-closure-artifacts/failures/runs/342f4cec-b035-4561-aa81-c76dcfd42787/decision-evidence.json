@@ -1,0 +1,1706 @@
+{
+  "trace_id": "trace_cefac381-c0ed-4de9-979c-3384a1bb9312",
+  "node_id": "DEC-004",
+  "input": {
+    "trace_id": "trace_cefac381-c0ed-4de9-979c-3384a1bb9312",
+    "evidence": [
+      {
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+        "source_hash": "7032f1c83af8cd3e3122baca6eb75c64d7f26e93de518c15289c49afe5b29211",
+        "parser_version": "text-1:cb6707ccfd2db91ecc747723be0fbae25d971c8d3e58b721c871bcc3705209a3:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:prompt",
+        "segment_index": 0,
+        "anchor": {
+          "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+          "asset_id": null,
+          "native_locator": "chars:0:180",
+          "locator": {
+            "kind": "text_span",
+            "segment_index": 0,
+            "start_char": 0,
+            "end_char": 180,
+            "offset_unit": "unicode_code_points"
+          },
+          "locator_status": "located",
+          "reason": null
+        },
+        "raw_text": "制作恰好4页中文PPT介绍一个虚构校园节能试点，全部内容注明软件验证、非真实业务。第1页介绍虚构试点，第2页用原生表格列出数据，第3页用原生柱状图展示同一组数据，第4页总结并保留来源。虚构数据：A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+        "content": "制作恰好4页中文PPT介绍一个虚构校园节能试点，全部内容注明软件验证、非真实业务。第1页介绍虚构试点，第2页用原生表格列出数据，第3页用原生柱状图展示同一组数据，第4页总结并保留来源。虚构数据：A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+        "confidence": null,
+        "data": {
+          "topic": null,
+          "requirements": [],
+          "modification_instructions": [],
+          "context": [
+            {
+              "text": "制作恰好4页中文PPT介绍一个虚构校园节能试点，全部内容注明软件验证、非真实业务。第1页介绍虚构试点，第2页用原生表格列出数据，第3页用原生柱状图展示同一组数据，第4页总结并保留来源。虚构数据：A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+              "source_locations": [
+                {
+                  "source_ref": "raw_text",
+                  "start_offset": 0,
+                  "end_offset": 180,
+                  "offset_unit": "unicode_code_point"
+                }
+              ]
+            }
+          ]
+        },
+        "metadata": {
+          "source_kind": "prompt",
+          "semantic_claim_status": "not_inferred",
+          "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+        },
+        "asset_ref": null,
+        "raw_asset_refs": [],
+        "parse_note": "Raw prompt/text kept as context; topic, requirements and modification intent are not inferred here.",
+        "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      }
+    ],
+    "interpretation": {
+      "coverage": [
+        {
+          "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+          "classification": "instructions",
+          "reason": "该证据为制作PPT的指令性要求，包含页数、语言、内容标注、页面结构、数据展示方式及禁止事项，属于instructions而非事实性陈述。"
+        }
+      ],
+      "claims": [
+        {
+          "fact_key": "ppt_page_count",
+          "fact_kind": "amount",
+          "value": {
+            "raw_text": "恰好4页",
+            "normalized_text": "恰好4页",
+            "numeric_value": "4",
+            "date_value": null,
+            "date_precision": null,
+            "unit": "页",
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "制作恰好4页中文PPT介绍一个虚构校园节能试点",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "制作恰好4页中文PPT介绍一个虚构校园节能试点"
+            }
+          ],
+          "reason": "原文明确要求PPT恰好4页，属于指令中的数量约束。"
+        },
+        {
+          "fact_key": "ppt_language",
+          "fact_kind": "quote",
+          "value": {
+            "raw_text": "中文",
+            "normalized_text": "中文",
+            "numeric_value": null,
+            "date_value": null,
+            "date_precision": null,
+            "unit": null,
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "制作恰好4页中文PPT介绍一个虚构校园节能试点",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "制作恰好4页中文PPT介绍一个虚构校园节能试点"
+            }
+          ],
+          "reason": "原文明确要求PPT使用中文。"
+        },
+        {
+          "fact_key": "content_disclaimer",
+          "fact_kind": "quote",
+          "value": {
+            "raw_text": "全部内容注明软件验证、非真实业务",
+            "normalized_text": "全部内容注明软件验证、非真实业务",
+            "numeric_value": null,
+            "date_value": null,
+            "date_precision": null,
+            "unit": null,
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "全部内容注明软件验证、非真实业务",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "全部内容注明软件验证、非真实业务"
+            }
+          ],
+          "reason": "原文明确要求全部内容注明软件验证、非真实业务。"
+        },
+        {
+          "fact_key": "page_1_content",
+          "fact_kind": "quote",
+          "value": {
+            "raw_text": "第1页介绍虚构试点",
+            "normalized_text": "第1页介绍虚构试点",
+            "numeric_value": null,
+            "date_value": null,
+            "date_precision": null,
+            "unit": null,
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "第1页介绍虚构试点",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "第1页介绍虚构试点"
+            }
+          ],
+          "reason": "原文明确第1页内容为介绍虚构试点。"
+        },
+        {
+          "fact_key": "page_2_content",
+          "fact_kind": "quote",
+          "value": {
+            "raw_text": "第2页用原生表格列出数据",
+            "normalized_text": "第2页用原生表格列出数据",
+            "numeric_value": null,
+            "date_value": null,
+            "date_precision": null,
+            "unit": null,
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "第2页用原生表格列出数据",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "第2页用原生表格列出数据"
+            }
+          ],
+          "reason": "原文明确第2页使用原生表格列出数据。"
+        },
+        {
+          "fact_key": "page_3_content",
+          "fact_kind": "quote",
+          "value": {
+            "raw_text": "第3页用原生柱状图展示同一组数据",
+            "normalized_text": "第3页用原生柱状图展示同一组数据",
+            "numeric_value": null,
+            "date_value": null,
+            "date_precision": null,
+            "unit": null,
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "第3页用原生柱状图展示同一组数据",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "第3页用原生柱状图展示同一组数据"
+            }
+          ],
+          "reason": "原文明确第3页使用原生柱状图展示同一组数据。"
+        },
+        {
+          "fact_key": "page_4_content",
+          "fact_kind": "quote",
+          "value": {
+            "raw_text": "第4页总结并保留来源",
+            "normalized_text": "第4页总结并保留来源",
+            "numeric_value": null,
+            "date_value": null,
+            "date_precision": null,
+            "unit": null,
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "第4页总结并保留来源",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "第4页总结并保留来源"
+            }
+          ],
+          "reason": "原文明确第4页内容为总结并保留来源。"
+        },
+        {
+          "fact_key": "building_A_baseline",
+          "fact_kind": "amount",
+          "value": {
+            "raw_text": "A楼基线100千瓦时",
+            "normalized_text": "A楼基线100千瓦时",
+            "numeric_value": "100",
+            "date_value": null,
+            "date_precision": null,
+            "unit": "千瓦时",
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "A楼基线100千瓦时",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "A楼基线100千瓦时"
+            }
+          ],
+          "reason": "原文明确给出A楼基线为100千瓦时。"
+        },
+        {
+          "fact_key": "building_A_current",
+          "fact_kind": "amount",
+          "value": {
+            "raw_text": "本期90千瓦时",
+            "normalized_text": "本期90千瓦时",
+            "numeric_value": "90",
+            "date_value": null,
+            "date_precision": null,
+            "unit": "千瓦时",
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "A楼基线100千瓦时、本期90千瓦时",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "A楼基线100千瓦时、本期90千瓦时"
+            }
+          ],
+          "reason": "原文明确给出A楼本期为90千瓦时。"
+        },
+        {
+          "fact_key": "building_B_baseline",
+          "fact_kind": "amount",
+          "value": {
+            "raw_text": "B楼基线80千瓦时",
+            "normalized_text": "B楼基线80千瓦时",
+            "numeric_value": "80",
+            "date_value": null,
+            "date_precision": null,
+            "unit": "千瓦时",
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "B楼基线80千瓦时",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "B楼基线80千瓦时"
+            }
+          ],
+          "reason": "原文明确给出B楼基线为80千瓦时。"
+        },
+        {
+          "fact_key": "building_B_current",
+          "fact_kind": "amount",
+          "value": {
+            "raw_text": "本期72千瓦时",
+            "normalized_text": "本期72千瓦时",
+            "numeric_value": "72",
+            "date_value": null,
+            "date_precision": null,
+            "unit": "千瓦时",
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "B楼基线80千瓦时、本期72千瓦时",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "B楼基线80千瓦时、本期72千瓦时"
+            }
+          ],
+          "reason": "原文明确给出B楼本期为72千瓦时。"
+        },
+        {
+          "fact_key": "building_C_baseline",
+          "fact_kind": "amount",
+          "value": {
+            "raw_text": "C楼基线60千瓦时",
+            "normalized_text": "C楼基线60千瓦时",
+            "numeric_value": "60",
+            "date_value": null,
+            "date_precision": null,
+            "unit": "千瓦时",
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "C楼基线60千瓦时",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "C楼基线60千瓦时"
+            }
+          ],
+          "reason": "原文明确给出C楼基线为60千瓦时。"
+        },
+        {
+          "fact_key": "building_C_current",
+          "fact_kind": "amount",
+          "value": {
+            "raw_text": "本期54千瓦时",
+            "normalized_text": "本期54千瓦时",
+            "numeric_value": "54",
+            "date_value": null,
+            "date_precision": null,
+            "unit": "千瓦时",
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "C楼基线60千瓦时、本期54千瓦时",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "C楼基线60千瓦时、本期54千瓦时"
+            }
+          ],
+          "reason": "原文明确给出C楼本期为54千瓦时。"
+        },
+        {
+          "fact_key": "prohibition_on_calculation",
+          "fact_kind": "quote",
+          "value": {
+            "raw_text": "不要推算比例、合计或新统计",
+            "normalized_text": "不要推算比例、合计或新统计",
+            "numeric_value": null,
+            "date_value": null,
+            "date_precision": null,
+            "unit": null,
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "不要推算比例、合计或新统计",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "不要推算比例、合计或新统计"
+            }
+          ],
+          "reason": "原文明确禁止推算比例、合计或新统计。"
+        },
+        {
+          "fact_key": "prohibition_on_images_and_causality",
+          "fact_kind": "quote",
+          "value": {
+            "raw_text": "不加入图片和原文没有的因果",
+            "normalized_text": "不加入图片和原文没有的因果",
+            "numeric_value": null,
+            "date_value": null,
+            "date_precision": null,
+            "unit": null,
+            "currency": null,
+            "percentage_base": null,
+            "period": null,
+            "qualifier": "不加入图片和原文没有的因果",
+            "citation_uri": null
+          },
+          "provenance": "fact",
+          "quotes": [
+            {
+              "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+              "quote": "不加入图片和原文没有的因果"
+            }
+          ],
+          "reason": "原文明确禁止加入图片和原文没有的因果。"
+        }
+      ],
+      "missing": []
+    },
+    "policy": {}
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_6f5bb58f-5a8d-4b45-96a6-d56c2bd5ce81",
+      "value": {
+        "fact_key": "ppt_page_count",
+        "claim_id": "claim.ac10d7c4e4dc8ab882572f9f",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确要求PPT恰好4页，属于指令中的数量约束。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_5f1be56a-b762-45c5-8f03-2dafb7fc3f1a",
+      "value": {
+        "fact_key": "ppt_language",
+        "claim_id": "claim.575c4f0e2a80f55fbafdf31d",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确要求PPT使用中文。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_257bff9b-5a96-4a62-ac45-1d3eff11d7b3",
+      "value": {
+        "fact_key": "content_disclaimer",
+        "claim_id": "claim.6564cf266a681058d4c19c5a",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确要求全部内容注明软件验证、非真实业务。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_e09c219a-74c2-47e0-bcc1-c8cd456099ae",
+      "value": {
+        "fact_key": "page_1_content",
+        "claim_id": "claim.f6982dc169e7b119b025d4bf",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确第1页内容为介绍虚构试点。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_83749edf-777e-4df9-a9cc-17fdc4b056e2",
+      "value": {
+        "fact_key": "page_2_content",
+        "claim_id": "claim.30a25df5ed02caa50f546c09",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确第2页使用原生表格列出数据。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_abef7b89-b960-4600-815c-b31091aacc39",
+      "value": {
+        "fact_key": "page_3_content",
+        "claim_id": "claim.d329ea8995147c64cf952848",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确第3页使用原生柱状图展示同一组数据。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_b9723f6b-de1c-4a68-ad22-869defe49a3c",
+      "value": {
+        "fact_key": "page_4_content",
+        "claim_id": "claim.ca9be2cbab47e6cddcbb7a9e",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确第4页内容为总结并保留来源。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_e419c220-729f-4d48-a109-49f790983fa6",
+      "value": {
+        "fact_key": "building_A_baseline",
+        "claim_id": "claim.3964d47e22e83ffa372328be",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确给出A楼基线为100千瓦时。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_c6fcaa47-38a5-45d9-8cf0-967334091d47",
+      "value": {
+        "fact_key": "building_A_current",
+        "claim_id": "claim.648ed52525a5c3401cad1f07",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确给出A楼本期为90千瓦时。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_38c35595-763d-4370-9f63-ebeab9a7d9e8",
+      "value": {
+        "fact_key": "building_B_baseline",
+        "claim_id": "claim.31e3fe82609f9f75078f7252",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确给出B楼基线为80千瓦时。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_443888a1-83ea-4620-abd2-e3526c5f9720",
+      "value": {
+        "fact_key": "building_B_current",
+        "claim_id": "claim.124bc36f9e36b21e5fae8d29",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确给出B楼本期为72千瓦时。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_7c5876f3-0e52-475e-bb5f-61e52ed3db75",
+      "value": {
+        "fact_key": "building_C_baseline",
+        "claim_id": "claim.90c981c033d9c7e5697620d4",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确给出C楼基线为60千瓦时。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_23896685-0549-450e-9af7-94ad7a36f588",
+      "value": {
+        "fact_key": "building_C_current",
+        "claim_id": "claim.e606eee6cf31ca8abab1db64",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确给出C楼本期为54千瓦时。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_5b5201d7-5685-4585-8ee5-22060989a0d9",
+      "value": {
+        "fact_key": "prohibition_on_calculation",
+        "claim_id": "claim.115793c519ba511d1fdbe7a1",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确禁止推算比例、合计或新统计。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-004",
+      "candidate_id": "candidate_0f6b6a36-0b20-4330-9a57-012faeda6a88",
+      "value": {
+        "fact_key": "prohibition_on_images_and_causality",
+        "claim_id": "claim.040886878b66d45cf1a7f476",
+        "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385"
+      },
+      "score": 0,
+      "reasons": [
+        {
+          "reason": "原文明确禁止加入图片和原文没有的因果。",
+          "score_semantics": "No probabilistic score; explicit rule only."
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "no_inferred_priority": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_6f5bb58f-5a8d-4b45-96a6-d56c2bd5ce81",
+    "candidate_5f1be56a-b762-45c5-8f03-2dafb7fc3f1a",
+    "candidate_257bff9b-5a96-4a62-ac45-1d3eff11d7b3",
+    "candidate_e09c219a-74c2-47e0-bcc1-c8cd456099ae",
+    "candidate_83749edf-777e-4df9-a9cc-17fdc4b056e2",
+    "candidate_abef7b89-b960-4600-815c-b31091aacc39",
+    "candidate_b9723f6b-de1c-4a68-ad22-869defe49a3c",
+    "candidate_e419c220-729f-4d48-a109-49f790983fa6",
+    "candidate_c6fcaa47-38a5-45d9-8cf0-967334091d47",
+    "candidate_38c35595-763d-4370-9f63-ebeab9a7d9e8",
+    "candidate_443888a1-83ea-4620-abd2-e3526c5f9720",
+    "candidate_7c5876f3-0e52-475e-bb5f-61e52ed3db75",
+    "candidate_23896685-0549-450e-9af7-94ad7a36f588",
+    "candidate_5b5201d7-5685-4585-8ee5-22060989a0d9",
+    "candidate_0f6b6a36-0b20-4330-9a57-012faeda6a88"
+  ],
+  "rules": {
+    "version": "DEC-004-1",
+    "mechanism": "Exact quote and identity validation; explicit policy precedence; no guessed authority or missing values.",
+    "source_sha256": "a17cf451bbca3a8c6f100f1ddc94373cb116ea58174d0aa379c6476f4b9d0a33",
+    "fallback": "Unresolved conflict/ambiguity/required missing input blocks downstream use; all candidates retained."
+  },
+  "output": {
+    "status": "ready",
+    "groups": [
+      {
+        "fact_id": "fact.4dff1fd5b988d7e9165329ea",
+        "fact_key": "ppt_page_count",
+        "fact_kind": "amount",
+        "claims": [
+          {
+            "fact_key": "ppt_page_count",
+            "fact_kind": "amount",
+            "value": {
+              "raw_text": "恰好4页",
+              "normalized_text": "恰好4页",
+              "numeric_value": "4",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "页",
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "制作恰好4页中文PPT介绍一个虚构校园节能试点",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "制作恰好4页中文PPT介绍一个虚构校园节能试点"
+              }
+            ],
+            "reason": "原文明确要求PPT恰好4页，属于指令中的数量约束。",
+            "claim_id": "claim.ac10d7c4e4dc8ab882572f9f",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.ac10d7c4e4dc8ab882572f9f",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.8bbcd1c6e6dd009b120ced75",
+        "fact_key": "ppt_language",
+        "fact_kind": "quote",
+        "claims": [
+          {
+            "fact_key": "ppt_language",
+            "fact_kind": "quote",
+            "value": {
+              "raw_text": "中文",
+              "normalized_text": "中文",
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "制作恰好4页中文PPT介绍一个虚构校园节能试点",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "制作恰好4页中文PPT介绍一个虚构校园节能试点"
+              }
+            ],
+            "reason": "原文明确要求PPT使用中文。",
+            "claim_id": "claim.575c4f0e2a80f55fbafdf31d",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.575c4f0e2a80f55fbafdf31d",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.20b1f7f0cc691fc78e013471",
+        "fact_key": "content_disclaimer",
+        "fact_kind": "quote",
+        "claims": [
+          {
+            "fact_key": "content_disclaimer",
+            "fact_kind": "quote",
+            "value": {
+              "raw_text": "全部内容注明软件验证、非真实业务",
+              "normalized_text": "全部内容注明软件验证、非真实业务",
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "全部内容注明软件验证、非真实业务",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "全部内容注明软件验证、非真实业务"
+              }
+            ],
+            "reason": "原文明确要求全部内容注明软件验证、非真实业务。",
+            "claim_id": "claim.6564cf266a681058d4c19c5a",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.6564cf266a681058d4c19c5a",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.63395976919ee72090cecb33",
+        "fact_key": "page_1_content",
+        "fact_kind": "quote",
+        "claims": [
+          {
+            "fact_key": "page_1_content",
+            "fact_kind": "quote",
+            "value": {
+              "raw_text": "第1页介绍虚构试点",
+              "normalized_text": "第1页介绍虚构试点",
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "第1页介绍虚构试点",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "第1页介绍虚构试点"
+              }
+            ],
+            "reason": "原文明确第1页内容为介绍虚构试点。",
+            "claim_id": "claim.f6982dc169e7b119b025d4bf",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.f6982dc169e7b119b025d4bf",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.5fc97880abdb564723557560",
+        "fact_key": "page_2_content",
+        "fact_kind": "quote",
+        "claims": [
+          {
+            "fact_key": "page_2_content",
+            "fact_kind": "quote",
+            "value": {
+              "raw_text": "第2页用原生表格列出数据",
+              "normalized_text": "第2页用原生表格列出数据",
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "第2页用原生表格列出数据",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "第2页用原生表格列出数据"
+              }
+            ],
+            "reason": "原文明确第2页使用原生表格列出数据。",
+            "claim_id": "claim.30a25df5ed02caa50f546c09",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.30a25df5ed02caa50f546c09",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.dfff350188f5175369a83e1e",
+        "fact_key": "page_3_content",
+        "fact_kind": "quote",
+        "claims": [
+          {
+            "fact_key": "page_3_content",
+            "fact_kind": "quote",
+            "value": {
+              "raw_text": "第3页用原生柱状图展示同一组数据",
+              "normalized_text": "第3页用原生柱状图展示同一组数据",
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "第3页用原生柱状图展示同一组数据",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "第3页用原生柱状图展示同一组数据"
+              }
+            ],
+            "reason": "原文明确第3页使用原生柱状图展示同一组数据。",
+            "claim_id": "claim.d329ea8995147c64cf952848",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.d329ea8995147c64cf952848",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.3f6de739e2ce0b5424512d1a",
+        "fact_key": "page_4_content",
+        "fact_kind": "quote",
+        "claims": [
+          {
+            "fact_key": "page_4_content",
+            "fact_kind": "quote",
+            "value": {
+              "raw_text": "第4页总结并保留来源",
+              "normalized_text": "第4页总结并保留来源",
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "第4页总结并保留来源",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "第4页总结并保留来源"
+              }
+            ],
+            "reason": "原文明确第4页内容为总结并保留来源。",
+            "claim_id": "claim.ca9be2cbab47e6cddcbb7a9e",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.ca9be2cbab47e6cddcbb7a9e",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.98dfab49295a2c0074bd0f9c",
+        "fact_key": "building_A_baseline",
+        "fact_kind": "amount",
+        "claims": [
+          {
+            "fact_key": "building_A_baseline",
+            "fact_kind": "amount",
+            "value": {
+              "raw_text": "A楼基线100千瓦时",
+              "normalized_text": "A楼基线100千瓦时",
+              "numeric_value": "100",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "千瓦时",
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "A楼基线100千瓦时",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "A楼基线100千瓦时"
+              }
+            ],
+            "reason": "原文明确给出A楼基线为100千瓦时。",
+            "claim_id": "claim.3964d47e22e83ffa372328be",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.3964d47e22e83ffa372328be",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.acdc7df71058c21858606465",
+        "fact_key": "building_A_current",
+        "fact_kind": "amount",
+        "claims": [
+          {
+            "fact_key": "building_A_current",
+            "fact_kind": "amount",
+            "value": {
+              "raw_text": "本期90千瓦时",
+              "normalized_text": "本期90千瓦时",
+              "numeric_value": "90",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "千瓦时",
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "A楼基线100千瓦时、本期90千瓦时",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "A楼基线100千瓦时、本期90千瓦时"
+              }
+            ],
+            "reason": "原文明确给出A楼本期为90千瓦时。",
+            "claim_id": "claim.648ed52525a5c3401cad1f07",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.648ed52525a5c3401cad1f07",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.d9881a31b1398786c52d9b31",
+        "fact_key": "building_B_baseline",
+        "fact_kind": "amount",
+        "claims": [
+          {
+            "fact_key": "building_B_baseline",
+            "fact_kind": "amount",
+            "value": {
+              "raw_text": "B楼基线80千瓦时",
+              "normalized_text": "B楼基线80千瓦时",
+              "numeric_value": "80",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "千瓦时",
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "B楼基线80千瓦时",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "B楼基线80千瓦时"
+              }
+            ],
+            "reason": "原文明确给出B楼基线为80千瓦时。",
+            "claim_id": "claim.31e3fe82609f9f75078f7252",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.31e3fe82609f9f75078f7252",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.7df36788aea38ea1bf83c267",
+        "fact_key": "building_B_current",
+        "fact_kind": "amount",
+        "claims": [
+          {
+            "fact_key": "building_B_current",
+            "fact_kind": "amount",
+            "value": {
+              "raw_text": "本期72千瓦时",
+              "normalized_text": "本期72千瓦时",
+              "numeric_value": "72",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "千瓦时",
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "B楼基线80千瓦时、本期72千瓦时",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "B楼基线80千瓦时、本期72千瓦时"
+              }
+            ],
+            "reason": "原文明确给出B楼本期为72千瓦时。",
+            "claim_id": "claim.124bc36f9e36b21e5fae8d29",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.124bc36f9e36b21e5fae8d29",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.0384af29ac0d1db7217f4c3b",
+        "fact_key": "building_C_baseline",
+        "fact_kind": "amount",
+        "claims": [
+          {
+            "fact_key": "building_C_baseline",
+            "fact_kind": "amount",
+            "value": {
+              "raw_text": "C楼基线60千瓦时",
+              "normalized_text": "C楼基线60千瓦时",
+              "numeric_value": "60",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "千瓦时",
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "C楼基线60千瓦时",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "C楼基线60千瓦时"
+              }
+            ],
+            "reason": "原文明确给出C楼基线为60千瓦时。",
+            "claim_id": "claim.90c981c033d9c7e5697620d4",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.90c981c033d9c7e5697620d4",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.aa3fc23787de8ee3b06612df",
+        "fact_key": "building_C_current",
+        "fact_kind": "amount",
+        "claims": [
+          {
+            "fact_key": "building_C_current",
+            "fact_kind": "amount",
+            "value": {
+              "raw_text": "本期54千瓦时",
+              "normalized_text": "本期54千瓦时",
+              "numeric_value": "54",
+              "date_value": null,
+              "date_precision": null,
+              "unit": "千瓦时",
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "C楼基线60千瓦时、本期54千瓦时",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "C楼基线60千瓦时、本期54千瓦时"
+              }
+            ],
+            "reason": "原文明确给出C楼本期为54千瓦时。",
+            "claim_id": "claim.e606eee6cf31ca8abab1db64",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.e606eee6cf31ca8abab1db64",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.54f127d15cd73869c11bb5dc",
+        "fact_key": "prohibition_on_calculation",
+        "fact_kind": "quote",
+        "claims": [
+          {
+            "fact_key": "prohibition_on_calculation",
+            "fact_kind": "quote",
+            "value": {
+              "raw_text": "不要推算比例、合计或新统计",
+              "normalized_text": "不要推算比例、合计或新统计",
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "不要推算比例、合计或新统计",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "不要推算比例、合计或新统计"
+              }
+            ],
+            "reason": "原文明确禁止推算比例、合计或新统计。",
+            "claim_id": "claim.115793c519ba511d1fdbe7a1",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.115793c519ba511d1fdbe7a1",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      },
+      {
+        "fact_id": "fact.2789c6af90fe0def832328fe",
+        "fact_key": "prohibition_on_images_and_causality",
+        "fact_kind": "quote",
+        "claims": [
+          {
+            "fact_key": "prohibition_on_images_and_causality",
+            "fact_kind": "quote",
+            "value": {
+              "raw_text": "不加入图片和原文没有的因果",
+              "normalized_text": "不加入图片和原文没有的因果",
+              "numeric_value": null,
+              "date_value": null,
+              "date_precision": null,
+              "unit": null,
+              "currency": null,
+              "percentage_base": null,
+              "period": null,
+              "qualifier": "不加入图片和原文没有的因果",
+              "citation_uri": null
+            },
+            "provenance": "fact",
+            "quotes": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "quote": "不加入图片和原文没有的因果"
+              }
+            ],
+            "reason": "原文明确禁止加入图片和原文没有的因果。",
+            "claim_id": "claim.040886878b66d45cf1a7f476",
+            "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+            "evidence_refs": [
+              {
+                "evidence_id": "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7",
+                "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                "source_anchor": {
+                  "source_id": "source_32ebfff9-acae-4bae-afad-035a859a5385",
+                  "asset_id": null,
+                  "native_locator": "chars:0:180",
+                  "locator": {
+                    "kind": "text_span",
+                    "segment_index": 0,
+                    "start_char": 0,
+                    "end_char": 180,
+                    "offset_unit": "unicode_code_points"
+                  },
+                  "locator_status": "located",
+                  "reason": null
+                }
+              }
+            ]
+          }
+        ],
+        "selected_claim_id": "claim.040886878b66d45cf1a7f476",
+        "basis": "equivalent_values_all_sources_retained",
+        "conflicting": false
+      }
+    ],
+    "conflicts": [],
+    "issues": [],
+    "preserved_evidence_ids": [
+      "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+    ],
+    "source_priority_policy": {
+      "status": "unresolved",
+      "decision_id": "DEC-004",
+      "task_id": "TASK-DEC-004",
+      "precedence_source_ids": [],
+      "unresolved_reason": "No caller source precedence; default does not pick conflicting values."
+    }
+  },
+  "duration": 0.020488,
+  "error": null
+}

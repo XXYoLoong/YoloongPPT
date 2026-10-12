@@ -1,0 +1,104 @@
+{
+  "trace_id": "trace_d1c23cf6-5e8f-4f4e-b544-3fad22aefbc2",
+  "steps": [
+    {
+      "component": "DEC-001",
+      "status": "executed",
+      "duration_seconds": 0.117
+    },
+    {
+      "component": "DEC-002",
+      "status": "executed",
+      "duration_seconds": 0.014
+    },
+    {
+      "component": "SYS-003/004",
+      "status": "executed",
+      "duration_seconds": 0.059
+    },
+    {
+      "component": "DEC-003",
+      "status": "executed",
+      "duration_seconds": 0.012
+    },
+    {
+      "component": "FactInterpreter DEC-004/005",
+      "status": "executed",
+      "duration_seconds": 9.504
+    },
+    {
+      "component": "DEC-004",
+      "status": "executed",
+      "duration_seconds": 0.017
+    },
+    {
+      "component": "DEC-005",
+      "status": "executed",
+      "duration_seconds": 0.047
+    },
+    {
+      "component": "DEC-006–014 narrative preparation",
+      "status": "executed",
+      "duration_seconds": 0.045
+    },
+    {
+      "component": "DEC-028/029 SYS-008/009",
+      "status": "executed",
+      "duration_seconds": 0.033
+    },
+    {
+      "component": "SYS-005 partial content planner",
+      "status": "executed",
+      "duration_seconds": 7.674
+    },
+    {
+      "component": "DEC-022–029 visual execution",
+      "status": "executed",
+      "duration_seconds": 0.052
+    },
+    {
+      "component": "DEC-009/012/014–021 narrative execution",
+      "status": "executed",
+      "duration_seconds": 0.229
+    },
+    {
+      "component": "SYS-010/011 DEC-030–038",
+      "status": "executed",
+      "duration_seconds": 3.31
+    },
+    {
+      "component": "SYS-012/013",
+      "status": "executed",
+      "duration_seconds": 0.41
+    },
+    {
+      "component": "SYS-014",
+      "status": "executed",
+      "duration_seconds": 8.543
+    },
+    {
+      "component": "SYS-015",
+      "status": "executed",
+      "duration_seconds": 0.276
+    },
+    {
+      "component": "SYS-015 actual visual/fact review",
+      "status": "executed",
+      "duration_seconds": 5.153
+    },
+    {
+      "component": "DEC-039/040",
+      "status": "executed",
+      "duration_seconds": 0.031
+    }
+  ],
+  "warnings": [
+    {
+      "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+      "field": "language",
+      "location": "raw_text:2:4",
+      "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+    }
+  ],
+  "decision_coverage": "DEC-001–040 bounded execution when reached; complete original decision acceptance remains incomplete"
+}

@@ -1,0 +1,222 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "id": "actual_docx_zip_bytes",
+      "passed": true,
+      "observed": {
+        "bytes": 4525,
+        "source_sha256": "0fdf9d9cbb7eb34a8dc7a8955c5a63d4454a78ce84d1a5163685d4552d81b735"
+      }
+    },
+    {
+      "id": "heading_native_style_outline",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "source_text_chinese_roundtrip",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "anchors_schema_and_unique",
+      "passed": true,
+      "observed": {
+        "segments": 35
+      }
+    },
+    {
+      "id": "no_fake_physical_pages",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "external_hyperlink_actual_target_not_fetched",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "literal_uri_grounding_without_changing_paragraph",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "bookmark_unique_actual_native_target",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "image_part_bytes_hash_dimensions",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "image_alt_description_actual_extent",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "image_nontext_no_ocr_or_permission",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "footnote_exact_relationship_reference",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "endnote_reference_actual_target",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "note_id_and_part_unique",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "simple_complex_citations_separate",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "citation_native_bibliography_not_truth",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "table_logical_grid_exact_cells",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "units_header_candidates_no_assumption",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "merged_owner_references_empty_continuation",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "nested_table_separate_evidence_no_parent_flattening",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "caption_adjacency_marked_candidate",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "section_header_footer_real_relationships",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "context_no_xml_or_ocr_text",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "input_dicts_not_mutated",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "missing_image_no_fabricated_pixels",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "orphan_note_explicit_not_guessed",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "huge_grid_bounded_no_content_drop",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "multi_citation_missing_secondary_not_claimed_resolved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "external_image_not_retrieved",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "duplicate_note_identity_rejected",
+      "passed": true,
+      "observed": "DOCX_NOTE_ID_AMBIGUOUS"
+    },
+    {
+      "id": "duplicate_relationship_identity_rejected",
+      "passed": true,
+      "observed": "DOCX_RELATIONSHIP_AMBIGUOUS"
+    },
+    {
+      "id": "unsafe_internal_relationship_rejected",
+      "passed": true,
+      "observed": "INPUT_UNSAFE_RELATIONSHIP"
+    },
+    {
+      "id": "unclosed_complex_field_preserved_not_citation",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "original_requirement_docx_current_enhance",
+      "passed": true,
+      "observed": {
+        "segments": 1364,
+        "tables": 13,
+        "images": 0,
+        "warnings": 1,
+        "source_sha256": "40f70cb7e4500a2833625bddf9b911c36db29567d9ea70e910242043dc3106e1"
+      }
+    }
+  ],
+  "requirement_ids": [
+    "IN-003",
+    "IN-016",
+    "SYS-003"
+  ],
+  "task_ids": [
+    "TASK-IN-003",
+    "TASK-IN-016",
+    "TASK-SYS-003"
+  ],
+  "acceptance_context": "AC-002 component evidence, not full acceptance",
+  "runtime": {
+    "python": "3.13.16 (main, Oct  6 2026, 02:04:05) [GCC 12.2.0]",
+    "platform": "Linux-6.18.40.1-microsoft-standard-WSL2-x86_64-with-glibc2.36",
+    "model_calls": 0
+  },
+  "source_sha256": {
+    "src/yoloongppt/docx_evidence.py": "d5b1480b411e3a77a2f2851ff39f81f4564ba5a9b1c21dcc39557dbf2790f9ff",
+    "src/yoloongppt/input_formats.py": "c585771556c35d2abfec39f68fc3b73326525e0c6f552ead87eb03d085197196",
+    "validation/verify-docx-evidence.py": "1041881577330507420bd03313218b71404c407ef06765c82498a1b45793656f"
+  },
+  "fixture_sha256": {
+    "boundary-duplicate-note.docx": "9d565da461baec6a04f898df2905a6e9f8baf15b9df3c3787aa9e54b8ccebe18",
+    "boundary-duplicate-relationship.docx": "a2424717198a92df977ce6ad83e73ab4ac3d72bcd4fbafb1ef63244ac627ec79",
+    "boundary-external.docx": "f4818239124d364c56b55d3ec9a9226571108faea908a79d62665f9ed20e3501",
+    "boundary-missing.docx": "092a63a4247fa643da552a956a994387717b85054ff59a35c21c6f78df3a3ed5",
+    "report.docx": "0fdf9d9cbb7eb34a8dc7a8955c5a63d4454a78ce84d1a5163685d4552d81b735"
+  },
+  "remaining": [
+    "Word physical-page layout/rendering",
+    "nonstandard story filenames unsupported by original parser",
+    "image OCR/meaning",
+    "citation semantic truth",
+    "full AC-002 PPTX/render/QA/decision acceptance"
+  ],
+  "boundary": "Actual package bytes, native relationships and schema anchors; no external retrieval, license inference or semantic truth claim."
+}

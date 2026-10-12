@@ -4,6 +4,8 @@ AI PPT 生成系统项目。Docker 内已有多格式输入/证据、DEC-001–0
 
 完整交付目标与防偏离规则见 [GOAL.md](GOAL.md)，执行计划见 [PROJECT_PLAN.md](PROJECT_PLAN.md)，17 小时进度审计见 [PROGRESS_AUDIT.md](PROGRESS_AUDIT.md)。
 
+2026-10-12按用户要求阶段收尾：[当前实现与剩余报告](当前实现与阶段收尾报告_20261012.md)。单段描述实际生成六页24原生对象，再局部修订封面两个对象并复审，15项流程与8项原生实物检查通过，P0=0/2警告、final_allowed=false。[当前修订PPTX](validation/stage-closure-artifacts/description-revised/deck.pptx)、[PDF](validation/stage-closure-artifacts/description-revised/render/deck.pdf)可检查。自动QA未检出初稿操作指令外泄，人工查看后局部修复；完整内容适用性仍未验收。
+
 ## 需求基线
 
 - AI_PPT_PDR_完整需求定义_V0.3.docx：需求和规则说明。

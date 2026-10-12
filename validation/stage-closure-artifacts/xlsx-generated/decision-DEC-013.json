@@ -1,0 +1,62 @@
+{
+  "trace_id": "trace_35ac0b19-c940-4dd9-a769-0be6e79ef03c",
+  "node_id": "DEC-013",
+  "input": {
+    "page_count": 6,
+    "duration": null
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-013",
+      "candidate_id": "candidate_8bca0de4-2e17-4f89-bb9a-35655c0face9",
+      "value": {
+        "target": 6,
+        "minimum": 1,
+        "maximum": 30,
+        "allowed_deviation": 24,
+        "duration_original": null,
+        "source_characters": 824,
+        "policy": "soft: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_8bca0de4-2e17-4f89-bb9a-35655c0face9"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "target": 6,
+    "minimum": 1,
+    "maximum": 30,
+    "allowed_deviation": 24,
+    "duration_original": null,
+    "source_characters": 824,
+    "policy": "soft: hard target remains exact; soft/default can expand only for measured complete-content capacity; deviation is reported"
+  },
+  "duration": 0.0,
+  "error": null
+}

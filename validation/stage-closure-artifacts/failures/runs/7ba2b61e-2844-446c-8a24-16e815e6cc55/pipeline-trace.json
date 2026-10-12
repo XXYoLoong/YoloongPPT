@@ -1,0 +1,34 @@
+{
+  "trace_id": "trace_ea8413a0-67e0-4207-9435-31ca6cad23af",
+  "steps": [
+    {
+      "component": "DEC-001",
+      "status": "executed",
+      "duration_seconds": 0.103
+    },
+    {
+      "component": "DEC-002",
+      "status": "executed",
+      "duration_seconds": 0.009
+    },
+    {
+      "component": "SYS-003/004",
+      "status": "executed",
+      "duration_seconds": 1.6
+    },
+    {
+      "component": "DEC-003",
+      "status": "executed",
+      "duration_seconds": 0.012
+    }
+  ],
+  "warnings": [
+    {
+      "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+      "field": "language",
+      "location": "raw_text:19:21",
+      "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+    }
+  ],
+  "decision_coverage": "DEC-001–040 bounded execution when reached; complete original decision acceptance remains incomplete"
+}

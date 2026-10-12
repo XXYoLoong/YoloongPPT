@@ -1,0 +1,398 @@
+{
+  "trace_id": "trace_ea8413a0-67e0-4207-9435-31ca6cad23af",
+  "node_id": "DEC-003",
+  "input": {
+    "task": {
+      "task_id": "task_8c181221-7f87-4d4b-b61d-b33e093e5c3b",
+      "route": {
+        "route_status": "routed",
+        "mode": "create_from_materials",
+        "routing_reason": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+        "protection_policy_id": "preserve_material_facts_and_sources",
+        "decision_id": "DEC-001",
+        "trace": {
+          "candidate_modes": [
+            "create_from_materials"
+          ],
+          "selection_basis": "User intent selected create_from_materials. Content sources do not override its protection policy.",
+          "conflict_summary": "",
+          "trace_id": "trace_ea8413a0-67e0-4207-9435-31ca6cad23af",
+          "negated_signals": [],
+          "executable": true,
+          "fallback": "No alternate mode substitution; clarify scope or expose missing implementation."
+        }
+      },
+      "sources": [
+        {
+          "source_id": "source_ed43fa97-765c-4b03-9c89-54f288054168",
+          "kind": "pdf",
+          "locator": "/runtime/runs/39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a/render/deck.pdf",
+          "metadata": {
+            "source_role": "fact"
+          }
+        }
+      ],
+      "constraints": {
+        "hard": [],
+        "soft": [
+          {
+            "constraint_id": "candidate_ede8c7a7-c774-4e05-a670-f76268b61338",
+            "field": "page_count",
+            "value": 6,
+            "source": {
+              "kind": "user_instruction",
+              "reference": "runtime_preferences.page_count"
+            },
+            "disposition": "applied",
+            "applied_value": 6,
+            "handling_reason": "Selected by DEC-002 and within current execution subset."
+          }
+        ],
+        "defaults": [
+          {
+            "constraint_id": "system_default.page_count",
+            "field": "page_count",
+            "value": 10,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": false,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.language",
+            "field": "language",
+            "value": "zh-CN",
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.aspect_ratio",
+            "field": "aspect_ratio",
+            "value": "16:9",
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.minimum_font_size",
+            "field": "minimum_font_size",
+            "value": 16,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.template",
+            "field": "template",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.brand",
+            "field": "brand",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.output_formats",
+            "field": "output_formats",
+            "value": [
+              "pptx",
+              "pdf",
+              "png"
+            ],
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": false,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.audience",
+            "field": "audience",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.scenario",
+            "field": "scenario",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.duration",
+            "field": "duration",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.tone",
+            "field": "tone",
+            "value": null,
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.citation_policy",
+            "field": "citation_policy",
+            "value": "notes",
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.asset_policy",
+            "field": "asset_policy",
+            "value": {
+              "allow_network": false,
+              "minimum_pixels": [
+                1,
+                1
+              ]
+            },
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          },
+          {
+            "constraint_id": "system_default.adaptive_policy",
+            "field": "adaptive_policy",
+            "value": {},
+            "source": {
+              "kind": "system_default",
+              "reference": "DEC-002 versioned runtime defaults"
+            },
+            "used": true,
+            "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+          }
+        ],
+        "conflicts": []
+      },
+      "style": null,
+      "template_ref": null,
+      "output": {
+        "formats": [
+          "pptx",
+          "pdf",
+          "png"
+        ]
+      },
+      "providers": {
+        "text": {
+          "provider": "deepseek",
+          "model": "deepseek-flash",
+          "api_key_env": "DEEPSEEK_API_KEY",
+          "parameters": {
+            "temperature": 0.2,
+            "max_tokens": 12000,
+            "timeout_seconds": 180
+          }
+        }
+      },
+      "runtime_preferences": {
+        "page_count": 6,
+        "asset_policy": {
+          "allow_network": false,
+          "minimum_pixels": [
+            1,
+            1
+          ]
+        },
+        "adaptive_policy": {}
+      },
+      "raw_request": {
+        "request": {
+          "raw_text": "根据已提供的六页虚构软件验证PDF新建中文摘要演示，保留所有原数字、单位、限定与明确流程关系；每个事实保留来源页码。表格行列如不确定须显式报告，不猜测图片内事实或新因果。",
+          "attachments": [],
+          "requested_mode": "create_from_materials",
+          "requested_outputs": [
+            "pptx",
+            "pdf",
+            "png"
+          ]
+        },
+        "attachment_roles": []
+      }
+    },
+    "source_bundle": {
+      "record_type": "source_bundle_result",
+      "status": "partial",
+      "bundle": {
+        "model_type": "SourceBundle",
+        "sources": [
+          {
+            "source_id": "source_ed43fa97-765c-4b03-9c89-54f288054168",
+            "input_order": 0,
+            "kind": "file",
+            "locator": "/runtime/runs/39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a/render/deck.pdf",
+            "raw_text": null,
+            "locator_redaction": "not_required",
+            "display_name": null,
+            "raw_asset_refs": [
+              "asset_c30e86d0-d377-4258-83c4-a490c0f8d2c7"
+            ],
+            "content_sha256": "9ef274212e8bec80df6df62223306ca30290eab63c6c24656bac285a7cda53de",
+            "priority_rank": null,
+            "claims": []
+          }
+        ],
+        "source_priority_policy": {
+          "status": "unresolved",
+          "decision_id": "DEC-004",
+          "task_id": "TASK-DEC-004",
+          "precedence_source_ids": [],
+          "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+        },
+        "dedup_policy": {
+          "mode": "hash_candidates_only",
+          "keep_all_sources": true
+        },
+        "duplicate_groups": [],
+        "conflicts": []
+      },
+      "coverage": [
+        {
+          "feature": "source_identity",
+          "status": "complete",
+          "reason": null
+        },
+        {
+          "feature": "source_anchors",
+          "status": "complete",
+          "reason": null
+        },
+        {
+          "feature": "priority",
+          "status": "partial",
+          "reason": "DEC-004尚未执行。"
+        },
+        {
+          "feature": "conflict_detection",
+          "status": "unsupported",
+          "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+        },
+        {
+          "feature": "deduplication",
+          "status": "partial",
+          "reason": "仅SHA候选，不删除来源。"
+        }
+      ],
+      "errors": []
+    }
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-003",
+      "candidate_id": "candidate_20fb96b0-c331-4fd9-ae39-26091d86347b",
+      "value": {
+        "source_id": "source_ed43fa97-765c-4b03-9c89-54f288054168",
+        "role": "fact",
+        "original_role": "fact"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "basis": "TaskSpec.sources.metadata.source_role"
+        }
+      ],
+      "evidence_refs": [
+        "source_ed43fa97-765c-4b03-9c89-54f288054168",
+        "asset_c30e86d0-d377-4258-83c4-a490c0f8d2c7"
+      ],
+      "constraints": [
+        {
+          "preserve_source": true,
+          "exclude_nonfact_from_content_model": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_20fb96b0-c331-4fd9-ae39-26091d86347b"
+  ],
+  "rules": {
+    "version": "DEC-003-1",
+    "mechanism": "Explicit source metadata and loaded asset bindings; unique role required; bounded textual-source default for material/scratch route.",
+    "source_sha256": "17abca434fcdc61145cfbf556a5fa7a9495d9eee63812e7bdcb99aa400cf9916"
+  },
+  "output": {
+    "status": "assigned",
+    "source_roles": [
+      {
+        "source_id": "source_ed43fa97-765c-4b03-9c89-54f288054168",
+        "asset_refs": [
+          "asset_c30e86d0-d377-4258-83c4-a490c0f8d2c7"
+        ],
+        "role": "fact",
+        "candidate_refs": [
+          "candidate_20fb96b0-c331-4fd9-ae39-26091d86347b"
+        ],
+        "loading_strategy": {
+          "kind": "pdf",
+          "locator": "/runtime/runs/39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a/render/deck.pdf",
+          "fact_input": true
+        },
+        "reason": "Explicit role or bounded content-source default; original input retained."
+      }
+    ],
+    "fact_source_ids": [
+      "source_ed43fa97-765c-4b03-9c89-54f288054168"
+    ],
+    "preserved_source_ids": [
+      "source_ed43fa97-765c-4b03-9c89-54f288054168"
+    ],
+    "issues": [],
+    "trace_id": "trace_ea8413a0-67e0-4207-9435-31ca6cad23af",
+    "fallback": "No guessing unknown roles or treating style/template/assets as factual evidence; preserve sources and clarify."
+  },
+  "duration": 0.011061,
+  "error": null
+}

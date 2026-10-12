@@ -1,0 +1,66 @@
+{
+  "date": "2026-10-12",
+  "components": {
+    "docx": {
+      "checks": 34,
+      "passed": true,
+      "model_calls": 0,
+      "report": "components/docx/checks.json"
+    },
+    "xlsx": {
+      "checks": 57,
+      "passed": true,
+      "model_calls": 0,
+      "report": "components/xlsx/checks.json"
+    },
+    "pdf": {
+      "checks": 38,
+      "passed": true,
+      "model_calls": 0,
+      "report": "components/pdf/report.json"
+    }
+  },
+  "source_generations": {
+    "xlsx": {
+      "ok": true,
+      "run_id": "47db956b-6c70-466d-895b-aea9ca2a4ee0",
+      "error_code": null,
+      "system_acceptance": "not_passed"
+    },
+    "docx": {
+      "ok": false,
+      "run_id": null,
+      "error_code": "FACT_DATE_TRANSFORM_UNAUTHORIZED",
+      "system_acceptance": "not_passed"
+    },
+    "pdf": {
+      "ok": false,
+      "run_id": null,
+      "error_code": "MODEL_OUTPUT_INCOMPLETE",
+      "system_acceptance": "not_passed"
+    }
+  },
+  "description_flow": {
+    "passed": true,
+    "generated_run_id": "4b587f0b-9ef8-4084-b772-9557181e2b82",
+    "revised_run_id": "7a6453ed-0e3e-4c1c-91b7-86f87c4c7246",
+    "generation_quality": {
+      "p0": 0,
+      "warnings": 3
+    },
+    "revision_quality": {
+      "p0": 0,
+      "warnings": 2
+    },
+    "scope": "One bounded real description-to-PPTX/render/QA/revision flow. Full original baseline remains incomplete."
+  },
+  "description_flow_checks": 15,
+  "xlsx_checks": 12,
+  "run_roles": {
+    "description-generated": "4b587f0b-9ef8-4084-b772-9557181e2b82",
+    "description-revised": "7a6453ed-0e3e-4c1c-91b7-86f87c4c7246",
+    "xlsx-generated": "47db956b-6c70-466d-895b-aea9ca2a4ee0"
+  },
+  "system_acceptance": "not_passed",
+  "scope": "Stage closure: bounded input helpers, one real description/generation/revision flow and explicit source/model failures. Original full scope retained."
+}

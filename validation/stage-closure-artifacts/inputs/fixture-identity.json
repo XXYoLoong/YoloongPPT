@@ -1,0 +1,37 @@
+{
+  "kind": "artificial_validation_source",
+  "requirements": [
+    "IN-008",
+    "IN-016",
+    "AC-005"
+  ],
+  "expected": {
+    "dates": [
+      "2026-01-01",
+      "2026-02-01",
+      "2026-03-01"
+    ],
+    "monthly_kwh": [
+      1200,
+      1300,
+      1250
+    ],
+    "sum_kwh": 3750,
+    "percent_display": [
+      "8%",
+      "9%",
+      "10%"
+    ],
+    "categories": [
+      "A楼",
+      "B楼",
+      "C楼"
+    ],
+    "category_kwh": [
+      90,
+      72,
+      54
+    ]
+  },
+  "formula_cache": "Artifact Tool calculated fixture at export; product parser must not execute formulas or claim cache freshness."
+}

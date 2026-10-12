@@ -1,0 +1,47 @@
+{
+  "ok": false,
+  "trace_id": "trace_cefac381-c0ed-4de9-979c-3384a1bb9312",
+  "error": {
+    "code": "ADAPTIVE_PAGE_BUDGET_EXCEEDED",
+    "message": "完整可读内容需要的页数超出原预算；未裁内容或改变硬约束。",
+    "component": "AdaptiveContent",
+    "requirement_ids": [
+      "DEC-014",
+      "DEC-015",
+      "DEC-018",
+      "DEC-020",
+      "TPL-007",
+      "TPL-012",
+      "AC-014",
+      "AC-015"
+    ],
+    "details": [
+      {
+        "required_pages_at_least": 6,
+        "page_budget": {
+          "kind": "hard",
+          "target": 4,
+          "minimum": 4,
+          "maximum": 4,
+          "provenance": [
+            {
+              "constraint_id": "candidate_3cb333fb-78aa-4958-933e-e81d92ec4093",
+              "field": "page_count",
+              "value": 4,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "raw_text:4:6"
+              }
+            }
+          ]
+        },
+        "source_page": 3
+      },
+      {
+        "run_id": "342f4cec-b035-4561-aa81-c76dcfd42787",
+        "artifact_root": "/runtime/runs/342f4cec-b035-4561-aa81-c76dcfd42787"
+      }
+    ],
+    "retryable": false
+  }
+}

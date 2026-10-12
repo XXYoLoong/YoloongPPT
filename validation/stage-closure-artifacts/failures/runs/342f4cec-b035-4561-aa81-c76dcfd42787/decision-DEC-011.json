@@ -1,0 +1,170 @@
+{
+  "trace_id": "trace_cefac381-c0ed-4de9-979c-3384a1bb9312",
+  "node_id": "DEC-011",
+  "input": {
+    "scenario": {
+      "scenario": null,
+      "duration": null,
+      "field_provenance": []
+    },
+    "relation_candidates": []
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_9cfce69d-0311-4b39-a742-177115a6d71c",
+      "value": {
+        "pattern": "linear"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_2fec1199-8dde-475f-971f-8fb55d5d001c",
+      "value": {
+        "pattern": "problem_solution"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_230de70a-68ca-4c6c-ae88-f1928bd85aee",
+      "value": {
+        "pattern": "conclusion_first"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_5d562f42-9047-45fd-a926-e95dd08cb967",
+      "value": {
+        "pattern": "timeline"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_71356d5f-ecca-47df-8e34-ca9f6b9e338d",
+      "value": {
+        "pattern": "teaching_progression"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    },
+    {
+      "node_id": "DEC-011",
+      "candidate_id": "candidate_28170542-4ed7-43cb-a85d-5c053774b6a6",
+      "value": {
+        "pattern": "data_driven"
+      },
+      "score": 0.0,
+      "reasons": [
+        {
+          "rule": "stable source-order presentation default"
+        }
+      ],
+      "evidence_refs": [
+        "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+      ],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_9cfce69d-0311-4b39-a742-177115a6d71c"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "pattern": "linear",
+    "rationale": "stable source-order presentation default",
+    "evidence_refs": [
+      "evidence_28afffe9-2a34-4b0b-a9c3-b6be0455b8f7"
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

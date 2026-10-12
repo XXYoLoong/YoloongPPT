@@ -1,0 +1,47 @@
+{
+  "case": "docx",
+  "result": {
+    "ok": false,
+    "trace_id": "trace_a12c173b-0ef8-42dd-b2e8-723195080d35",
+    "error": {
+      "code": "FACT_DATE_TRANSFORM_UNAUTHORIZED",
+      "message": "日期精度/时区变换未获依据。",
+      "component": "FactInterpreter",
+      "requirement_ids": [
+        "DEC-005"
+      ],
+      "details": [
+        {
+          "run_id": "38e8220f-25a9-4ec2-abb7-daf63b13135e",
+          "artifact_root": "/runtime/runs/38e8220f-25a9-4ec2-abb7-daf63b13135e"
+        }
+      ],
+      "retryable": false
+    }
+  },
+  "checks": [
+    {
+      "name": "api_success",
+      "passed": false,
+      "detail": {
+        "ok": false,
+        "trace_id": "trace_a12c173b-0ef8-42dd-b2e8-723195080d35",
+        "error": {
+          "code": "FACT_DATE_TRANSFORM_UNAUTHORIZED",
+          "message": "日期精度/时区变换未获依据。",
+          "component": "FactInterpreter",
+          "requirement_ids": [
+            "DEC-005"
+          ],
+          "details": [
+            {
+              "run_id": "38e8220f-25a9-4ec2-abb7-daf63b13135e",
+              "artifact_root": "/runtime/runs/38e8220f-25a9-4ec2-abb7-daf63b13135e"
+            }
+          ],
+          "retryable": false
+        }
+      }
+    }
+  ]
+}

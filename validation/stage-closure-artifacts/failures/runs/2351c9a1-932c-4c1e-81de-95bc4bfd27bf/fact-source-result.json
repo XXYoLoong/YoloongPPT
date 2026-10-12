@@ -1,0 +1,1361 @@
+{
+  "ok": true,
+  "trace_id": "trace_b2ee9ed1-c2da-4b5c-8c6e-52a33eb132ad",
+  "operation": "inspect_sources",
+  "task_id": "task_ed495807-7cfa-4016-b78c-9f7a10913af7",
+  "source_bundle": {
+    "record_type": "source_bundle_result",
+    "status": "partial",
+    "bundle": {
+      "model_type": "SourceBundle",
+      "sources": [
+        {
+          "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+          "input_order": 0,
+          "kind": "file",
+          "locator": "validation/input-format-artifacts/school-source.docx",
+          "raw_text": null,
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [
+            "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2"
+          ],
+          "content_sha256": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+          "priority_rank": null,
+          "claims": []
+        }
+      ],
+      "source_priority_policy": {
+        "status": "unresolved",
+        "decision_id": "DEC-004",
+        "task_id": "TASK-DEC-004",
+        "precedence_source_ids": [],
+        "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+      },
+      "dedup_policy": {
+        "mode": "hash_candidates_only",
+        "keep_all_sources": true
+      },
+      "duplicate_groups": [],
+      "conflicts": []
+    },
+    "coverage": [
+      {
+        "feature": "source_identity",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "source_anchors",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "priority",
+        "status": "partial",
+        "reason": "DEC-004尚未执行。"
+      },
+      {
+        "feature": "conflict_detection",
+        "status": "unsupported",
+        "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+      },
+      {
+        "feature": "deduplication",
+        "status": "partial",
+        "reason": "仅SHA候选，不删除来源。"
+      }
+    ],
+    "errors": []
+  },
+  "documents": [
+    {
+      "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+      "document": {
+        "format": "docx",
+        "stories": [
+          {
+            "part": "word/document.xml",
+            "story": "body",
+            "blocks": [
+              {
+                "kind": "heading",
+                "text": "学校节能试点",
+                "style_id": "Heading1",
+                "hyperlinks": [],
+                "images": [],
+                "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:pPr><ns0:pStyle ns0:val=\"Heading1\" /></ns0:pPr><ns0:r><ns0:t>学校节能试点</ns0:t></ns0:r></ns0:p>\n",
+                "paragraph_index": 0,
+                "style_name": "heading 1",
+                "xml_path": "/w:document[1]/w:body[1]/w:p[1]",
+                "package_part": "word/document.xml",
+                "hyperlink_evidence": [],
+                "note_references": [],
+                "fields": [],
+                "citation_fields": [],
+                "image_evidence": [],
+                "note_id": null
+              },
+              {
+                "kind": "paragraph",
+                "text": "试点2026年能耗降低8%。",
+                "style_id": null,
+                "hyperlinks": [
+                  {
+                    "relationship_id": "rId1",
+                    "anchor": null,
+                    "text": "试点2026年能耗降低8%。"
+                  }
+                ],
+                "images": [],
+                "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:ns1=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"><ns0:hyperlink ns1:id=\"rId1\"><ns0:r><ns0:t>试点2026年能耗降低8%。</ns0:t></ns0:r></ns0:hyperlink></ns0:p>\n",
+                "paragraph_index": 1,
+                "style_name": null,
+                "xml_path": "/w:document[1]/w:body[1]/w:p[2]",
+                "package_part": "word/document.xml",
+                "hyperlink_evidence": [
+                  {
+                    "evidence_id": "docx_link_a098cd8f4fd37b5fdcee6110",
+                    "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:p[2]/w:hyperlink[1]",
+                    "relationship_id": "rId1",
+                    "text": "试点2026年能耗降低8%。",
+                    "anchor": null,
+                    "target": "https://example.invalid/source",
+                    "target_part": null,
+                    "target_kind": "unresolved",
+                    "relationship_type": "hyperlink",
+                    "retrieval": "not_fetched",
+                    "semantic_status": "not_inferred"
+                  }
+                ],
+                "note_references": [],
+                "fields": [],
+                "citation_fields": [],
+                "image_evidence": [],
+                "note_id": null
+              },
+              {
+                "kind": "table",
+                "table_index": 0,
+                "rows": [
+                  [
+                    {
+                      "kind": "table_cell",
+                      "paragraphs": [
+                        {
+                          "kind": "paragraph",
+                          "text": "指标",
+                          "style_id": null,
+                          "hyperlinks": [],
+                          "images": [],
+                          "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:r><ns0:t>指标</ns0:t></ns0:r></ns0:p>",
+                          "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[1]/w:p[1]",
+                          "package_part": "word/document.xml",
+                          "hyperlink_evidence": [],
+                          "note_references": [],
+                          "fields": [],
+                          "citation_fields": [],
+                          "image_evidence": []
+                        }
+                      ],
+                      "text": "指标",
+                      "nested_table_count": 0,
+                      "raw_xml": "<ns0:tc xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:p><ns0:r><ns0:t>指标</ns0:t></ns0:r></ns0:p></ns0:tc>",
+                      "evidence_id": "docx_cell_883ce4f1c52c73d76526f089",
+                      "package_part": "word/document.xml",
+                      "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[1]",
+                      "logical_grid": {
+                        "column_start": 0,
+                        "column_end_exclusive": 1,
+                        "column_span": 1,
+                        "vertical_merge": null,
+                        "vertical_owner_evidence_id": null,
+                        "horizontal_merge": null,
+                        "horizontal_owner_evidence_id": null,
+                        "status": "located"
+                      },
+                      "note_id": null,
+                      "nested_tables": []
+                    },
+                    {
+                      "kind": "table_cell",
+                      "paragraphs": [
+                        {
+                          "kind": "paragraph",
+                          "text": "8%",
+                          "style_id": null,
+                          "hyperlinks": [],
+                          "images": [],
+                          "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:r><ns0:t>8%</ns0:t></ns0:r></ns0:p>",
+                          "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[2]/w:p[1]",
+                          "package_part": "word/document.xml",
+                          "hyperlink_evidence": [],
+                          "note_references": [],
+                          "fields": [],
+                          "citation_fields": [],
+                          "image_evidence": []
+                        }
+                      ],
+                      "text": "8%",
+                      "nested_table_count": 0,
+                      "raw_xml": "<ns0:tc xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:p><ns0:r><ns0:t>8%</ns0:t></ns0:r></ns0:p></ns0:tc>",
+                      "evidence_id": "docx_cell_810bac136df028466bf9bee9",
+                      "package_part": "word/document.xml",
+                      "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[2]",
+                      "logical_grid": {
+                        "column_start": 1,
+                        "column_end_exclusive": 2,
+                        "column_span": 1,
+                        "vertical_merge": null,
+                        "vertical_owner_evidence_id": null,
+                        "horizontal_merge": null,
+                        "horizontal_owner_evidence_id": null,
+                        "status": "located"
+                      },
+                      "note_id": null,
+                      "nested_tables": []
+                    }
+                  ]
+                ],
+                "raw_xml": "<ns0:tbl xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:tr><ns0:tc><ns0:p><ns0:r><ns0:t>指标</ns0:t></ns0:r></ns0:p></ns0:tc><ns0:tc><ns0:p><ns0:r><ns0:t>8%</ns0:t></ns0:r></ns0:p></ns0:tc></ns0:tr></ns0:tbl>\n",
+                "table_evidence": {
+                  "evidence_id": "docx_table_a42baaff54d50dc941f5ea86",
+                  "package_part": "word/document.xml",
+                  "story": "body",
+                  "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:tbl[1]",
+                  "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]",
+                  "table_index": 0,
+                  "note_id": null,
+                  "parent_table_cell_path": null,
+                  "declared_grid_columns": null,
+                  "grid_column_widths_twips": [],
+                  "rows": [
+                    {
+                      "row_index": 0,
+                      "grid_before": 0,
+                      "grid_after": 0,
+                      "repeat_header": false,
+                      "cells": [
+                        {
+                          "evidence_id": "docx_cell_883ce4f1c52c73d76526f089",
+                          "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[1]",
+                          "native_locator": "word/document.xml#table=0,row=0,cell=0",
+                          "text": "指标",
+                          "logical_grid": {
+                            "column_start": 0,
+                            "column_end_exclusive": 1,
+                            "column_span": 1,
+                            "vertical_merge": null,
+                            "vertical_owner_evidence_id": null,
+                            "horizontal_merge": null,
+                            "horizontal_owner_evidence_id": null,
+                            "status": "located"
+                          },
+                          "units": []
+                        },
+                        {
+                          "evidence_id": "docx_cell_810bac136df028466bf9bee9",
+                          "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[2]",
+                          "native_locator": "word/document.xml#table=0,row=0,cell=1",
+                          "text": "8%",
+                          "logical_grid": {
+                            "column_start": 1,
+                            "column_end_exclusive": 2,
+                            "column_span": 1,
+                            "vertical_merge": null,
+                            "vertical_owner_evidence_id": null,
+                            "horizontal_merge": null,
+                            "horizontal_owner_evidence_id": null,
+                            "status": "located"
+                          },
+                          "units": [
+                            {
+                              "raw_text": "%",
+                              "start_char": 1,
+                              "end_char": 2,
+                              "status": "candidate",
+                              "meaning": "unknown",
+                              "offset_unit": "unicode_code_points"
+                            }
+                          ]
+                        }
+                      ],
+                      "logical_column_count": 2
+                    }
+                  ],
+                  "semantic_status": "not_inferred",
+                  "observed_logical_columns": 2
+                }
+              },
+              {
+                "kind": "paragraph",
+                "text": "",
+                "style_id": null,
+                "hyperlinks": [],
+                "images": [
+                  {
+                    "relationship_id": "rId2",
+                    "external_relationship_id": null
+                  }
+                ],
+                "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:ns1=\"http://schemas.openxmlformats.org/drawingml/2006/main\" xmlns:ns2=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"><ns0:r><ns0:drawing><ns1:blip ns2:embed=\"rId2\" /></ns0:drawing></ns0:r></ns0:p>",
+                "paragraph_index": 2,
+                "style_name": null,
+                "xml_path": "/w:document[1]/w:body[1]/w:p[3]",
+                "package_part": "word/document.xml",
+                "hyperlink_evidence": [],
+                "note_references": [],
+                "fields": [],
+                "citation_fields": [],
+                "image_evidence": [
+                  {
+                    "evidence_id": "docx_image_9d3c5bffd047a0aef60eb306",
+                    "part": "word/document.xml",
+                    "xml_path": "/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+                    "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+                    "relationship_id": "rId2",
+                    "embedded_relationship_id": "rId2",
+                    "linked_relationship_id": null,
+                    "target_part": "word/media/image1.png",
+                    "external_target": null,
+                    "status": "unresolved",
+                    "retrieval": "package_part",
+                    "sha256": null,
+                    "bytes": null,
+                    "pixel_width": null,
+                    "pixel_height": null,
+                    "inspection_status": "not_executed",
+                    "alt_text": null,
+                    "description": null,
+                    "display_extent_emu": null,
+                    "crop": [],
+                    "source_anchor": {
+                      "package_part": "word/document.xml",
+                      "xml_path": "/w:document[1]/w:body[1]/w:p[3]",
+                      "kind": "docx_block",
+                      "story": "body",
+                      "paragraph_index": 2,
+                      "table_index": null,
+                      "row_index": null,
+                      "cell_index": null,
+                      "page_location": {
+                        "status": "pending",
+                        "page_numbers": [],
+                        "renderer_ref": null,
+                        "reason": "未执行Word布局分页渲染。"
+                      }
+                    },
+                    "license": "unknown",
+                    "authorization": "not_provided",
+                    "semantic_status": "not_inferred",
+                    "ocr_status": "not_executed"
+                  }
+                ],
+                "note_id": null
+              }
+            ],
+            "relationships": [
+              {
+                "id": "rId1",
+                "type": "hyperlink",
+                "target": "https://example.invalid/source",
+                "target_part": null,
+                "external": true,
+                "retrieval": "not_fetched"
+              },
+              {
+                "id": "rId2",
+                "type": "image",
+                "target": "media/image1.png",
+                "target_part": "word/media/image1.png",
+                "external": false,
+                "retrieval": "package_part"
+              }
+            ]
+          }
+        ],
+        "styles": {
+          "Heading1": "heading 1"
+        },
+        "package_parts": [
+          {
+            "part": "[Content_Types].xml",
+            "bytes": 77,
+            "sha256": "8db260cc3071a769c10e5d8856ed36bd45a30e4a5d5b3dbd85c7458ce0c65d51"
+          },
+          {
+            "part": "word/document.xml",
+            "bytes": 663,
+            "sha256": "c56088262a3b739e03152b8a84443080db0538ba8dffd25ef60f5c604ef04327"
+          },
+          {
+            "part": "word/_rels/document.xml.rels",
+            "bytes": 268,
+            "sha256": "0b873fac534cd6cba403068d394739310e9fe9105739028e0ec5531a9384aaa6"
+          },
+          {
+            "part": "word/styles.xml",
+            "bytes": 159,
+            "sha256": "1eaf57999dcf4f454bb66f4d57736090273c96e2981ae40d8a277e2bac30d8d7"
+          }
+        ],
+        "structure_evidence": {
+          "version": "docx-native-evidence-1",
+          "tables": [
+            {
+              "evidence_id": "docx_table_a42baaff54d50dc941f5ea86",
+              "package_part": "word/document.xml",
+              "story": "body",
+              "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:tbl[1]",
+              "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]",
+              "table_index": 0,
+              "note_id": null,
+              "parent_table_cell_path": null,
+              "declared_grid_columns": null,
+              "grid_column_widths_twips": [],
+              "rows": [
+                {
+                  "row_index": 0,
+                  "grid_before": 0,
+                  "grid_after": 0,
+                  "repeat_header": false,
+                  "cells": [
+                    {
+                      "evidence_id": "docx_cell_883ce4f1c52c73d76526f089",
+                      "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[1]",
+                      "native_locator": "word/document.xml#table=0,row=0,cell=0",
+                      "text": "指标",
+                      "logical_grid": {
+                        "column_start": 0,
+                        "column_end_exclusive": 1,
+                        "column_span": 1,
+                        "vertical_merge": null,
+                        "vertical_owner_evidence_id": null,
+                        "horizontal_merge": null,
+                        "horizontal_owner_evidence_id": null,
+                        "status": "located"
+                      },
+                      "units": []
+                    },
+                    {
+                      "evidence_id": "docx_cell_810bac136df028466bf9bee9",
+                      "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[2]",
+                      "native_locator": "word/document.xml#table=0,row=0,cell=1",
+                      "text": "8%",
+                      "logical_grid": {
+                        "column_start": 1,
+                        "column_end_exclusive": 2,
+                        "column_span": 1,
+                        "vertical_merge": null,
+                        "vertical_owner_evidence_id": null,
+                        "horizontal_merge": null,
+                        "horizontal_owner_evidence_id": null,
+                        "status": "located"
+                      },
+                      "units": [
+                        {
+                          "raw_text": "%",
+                          "start_char": 1,
+                          "end_char": 2,
+                          "status": "candidate",
+                          "meaning": "unknown",
+                          "offset_unit": "unicode_code_points"
+                        }
+                      ]
+                    }
+                  ],
+                  "logical_column_count": 2
+                }
+              ],
+              "semantic_status": "not_inferred",
+              "observed_logical_columns": 2
+            }
+          ],
+          "images": [
+            {
+              "evidence_id": "docx_image_9d3c5bffd047a0aef60eb306",
+              "part": "word/document.xml",
+              "xml_path": "/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+              "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+              "relationship_id": "rId2",
+              "embedded_relationship_id": "rId2",
+              "linked_relationship_id": null,
+              "target_part": "word/media/image1.png",
+              "external_target": null,
+              "status": "unresolved",
+              "retrieval": "package_part",
+              "sha256": null,
+              "bytes": null,
+              "pixel_width": null,
+              "pixel_height": null,
+              "inspection_status": "not_executed",
+              "alt_text": null,
+              "description": null,
+              "display_extent_emu": null,
+              "crop": [],
+              "source_anchor": {
+                "package_part": "word/document.xml",
+                "xml_path": "/w:document[1]/w:body[1]/w:p[3]",
+                "kind": "docx_block",
+                "story": "body",
+                "paragraph_index": 2,
+                "table_index": null,
+                "row_index": null,
+                "cell_index": null,
+                "page_location": {
+                  "status": "pending",
+                  "page_numbers": [],
+                  "renderer_ref": null,
+                  "reason": "未执行Word布局分页渲染。"
+                }
+              },
+              "license": "unknown",
+              "authorization": "not_provided",
+              "semantic_status": "not_inferred",
+              "ocr_status": "not_executed"
+            }
+          ],
+          "hyperlinks": [
+            {
+              "evidence_id": "docx_link_a098cd8f4fd37b5fdcee6110",
+              "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:p[2]/w:hyperlink[1]",
+              "relationship_id": "rId1",
+              "text": "试点2026年能耗降低8%。",
+              "anchor": null,
+              "target": "https://example.invalid/source",
+              "target_part": null,
+              "target_kind": "unresolved",
+              "relationship_type": "hyperlink",
+              "retrieval": "not_fetched",
+              "semantic_status": "not_inferred"
+            }
+          ],
+          "note_references": [],
+          "notes": [],
+          "citation_fields": [],
+          "caption_candidates": [],
+          "sections": [
+            {
+              "section_index": 0,
+              "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:sectPr[1]",
+              "story_references": [],
+              "physical_page_status": "pending"
+            }
+          ],
+          "story_relationships": [],
+          "semantic_status": "not_inferred",
+          "physical_pages": {
+            "status": "pending",
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "raw_asset_refs": [
+          "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2"
+        ]
+      },
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "warnings": [
+        {
+          "code": "DOCX_PAGE_LOCATION_PENDING",
+          "message": "段落/表格原生锚点已保存；物理分页需要实际渲染，不由段落序号推测。"
+        },
+        {
+          "code": "DOCX_HYPERLINK_RELATIONSHIP_UNRESOLVED",
+          "part": "word/document.xml",
+          "xml_path": "/w:document[1]/w:body[1]/w:p[2]/w:hyperlink[1]",
+          "message": "超链接关系缺失或类型不符；保留原文与关系ID。",
+          "requirement_ids": [
+            "IN-003",
+            "IN-016"
+          ]
+        },
+        {
+          "code": "DOCX_IMAGE_RELATIONSHIP_UNRESOLVED",
+          "part": "word/document.xml",
+          "xml_path": "/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+          "message": "图片关系缺失或类型不符，未登记虚构媒体。",
+          "requirement_ids": [
+            "IN-003",
+            "IN-016"
+          ]
+        }
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-2:e521b7505d400a596fa31c6fbbb6ae214fa3671be442b72dd70219e9048cd584:kind:docx",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+        "asset_id": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+        "native_locator": "word/document.xml#paragraph=0",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": 0,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "学校节能试点",
+      "content": "学校节能试点",
+      "confidence": null,
+      "data": {
+        "kind": "heading",
+        "text": "学校节能试点",
+        "style_id": "Heading1",
+        "hyperlinks": [],
+        "images": [],
+        "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:pPr><ns0:pStyle ns0:val=\"Heading1\" /></ns0:pPr><ns0:r><ns0:t>学校节能试点</ns0:t></ns0:r></ns0:p>\n",
+        "paragraph_index": 0,
+        "style_name": "heading 1",
+        "xml_path": "/w:document[1]/w:body[1]/w:p[1]",
+        "package_part": "word/document.xml",
+        "hyperlink_evidence": [],
+        "note_references": [],
+        "fields": [],
+        "citation_fields": [],
+        "image_evidence": [],
+        "note_id": null
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。",
+        "source_context": {
+          "native_locator": "word/document.xml#paragraph=0",
+          "note_id": null,
+          "source_kind": "docx",
+          "story": "body",
+          "package_part": "word/document.xml",
+          "xml_path": "/w:document[1]/w:body[1]/w:p[1]",
+          "paragraph_index": 0,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "block_kind": "heading",
+          "units": [],
+          "semantic_status": "not_inferred",
+          "physical_page_status": "pending",
+          "hyperlinks": [],
+          "note_references": [],
+          "citation_fields": [],
+          "images": [],
+          "heading_level": null,
+          "heading_level_status": "unknown",
+          "heading_level_origin": null,
+          "heading_refs": [
+            {
+              "text": "学校节能试点",
+              "native_locator": "word/document.xml#paragraph=0",
+              "heading_level": null,
+              "status": "native_style_heading"
+            }
+          ]
+        }
+      },
+      "asset_ref": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+      "raw_asset_refs": [
+        "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_5323c9a7-d715-4a17-898e-bee013a4db36"
+    },
+    {
+      "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-2:e521b7505d400a596fa31c6fbbb6ae214fa3671be442b72dd70219e9048cd584:kind:docx",
+      "segment_index": 1,
+      "anchor": {
+        "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+        "asset_id": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+        "native_locator": "word/document.xml#paragraph=1",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": 1,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "试点2026年能耗降低8%。",
+      "content": "试点2026年能耗降低8%。",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "text": "试点2026年能耗降低8%。",
+        "style_id": null,
+        "hyperlinks": [
+          {
+            "relationship_id": "rId1",
+            "anchor": null,
+            "text": "试点2026年能耗降低8%。"
+          }
+        ],
+        "images": [],
+        "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:ns1=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"><ns0:hyperlink ns1:id=\"rId1\"><ns0:r><ns0:t>试点2026年能耗降低8%。</ns0:t></ns0:r></ns0:hyperlink></ns0:p>\n",
+        "paragraph_index": 1,
+        "style_name": null,
+        "xml_path": "/w:document[1]/w:body[1]/w:p[2]",
+        "package_part": "word/document.xml",
+        "hyperlink_evidence": [
+          {
+            "evidence_id": "docx_link_a098cd8f4fd37b5fdcee6110",
+            "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:p[2]/w:hyperlink[1]",
+            "relationship_id": "rId1",
+            "text": "试点2026年能耗降低8%。",
+            "anchor": null,
+            "target": "https://example.invalid/source",
+            "target_part": null,
+            "target_kind": "unresolved",
+            "relationship_type": "hyperlink",
+            "retrieval": "not_fetched",
+            "semantic_status": "not_inferred"
+          }
+        ],
+        "note_references": [],
+        "fields": [],
+        "citation_fields": [],
+        "image_evidence": [],
+        "note_id": null
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。",
+        "source_context": {
+          "native_locator": "word/document.xml#paragraph=1",
+          "note_id": null,
+          "source_kind": "docx",
+          "story": "body",
+          "package_part": "word/document.xml",
+          "xml_path": "/w:document[1]/w:body[1]/w:p[2]",
+          "paragraph_index": 1,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "block_kind": "paragraph",
+          "units": [
+            {
+              "raw_text": "%",
+              "start_char": 12,
+              "end_char": 13,
+              "status": "candidate",
+              "meaning": "unknown",
+              "offset_unit": "unicode_code_points"
+            }
+          ],
+          "semantic_status": "not_inferred",
+          "physical_page_status": "pending",
+          "hyperlinks": [
+            {
+              "evidence_id": "docx_link_a098cd8f4fd37b5fdcee6110",
+              "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:p[2]/w:hyperlink[1]",
+              "relationship_id": "rId1",
+              "text": "试点2026年能耗降低8%。",
+              "anchor": null,
+              "target": "https://example.invalid/source",
+              "target_part": null,
+              "target_kind": "unresolved",
+              "relationship_type": "hyperlink",
+              "retrieval": "not_fetched",
+              "semantic_status": "not_inferred"
+            }
+          ],
+          "note_references": [],
+          "citation_fields": [],
+          "images": [],
+          "heading_refs": [
+            {
+              "text": "学校节能试点",
+              "native_locator": "word/document.xml#paragraph=0",
+              "heading_level": null,
+              "status": "native_style_heading"
+            }
+          ]
+        }
+      },
+      "asset_ref": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+      "raw_asset_refs": [
+        "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_b49d4bb9-b83e-4c06-afb4-160098b0dc42"
+    },
+    {
+      "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-2:e521b7505d400a596fa31c6fbbb6ae214fa3671be442b72dd70219e9048cd584:kind:docx",
+      "segment_index": 2,
+      "anchor": {
+        "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+        "asset_id": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+        "native_locator": "word/document.xml#table=0,row=0,cell=0",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": null,
+          "table_index": 0,
+          "row_index": 0,
+          "cell_index": 0,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "指标",
+      "content": "指标",
+      "confidence": null,
+      "data": {
+        "kind": "table_cell",
+        "paragraphs": [
+          {
+            "kind": "paragraph",
+            "text": "指标",
+            "style_id": null,
+            "hyperlinks": [],
+            "images": [],
+            "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:r><ns0:t>指标</ns0:t></ns0:r></ns0:p>",
+            "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[1]/w:p[1]",
+            "package_part": "word/document.xml",
+            "hyperlink_evidence": [],
+            "note_references": [],
+            "fields": [],
+            "citation_fields": [],
+            "image_evidence": []
+          }
+        ],
+        "text": "指标",
+        "nested_table_count": 0,
+        "raw_xml": "<ns0:tc xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:p><ns0:r><ns0:t>指标</ns0:t></ns0:r></ns0:p></ns0:tc>",
+        "evidence_id": "docx_cell_883ce4f1c52c73d76526f089",
+        "package_part": "word/document.xml",
+        "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[1]",
+        "logical_grid": {
+          "column_start": 0,
+          "column_end_exclusive": 1,
+          "column_span": 1,
+          "vertical_merge": null,
+          "vertical_owner_evidence_id": null,
+          "horizontal_merge": null,
+          "horizontal_owner_evidence_id": null,
+          "status": "located"
+        },
+        "note_id": null,
+        "nested_tables": []
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。",
+        "source_context": {
+          "source_kind": "docx",
+          "block_kind": "table_cell",
+          "package_part": "word/document.xml",
+          "story": "body",
+          "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[1]",
+          "native_locator": "word/document.xml#table=0,row=0,cell=0",
+          "table_index": 0,
+          "row_index": 0,
+          "cell_index": 0,
+          "note_id": null,
+          "logical_grid": {
+            "column_start": 0,
+            "column_end_exclusive": 1,
+            "column_span": 1,
+            "vertical_merge": null,
+            "vertical_owner_evidence_id": null,
+            "horizontal_merge": null,
+            "horizontal_owner_evidence_id": null,
+            "status": "located"
+          },
+          "units": [],
+          "heading_refs": [
+            {
+              "text": "学校节能试点",
+              "native_locator": "word/document.xml#paragraph=0",
+              "heading_level": null,
+              "status": "native_style_heading"
+            }
+          ],
+          "semantic_status": "not_inferred",
+          "physical_page_status": "pending",
+          "paragraphs": [
+            {
+              "source_kind": "docx",
+              "story": "body",
+              "package_part": "word/document.xml",
+              "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[1]/w:p[1]",
+              "paragraph_index": null,
+              "table_index": 0,
+              "row_index": 0,
+              "cell_index": 0,
+              "block_kind": "paragraph",
+              "units": [],
+              "semantic_status": "not_inferred",
+              "physical_page_status": "pending",
+              "hyperlinks": [],
+              "note_references": [],
+              "citation_fields": [],
+              "images": []
+            }
+          ],
+          "column_header_candidates": []
+        }
+      },
+      "asset_ref": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+      "raw_asset_refs": [
+        "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_68fe509e-2028-46c5-9fbb-fb51de7f1647"
+    },
+    {
+      "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-2:e521b7505d400a596fa31c6fbbb6ae214fa3671be442b72dd70219e9048cd584:kind:docx",
+      "segment_index": 3,
+      "anchor": {
+        "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+        "asset_id": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+        "native_locator": "word/document.xml#table=0,row=0,cell=1",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": null,
+          "table_index": 0,
+          "row_index": 0,
+          "cell_index": 1,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "8%",
+      "content": "8%",
+      "confidence": null,
+      "data": {
+        "kind": "table_cell",
+        "paragraphs": [
+          {
+            "kind": "paragraph",
+            "text": "8%",
+            "style_id": null,
+            "hyperlinks": [],
+            "images": [],
+            "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:r><ns0:t>8%</ns0:t></ns0:r></ns0:p>",
+            "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[2]/w:p[1]",
+            "package_part": "word/document.xml",
+            "hyperlink_evidence": [],
+            "note_references": [],
+            "fields": [],
+            "citation_fields": [],
+            "image_evidence": []
+          }
+        ],
+        "text": "8%",
+        "nested_table_count": 0,
+        "raw_xml": "<ns0:tc xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\"><ns0:p><ns0:r><ns0:t>8%</ns0:t></ns0:r></ns0:p></ns0:tc>",
+        "evidence_id": "docx_cell_810bac136df028466bf9bee9",
+        "package_part": "word/document.xml",
+        "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[2]",
+        "logical_grid": {
+          "column_start": 1,
+          "column_end_exclusive": 2,
+          "column_span": 1,
+          "vertical_merge": null,
+          "vertical_owner_evidence_id": null,
+          "horizontal_merge": null,
+          "horizontal_owner_evidence_id": null,
+          "status": "located"
+        },
+        "note_id": null,
+        "nested_tables": []
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。",
+        "source_context": {
+          "source_kind": "docx",
+          "block_kind": "table_cell",
+          "package_part": "word/document.xml",
+          "story": "body",
+          "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[2]",
+          "native_locator": "word/document.xml#table=0,row=0,cell=1",
+          "table_index": 0,
+          "row_index": 0,
+          "cell_index": 1,
+          "note_id": null,
+          "logical_grid": {
+            "column_start": 1,
+            "column_end_exclusive": 2,
+            "column_span": 1,
+            "vertical_merge": null,
+            "vertical_owner_evidence_id": null,
+            "horizontal_merge": null,
+            "horizontal_owner_evidence_id": null,
+            "status": "located"
+          },
+          "units": [
+            {
+              "raw_text": "%",
+              "start_char": 1,
+              "end_char": 2,
+              "status": "candidate",
+              "meaning": "unknown",
+              "offset_unit": "unicode_code_points"
+            }
+          ],
+          "heading_refs": [
+            {
+              "text": "学校节能试点",
+              "native_locator": "word/document.xml#paragraph=0",
+              "heading_level": null,
+              "status": "native_style_heading"
+            }
+          ],
+          "semantic_status": "not_inferred",
+          "physical_page_status": "pending",
+          "paragraphs": [
+            {
+              "source_kind": "docx",
+              "story": "body",
+              "package_part": "word/document.xml",
+              "xml_path": "/w:document[1]/w:body[1]/w:tbl[1]/w:tr[1]/w:tc[2]/w:p[1]",
+              "paragraph_index": null,
+              "table_index": 0,
+              "row_index": 0,
+              "cell_index": 1,
+              "block_kind": "paragraph",
+              "units": [
+                {
+                  "raw_text": "%",
+                  "start_char": 1,
+                  "end_char": 2,
+                  "status": "candidate",
+                  "meaning": "unknown",
+                  "offset_unit": "unicode_code_points"
+                }
+              ],
+              "semantic_status": "not_inferred",
+              "physical_page_status": "pending",
+              "hyperlinks": [],
+              "note_references": [],
+              "citation_fields": [],
+              "images": []
+            }
+          ],
+          "column_header_candidates": []
+        }
+      },
+      "asset_ref": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+      "raw_asset_refs": [
+        "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_f9b5053b-b293-42a8-acbd-6f5e4d663b65"
+    }
+  ],
+  "trace": [
+    {
+      "component": "TaskSpec",
+      "requirement_id": "SYS-001",
+      "status": "validated"
+    },
+    {
+      "component": "SchemaRegistry",
+      "requirement_id": "SYS-006",
+      "status": "validated"
+    },
+    {
+      "component": "SourceLoader",
+      "requirement_id": "SYS-003",
+      "status": "partial"
+    },
+    {
+      "component": "EvidenceStore",
+      "requirement_id": "SYS-004",
+      "status": "saved"
+    }
+  ],
+  "boundary": "Source parsing and evidence only; no fact extraction, model routing, PPTX generation or QA acceptance.",
+  "nontext_evidence": [
+    {
+      "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-2:e521b7505d400a596fa31c6fbbb6ae214fa3671be442b72dd70219e9048cd584:kind:docx",
+      "segment_index": 4,
+      "anchor": {
+        "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+        "asset_id": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+        "native_locator": "word/document.xml#paragraph=2",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": 2,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "",
+      "content": "",
+      "confidence": null,
+      "data": {
+        "kind": "paragraph",
+        "text": "",
+        "style_id": null,
+        "hyperlinks": [],
+        "images": [
+          {
+            "relationship_id": "rId2",
+            "external_relationship_id": null
+          }
+        ],
+        "raw_xml": "<ns0:p xmlns:ns0=\"http://schemas.openxmlformats.org/wordprocessingml/2006/main\" xmlns:ns1=\"http://schemas.openxmlformats.org/drawingml/2006/main\" xmlns:ns2=\"http://schemas.openxmlformats.org/officeDocument/2006/relationships\"><ns0:r><ns0:drawing><ns1:blip ns2:embed=\"rId2\" /></ns0:drawing></ns0:r></ns0:p>",
+        "paragraph_index": 2,
+        "style_name": null,
+        "xml_path": "/w:document[1]/w:body[1]/w:p[3]",
+        "package_part": "word/document.xml",
+        "hyperlink_evidence": [],
+        "note_references": [],
+        "fields": [],
+        "citation_fields": [],
+        "image_evidence": [
+          {
+            "evidence_id": "docx_image_9d3c5bffd047a0aef60eb306",
+            "part": "word/document.xml",
+            "xml_path": "/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+            "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+            "relationship_id": "rId2",
+            "embedded_relationship_id": "rId2",
+            "linked_relationship_id": null,
+            "target_part": "word/media/image1.png",
+            "external_target": null,
+            "status": "unresolved",
+            "retrieval": "package_part",
+            "sha256": null,
+            "bytes": null,
+            "pixel_width": null,
+            "pixel_height": null,
+            "inspection_status": "not_executed",
+            "alt_text": null,
+            "description": null,
+            "display_extent_emu": null,
+            "crop": [],
+            "source_anchor": {
+              "package_part": "word/document.xml",
+              "xml_path": "/w:document[1]/w:body[1]/w:p[3]",
+              "kind": "docx_block",
+              "story": "body",
+              "paragraph_index": 2,
+              "table_index": null,
+              "row_index": null,
+              "cell_index": null,
+              "page_location": {
+                "status": "pending",
+                "page_numbers": [],
+                "renderer_ref": null,
+                "reason": "未执行Word布局分页渲染。"
+              }
+            },
+            "license": "unknown",
+            "authorization": "not_provided",
+            "semantic_status": "not_inferred",
+            "ocr_status": "not_executed"
+          }
+        ],
+        "note_id": null
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。",
+        "source_context": {
+          "native_locator": "word/document.xml#paragraph=2",
+          "note_id": null,
+          "source_kind": "docx",
+          "story": "body",
+          "package_part": "word/document.xml",
+          "xml_path": "/w:document[1]/w:body[1]/w:p[3]",
+          "paragraph_index": 2,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "block_kind": "paragraph",
+          "units": [],
+          "semantic_status": "not_inferred",
+          "physical_page_status": "pending",
+          "hyperlinks": [],
+          "note_references": [],
+          "citation_fields": [],
+          "images": [
+            {
+              "evidence_id": "docx_image_9d3c5bffd047a0aef60eb306",
+              "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+              "target_part": "word/media/image1.png",
+              "status": "unresolved",
+              "semantic_status": "not_inferred"
+            }
+          ],
+          "heading_refs": [
+            {
+              "text": "学校节能试点",
+              "native_locator": "word/document.xml#paragraph=0",
+              "heading_level": null,
+              "status": "native_style_heading"
+            }
+          ]
+        }
+      },
+      "asset_ref": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+      "raw_asset_refs": [
+        "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_81e40566-574b-43f4-9f85-0dd6655872bf"
+    },
+    {
+      "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+      "source_hash": "81ca5c3aaace45f6d8fddb669e9ceb2250772554904749c54bcefc749d09fbf1",
+      "parser_version": "binary-2:e521b7505d400a596fa31c6fbbb6ae214fa3671be442b72dd70219e9048cd584:kind:docx",
+      "segment_index": 5,
+      "anchor": {
+        "source_id": "source_130719e6-c7c4-4bff-a072-4f4b6dd55031",
+        "asset_id": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+        "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+        "locator": {
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": 2,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "",
+      "content": "",
+      "confidence": null,
+      "data": {
+        "kind": "docx_image",
+        "evidence_id": "docx_image_9d3c5bffd047a0aef60eb306",
+        "part": "word/document.xml",
+        "xml_path": "/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+        "native_locator": "word/document.xml#path=/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+        "relationship_id": "rId2",
+        "embedded_relationship_id": "rId2",
+        "linked_relationship_id": null,
+        "target_part": "word/media/image1.png",
+        "external_target": null,
+        "status": "unresolved",
+        "retrieval": "package_part",
+        "sha256": null,
+        "bytes": null,
+        "pixel_width": null,
+        "pixel_height": null,
+        "inspection_status": "not_executed",
+        "alt_text": null,
+        "description": null,
+        "display_extent_emu": null,
+        "crop": [],
+        "source_anchor": {
+          "package_part": "word/document.xml",
+          "xml_path": "/w:document[1]/w:body[1]/w:p[3]",
+          "kind": "docx_block",
+          "story": "body",
+          "paragraph_index": 2,
+          "table_index": null,
+          "row_index": null,
+          "cell_index": null,
+          "page_location": {
+            "status": "pending",
+            "page_numbers": [],
+            "renderer_ref": null,
+            "reason": "未执行Word布局分页渲染。"
+          }
+        },
+        "license": "unknown",
+        "authorization": "not_provided",
+        "semantic_status": "not_inferred",
+        "ocr_status": "not_executed"
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构解析不证明来源事实真实性。",
+        "source_context": {
+          "source_kind": "docx",
+          "block_kind": "image",
+          "package_part": "word/document.xml",
+          "story": "body",
+          "xml_path": "/w:document[1]/w:body[1]/w:p[3]/w:r[1]/w:drawing[1]/a:blip[1]",
+          "image_evidence_id": "docx_image_9d3c5bffd047a0aef60eb306",
+          "semantic_status": "not_inferred",
+          "pixel_evidence_status": "not_executed",
+          "physical_page_status": "pending"
+        }
+      },
+      "asset_ref": "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2",
+      "raw_asset_refs": [
+        "asset_047885a0-8988-437d-8e7f-63d8dc26e5d2"
+      ],
+      "parse_note": "Native format structure retained; warnings and unsupported semantics are explicit.",
+      "evidence_id": "evidence_40ca8602-de1c-4d45-9459-6f7072bec81b"
+    }
+  ],
+  "selection": {
+    "producer": "DEC-003",
+    "fact_source_ids": [
+      "source_130719e6-c7c4-4bff-a072-4f4b6dd55031"
+    ],
+    "all_sources_preserved_in": "source-result.json",
+    "nontext_evidence_ids": [
+      "evidence_81e40566-574b-43f4-9f85-0dd6655872bf",
+      "evidence_40ca8602-de1c-4d45-9459-6f7072bec81b"
+    ],
+    "nontext_handling": "Original evidence retained in nontext_evidence; empty structure carries no textual fact; OCR/visual fact inference not executed."
+  }
+}

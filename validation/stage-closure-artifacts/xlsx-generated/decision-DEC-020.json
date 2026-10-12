@@ -1,0 +1,1312 @@
+{
+  "trace_id": "trace_35ac0b19-c940-4dd9-a769-0be6e79ef03c",
+  "node_id": "DEC-020",
+  "input": {
+    "page_count": 6,
+    "source_evidence_refs": [
+      "evidence_53a35306-295b-4ce9-b721-ea2627475071",
+      "evidence_ded4d9bd-1e54-4c69-a343-b621603c96a4",
+      "evidence_b511cb3a-e5e3-4907-a818-7a3a495c73d9",
+      "evidence_336dd18c-11e0-4ebf-9198-05aef2208e15",
+      "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+      "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+      "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+      "evidence_b0768129-532f-43be-ba67-179768233605",
+      "evidence_14897576-1ebc-418b-9f50-77dd69673b73",
+      "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+      "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+      "evidence_232e7f2e-d86f-442b-8243-9045e6da3550",
+      "evidence_2d27d9ba-035f-42a3-81cd-ec51dce7703d",
+      "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+      "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+      "evidence_55da0c5a-06ed-4677-9891-4bc88b75e66e",
+      "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2",
+      "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+      "evidence_6f0ff33a-37e3-4a45-a4b1-424544e45169",
+      "evidence_1f6e3208-c15c-439d-bc4a-08ab4e59db01",
+      "evidence_9d962c36-97cc-4945-9d77-40a8380244ad",
+      "evidence_eeb54a2e-3a8c-498b-83e6-3d7558409a73",
+      "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+      "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+      "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9",
+      "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+      "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+      "evidence_00f1bcbc-b0ca-47d8-8aac-03945b8e0748",
+      "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1",
+      "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+      "evidence_b2d6e301-afcc-430a-8e8e-3d7f8022619f"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-020",
+      "candidate_id": "candidate_f4c482db-d342-4522-a384-048d996610cb",
+      "value": {
+        "rewrites": [
+          {
+            "page_key": "page_b80f3af6dcad88fb1648",
+            "action": "retain",
+            "before": {
+              "title": "人工验证用电数据总览（非真实业务）",
+              "goal": "说明数据来源性质与本次展示范围",
+              "kind": "text",
+              "body": [
+                "本演示依据两sheet人工验证数据整理：月度数据与分类数据。",
+                "全部数据均标注“人工验证数据，非真实业务”。",
+                "月度数据字段：日期、用电量（千瓦时）、降低比例（%）、性质。",
+                "分类数据字段：分类、用电量（千瓦时）、性质。",
+                "用电量单位为千瓦时，降低比例单位为%，两者单位不同，不置于同一数值轴。"
+              ],
+              "notes": "来源为两sheet人工验证数据，原文逐格标注“人工验证数据，非真实业务”。本页仅说明字段与单位边界，不新增统计或因果。",
+              "evidence_refs": [
+                "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+                "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+                "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+                "evidence_b0768129-532f-43be-ba67-179768233605",
+                "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+                "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+                "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9"
+              ],
+              "rationale": "先交代数据性质与字段单位边界，避免后续图表混轴。",
+              "table": null,
+              "chart": null
+            },
+            "after": {
+              "title": "人工验证用电数据总览（非真实业务）",
+              "goal": "说明数据来源性质与本次展示范围",
+              "kind": "text",
+              "body": [
+                "本演示依据两sheet人工验证数据整理：月度数据与分类数据。",
+                "全部数据均标注“人工验证数据，非真实业务”。",
+                "月度数据字段：日期、用电量（千瓦时）、降低比例（%）、性质。",
+                "分类数据字段：分类、用电量（千瓦时）、性质。",
+                "用电量单位为千瓦时，降低比例单位为%，两者单位不同，不置于同一数值轴。"
+              ],
+              "notes": "来源为两sheet人工验证数据，原文逐格标注“人工验证数据，非真实业务”。本页仅说明字段与单位边界，不新增统计或因果。",
+              "evidence_refs": [
+                "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+                "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+                "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+                "evidence_b0768129-532f-43be-ba67-179768233605",
+                "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+                "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+                "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9"
+              ],
+              "rationale": "先交代数据性质与字段单位边界，避免后续图表混轴。",
+              "table": null,
+              "chart": null
+            },
+            "moved_items": [],
+            "evidence_refs": [
+              "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+              "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+              "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+              "evidence_b0768129-532f-43be-ba67-179768233605",
+              "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+              "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+              "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9"
+            ],
+            "assumption_refs": [],
+            "preservation": "all literal input title/body/notes/data retained; no character truncation",
+            "semantic_rewrite_status": "no paraphrase performed"
+          },
+          {
+            "page_key": "page_03c3da759f0c27b96343",
+            "action": "retain",
+            "before": {
+              "title": "月度数据完整表（人工验证，非真实业务）",
+              "goal": "以原生表格完整呈现月度数据全部行列",
+              "kind": "table",
+              "body": [
+                "表格完整保留日期、用电量（千瓦时）、降低比例（%）、性质四列及三个月合计行。",
+                "三个月合计行降低比例列为空，原文未提供，标注“待确认”。"
+              ],
+              "notes": "表格逐格对应原文：日期A2-A5、用电量B2-B5、降低比例C2-C4、性质D2-D5。三个月合计行降低比例列原文为空，按placeholder标注“待确认”，不补值。全部数据为人工验证数据，非真实业务。",
+              "evidence_refs": [
+                "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+                "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+                "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+                "evidence_b0768129-532f-43be-ba67-179768233605",
+                "evidence_14897576-1ebc-418b-9f50-77dd69673b73",
+                "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+                "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+                "evidence_232e7f2e-d86f-442b-8243-9045e6da3550",
+                "evidence_2d27d9ba-035f-42a3-81cd-ec51dce7703d",
+                "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+                "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+                "evidence_55da0c5a-06ed-4677-9891-4bc88b75e66e",
+                "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2",
+                "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+                "evidence_6f0ff33a-37e3-4a45-a4b1-424544e45169"
+              ],
+              "rationale": "调用方要求完整展示三个月日期、用电量、降低比例与三个月合计，表格可逐格保留。",
+              "table": {
+                "columns": [
+                  "日期",
+                  "用电量（千瓦时）",
+                  "降低比例（%）",
+                  "性质"
+                ],
+                "rows": [
+                  [
+                    "2026-01-01",
+                    "1200 千瓦时",
+                    "8%",
+                    "人工验证数据，非真实业务"
+                  ],
+                  [
+                    "2026-02-01",
+                    "1300 千瓦时",
+                    "9%",
+                    "人工验证数据，非真实业务"
+                  ],
+                  [
+                    "2026-03-01",
+                    "1250 千瓦时",
+                    "10%",
+                    "人工验证数据，非真实业务"
+                  ],
+                  [
+                    "三个月合计",
+                    "3750 千瓦时",
+                    "待确认",
+                    "人工验证数据，非真实业务"
+                  ]
+                ],
+                "units": "用电量：千瓦时；降低比例：%"
+              },
+              "chart": null
+            },
+            "after": {
+              "title": "月度数据完整表（人工验证，非真实业务）",
+              "goal": "以原生表格完整呈现月度数据全部行列",
+              "kind": "table",
+              "body": [
+                "表格完整保留日期、用电量（千瓦时）、降低比例（%）、性质四列及三个月合计行。",
+                "三个月合计行降低比例列为空，原文未提供，标注“待确认”。",
+                "用电量：千瓦时；降低比例：%"
+              ],
+              "notes": "表格逐格对应原文：日期A2-A5、用电量B2-B5、降低比例C2-C4、性质D2-D5。三个月合计行降低比例列原文为空，按placeholder标注“待确认”，不补值。全部数据为人工验证数据，非真实业务。",
+              "evidence_refs": [
+                "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+                "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+                "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+                "evidence_b0768129-532f-43be-ba67-179768233605",
+                "evidence_14897576-1ebc-418b-9f50-77dd69673b73",
+                "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+                "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+                "evidence_232e7f2e-d86f-442b-8243-9045e6da3550",
+                "evidence_2d27d9ba-035f-42a3-81cd-ec51dce7703d",
+                "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+                "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+                "evidence_55da0c5a-06ed-4677-9891-4bc88b75e66e",
+                "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2",
+                "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+                "evidence_6f0ff33a-37e3-4a45-a4b1-424544e45169"
+              ],
+              "rationale": "调用方要求完整展示三个月日期、用电量、降低比例与三个月合计，表格可逐格保留。",
+              "table": {
+                "columns": [
+                  "日期",
+                  "用电量（千瓦时）",
+                  "降低比例（%）",
+                  "性质"
+                ],
+                "rows": [
+                  [
+                    "2026-01-01",
+                    "1200 千瓦时",
+                    "8%",
+                    "人工验证数据，非真实业务"
+                  ],
+                  [
+                    "2026-02-01",
+                    "1300 千瓦时",
+                    "9%",
+                    "人工验证数据，非真实业务"
+                  ],
+                  [
+                    "2026-03-01",
+                    "1250 千瓦时",
+                    "10%",
+                    "人工验证数据，非真实业务"
+                  ],
+                  [
+                    "三个月合计",
+                    "3750 千瓦时",
+                    "待确认",
+                    "人工验证数据，非真实业务"
+                  ]
+                ],
+                "units": "用电量：千瓦时；降低比例：%"
+              },
+              "chart": null
+            },
+            "moved_items": [],
+            "evidence_refs": [
+              "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+              "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+              "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+              "evidence_b0768129-532f-43be-ba67-179768233605",
+              "evidence_14897576-1ebc-418b-9f50-77dd69673b73",
+              "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+              "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+              "evidence_232e7f2e-d86f-442b-8243-9045e6da3550",
+              "evidence_2d27d9ba-035f-42a3-81cd-ec51dce7703d",
+              "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+              "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+              "evidence_55da0c5a-06ed-4677-9891-4bc88b75e66e",
+              "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2",
+              "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+              "evidence_6f0ff33a-37e3-4a45-a4b1-424544e45169"
+            ],
+            "assumption_refs": [],
+            "preservation": "all literal input title/body/notes/data retained; no character truncation",
+            "semantic_rewrite_status": "no paraphrase performed"
+          },
+          {
+            "page_key": "page_fedf8952575c4c66c829",
+            "action": "retain",
+            "before": {
+              "title": "月度用电量（千瓦时）",
+              "goal": "以图表呈现三个月用电量与三个月合计，单位千瓦时",
+              "kind": "chart",
+              "body": [
+                "仅用电量（千瓦时）进入本图数值轴，降低比例（%）不混入。",
+                "三个月合计3750千瓦时为原文合计行数值，非重新计算。"
+              ],
+              "notes": "数值取自原文B2-B5：1200、1300、1250、3750千瓦时。合计行原文已给出3750千瓦时，本页直接引用，不重新计算。全部为人工验证数据，非真实业务。",
+              "evidence_refs": [
+                "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+                "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+                "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+                "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+                "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+              ],
+              "rationale": "用电量与降低比例单位不同，分图呈现，避免混轴。",
+              "table": null,
+              "chart": {
+                "type": "column",
+                "categories": [
+                  "2026-01-01",
+                  "2026-02-01",
+                  "2026-03-01",
+                  "三个月合计"
+                ],
+                "series": [
+                  {
+                    "name": "用电量",
+                    "values": [
+                      1200,
+                      1300,
+                      1250,
+                      3750
+                    ]
+                  }
+                ],
+                "units": "千瓦时"
+              }
+            },
+            "after": {
+              "title": "月度用电量（千瓦时）",
+              "goal": "以图表呈现三个月用电量与三个月合计，单位千瓦时",
+              "kind": "chart",
+              "body": [
+                "仅用电量（千瓦时）进入本图数值轴，降低比例（%）不混入。",
+                "三个月合计3750千瓦时为原文合计行数值，非重新计算。"
+              ],
+              "notes": "数值取自原文B2-B5：1200、1300、1250、3750千瓦时。合计行原文已给出3750千瓦时，本页直接引用，不重新计算。全部为人工验证数据，非真实业务。",
+              "evidence_refs": [
+                "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+                "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+                "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+                "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+                "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+              ],
+              "rationale": "用电量与降低比例单位不同，分图呈现，避免混轴。",
+              "table": null,
+              "chart": {
+                "type": "column",
+                "categories": [
+                  "2026-01-01",
+                  "2026-02-01",
+                  "2026-03-01",
+                  "三个月合计"
+                ],
+                "series": [
+                  {
+                    "name": "用电量",
+                    "values": [
+                      1200,
+                      1300,
+                      1250,
+                      3750
+                    ]
+                  }
+                ],
+                "units": "千瓦时"
+              }
+            },
+            "moved_items": [],
+            "evidence_refs": [
+              "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+              "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+              "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+              "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+              "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+            ],
+            "assumption_refs": [],
+            "preservation": "all literal input title/body/notes/data retained; no character truncation",
+            "semantic_rewrite_status": "no paraphrase performed"
+          },
+          {
+            "page_key": "page_ac4ebe5d3e134591fe1b",
+            "action": "retain",
+            "before": {
+              "title": "月度降低比例（%）",
+              "goal": "以图表呈现三个月降低比例，单位%",
+              "kind": "chart",
+              "body": [
+                "仅降低比例（%）进入本图数值轴，用电量（千瓦时）不混入。",
+                "三个月合计行降低比例原文为空，未提供，故本图不含该类别。"
+              ],
+              "notes": "数值取自原文C2-C4：8%、9%、10%。三个月合计行降低比例列原文为空，按placeholder标注“待确认”，不补值、不推算。全部为人工验证数据，非真实业务。",
+              "evidence_refs": [
+                "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+                "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+                "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+                "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+              ],
+              "rationale": "降低比例与用电量单位不同，独立成图；缺失值不补。",
+              "table": null,
+              "chart": {
+                "type": "column",
+                "categories": [
+                  "2026-01-01",
+                  "2026-02-01",
+                  "2026-03-01"
+                ],
+                "series": [
+                  {
+                    "name": "降低比例",
+                    "values": [
+                      8,
+                      9,
+                      10
+                    ]
+                  }
+                ],
+                "units": "%"
+              }
+            },
+            "after": {
+              "title": "月度降低比例（%）",
+              "goal": "以图表呈现三个月降低比例，单位%",
+              "kind": "chart",
+              "body": [
+                "仅降低比例（%）进入本图数值轴，用电量（千瓦时）不混入。",
+                "三个月合计行降低比例原文为空，未提供，故本图不含该类别。"
+              ],
+              "notes": "数值取自原文C2-C4：8%、9%、10%。三个月合计行降低比例列原文为空，按placeholder标注“待确认”，不补值、不推算。全部为人工验证数据，非真实业务。",
+              "evidence_refs": [
+                "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+                "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+                "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+                "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+              ],
+              "rationale": "降低比例与用电量单位不同，独立成图；缺失值不补。",
+              "table": null,
+              "chart": {
+                "type": "column",
+                "categories": [
+                  "2026-01-01",
+                  "2026-02-01",
+                  "2026-03-01"
+                ],
+                "series": [
+                  {
+                    "name": "降低比例",
+                    "values": [
+                      8,
+                      9,
+                      10
+                    ]
+                  }
+                ],
+                "units": "%"
+              }
+            },
+            "moved_items": [],
+            "evidence_refs": [
+              "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+              "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+              "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+              "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+            ],
+            "assumption_refs": [],
+            "preservation": "all literal input title/body/notes/data retained; no character truncation",
+            "semantic_rewrite_status": "no paraphrase performed"
+          },
+          {
+            "page_key": "page_dc0d5a69d82ac6ab20f1",
+            "action": "retain",
+            "before": {
+              "title": "分类数据完整表（人工验证，非真实业务）",
+              "goal": "以原生表格完整呈现三楼分类数据",
+              "kind": "table",
+              "body": [
+                "表格完整保留分类、用电量（千瓦时）、性质三列及A楼、B楼、C楼三行。",
+                "分类数据表未提供日期或期间列，期间标注“待确认”。"
+              ],
+              "notes": "表格逐格对应原文：分类A2-A4、用电量B2-B4、性质C2-C4。分类数据表原文无日期或期间列，按placeholder标注“待确认”，不绑定时间范围。全部为人工验证数据，非真实业务。",
+              "evidence_refs": [
+                "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+                "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+                "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9",
+                "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+                "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+                "evidence_00f1bcbc-b0ca-47d8-8aac-03945b8e0748",
+                "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1",
+                "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+                "evidence_b2d6e301-afcc-430a-8e8e-3d7f8022619f"
+              ],
+              "rationale": "调用方要求完整展示三楼分类数据，表格逐格保留。",
+              "table": {
+                "columns": [
+                  "分类",
+                  "用电量（千瓦时）",
+                  "性质"
+                ],
+                "rows": [
+                  [
+                    "A楼",
+                    "90 千瓦时",
+                    "人工验证数据，非真实业务"
+                  ],
+                  [
+                    "B楼",
+                    "72 千瓦时",
+                    "人工验证数据，非真实业务"
+                  ],
+                  [
+                    "C楼",
+                    "54 千瓦时",
+                    "人工验证数据，非真实业务"
+                  ]
+                ],
+                "units": "用电量：千瓦时"
+              },
+              "chart": null
+            },
+            "after": {
+              "title": "分类数据完整表（人工验证，非真实业务）",
+              "goal": "以原生表格完整呈现三楼分类数据",
+              "kind": "table",
+              "body": [
+                "表格完整保留分类、用电量（千瓦时）、性质三列及A楼、B楼、C楼三行。",
+                "分类数据表未提供日期或期间列，期间标注“待确认”。",
+                "用电量：千瓦时"
+              ],
+              "notes": "表格逐格对应原文：分类A2-A4、用电量B2-B4、性质C2-C4。分类数据表原文无日期或期间列，按placeholder标注“待确认”，不绑定时间范围。全部为人工验证数据，非真实业务。",
+              "evidence_refs": [
+                "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+                "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+                "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9",
+                "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+                "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+                "evidence_00f1bcbc-b0ca-47d8-8aac-03945b8e0748",
+                "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1",
+                "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+                "evidence_b2d6e301-afcc-430a-8e8e-3d7f8022619f"
+              ],
+              "rationale": "调用方要求完整展示三楼分类数据，表格逐格保留。",
+              "table": {
+                "columns": [
+                  "分类",
+                  "用电量（千瓦时）",
+                  "性质"
+                ],
+                "rows": [
+                  [
+                    "A楼",
+                    "90 千瓦时",
+                    "人工验证数据，非真实业务"
+                  ],
+                  [
+                    "B楼",
+                    "72 千瓦时",
+                    "人工验证数据，非真实业务"
+                  ],
+                  [
+                    "C楼",
+                    "54 千瓦时",
+                    "人工验证数据，非真实业务"
+                  ]
+                ],
+                "units": "用电量：千瓦时"
+              },
+              "chart": null
+            },
+            "moved_items": [],
+            "evidence_refs": [
+              "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+              "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+              "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9",
+              "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+              "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+              "evidence_00f1bcbc-b0ca-47d8-8aac-03945b8e0748",
+              "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1",
+              "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+              "evidence_b2d6e301-afcc-430a-8e8e-3d7f8022619f"
+            ],
+            "assumption_refs": [],
+            "preservation": "all literal input title/body/notes/data retained; no character truncation",
+            "semantic_rewrite_status": "no paraphrase performed"
+          },
+          {
+            "page_key": "page_03d2895b6a83f026aa0a",
+            "action": "retain",
+            "before": {
+              "title": "分类用电量（千瓦时）",
+              "goal": "以图表呈现A楼、B楼、C楼用电量，单位千瓦时",
+              "kind": "chart",
+              "body": [
+                "仅分类用电量（千瓦时）进入本图数值轴。",
+                "分类数据表未提供日期或期间，本图不标注时间范围。"
+              ],
+              "notes": "数值取自原文B2-B4：90、72、54千瓦时。分类数据表原文无日期或期间列，不绑定时间范围。全部为人工验证数据，非真实业务。",
+              "evidence_refs": [
+                "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+                "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+                "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+                "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+                "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+                "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1"
+              ],
+              "rationale": "分类用电量单位与月度用电量一致，但类别不同，独立成图清晰呈现。",
+              "table": null,
+              "chart": {
+                "type": "column",
+                "categories": [
+                  "A楼",
+                  "B楼",
+                  "C楼"
+                ],
+                "series": [
+                  {
+                    "name": "用电量",
+                    "values": [
+                      90,
+                      72,
+                      54
+                    ]
+                  }
+                ],
+                "units": "千瓦时"
+              }
+            },
+            "after": {
+              "title": "分类用电量（千瓦时）",
+              "goal": "以图表呈现A楼、B楼、C楼用电量，单位千瓦时",
+              "kind": "chart",
+              "body": [
+                "仅分类用电量（千瓦时）进入本图数值轴。",
+                "分类数据表未提供日期或期间，本图不标注时间范围。"
+              ],
+              "notes": "数值取自原文B2-B4：90、72、54千瓦时。分类数据表原文无日期或期间列，不绑定时间范围。全部为人工验证数据，非真实业务。",
+              "evidence_refs": [
+                "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+                "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+                "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+                "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+                "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+                "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1"
+              ],
+              "rationale": "分类用电量单位与月度用电量一致，但类别不同，独立成图清晰呈现。",
+              "table": null,
+              "chart": {
+                "type": "column",
+                "categories": [
+                  "A楼",
+                  "B楼",
+                  "C楼"
+                ],
+                "series": [
+                  {
+                    "name": "用电量",
+                    "values": [
+                      90,
+                      72,
+                      54
+                    ]
+                  }
+                ],
+                "units": "千瓦时"
+              }
+            },
+            "moved_items": [],
+            "evidence_refs": [
+              "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+              "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+              "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+              "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+              "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+              "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1"
+            ],
+            "assumption_refs": [],
+            "preservation": "all literal input title/body/notes/data retained; no character truncation",
+            "semantic_rewrite_status": "no paraphrase performed"
+          }
+        ]
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_f4c482db-d342-4522-a384-048d996610cb"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "rewrites": [
+      {
+        "page_key": "page_b80f3af6dcad88fb1648",
+        "action": "retain",
+        "before": {
+          "title": "人工验证用电数据总览（非真实业务）",
+          "goal": "说明数据来源性质与本次展示范围",
+          "kind": "text",
+          "body": [
+            "本演示依据两sheet人工验证数据整理：月度数据与分类数据。",
+            "全部数据均标注“人工验证数据，非真实业务”。",
+            "月度数据字段：日期、用电量（千瓦时）、降低比例（%）、性质。",
+            "分类数据字段：分类、用电量（千瓦时）、性质。",
+            "用电量单位为千瓦时，降低比例单位为%，两者单位不同，不置于同一数值轴。"
+          ],
+          "notes": "来源为两sheet人工验证数据，原文逐格标注“人工验证数据，非真实业务”。本页仅说明字段与单位边界，不新增统计或因果。",
+          "evidence_refs": [
+            "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+            "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+            "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+            "evidence_b0768129-532f-43be-ba67-179768233605",
+            "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+            "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+            "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9"
+          ],
+          "rationale": "先交代数据性质与字段单位边界，避免后续图表混轴。",
+          "table": null,
+          "chart": null
+        },
+        "after": {
+          "title": "人工验证用电数据总览（非真实业务）",
+          "goal": "说明数据来源性质与本次展示范围",
+          "kind": "text",
+          "body": [
+            "本演示依据两sheet人工验证数据整理：月度数据与分类数据。",
+            "全部数据均标注“人工验证数据，非真实业务”。",
+            "月度数据字段：日期、用电量（千瓦时）、降低比例（%）、性质。",
+            "分类数据字段：分类、用电量（千瓦时）、性质。",
+            "用电量单位为千瓦时，降低比例单位为%，两者单位不同，不置于同一数值轴。"
+          ],
+          "notes": "来源为两sheet人工验证数据，原文逐格标注“人工验证数据，非真实业务”。本页仅说明字段与单位边界，不新增统计或因果。",
+          "evidence_refs": [
+            "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+            "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+            "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+            "evidence_b0768129-532f-43be-ba67-179768233605",
+            "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+            "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+            "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9"
+          ],
+          "rationale": "先交代数据性质与字段单位边界，避免后续图表混轴。",
+          "table": null,
+          "chart": null
+        },
+        "moved_items": [],
+        "evidence_refs": [
+          "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+          "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+          "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+          "evidence_b0768129-532f-43be-ba67-179768233605",
+          "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+          "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+          "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9"
+        ],
+        "assumption_refs": [],
+        "preservation": "all literal input title/body/notes/data retained; no character truncation",
+        "semantic_rewrite_status": "no paraphrase performed"
+      },
+      {
+        "page_key": "page_03c3da759f0c27b96343",
+        "action": "retain",
+        "before": {
+          "title": "月度数据完整表（人工验证，非真实业务）",
+          "goal": "以原生表格完整呈现月度数据全部行列",
+          "kind": "table",
+          "body": [
+            "表格完整保留日期、用电量（千瓦时）、降低比例（%）、性质四列及三个月合计行。",
+            "三个月合计行降低比例列为空，原文未提供，标注“待确认”。"
+          ],
+          "notes": "表格逐格对应原文：日期A2-A5、用电量B2-B5、降低比例C2-C4、性质D2-D5。三个月合计行降低比例列原文为空，按placeholder标注“待确认”，不补值。全部数据为人工验证数据，非真实业务。",
+          "evidence_refs": [
+            "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+            "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+            "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+            "evidence_b0768129-532f-43be-ba67-179768233605",
+            "evidence_14897576-1ebc-418b-9f50-77dd69673b73",
+            "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+            "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+            "evidence_232e7f2e-d86f-442b-8243-9045e6da3550",
+            "evidence_2d27d9ba-035f-42a3-81cd-ec51dce7703d",
+            "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+            "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+            "evidence_55da0c5a-06ed-4677-9891-4bc88b75e66e",
+            "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2",
+            "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+            "evidence_6f0ff33a-37e3-4a45-a4b1-424544e45169"
+          ],
+          "rationale": "调用方要求完整展示三个月日期、用电量、降低比例与三个月合计，表格可逐格保留。",
+          "table": {
+            "columns": [
+              "日期",
+              "用电量（千瓦时）",
+              "降低比例（%）",
+              "性质"
+            ],
+            "rows": [
+              [
+                "2026-01-01",
+                "1200 千瓦时",
+                "8%",
+                "人工验证数据，非真实业务"
+              ],
+              [
+                "2026-02-01",
+                "1300 千瓦时",
+                "9%",
+                "人工验证数据，非真实业务"
+              ],
+              [
+                "2026-03-01",
+                "1250 千瓦时",
+                "10%",
+                "人工验证数据，非真实业务"
+              ],
+              [
+                "三个月合计",
+                "3750 千瓦时",
+                "待确认",
+                "人工验证数据，非真实业务"
+              ]
+            ],
+            "units": "用电量：千瓦时；降低比例：%"
+          },
+          "chart": null
+        },
+        "after": {
+          "title": "月度数据完整表（人工验证，非真实业务）",
+          "goal": "以原生表格完整呈现月度数据全部行列",
+          "kind": "table",
+          "body": [
+            "表格完整保留日期、用电量（千瓦时）、降低比例（%）、性质四列及三个月合计行。",
+            "三个月合计行降低比例列为空，原文未提供，标注“待确认”。",
+            "用电量：千瓦时；降低比例：%"
+          ],
+          "notes": "表格逐格对应原文：日期A2-A5、用电量B2-B5、降低比例C2-C4、性质D2-D5。三个月合计行降低比例列原文为空，按placeholder标注“待确认”，不补值。全部数据为人工验证数据，非真实业务。",
+          "evidence_refs": [
+            "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+            "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+            "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+            "evidence_b0768129-532f-43be-ba67-179768233605",
+            "evidence_14897576-1ebc-418b-9f50-77dd69673b73",
+            "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+            "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+            "evidence_232e7f2e-d86f-442b-8243-9045e6da3550",
+            "evidence_2d27d9ba-035f-42a3-81cd-ec51dce7703d",
+            "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+            "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+            "evidence_55da0c5a-06ed-4677-9891-4bc88b75e66e",
+            "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2",
+            "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+            "evidence_6f0ff33a-37e3-4a45-a4b1-424544e45169"
+          ],
+          "rationale": "调用方要求完整展示三个月日期、用电量、降低比例与三个月合计，表格可逐格保留。",
+          "table": {
+            "columns": [
+              "日期",
+              "用电量（千瓦时）",
+              "降低比例（%）",
+              "性质"
+            ],
+            "rows": [
+              [
+                "2026-01-01",
+                "1200 千瓦时",
+                "8%",
+                "人工验证数据，非真实业务"
+              ],
+              [
+                "2026-02-01",
+                "1300 千瓦时",
+                "9%",
+                "人工验证数据，非真实业务"
+              ],
+              [
+                "2026-03-01",
+                "1250 千瓦时",
+                "10%",
+                "人工验证数据，非真实业务"
+              ],
+              [
+                "三个月合计",
+                "3750 千瓦时",
+                "待确认",
+                "人工验证数据，非真实业务"
+              ]
+            ],
+            "units": "用电量：千瓦时；降低比例：%"
+          },
+          "chart": null
+        },
+        "moved_items": [],
+        "evidence_refs": [
+          "evidence_9714ce61-1537-454d-9fea-0964c9be109e",
+          "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+          "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+          "evidence_b0768129-532f-43be-ba67-179768233605",
+          "evidence_14897576-1ebc-418b-9f50-77dd69673b73",
+          "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+          "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+          "evidence_232e7f2e-d86f-442b-8243-9045e6da3550",
+          "evidence_2d27d9ba-035f-42a3-81cd-ec51dce7703d",
+          "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+          "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+          "evidence_55da0c5a-06ed-4677-9891-4bc88b75e66e",
+          "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2",
+          "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+          "evidence_6f0ff33a-37e3-4a45-a4b1-424544e45169"
+        ],
+        "assumption_refs": [],
+        "preservation": "all literal input title/body/notes/data retained; no character truncation",
+        "semantic_rewrite_status": "no paraphrase performed"
+      },
+      {
+        "page_key": "page_fedf8952575c4c66c829",
+        "action": "retain",
+        "before": {
+          "title": "月度用电量（千瓦时）",
+          "goal": "以图表呈现三个月用电量与三个月合计，单位千瓦时",
+          "kind": "chart",
+          "body": [
+            "仅用电量（千瓦时）进入本图数值轴，降低比例（%）不混入。",
+            "三个月合计3750千瓦时为原文合计行数值，非重新计算。"
+          ],
+          "notes": "数值取自原文B2-B5：1200、1300、1250、3750千瓦时。合计行原文已给出3750千瓦时，本页直接引用，不重新计算。全部为人工验证数据，非真实业务。",
+          "evidence_refs": [
+            "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+            "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+            "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+            "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+            "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+          ],
+          "rationale": "用电量与降低比例单位不同，分图呈现，避免混轴。",
+          "table": null,
+          "chart": {
+            "type": "column",
+            "categories": [
+              "2026-01-01",
+              "2026-02-01",
+              "2026-03-01",
+              "三个月合计"
+            ],
+            "series": [
+              {
+                "name": "用电量",
+                "values": [
+                  1200,
+                  1300,
+                  1250,
+                  3750
+                ]
+              }
+            ],
+            "units": "千瓦时"
+          }
+        },
+        "after": {
+          "title": "月度用电量（千瓦时）",
+          "goal": "以图表呈现三个月用电量与三个月合计，单位千瓦时",
+          "kind": "chart",
+          "body": [
+            "仅用电量（千瓦时）进入本图数值轴，降低比例（%）不混入。",
+            "三个月合计3750千瓦时为原文合计行数值，非重新计算。"
+          ],
+          "notes": "数值取自原文B2-B5：1200、1300、1250、3750千瓦时。合计行原文已给出3750千瓦时，本页直接引用，不重新计算。全部为人工验证数据，非真实业务。",
+          "evidence_refs": [
+            "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+            "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+            "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+            "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+            "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+          ],
+          "rationale": "用电量与降低比例单位不同，分图呈现，避免混轴。",
+          "table": null,
+          "chart": {
+            "type": "column",
+            "categories": [
+              "2026-01-01",
+              "2026-02-01",
+              "2026-03-01",
+              "三个月合计"
+            ],
+            "series": [
+              {
+                "name": "用电量",
+                "values": [
+                  1200,
+                  1300,
+                  1250,
+                  3750
+                ]
+              }
+            ],
+            "units": "千瓦时"
+          }
+        },
+        "moved_items": [],
+        "evidence_refs": [
+          "evidence_8febd9e9-b891-4805-b7dc-39fe7e9a281e",
+          "evidence_394a50ce-2f1a-4b9c-b18e-42772c2217a8",
+          "evidence_679631cb-46eb-4820-a624-a89c408064ea",
+          "evidence_37742cf0-5936-4d9b-b598-b7bc16d829fe",
+          "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+        ],
+        "assumption_refs": [],
+        "preservation": "all literal input title/body/notes/data retained; no character truncation",
+        "semantic_rewrite_status": "no paraphrase performed"
+      },
+      {
+        "page_key": "page_ac4ebe5d3e134591fe1b",
+        "action": "retain",
+        "before": {
+          "title": "月度降低比例（%）",
+          "goal": "以图表呈现三个月降低比例，单位%",
+          "kind": "chart",
+          "body": [
+            "仅降低比例（%）进入本图数值轴，用电量（千瓦时）不混入。",
+            "三个月合计行降低比例原文为空，未提供，故本图不含该类别。"
+          ],
+          "notes": "数值取自原文C2-C4：8%、9%、10%。三个月合计行降低比例列原文为空，按placeholder标注“待确认”，不补值、不推算。全部为人工验证数据，非真实业务。",
+          "evidence_refs": [
+            "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+            "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+            "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+            "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+          ],
+          "rationale": "降低比例与用电量单位不同，独立成图；缺失值不补。",
+          "table": null,
+          "chart": {
+            "type": "column",
+            "categories": [
+              "2026-01-01",
+              "2026-02-01",
+              "2026-03-01"
+            ],
+            "series": [
+              {
+                "name": "降低比例",
+                "values": [
+                  8,
+                  9,
+                  10
+                ]
+              }
+            ],
+            "units": "%"
+          }
+        },
+        "after": {
+          "title": "月度降低比例（%）",
+          "goal": "以图表呈现三个月降低比例，单位%",
+          "kind": "chart",
+          "body": [
+            "仅降低比例（%）进入本图数值轴，用电量（千瓦时）不混入。",
+            "三个月合计行降低比例原文为空，未提供，故本图不含该类别。"
+          ],
+          "notes": "数值取自原文C2-C4：8%、9%、10%。三个月合计行降低比例列原文为空，按placeholder标注“待确认”，不补值、不推算。全部为人工验证数据，非真实业务。",
+          "evidence_refs": [
+            "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+            "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+            "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+            "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+          ],
+          "rationale": "降低比例与用电量单位不同，独立成图；缺失值不补。",
+          "table": null,
+          "chart": {
+            "type": "column",
+            "categories": [
+              "2026-01-01",
+              "2026-02-01",
+              "2026-03-01"
+            ],
+            "series": [
+              {
+                "name": "降低比例",
+                "values": [
+                  8,
+                  9,
+                  10
+                ]
+              }
+            ],
+            "units": "%"
+          }
+        },
+        "moved_items": [],
+        "evidence_refs": [
+          "evidence_9e67d8cd-b879-4c23-84cd-1a2dc75bf505",
+          "evidence_a891a23b-3f2a-4b21-ac95-330379c517dd",
+          "evidence_18c0189d-ee0a-4a36-a6f9-f06e7032230e",
+          "evidence_3c3a80a1-cbd9-4efc-992e-7c16fd9a0dd2"
+        ],
+        "assumption_refs": [],
+        "preservation": "all literal input title/body/notes/data retained; no character truncation",
+        "semantic_rewrite_status": "no paraphrase performed"
+      },
+      {
+        "page_key": "page_dc0d5a69d82ac6ab20f1",
+        "action": "retain",
+        "before": {
+          "title": "分类数据完整表（人工验证，非真实业务）",
+          "goal": "以原生表格完整呈现三楼分类数据",
+          "kind": "table",
+          "body": [
+            "表格完整保留分类、用电量（千瓦时）、性质三列及A楼、B楼、C楼三行。",
+            "分类数据表未提供日期或期间列，期间标注“待确认”。"
+          ],
+          "notes": "表格逐格对应原文：分类A2-A4、用电量B2-B4、性质C2-C4。分类数据表原文无日期或期间列，按placeholder标注“待确认”，不绑定时间范围。全部为人工验证数据，非真实业务。",
+          "evidence_refs": [
+            "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+            "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+            "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9",
+            "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+            "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+            "evidence_00f1bcbc-b0ca-47d8-8aac-03945b8e0748",
+            "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1",
+            "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+            "evidence_b2d6e301-afcc-430a-8e8e-3d7f8022619f"
+          ],
+          "rationale": "调用方要求完整展示三楼分类数据，表格逐格保留。",
+          "table": {
+            "columns": [
+              "分类",
+              "用电量（千瓦时）",
+              "性质"
+            ],
+            "rows": [
+              [
+                "A楼",
+                "90 千瓦时",
+                "人工验证数据，非真实业务"
+              ],
+              [
+                "B楼",
+                "72 千瓦时",
+                "人工验证数据，非真实业务"
+              ],
+              [
+                "C楼",
+                "54 千瓦时",
+                "人工验证数据，非真实业务"
+              ]
+            ],
+            "units": "用电量：千瓦时"
+          },
+          "chart": null
+        },
+        "after": {
+          "title": "分类数据完整表（人工验证，非真实业务）",
+          "goal": "以原生表格完整呈现三楼分类数据",
+          "kind": "table",
+          "body": [
+            "表格完整保留分类、用电量（千瓦时）、性质三列及A楼、B楼、C楼三行。",
+            "分类数据表未提供日期或期间列，期间标注“待确认”。",
+            "用电量：千瓦时"
+          ],
+          "notes": "表格逐格对应原文：分类A2-A4、用电量B2-B4、性质C2-C4。分类数据表原文无日期或期间列，按placeholder标注“待确认”，不绑定时间范围。全部为人工验证数据，非真实业务。",
+          "evidence_refs": [
+            "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+            "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+            "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9",
+            "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+            "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+            "evidence_00f1bcbc-b0ca-47d8-8aac-03945b8e0748",
+            "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1",
+            "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+            "evidence_b2d6e301-afcc-430a-8e8e-3d7f8022619f"
+          ],
+          "rationale": "调用方要求完整展示三楼分类数据，表格逐格保留。",
+          "table": {
+            "columns": [
+              "分类",
+              "用电量（千瓦时）",
+              "性质"
+            ],
+            "rows": [
+              [
+                "A楼",
+                "90 千瓦时",
+                "人工验证数据，非真实业务"
+              ],
+              [
+                "B楼",
+                "72 千瓦时",
+                "人工验证数据，非真实业务"
+              ],
+              [
+                "C楼",
+                "54 千瓦时",
+                "人工验证数据，非真实业务"
+              ]
+            ],
+            "units": "用电量：千瓦时"
+          },
+          "chart": null
+        },
+        "moved_items": [],
+        "evidence_refs": [
+          "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+          "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+          "evidence_38189e5a-d978-43e4-b77e-f1da0ee40fe9",
+          "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+          "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+          "evidence_00f1bcbc-b0ca-47d8-8aac-03945b8e0748",
+          "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1",
+          "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+          "evidence_b2d6e301-afcc-430a-8e8e-3d7f8022619f"
+        ],
+        "assumption_refs": [],
+        "preservation": "all literal input title/body/notes/data retained; no character truncation",
+        "semantic_rewrite_status": "no paraphrase performed"
+      },
+      {
+        "page_key": "page_03d2895b6a83f026aa0a",
+        "action": "retain",
+        "before": {
+          "title": "分类用电量（千瓦时）",
+          "goal": "以图表呈现A楼、B楼、C楼用电量，单位千瓦时",
+          "kind": "chart",
+          "body": [
+            "仅分类用电量（千瓦时）进入本图数值轴。",
+            "分类数据表未提供日期或期间，本图不标注时间范围。"
+          ],
+          "notes": "数值取自原文B2-B4：90、72、54千瓦时。分类数据表原文无日期或期间列，不绑定时间范围。全部为人工验证数据，非真实业务。",
+          "evidence_refs": [
+            "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+            "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+            "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+            "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+            "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+            "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1"
+          ],
+          "rationale": "分类用电量单位与月度用电量一致，但类别不同，独立成图清晰呈现。",
+          "table": null,
+          "chart": {
+            "type": "column",
+            "categories": [
+              "A楼",
+              "B楼",
+              "C楼"
+            ],
+            "series": [
+              {
+                "name": "用电量",
+                "values": [
+                  90,
+                  72,
+                  54
+                ]
+              }
+            ],
+            "units": "千瓦时"
+          }
+        },
+        "after": {
+          "title": "分类用电量（千瓦时）",
+          "goal": "以图表呈现A楼、B楼、C楼用电量，单位千瓦时",
+          "kind": "chart",
+          "body": [
+            "仅分类用电量（千瓦时）进入本图数值轴。",
+            "分类数据表未提供日期或期间，本图不标注时间范围。"
+          ],
+          "notes": "数值取自原文B2-B4：90、72、54千瓦时。分类数据表原文无日期或期间列，不绑定时间范围。全部为人工验证数据，非真实业务。",
+          "evidence_refs": [
+            "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+            "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+            "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+            "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+            "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+            "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1"
+          ],
+          "rationale": "分类用电量单位与月度用电量一致，但类别不同，独立成图清晰呈现。",
+          "table": null,
+          "chart": {
+            "type": "column",
+            "categories": [
+              "A楼",
+              "B楼",
+              "C楼"
+            ],
+            "series": [
+              {
+                "name": "用电量",
+                "values": [
+                  90,
+                  72,
+                  54
+                ]
+              }
+            ],
+            "units": "千瓦时"
+          }
+        },
+        "moved_items": [],
+        "evidence_refs": [
+          "evidence_53ff6ba3-6f07-4acb-8cd8-6500f37be18b",
+          "evidence_65b8da63-d419-4b8e-b000-3f3bcbaec911",
+          "evidence_f4c4a46e-4358-414e-a826-1aa4484f9b08",
+          "evidence_29169918-a9b2-4a0b-a072-ddee6ce1c75a",
+          "evidence_50fdf42c-6649-47af-a4ea-b7eef6c67e39",
+          "evidence_16f78624-231d-4c14-b6a6-e7c8604ee7f1"
+        ],
+        "assumption_refs": [],
+        "preservation": "all literal input title/body/notes/data retained; no character truncation",
+        "semantic_rewrite_status": "no paraphrase performed"
+      }
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

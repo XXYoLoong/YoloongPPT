@@ -1,0 +1,244 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "description_only_input",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_api_generation",
+      "passed": true,
+      "detail": {
+        "ok": true,
+        "trace_id": "trace_d1c23cf6-5e8f-4f4e-b544-3fad22aefbc2",
+        "task_id": "task_2b54d069-0125-4a6f-bd6a-57a712fef4f2",
+        "run_id": "4b587f0b-9ef8-4084-b772-9557181e2b82",
+        "operation": "generate",
+        "state": "draft_generated",
+        "artifact_root": "/runtime/runs/4b587f0b-9ef8-4084-b772-9557181e2b82",
+        "pptx": "/runtime/runs/4b587f0b-9ef8-4084-b772-9557181e2b82/deck.pptx",
+        "slide_count": 6,
+        "model": {
+          "provider": "deepseek",
+          "requested_model": "deepseek-flash",
+          "returned_model": "deepseek-flash",
+          "response_id": "bc9ffd55-3c62-4f28-a835-97d2807984fb",
+          "usage": {
+            "prompt_tokens": 11406,
+            "completion_tokens": 1724,
+            "total_tokens": 13130,
+            "prompt_tokens_details": {
+              "cached_tokens": 4224
+            },
+            "prompt_cache_hit_tokens": 4224,
+            "prompt_cache_miss_tokens": 7182
+          },
+          "available_models": [
+            "deepseek-flash",
+            "deepseek-v4-pro"
+          ],
+          "parameters": {
+            "model": "deepseek-flash",
+            "response_format": {
+              "type": "json_object"
+            },
+            "thinking": {
+              "type": "disabled"
+            },
+            "temperature": 0.2,
+            "max_tokens": 12000,
+            "stream": false
+          },
+          "request_sha256": "bfa198aabc2a9319353c75dc629cfb3686e1afb29bb66e13a8ea6813870f4339",
+          "response_content_sha256": "fb4ce38c3dd4d77b072fa48b06752ea0930f2a41218ee923536c946717ef0f14",
+          "duration_seconds": 7.485,
+          "real_model_call": true
+        },
+        "qa": {
+          "status": "partial",
+          "p0_issue_count": 0,
+          "acceptance": {
+            "AC-001": "not_passed",
+            "GOV-008": "not_passed"
+          }
+        },
+        "warnings": [
+          {
+            "code": "LANGUAGE_LITERAL_NOT_SELECTED",
+            "field": "language",
+            "location": "raw_text:2:4",
+            "reason": "Language mention is quoted content or lacks an explicit presentation-language instruction."
+          }
+        ],
+        "completion": {
+          "state": "warning",
+          "final_allowed": false,
+          "p0_issue_count": 0,
+          "warning_issue_count": 3,
+          "missing_coverage": [
+            "structure",
+            "editability",
+            "geometry",
+            "fact_numeric",
+            "visual_semantic",
+            "fact_semantic",
+            "accessibility",
+            "global_consistency",
+            "powerpoint_compatibility"
+          ],
+          "missing_nodes": [],
+          "missing_acceptance": [
+            "AC-001",
+            "GOV-008"
+          ],
+          "revision_plan_status": "needs_input",
+          "reasons": [
+            "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+          ],
+          "retry": {
+            "count": 0,
+            "maximum": 2,
+            "allowed": false,
+            "next_action": "complete_missing_acceptance"
+          },
+          "error": null,
+          "system_acceptance": "not_passed"
+        },
+        "revision_plan_id": "revision_plan_6a3c67d2-0574-4e0d-ba6a-90f26feffc47",
+        "boundary": "All 40 bounded decision stages connected when reached; complete decision, QA, backend and system acceptance unfinished."
+      }
+    },
+    {
+      "name": "readable_pages_with_explicit_soft_budget",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_table_and_chart",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "fact_content_review_calls_real",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "render_and_original_trace",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "generation_no_p0",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "name": "real_api_local_revision",
+      "passed": true,
+      "detail": {
+        "ok": true,
+        "trace_id": "trace_76f13b3b-c492-4287-a24d-aa379d6df210",
+        "operation": "revise",
+        "state": "draft_revised",
+        "run_id": "717f8256-e4c6-4b99-9cb6-3f4bc2278732",
+        "parent_run_id": "4b587f0b-9ef8-4084-b772-9557181e2b82",
+        "artifact_root": "/runtime/runs/717f8256-e4c6-4b99-9cb6-3f4bc2278732",
+        "pptx": "/runtime/runs/717f8256-e4c6-4b99-9cb6-3f4bc2278732/deck.pptx",
+        "scope": {
+          "slide_ids": [
+            "slide_04e115ef-ad83-444c-b385-7256a2734f3f"
+          ],
+          "object_ids": [
+            "object_afaa9ad4-b1a5-4e71-998e-5dae59888e8b"
+          ]
+        },
+        "changed_parts": [
+          "ppt/slides/slide1.xml"
+        ],
+        "qa": {
+          "p0_issue_count": 0,
+          "status": "partial"
+        },
+        "completion": {
+          "state": "warning",
+          "final_allowed": false,
+          "p0_issue_count": 0,
+          "warning_issue_count": 2,
+          "missing_coverage": [
+            "structure",
+            "editability",
+            "geometry",
+            "fact_numeric",
+            "visual_semantic",
+            "fact_semantic",
+            "accessibility",
+            "global_consistency",
+            "powerpoint_compatibility"
+          ],
+          "missing_nodes": [],
+          "missing_acceptance": [
+            "AC-001",
+            "GOV-008"
+          ],
+          "revision_plan_status": "needs_input",
+          "reasons": [
+            "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+          ],
+          "retry": {
+            "count": 0,
+            "maximum": 2,
+            "allowed": false,
+            "next_action": "complete_missing_acceptance"
+          },
+          "error": null,
+          "system_acceptance": "not_passed"
+        },
+        "system_acceptance": "not_passed"
+      }
+    },
+    {
+      "name": "exact_selected_object",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unmodified_pages_specs_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "selected_fact_snapshot_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "independent_new_review",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "revision_no_p0",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "name": "full_acceptance_gate_preserved",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "description": "制作中文PPT介绍一个虚构校园节能试点，偏好6页，允许在可读容量不足时按默认软预算分页，全部内容注明软件验证、非真实业务。介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源。虚构数据：A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+  "generated_run_id": "4b587f0b-9ef8-4084-b772-9557181e2b82",
+  "revised_run_id": "717f8256-e4c6-4b99-9cb6-3f4bc2278732",
+  "generation_quality": {
+    "p0": 0,
+    "warnings": 3
+  },
+  "revision_quality": {
+    "p0": 0,
+    "warnings": 2
+  },
+  "scope": "One bounded real description-to-PPTX/render/QA/revision flow. Full original baseline remains incomplete."
+}

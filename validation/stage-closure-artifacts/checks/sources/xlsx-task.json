@@ -1,0 +1,69 @@
+{
+  "task_id": "task_d7c86ead-ea5a-4e2c-9886-1c5ff357d87b",
+  "route": {
+    "route_status": "routed",
+    "mode": "create_from_materials",
+    "routing_reason": "调用者明确要求材料新建",
+    "protection_policy_id": "preserve_material_facts_and_sources",
+    "decision_id": "DEC-001",
+    "trace": {
+      "candidate_modes": [
+        "create_from_materials"
+      ],
+      "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+    }
+  },
+  "sources": [
+    {
+      "source_id": "source_36af956a-7867-4c0f-8dd7-cfdf27dac595",
+      "kind": "xlsx",
+      "locator": "/workspace/validation/source-semantic-artifacts/integration-input/artificial-data.xlsx",
+      "metadata": {
+        "source_role": "fact"
+      }
+    }
+  ],
+  "constraints": {
+    "hard": [],
+    "soft": [],
+    "defaults": [],
+    "conflicts": []
+  },
+  "style": null,
+  "template_ref": null,
+  "output": {
+    "formats": [
+      "pptx",
+      "pdf",
+      "png"
+    ]
+  },
+  "providers": {
+    "text": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "parameters": {
+        "temperature": 0.2,
+        "max_tokens": 12000,
+        "timeout_seconds": 180
+      }
+    }
+  },
+  "runtime_preferences": {
+    "page_count": 6
+  },
+  "raw_request": {
+    "request": {
+      "raw_text": "根据两sheet人工验证数据新建中文演示，完整展示三个月日期、用电量、降低比例、三个月合计和三楼分类数据，全部注明人工验证非真实业务；选择原生表格和图表，不同单位不得混在同一数值轴。读取已保存公式缓存并标明未证明新鲜；不重新计算，不增加新统计或因果。",
+      "attachments": [],
+      "requested_mode": "create_from_materials",
+      "requested_outputs": [
+        "pptx",
+        "pdf",
+        "png"
+      ]
+    },
+    "attachment_roles": []
+  }
+}

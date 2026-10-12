@@ -1,0 +1,152 @@
+{
+  "coverage": [
+    {
+      "evidence_id": "evidence_5323c9a7-d715-4a17-898e-bee013a4db36",
+      "classification": "facts",
+      "reason": "标题文本，可作为文档标题事实。"
+    },
+    {
+      "evidence_id": "evidence_b49d4bb9-b83e-4c06-afb4-160098b0dc42",
+      "classification": "facts",
+      "reason": "正文段落，包含试点2026年能耗降低8%的事实及超链接引用。"
+    },
+    {
+      "evidence_id": "evidence_68fe509e-2028-46c5-9fbb-fb51de7f1647",
+      "classification": "facts",
+      "reason": "表格单元格文本“指标”，为表头候选，可作为表格结构事实。"
+    },
+    {
+      "evidence_id": "evidence_f9b5053b-b293-42a8-acbd-6f5e4d663b65",
+      "classification": "facts",
+      "reason": "表格单元格文本“8%”，为表格数据事实。"
+    }
+  ],
+  "claims": [
+    {
+      "fact_key": "document_title",
+      "fact_kind": "quote",
+      "value": {
+        "raw_text": "学校节能试点",
+        "normalized_text": "学校节能试点",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_5323c9a7-d715-4a17-898e-bee013a4db36",
+          "quote": "学校节能试点"
+        }
+      ],
+      "reason": "文档标题文本。"
+    },
+    {
+      "fact_key": "pilot_energy_reduction_2026",
+      "fact_kind": "percentage",
+      "value": {
+        "raw_text": "试点2026年能耗降低8%。",
+        "normalized_text": "试点2026年能耗降低8%。",
+        "numeric_value": "8",
+        "date_value": "2026",
+        "date_precision": "year",
+        "unit": "%",
+        "currency": null,
+        "percentage_base": null,
+        "period": "2026年",
+        "qualifier": "试点2026年能耗降低8%。",
+        "citation_uri": "https://example.invalid/source"
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_b49d4bb9-b83e-4c06-afb4-160098b0dc42",
+          "quote": "试点2026年能耗降低8%。"
+        }
+      ],
+      "reason": "正文明确试点2026年能耗降低8%，含年份、百分比和单位。"
+    },
+    {
+      "fact_key": "table_header_metric",
+      "fact_kind": "quote",
+      "value": {
+        "raw_text": "指标",
+        "normalized_text": "指标",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_68fe509e-2028-46c5-9fbb-fb51de7f1647",
+          "quote": "指标"
+        }
+      ],
+      "reason": "表格第一行第一列文本，作为表头候选。"
+    },
+    {
+      "fact_key": "table_value_8_percent",
+      "fact_kind": "percentage",
+      "value": {
+        "raw_text": "8%",
+        "normalized_text": "8%",
+        "numeric_value": "8",
+        "date_value": null,
+        "date_precision": null,
+        "unit": "%",
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_f9b5053b-b293-42a8-acbd-6f5e4d663b65",
+          "quote": "8%"
+        }
+      ],
+      "reason": "表格第一行第二列文本，为百分比数值。"
+    },
+    {
+      "fact_key": "hyperlink_source",
+      "fact_kind": "citation",
+      "value": {
+        "raw_text": "https://example.invalid/source",
+        "normalized_text": "https://example.invalid/source",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": "https://example.invalid/source"
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_b49d4bb9-b83e-4c06-afb4-160098b0dc42",
+          "quote": "试点2026年能耗降低8%。"
+        }
+      ],
+      "reason": "正文段落中的超链接目标，作为引用来源。"
+    }
+  ],
+  "missing": []
+}

@@ -1,0 +1,8 @@
+IN-003  DOCX：提取 heading、paragraph、table、image、caption、hyperlink、页/段落定位；不得只做纯文本扁平化。
+IN-004  PDF 文本型：按页提取文本块、表格、图片、标题候选、坐标，并保留 page number/source anchor。
+IN-008  XLSX/CSV：读取 sheet/table/range、数据类型、表头、单位、日期、公式显示值、图表候选；保留 cell/range 来源。
+IN-016  来源定位：任何进入 PPT 的事实、数字、引用、图表数据都应尽量保留 source anchor（页/段/表/单元格/URL）。
+SYS-003  Source Loader：按照 IN-001~16 加载来源并输出 SourceBundle。
+AC-002 | DOCX 报告 | 含 heading/table/image/citation 的 DOCX | 结构和事实来源保留；图表/表格决策合理。
+AC-003 | PDF 研究报告 | 含多页文本/表格/图片 | 来源页码可追溯；摘要不改变数字。
+AC-005 | XLSX 数据报告 | 多 sheet、时间序列、分类数据 | 选择 chart/table 并保持数字/单位一致。

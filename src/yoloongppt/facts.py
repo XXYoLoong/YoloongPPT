@@ -103,7 +103,8 @@ def validate_interpretation(evidence,interpretation,schemas):
 
 def interpret(task,sources,schemas,artifacts):
     evidence=sources['evidence']
-    payload=[{'evidence_id':e['evidence_id'],'source_id':e['source_id'],'text':e['raw_text']} for e in evidence]
+    payload=[{'evidence_id':e['evidence_id'],'source_id':e['source_id'],'text':e['raw_text'],
+              'source_context':e.get('metadata',{}).get('source_context')} for e in evidence]
     # Resource identity is separate from factual content. DEC-003 excludes
     # decorative images from evidence, but must not hide their existence from
     # the interpreter when a caller asks to place those registered resources.
@@ -121,6 +122,10 @@ def interpret(task,sources,schemas,artifacts):
             '逐项coverage覆盖每个evidence_id。识别数字、实体、日期、单位、指标、引用与关键事实；'
             '同一主体/指标/期间/限定范围必须使用相同fact_key，禁止把冲突的两个值命名成不同事实。'
             '基线与目标、实际与计划、不同年份/主体不可误并。每个claim只属于一个source_id，quotes逐字摘录。'
+            'source_context是来源格式/原生定位及结构候选投影；table/header/unit/caption/heading候选不是语义真值。'
+            '只在原text和同来源逐字quotes能证明关系时才绑定数字、单位、期间、主体；无法唯一绑定标ambiguous。'
+            'XLSX显示值由登记格式产生，stored_value只是底层存储，不把它再当另一个业务数值；公式缓存不保证新鲜。'
+            'unsupported/unknown显示或图片/OCR内容不可从context补成事实；不从坐标或格式推断缺失单位/因果。'
             'value.raw_text逐字保留；所有非null单位/期间/限定/币种/引用必须在quotes中逐字出现，可附同来源上下文quote。'
             '尤其qualifier必须是同来源中的一个连续原文片段；不能把“基线”和“明确虚构的记录值”用分号拼成原文不存在的字符串。'
             '要表达多个限定，复制同时涵盖限定的完整原句到qualifier和quotes；raw_text可保留含基线/本期的原数据短句。'

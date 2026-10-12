@@ -1,0 +1,85 @@
+{
+  "trace_id": "trace_d1c23cf6-5e8f-4f4e-b544-3fad22aefbc2",
+  "node_id": "DEC-010",
+  "input": {
+    "evidence_refs": [
+      "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-010",
+      "candidate_id": "candidate_36ba4dbd-cbd0-4fea-992d-c1406a11aae5",
+      "value": {
+        "content_graph": {
+          "nodes": [
+            {
+              "node_id": "content_61d6b44985a48abb3b9d",
+              "text": "制作中文PPT介绍一个虚构校园节能试点\n偏好6页；页\n偏好6页\n允许在可读容量不足时按默认软预算分页\n全部内容注明软件验证、非真实业务\n介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源。\nA楼基线100千瓦时；千瓦时\nA楼基线100千瓦时\n本期90千瓦时；千瓦时；A楼基线100千瓦时、本期90千瓦时\nA楼基线100千瓦时、本期90千瓦时\nB楼基线80千瓦时；千瓦时\nB楼基线80千瓦时\n本期72千瓦时；千瓦时；B楼基线80千瓦时、本期72千瓦时\nB楼基线80千瓦时、本期72千瓦时\nC楼基线60千瓦时；千瓦时\nC楼基线60千瓦时\n本期54千瓦时；千瓦时；C楼基线60千瓦时、本期54千瓦时\nC楼基线60千瓦时、本期54千瓦时\n不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+              "evidence_refs": [
+                "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+              ],
+              "assumption_refs": []
+            }
+          ],
+          "edges": [],
+          "evidence_refs": [
+            "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+          ]
+        },
+        "relation_candidates": [],
+        "semantic_edges_status": "not_inferred"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_36ba4dbd-cbd0-4fea-992d-c1406a11aae5"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "content_graph": {
+      "nodes": [
+        {
+          "node_id": "content_61d6b44985a48abb3b9d",
+          "text": "制作中文PPT介绍一个虚构校园节能试点\n偏好6页；页\n偏好6页\n允许在可读容量不足时按默认软预算分页\n全部内容注明软件验证、非真实业务\n介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源。\nA楼基线100千瓦时；千瓦时\nA楼基线100千瓦时\n本期90千瓦时；千瓦时；A楼基线100千瓦时、本期90千瓦时\nA楼基线100千瓦时、本期90千瓦时\nB楼基线80千瓦时；千瓦时\nB楼基线80千瓦时\n本期72千瓦时；千瓦时；B楼基线80千瓦时、本期72千瓦时\nB楼基线80千瓦时、本期72千瓦时\nC楼基线60千瓦时；千瓦时\nC楼基线60千瓦时\n本期54千瓦时；千瓦时；C楼基线60千瓦时、本期54千瓦时\nC楼基线60千瓦时、本期54千瓦时\n不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+          "evidence_refs": [
+            "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+          ],
+          "assumption_refs": []
+        }
+      ],
+      "edges": [],
+      "evidence_refs": [
+        "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+      ]
+    },
+    "relation_candidates": [],
+    "semantic_edges_status": "not_inferred"
+  },
+  "duration": 0.0,
+  "error": null
+}

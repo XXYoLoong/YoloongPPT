@@ -1,0 +1,51 @@
+{
+  "requirement_ids": [
+    "REV-003",
+    "REV-004",
+    "REV-006",
+    "REV-009",
+    "SYS-016"
+  ],
+  "mechanism": "deterministic_explicit_edits",
+  "real_model_call": false,
+  "instruction": "仅修订首页标题为“虚构测试：校园节能试点”，首页正文只保留主题及软件验证、非真实业务标记，清除制作PPT与偏好页数等操作指令。其余页面、数据和对象保持。",
+  "mode": "revision",
+  "authorized_scope": {
+    "object_ids": [
+      "object_afaa9ad4-b1a5-4e71-998e-5dae59888e8b",
+      "object_a1513785-9914-489a-aab5-8d360f7435a6"
+    ]
+  },
+  "resolved_scope": {
+    "slide_ids": [
+      "slide_04e115ef-ad83-444c-b385-7256a2734f3f"
+    ],
+    "object_ids": [
+      "object_afaa9ad4-b1a5-4e71-998e-5dae59888e8b",
+      "object_a1513785-9914-489a-aab5-8d360f7435a6"
+    ]
+  },
+  "scope_level": "object",
+  "selections": [
+    {
+      "object_id": "object_afaa9ad4-b1a5-4e71-998e-5dae59888e8b",
+      "selector": null,
+      "basis": "caller_explicit_edit"
+    },
+    {
+      "object_id": "object_a1513785-9914-489a-aab5-8d360f7435a6",
+      "selector": null,
+      "basis": "caller_explicit_edit"
+    }
+  ],
+  "lock_union": [],
+  "parent_spec_sha256": "ca04e534910a6b89239495a69f83f554243d21af42b6df33752ebdb924eec2ca",
+  "parent_object_map_sha256": "efdbc79da00d70677dccf03bc7b58ff4e98de39ce6cf6acc66eec7678e5ca233",
+  "native_source_sha256": "2ddd6b975e161bc858a0aeb50d29d9e0fbb6d4f76d17f8970e945d61aca97ee2",
+  "schema_sha256": "a9dbf1d701d344bda0559fc724108de930bfeb4e3503d265b16358521b80f891",
+  "edits_sha256": "85cae9e5b8ecb76e1fdda19fa7cf067e16156e75da450fed42e6161d4f09dfed",
+  "limitations": [
+    "Semantic model selection needs independent post-edit QA; candidate declarations are not semantic truth.",
+    "Only registered logical objects are editable; unmodeled native parts remain outside the edit scope."
+  ]
+}

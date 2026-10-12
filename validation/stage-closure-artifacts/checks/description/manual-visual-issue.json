@@ -1,0 +1,32 @@
+{
+  "parent_run_id": "4b587f0b-9ef8-4084-b772-9557181e2b82",
+  "revised_run_id": "7a6453ed-0e3e-4c1c-91b7-86f87c4c7246",
+  "slide_id": "slide_04e115ef-ad83-444c-b385-7256a2734f3f",
+  "object_id": "object_a1513785-9914-489a-aab5-8d360f7435a6",
+  "type": "task_instruction_leak",
+  "severity": "P1",
+  "measurement": {
+    "instruction_paragraph_count": 2,
+    "observed_text": [
+      "制作中文PPT介绍一个虚构校园节能试点。",
+      "偏好6页；允许在可读容量不足时按默认软预算分页。"
+    ]
+  },
+  "threshold": {
+    "maximum": 0
+  },
+  "action": {
+    "kind": "local_text_revision",
+    "preserve_other_objects": true
+  },
+  "detected_by": "agent_visual_inspection_of_actual_render",
+  "automatic_detection": "not_implemented_for_this_case",
+  "evidence": {
+    "before_png": "render/slide-1.png",
+    "before_sha256": "5e9ddebb825e36f9e51300bd6125079f12bfbe169f6c85b622c94bede9bc565d",
+    "after_png": "render/slide-1.png",
+    "after_sha256": "7f27454cd393c099cef55abf3a54d0c1d29489186b80ccd11bd3406a4ec0e879"
+  },
+  "status": "corrected_by_explicit_local_revision",
+  "original_qa_reports_preserved": true
+}

@@ -1,0 +1,195 @@
+{
+  "case": "xlsx",
+  "run_id": "47db956b-6c70-466d-895b-aea9ca2a4ee0",
+  "source_sha256": "bcbc21bc58bd04d3cba5724881782f60a67b38f63e247abf85ac2b8d42bda837",
+  "checks": [
+    {
+      "name": "api_success",
+      "passed": true,
+      "detail": {
+        "ok": true,
+        "trace_id": "trace_35ac0b19-c940-4dd9-a769-0be6e79ef03c",
+        "task_id": "task_d7c86ead-ea5a-4e2c-9886-1c5ff357d87b",
+        "run_id": "47db956b-6c70-466d-895b-aea9ca2a4ee0",
+        "operation": "generate",
+        "state": "draft_generated",
+        "artifact_root": "/runtime/runs/47db956b-6c70-466d-895b-aea9ca2a4ee0",
+        "pptx": "/runtime/runs/47db956b-6c70-466d-895b-aea9ca2a4ee0/deck.pptx",
+        "slide_count": 6,
+        "model": {
+          "provider": "deepseek",
+          "requested_model": "deepseek-flash",
+          "returned_model": "deepseek-flash",
+          "response_id": "eabc03e6-c636-41c7-b6a7-16ecca1ee116",
+          "usage": {
+            "prompt_tokens": 23661,
+            "completion_tokens": 2929,
+            "total_tokens": 26590,
+            "prompt_tokens_details": {
+              "cached_tokens": 4224
+            },
+            "prompt_cache_hit_tokens": 4224,
+            "prompt_cache_miss_tokens": 19437
+          },
+          "available_models": [
+            "deepseek-flash",
+            "deepseek-v4-pro"
+          ],
+          "parameters": {
+            "model": "deepseek-flash",
+            "response_format": {
+              "type": "json_object"
+            },
+            "thinking": {
+              "type": "disabled"
+            },
+            "temperature": 0.2,
+            "max_tokens": 12000,
+            "stream": false
+          },
+          "request_sha256": "06144cfd2b3a8f93d3bd48eff9842d86a5e1a1b0c88d1e1c65ffd0dea7317fd4",
+          "response_content_sha256": "1de091c94b65744a83c4ab1c58d20afc25f81b7eaa612f118ebe2e155d3c6d37",
+          "duration_seconds": 12.069,
+          "real_model_call": true
+        },
+        "qa": {
+          "status": "partial",
+          "p0_issue_count": 0,
+          "acceptance": {
+            "AC-001": "not_passed",
+            "GOV-008": "not_passed"
+          }
+        },
+        "warnings": [],
+        "completion": {
+          "state": "warning",
+          "final_allowed": false,
+          "p0_issue_count": 0,
+          "warning_issue_count": 4,
+          "missing_coverage": [
+            "structure",
+            "editability",
+            "geometry",
+            "fact_numeric",
+            "visual_semantic",
+            "fact_semantic",
+            "accessibility",
+            "global_consistency",
+            "powerpoint_compatibility"
+          ],
+          "missing_nodes": [],
+          "missing_acceptance": [
+            "AC-001",
+            "GOV-008"
+          ],
+          "revision_plan_status": "needs_input",
+          "reasons": [
+            "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+          ],
+          "retry": {
+            "count": 0,
+            "maximum": 2,
+            "allowed": false,
+            "next_action": "complete_missing_acceptance"
+          },
+          "error": null,
+          "system_acceptance": "not_passed"
+        },
+        "revision_plan_id": "revision_plan_b0ef3333-851d-430c-ae02-95da09468557",
+        "boundary": "All 40 bounded decision stages connected when reached; complete decision, QA, backend and system acceptance unfinished."
+      }
+    },
+    {
+      "name": "input_original_hash_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_format_evidence_consumed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_fact_model_consumes_context",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_content_and_review_models",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "editable_pptx_and_actual_render",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "selected_fact_boundary_saved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "system_acceptance_not_promoted",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_p0_in_executed_checks",
+      "passed": true,
+      "detail": 0
+    },
+    {
+      "name": "display_dates_percent_and_literal_units",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "cell_and_sheet_anchors_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "table_or_chart_native_decision",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "p0": 0,
+  "warnings": 4,
+  "completion": {
+    "state": "warning",
+    "final_allowed": false,
+    "p0_issue_count": 0,
+    "warning_issue_count": 4,
+    "missing_coverage": [
+      "structure",
+      "editability",
+      "geometry",
+      "fact_numeric",
+      "visual_semantic",
+      "fact_semantic",
+      "accessibility",
+      "global_consistency",
+      "powerpoint_compatibility"
+    ],
+    "missing_nodes": [],
+    "missing_acceptance": [
+      "AC-001",
+      "GOV-008"
+    ],
+    "revision_plan_status": "needs_input",
+    "reasons": [
+      "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+    ],
+    "retry": {
+      "count": 0,
+      "maximum": 2,
+      "allowed": false,
+      "next_action": "complete_missing_acceptance"
+    },
+    "error": null,
+    "system_acceptance": "not_passed"
+  },
+  "scope": "Actual product input/model/render/QA; bounded parser semantics and full original acceptance still separately assessed."
+}

@@ -1,0 +1,100 @@
+{
+  "plan_id": "revision_plan_ebc69e3b-325c-45fe-b367-a07bd9e7354b",
+  "trace_id": "trace_04d35816-5f65-4cf2-8a5f-473366a240cb",
+  "parent_run_id": "7a6453ed-0e3e-4c1c-91b7-86f87c4c7246",
+  "status": "needs_input",
+  "scope": {
+    "slide_ids": [],
+    "object_ids": []
+  },
+  "locked_object_ids": [],
+  "locked_slide_ids": [],
+  "actions": [],
+  "blocked": [
+    {
+      "issue_id": "issue_e53b80ba-f380-4b3a-8afd-16e4ab3f845c",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_288f3aa8-5643-4770-a7e0-67e0f28abe6e"
+    },
+    {
+      "issue_id": "issue_d465d4cb-911d-4485-887d-b30d1a47b57e",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_da0a7e7d-203c-4752-9220-61dc176193ca"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate_288f3aa8-5643-4770-a7e0-67e0f28abe6e",
+      "issue_id": "issue_e53b80ba-f380-4b3a-8afd-16e4ab3f845c",
+      "object_id": null,
+      "slide_id": "slide_b1af26ba-1f76-4a6b-9a7c-2c02a9b7b764",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 2,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "表格行高较大、单元格留白偏多，A/B/C三行数据在视觉上被拉得很开，可读性尚可但排版略显松散。",
+          "evidence_refs": [
+            "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+          ],
+          "issue_id": "issue_e53b80ba-f380-4b3a-8afd-16e4ab3f845c",
+          "slide_id": "slide_b1af26ba-1f76-4a6b-9a7c-2c02a9b7b764",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_da0a7e7d-203c-4752-9220-61dc176193ca",
+      "issue_id": "issue_d465d4cb-911d-4485-887d-b30d1a47b57e",
+      "object_id": null,
+      "slide_id": "slide_4f6f5917-ba5e-44f0-b2f7-2894676b40fc",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 3,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "柱状图纵轴刻度到120，而数据最大值为100，顶部留白略多；图表本身清晰可读，无裁切或重叠。",
+          "evidence_refs": [
+            "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+          ],
+          "issue_id": "issue_d465d4cb-911d-4485-887d-b30d1a47b57e",
+          "slide_id": "slide_4f6f5917-ba5e-44f0-b2f7-2894676b40fc",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    }
+  ],
+  "all_issue_ids": [
+    "issue_e53b80ba-f380-4b3a-8afd-16e4ab3f845c",
+    "issue_d465d4cb-911d-4485-887d-b30d1a47b57e"
+  ],
+  "rerun_nodes": [],
+  "preserve_unselected_objects": true,
+  "full_acceptance": "not_passed"
+}

@@ -1,0 +1,184 @@
+{
+  "ok": true,
+  "trace_id": "trace_d1c23cf6-5e8f-4f4e-b544-3fad22aefbc2",
+  "operation": "inspect_sources",
+  "task_id": "task_2b54d069-0125-4a6f-bd6a-57a712fef4f2",
+  "source_bundle": {
+    "record_type": "source_bundle_result",
+    "status": "partial",
+    "bundle": {
+      "model_type": "SourceBundle",
+      "sources": [
+        {
+          "source_id": "source_81577de2-83ef-48e5-9ef5-eedf17e6926c",
+          "input_order": 0,
+          "kind": "text",
+          "locator": null,
+          "raw_text": "制作中文PPT介绍一个虚构校园节能试点，偏好6页，允许在可读容量不足时按默认软预算分页，全部内容注明软件验证、非真实业务。介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源。虚构数据：A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+          "locator_redaction": "not_required",
+          "display_name": null,
+          "raw_asset_refs": [],
+          "content_sha256": "fe0364f8fed8761ed0b096babf06eb119011e13334d79f3249f771403bf3b51d",
+          "priority_rank": null,
+          "claims": []
+        }
+      ],
+      "source_priority_policy": {
+        "status": "unresolved",
+        "decision_id": "DEC-004",
+        "task_id": "TASK-DEC-004",
+        "precedence_source_ids": [],
+        "unresolved_reason": "来源优先级未由DEC-004选择，所有来源保留。"
+      },
+      "dedup_policy": {
+        "mode": "hash_candidates_only",
+        "keep_all_sources": true
+      },
+      "duplicate_groups": [],
+      "conflicts": []
+    },
+    "coverage": [
+      {
+        "feature": "source_identity",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "source_anchors",
+        "status": "complete",
+        "reason": null
+      },
+      {
+        "feature": "priority",
+        "status": "partial",
+        "reason": "DEC-004尚未执行。"
+      },
+      {
+        "feature": "conflict_detection",
+        "status": "unsupported",
+        "reason": "没有抽取事实或运行语义冲突检测，不能认定无冲突。"
+      },
+      {
+        "feature": "deduplication",
+        "status": "partial",
+        "reason": "仅SHA候选，不删除来源。"
+      }
+    ],
+    "errors": []
+  },
+  "documents": [
+    {
+      "source_id": "source_81577de2-83ef-48e5-9ef5-eedf17e6926c",
+      "document": {
+        "raw_text": "制作中文PPT介绍一个虚构校园节能试点，偏好6页，允许在可读容量不足时按默认软预算分页，全部内容注明软件验证、非真实业务。介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源。虚构数据：A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+        "raw_asset_refs": [],
+        "status": "parsed",
+        "normalized_instruction": {
+          "topic": null,
+          "requirements": [],
+          "modification_instructions": [],
+          "context": [
+            {
+              "text": "制作中文PPT介绍一个虚构校园节能试点，偏好6页，允许在可读容量不足时按默认软预算分页，全部内容注明软件验证、非真实业务。介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源。虚构数据：A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+              "source_locations": [
+                {
+                  "source_ref": "raw_text",
+                  "start_offset": 0,
+                  "end_offset": 189,
+                  "offset_unit": "unicode_code_point"
+                }
+              ]
+            }
+          ]
+        },
+        "errors": []
+      },
+      "parse_note": "Raw prompt/text kept as context; topic, requirements and modification intent are not inferred here."
+    }
+  ],
+  "evidence": [
+    {
+      "source_id": "source_81577de2-83ef-48e5-9ef5-eedf17e6926c",
+      "source_hash": "fe0364f8fed8761ed0b096babf06eb119011e13334d79f3249f771403bf3b51d",
+      "parser_version": "text-1:cb6707ccfd2db91ecc747723be0fbae25d971c8d3e58b721c871bcc3705209a3:markdown-it-py-4.2.0:mdit-py-plugins-0.6.1:kind:prompt",
+      "segment_index": 0,
+      "anchor": {
+        "source_id": "source_81577de2-83ef-48e5-9ef5-eedf17e6926c",
+        "asset_id": null,
+        "native_locator": "chars:0:189",
+        "locator": {
+          "kind": "text_span",
+          "segment_index": 0,
+          "start_char": 0,
+          "end_char": 189,
+          "offset_unit": "unicode_code_points"
+        },
+        "locator_status": "located",
+        "reason": null
+      },
+      "raw_text": "制作中文PPT介绍一个虚构校园节能试点，偏好6页，允许在可读容量不足时按默认软预算分页，全部内容注明软件验证、非真实业务。介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源。虚构数据：A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+      "content": "制作中文PPT介绍一个虚构校园节能试点，偏好6页，允许在可读容量不足时按默认软预算分页，全部内容注明软件验证、非真实业务。介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源。虚构数据：A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+      "confidence": null,
+      "data": {
+        "topic": null,
+        "requirements": [],
+        "modification_instructions": [],
+        "context": [
+          {
+            "text": "制作中文PPT介绍一个虚构校园节能试点，偏好6页，允许在可读容量不足时按默认软预算分页，全部内容注明软件验证、非真实业务。介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源。虚构数据：A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+            "source_locations": [
+              {
+                "source_ref": "raw_text",
+                "start_offset": 0,
+                "end_offset": 189,
+                "offset_unit": "unicode_code_point"
+              }
+            ]
+          }
+        ]
+      },
+      "metadata": {
+        "source_kind": "prompt",
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "来源真实性/语义置信度未评估，不由哈希验证推定。"
+      },
+      "asset_ref": null,
+      "raw_asset_refs": [],
+      "parse_note": "Raw prompt/text kept as context; topic, requirements and modification intent are not inferred here.",
+      "evidence_id": "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+    }
+  ],
+  "trace": [
+    {
+      "component": "TaskSpec",
+      "requirement_id": "SYS-001",
+      "status": "validated"
+    },
+    {
+      "component": "SchemaRegistry",
+      "requirement_id": "SYS-006",
+      "status": "validated"
+    },
+    {
+      "component": "SourceLoader",
+      "requirement_id": "SYS-003",
+      "status": "partial"
+    },
+    {
+      "component": "EvidenceStore",
+      "requirement_id": "SYS-004",
+      "status": "saved"
+    }
+  ],
+  "boundary": "Source parsing and evidence only; no fact extraction, model routing, PPTX generation or QA acceptance.",
+  "nontext_evidence": [],
+  "selection": {
+    "producer": "DEC-003",
+    "fact_source_ids": [
+      "source_81577de2-83ef-48e5-9ef5-eedf17e6926c"
+    ],
+    "all_sources_preserved_in": "source-result.json",
+    "nontext_evidence_ids": [],
+    "nontext_handling": "Original evidence retained in nontext_evidence; empty structure carries no textual fact; OCR/visual fact inference not executed."
+  }
+}
