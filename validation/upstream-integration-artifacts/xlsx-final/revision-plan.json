@@ -1,0 +1,220 @@
+{
+  "plan_id": "revision_plan_ce0e1677-0e15-46d4-9817-a83729bbe79e",
+  "trace_id": "trace_c2c98a38-7147-469e-b12b-0944be943511",
+  "parent_run_id": "aa6b5914-83f7-4810-b81c-a3a6ffa5d594",
+  "status": "needs_input",
+  "scope": {
+    "slide_ids": [],
+    "object_ids": []
+  },
+  "locked_object_ids": [],
+  "locked_slide_ids": [],
+  "actions": [],
+  "blocked": [
+    {
+      "issue_id": "issue_1173d844-fe76-449a-9790-c92966029fc5",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_30f68aa2-70d0-4a2d-bce0-d291e46c2d8b"
+    },
+    {
+      "issue_id": "issue_023cee22-f7f1-45e0-af0a-929f3cbaaf64",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_e30a5155-fe01-429e-8845-0e3b89cd6c5f"
+    },
+    {
+      "issue_id": "issue_fd3f13d4-c59a-4b60-bd3d-dfc042030444",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_d4258170-ace3-488c-aa50-3057bfd416ce"
+    },
+    {
+      "issue_id": "issue_87cd9731-f43b-4ac4-9e4b-2b6f89c757e9",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_2e19c423-2f21-45c8-b650-cf5e77cf3f24"
+    },
+    {
+      "issue_id": "issue_a10b9528-6ffb-423b-a73c-00ed19a46843",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_80419ab7-5fb9-4f73-a423-b8db6e2c134f"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate_30f68aa2-70d0-4a2d-bce0-d291e46c2d8b",
+      "issue_id": "issue_1173d844-fe76-449a-9790-c92966029fc5",
+      "object_id": null,
+      "slide_id": "slide_e380a9b5-9d59-44e5-842d-0c99121f8dc0",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 1,
+          "severity": "P1",
+          "kind": "fact",
+          "detail": "月度数据表“三个月合计”行在“降低比例（%）”列为空，但原表该行该列是否有值未在证据中体现；若原表有合计比例或空值说明，当前呈现可能造成缺列误解。",
+          "evidence_refs": [
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175"
+          ],
+          "issue_id": "issue_1173d844-fe76-449a-9790-c92966029fc5",
+          "slide_id": "slide_e380a9b5-9d59-44e5-842d-0c99121f8dc0",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_e30a5155-fe01-429e-8845-0e3b89cd6c5f",
+      "issue_id": "issue_023cee22-f7f1-45e0-af0a-929f3cbaaf64",
+      "object_id": null,
+      "slide_id": "slide_e380a9b5-9d59-44e5-842d-0c99121f8dc0",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 1,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "表格“性质”列文字“人工验证数据，非真实业务”在单元格内换行，行高较大，但未裁切，可读。",
+          "evidence_refs": [],
+          "issue_id": "issue_023cee22-f7f1-45e0-af0a-929f3cbaaf64",
+          "slide_id": "slide_e380a9b5-9d59-44e5-842d-0c99121f8dc0",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_d4258170-ace3-488c-aa50-3057bfd416ce",
+      "issue_id": "issue_fd3f13d4-c59a-4b60-bd3d-dfc042030444",
+      "object_id": null,
+      "slide_id": "slide_84d6195f-796b-4327-ab7f-583b854cbf1b",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 5,
+          "severity": "P1",
+          "kind": "fact",
+          "detail": "分类数据表仅呈现A楼、B楼、C楼三行，未呈现分类合计行；若原分类数据表存在合计行，则属于内容遗漏。当前证据未显示分类表合计行，无法确认是否遗漏。",
+          "evidence_refs": [
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a"
+          ],
+          "issue_id": "issue_fd3f13d4-c59a-4b60-bd3d-dfc042030444",
+          "slide_id": "slide_84d6195f-796b-4327-ab7f-583b854cbf1b",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_2e19c423-2f21-45c8-b650-cf5e77cf3f24",
+      "issue_id": "issue_87cd9731-f43b-4ac4-9e4b-2b6f89c757e9",
+      "object_id": null,
+      "slide_id": "slide_c5ef43ce-2720-49fb-9fd3-7c495d196d04",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 0,
+          "severity": "P2",
+          "kind": "semantic",
+          "detail": "第0页称“三个月合计用电量为 3750 千瓦时，其单元格公式为 SUM(B2:B4)”，但同页又标注公式缓存值待确认；合计值3750来自B5单元格缓存值，而缓存值未提供，存在“合计值已确认”与“缓存值待确认”的语义张力。",
+          "evidence_refs": [
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+          ],
+          "issue_id": "issue_87cd9731-f43b-4ac4-9e4b-2b6f89c757e9",
+          "slide_id": "slide_c5ef43ce-2720-49fb-9fd3-7c495d196d04",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_80419ab7-5fb9-4f73-a423-b8db6e2c134f",
+      "issue_id": "issue_a10b9528-6ffb-423b-a73c-00ed19a46843",
+      "object_id": null,
+      "slide_id": "slide_3c219669-f509-4a04-9886-90a043549350",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 4,
+          "severity": "P2",
+          "kind": "semantic",
+          "detail": "第4页标题“三个月合计：3750 千瓦时”将合计值作为确定事实呈现，但正文同时说明公式缓存值待确认；标题与正文对合计值确定性的表述不完全一致。",
+          "evidence_refs": [
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+          ],
+          "issue_id": "issue_a10b9528-6ffb-423b-a73c-00ed19a46843",
+          "slide_id": "slide_3c219669-f509-4a04-9886-90a043549350",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    }
+  ],
+  "all_issue_ids": [
+    "issue_1173d844-fe76-449a-9790-c92966029fc5",
+    "issue_023cee22-f7f1-45e0-af0a-929f3cbaaf64",
+    "issue_fd3f13d4-c59a-4b60-bd3d-dfc042030444",
+    "issue_87cd9731-f43b-4ac4-9e4b-2b6f89c757e9",
+    "issue_a10b9528-6ffb-423b-a73c-00ed19a46843"
+  ],
+  "rerun_nodes": [],
+  "preserve_unselected_objects": true,
+  "full_acceptance": "not_passed"
+}

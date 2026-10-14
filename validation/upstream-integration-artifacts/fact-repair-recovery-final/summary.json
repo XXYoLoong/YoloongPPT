@@ -1,0 +1,67 @@
+{
+  "checks": [
+    {
+      "check": "Unchanged real source-grounded claim remains valid",
+      "passed": true
+    },
+    {
+      "check": "Same numeric literal from another actual source is rejected",
+      "passed": true,
+      "code": "FACT_GROUNDING_REPAIR_SOURCE_CHANGED"
+    },
+    {
+      "check": "Changing subject within same document cannot discard original valid quote",
+      "passed": true,
+      "code": "FACT_GROUNDING_REPAIR_QUOTE_DROPPED",
+      "fixture": "Two saved actual literals put into one artificial document; model responses unchanged"
+    },
+    {
+      "check": "Already supported unit cannot be cleared",
+      "passed": true,
+      "code": "FACT_GROUNDING_REPAIR_SCOPE_CHANGED"
+    },
+    {
+      "check": "Already supported period cannot be cleared",
+      "passed": true,
+      "code": "FACT_GROUNDING_REPAIR_SCOPE_CHANGED"
+    },
+    {
+      "check": "Already supported numeric_value cannot be cleared",
+      "passed": true,
+      "code": "FACT_GROUNDING_REPAIR_VALUE_CHANGED"
+    },
+    {
+      "check": "Saved real XLSX grounding repairs remain valid under preservation guards",
+      "passed": true,
+      "repairs": 25
+    },
+    {
+      "check": "missing-grounding-response",
+      "passed": true,
+      "code": "FACT_CHECKPOINT_INCOMPLETE",
+      "failed_run": "f4f1134a-1db3-4d05-a23c-f5558105c5eb",
+      "fresh_model_calls": 0
+    },
+    {
+      "check": "changed-grounding-response",
+      "passed": true,
+      "code": "FACT_CHECKPOINT_CHANGED",
+      "failed_run": "bf6aa067-3ad9-480f-b006-e789657ea313",
+      "fresh_model_calls": 0
+    },
+    {
+      "check": "changed-effective-response",
+      "passed": true,
+      "code": "FACT_CHECKPOINT_CHANGED",
+      "failed_run": "d1e50722-7438-4bd3-ba6d-ac0e5b9567db",
+      "fresh_model_calls": 0
+    }
+  ],
+  "passed": 10,
+  "fresh_model_calls": 0,
+  "sources": [
+    "/runtime/runs/07e17513-f114-4120-902f-7d07a526a657",
+    "/runtime/runs/3f6fe040-dae7-4e17-92d7-c0184de48978"
+  ],
+  "scope": "Actual saved real response guard and resume failure injection; not full system AC."
+}

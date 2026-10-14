@@ -1,0 +1,177 @@
+{
+  "plan_id": "revision_plan_aa3b6023-05a5-49af-ab06-34192efc8f2a",
+  "trace_id": "trace_08fa7c22-3ff7-4389-9718-28dc18280e58",
+  "parent_run_id": "22a5a93b-5a22-40e0-80e4-18a47e0c7eff",
+  "status": "needs_input",
+  "scope": {
+    "slide_ids": [],
+    "object_ids": []
+  },
+  "locked_object_ids": [],
+  "locked_slide_ids": [],
+  "actions": [],
+  "blocked": [
+    {
+      "issue_id": "issue_afd47161-2084-4efc-a30a-018991fd831a",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_ec27213d-b74d-4526-8549-d0e60a1823f3"
+    },
+    {
+      "issue_id": "issue_1202670f-5bb7-4088-b55d-947b7880d236",
+      "severity": "P1",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_95c894a3-9f2a-41e8-881a-ac4a70667ea8"
+    },
+    {
+      "issue_id": "issue_a4eeaa55-bc7b-43f7-9df2-adaa23ac04d2",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_d0f35c0c-c869-4d86-888f-c2366c873fe8"
+    },
+    {
+      "issue_id": "issue_7f2be1eb-eefd-4c32-851a-589b11191dbc",
+      "severity": "P2",
+      "state": "requires_user_input",
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "candidate_id": "candidate_d915d4f6-9cc0-432a-b5e2-ec1e46fe907b"
+    }
+  ],
+  "candidates": [
+    {
+      "candidate_id": "candidate_ec27213d-b74d-4526-8549-d0e60a1823f3",
+      "issue_id": "issue_afd47161-2084-4efc-a30a-018991fd831a",
+      "object_id": null,
+      "slide_id": "slide_bea97860-efb8-47b2-9e1b-42b367983fd9",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 0,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "标题“2026年校园节能人工验证资料”在左侧被折成两行，右侧正文又重复了同一标题文字，造成同页标题重复、版面冗余。",
+          "evidence_refs": [
+            "evidence_29e8650e-a427-43e9-ab01-8611f3d34b1b"
+          ],
+          "issue_id": "issue_afd47161-2084-4efc-a30a-018991fd831a",
+          "slide_id": "slide_bea97860-efb8-47b2-9e1b-42b367983fd9",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_95c894a3-9f2a-41e8-881a-ac4a70667ea8",
+      "issue_id": "issue_1202670f-5bb7-4088-b55d-947b7880d236",
+      "object_id": null,
+      "slide_id": "slide_77f4bb16-716a-4544-907d-2fbbae0b045e",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 4,
+          "severity": "P1",
+          "kind": "semantic",
+          "detail": "表格标题为“三楼基线与本期数据表”，但表内行标签为A楼、B楼、C楼，标题中的“三楼”与行标签“A/B/C楼”语义不一致，易被理解为“第三层楼”而非“三栋楼”。",
+          "evidence_refs": [
+            "evidence_cf18b06f-ced9-4281-88f0-9ee0c1c85d65",
+            "evidence_561092b4-9984-456a-a10f-eec417c51944"
+          ],
+          "issue_id": "issue_1202670f-5bb7-4088-b55d-947b7880d236",
+          "slide_id": "slide_77f4bb16-716a-4544-907d-2fbbae0b045e",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_d0f35c0c-c869-4d86-888f-c2366c873fe8",
+      "issue_id": "issue_a4eeaa55-bc7b-43f7-9df2-adaa23ac04d2",
+      "object_id": null,
+      "slide_id": "slide_77f4bb16-716a-4544-907d-2fbbae0b045e",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 4,
+          "severity": "P2",
+          "kind": "visual",
+          "detail": "表格行高较大、单元格内文字偏上，A楼行与B楼行之间留白明显，表格可读但排版不够紧凑。",
+          "evidence_refs": [],
+          "issue_id": "issue_a4eeaa55-bc7b-43f7-9df2-adaa23ac04d2",
+          "slide_id": "slide_77f4bb16-716a-4544-907d-2fbbae0b045e",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    },
+    {
+      "candidate_id": "candidate_d915d4f6-9cc0-432a-b5e2-ec1e46fe907b",
+      "issue_id": "issue_7f2be1eb-eefd-4c32-851a-589b11191dbc",
+      "object_id": null,
+      "slide_id": "slide_c0482632-43e3-49d0-9312-64ef724187a1",
+      "node": "content",
+      "state": "requires_user_input",
+      "operation": null,
+      "changes": {},
+      "reason": "Requires grounded replacement/registered assumption or source correction; no automatic fact changes",
+      "score": 0,
+      "evidence": {
+        "issue": {
+          "slide_order": 5,
+          "severity": "P2",
+          "kind": "semantic",
+          "detail": "“节能比例：待确认”“总量：待确认”“因果：待确认”为占位项，原文并未出现这些字段名，属于对未决项的显式标注；虽未补值，但字段名本身非原文逐字内容，建议注明为“原文未给出”。",
+          "evidence_refs": [
+            "evidence_5c3f2bf9-5043-40bb-b99e-353f761e50c0"
+          ],
+          "issue_id": "issue_7f2be1eb-eefd-4c32-851a-589b11191dbc",
+          "slide_id": "slide_c0482632-43e3-49d0-9312-64ef724187a1",
+          "code": "MODEL_SEMANTIC",
+          "action": {
+            "node": "semantic",
+            "mode": "requires_user_input",
+            "reason": "Independent review issue needs grounded decision"
+          }
+        }
+      }
+    }
+  ],
+  "all_issue_ids": [
+    "issue_afd47161-2084-4efc-a30a-018991fd831a",
+    "issue_1202670f-5bb7-4088-b55d-947b7880d236",
+    "issue_a4eeaa55-bc7b-43f7-9df2-adaa23ac04d2",
+    "issue_7f2be1eb-eefd-4c32-851a-589b11191dbc"
+  ],
+  "rerun_nodes": [],
+  "preserve_unselected_objects": true,
+  "full_acceptance": "not_passed"
+}

@@ -1,0 +1,21 @@
+{
+  "ok": false,
+  "trace_id": "upstream-product-integration",
+  "error": {
+    "code": "FACT_CHECKPOINT_INCOMPLETE",
+    "message": "分批事实解释缺少原始调用或完整分批计划，不能复用。",
+    "component": "Generation",
+    "requirement_ids": [
+      "DEC-004",
+      "DEC-005",
+      "SYS-005"
+    ],
+    "details": [
+      {
+        "run_id": "031ff33d-fa33-4ccf-aa68-5e728064c250",
+        "artifact_root": "/runtime/runs/031ff33d-fa33-4ccf-aa68-5e728064c250"
+      }
+    ],
+    "retryable": false
+  }
+}

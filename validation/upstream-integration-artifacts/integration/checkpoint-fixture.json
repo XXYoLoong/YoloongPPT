@@ -1,0 +1,100 @@
+{
+  "run_id": "07e17513-f114-4120-902f-7d07a526a657",
+  "path": "/runtime/runs/07e17513-f114-4120-902f-7d07a526a657",
+  "task": {
+    "task_id": "task_2b54d069-0125-4a6f-bd6a-57a712fef4f2",
+    "route": {
+      "route_status": "routed",
+      "mode": "create_from_materials",
+      "routing_reason": "调用者明确要求材料新建",
+      "protection_policy_id": "preserve_material_facts_and_sources",
+      "decision_id": "DEC-001",
+      "trace": {
+        "candidate_modes": [
+          "create_from_materials"
+        ],
+        "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+      }
+    },
+    "sources": [
+      {
+        "source_id": "source_15d01ca4-6650-4dc1-b718-638cd7f1d4cb",
+        "kind": "text",
+        "content": "A楼本期用电量为100千瓦时。",
+        "metadata": {
+          "source_role": "fact"
+        }
+      },
+      {
+        "source_id": "source_12321044-2c43-486f-9190-26375e52b1f7",
+        "kind": "text",
+        "content": "A楼本期用电量为110千瓦时。",
+        "metadata": {
+          "source_role": "fact"
+        }
+      },
+      {
+        "source_id": "source_93efb149-a236-42c6-8778-3a44f0271a1b",
+        "kind": "text",
+        "content": "B楼本期用电量为100千瓦时。",
+        "metadata": {
+          "source_role": "fact"
+        }
+      },
+      {
+        "source_id": "source_b226c3b2-24c9-48c6-99ca-ff6e0f99c513",
+        "kind": "text",
+        "content": "A楼目标用电量为120千瓦时。",
+        "metadata": {
+          "source_role": "fact"
+        }
+      }
+    ],
+    "constraints": {
+      "hard": [],
+      "soft": [],
+      "defaults": [],
+      "conflicts": []
+    },
+    "style": null,
+    "template_ref": null,
+    "output": {
+      "formats": [
+        "pptx",
+        "pdf",
+        "png"
+      ]
+    },
+    "providers": {
+      "text": {
+        "provider": "deepseek",
+        "model": "deepseek-flash",
+        "api_key_env": "DEEPSEEK_API_KEY",
+        "parameters": {
+          "temperature": 0.2,
+          "max_tokens": 12000,
+          "timeout_seconds": 180
+        }
+      }
+    },
+    "runtime_preferences": {
+      "page_count": 6,
+      "fact_batch_policy": {
+        "max_batch_evidence": 1
+      }
+    },
+    "raw_request": {
+      "request": {
+        "raw_text": "人工软件验证：保留A楼本期100与110的来源冲突，不选其中任何一个；B楼本期和A楼目标分别保留。",
+        "attachments": [],
+        "requested_mode": "create_from_materials",
+        "requested_outputs": [
+          "pptx",
+          "pdf",
+          "png"
+        ]
+      },
+      "attachment_roles": []
+    }
+  }
+}

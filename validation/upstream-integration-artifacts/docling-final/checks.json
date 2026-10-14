@@ -1,0 +1,640 @@
+{
+  "docling_version": "2.138.0",
+  "python": "3.13.16",
+  "requirement_ids": [
+    "IN-003",
+    "IN-004",
+    "IN-005",
+    "IN-008",
+    "IN-016",
+    "SYS-003"
+  ],
+  "checks": [
+    {
+      "id": "rich-docx:strict-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "rich-docx:schema",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "rich-docx:hash",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "rich-docx:version",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "rich-docx:identities",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "rich-docx:complete-docling-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "rich-docx:local-only",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "rich-docx:not-semantic-truth",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "docx-native-paragraph-anchor",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "docx-native-image-preservation",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "docx-no-fabricated-page",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "docx-docling-table",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "docx-docling-join-contract",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "semantic-xlsx:strict-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "semantic-xlsx:schema",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "semantic-xlsx:hash",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "semantic-xlsx:version",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "semantic-xlsx:identities",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "semantic-xlsx:complete-docling-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "semantic-xlsx:local-only",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "semantic-xlsx:not-semantic-truth",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "xlsx-native-cell-anchor",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "xlsx-formula-cache",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "xlsx-two-sheets",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "xlsx-docling-tables",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "text-pdf:strict-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "text-pdf:schema",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "text-pdf:hash",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "text-pdf:version",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "text-pdf:identities",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "text-pdf:complete-docling-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "text-pdf:local-only",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "text-pdf:not-semantic-truth",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "pdf-four-pages",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "pdf-page-anchors",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "pdf-bboxes",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "pdf-structure",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:strict-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:schema",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:hash",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:version",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:identities",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:complete-docling-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:local-only",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:not-semantic-truth",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "pdf:actual-ocr",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "pdf:real-confidence",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "pdf:ocr-numeric-content",
+      "passed": true,
+      "observed": [
+        "Campus Energy Report",
+        "Building A: 100 kWh",
+        "Building B: 80 kWh"
+      ]
+    },
+    {
+      "id": "pdf:ocr-page",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:original-ocr-schema",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:actual-processor",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:weight-license",
+      "passed": true,
+      "observed": {
+        "status": "observed",
+        "execution_status": "executed",
+        "engine_name": "RapidOCR/onnxruntime",
+        "engine_version": "3.10.0",
+        "model_name": "PP-OCRv6_det_small.onnx,ch_ppocr_mobile_v2.0_cls_mobile.onnx,PP-OCRv6_rec_small.onnx",
+        "license_status": "known",
+        "license_identifiers": [
+          "Apache-2.0"
+        ],
+        "license_reason": null,
+        "reason": null
+      }
+    },
+    {
+      "id": "scan-pdf:source-asset",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:text-layer-absent",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:measured-frame",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-pdf:weight-hashes",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-image:strict-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-image:schema",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-image:hash",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-image:version",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-image:identities",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-image:complete-docling-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-image:local-only",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "scan-image:not-semantic-truth",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "image:actual-ocr",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "image:real-confidence",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "image:ocr-numeric-content",
+      "passed": true,
+      "observed": [
+        "Campus Energy Report",
+        "Building A: 100 kWh",
+        "Building B: 80 kWh"
+      ]
+    },
+    {
+      "id": "image:ocr-page",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "external-html:strict-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "external-html:schema",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "external-html:hash",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "external-html:version",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "external-html:identities",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "external-html:complete-docling-json",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "external-html:local-only",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "external-html:not-semantic-truth",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "html-no-resource-request",
+      "passed": true,
+      "observed": []
+    },
+    {
+      "id": "html-text",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "html-unfetched-explicit",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "empty-input",
+      "passed": true,
+      "observed": "INPUT_SIZE_LIMIT"
+    },
+    {
+      "id": "empty-input:structured-error",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "disguised-pdf",
+      "passed": true,
+      "observed": "INPUT_FORMAT_DISGUISED"
+    },
+    {
+      "id": "disguised-pdf:structured-error",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "corrupt-pdf",
+      "passed": true,
+      "observed": "DOCLING_CONVERSION_FAILED"
+    },
+    {
+      "id": "corrupt-pdf:structured-error",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "corrupt-docx",
+      "passed": true,
+      "observed": "INPUT_ARCHIVE_CORRUPT"
+    },
+    {
+      "id": "corrupt-docx:structured-error",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "unsupported-format",
+      "passed": true,
+      "observed": "DOCLING_FORMAT_UNSUPPORTED"
+    },
+    {
+      "id": "unsupported-format:structured-error",
+      "passed": true,
+      "observed": null
+    },
+    {
+      "id": "blank-scan-no-evidence",
+      "passed": true,
+      "observed": "INPUT_NO_PARSED_EVIDENCE"
+    },
+    {
+      "id": "blank-scan-no-evidence:structured-error",
+      "passed": true,
+      "observed": null
+    }
+  ],
+  "failures": [
+    {
+      "case": "empty-input",
+      "result": {
+        "ok": false,
+        "trace_id": "trace_08c67304-ab8b-4da0-844c-9ae75c08b09b",
+        "error": {
+          "code": "INPUT_SIZE_LIMIT",
+          "message": "输入须非空字节且不超过64MiB。",
+          "component": "DoclingAdapter",
+          "requirement_ids": [
+            "IN-003",
+            "IN-004",
+            "IN-005",
+            "IN-008",
+            "IN-016",
+            "SYS-003"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "case": "disguised-pdf",
+      "result": {
+        "ok": false,
+        "trace_id": "trace_64a506a6-044e-4d0b-8b4d-fb5faf4de313",
+        "error": {
+          "code": "INPUT_FORMAT_DISGUISED",
+          "message": "声明PDF的输入缺少PDF标识。",
+          "component": "DoclingAdapter",
+          "requirement_ids": [
+            "IN-003",
+            "IN-004",
+            "IN-005",
+            "IN-008",
+            "IN-016",
+            "SYS-003"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "case": "corrupt-pdf",
+      "result": {
+        "ok": false,
+        "trace_id": "trace_e06f7fee-2e71-436b-93ca-962b4ec78d7c",
+        "error": {
+          "code": "DOCLING_CONVERSION_FAILED",
+          "message": "Docling未完整成功转换；未采用部分结果或回退解析器。",
+          "component": "DoclingAdapter",
+          "requirement_ids": [
+            "IN-003",
+            "IN-004",
+            "IN-005",
+            "IN-008",
+            "IN-016",
+            "SYS-003"
+          ],
+          "details": [
+            {
+              "status": "failure",
+              "errors": [
+                {
+                  "component_type": "user_input",
+                  "module_name": "",
+                  "error_message": "docling-parse could not load document 0ba94bc0343ad2d27609411f80f216b3f8113374bbf45bec51126f1703ad9acb: Failed to load document with key key=0ba94bc0343ad2d27609411f80f216b3f8113374bbf45bec51126f1703ad9acb",
+                  "category": "backend_failure",
+                  "page_no": null
+                }
+              ]
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "case": "corrupt-docx",
+      "result": {
+        "ok": false,
+        "trace_id": "trace_42cf8d5e-66b6-4fe9-9638-2fb0a29ab885",
+        "error": {
+          "code": "INPUT_ARCHIVE_CORRUPT",
+          "message": "Office压缩包损坏或不可读取。",
+          "component": "InputFormatParser",
+          "requirement_ids": [
+            "IN-015",
+            "SYS-003"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "case": "unsupported-format",
+      "result": {
+        "ok": false,
+        "trace_id": "trace_19349031-b6d2-429e-b24d-1e2bac926990",
+        "error": {
+          "code": "DOCLING_FORMAT_UNSUPPORTED",
+          "message": "该格式不在Docling融合路由中。",
+          "component": "DoclingAdapter",
+          "requirement_ids": [
+            "IN-003",
+            "IN-004",
+            "IN-005",
+            "IN-008",
+            "IN-016",
+            "SYS-003"
+          ],
+          "details": [
+            {
+              "format": "exe"
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "case": "blank-scan-no-evidence",
+      "result": {
+        "ok": false,
+        "trace_id": "trace_be8425f2-36b9-46d3-b8e8-d7fc0d02dac4",
+        "error": {
+          "code": "INPUT_NO_PARSED_EVIDENCE",
+          "message": "Docling未返回可定位结构，不把无证据文件当作成功来源。",
+          "component": "DoclingAdapter",
+          "requirement_ids": [
+            "IN-003",
+            "IN-004",
+            "IN-005",
+            "IN-008",
+            "IN-016",
+            "SYS-003"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    }
+  ],
+  "error": null,
+  "passed": true,
+  "evidence_path": "/runtime/docling-validation/component-ab604df4b51645ffb0aec1994e5cc304",
+  "boundary": "Real Docling component checks; does not establish semantic truth or full system AC."
+}

@@ -27,6 +27,8 @@ def register(path, *, source=None, license='unknown', root='/runtime/templates',
               'preview': {'status': 'structural', 'layouts': [{'part': layout['part'], 'name': layout['name'], 'slots': [
                   {'slot_id': slot['slot_id'], 'role': slot['role'], 'bounds': slot['bounds']} for slot in layout['slots']]} for layout in pack['layouts']]},
               'status': 'partial', 'issues': pack['issues']}
+    from .upstream_templates import analyze_upstream_template
+    record['preview']['upstream_layout_schemas']=analyze_upstream_template(pack,source=record['source'])
     metadata_digest=hashlib.sha256(json.dumps({'source':record['source'],'license':license,'policy':normalized,'parser_version':'template-layout-runtime-1'},ensure_ascii=False,sort_keys=True,allow_nan=False).encode('utf-8')).hexdigest()
     record.update(template_id='template_'+digest[:16]+'_'+metadata_digest[:16],version='sha256:'+digest+';metadata:'+metadata_digest)
     if normalized is not None:

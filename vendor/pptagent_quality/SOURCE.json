@@ -1,0 +1,52 @@
+{
+  "project": "PPTAgent",
+  "commit": "833cda553b343be0e486a93b0b57cac962cdd566",
+  "license": "MIT",
+  "scope": "Only listed files; export-core and font/image assets not included or licensed by this manifest",
+  "files": [
+    {
+      "target": "vendor/pptagent_quality/__init__.py",
+      "vendored_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "source": "F:\\YoloongPPT-Research\\P02\\skills\\pptagent\\scripts\\pptagent_runtime\\__init__.py",
+      "original_sha256": "3c540ccfab60eafaf02cb43329da33365b6128bedea18cf400b15bd46281d3f6",
+      "changes": [
+        "Package-relative import adaptation; behavior/source statements retained; original and vendored hashes recorded"
+      ]
+    },
+    {
+      "target": "vendor/pptagent_quality/config.py",
+      "vendored_sha256": "65e087bc47764ba653d953f9153087c63c89c269eeadaa24641e988d54d41faa",
+      "source": "F:\\YoloongPPT-Research\\P02\\skills\\pptagent\\scripts\\pptagent_runtime\\config.py",
+      "original_sha256": "65e087bc47764ba653d953f9153087c63c89c269eeadaa24641e988d54d41faa",
+      "changes": []
+    },
+    {
+      "source": "F:\\YoloongPPT-Research\\P02\\skills\\pptagent\\scripts\\pptagent_runtime\\core.py",
+      "target": "vendor/pptagent_quality/freshness.py",
+      "original_sha256": "e0ce089cbd591064018adbf0ed55bcd1ac59ac507326d4a4eded5ba9bb88a0ef",
+      "vendored_sha256": "7e8cc9606c01411bfbe01d81b8250e0d12e758b5f1f626c7170a6d78396d10c1",
+      "changes": [
+        "Extract exact sha256 and render_current function bodies; unrelated CLI/render functions not copied"
+      ],
+      "verification": "sha256/render_current exact function ASTs rechecked against pinned original; extraction scaffolding separately owned"
+    },
+    {
+      "target": "vendor/pptagent_quality/LICENSE",
+      "vendored_sha256": "de9cb45b7da9d58d871391793a8d8b2ed058ba7f5bff2d9a33e02a5c31c526dc",
+      "source": "F:\\YoloongPPT-Research\\P02\\LICENSE",
+      "original_sha256": "e1faa9265adfb5feb24c4be691b5c39b559dec4f0414d9ec3a1157cf94faaf8b",
+      "changes": [
+        "Line-ending normalization only"
+      ]
+    },
+    {
+      "target": "vendor/pptagent_quality/visual.py",
+      "vendored_sha256": "47f8d463a901f2da580ed2d3d3d36390f71ae691934fadbcf6299674a505fee5",
+      "source": "F:\\YoloongPPT-Research\\P02\\skills\\pptagent\\scripts\\pptagent_runtime\\visual.py",
+      "original_sha256": "c0245f7f4a45d3e77e00171b2b4f41e5c5c50606e51372f8c5d916651f7e9961",
+      "changes": [
+        "Line-ending normalization only"
+      ]
+    }
+  ]
+}

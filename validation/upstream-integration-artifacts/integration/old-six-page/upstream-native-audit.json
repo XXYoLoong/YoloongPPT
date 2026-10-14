@@ -1,0 +1,348 @@
+{
+  "upstream": {
+    "project": "PPT Master",
+    "repository": "https://github.com/hugohe3/ppt-master",
+    "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+    "license": "MIT",
+    "third_party_data": [
+      "Apache POI Apache-2.0",
+      "Open XML SDK MIT"
+    ],
+    "manifest_sha256": "9ba57f25bb8bda094c7c99b543fe64b32d49587447392acb870a9e11bc19eda8"
+  },
+  "audit": {
+    "schema": "ppt-master.pptx-delivery-check.v1",
+    "status": "passed-with-advisories",
+    "file": {
+      "path": "/runtime/upstream-product-integration/67ef17958a7346a887646de6ca99de4c/old-six-page/deck.pptx",
+      "bytes": 54929
+    },
+    "package": {
+      "zip_integrity": "passed",
+      "corrupt_member": null,
+      "duplicate_parts": [],
+      "canonical_part_collisions": [],
+      "parts": {
+        "entries": 66,
+        "unique": 66,
+        "slides": 6,
+        "notes": 6,
+        "masters": 1,
+        "layouts": 11,
+        "media": 0
+      },
+      "relationships": {
+        "problems": []
+      }
+    },
+    "slides": {
+      "count": 6,
+      "hidden_count": 0,
+      "hidden": []
+    },
+    "fonts": {
+      "theme": {
+        "title": {
+          "latin": "Calibri",
+          "scripts": {
+            "Jpan": "ＭＳ Ｐゴシック",
+            "Hang": "맑은 고딕",
+            "Hans": "宋体",
+            "Hant": "新細明體"
+          }
+        },
+        "body": {
+          "latin": "Calibri",
+          "scripts": {
+            "Jpan": "ＭＳ Ｐゴシック",
+            "Hang": "맑은 고딕",
+            "Hans": "宋体",
+            "Hant": "新細明體"
+          }
+        }
+      },
+      "declared": {
+        "latin": [
+          {
+            "value": "Noto Sans CJK SC",
+            "count": 44
+          },
+          {
+            "value": "+mn-lt",
+            "count": 36
+          },
+          {
+            "value": "Calibri",
+            "count": 4
+          },
+          {
+            "value": "+mj-lt",
+            "count": 1
+          }
+        ],
+        "ea": [
+          {
+            "value": "+mn-ea",
+            "count": 36
+          },
+          {
+            "value": "Noto Sans CJK SC",
+            "count": 29
+          },
+          {
+            "value": "+mj-ea",
+            "count": 1
+          }
+        ],
+        "cs": [
+          {
+            "value": "+mn-cs",
+            "count": 36
+          },
+          {
+            "value": "+mj-cs",
+            "count": 1
+          }
+        ]
+      },
+      "embedded_parts": [],
+      "portability_advisory_faces": [
+        "Noto Sans CJK SC"
+      ]
+    },
+    "media": {
+      "embedded_count": 0,
+      "external_count": 0,
+      "embedded": [],
+      "external": [],
+      "uncompressed_bytes": 0,
+      "archive_compressed_bytes": 0,
+      "share_of_archive": 0.0,
+      "share_of_uncompressed_parts": 0.0,
+      "top_contributors": []
+    },
+    "motion": {
+      "transitions": {
+        "carrier_slide_count": 0,
+        "visual_effect_slide_count": 0,
+        "timed_advance_slide_count": 0,
+        "carrier_slides": [],
+        "visual_effect_slides": [],
+        "timed_advance_slides": [],
+        "effects": {}
+      },
+      "object_animations": {
+        "timing_slide_count": 0,
+        "object_animation_slide_count": 0,
+        "audio_timing_slide_count": 0,
+        "timing_slides": [],
+        "object_animation_slides": [],
+        "audio_timing_slides": []
+      }
+    },
+    "errors": [],
+    "advisories": [
+      {
+        "code": "font_portability",
+        "message": "Some fonts declared or referenced by the presentation are outside the common Office/OS portability set; target-system availability was not verified.",
+        "faces": [
+          "Noto Sans CJK SC"
+        ]
+      }
+    ]
+  },
+  "native_objects": [
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_afaa9ad4-b1a5-4e71-998e-5dae59888e8b",
+      "text": "虚构校园节能试点介绍",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_a1513785-9914-489a-aab5-8d360f7435a6",
+      "text": "制作中文PPT介绍一个虚构校园节能试点。全部内容注明软件验证、非真实业务。偏好6页；允许在可读容量不足时按默认软预算分页。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_597b8869-12f7-41db-ab6f-09d742353803",
+      "text": "01 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_7fc70671-4635-4ec9-aee4-c44a00f10c2a",
+      "text": "试点介绍与展示方式",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_2e3d0ff5-ef85-40f0-bd5b-1b72141e1b9a",
+      "text": "介绍虚构试点。用原生表格列出数据。用原生柱状图展示同一组数据。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_cb6bdcdc-0c15-46f4-9d4e-796a68c71316",
+      "text": "再总结并保留来源。不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_19625e66-2896-4cb0-97ca-1d9d243c65b8",
+      "text": "02 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_69b1f80a-838c-4eb2-b0f6-80ca720291a8",
+      "text": "虚构试点数据（原生表格）",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_c9757ecc-eae7-4e40-a1d2-e37596f2f421",
+      "text": "以下为虚构试点数据，全部内容为软件验证、非真实业务。单位：千瓦时。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "graphicFrame",
+      "id": "4",
+      "name": "object_334b189e-c91b-4452-ad32-b2d1b0d56874",
+      "text": "楼栋基线（千瓦时）本期（千瓦时）A楼10090B楼8072C楼6054",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_9375b906-4abf-4016-a808-178ac050e8e7",
+      "text": "03 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_7083b173-17fe-4491-9e90-ac213a77888f",
+      "text": "虚构试点数据（原生柱状图）",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_25ad059b-25dc-40da-8ec7-eca2dc59121f",
+      "text": "以下为虚构试点数据，全部内容为软件验证、非真实业务。单位：千瓦时。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "graphicFrame",
+      "id": "4",
+      "name": "object_da89b730-1292-4c75-81ad-feb9cbddd37c",
+      "text": "",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_c7afe378-4958-419d-a75d-3fc6f410f664",
+      "text": "04 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_1c27ef01-2593-4185-932d-04e6b79ca94e",
+      "text": "总结",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_92be090e-f084-4cc4-b837-95d87d6330ef",
+      "text": "本演示介绍一个虚构校园节能试点。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_cdd6f04c-c224-4620-8058-d1ce71ee6dd8",
+      "text": "用原生表格列出数据，用原生柱状图展示同一组数据。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_e47ea77d-3926-4c99-a25a-37ca0212048f",
+      "text": "全部内容注明软件验证、非真实业务。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "6",
+      "name": "object_4354314f-fa75-4005-8f1e-2eef725f6342",
+      "text": "不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "7",
+      "name": "object_63501708-8254-494b-a5bd-1719524d958f",
+      "text": "05 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide6.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_4bc9a6fa-6931-4b54-ae9e-5780f2b6ab42",
+      "text": "来源",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide6.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_7a26a0d3-76f1-4277-88f9-05c772c47387",
+      "text": "来源：制作中文PPT介绍一个虚构校园节能试点；偏好6页；允许在可读容量不足时按默认软预算分页；全部内容注明软件验证、非真实业务；介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源；A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时；不要推算比例、合计或新统计，不加入图片和原文没有的因果。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide6.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_864840bb-ba77-4767-9851-f6e343a0a4e6",
+      "text": "06 / 06",
+      "custom_geometry": false
+    }
+  ]
+}

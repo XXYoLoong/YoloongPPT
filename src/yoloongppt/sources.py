@@ -15,7 +15,7 @@ MAX_SOURCE_BYTES = 16 * 1024 * 1024
 
 
 def input_bytes(source):
-    binary = {'docx': {'.docx'}, 'xlsx': {'.xlsx'}, 'csv':{'.csv'}, 'json':{'.json'}, 'xml':{'.xml'},
+    binary = {'docx': {'.docx'}, 'xlsx': {'.xlsx'}, 'csv':{'.csv'}, 'html':{'.html','.htm'}, 'json':{'.json'}, 'xml':{'.xml'},
               'pptx': {'.pptx'}, 'potx':{'.potx'}, 'pdf': {'.pdf'},
               'image': {'.png','.jpg','.jpeg','.webp','.gif','.bmp','.tif','.tiff'}}
     if source['kind'] not in {'prompt', 'text', 'markdown', *binary}:
@@ -37,7 +37,7 @@ def input_bytes(source):
             raise TaskError('INPUT_NOT_FOUND', '输入文件不存在或不可读取。', 'SourceLoader', ['SYS-003', 'IN-015'], [{'source_id': source['source_id']}]) from None
         locator = str(path.relative_to(ROOT)) if path.is_relative_to(ROOT) else str(path)
     else:
-        if source['kind'] in binary:
+        if source['kind'] in binary and source['kind']!='html':
             raise TaskError('INPUT_BINARY_LOCATION_REQUIRED', '二进制来源需文件locator，禁止把字符串或base64当作文件。', 'SourceLoader', ['SYS-003','IN-015'])
         content = source.get('content')
         if not isinstance(content, str):

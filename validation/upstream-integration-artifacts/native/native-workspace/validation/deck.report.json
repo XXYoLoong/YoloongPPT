@@ -1,0 +1,198 @@
+{
+  "schema": "ppt-master.pptx-postflight-report.v1",
+  "status": "passed-with-warnings",
+  "output": {
+    "path": "/runtime/upstream-native-validation-v6/native-output-rkl1t2tb/deck.pptx",
+    "bytes": 20118
+  },
+  "source": {
+    "svg_slide_count": 2,
+    "layout_definition_count": 0,
+    "fingerprint": {
+      "algorithm": "sha256",
+      "digest": "e3d010b34e32a408b5bbb4aee752c48aa2c553bae918b49a2eb90f2801e96c55",
+      "file_count": 2,
+      "files": [
+        {
+          "file": "authoring-svg-flat/slide_01.svg",
+          "sha256": "34ff08ee48a5c355f037d5d397a7e3545afb49227cc231d2fce7d862479ef762"
+        },
+        {
+          "file": "authoring-svg-flat/slide_02.svg",
+          "sha256": "f9bc3b684f686ff586da2a32f8fc2a23445ac95caf77beeb5649f5e49bae64c9"
+        }
+      ]
+    },
+    "authoring_roundtrip": {
+      "schema": "ppt-master.authoring-roundtrip-materialization.v1",
+      "authoring_root": "/runtime/upstream-native-validation-v6/native-workspace/authoring-svg-flat",
+      "manifest_schema": "ppt-master.svg-authoring-ir.v1",
+      "projection_kind": "flat",
+      "materialized_slide_count": 2,
+      "page_plan": null,
+      "totals": {
+        "source_ref_count": 12,
+        "unchanged_refs": 11,
+        "edited_refs": 1,
+        "deleted_refs": 0,
+        "authored_unreferenced": 0,
+        "expanded_vector_uses": 0
+      },
+      "documents": [
+        {
+          "file": "slide_01.svg",
+          "source_file": "slide_01.svg",
+          "source_slide": 1,
+          "document_unchanged": false,
+          "source_ref_count": 6,
+          "source_ref_ids": [
+            "slide:2",
+            "slide:3",
+            "slide:4",
+            "slide:5",
+            "slide:6",
+            "slide:7"
+          ],
+          "unchanged_refs": 5,
+          "unchanged_ref_ids": [
+            "slide:2",
+            "slide:3",
+            "slide:4",
+            "slide:5",
+            "slide:7"
+          ],
+          "edited_refs": 1,
+          "edited_ref_ids": [
+            "slide:6"
+          ],
+          "deleted_refs": 0,
+          "deleted_ref_ids": [],
+          "authored_unreferenced": 0,
+          "expanded_vector_uses": 0,
+          "defs_changed": false
+        },
+        {
+          "file": "slide_02.svg",
+          "source_file": "slide_02.svg",
+          "source_slide": 2,
+          "document_unchanged": true,
+          "source_ref_count": 6,
+          "source_ref_ids": [
+            "slide:2",
+            "slide:3",
+            "slide:4",
+            "slide:5",
+            "slide:6",
+            "slide:7"
+          ],
+          "unchanged_refs": 6,
+          "unchanged_ref_ids": [
+            "slide:2",
+            "slide:3",
+            "slide:4",
+            "slide:5",
+            "slide:6",
+            "slide:7"
+          ],
+          "edited_refs": 0,
+          "edited_ref_ids": [],
+          "deleted_refs": 0,
+          "deleted_ref_ids": [],
+          "authored_unreferenced": 0,
+          "expanded_vector_uses": 0,
+          "defs_changed": false
+        }
+      ],
+      "source_slide_passthrough": {
+        "count": 1,
+        "slides": [
+          2
+        ]
+      },
+      "export_summary": {
+        "output_pages": 2,
+        "passthrough": 1,
+        "cloned_passthrough": 0,
+        "patched": 0,
+        "rebuilt": 1
+      }
+    }
+  },
+  "package": {
+    "zip_integrity": "passed",
+    "corrupt_member": null,
+    "slides": 2,
+    "notes": 2,
+    "masters": 1,
+    "layouts": 1
+  },
+  "checks": {
+    "zip_integrity": "passed",
+    "slide_count": "passed",
+    "internal_relationships": "enforced-at-build",
+    "structured_package": "not-applicable",
+    "transitions": "enforced-at-build",
+    "animations": "enforced-at-build",
+    "project_svg_contract": "enforced-at-build",
+    "compatibility_normalization": "not-applicable",
+    "authoring_roundtrip": "materialized-from-flat-authoring",
+    "quality_gate": "not-provided",
+    "quality_warnings": "passed",
+    "template_tokens": "passed",
+    "external_images": "passed",
+    "font_portability": "passed"
+  },
+  "quality": {
+    "status": "not-provided",
+    "path": "/runtime/upstream-native-validation-v6/native-workspace/validation/svg_quality_report.json"
+  },
+  "resources": {
+    "unresolved_template_tokens": [],
+    "fonts": {
+      "stacks": [
+        "\"Microsoft YaHei\", sans-serif"
+      ],
+      "generic_only_stacks": [],
+      "unsafe_exported_faces": []
+    },
+    "images": {
+      "data_uri": 0,
+      "local": 0,
+      "external": 0,
+      "external_references": []
+    }
+  },
+  "export_policy": {
+    "project_svg_contract": "strict",
+    "dangerous_normalization_count": 0
+  },
+  "deck_motion": {
+    "transition": {
+      "effect": null,
+      "effect_options": {},
+      "duration": 0.0,
+      "auto_advance": null,
+      "sound": null
+    },
+    "animation": {
+      "effect": "none",
+      "effect_request": null,
+      "duration": 0.4,
+      "stagger": 0.5,
+      "trigger": "after-previous"
+    },
+    "cli_overrides": {
+      "transition": false,
+      "transition_duration": false,
+      "auto_advance": false,
+      "transition_sound": false,
+      "animation": false,
+      "animation_duration": false,
+      "animation_stagger": false,
+      "animation_trigger": false
+    },
+    "narration_timings": false
+  },
+  "backup_path": null,
+  "conversion_trace_path": "/runtime/upstream-native-validation-v6/native-output-rkl1t2tb/conversion-trace.json"
+}

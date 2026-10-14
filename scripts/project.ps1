@@ -76,12 +76,14 @@ Push-Location $projectRoot
 try {
     switch ($Action) {
         'start' {
+            & (Join-Path $PSScriptRoot 'provision-runtime.ps1')
             & $dockerPath --context $dockerContext compose up -d --build workspace app
         }
         'stop' {
             & $dockerPath --context $dockerContext compose down
         }
         'restart' {
+            & (Join-Path $PSScriptRoot 'provision-runtime.ps1')
             & $dockerPath --context $dockerContext compose up -d --build --force-recreate workspace app
         }
         'status' {

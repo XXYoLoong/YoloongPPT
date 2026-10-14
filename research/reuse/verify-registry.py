@@ -27,7 +27,7 @@ def check(registry, fixtures, manifest):
     assert fixtures['requirement_id'] == 'RES-033'
     assert set(registry['methods']) == METHODS
     assert set(registry['projects']) == PROJECTS
-    assert set(m['project'] for m in registry['modules']) == PROJECTS
+    assert set(m['project'] for m in registry['modules']) == PROJECTS | {'Docling'}
     assert set(a['project'] for a in fixtures['assets']) == PROJECTS
     assert set(a['kind'] for a in fixtures['assets']) == {
         'PPTX', 'templates', 'screenshots', 'schemas', 'golden cases', 'QA cases'}
@@ -52,12 +52,19 @@ def check(registry, fixtures, manifest):
     assert len(modules) == len(registry['modules'])
     direct = []
     for module in modules.values():
+        if module['project']=='Docling':
+            assert module['id']=='R19' and module['method']=='直接复用' and module['version']=='2.138.0'
+            assert module['license_observed'] and module['obligations'] and module['limits']
+            for entry in module['source_manifests']:
+                assert sha(ROOT/entry['path'])==entry['sha256']
+            assert (ROOT/module['consumer']).is_file()
+            direct.append(module['id']);continue
         for field in ['module', 'source_files', 'license_files', 'license_observed',
                       'obligations', 'consumer', 'reason', 'limits', 'copy_permission',
                       'dependencies', 'implementation_state', 'unknown_rights']:
             assert module[field], (module['id'], field)
         assert module['method'] in METHODS
-        assert module['implementation_state'] == 'registry decision only; no source imported into product'
+        assert module['implementation_state'] in {'registry decision only; no source imported into product','product integration executed; full original acceptance remains separate'}
         for key in module['source_files'] + module['license_files']:
             assert key in sources and sources[key]['project'] == module['project']
         if module['project'] == 'P05':
@@ -66,6 +73,16 @@ def check(registry, fixtures, manifest):
             assert 'conflict' in module['license_observed'] or 'vs' in module['license_observed']
         if module['method'] == '直接复用':
             direct.append(module['id'])
+            imported=ROOT/module['source_manifest']
+            assert imported.is_file() and sha(imported)==module['source_manifest_sha256']
+            closure=json.loads(imported.read_text('utf-8'))
+            assert closure['commit']==registry['projects'][module['project']]['fixed_commit']
+            for entry in closure['files']:
+                target=ROOT/entry['target'] if 'target' in entry else imported.parent/entry['path']
+                assert target.resolve().is_relative_to(imported.parent.resolve())
+                assert sha(target)==entry.get('vendored_sha256',entry.get('sha256'))
+            assert (ROOT/module['consumer']).is_file()
+            if module['id'] not in {'R01','R02'}:continue
             assert module['project'] == 'P01' and len(module['source_files']) == 1
             assert set(module['license_files']) == {'P01:LICENSE', 'P01:skills/ppt-master/LICENSE'}
             for key in module['license_files']:
@@ -78,7 +95,7 @@ def check(registry, fixtures, manifest):
                                                   if isinstance(n, ast.ImportFrom) and n.module})
             assert imports == module['imports']
             assert all(i in sys.stdlib_module_names or i == '__future__' for i in imports)
-    assert sorted(direct) == ['R01', 'R02']
+    assert sorted(direct) == ['R01','R02','R04','R06','R07','R10','R19']
     for asset in fixtures['assets']:
         assert asset['source_file'] in sources
         assert sources[asset['source_file']]['project'] == asset['project']
@@ -127,8 +144,10 @@ def main():
     rejects('missing_license', lambda r, f, s: r['modules'][0].update(license_files=[]))
     rejects('unknown_source', lambda r, f, s: f['assets'][0].update(source_file='unknown'))
     rejects('source_hash_drift', lambda r, f, s: next(iter(s['source_files'].values())).update(sha256='0' * 64))
-    rejects('P05_direct_copy', lambda r, f, s: r['modules'][-1].update(method='直接复用'))
-    rejects('P05_conflict_hidden', lambda r, f, s: r['modules'][-1].update(license_observed='MIT'))
+    rejects('P05_direct_copy', lambda r, f, s: next(m for m in r['modules'] if m['project']=='P05').update(method='直接复用'))
+    rejects('P05_conflict_hidden', lambda r, f, s: next(m for m in r['modules'] if m['project']=='P05').update(license_observed='MIT'))
+    rejects('imported_manifest_changed',lambda r,f,s:r['modules'][0].update(source_manifest_sha256='0'*64))
+    rejects('docling_manifest_changed',lambda r,f,s:next(m for m in r['modules'] if m['id']=='R19')['source_manifests'][0].update(sha256='0'*64))
     rejects('icons_root_license_overclaim', lambda r, f, s: r['third_party_boundaries'][0].update(decision='licensed under root MIT; copied'))
     rejects('P03_execution_overclaim', lambda r, f, s: next(a for a in f['assets'] if a['project'] == 'P03').update(execution_status='executed passed'))
     rejects('project_fixture_missing', lambda r, f, s: f.update(assets=[a for a in f['assets'] if a['project'] != 'P04']))
@@ -143,7 +162,7 @@ def main():
         assert baseline['可执行任务'][f'A{task}'][1] == 'TASK-' + req
     report = {'requirement_ids': ['RES-032', 'RES-033'], 'task_ids': ['TASK-RES-032', 'TASK-RES-033'],
               'passed': True, 'cases': cases, 'observed': observed, 'explicit_gaps': original[1]['explicit_gaps'],
-              'boundary': 'Provenance and reuse registration only. No product source/assets imported, model calls, regeneration, full upstream test execution or AC acceptance.',
+              'boundary': 'Fixed research provenance and actual imported source/license manifests verified. Runtime component and product evidence in validation/upstream-integration-summary.json; no whole-system AC inferred.',
               'runtime_observation': 'Host stdlib used to inspect metadata, not product runtime selection.'}
     (HERE / 'validation.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps({'passed': True, 'cases': len(cases), **observed}, ensure_ascii=False))

@@ -1,0 +1,19 @@
+{
+  "mode": "bounded_evidence_batches_then_semantic_key_alignment",
+  "plan": "fact-batch-plan.json",
+  "batch_requests": [
+    "fact-batches/batch-0000-request.json",
+    "fact-batches/batch-0001-request.json"
+  ],
+  "alignment_request": "fact-batches/alignment-request.json",
+  "provider": {
+    "provider": "deepseek",
+    "model": "deepseek-flash",
+    "api_key_env": "DEEPSEEK_API_KEY",
+    "parameters": {
+      "temperature": 0.2,
+      "max_tokens": 12000,
+      "timeout_seconds": 180
+    }
+  }
+}

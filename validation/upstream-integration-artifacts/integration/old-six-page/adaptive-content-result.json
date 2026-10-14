@@ -1,0 +1,522 @@
+{
+  "version": "adaptive-content-1",
+  "status": "adapted",
+  "system_acceptance": "not_claimed",
+  "policy": {
+    "page_budget": {
+      "kind": "soft",
+      "target": 6,
+      "minimum": 1,
+      "maximum": 30,
+      "provenance": [
+        {
+          "constraint_id": "candidate_947302ce-4d55-409b-b9f9-de26159f333c",
+          "field": "page_count",
+          "value": 6,
+          "source": {
+            "kind": "user_instruction",
+            "reference": "runtime_preferences.page_count"
+          },
+          "disposition": "applied",
+          "applied_value": 6,
+          "handling_reason": "Selected by DEC-002 and within current execution subset."
+        },
+        {
+          "constraint_id": "candidate_8ef56af2-1801-4190-824b-e2844b727306",
+          "field": "page_count",
+          "value": 6,
+          "source": {
+            "kind": "user_instruction",
+            "reference": "raw_text:22:24"
+          },
+          "disposition": "applied",
+          "applied_value": 6,
+          "handling_reason": "Selected by DEC-002 and within current execution subset."
+        }
+      ]
+    },
+    "table_key_columns": {},
+    "assumption_markers": {}
+  },
+  "input_pages": 6,
+  "output_pages": 6,
+  "deviation": 0,
+  "page_mappings": [
+    {
+      "original_page": 0,
+      "original_title": "虚构校园节能试点介绍",
+      "original_body_sha256": "b493470cd3b50fc67f9ec592767619a2244e8b65dcc55c1cd1867290a52a0eed",
+      "original_notes_sha256": "aa88fa3120041a822e4ace8b5c5cacbd07f8d84e70f19ba6fb91d35d836a6c33",
+      "evidence_refs": [
+        "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+      ],
+      "assumption_refs": [],
+      "outputs": [
+        {
+          "output_page": 0,
+          "kind": "text",
+          "body_segments": [
+            {
+              "body_item": 0,
+              "start": 0,
+              "end": 20,
+              "text": "制作中文PPT介绍一个虚构校园节能试点。"
+            },
+            {
+              "body_item": 1,
+              "start": 0,
+              "end": 17,
+              "text": "全部内容注明软件验证、非真实业务。"
+            },
+            {
+              "body_item": 2,
+              "start": 0,
+              "end": 24,
+              "text": "偏好6页；允许在可读容量不足时按默认软预算分页。"
+            }
+          ],
+          "repeated_visible_markers": [],
+          "visible_unit_label": null,
+          "visible_pagination_notice": null,
+          "table_coordinates": null,
+          "notes_unchanged": true,
+          "title_unchanged": true
+        }
+      ],
+      "geometry": {
+        "title_bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "body_bounds": [
+          0.72,
+          2.0100000000000002,
+          11.85,
+          4.35
+        ],
+        "body_size": 24,
+        "body_spacing": 15,
+        "data_bounds": null,
+        "table_size": 16,
+        "minimum_size": 16,
+        "measurement": "adaptive-layout-1"
+      },
+      "original_table_sha256": null,
+      "table_pagination": {
+        "is_paginated": false,
+        "tile_count": 0,
+        "notice": null,
+        "source_kind": "execution_metadata",
+        "business_fact": false
+      },
+      "original_visual_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "visual_object_policy": "original visual declaration preserved once; visible text continuation carries no visual declaration",
+      "gallery_capacity_policy": null
+    },
+    {
+      "original_page": 1,
+      "original_title": "试点介绍与展示方式",
+      "original_body_sha256": "c7130a7beaf5cb33d8edb186951852b4a2a6e53b5c9cd0bede768d0139ad4d90",
+      "original_notes_sha256": "40e0998d8613d550a8d65ba2467061ce33a4fa89bde1143de780853872832f76",
+      "evidence_refs": [
+        "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+      ],
+      "assumption_refs": [],
+      "outputs": [
+        {
+          "output_page": 1,
+          "kind": "text",
+          "body_segments": [
+            {
+              "body_item": 0,
+              "start": 0,
+              "end": 7,
+              "text": "介绍虚构试点。"
+            },
+            {
+              "body_item": 1,
+              "start": 0,
+              "end": 10,
+              "text": "用原生表格列出数据。"
+            },
+            {
+              "body_item": 2,
+              "start": 0,
+              "end": 14,
+              "text": "用原生柱状图展示同一组数据。"
+            },
+            {
+              "body_item": 3,
+              "start": 0,
+              "end": 9,
+              "text": "再总结并保留来源。"
+            },
+            {
+              "body_item": 4,
+              "start": 0,
+              "end": 28,
+              "text": "不要推算比例、合计或新统计，不加入图片和原文没有的因果。"
+            }
+          ],
+          "repeated_visible_markers": [],
+          "visible_unit_label": null,
+          "visible_pagination_notice": null,
+          "table_coordinates": null,
+          "notes_unchanged": true,
+          "title_unchanged": true
+        }
+      ],
+      "geometry": {
+        "title_bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "body_bounds": [
+          0.72,
+          2.0100000000000002,
+          11.85,
+          4.35
+        ],
+        "body_size": 24,
+        "body_spacing": 15,
+        "data_bounds": null,
+        "table_size": 16,
+        "minimum_size": 16,
+        "measurement": "adaptive-layout-1"
+      },
+      "original_table_sha256": null,
+      "table_pagination": {
+        "is_paginated": false,
+        "tile_count": 0,
+        "notice": null,
+        "source_kind": "execution_metadata",
+        "business_fact": false
+      },
+      "original_visual_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "visual_object_policy": "original visual declaration preserved once; visible text continuation carries no visual declaration",
+      "gallery_capacity_policy": null
+    },
+    {
+      "original_page": 2,
+      "original_title": "虚构试点数据（原生表格）",
+      "original_body_sha256": "b39d327ac31bf0a8f8d62efe4753cf74f0c181a40b1a9d4c2e754acaa72fc68a",
+      "original_notes_sha256": "da302530a5e58dc5ae6a9442fdd8c44f2336396e2bc0a24706e050cf75ed12b3",
+      "evidence_refs": [
+        "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+      ],
+      "assumption_refs": [],
+      "outputs": [
+        {
+          "output_page": 2,
+          "kind": "table",
+          "body_segments": [
+            {
+              "body_item": 0,
+              "start": 0,
+              "end": 26,
+              "text": "以下为虚构试点数据，全部内容为软件验证、非真实业务。"
+            },
+            {
+              "body_item": 1,
+              "start": 0,
+              "end": 7,
+              "text": "单位：千瓦时。"
+            }
+          ],
+          "repeated_visible_markers": [],
+          "visible_unit_label": {
+            "text": "千瓦时",
+            "source": "table.units",
+            "added_to_body": false
+          },
+          "visible_pagination_notice": null,
+          "table_coordinates": {
+            "columns": [
+              0,
+              1,
+              2
+            ],
+            "rows": [
+              0,
+              1,
+              2
+            ],
+            "repeated_key_columns": []
+          },
+          "notes_unchanged": true,
+          "title_unchanged": true
+        }
+      ],
+      "geometry": {
+        "title_bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "body_bounds": [
+          0.7,
+          2.0100000000000002,
+          3.25,
+          4.529999999999999
+        ],
+        "body_size": 21,
+        "body_spacing": 16,
+        "data_bounds": [
+          4.32,
+          2.0100000000000002,
+          8.28,
+          4.529999999999999
+        ],
+        "table_size": 16,
+        "minimum_size": 16,
+        "measurement": "adaptive-layout-1"
+      },
+      "original_table_sha256": "1fc89c629449d46bd7253ab2085a27d9817583061dce9decf61df55a085c7206",
+      "table_pagination": {
+        "is_paginated": false,
+        "tile_count": 1,
+        "notice": null,
+        "source_kind": "execution_metadata",
+        "business_fact": false
+      },
+      "original_visual_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "visual_object_policy": "original visual declaration preserved once; visible text continuation carries no visual declaration",
+      "gallery_capacity_policy": null
+    },
+    {
+      "original_page": 3,
+      "original_title": "虚构试点数据（原生柱状图）",
+      "original_body_sha256": "b39d327ac31bf0a8f8d62efe4753cf74f0c181a40b1a9d4c2e754acaa72fc68a",
+      "original_notes_sha256": "2857e3606b6fc9d69047f5aea87ce63cfe998fafc887497a03263b20c87160cf",
+      "evidence_refs": [
+        "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+      ],
+      "assumption_refs": [],
+      "outputs": [
+        {
+          "output_page": 3,
+          "kind": "chart",
+          "body_segments": [
+            {
+              "body_item": 0,
+              "start": 0,
+              "end": 26,
+              "text": "以下为虚构试点数据，全部内容为软件验证、非真实业务。"
+            },
+            {
+              "body_item": 1,
+              "start": 0,
+              "end": 7,
+              "text": "单位：千瓦时。"
+            }
+          ],
+          "repeated_visible_markers": [],
+          "visible_unit_label": null,
+          "visible_pagination_notice": null,
+          "table_coordinates": null,
+          "notes_unchanged": true,
+          "title_unchanged": true
+        }
+      ],
+      "geometry": {
+        "title_bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "body_bounds": [
+          0.7,
+          2.0100000000000002,
+          3.25,
+          4.529999999999999
+        ],
+        "body_size": 21,
+        "body_spacing": 16,
+        "data_bounds": [
+          4.32,
+          2.0100000000000002,
+          8.28,
+          4.529999999999999
+        ],
+        "table_size": 16,
+        "minimum_size": 16,
+        "measurement": "adaptive-layout-1"
+      },
+      "original_table_sha256": null,
+      "table_pagination": {
+        "is_paginated": false,
+        "tile_count": 0,
+        "notice": null,
+        "source_kind": "execution_metadata",
+        "business_fact": false
+      },
+      "original_visual_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "visual_object_policy": "original visual declaration preserved once; visible text continuation carries no visual declaration",
+      "gallery_capacity_policy": null
+    },
+    {
+      "original_page": 4,
+      "original_title": "总结",
+      "original_body_sha256": "70a01255c218b438160d1a1a46727b75ace94ca79b3590b9a94b1d1e780b1741",
+      "original_notes_sha256": "e5543b93b47ea37846d71caed8c58a436ef5bb7600724840bf52678de9ecd2b1",
+      "evidence_refs": [
+        "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+      ],
+      "assumption_refs": [],
+      "outputs": [
+        {
+          "output_page": 4,
+          "kind": "text",
+          "body_segments": [
+            {
+              "body_item": 0,
+              "start": 0,
+              "end": 16,
+              "text": "本演示介绍一个虚构校园节能试点。"
+            },
+            {
+              "body_item": 1,
+              "start": 0,
+              "end": 24,
+              "text": "用原生表格列出数据，用原生柱状图展示同一组数据。"
+            },
+            {
+              "body_item": 2,
+              "start": 0,
+              "end": 17,
+              "text": "全部内容注明软件验证、非真实业务。"
+            },
+            {
+              "body_item": 3,
+              "start": 0,
+              "end": 28,
+              "text": "不要推算比例、合计或新统计，不加入图片和原文没有的因果。"
+            }
+          ],
+          "repeated_visible_markers": [],
+          "visible_unit_label": null,
+          "visible_pagination_notice": null,
+          "table_coordinates": null,
+          "notes_unchanged": true,
+          "title_unchanged": true
+        }
+      ],
+      "geometry": {
+        "title_bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "body_bounds": [
+          0.72,
+          2.0100000000000002,
+          11.85,
+          4.35
+        ],
+        "body_size": 24,
+        "body_spacing": 15,
+        "data_bounds": null,
+        "table_size": 16,
+        "minimum_size": 16,
+        "measurement": "adaptive-layout-1"
+      },
+      "original_table_sha256": null,
+      "table_pagination": {
+        "is_paginated": false,
+        "tile_count": 0,
+        "notice": null,
+        "source_kind": "execution_metadata",
+        "business_fact": false
+      },
+      "original_visual_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "visual_object_policy": "original visual declaration preserved once; visible text continuation carries no visual declaration",
+      "gallery_capacity_policy": null
+    },
+    {
+      "original_page": 5,
+      "original_title": "来源",
+      "original_body_sha256": "f6d22b0531d3102f52f8dc9714dbee0c29aa9c1b6e4280d68a5d4b37a6c39219",
+      "original_notes_sha256": "293edac2e82fe341d7353edb5f7b2bdfc5b2410cf125e3992b68b59f9e45c56b",
+      "evidence_refs": [
+        "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+      ],
+      "assumption_refs": [],
+      "outputs": [
+        {
+          "output_page": 5,
+          "kind": "text",
+          "body_segments": [
+            {
+              "body_item": 0,
+              "start": 0,
+              "end": 187,
+              "text": "来源：制作中文PPT介绍一个虚构校园节能试点；偏好6页；允许在可读容量不足时按默认软预算分页；全部内容注明软件验证、非真实业务；介绍虚构试点，用原生表格列出数据，用原生柱状图展示同一组数据，再总结并保留来源；A楼基线100千瓦时、本期90千瓦时；B楼基线80千瓦时、本期72千瓦时；C楼基线60千瓦时、本期54千瓦时；不要推算比例、合计或新统计，不加入图片和原文没有的因果。"
+            }
+          ],
+          "repeated_visible_markers": [],
+          "visible_unit_label": null,
+          "visible_pagination_notice": null,
+          "table_coordinates": null,
+          "notes_unchanged": true,
+          "title_unchanged": true
+        }
+      ],
+      "geometry": {
+        "title_bounds": [
+          0.7,
+          0.6,
+          11.95,
+          1.25
+        ],
+        "body_bounds": [
+          0.72,
+          2.0100000000000002,
+          11.85,
+          4.35
+        ],
+        "body_size": 24,
+        "body_spacing": 15,
+        "data_bounds": null,
+        "table_size": 16,
+        "minimum_size": 16,
+        "measurement": "adaptive-layout-1"
+      },
+      "original_table_sha256": null,
+      "table_pagination": {
+        "is_paginated": false,
+        "tile_count": 0,
+        "notice": null,
+        "source_kind": "execution_metadata",
+        "business_fact": false
+      },
+      "original_visual_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a",
+      "visual_object_policy": "original visual declaration preserved once; visible text continuation carries no visual declaration",
+      "gallery_capacity_policy": null
+    }
+  ],
+  "input_sha256": "e635c3bc23214fef1e2f8d0d6781565f93bed84d96c2054bb348968c04e34e0c",
+  "output_sha256": "e635c3bc23214fef1e2f8d0d6781565f93bed84d96c2054bb348968c04e34e0c",
+  "execution_metadata_labels": [],
+  "conservation": {
+    "all_body_characters": true,
+    "all_table_cells": true,
+    "titles": true,
+    "notes_unchanged": true,
+    "evidence_refs": true,
+    "assumption_refs": true
+  },
+  "fallback": "structured_failure_without_truncation",
+  "remaining_limits": [
+    "explicit sentence boundaries only; no semantic paraphrase or compression",
+    "content pagination uses declared default Noto native grammar; selected typography is remeasured before writing",
+    "locked template slot adaptation requires a declared geometry contract",
+    "physical render and independent fact review remain required"
+  ]
+}

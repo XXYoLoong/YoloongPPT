@@ -1,0 +1,227 @@
+{
+  "trace_id": "trace_d1c23cf6-5e8f-4f4e-b544-3fad22aefbc2",
+  "node_id": "DEC-012",
+  "input": {
+    "storyline": {
+      "pattern": "linear",
+      "rationale": "stable source-order presentation default",
+      "evidence_refs": [
+        "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+      ]
+    },
+    "titles": [
+      "虚构校园节能试点介绍",
+      "试点介绍与展示方式",
+      "虚构试点数据（原生表格）",
+      "虚构试点数据（原生柱状图）",
+      "总结",
+      "来源"
+    ]
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-012",
+      "candidate_id": "candidate_c5e5065c-ff19-482e-aafb-0fd1483f0924",
+      "value": {
+        "sections": [
+          {
+            "section_id": "section_fec5f1986d34893b4745",
+            "order": 0,
+            "title": "虚构校园节能试点介绍",
+            "parent_section_id": null,
+            "transition": "open",
+            "page_indices": [
+              0
+            ],
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ]
+          },
+          {
+            "section_id": "section_b995fbb5b271d01b2b70",
+            "order": 1,
+            "title": "试点介绍与展示方式",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              1
+            ],
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ]
+          },
+          {
+            "section_id": "section_c608ba9cb961f5b7fd73",
+            "order": 2,
+            "title": "虚构试点数据（原生表格）",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              2
+            ],
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ]
+          },
+          {
+            "section_id": "section_8fd46a1df6d4bd45ba8b",
+            "order": 3,
+            "title": "虚构试点数据（原生柱状图）",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              3
+            ],
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ]
+          },
+          {
+            "section_id": "section_a7a111e918fab54ebe95",
+            "order": 4,
+            "title": "总结",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              4
+            ],
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ]
+          },
+          {
+            "section_id": "section_121efd14755d739e5a76",
+            "order": 5,
+            "title": "来源",
+            "parent_section_id": null,
+            "transition": "continue",
+            "page_indices": [
+              5
+            ],
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ]
+          }
+        ],
+        "ordering": "linear",
+        "ordering_origin": "model consumes selected narrative_context; literal model page order retained",
+        "subsections_status": "not_requested"
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_c5e5065c-ff19-482e-aafb-0fd1483f0924"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure"
+  },
+  "output": {
+    "sections": [
+      {
+        "section_id": "section_fec5f1986d34893b4745",
+        "order": 0,
+        "title": "虚构校园节能试点介绍",
+        "parent_section_id": null,
+        "transition": "open",
+        "page_indices": [
+          0
+        ],
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ]
+      },
+      {
+        "section_id": "section_b995fbb5b271d01b2b70",
+        "order": 1,
+        "title": "试点介绍与展示方式",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          1
+        ],
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ]
+      },
+      {
+        "section_id": "section_c608ba9cb961f5b7fd73",
+        "order": 2,
+        "title": "虚构试点数据（原生表格）",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          2
+        ],
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ]
+      },
+      {
+        "section_id": "section_8fd46a1df6d4bd45ba8b",
+        "order": 3,
+        "title": "虚构试点数据（原生柱状图）",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          3
+        ],
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ]
+      },
+      {
+        "section_id": "section_a7a111e918fab54ebe95",
+        "order": 4,
+        "title": "总结",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          4
+        ],
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ]
+      },
+      {
+        "section_id": "section_121efd14755d739e5a76",
+        "order": 5,
+        "title": "来源",
+        "parent_section_id": null,
+        "transition": "continue",
+        "page_indices": [
+          5
+        ],
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ]
+      }
+    ],
+    "ordering": "linear",
+    "ordering_origin": "model consumes selected narrative_context; literal model page order retained",
+    "subsections_status": "not_requested"
+  },
+  "duration": 0.0,
+  "error": null
+}

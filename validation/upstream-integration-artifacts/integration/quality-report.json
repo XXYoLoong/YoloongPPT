@@ -1,0 +1,275 @@
+{
+  "qa_id": "artifact_2688e4c4-7a85-45a9-8d67-87974c74f76f",
+  "status": "partial",
+  "issues": [
+    {
+      "issue_id": "issue_c970c732-169f-4fac-b1f7-38c3d2d1adf7",
+      "code": "TASK_INSTRUCTION_LEAK",
+      "slide_id": "slide_04e115ef-ad83-444c-b385-7256a2734f3f",
+      "object_id": "object_a1513785-9914-489a-aab5-8d360f7435a6",
+      "severity": "P1",
+      "detail": "A page-count task control was copied into audience-facing body text.",
+      "requirement_id": "QA-013",
+      "measurement": {
+        "text": "偏好6页；允许在可读容量不足时按默认软预算分页。",
+        "normalized_page_preference": 6,
+        "prompt_span": "偏好6页",
+        "target_candidates": [
+          "object_a1513785-9914-489a-aab5-8d360f7435a6"
+        ]
+      },
+      "threshold": {
+        "task_controls_in_audience_body": 0
+      },
+      "action": {
+        "node": "content",
+        "mode": "fail",
+        "reason": "Requires explicit scoped text revision preserving all selected business facts."
+      }
+    }
+  ],
+  "checks": [
+    {
+      "kind": "structure",
+      "check": "OOXML ZIP CRC and XML parsing",
+      "status": "executed"
+    },
+    {
+      "kind": "structure",
+      "check": "Content_Types declarations and all internal relationship targets/IDs",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_04e115ef-ad83-444c-b385-7256a2734f3f",
+      "kind": "global_consistency",
+      "check": "native/background/design_variation",
+      "status": "executed",
+      "explicit_variation": true,
+      "actual_background": "192C32",
+      "spec_background": "192C32",
+      "deck_background": "F6F4EE",
+      "selected_layout": "cover",
+      "selected_candidate_ids": [
+        "candidate_4a9d1db1-a81b-4d5c-a094-bf7a39f83c67"
+      ]
+    },
+    {
+      "slide_id": "slide_04e115ef-ad83-444c-b385-7256a2734f3f",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_30945ebb-0026-479e-8a28-8c52f8d069aa",
+      "kind": "global_consistency",
+      "check": "native/background/design_variation",
+      "status": "executed",
+      "explicit_variation": false,
+      "actual_background": "F6F4EE",
+      "spec_background": "F6F4EE",
+      "deck_background": "F6F4EE",
+      "selected_layout": "columns",
+      "selected_candidate_ids": [
+        "candidate_d9a34d4e-bf6c-482c-86ad-e7c91a3d50f1"
+      ]
+    },
+    {
+      "slide_id": "slide_30945ebb-0026-479e-8a28-8c52f8d069aa",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_b1af26ba-1f76-4a6b-9a7c-2c02a9b7b764",
+      "kind": "global_consistency",
+      "check": "native/background/design_variation",
+      "status": "executed",
+      "explicit_variation": false,
+      "actual_background": "F6F4EE",
+      "spec_background": "F6F4EE",
+      "deck_background": "F6F4EE",
+      "selected_layout": "table",
+      "selected_candidate_ids": [
+        "candidate_80d2ddec-85a3-408e-925e-ce1dfb49dadd"
+      ]
+    },
+    {
+      "slide_id": "slide_b1af26ba-1f76-4a6b-9a7c-2c02a9b7b764",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_4f6f5917-ba5e-44f0-b2f7-2894676b40fc",
+      "kind": "global_consistency",
+      "check": "native/background/design_variation",
+      "status": "executed",
+      "explicit_variation": false,
+      "actual_background": "F6F4EE",
+      "spec_background": "F6F4EE",
+      "deck_background": "F6F4EE",
+      "selected_layout": "chart",
+      "selected_candidate_ids": [
+        "candidate_f34e5ee3-bd7e-464d-8964-234e1f9f6c83"
+      ]
+    },
+    {
+      "slide_id": "slide_4f6f5917-ba5e-44f0-b2f7-2894676b40fc",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_dc7afdbd-d2a8-4ee1-b3dc-7784125c97ce",
+      "kind": "global_consistency",
+      "check": "native/background/design_variation",
+      "status": "executed",
+      "explicit_variation": false,
+      "actual_background": "F6F4EE",
+      "spec_background": "F6F4EE",
+      "deck_background": "F6F4EE",
+      "selected_layout": "cards",
+      "selected_candidate_ids": [
+        "candidate_0adf5e49-b158-4e56-ba84-cb56640cb2c4"
+      ]
+    },
+    {
+      "slide_id": "slide_dc7afdbd-d2a8-4ee1-b3dc-7784125c97ce",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_966a6508-352d-4fab-bf82-6b072d0eec8e",
+      "kind": "global_consistency",
+      "check": "native/background/design_variation",
+      "status": "executed",
+      "explicit_variation": false,
+      "actual_background": "F6F4EE",
+      "spec_background": "F6F4EE",
+      "deck_background": "F6F4EE",
+      "selected_layout": "editorial",
+      "selected_candidate_ids": [
+        "candidate_2563d995-cd8e-4390-b912-f0300afe3141"
+      ]
+    },
+    {
+      "slide_id": "slide_966a6508-352d-4fab-bf82-6b072d0eec8e",
+      "kind": "empty_object/geometry/collision/font/hierarchy/contrast/image/native_editability/table_headers/native_reading_order/deck_style",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_04e115ef-ad83-444c-b385-7256a2734f3f",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_30945ebb-0026-479e-8a28-8c52f8d069aa",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_b1af26ba-1f76-4a6b-9a7c-2c02a9b7b764",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_4f6f5917-ba5e-44f0-b2f7-2894676b40fc",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_dc7afdbd-d2a8-4ee1-b3dc-7784125c97ce",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "slide_id": "slide_966a6508-352d-4fab-bf82-6b072d0eec8e",
+      "kind": "structure/editability/geometry/selected_source_numeric/visible_assumption/render_text",
+      "status": "executed"
+    },
+    {
+      "kind": "upstream_quality",
+      "check": "PPTAgent render_current: saved PNG bytes match declared hashes",
+      "status": "executed",
+      "passed": true,
+      "pptx_sha256": "2ddd6b975e161bc858a0aeb50d29d9e0fbb6d4f76d17f8970e945d61aca97ee2",
+      "images": {
+        "render/slide-1.png": "5e9ddebb825e36f9e51300bd6125079f12bfbe169f6c85b622c94bede9bc565d",
+        "render/slide-2.png": "a963b7623d161f0e8df1717ab78036f2336a7dbfcdd3536357a7b653e79ea943",
+        "render/slide-3.png": "2934489d87fd9a6b46b66bd67c2fbdd3c8ee1e23d96ab0b47cc1c078aa07d8f1",
+        "render/slide-4.png": "69f66c49c7f89aac6939358b15446d7079578002662265ce238ac7fe54220ce2",
+        "render/slide-5.png": "896579027e3a069e8749a9da3dd59efc1b28a25025dbd9de0085c0dbbe2e4c69",
+        "render/slide-6.png": "af5864618a11a96b0bb333b19201afd1896da6bd099562a51ff04b3144fcce06"
+      }
+    },
+    {
+      "kind": "semantic",
+      "check": "Task-bound page-control leakage into visible body",
+      "status": "executed",
+      "issues": 1,
+      "scope": "literal page preference matching actual TaskContext; full semantic relevance requires independent model review"
+    },
+    {
+      "kind": "upstream_quality",
+      "check": "PPTAgent validate_review executed against mapped saved independent response",
+      "status": "executed",
+      "result": {
+        "verdict": "pass",
+        "summary": "已逐页检查6页（0-5）。事实层面：表格页与柱状图页的A/B/C楼基线100/80/60千瓦时、本期90/72/54千瓦时与证据完全一致，单位“千瓦时”可见，未出现推算比例、合计或新统计，也未加入图片或原文没有的因果；来源页完整保留来源信息。视觉层面：各页标题、正文、表格、图表均无裁切、重叠或不可读问题，页码01/06-06/06连续正确。仅存在少量排版/语义优化点（封面含制作指令式元信息、表格行高偏大、柱状图纵轴上限偏高），均不影响理解，无P0/P1问题。限制：本审查基于提供的渲染页面与文本证据，未对PowerPoint兼容性或可编辑性作结论。",
+        "issues": [
+          {
+            "severity": "minor",
+            "slide": 1,
+            "description": "封面页正文直接呈现“制作中文PPT介绍一个虚构校园节能试点”“偏好6页；允许在可读容量不足时按默认软预算分页”等制作指令/元信息，而非面向受众的演示内容，作为封面略显生硬，但不构成事实错误。",
+            "suggested_fix": "Fail pending an explicit scoped RevisionAction; retain original issue and evidence."
+          },
+          {
+            "severity": "minor",
+            "slide": 3,
+            "description": "表格行高较大、单元格留白偏多，A/B/C三行数据在视觉上被拉得很开，可读性尚可但排版略显松散。",
+            "suggested_fix": "Fail pending an explicit scoped RevisionAction; retain original issue and evidence."
+          },
+          {
+            "severity": "minor",
+            "slide": 4,
+            "description": "柱状图纵轴刻度到120，而数据最大值为100，顶部留白略多；图表本身清晰可读，无裁切或重叠。",
+            "suggested_fix": "Fail pending an explicit scoped RevisionAction; retain original issue and evidence."
+          }
+        ],
+        "ok": true
+      }
+    },
+    {
+      "kind": "PPT Master OPC delivery audit",
+      "status": "executed",
+      "upstream": {
+        "project": "PPT Master",
+        "repository": "https://github.com/hugohe3/ppt-master",
+        "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+        "license": "MIT",
+        "third_party_data": [
+          "Apache POI Apache-2.0",
+          "Open XML SDK MIT"
+        ],
+        "manifest_sha256": "9ba57f25bb8bda094c7c99b543fe64b32d49587447392acb870a9e11bc19eda8"
+      },
+      "result": "passed-with-advisories"
+    }
+  ],
+  "p0_issue_count": 0,
+  "coverage": {
+    "structure": "partial",
+    "editability": "partial",
+    "geometry": "partial",
+    "fact_numeric": "partial",
+    "visual_semantic": "not_executed",
+    "fact_semantic": "not_executed",
+    "accessibility": "partial_native_alt_font_contrast_table_header_reading_order",
+    "powerpoint_compatibility": "not_executed",
+    "global_consistency": "partial_style_font_footer_hierarchy",
+    "visual_geometry": "partial_collision_geometry_contrast_image_dpi",
+    "image_semantics": "not_executed",
+    "full_semantic_reading_order": "not_executed"
+  },
+  "acceptance": {
+    "AC-001": "not_passed",
+    "GOV-008": "not_passed"
+  },
+  "reason": "Numeric membership is not semantic truth; PNG/text presence is not visual approval. Full DEC/QA/revision acceptance remains required."
+}

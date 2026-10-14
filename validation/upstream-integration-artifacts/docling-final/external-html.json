@@ -1,0 +1,359 @@
+{
+  "status": "partial",
+  "document": {
+    "format": "html",
+    "docling": {
+      "schema_name": "DoclingDocument",
+      "version": "1.10.0",
+      "name": "source",
+      "origin": {
+        "mimetype": "text/html",
+        "binary_hash": 2121503238421817543,
+        "filename": "source.html"
+      },
+      "furniture": {
+        "self_ref": "#/furniture",
+        "children": [],
+        "content_layer": "furniture",
+        "name": "_root_",
+        "label": "unspecified"
+      },
+      "body": {
+        "self_ref": "#/body",
+        "children": [
+          {
+            "$ref": "#/texts/0"
+          }
+        ],
+        "content_layer": "body",
+        "name": "_root_",
+        "label": "unspecified"
+      },
+      "groups": [],
+      "texts": [
+        {
+          "self_ref": "#/texts/0",
+          "parent": {
+            "$ref": "#/body"
+          },
+          "children": [
+            {
+              "$ref": "#/texts/1"
+            },
+            {
+              "$ref": "#/pictures/0"
+            },
+            {
+              "$ref": "#/pictures/1"
+            }
+          ],
+          "content_layer": "body",
+          "label": "title",
+          "prov": [],
+          "orig": "Local evidence",
+          "text": "Local evidence"
+        },
+        {
+          "self_ref": "#/texts/1",
+          "parent": {
+            "$ref": "#/texts/0"
+          },
+          "children": [],
+          "content_layer": "body",
+          "label": "text",
+          "prov": [],
+          "orig": "Energy 100 kWh.",
+          "text": "Energy 100 kWh."
+        }
+      ],
+      "pictures": [
+        {
+          "self_ref": "#/pictures/0",
+          "parent": {
+            "$ref": "#/texts/0"
+          },
+          "children": [],
+          "content_layer": "body",
+          "label": "picture",
+          "prov": [],
+          "captions": [],
+          "references": [],
+          "footnotes": [],
+          "annotations": []
+        },
+        {
+          "self_ref": "#/pictures/1",
+          "parent": {
+            "$ref": "#/texts/0"
+          },
+          "children": [],
+          "content_layer": "body",
+          "label": "picture",
+          "prov": [],
+          "captions": [],
+          "references": [],
+          "footnotes": [],
+          "annotations": []
+        }
+      ],
+      "tables": [],
+      "key_value_items": [],
+      "form_items": [],
+      "pages": {}
+    },
+    "docling_pages": [],
+    "docling_conversion": {
+      "version": "2.138.0",
+      "status": "success",
+      "local_only": true,
+      "source_sha256": "7c35d7eac6dfbfc5f3011ec3e8189e7bd6acbe3cb00d7bd21d7117f483f928c7",
+      "remote_resource_fetch": false,
+      "errors": [],
+      "unavailable_score_serialization": "Docling NaN aggregate scores are JSON null; no inferred confidence.",
+      "confidence": {
+        "parse_score": null,
+        "layout_score": null,
+        "table_score": null,
+        "ocr_score": null,
+        "pages": {},
+        "mean_grade": "unspecified",
+        "low_grade": "unspecified",
+        "mean_score": null,
+        "low_score": null
+      }
+    }
+  },
+  "segments": [
+    {
+      "raw_text": "Local evidence",
+      "anchor": {
+        "source_id": "source_e8769dc3-092a-4ecc-84fe-afaac4ac14ac",
+        "asset_id": "asset_fa61ae80-f449-4b41-bfa1-ce486e785090",
+        "native_locator": "docling:#/texts/0",
+        "locator": {
+          "kind": "structured_node",
+          "format": "json",
+          "node_id": "#/texts/0",
+          "document_path": "#/texts/0",
+          "line": null,
+          "column": null,
+          "end_line": null,
+          "end_column": null,
+          "byte_offset": null
+        },
+        "locator_status": "partial",
+        "reason": {
+          "code": "native_locator_not_normalized",
+          "summary": "Docling结构引用已保存；该格式无已测量物理页/原生坐标。"
+        }
+      },
+      "data": {
+        "self_ref": "#/texts/0",
+        "parent": {
+          "$ref": "#/body"
+        },
+        "children": [
+          {
+            "$ref": "#/texts/1"
+          },
+          {
+            "$ref": "#/pictures/0"
+          },
+          {
+            "$ref": "#/pictures/1"
+          }
+        ],
+        "content_layer": "body",
+        "label": "title",
+        "prov": [],
+        "orig": "Local evidence",
+        "text": "Local evidence",
+        "kind": "text",
+        "docling_label": "title",
+        "selected_provenance": null,
+        "candidate_status": "not_semantic_truth"
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构、布局与OCR置信度不证明来源事实真实性。",
+        "source_context": {
+          "parser": "Docling",
+          "self_ref": "#/texts/0",
+          "provenance": [],
+          "label": "title",
+          "candidate_status": "not_semantic_truth",
+          "source_kind": "html"
+        }
+      }
+    },
+    {
+      "raw_text": "Energy 100 kWh.",
+      "anchor": {
+        "source_id": "source_e8769dc3-092a-4ecc-84fe-afaac4ac14ac",
+        "asset_id": "asset_fa61ae80-f449-4b41-bfa1-ce486e785090",
+        "native_locator": "docling:#/texts/1",
+        "locator": {
+          "kind": "structured_node",
+          "format": "json",
+          "node_id": "#/texts/1",
+          "document_path": "#/texts/1",
+          "line": null,
+          "column": null,
+          "end_line": null,
+          "end_column": null,
+          "byte_offset": null
+        },
+        "locator_status": "partial",
+        "reason": {
+          "code": "native_locator_not_normalized",
+          "summary": "Docling结构引用已保存；该格式无已测量物理页/原生坐标。"
+        }
+      },
+      "data": {
+        "self_ref": "#/texts/1",
+        "parent": {
+          "$ref": "#/texts/0"
+        },
+        "children": [],
+        "content_layer": "body",
+        "label": "text",
+        "prov": [],
+        "orig": "Energy 100 kWh.",
+        "text": "Energy 100 kWh.",
+        "kind": "text",
+        "docling_label": "text",
+        "selected_provenance": null,
+        "candidate_status": "not_semantic_truth"
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构、布局与OCR置信度不证明来源事实真实性。",
+        "source_context": {
+          "parser": "Docling",
+          "self_ref": "#/texts/1",
+          "provenance": [],
+          "label": "text",
+          "candidate_status": "not_semantic_truth",
+          "source_kind": "html"
+        }
+      }
+    },
+    {
+      "raw_text": "",
+      "anchor": {
+        "source_id": "source_e8769dc3-092a-4ecc-84fe-afaac4ac14ac",
+        "asset_id": "asset_fa61ae80-f449-4b41-bfa1-ce486e785090",
+        "native_locator": "docling:#/pictures/0",
+        "locator": {
+          "kind": "structured_node",
+          "format": "json",
+          "node_id": "#/pictures/0",
+          "document_path": "#/pictures/0",
+          "line": null,
+          "column": null,
+          "end_line": null,
+          "end_column": null,
+          "byte_offset": null
+        },
+        "locator_status": "partial",
+        "reason": {
+          "code": "native_locator_not_normalized",
+          "summary": "Docling结构引用已保存；该格式无已测量物理页/原生坐标。"
+        }
+      },
+      "data": {
+        "self_ref": "#/pictures/0",
+        "parent": {
+          "$ref": "#/texts/0"
+        },
+        "children": [],
+        "content_layer": "body",
+        "label": "picture",
+        "prov": [],
+        "captions": [],
+        "references": [],
+        "footnotes": [],
+        "annotations": [],
+        "kind": "image",
+        "docling_label": "picture",
+        "selected_provenance": null,
+        "candidate_status": "not_semantic_truth"
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构、布局与OCR置信度不证明来源事实真实性。",
+        "source_context": {
+          "parser": "Docling",
+          "self_ref": "#/pictures/0",
+          "provenance": [],
+          "label": "picture",
+          "candidate_status": "not_semantic_truth",
+          "source_kind": "html"
+        }
+      }
+    },
+    {
+      "raw_text": "",
+      "anchor": {
+        "source_id": "source_e8769dc3-092a-4ecc-84fe-afaac4ac14ac",
+        "asset_id": "asset_fa61ae80-f449-4b41-bfa1-ce486e785090",
+        "native_locator": "docling:#/pictures/1",
+        "locator": {
+          "kind": "structured_node",
+          "format": "json",
+          "node_id": "#/pictures/1",
+          "document_path": "#/pictures/1",
+          "line": null,
+          "column": null,
+          "end_line": null,
+          "end_column": null,
+          "byte_offset": null
+        },
+        "locator_status": "partial",
+        "reason": {
+          "code": "native_locator_not_normalized",
+          "summary": "Docling结构引用已保存；该格式无已测量物理页/原生坐标。"
+        }
+      },
+      "data": {
+        "self_ref": "#/pictures/1",
+        "parent": {
+          "$ref": "#/texts/0"
+        },
+        "children": [],
+        "content_layer": "body",
+        "label": "picture",
+        "prov": [],
+        "captions": [],
+        "references": [],
+        "footnotes": [],
+        "annotations": [],
+        "kind": "image",
+        "docling_label": "picture",
+        "selected_provenance": null,
+        "candidate_status": "not_semantic_truth"
+      },
+      "metadata": {
+        "semantic_claim_status": "not_inferred",
+        "confidence_note": "结构、布局与OCR置信度不证明来源事实真实性。",
+        "source_context": {
+          "parser": "Docling",
+          "self_ref": "#/pictures/1",
+          "provenance": [],
+          "label": "picture",
+          "candidate_status": "not_semantic_truth",
+          "source_kind": "html"
+        }
+      }
+    }
+  ],
+  "warnings": [
+    {
+      "code": "HTML_EXTERNAL_RESOURCES_NOT_FETCHED",
+      "message": "HTML结构已解析；外部及本地图片引用未加载，未执行网页脚本。"
+    }
+  ],
+  "parser_version": "docling-2.138.0:edb8e2f5503d2db918161b32163a1b7310f7b2d05253726dee8fbc3a0834b155:kind:html",
+  "source_sha256": "7c35d7eac6dfbfc5f3011ec3e8189e7bd6acbe3cb00d7bd21d7117f483f928c7",
+  "boundary": "Original bytes are the immutable snapshot; Docling/native structure and OCR confidence are not semantic truth or system acceptance."
+}

@@ -14,9 +14,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY requirements.lock /opt/yoloongppt/requirements.lock
-RUN python -m pip install --disable-pip-version-check --no-cache-dir --require-hashes \
+RUN --mount=type=bind,from=dependency_wheels,target=/dependency-wheels \
+    python -m pip install --disable-pip-version-check --no-cache-dir --no-index \
+    --find-links=/dependency-wheels --require-hashes \
     -r /opt/yoloongppt/requirements.lock
 
+RUN groupadd --gid 10001 yoloongppt \
+    && useradd --uid 10001 --gid 10001 --no-create-home --home-dir /runtime yoloongppt
+ENV HOME=/runtime USER=yoloongppt LOGNAME=yoloongppt
 USER 10001:10001
 WORKDIR /workspace
 CMD ["python", "-m", "uvicorn", "yoloongppt.api:app", "--host", "0.0.0.0", "--port", "8000", "--no-access-log"]

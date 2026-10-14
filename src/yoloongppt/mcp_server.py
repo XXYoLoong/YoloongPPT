@@ -20,7 +20,7 @@ TOOLS={
  'edit_deck':('按哈希与精确对象选择器修改已有PPT并保存副本。',{'type':'object','required':['path','request'],'properties':{'path':{'type':'string'},'request':{'type':'object'}},'additionalProperties':False}),
  'parse_template':('抽取原生模板母版、主题、布局及槽位。',{'type':'object','required':['path'],'properties':{'path':{'type':'string'}},'additionalProperties':False}),
  'instantiate_template':('保留原生模板，填充指定文本占位符并新增页面。',{'type':'object','required':['path','layout_part','slot_content'],'properties':{'path':{'type':'string'},'layout_part':{'type':'string'},'slot_content':{'type':'object'}},'additionalProperties':False}),
- 'compose_native':('执行调用方指定的原生文字、形状、线、组、图像、表、图表。',{'type':'object','required':['slides'],'properties':{'slides':{'type':'array','minItems':1,'maxItems':30}},'additionalProperties':False}),
+ 'compose_native':('执行调用方指定的原生文字、形状、线、组、SVG矢量、图像、表、图表。',{'type':'object','required':['slides'],'properties':{'slides':{'type':'array','minItems':1,'maxItems':30}},'additionalProperties':False}),
  'inventory_assets':('登记允许目录的资产规格与哈希/感知重复候选；不猜许可或语义。',{'type':'object','required':['directory'],'properties':{'directory':{'type':'string'}},'additionalProperties':False})}
 
 

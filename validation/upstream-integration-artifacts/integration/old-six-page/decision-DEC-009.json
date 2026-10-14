@@ -1,0 +1,144 @@
+{
+  "trace_id": "trace_d1c23cf6-5e8f-4f4e-b544-3fad22aefbc2",
+  "node_id": "DEC-009",
+  "input": {
+    "model_main_takeaway": "本演示介绍一个虚构校园节能试点，全部内容为软件验证、非真实业务；用原生表格与原生柱状图展示同一组虚构数据，并保留来源。"
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-009",
+      "candidate_id": "candidate_ebcad3cc-1f95-4c48-908f-ee37d71cd9f2",
+      "value": {
+        "main_takeaway": "本演示介绍一个虚构校园节能试点，全部内容为软件验证、非真实业务；用原生表格与原生柱状图展示同一组虚构数据，并保留来源。",
+        "supporting_points": [
+          {
+            "text": "说明本演示介绍一个虚构校园节能试点，并声明全部内容为软件验证、非真实业务。",
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "text": "介绍虚构试点，并说明将用原生表格列出数据、用原生柱状图展示同一组数据，再总结并保留来源。",
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "text": "用原生表格列出A楼、B楼、C楼的基线值与本期值。",
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "text": "用原生柱状图展示与表格相同的同一组数据。",
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "text": "总结本演示内容并再次声明软件验证、非真实业务。",
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ],
+            "assumption_refs": []
+          },
+          {
+            "text": "保留来源信息。",
+            "evidence_refs": [
+              "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+            ],
+            "assumption_refs": []
+          }
+        ],
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ]
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_ebcad3cc-1f95-4c48-908f-ee37d71cd9f2"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure",
+    "semantic_truth": "requires independent fact review; reference existence is not entailment proof"
+  },
+  "output": {
+    "main_takeaway": "本演示介绍一个虚构校园节能试点，全部内容为软件验证、非真实业务；用原生表格与原生柱状图展示同一组虚构数据，并保留来源。",
+    "supporting_points": [
+      {
+        "text": "说明本演示介绍一个虚构校园节能试点，并声明全部内容为软件验证、非真实业务。",
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "text": "介绍虚构试点，并说明将用原生表格列出数据、用原生柱状图展示同一组数据，再总结并保留来源。",
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "text": "用原生表格列出A楼、B楼、C楼的基线值与本期值。",
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "text": "用原生柱状图展示与表格相同的同一组数据。",
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "text": "总结本演示内容并再次声明软件验证、非真实业务。",
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ],
+        "assumption_refs": []
+      },
+      {
+        "text": "保留来源信息。",
+        "evidence_refs": [
+          "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+        ],
+        "assumption_refs": []
+      }
+    ],
+    "evidence_refs": [
+      "evidence_ef52af34-f0d0-48df-ab90-3b5f93eefe7f"
+    ]
+  },
+  "duration": 0.0,
+  "error": null
+}

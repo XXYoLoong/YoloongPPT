@@ -1,0 +1,25 @@
+{
+  "ok": false,
+  "trace_id": "upstream-product-integration",
+  "error": {
+    "code": "FACT_DECISION_UNRESOLVED",
+    "message": "来源冲突、含糊解释或必需事实缺失，停止生成。",
+    "component": "FactBoundary",
+    "requirement_ids": [
+      "DEC-004",
+      "DEC-005"
+    ],
+    "details": [
+      {
+        "code": "SOURCE_CONFLICT",
+        "fact_id": "fact.f9b524978c589d9a354b0412",
+        "fact_key": "A楼本期用电量"
+      },
+      {
+        "run_id": "522d6be2-76be-4e6c-997b-be78a97486ef",
+        "artifact_root": "/runtime/runs/522d6be2-76be-4e6c-997b-be78a97486ef"
+      }
+    ],
+    "retryable": false
+  }
+}

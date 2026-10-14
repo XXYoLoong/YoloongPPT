@@ -1,0 +1,50 @@
+{
+  "execution_revision": "EXEC-20261012-01",
+  "requirements": 308,
+  "tasks": 453,
+  "main_steps": 45,
+  "decision_nodes": 40,
+  "ppt_capabilities": 30,
+  "backend_routes": 9,
+  "system_scenarios": 30,
+  "full_system_scenarios_passed": 0,
+  "image": "sha256:3ba7f6d1bd7e9eb32d97234d1e32038a20487edeff225b512a548e5fde423bb8",
+  "docling": "2.138.0",
+  "torch": "2.10.0+cpu",
+  "onnxruntime": "1.31.0",
+  "core_pins_preserved": 26,
+  "runtime_packages": 110,
+  "local_model_files": 10,
+  "verification": {
+    "Docling_components": 91,
+    "native_components": 40,
+    "native_CLI_API_MCP": 26,
+    "quality_template_components": 28,
+    "product_consumers_and_checkpoint": 31,
+    "fact_batches_component_and_saved_real_calls": 29,
+    "literal_citation_year": 3,
+    "normal_DOCX_XLSX_real_product_evidence": 20,
+    "SVG_source_security": 6,
+    "fact_repair_and_recovery": 10,
+    "reuse_registry_provenance": 12
+  },
+  "normal_docx": {
+    "origin_run": "361dcc5e-5276-4564-8157-f664ecaf46ec",
+    "qa_run": "22a5a93b-5a22-40e0-80e4-18a47e0c7eff",
+    "p0": 0,
+    "warnings": 4,
+    "deck_and_render_bytes_reused": true
+  },
+  "xlsx": {
+    "final_run": "aa6b5914-83f7-4810-b81c-a3a6ffa5d594",
+    "slides": 6,
+    "p0": 0,
+    "warnings": 5,
+    "content_model_seed_reused": true,
+    "reference_repair": "Only exact selected literal/scope refs added; copy and values unchanged"
+  },
+  "status": "partial; final_allowed=false",
+  "remaining": "Complex PDF/fact semantic completeness, complete templates/objects/modes/QA/revision, all backend evidence and full system AC remain required.",
+  "latest_product_checkpoint_validation": "validation/upstream-integration-artifacts/product-checkpoint-final/summary.json",
+  "fact_repair_validation": "validation/upstream-integration-artifacts/fact-repair-recovery-final/summary.json"
+}

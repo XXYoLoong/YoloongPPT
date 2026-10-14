@@ -1,0 +1,21 @@
+{
+  "ok": false,
+  "trace_id": "fact-repair-recovery",
+  "error": {
+    "code": "FACT_CHECKPOINT_INCOMPLETE",
+    "message": "事实断点缺少已消费纠错的原请求/响应/调用及有效结果，不能复用。",
+    "component": "Generation",
+    "requirement_ids": [
+      "DEC-004",
+      "DEC-005",
+      "SYS-005"
+    ],
+    "details": [
+      {
+        "run_id": "f4f1134a-1db3-4d05-a23c-f5558105c5eb",
+        "artifact_root": "/runtime/runs/f4f1134a-1db3-4d05-a23c-f5558105c5eb"
+      }
+    ],
+    "retryable": false
+  }
+}

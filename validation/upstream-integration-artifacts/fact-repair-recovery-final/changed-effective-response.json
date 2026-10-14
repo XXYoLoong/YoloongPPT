@@ -1,0 +1,20 @@
+{
+  "ok": false,
+  "trace_id": "fact-repair-recovery",
+  "error": {
+    "code": "FACT_CHECKPOINT_CHANGED",
+    "message": "事实解释断点产物改变，不能复用。",
+    "component": "Generation",
+    "requirement_ids": [
+      "DEC-004",
+      "SYS-005"
+    ],
+    "details": [
+      {
+        "run_id": "d1e50722-7438-4bd3-ba6d-ac0e5b9567db",
+        "artifact_root": "/runtime/runs/d1e50722-7438-4bd3-ba6d-ac0e5b9567db"
+      }
+    ],
+    "retryable": false
+  }
+}

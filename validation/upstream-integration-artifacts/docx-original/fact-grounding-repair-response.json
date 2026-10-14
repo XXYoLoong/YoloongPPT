@@ -1,0 +1,313 @@
+{
+  "repairs": [
+    {
+      "claim_index": 4,
+      "claim": {
+        "fact_key": "building.A.current_energy",
+        "fact_kind": "amount",
+        "value": {
+          "raw_text": "本期90千瓦时",
+          "normalized_text": "本期90千瓦时",
+          "numeric_value": "90",
+          "date_value": null,
+          "date_precision": null,
+          "unit": "千瓦时",
+          "currency": null,
+          "percentage_base": null,
+          "period": null,
+          "qualifier": "A楼基线100千瓦时，本期90千瓦时。",
+          "citation_uri": null
+        },
+        "provenance": "fact",
+        "quotes": [
+          {
+            "evidence_id": "evidence_6c8169f9-9fd6-4ccb-9a5c-e188c1cdedb8",
+            "quote": "A楼基线100千瓦时，本期90千瓦时。"
+          }
+        ],
+        "reason": "原文明确A楼本期为90千瓦时；qualifier改为同来源连续原文片段以涵盖A楼与本期限定。"
+      },
+      "reason": "修正qualifier为逐字原文片段，其余字段不变。"
+    },
+    {
+      "claim_index": 6,
+      "claim": {
+        "fact_key": "building.B.current_energy",
+        "fact_kind": "amount",
+        "value": {
+          "raw_text": "本期72千瓦时",
+          "normalized_text": "本期72千瓦时",
+          "numeric_value": "72",
+          "date_value": null,
+          "date_precision": null,
+          "unit": "千瓦时",
+          "currency": null,
+          "percentage_base": null,
+          "period": null,
+          "qualifier": "B楼基线80千瓦时，本期72千瓦时。",
+          "citation_uri": null
+        },
+        "provenance": "fact",
+        "quotes": [
+          {
+            "evidence_id": "evidence_867f2adf-6116-4818-9bca-19f82ea6373c",
+            "quote": "B楼基线80千瓦时，本期72千瓦时。"
+          }
+        ],
+        "reason": "原文明确B楼本期为72千瓦时；qualifier改为同来源连续原文片段以涵盖B楼与本期限定。"
+      },
+      "reason": "修正qualifier为逐字原文片段，其余字段不变。"
+    },
+    {
+      "claim_index": 8,
+      "claim": {
+        "fact_key": "building.C.current_energy",
+        "fact_kind": "amount",
+        "value": {
+          "raw_text": "本期54千瓦时",
+          "normalized_text": "本期54千瓦时",
+          "numeric_value": "54",
+          "date_value": null,
+          "date_precision": null,
+          "unit": "千瓦时",
+          "currency": null,
+          "percentage_base": null,
+          "period": null,
+          "qualifier": "C楼基线60千瓦时，本期54千瓦时。",
+          "citation_uri": null
+        },
+        "provenance": "fact",
+        "quotes": [
+          {
+            "evidence_id": "evidence_e9549d5a-358d-467c-b0ce-0af3b4210ab4",
+            "quote": "C楼基线60千瓦时，本期54千瓦时。"
+          }
+        ],
+        "reason": "原文明确C楼本期为54千瓦时；qualifier改为同来源连续原文片段以涵盖C楼与本期限定。"
+      },
+      "reason": "修正qualifier为逐字原文片段，其余字段不变。"
+    },
+    {
+      "claim_index": 9,
+      "claim": {
+        "fact_key": "table.building.A.baseline_energy",
+        "fact_kind": "amount",
+        "value": {
+          "raw_text": "100",
+          "normalized_text": "100",
+          "numeric_value": "100",
+          "date_value": null,
+          "date_precision": null,
+          "unit": "千瓦时",
+          "currency": null,
+          "percentage_base": null,
+          "period": null,
+          "qualifier": "基线（千瓦时）",
+          "citation_uri": null
+        },
+        "provenance": "fact",
+        "quotes": [
+          {
+            "evidence_id": "evidence_51b81bd5-0f50-4afb-aa11-c7900368aeb7",
+            "quote": "A楼"
+          },
+          {
+            "evidence_id": "evidence_91e89415-01c6-4876-bab6-8001be39668e",
+            "quote": "100"
+          },
+          {
+            "evidence_id": "evidence_cf18b06f-ced9-4281-88f0-9ee0c1c85d65",
+            "quote": "基线（千瓦时）"
+          }
+        ],
+        "reason": "表格中A楼行与基线（千瓦时）列交叉得到100，单位由表头原文给出；qualifier改为表头原文片段。"
+      },
+      "reason": "修正qualifier为逐字表头原文片段，其余字段不变。"
+    },
+    {
+      "claim_index": 10,
+      "claim": {
+        "fact_key": "table.building.A.current_energy",
+        "fact_kind": "amount",
+        "value": {
+          "raw_text": "90",
+          "normalized_text": "90",
+          "numeric_value": "90",
+          "date_value": null,
+          "date_precision": null,
+          "unit": "千瓦时",
+          "currency": null,
+          "percentage_base": null,
+          "period": null,
+          "qualifier": "本期（千瓦时）",
+          "citation_uri": null
+        },
+        "provenance": "fact",
+        "quotes": [
+          {
+            "evidence_id": "evidence_51b81bd5-0f50-4afb-aa11-c7900368aeb7",
+            "quote": "A楼"
+          },
+          {
+            "evidence_id": "evidence_1fd27a67-4971-4ec5-bd4c-4652e2d4b043",
+            "quote": "90"
+          },
+          {
+            "evidence_id": "evidence_561092b4-9984-456a-a10f-eec417c51944",
+            "quote": "本期（千瓦时）"
+          }
+        ],
+        "reason": "表格中A楼行与本期（千瓦时）列交叉得到90，单位由表头原文给出；qualifier改为表头原文片段。"
+      },
+      "reason": "修正qualifier为逐字表头原文片段，其余字段不变。"
+    },
+    {
+      "claim_index": 11,
+      "claim": {
+        "fact_key": "table.building.B.baseline_energy",
+        "fact_kind": "amount",
+        "value": {
+          "raw_text": "80",
+          "normalized_text": "80",
+          "numeric_value": "80",
+          "date_value": null,
+          "date_precision": null,
+          "unit": "千瓦时",
+          "currency": null,
+          "percentage_base": null,
+          "period": null,
+          "qualifier": "基线（千瓦时）",
+          "citation_uri": null
+        },
+        "provenance": "fact",
+        "quotes": [
+          {
+            "evidence_id": "evidence_f05c8e1b-e358-41b5-bd28-a8d95cb647bb",
+            "quote": "B楼"
+          },
+          {
+            "evidence_id": "evidence_c110d78c-1564-4c32-b6d8-251c59cb0e19",
+            "quote": "80"
+          },
+          {
+            "evidence_id": "evidence_cf18b06f-ced9-4281-88f0-9ee0c1c85d65",
+            "quote": "基线（千瓦时）"
+          }
+        ],
+        "reason": "表格中B楼行与基线（千瓦时）列交叉得到80，单位由表头原文给出；qualifier改为表头原文片段。"
+      },
+      "reason": "修正qualifier为逐字表头原文片段，其余字段不变。"
+    },
+    {
+      "claim_index": 12,
+      "claim": {
+        "fact_key": "table.building.B.current_energy",
+        "fact_kind": "amount",
+        "value": {
+          "raw_text": "72",
+          "normalized_text": "72",
+          "numeric_value": "72",
+          "date_value": null,
+          "date_precision": null,
+          "unit": "千瓦时",
+          "currency": null,
+          "percentage_base": null,
+          "period": null,
+          "qualifier": "本期（千瓦时）",
+          "citation_uri": null
+        },
+        "provenance": "fact",
+        "quotes": [
+          {
+            "evidence_id": "evidence_f05c8e1b-e358-41b5-bd28-a8d95cb647bb",
+            "quote": "B楼"
+          },
+          {
+            "evidence_id": "evidence_c89f9b09-aa24-4ca6-aa94-0d931c681493",
+            "quote": "72"
+          },
+          {
+            "evidence_id": "evidence_561092b4-9984-456a-a10f-eec417c51944",
+            "quote": "本期（千瓦时）"
+          }
+        ],
+        "reason": "表格中B楼行与本期（千瓦时）列交叉得到72，单位由表头原文给出；qualifier改为表头原文片段。"
+      },
+      "reason": "修正qualifier为逐字表头原文片段，其余字段不变。"
+    },
+    {
+      "claim_index": 13,
+      "claim": {
+        "fact_key": "table.building.C.baseline_energy",
+        "fact_kind": "amount",
+        "value": {
+          "raw_text": "60",
+          "normalized_text": "60",
+          "numeric_value": "60",
+          "date_value": null,
+          "date_precision": null,
+          "unit": "千瓦时",
+          "currency": null,
+          "percentage_base": null,
+          "period": null,
+          "qualifier": "基线（千瓦时）",
+          "citation_uri": null
+        },
+        "provenance": "fact",
+        "quotes": [
+          {
+            "evidence_id": "evidence_9aa54097-b5af-42ae-ab88-7a1491c621fd",
+            "quote": "C楼"
+          },
+          {
+            "evidence_id": "evidence_e7ef3693-42ba-4fac-a0ee-e311fc1ca02d",
+            "quote": "60"
+          },
+          {
+            "evidence_id": "evidence_cf18b06f-ced9-4281-88f0-9ee0c1c85d65",
+            "quote": "基线（千瓦时）"
+          }
+        ],
+        "reason": "表格中C楼行与基线（千瓦时）列交叉得到60，单位由表头原文给出；qualifier改为表头原文片段。"
+      },
+      "reason": "修正qualifier为逐字表头原文片段，其余字段不变。"
+    },
+    {
+      "claim_index": 14,
+      "claim": {
+        "fact_key": "table.building.C.current_energy",
+        "fact_kind": "amount",
+        "value": {
+          "raw_text": "54",
+          "normalized_text": "54",
+          "numeric_value": "54",
+          "date_value": null,
+          "date_precision": null,
+          "unit": "千瓦时",
+          "currency": null,
+          "percentage_base": null,
+          "period": null,
+          "qualifier": "本期（千瓦时）",
+          "citation_uri": null
+        },
+        "provenance": "fact",
+        "quotes": [
+          {
+            "evidence_id": "evidence_9aa54097-b5af-42ae-ab88-7a1491c621fd",
+            "quote": "C楼"
+          },
+          {
+            "evidence_id": "evidence_35a976b3-fa9a-40cc-940a-1d495c15b48b",
+            "quote": "54"
+          },
+          {
+            "evidence_id": "evidence_561092b4-9984-456a-a10f-eec417c51944",
+            "quote": "本期（千瓦时）"
+          }
+        ],
+        "reason": "表格中C楼行与本期（千瓦时）列交叉得到54，单位由表头原文给出；qualifier改为表头原文片段。"
+      },
+      "reason": "修正qualifier为逐字表头原文片段，其余字段不变。"
+    }
+  ]
+}

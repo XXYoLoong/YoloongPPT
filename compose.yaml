@@ -5,6 +5,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile.app
+      additional_contexts:
+        dependency_wheels: ./runtime/data/dependency-wheels
     platform: linux/amd64
     init: true
     working_dir: /workspace

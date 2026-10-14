@@ -25,7 +25,7 @@ NS = {'w': 'http://schemas.openxmlformats.org/wordprocessingml/2006/main',
       's': 'http://schemas.openxmlformats.org/spreadsheetml/2006/main',
       'r': 'http://schemas.openxmlformats.org/officeDocument/2006/relationships',
       'c': 'http://schemas.openxmlformats.org/drawingml/2006/chart'}
-SUPPORTED_FORMATS = {'docx', 'xlsx', 'csv', 'pptx', 'potx', 'pdf', 'image', 'json', 'xml'}
+SUPPORTED_FORMATS = {'docx', 'xlsx', 'csv', 'pptx', 'potx', 'pdf', 'image', 'json', 'xml', 'html'}
 MAX_RAW = 64 * 1024 * 1024
 MAX_EXPANDED = 128 * 1024 * 1024
 MAX_PARTS = 4096
@@ -314,6 +314,11 @@ def parse_input(kind, raw, *, source_id, asset_id=None, locator=None):
     if not isinstance(raw, bytes) or not raw or len(raw) > MAX_RAW:
         failure('INPUT_SIZE_LIMIT', '输入为空、非字节或超过64MiB限制。')
     kind = kind.lower()
+    # Mature parser owns structure/OCR; native helpers supply exact OOXML fields
+    # missing from its projection. There is no silent fallback to a second parser.
+    if kind in {'docx','pdf','xlsx','html'}:
+        from .docling_adapter import parse_docling
+        return parse_docling(kind,raw,source_id=source_id,asset_id=asset_id,locator=locator)
     if kind not in SUPPORTED_FORMATS:failure('INPUT_UNSUPPORTED', '该格式未支持，未静默跳过。', details=[{'kind': kind, 'supported': sorted(SUPPORTED_FORMATS)}])
     try:
         if kind == 'docx':

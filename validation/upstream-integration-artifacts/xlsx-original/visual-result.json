@@ -1,0 +1,4063 @@
+{
+  "version": "visual-1",
+  "trace_id": "trace_9b1491b6-4d57-4161-9593-34ec61e8115e",
+  "status": "executed_partial",
+  "decision_traces": [
+    {
+      "trace_id": "trace_9b1491b6-4d57-4161-9593-34ec61e8115e",
+      "node_id": "DEC-022",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+          "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+          "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+          "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+          "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+          "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+          "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+          "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+          "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+          "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+          "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+          "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+          "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+          "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+          "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+          "evidence_11351651-9092-4e53-8317-80753e6be121",
+          "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+          "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+          "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+          "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+          "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+          "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+          "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+          "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+          "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+          "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+          "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+          "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+          "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+          "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+          "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+          "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_5910c070-f2d3-4081-93fa-6484e1532126",
+          "value": {
+            "page_index": 0,
+            "expression": "cards_or_text",
+            "kind": "text",
+            "reason": "先交代数据性质与范围，避免将人工验证数据误读为真实业务数据。",
+            "evidence_refs": [
+              "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+              "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+              "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+              "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+              "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+              "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+              "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+              "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_943759b5-262e-4809-902f-173fa07059dc",
+          "value": {
+            "page_index": 1,
+            "expression": "table",
+            "kind": "table",
+            "reason": "调用方要求完整展示月度数据表，使用原生表格逐行保留。",
+            "evidence_refs": [
+              "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+              "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+              "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+              "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+              "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+              "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+              "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+              "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+              "evidence_11351651-9092-4e53-8317-80753e6be121",
+              "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+              "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+              "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+              "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+              "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+              "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+              "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+              "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+              "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+              "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+              "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_284432fb-8162-4b0d-b703-8d9693284b47",
+          "value": {
+            "page_index": 2,
+            "expression": "chart",
+            "kind": "chart",
+            "reason": "调用方要求图表且不同单位不得混在同一数值轴，故仅绘制用电量系列。",
+            "evidence_refs": [
+              "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+              "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+              "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+              "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+              "evidence_11351651-9092-4e53-8317-80753e6be121",
+              "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_6c37f16b-7ac2-49df-900c-58564d7473de",
+          "value": {
+            "page_index": 3,
+            "expression": "chart",
+            "kind": "chart",
+            "reason": "降低比例与用电量单位不同，单独成图以满足不混轴要求。",
+            "evidence_refs": [
+              "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+              "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+              "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+              "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+              "evidence_11351651-9092-4e53-8317-80753e6be121",
+              "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_b80ed1b0-82a8-4779-bb2b-5ea07d78ead6",
+          "value": {
+            "page_index": 4,
+            "expression": "cards_or_text",
+            "kind": "text",
+            "reason": "调用方要求标明公式缓存未证明新鲜，故以占位方式呈现缓存状态。",
+            "evidence_refs": [
+              "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+              "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+              "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+              "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-022",
+          "candidate_id": "candidate_ae6042cb-903c-4ee2-a838-faa2a1de09ce",
+          "value": {
+            "page_index": 5,
+            "expression": "table",
+            "kind": "table",
+            "reason": "调用方要求完整展示三楼分类数据，使用原生表格逐行保留。",
+            "evidence_refs": [
+              "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+              "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+              "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+              "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+              "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+              "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+              "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+              "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+              "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+              "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+              "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5",
+              "evidence_3578293b-309a-45b9-a2ea-9374f56db531"
+            ],
+            "preserved_content": true
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_5910c070-f2d3-4081-93fa-6484e1532126",
+        "candidate_943759b5-262e-4809-902f-173fa07059dc",
+        "candidate_284432fb-8162-4b0d-b703-8d9693284b47",
+        "candidate_6c37f16b-7ac2-49df-900c-58564d7473de",
+        "candidate_b80ed1b0-82a8-4779-bb2b-5ea07d78ead6",
+        "candidate_ae6042cb-903c-4ee2-a838-faa2a1de09ce"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "expression": "cards_or_text",
+            "kind": "text",
+            "reason": "先交代数据性质与范围，避免将人工验证数据误读为真实业务数据。",
+            "evidence_refs": [
+              "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+              "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+              "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+              "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+              "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+              "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+              "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+              "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+            ],
+            "preserved_content": true
+          },
+          {
+            "page_index": 1,
+            "expression": "table",
+            "kind": "table",
+            "reason": "调用方要求完整展示月度数据表，使用原生表格逐行保留。",
+            "evidence_refs": [
+              "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+              "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+              "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+              "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+              "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+              "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+              "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+              "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+              "evidence_11351651-9092-4e53-8317-80753e6be121",
+              "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+              "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+              "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+              "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+              "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+              "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+              "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+              "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+              "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+              "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+              "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+            ],
+            "preserved_content": true
+          },
+          {
+            "page_index": 2,
+            "expression": "chart",
+            "kind": "chart",
+            "reason": "调用方要求图表且不同单位不得混在同一数值轴，故仅绘制用电量系列。",
+            "evidence_refs": [
+              "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+              "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+              "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+              "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+              "evidence_11351651-9092-4e53-8317-80753e6be121",
+              "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6"
+            ],
+            "preserved_content": true
+          },
+          {
+            "page_index": 3,
+            "expression": "chart",
+            "kind": "chart",
+            "reason": "降低比例与用电量单位不同，单独成图以满足不混轴要求。",
+            "evidence_refs": [
+              "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+              "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+              "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+              "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+              "evidence_11351651-9092-4e53-8317-80753e6be121",
+              "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6"
+            ],
+            "preserved_content": true
+          },
+          {
+            "page_index": 4,
+            "expression": "cards_or_text",
+            "kind": "text",
+            "reason": "调用方要求标明公式缓存未证明新鲜，故以占位方式呈现缓存状态。",
+            "evidence_refs": [
+              "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+              "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+              "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+              "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+            ],
+            "preserved_content": true
+          },
+          {
+            "page_index": 5,
+            "expression": "table",
+            "kind": "table",
+            "reason": "调用方要求完整展示三楼分类数据，使用原生表格逐行保留。",
+            "evidence_refs": [
+              "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+              "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+              "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+              "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+              "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+              "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+              "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+              "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+              "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+              "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+              "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5",
+              "evidence_3578293b-309a-45b9-a2ea-9374f56db531"
+            ],
+            "preserved_content": true
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_9b1491b6-4d57-4161-9593-34ec61e8115e",
+      "node_id": "DEC-023",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+          "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+          "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+          "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+          "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+          "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+          "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+          "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+          "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+          "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+          "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+          "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+          "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+          "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+          "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+          "evidence_11351651-9092-4e53-8317-80753e6be121",
+          "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+          "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+          "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+          "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+          "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+          "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+          "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+          "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+          "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+          "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+          "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+          "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+          "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+          "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+          "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+          "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_01c5dfcb-b623-4914-abee-01944cbeb6e6",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_e52339ac-022c-49ee-a271-7af0a73d0d64",
+          "value": {
+            "page_index": 1,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_ebe6133d-58d0-4481-b478-d576fe84cd98",
+          "value": {
+            "page_index": 2,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_6f617cfb-6011-429e-9bb5-8e6455db9122",
+          "value": {
+            "page_index": 3,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_4ae60df9-ab84-43b1-8524-48db741fb9dd",
+          "value": {
+            "page_index": 4,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-023",
+          "candidate_id": "candidate_5160c6f6-3ae4-4bda-a325-d41360953368",
+          "value": {
+            "page_index": 5,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_01c5dfcb-b623-4914-abee-01944cbeb6e6",
+        "candidate_e52339ac-022c-49ee-a271-7af0a73d0d64",
+        "candidate_ebe6133d-58d0-4481-b478-d576fe84cd98",
+        "candidate_6f617cfb-6011-429e-9bb5-8e6455db9122",
+        "candidate_4ae60df9-ab84-43b1-8524-48db741fb9dd",
+        "candidate_5160c6f6-3ae4-4bda-a325-d41360953368"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          {
+            "page_index": 1,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          {
+            "page_index": 2,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          {
+            "page_index": 3,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          {
+            "page_index": 4,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          },
+          {
+            "page_index": 5,
+            "required": false,
+            "count": 0,
+            "role": null,
+            "roles": [],
+            "information_value": "not requested",
+            "fallback": "fail on missing material"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_9b1491b6-4d57-4161-9593-34ec61e8115e",
+      "node_id": "DEC-024",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+          "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+          "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+          "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+          "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+          "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+          "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+          "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+          "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+          "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+          "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+          "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+          "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+          "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+          "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+          "evidence_11351651-9092-4e53-8317-80753e6be121",
+          "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+          "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+          "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+          "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+          "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+          "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+          "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+          "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+          "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+          "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+          "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+          "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+          "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+          "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+          "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+          "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_24c3f336-ffda-4cbc-b879-39c39cdf3783",
+          "value": {
+            "page_index": 0,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_1b0ea2b1-cdf7-41d4-86f2-b7e0b78e87d6",
+          "value": {
+            "page_index": 1,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_e7702026-2970-4774-91ed-f165bde13d1d",
+          "value": {
+            "page_index": 2,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_c66a6858-0aef-4f60-943d-b06c4ebe0b6b",
+          "value": {
+            "page_index": 3,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_e0faedb5-79c6-4555-ac93-91e7f31a59c8",
+          "value": {
+            "page_index": 4,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-024",
+          "candidate_id": "candidate_c01bf1e1-8fe2-4cbb-b715-8df033eaf55f",
+          "value": {
+            "page_index": 5,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_24c3f336-ffda-4cbc-b879-39c39cdf3783",
+        "candidate_1b0ea2b1-cdf7-41d4-86f2-b7e0b78e87d6",
+        "candidate_e7702026-2970-4774-91ed-f165bde13d1d",
+        "candidate_c66a6858-0aef-4f60-943d-b06c4ebe0b6b",
+        "candidate_e0faedb5-79c6-4555-ac93-91e7f31a59c8",
+        "candidate_c01bf1e1-8fe2-4cbb-b715-8df033eaf55f"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          {
+            "page_index": 1,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          {
+            "page_index": 2,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          {
+            "page_index": 3,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          {
+            "page_index": 4,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          },
+          {
+            "page_index": 5,
+            "selected_asset_ids": [],
+            "model_image_declaration": null,
+            "model_image_declarations": [],
+            "selection_inventory": [],
+            "sources": [],
+            "all_materialized": true,
+            "unused_assets_retained": true,
+            "fallback": "fail on unavailable or unauthorized requested asset"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_9b1491b6-4d57-4161-9593-34ec61e8115e",
+      "node_id": "DEC-025",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+          "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+          "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+          "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+          "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+          "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+          "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+          "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+          "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+          "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+          "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+          "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+          "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+          "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+          "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+          "evidence_11351651-9092-4e53-8317-80753e6be121",
+          "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+          "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+          "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+          "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+          "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+          "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+          "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+          "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+          "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+          "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+          "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+          "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+          "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+          "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+          "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+          "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_3509893c-9c8a-4bdb-86a6-9204a6cb0152",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_03d1dfe5-b250-45a2-bc16-34e29075a15d",
+          "value": {
+            "page_index": 1,
+            "required": true,
+            "rows": 4,
+            "columns": 4,
+            "emphasis_fields": [],
+            "pagination": "one native table; physical capacity gate must pass",
+            "data": {
+              "columns": [
+                "日期",
+                "用电量（千瓦时）",
+                "降低比例（%）",
+                "性质"
+              ],
+              "rows": [
+                [
+                  "2026-01-01",
+                  "1200 千瓦时",
+                  "8%",
+                  "人工验证数据，非真实业务"
+                ],
+                [
+                  "2026-02-01",
+                  "1300 千瓦时",
+                  "9%",
+                  "人工验证数据，非真实业务"
+                ],
+                [
+                  "2026-03-01",
+                  "1250 千瓦时",
+                  "10%",
+                  "人工验证数据，非真实业务"
+                ],
+                [
+                  "三个月合计",
+                  "3750 千瓦时",
+                  "",
+                  "人工验证数据，非真实业务"
+                ]
+              ],
+              "units": "用电量：千瓦时；降低比例：%"
+            }
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_35e46161-3c60-4043-9f97-28820cae1ca3",
+          "value": {
+            "page_index": 2,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_c2ccf3f5-6c97-4d32-951a-a3d031a6d732",
+          "value": {
+            "page_index": 3,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_cc361bb2-9269-40fd-8d43-2dc8fee043a3",
+          "value": {
+            "page_index": 4,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-025",
+          "candidate_id": "candidate_8b2156b5-48a7-44af-ad5b-36f629fe3f74",
+          "value": {
+            "page_index": 5,
+            "required": true,
+            "rows": 3,
+            "columns": 3,
+            "emphasis_fields": [],
+            "pagination": "one native table; physical capacity gate must pass",
+            "data": {
+              "columns": [
+                "分类",
+                "用电量（千瓦时）",
+                "性质"
+              ],
+              "rows": [
+                [
+                  "A楼",
+                  "90 千瓦时",
+                  "人工验证数据，非真实业务"
+                ],
+                [
+                  "B楼",
+                  "72 千瓦时",
+                  "人工验证数据，非真实业务"
+                ],
+                [
+                  "C楼",
+                  "54 千瓦时",
+                  "人工验证数据，非真实业务"
+                ]
+              ],
+              "units": "用电量：千瓦时"
+            }
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_3509893c-9c8a-4bdb-86a6-9204a6cb0152",
+        "candidate_03d1dfe5-b250-45a2-bc16-34e29075a15d",
+        "candidate_35e46161-3c60-4043-9f97-28820cae1ca3",
+        "candidate_c2ccf3f5-6c97-4d32-951a-a3d031a6d732",
+        "candidate_cc361bb2-9269-40fd-8d43-2dc8fee043a3",
+        "candidate_8b2156b5-48a7-44af-ad5b-36f629fe3f74"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          {
+            "page_index": 1,
+            "required": true,
+            "rows": 4,
+            "columns": 4,
+            "emphasis_fields": [],
+            "pagination": "one native table; physical capacity gate must pass",
+            "data": {
+              "columns": [
+                "日期",
+                "用电量（千瓦时）",
+                "降低比例（%）",
+                "性质"
+              ],
+              "rows": [
+                [
+                  "2026-01-01",
+                  "1200 千瓦时",
+                  "8%",
+                  "人工验证数据，非真实业务"
+                ],
+                [
+                  "2026-02-01",
+                  "1300 千瓦时",
+                  "9%",
+                  "人工验证数据，非真实业务"
+                ],
+                [
+                  "2026-03-01",
+                  "1250 千瓦时",
+                  "10%",
+                  "人工验证数据，非真实业务"
+                ],
+                [
+                  "三个月合计",
+                  "3750 千瓦时",
+                  "",
+                  "人工验证数据，非真实业务"
+                ]
+              ],
+              "units": "用电量：千瓦时；降低比例：%"
+            }
+          },
+          {
+            "page_index": 2,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          {
+            "page_index": 3,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          {
+            "page_index": 4,
+            "required": false,
+            "rows": 0,
+            "columns": 0,
+            "emphasis_fields": [],
+            "pagination": "not applicable to this slide",
+            "data": null
+          },
+          {
+            "page_index": 5,
+            "required": true,
+            "rows": 3,
+            "columns": 3,
+            "emphasis_fields": [],
+            "pagination": "one native table; physical capacity gate must pass",
+            "data": {
+              "columns": [
+                "分类",
+                "用电量（千瓦时）",
+                "性质"
+              ],
+              "rows": [
+                [
+                  "A楼",
+                  "90 千瓦时",
+                  "人工验证数据，非真实业务"
+                ],
+                [
+                  "B楼",
+                  "72 千瓦时",
+                  "人工验证数据，非真实业务"
+                ],
+                [
+                  "C楼",
+                  "54 千瓦时",
+                  "人工验证数据，非真实业务"
+                ]
+              ],
+              "units": "用电量：千瓦时"
+            }
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_9b1491b6-4d57-4161-9593-34ec61e8115e",
+      "node_id": "DEC-026",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+          "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+          "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+          "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+          "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+          "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+          "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+          "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+          "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+          "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+          "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+          "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+          "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+          "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+          "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+          "evidence_11351651-9092-4e53-8317-80753e6be121",
+          "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+          "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+          "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+          "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+          "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+          "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+          "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+          "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+          "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+          "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+          "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+          "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+          "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+          "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+          "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+          "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_2a2bf765-9762-4284-8081-3b76535050ac",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "说明数据性质与展示范围",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_6fc94916-f933-47fb-b21f-c1a074eea552",
+          "value": {
+            "page_index": 1,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "完整呈现月度数据表全部行列",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_d95352d0-305d-42ce-8b19-c2f9b89ba425",
+          "value": {
+            "page_index": 2,
+            "required": true,
+            "type": "column",
+            "analysis_purpose": "以图表呈现三个月用电量，单位统一为千瓦时",
+            "data": {
+              "type": "column",
+              "categories": [
+                "2026-01-01",
+                "2026-02-01",
+                "2026-03-01"
+              ],
+              "series": [
+                {
+                  "name": "用电量",
+                  "values": [
+                    1200,
+                    1300,
+                    1250
+                  ]
+                }
+              ],
+              "units": "千瓦时"
+            },
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_b46e9137-6911-488c-80e0-c257e3c96cb9",
+          "value": {
+            "page_index": 3,
+            "required": true,
+            "type": "column",
+            "analysis_purpose": "以图表呈现三个月降低比例，单位统一为 %",
+            "data": {
+              "type": "column",
+              "categories": [
+                "2026-01-01",
+                "2026-02-01",
+                "2026-03-01"
+              ],
+              "series": [
+                {
+                  "name": "降低比例",
+                  "values": [
+                    8,
+                    9,
+                    10
+                  ]
+                }
+              ],
+              "units": "%"
+            },
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_532aad05-257f-4548-b3ac-360e5e72d86e",
+          "value": {
+            "page_index": 4,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "呈现三个月合计用电量及其公式来源",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-026",
+          "candidate_id": "candidate_45cc2638-88c4-40d8-a079-673767915056",
+          "value": {
+            "page_index": 5,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "完整呈现分类数据表全部行列",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_2a2bf765-9762-4284-8081-3b76535050ac",
+        "candidate_6fc94916-f933-47fb-b21f-c1a074eea552",
+        "candidate_d95352d0-305d-42ce-8b19-c2f9b89ba425",
+        "candidate_b46e9137-6911-488c-80e0-c257e3c96cb9",
+        "candidate_532aad05-257f-4548-b3ac-360e5e72d86e",
+        "candidate_45cc2638-88c4-40d8-a079-673767915056"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "说明数据性质与展示范围",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          {
+            "page_index": 1,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "完整呈现月度数据表全部行列",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          {
+            "page_index": 2,
+            "required": true,
+            "type": "column",
+            "analysis_purpose": "以图表呈现三个月用电量，单位统一为千瓦时",
+            "data": {
+              "type": "column",
+              "categories": [
+                "2026-01-01",
+                "2026-02-01",
+                "2026-03-01"
+              ],
+              "series": [
+                {
+                  "name": "用电量",
+                  "values": [
+                    1200,
+                    1300,
+                    1250
+                  ]
+                }
+              ],
+              "units": "千瓦时"
+            },
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          {
+            "page_index": 3,
+            "required": true,
+            "type": "column",
+            "analysis_purpose": "以图表呈现三个月降低比例，单位统一为 %",
+            "data": {
+              "type": "column",
+              "categories": [
+                "2026-01-01",
+                "2026-02-01",
+                "2026-03-01"
+              ],
+              "series": [
+                {
+                  "name": "降低比例",
+                  "values": [
+                    8,
+                    9,
+                    10
+                  ]
+                }
+              ],
+              "units": "%"
+            },
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          {
+            "page_index": 4,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "呈现三个月合计用电量及其公式来源",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          },
+          {
+            "page_index": 5,
+            "required": false,
+            "type": "none",
+            "analysis_purpose": "完整呈现分类数据表全部行列",
+            "data": null,
+            "data_semantic_status": "subsequent evidence/numeric and independent review required",
+            "image_fallback": "not_permitted"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_9b1491b6-4d57-4161-9593-34ec61e8115e",
+      "node_id": "DEC-027",
+      "input": {
+        "page_count": 6,
+        "evidence_refs": [
+          "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+          "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+          "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+          "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+          "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+          "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+          "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+          "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+          "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+          "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+          "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+          "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+          "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+          "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+          "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+          "evidence_11351651-9092-4e53-8317-80753e6be121",
+          "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+          "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+          "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+          "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+          "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+          "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+          "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+          "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+          "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+          "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+          "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+          "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+          "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+          "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+          "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+          "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+        ]
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_fa3790d4-9990-4e22-bb9d-7337dcdf70a4",
+          "value": {
+            "page_index": 0,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_0b27bab7-8ff5-4490-a10d-79eed1ef2887",
+          "value": {
+            "page_index": 1,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_319862f9-cbe3-4e01-8b9b-7ac14a4e962d",
+          "value": {
+            "page_index": 2,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_7376c735-4b05-41cc-98f1-6d21bd5ab25c",
+          "value": {
+            "page_index": 3,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_aa500b9d-e46e-4ae8-953e-3cc5456bdc67",
+          "value": {
+            "page_index": 4,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-027",
+          "candidate_id": "candidate_edfb82e3-6ab2-4944-a62f-ba68897d0016",
+          "value": {
+            "page_index": 5,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "validated explicit structured visual choice; facts unchanged"
+            }
+          ],
+          "evidence_refs": [
+            "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+            "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+            "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+            "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+            "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+            "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+            "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+            "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+            "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+            "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+            "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+            "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+            "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+            "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+            "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+            "evidence_11351651-9092-4e53-8317-80753e6be121",
+            "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+            "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+            "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+            "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+            "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+            "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+            "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+            "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+            "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+            "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+            "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+            "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+            "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+            "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+            "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+            "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5"
+          ],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_fa3790d4-9990-4e22-bb9d-7337dcdf70a4",
+        "candidate_0b27bab7-8ff5-4490-a10d-79eed1ef2887",
+        "candidate_319862f9-cbe3-4e01-8b9b-7ac14a4e962d",
+        "candidate_7376c735-4b05-41cc-98f1-6d21bd5ab25c",
+        "candidate_aa500b9d-e46e-4ae8-953e-3cc5456bdc67",
+        "candidate_edfb82e3-6ab2-4944-a62f-ba68897d0016"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "pages": [
+          {
+            "page_index": 0,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          {
+            "page_index": 1,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          {
+            "page_index": 2,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          {
+            "page_index": 3,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          {
+            "page_index": 4,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          },
+          {
+            "page_index": 5,
+            "required": false,
+            "diagram": null,
+            "type": "none",
+            "lexical_relation_inference": "disabled",
+            "fallback": "fail rather than raster-only or inferred relation"
+          }
+        ]
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_9b1491b6-4d57-4161-9593-34ec61e8115e",
+      "node_id": "DEC-028",
+      "input": {
+        "template_ref": null,
+        "constraints": {
+          "hard": [
+            {
+              "constraint_id": "candidate_168b5865-b062-46a6-b9b7-8bed4914e300",
+              "field": "language",
+              "value": "zh-CN",
+              "source": {
+                "kind": "user_instruction",
+                "reference": "raw_text:16:18"
+              }
+            }
+          ],
+          "soft": [
+            {
+              "constraint_id": "candidate_5dc42485-6182-44dc-ae4c-7eca7d1f3ca2",
+              "field": "page_count",
+              "value": 6,
+              "source": {
+                "kind": "user_instruction",
+                "reference": "runtime_preferences.page_count"
+              },
+              "disposition": "applied",
+              "applied_value": 6,
+              "handling_reason": "Selected by DEC-002 and within current execution subset."
+            }
+          ],
+          "defaults": [
+            {
+              "constraint_id": "system_default.page_count",
+              "field": "page_count",
+              "value": 10,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.language",
+              "field": "language",
+              "value": "zh-CN",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.aspect_ratio",
+              "field": "aspect_ratio",
+              "value": "16:9",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.minimum_font_size",
+              "field": "minimum_font_size",
+              "value": 16,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.template",
+              "field": "template",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.brand",
+              "field": "brand",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.output_formats",
+              "field": "output_formats",
+              "value": [
+                "pptx",
+                "pdf",
+                "png"
+              ],
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": false,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.audience",
+              "field": "audience",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.scenario",
+              "field": "scenario",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.duration",
+              "field": "duration",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.tone",
+              "field": "tone",
+              "value": null,
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.citation_policy",
+              "field": "citation_policy",
+              "value": "notes",
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.asset_policy",
+              "field": "asset_policy",
+              "value": {
+                "allow_network": false,
+                "minimum_pixels": [
+                  1,
+                  1
+                ]
+              },
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            },
+            {
+              "constraint_id": "system_default.adaptive_policy",
+              "field": "adaptive_policy",
+              "value": {},
+              "source": {
+                "kind": "system_default",
+                "reference": "DEC-002 versioned runtime defaults"
+              },
+              "used": true,
+              "handling_reason": "DEC-002 selects defaults only without higher precedence and within current execution support."
+            }
+          ],
+          "conflicts": []
+        },
+        "evidence_refs": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-028",
+          "candidate_id": "candidate_a8c0a895-dda9-42b5-861d-72c214c85d38",
+          "value": {
+            "family": "generic",
+            "eligible": true,
+            "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        },
+        {
+          "node_id": "DEC-028",
+          "candidate_id": "candidate_134b5325-4054-49ff-8edb-c73ac33d232a",
+          "value": {
+            "family": "free_layout",
+            "eligible": true,
+            "reason": "Native geometry compiler is available as explicit alternative."
+          },
+          "score": 0,
+          "reasons": [
+            {
+              "reason": "Native geometry compiler is available as explicit alternative."
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_a8c0a895-dda9-42b5-861d-72c214c85d38"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "family": "generic",
+        "template_id": null,
+        "template_status": "selected",
+        "fallback": "fail on incompatible capacity"
+      },
+      "duration": 0.0,
+      "error": null
+    },
+    {
+      "trace_id": "trace_9b1491b6-4d57-4161-9593-34ec61e8115e",
+      "node_id": "DEC-029",
+      "input": {
+        "style": {},
+        "template_id": null,
+        "evidence_refs": []
+      },
+      "candidates": [
+        {
+          "node_id": "DEC-029",
+          "candidate_id": "candidate_4788ffe8-4b16-45f7-a25e-1b554ec53418",
+          "value": {
+            "font": "Noto Sans CJK SC",
+            "foreground": "192C32",
+            "background": "F6F4EE",
+            "accent": "147C80",
+            "shape_language": "native_editable",
+            "image_treatment": "explicit_contain_or_focal_crop",
+            "decoration_density": "minimal",
+            "provenance": {
+              "font": "caller override or declared native renderer font",
+              "colors": "caller override or explicit product default"
+            },
+            "template_tokens": null
+          },
+          "score": 1,
+          "reasons": [
+            {
+              "reason": "explicit caller values/product defaults; template originals retained without assuming font availability"
+            }
+          ],
+          "evidence_refs": [],
+          "constraints": [
+            {
+              "no_implicit_fact_inference": true,
+              "no_silent_fallback": true
+            }
+          ]
+        }
+      ],
+      "selected": [
+        "candidate_4788ffe8-4b16-45f7-a25e-1b554ec53418"
+      ],
+      "rules": {
+        "source_project_mapping": {
+          "P01": "Visual_Designer/template/Executor",
+          "P02": "layout induction/reference selection/actions",
+          "P03": "slide content/layout/template/assets",
+          "P04": "PureLayout/assets/PPTAdapter",
+          "P05": "SlidePlanner/template/assets/native writer"
+        },
+        "mechanism": "validated model intent plus actual structured payload/provenance; no semantic confidence guessed",
+        "score_semantics": "selected policy outcome, not semantic probability",
+        "fallback": "structured failure; never invent material or downgrade a requested expression"
+      },
+      "output": {
+        "font": "Noto Sans CJK SC",
+        "foreground": "192C32",
+        "background": "F6F4EE",
+        "accent": "147C80",
+        "shape_language": "native_editable",
+        "image_treatment": "explicit_contain_or_focal_crop",
+        "decoration_density": "minimal",
+        "provenance": {
+          "font": "caller override or declared native renderer font",
+          "colors": "caller override or explicit product default"
+        },
+        "template_tokens": null
+      },
+      "duration": 0.0,
+      "error": null
+    }
+  ],
+  "visual_specs": [
+    {
+      "page_index": 0,
+      "expression": "cards_or_text",
+      "kind": "text",
+      "reason": "先交代数据性质与范围，避免将人工验证数据误读为真实业务数据。",
+      "evidence_refs": [
+        "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+        "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+        "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+        "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+        "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+        "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+        "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+        "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+      ],
+      "preserved_content": true
+    },
+    {
+      "page_index": 1,
+      "expression": "table",
+      "kind": "table",
+      "reason": "调用方要求完整展示月度数据表，使用原生表格逐行保留。",
+      "evidence_refs": [
+        "evidence_c23e3e67-37de-4cab-ba8a-4b75f04be93b",
+        "evidence_775a7679-6d88-443e-b11f-cc217d0b0029",
+        "evidence_875a7e0f-fca9-4015-bb0d-9b9b053d431c",
+        "evidence_74360f33-4bde-4909-a9dd-bccb77514973",
+        "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+        "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+        "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+        "evidence_0c422223-82da-464e-a677-e869d99f9f50",
+        "evidence_11351651-9092-4e53-8317-80753e6be121",
+        "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+        "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+        "evidence_cc6a5eae-dcf5-43b2-8bf1-bb477a43cf4e",
+        "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6",
+        "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+        "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+        "evidence_9147ee3b-0716-4448-b2ca-57c8441e420b",
+        "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+        "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+        "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+        "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+      ],
+      "preserved_content": true
+    },
+    {
+      "page_index": 2,
+      "expression": "chart",
+      "kind": "chart",
+      "reason": "调用方要求图表且不同单位不得混在同一数值轴，故仅绘制用电量系列。",
+      "evidence_refs": [
+        "evidence_bee1c6ec-9cc9-4382-a518-873e0a40a6f5",
+        "evidence_cbf929a3-5497-409f-ad13-5634fd3590fb",
+        "evidence_24c1535d-e21a-4e1c-8433-705afe648483",
+        "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+        "evidence_11351651-9092-4e53-8317-80753e6be121",
+        "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6"
+      ],
+      "preserved_content": true
+    },
+    {
+      "page_index": 3,
+      "expression": "chart",
+      "kind": "chart",
+      "reason": "降低比例与用电量单位不同，单独成图以满足不混轴要求。",
+      "evidence_refs": [
+        "evidence_859cb136-cc38-4d66-8689-a4bbacbd2437",
+        "evidence_cba25ddf-0e67-4dd1-956e-6a6ac6befa9d",
+        "evidence_79139778-c543-45cc-a4e3-8ef99986e227",
+        "evidence_880f5da3-79eb-4af3-8176-dd0ae5a2e044",
+        "evidence_11351651-9092-4e53-8317-80753e6be121",
+        "evidence_0b6620f9-7eee-41bf-b4db-66cb75530dd6"
+      ],
+      "preserved_content": true
+    },
+    {
+      "page_index": 4,
+      "expression": "cards_or_text",
+      "kind": "text",
+      "reason": "调用方要求标明公式缓存未证明新鲜，故以占位方式呈现缓存状态。",
+      "evidence_refs": [
+        "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+        "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+        "evidence_71581d0b-c912-4f20-8c9f-ff4c52aff3cb",
+        "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+      ],
+      "preserved_content": true
+    },
+    {
+      "page_index": 5,
+      "expression": "table",
+      "kind": "table",
+      "reason": "调用方要求完整展示三楼分类数据，使用原生表格逐行保留。",
+      "evidence_refs": [
+        "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+        "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+        "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a",
+        "evidence_6e22c3f0-3ef7-43c7-a8c6-a42c5cadbce7",
+        "evidence_10721f31-bc4c-4e4f-ae6b-e1b8deea2c09",
+        "evidence_79df359e-0579-44ce-ac63-d1ecfcf33422",
+        "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+        "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+        "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+        "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+        "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5",
+        "evidence_3578293b-309a-45b9-a2ea-9374f56db531"
+      ],
+      "preserved_content": true
+    }
+  ],
+  "image_requirements": [
+    {
+      "page_index": 0,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "roles": [],
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    },
+    {
+      "page_index": 1,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "roles": [],
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    },
+    {
+      "page_index": 2,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "roles": [],
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    },
+    {
+      "page_index": 3,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "roles": [],
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    },
+    {
+      "page_index": 4,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "roles": [],
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    },
+    {
+      "page_index": 5,
+      "required": false,
+      "count": 0,
+      "role": null,
+      "roles": [],
+      "information_value": "not requested",
+      "fallback": "fail on missing material"
+    }
+  ],
+  "asset_plan": [
+    {
+      "page_index": 0,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "model_image_declarations": [],
+      "selection_inventory": [],
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    },
+    {
+      "page_index": 1,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "model_image_declarations": [],
+      "selection_inventory": [],
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    },
+    {
+      "page_index": 2,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "model_image_declarations": [],
+      "selection_inventory": [],
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    },
+    {
+      "page_index": 3,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "model_image_declarations": [],
+      "selection_inventory": [],
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    },
+    {
+      "page_index": 4,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "model_image_declarations": [],
+      "selection_inventory": [],
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    },
+    {
+      "page_index": 5,
+      "selected_asset_ids": [],
+      "model_image_declaration": null,
+      "model_image_declarations": [],
+      "selection_inventory": [],
+      "sources": [],
+      "all_materialized": true,
+      "unused_assets_retained": true,
+      "fallback": "fail on unavailable or unauthorized requested asset"
+    }
+  ],
+  "table_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    },
+    {
+      "page_index": 1,
+      "required": true,
+      "rows": 4,
+      "columns": 4,
+      "emphasis_fields": [],
+      "pagination": "one native table; physical capacity gate must pass",
+      "data": {
+        "columns": [
+          "日期",
+          "用电量（千瓦时）",
+          "降低比例（%）",
+          "性质"
+        ],
+        "rows": [
+          [
+            "2026-01-01",
+            "1200 千瓦时",
+            "8%",
+            "人工验证数据，非真实业务"
+          ],
+          [
+            "2026-02-01",
+            "1300 千瓦时",
+            "9%",
+            "人工验证数据，非真实业务"
+          ],
+          [
+            "2026-03-01",
+            "1250 千瓦时",
+            "10%",
+            "人工验证数据，非真实业务"
+          ],
+          [
+            "三个月合计",
+            "3750 千瓦时",
+            "",
+            "人工验证数据，非真实业务"
+          ]
+        ],
+        "units": "用电量：千瓦时；降低比例：%"
+      }
+    },
+    {
+      "page_index": 2,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    },
+    {
+      "page_index": 3,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    },
+    {
+      "page_index": 4,
+      "required": false,
+      "rows": 0,
+      "columns": 0,
+      "emphasis_fields": [],
+      "pagination": "not applicable to this slide",
+      "data": null
+    },
+    {
+      "page_index": 5,
+      "required": true,
+      "rows": 3,
+      "columns": 3,
+      "emphasis_fields": [],
+      "pagination": "one native table; physical capacity gate must pass",
+      "data": {
+        "columns": [
+          "分类",
+          "用电量（千瓦时）",
+          "性质"
+        ],
+        "rows": [
+          [
+            "A楼",
+            "90 千瓦时",
+            "人工验证数据，非真实业务"
+          ],
+          [
+            "B楼",
+            "72 千瓦时",
+            "人工验证数据，非真实业务"
+          ],
+          [
+            "C楼",
+            "54 千瓦时",
+            "人工验证数据，非真实业务"
+          ]
+        ],
+        "units": "用电量：千瓦时"
+      }
+    }
+  ],
+  "chart_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": "说明数据性质与展示范围",
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    },
+    {
+      "page_index": 1,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": "完整呈现月度数据表全部行列",
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    },
+    {
+      "page_index": 2,
+      "required": true,
+      "type": "column",
+      "analysis_purpose": "以图表呈现三个月用电量，单位统一为千瓦时",
+      "data": {
+        "type": "column",
+        "categories": [
+          "2026-01-01",
+          "2026-02-01",
+          "2026-03-01"
+        ],
+        "series": [
+          {
+            "name": "用电量",
+            "values": [
+              1200,
+              1300,
+              1250
+            ]
+          }
+        ],
+        "units": "千瓦时"
+      },
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    },
+    {
+      "page_index": 3,
+      "required": true,
+      "type": "column",
+      "analysis_purpose": "以图表呈现三个月降低比例，单位统一为 %",
+      "data": {
+        "type": "column",
+        "categories": [
+          "2026-01-01",
+          "2026-02-01",
+          "2026-03-01"
+        ],
+        "series": [
+          {
+            "name": "降低比例",
+            "values": [
+              8,
+              9,
+              10
+            ]
+          }
+        ],
+        "units": "%"
+      },
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    },
+    {
+      "page_index": 4,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": "呈现三个月合计用电量及其公式来源",
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    },
+    {
+      "page_index": 5,
+      "required": false,
+      "type": "none",
+      "analysis_purpose": "完整呈现分类数据表全部行列",
+      "data": null,
+      "data_semantic_status": "subsequent evidence/numeric and independent review required",
+      "image_fallback": "not_permitted"
+    }
+  ],
+  "diagram_specs": [
+    {
+      "page_index": 0,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    },
+    {
+      "page_index": 1,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    },
+    {
+      "page_index": 2,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    },
+    {
+      "page_index": 3,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    },
+    {
+      "page_index": 4,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    },
+    {
+      "page_index": 5,
+      "required": false,
+      "diagram": null,
+      "type": "none",
+      "lexical_relation_inference": "disabled",
+      "fallback": "fail rather than raster-only or inferred relation"
+    }
+  ],
+  "template_selection": {
+    "family": "generic",
+    "record": null,
+    "candidates": [
+      {
+        "family": "generic",
+        "eligible": true,
+        "reason": "No custom/brand/reference template requested; native catalog is selected explicitly."
+      },
+      {
+        "family": "free_layout",
+        "eligible": true,
+        "reason": "Native geometry compiler is available as explicit alternative."
+      }
+    ],
+    "fallback": "fail on incompatible capacity",
+    "status": "selected"
+  },
+  "design_tokens": {
+    "font": "Noto Sans CJK SC",
+    "foreground": "192C32",
+    "background": "F6F4EE",
+    "accent": "147C80",
+    "shape_language": "native_editable",
+    "image_treatment": "explicit_contain_or_focal_crop",
+    "decoration_density": "minimal",
+    "provenance": {
+      "font": "caller override or declared native renderer font",
+      "colors": "caller override or explicit product default"
+    },
+    "template_tokens": null
+  },
+  "resolved_assets": {
+    "status": "resolved",
+    "entries": [],
+    "issues": [],
+    "duplicate_groups": [],
+    "boundary": "Real bytes/hash/MIME/pixels and caller authorization checked; semantic appropriateness, watermark, perceptual duplicates and full AST acceptance remain unproven."
+  },
+  "remaining_limits": [
+    "Independent semantic image relevance/quality review remains required.",
+    "Hierarchy/network/matrix/funnel/swimlane relation semantics and complete node acceptance remain incomplete.",
+    "Source search and image generation services are not called; materialized outputs retain query/request provenance.",
+    "Template capacity, complete styles and brand lock require downstream validation."
+  ],
+  "system_acceptance": "not_claimed"
+}

@@ -1,0 +1,61 @@
+{
+  "checked_slide_orders": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "issues": [
+    {
+      "slide_order": 1,
+      "severity": "P1",
+      "kind": "fact",
+      "detail": "月度数据表“三个月合计”行在“降低比例（%）”列为空，但原表该行该列是否有值未在证据中体现；若原表有合计比例或空值说明，当前呈现可能造成缺列误解。",
+      "evidence_refs": [
+        "evidence_21f7ae90-06ee-42e2-b263-c5b2dfed584e",
+        "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175"
+      ]
+    },
+    {
+      "slide_order": 1,
+      "severity": "P2",
+      "kind": "visual",
+      "detail": "表格“性质”列文字“人工验证数据，非真实业务”在单元格内换行，行高较大，但未裁切，可读。",
+      "evidence_refs": []
+    },
+    {
+      "slide_order": 5,
+      "severity": "P1",
+      "kind": "fact",
+      "detail": "分类数据表仅呈现A楼、B楼、C楼三行，未呈现分类合计行；若原分类数据表存在合计行，则属于内容遗漏。当前证据未显示分类表合计行，无法确认是否遗漏。",
+      "evidence_refs": [
+        "evidence_ae380a5d-8cb1-43cb-8324-356df7b82a7d",
+        "evidence_140f7584-586f-4c6f-a4bc-d61bc5debdb0",
+        "evidence_9138d3f6-53d1-44d2-8b71-8a28f82c389a"
+      ]
+    },
+    {
+      "slide_order": 0,
+      "severity": "P2",
+      "kind": "semantic",
+      "detail": "第0页称“三个月合计用电量为 3750 千瓦时，其单元格公式为 SUM(B2:B4)”，但同页又标注公式缓存值待确认；合计值3750来自B5单元格缓存值，而缓存值未提供，存在“合计值已确认”与“缓存值待确认”的语义张力。",
+      "evidence_refs": [
+        "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+        "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+      ]
+    },
+    {
+      "slide_order": 4,
+      "severity": "P2",
+      "kind": "semantic",
+      "detail": "第4页标题“三个月合计：3750 千瓦时”将合计值作为确定事实呈现，但正文同时说明公式缓存值待确认；标题与正文对合计值确定性的表述不完全一致。",
+      "evidence_refs": [
+        "evidence_53c39163-c1a6-48dc-8edf-d08f2e12d175",
+        "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+      ]
+    }
+  ],
+  "summary": "已检查全部6页。整体分页与内容基本完整，月度表、分类表、图表和合计页均可见且未发现明显裁切或重叠。主要风险：第1页合计行降低比例列为空，需确认原表该单元格是否为空；第5页分类表未见合计行，需确认原表是否存在合计行；第0页和第4页对合计值3750千瓦时与公式缓存值待确认的表述存在轻微语义张力。图表单位与数值轴分离处理正确，未发现单位混轴。证据未提供B5公式缓存值，故“待确认”标注合理。限制：无法从图片确认原表是否存在隐藏行/列或分类表合计行。"
+}

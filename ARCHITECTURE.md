@@ -2,6 +2,16 @@
 
 本记录服务核心SYS与AC-001/GOV-008。完整308/453范围及所有PP/PPT/DEC/AC保留；真实模型/PPTX/render/部分QA和单文本对象修订已运行，完整DEC和系统验收尚未通过。
 
+## 2026-10-13 开源运行模块增量
+
+原 Python 3.13.16/FastAPI/JSON Schema/python-pptx 架构保持，原26个core依赖版本未升级。Docling 2.138.0、Torch 2.10.0+cpu/Torchvision 0.25.0+cpu、ONNX Runtime 1.31.0及完整110包hash锁进入 Dockerfile.app；依赖与模型只从固定官方源核验，启动脚本复用F盘缓存，主机仅下载不安装产品依赖。Docling在离线CPU模式执行，10个固定模型/config及独立权重许可在config/docling-models.json登记。UID10001有真实用户名，HOME/TMP/cache都指向/runtime。
+
+PPT Master原生SVG/roundtrip/OPC guard、PPTAgent review/freshness、Presenton模板模型/schema已直接接入产品入口、质量检查与模板登记/选择，来源/许可/原与当前hash见vendor/*/SOURCE.json和ReuseDecisionRegistry。PPT Master原文件保持；PPTAgent仅提取明确原函数，Presenton仅适配包相对导入，未复制未知权利的export-core或图片/字体。
+
+新格式将原书目与公式字段作为可定位字面证据保留，格式解析不替代语义真值。事实分批保留主证据完整结构与同来源全部原句定位参考，严格覆盖、原值及引用校验；有限模型修正、全部原响应与每阶段有效输入/hash恢复有证据记录。局部备注引用修订复用既有路径，只补已选完整原值/单位/期间的唯一原证据，不改文案/数字。
+
+正常DOCX和双sheet XLSX已实际运行至可编辑PPTX/render/真实审查；DOCX QA-only原字节复用、XLSX备注引用修订复查分别P0=0，仍4/5警告及final_allowed=false。复杂PDF语义仍会阻断；完整对象/模式/模板/QA/修订、平台与系统AC继续按原矩阵。详细实物与边界见开源模块接入与实际运行记录_20261013.md和validation/upstream-integration-summary.json。下文保留早期架构及实验记录，旧的“本轮”描述不覆盖本增量事实。
+
 ## 选择依据
 
 - 核心编排使用 Python 3.13.16，Linux amd64 Docker，JSON Schema Draft 2020-12（jsonschema 4.26.0），HTTP 使用 FastAPI 0.143.0 / Uvicorn 0.54.0。现有契约是 JSON Schema，可直接运行；来源解析、证据处理与 python-pptx 可在同一核心执行，减少跨语言对象搬运。版本来自官方发布/包元数据和实际镜像 manifest，不是主机 Python 3.11.2 的环境观测。

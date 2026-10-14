@@ -277,16 +277,23 @@ def apply_patch(source_path, output_path, request):
                         fill=_text_property_child(prop,'solidFill');etree.SubElement(fill,'{'+NS['a']+'}srgbClr',val=value['color'].upper())
         elif operation == 'table_cell':
             if not isinstance(value,dict) or set(value)!={'row','column','text'} or any(isinstance(value[k],bool) or not isinstance(value[k],int) or value[k]<0 for k in ('row','column')): fail('REVISION_TABLE_INVALID','单元格补丁需要非负行列和文本。')
+            from .upstream_native import table_merge_guard
+            table_node=node.find('.//a:tbl',NS)
+            if table_node is None:fail('OBJECT_TYPE_UNSUPPORTED','目标不是原生表格。')
+            merge_topology=table_merge_guard(etree.tostring(table_node))
             rows=node.xpath('.//a:tbl/a:tr',namespaces=NS)
             if value['row']>=len(rows): fail('REVISION_TABLE_INVALID','表格行越界。')
             cells=rows[value['row']].findall('a:tc',NS)
             if value['column']>=len(cells): fail('REVISION_TABLE_INVALID','表格列越界。')
             cell=cells[value['column']]
-            if cell.get('hMerge')=='1' or cell.get('vMerge')=='1': fail('REVISION_TABLE_MERGED','合并从属单元格不能独立修改。')
+            if any(slave['row']==value['row'] and slave['col']==value['column'] for slave in merge_topology['slave_cells']):fail('REVISION_TABLE_MERGED','上游检查发现目标为合并从属单元格，不能独立修改。')
             _set_text(cell.find('a:txBody',NS),value['text'])
         elif operation == 'chart_data':
             if 'chart_part' not in item: fail('OBJECT_TYPE_UNSUPPORTED','目标不是原生图表。')
             chart_part=item['chart_part']
+            from .upstream_native import chart_edit_guard
+            upstream_chart=chart_edit_guard(parts[chart_part])
+            if not upstream_chart['supported']:fail('CHART_TYPE_UNSUPPORTED','上游原生图表编辑检查拒绝该数据模型。',[upstream_chart])
             chart_rid=node.xpath('.//c:chart/@r:id',namespaces=NS)[0]
             occurrences=len(root.xpath('//c:chart[@r:id=$rid]',namespaces=NS,rid=chart_rid))
             if _incoming(parts,chart_part)!=1 or occurrences!=1: fail('SHARED_CHART_UNSUPPORTED','共享图表部件不能局部替换。')

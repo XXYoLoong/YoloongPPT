@@ -1,0 +1,58 @@
+{
+  "trace_id": "trace_c2c98a38-7147-469e-b12b-0944be943511",
+  "node_id": "DEC-006",
+  "input": {
+    "audience": null
+  },
+  "candidates": [
+    {
+      "node_id": "DEC-006",
+      "candidate_id": "candidate_c0b8768b-064e-442c-b0e5-62916d8f2a65",
+      "value": {
+        "knowledge_level": null,
+        "roles": [],
+        "concerns": [],
+        "expected_actions": [],
+        "field_provenance": []
+      },
+      "score": 1.0,
+      "reasons": [
+        {
+          "rule": "execute validated policy; retain uncertainty explicitly"
+        }
+      ],
+      "evidence_refs": [],
+      "constraints": [
+        {
+          "preserve_evidence": true,
+          "no_implicit_fact_inference": true
+        }
+      ]
+    }
+  ],
+  "selected": [
+    "candidate_c0b8768b-064e-442c-b0e5-62916d8f2a65"
+  ],
+  "rules": {
+    "source_project_mapping": {
+      "P01": "routing/Strategist/design_spec/spec_lock/template/QC",
+      "P02": "induction/outline/reference/action/reflection/eval",
+      "P03": "Standard/Smart/layout/template/API/MCP",
+      "P04": "outline/content/layout/PureLayout/PPTAdapter",
+      "P05": "planning/schema/theme/layout/render/QA/revise/MCP"
+    },
+    "score_semantics": "policy ranking, not calibrated confidence",
+    "confidence": "unknown",
+    "fallback": "explicit unknown or structured failure",
+    "missing_profile": "retain null/empty; do not stereotype audience"
+  },
+  "output": {
+    "knowledge_level": null,
+    "roles": [],
+    "concerns": [],
+    "expected_actions": [],
+    "field_provenance": []
+  },
+  "duration": 0.0,
+  "error": null
+}

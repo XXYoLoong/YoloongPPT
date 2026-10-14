@@ -1,0 +1,589 @@
+{
+  "upstream": {
+    "project": "PPT Master",
+    "repository": "https://github.com/hugohe3/ppt-master",
+    "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+    "license": "MIT",
+    "third_party_data": [
+      "Apache POI Apache-2.0",
+      "Open XML SDK MIT"
+    ],
+    "manifest_sha256": "9ba57f25bb8bda094c7c99b543fe64b32d49587447392acb870a9e11bc19eda8"
+  },
+  "checks": [
+    {
+      "name": "fixed_upstream_commit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "canvas_real_upstream_guard",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "opaque_relationship_QName_detected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "ordinary_id_not_relationship",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "upstream_scatter_edit_blocked_before_mutation",
+      "passed": true,
+      "detail": {
+        "supported": false,
+        "code": "chart_edit_scatter_unsupported",
+        "message": "OOXML chart edits do not support scatter xVal/yVal data",
+        "plot_type": "scatterChart",
+        "plot_count": 1,
+        "data_model": "xy"
+      }
+    },
+    {
+      "name": "upstream_table_merge_anchor_slave_detected",
+      "passed": true,
+      "detail": {
+        "has_merges": true,
+        "anchors": [
+          {
+            "row": 0,
+            "col": 0,
+            "row_span": 1,
+            "col_span": 2
+          }
+        ],
+        "slave_cells": [
+          {
+            "row": 0,
+            "col": 1,
+            "anchor": {
+              "row": 0,
+              "col": 0
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "two_real_native_slides",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exported_text_editable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_custom_geometry_not_raster",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_group_not_bitmap",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "speaker_notes_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "title_native_core_property",
+      "passed": true,
+      "detail": "直接复用原生导出"
+    },
+    {
+      "name": "real_upstream_delivery_audit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "no_silent_skipped_object",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "read_only_audit_callable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "invalid_canvas_rejected",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "trace_id": "validation",
+        "error": {
+          "code": "UPSTREAM_NATIVE_FAILED",
+          "message": "上游原生操作失败，未降级为图片。",
+          "component": "PPTMasterAdapter",
+          "requirement_ids": [
+            "RES-032",
+            "PPT-015",
+            "PPT-030",
+            "SYS-012",
+            "SYS-013"
+          ],
+          "details": [
+            {
+              "type": "CanvasContractError",
+              "reason": "document root viewBox origin must be \"0 0\"; got '5 5 960 540'"
+            }
+          ],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "name": "external_image_not_fetched",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "trace_id": "validation",
+        "error": {
+          "code": "SVG_EXTERNAL_ASSET_BLOCKED",
+          "message": "SVG 外部资产须先安全取得并登记为本地资源。",
+          "component": "PPTMasterAdapter",
+          "requirement_ids": [
+            "RES-032",
+            "PPT-015",
+            "PPT-030",
+            "SYS-012",
+            "SYS-013"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "name": "DTD_not_expanded",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "trace_id": "validation",
+        "error": {
+          "code": "XML_ENTITY_BLOCKED",
+          "message": "XML DTD/实体声明被禁止。",
+          "component": "PPTMasterAdapter",
+          "requirement_ids": [
+            "RES-032",
+            "PPT-015",
+            "PPT-030",
+            "SYS-012",
+            "SYS-013"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "name": "insertion_failure_keeps_target",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "trace_id": "validation",
+        "error": {
+          "code": "SVG_EXTERNAL_ASSET_BLOCKED",
+          "message": "SVG 外部资产须先安全取得并登记为本地资源。",
+          "component": "PPTMasterAdapter",
+          "requirement_ids": [
+            "RES-032",
+            "PPT-015",
+            "PPT-030",
+            "SYS-012",
+            "SYS-013"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "name": "no_target_mutation_on_failure",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact_stable_group_id_map",
+      "passed": true,
+      "detail": {
+        "shape_id": 3,
+        "shape_name": "object-vector-01",
+        "object_id": "object-vector-01",
+        "native_svg": true,
+        "shape_ids": [
+          {
+            "source_id": "2",
+            "shape_id": 4,
+            "source_name": "Rectangle 2"
+          },
+          {
+            "source_id": "6",
+            "shape_id": 5,
+            "source_name": "vector-unit"
+          },
+          {
+            "source_id": "3",
+            "shape_id": 6,
+            "source_name": "panel"
+          },
+          {
+            "source_id": "4",
+            "shape_id": 7,
+            "source_name": "trend"
+          },
+          {
+            "source_id": "5",
+            "shape_id": 8,
+            "source_name": "point"
+          },
+          {
+            "source_id": "7",
+            "shape_id": 9,
+            "source_name": "heading"
+          },
+          {
+            "source_id": "8",
+            "shape_id": 10,
+            "source_name": "TextBox 8"
+          }
+        ],
+        "source_sha256": "2f3e42d433e9b049327bd6f03933106202a30df924cc54d6fc98ba7a1382c7b3",
+        "upstream": {
+          "project": "PPT Master",
+          "repository": "https://github.com/hugohe3/ppt-master",
+          "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+          "license": "MIT",
+          "third_party_data": [
+            "Apache POI Apache-2.0",
+            "Open XML SDK MIT"
+          ],
+          "manifest_sha256": "9ba57f25bb8bda094c7c99b543fe64b32d49587447392acb870a9e11bc19eda8"
+        },
+        "conversion": [
+          {
+            "slide_num": 1,
+            "svg": "/runtime/upstream-native-validation-v6/slide-one.svg",
+            "page_role": null,
+            "summary": {
+              "converted": 4,
+              "skipped": 0,
+              "promoted_backgrounds": 0,
+              "media_files": 0,
+              "package_files": 0,
+              "relationships": 0,
+              "animation_targets": 1
+            },
+            "preprocess": [],
+            "events": [
+              {
+                "tag": "rect",
+                "decision": "native",
+                "shape_id": 2,
+                "bounds_emu": [
+                  0,
+                  0,
+                  9144000,
+                  5143500
+                ],
+                "output_geometry": "preset",
+                "preset": "rect",
+                "fidelity": "native-normalized"
+              },
+              {
+                "tag": "rect",
+                "decision": "native",
+                "id": "panel",
+                "shape_id": 3,
+                "bounds_emu": [
+                  457200,
+                  952500,
+                  4267200,
+                  3143250
+                ],
+                "output_geometry": "preset",
+                "preset": "roundRect",
+                "fidelity": "native-normalized"
+              },
+              {
+                "tag": "path",
+                "decision": "native",
+                "id": "trend",
+                "shape_id": 4,
+                "bounds_emu": [
+                  857250,
+                  1333500,
+                  3810000,
+                  2667000
+                ],
+                "output_geometry": "custom",
+                "fidelity": "visual-only",
+                "geometry_source": "svg-authored"
+              },
+              {
+                "tag": "circle",
+                "decision": "native",
+                "id": "point",
+                "shape_id": 5,
+                "bounds_emu": [
+                  1828800,
+                  1638300,
+                  1981200,
+                  1790700
+                ],
+                "output_geometry": "preset",
+                "preset": "ellipse",
+                "fidelity": "native-normalized"
+              },
+              {
+                "tag": "g",
+                "decision": "native",
+                "id": "vector-unit",
+                "shape_id": 6,
+                "bounds_emu": [
+                  457200,
+                  952500,
+                  4267200,
+                  3143250
+                ],
+                "output_geometry": "group",
+                "fidelity": "visual-only"
+              },
+              {
+                "tag": "text",
+                "decision": "native",
+                "id": "heading",
+                "shape_id": 7,
+                "bounds_emu": [
+                  445008,
+                  327025,
+                  2407920,
+                  796417
+                ],
+                "output_geometry": "preset",
+                "preset": "rect",
+                "fidelity": "native-normalized"
+              },
+              {
+                "tag": "text",
+                "decision": "native",
+                "shape_id": 8,
+                "bounds_emu": [
+                  448056,
+                  3594100,
+                  2616098,
+                  3946144
+                ],
+                "output_geometry": "preset",
+                "preset": "rect",
+                "fidelity": "native-normalized"
+              }
+            ]
+          }
+        ],
+        "placement": {
+          "fit": "contain",
+          "scale": 0.5,
+          "bounds_emu": [
+            914400,
+            1828800,
+            4572000,
+            2571750
+          ],
+          "scaled_absolute_units": [
+            {
+              "tag": "ln",
+              "attribute": "w",
+              "before": 38100,
+              "after": 19050
+            },
+            {
+              "tag": "bodyPr",
+              "attribute": "bIns",
+              "before": 0,
+              "after": 0
+            },
+            {
+              "tag": "bodyPr",
+              "attribute": "rIns",
+              "before": 0,
+              "after": 0
+            },
+            {
+              "tag": "bodyPr",
+              "attribute": "tIns",
+              "before": 0,
+              "after": 0
+            },
+            {
+              "tag": "bodyPr",
+              "attribute": "lIns",
+              "before": 0,
+              "after": 0
+            },
+            {
+              "tag": "rPr",
+              "attribute": "sz",
+              "before": 2400,
+              "after": 1200
+            },
+            {
+              "tag": "bodyPr",
+              "attribute": "bIns",
+              "before": 0,
+              "after": 0
+            },
+            {
+              "tag": "bodyPr",
+              "attribute": "rIns",
+              "before": 0,
+              "after": 0
+            },
+            {
+              "tag": "bodyPr",
+              "attribute": "tIns",
+              "before": 0,
+              "after": 0
+            },
+            {
+              "tag": "bodyPr",
+              "attribute": "lIns",
+              "before": 0,
+              "after": 0
+            },
+            {
+              "tag": "rPr",
+              "attribute": "sz",
+              "before": 1800,
+              "after": 900
+            }
+          ]
+        },
+        "relationship_policy": "no relationships added or overwritten"
+      }
+    },
+    {
+      "name": "contain_scale_explicit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_absolute_font_and_line_units_scaled",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "remapped_native_ids_unique",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_text_unchanged",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "non_target_slide_bytes_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_master_layout_theme_bytes_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "target_relationship_bytes_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "inserted_file_reopens_native_group",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "inserted_file_passes_upstream_audit",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real_source_preserving_import",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "authoring_selected_text_locatable",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "native_revision_text_applied",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "roundtrip_unselected_slide_byte_identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "roundtrip_master_layout_theme_byte_identity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "roundtrip_source_value_preserved",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "existing_workspace_not_overwritten",
+      "passed": true,
+      "detail": {
+        "ok": false,
+        "trace_id": "validation",
+        "error": {
+          "code": "NATIVE_WORKSPACE_EXISTS",
+          "message": "原生编辑工作区已有源文件；拒绝覆盖。",
+          "component": "PPTMasterAdapter",
+          "requirement_ids": [
+            "RES-032",
+            "PPT-015",
+            "PPT-030",
+            "SYS-012",
+            "SYS-013"
+          ],
+          "details": [],
+          "retryable": false
+        }
+      }
+    },
+    {
+      "name": "export_real_PDF_and_two_PNGs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "insert_real_PDF_and_two_PNGs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "revision_real_PDF_and_two_PNGs",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": 40,
+  "total": 40,
+  "scope": "component integration, not all PPT/AC acceptance"
+}

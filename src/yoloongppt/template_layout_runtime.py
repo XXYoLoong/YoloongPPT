@@ -233,10 +233,15 @@ def choose(record, content, style, policy=None, order=0, count=1):
             if error.code == 'TEMPLATE_FONT_UNAVAILABLE' and not (primary and fallbacks): raise
     if selected is None: fail('TEMPLATE_NO_COMPATIBLE_LAYOUT', '没有符合内容、容量与品牌锁的原生布局；未改用通用模板。', decisions)
     layout, elements, bindings, page_style = selected
+    from .upstream_templates import analyze_upstream_template, validate_native_slot_content
+    upstream_analysis=analyze_upstream_template(record['template_pack'],source=record['source'])
+    upstream_checks=validate_native_slot_content(upstream_analysis,layout['part'],{
+        element['template_binding']['placeholder_index']:element['text'] if isinstance(element['text'],str) else '\n'.join(element['text'])
+        for element in elements if element['type']=='text'})
     fallback = bool(primary and layout['part'] != primary)
     selection = {'version': VERSION, 'template_id': record['template_id'], 'selected_layout': layout['part'], 'bindings': bindings, 'decisions': decisions,
                  'fallback': {'used': fallback, 'requested_layout': primary, 'selected_layout': layout['part'], 'reason': decisions[:-1] if fallback else [], 'authorization': 'explicit caller fallback_layouts' if fallback else None},
-                 'capacity_status': 'measured_conservative_render_pending', 'system_acceptance': 'not_claimed'}
+                 'capacity_status': 'measured_conservative_render_pending', 'upstream_validation':upstream_checks, 'system_acceptance': 'not_claimed'}
     return {'elements': elements, 'page_style': page_style, 'selection': selection, 'native_layout_part': layout['part'], 'locks': locks}
 
 

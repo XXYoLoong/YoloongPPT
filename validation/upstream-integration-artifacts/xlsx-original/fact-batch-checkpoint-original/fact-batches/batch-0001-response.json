@@ -1,0 +1,241 @@
+{
+  "coverage": [
+    {
+      "evidence_id": "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+      "classification": "facts",
+      "reason": "单元格文本为分类值“B楼”，可作为分类事实。"
+    },
+    {
+      "evidence_id": "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+      "classification": "facts",
+      "reason": "数值72带显式数字格式后缀“ 千瓦时”，显示为“72 千瓦时”，可作为用电量事实。"
+    },
+    {
+      "evidence_id": "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+      "classification": "facts",
+      "reason": "单元格文本为性质说明“人工验证数据，非真实业务”。"
+    },
+    {
+      "evidence_id": "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+      "classification": "facts",
+      "reason": "单元格文本为分类值“C楼”，可作为分类事实。"
+    },
+    {
+      "evidence_id": "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5",
+      "classification": "facts",
+      "reason": "数值54带显式数字格式后缀“ 千瓦时”，显示为“54 千瓦时”，可作为用电量事实。"
+    },
+    {
+      "evidence_id": "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+      "classification": "facts",
+      "reason": "单元格文本为性质说明“人工验证数据，非真实业务”。"
+    },
+    {
+      "evidence_id": "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+      "classification": "facts",
+      "reason": "已保存公式文本SUM(B2:B4)，仅作为公式事实，不重新计算。"
+    }
+  ],
+  "claims": [
+    {
+      "fact_key": "sheet2.category.B楼",
+      "fact_kind": "product",
+      "value": {
+        "raw_text": "B楼",
+        "normalized_text": "B楼",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_83f4a954-3f1e-4e66-bf12-2e9b9898772b",
+          "quote": "B楼"
+        }
+      ],
+      "reason": "分类数据表中B楼分类值。"
+    },
+    {
+      "fact_key": "sheet2.electricity.B楼",
+      "fact_kind": "amount",
+      "value": {
+        "raw_text": "72 千瓦时",
+        "normalized_text": "72 千瓦时",
+        "numeric_value": "72",
+        "date_value": null,
+        "date_precision": null,
+        "unit": "千瓦时",
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_acd650e8-9cc8-4991-a3c5-dfa5dc1df9fc",
+          "quote": "72 千瓦时"
+        }
+      ],
+      "reason": "B楼对应用电量显示值72千瓦时。"
+    },
+    {
+      "fact_key": "sheet2.nature.B楼",
+      "fact_kind": "quote",
+      "value": {
+        "raw_text": "人工验证数据，非真实业务",
+        "normalized_text": "人工验证数据，非真实业务",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_b8636bd1-e5db-44ad-8bd4-d0a4cb343209",
+          "quote": "人工验证数据，非真实业务"
+        }
+      ],
+      "reason": "B楼行性质说明为人工验证数据，非真实业务。"
+    },
+    {
+      "fact_key": "sheet2.category.C楼",
+      "fact_kind": "product",
+      "value": {
+        "raw_text": "C楼",
+        "normalized_text": "C楼",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_0903cb0e-1920-4509-ab1b-f4ae69062c14",
+          "quote": "C楼"
+        }
+      ],
+      "reason": "分类数据表中C楼分类值。"
+    },
+    {
+      "fact_key": "sheet2.electricity.C楼",
+      "fact_kind": "amount",
+      "value": {
+        "raw_text": "54 千瓦时",
+        "normalized_text": "54 千瓦时",
+        "numeric_value": "54",
+        "date_value": null,
+        "date_precision": null,
+        "unit": "千瓦时",
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_7873e161-130a-4f7b-9ea5-ee3cc23840d5",
+          "quote": "54 千瓦时"
+        }
+      ],
+      "reason": "C楼对应用电量显示值54千瓦时。"
+    },
+    {
+      "fact_key": "sheet2.nature.C楼",
+      "fact_kind": "quote",
+      "value": {
+        "raw_text": "人工验证数据，非真实业务",
+        "normalized_text": "人工验证数据，非真实业务",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_3578293b-309a-45b9-a2ea-9374f56db531",
+          "quote": "人工验证数据，非真实业务"
+        }
+      ],
+      "reason": "C楼行性质说明为人工验证数据，非真实业务。"
+    },
+    {
+      "fact_key": "sheet1.formula.B5",
+      "fact_kind": "quote",
+      "value": {
+        "raw_text": "SUM(B2:B4)",
+        "normalized_text": "SUM(B2:B4)",
+        "numeric_value": null,
+        "date_value": null,
+        "date_precision": null,
+        "unit": null,
+        "currency": null,
+        "percentage_base": null,
+        "period": null,
+        "qualifier": null,
+        "citation_uri": null
+      },
+      "provenance": "fact",
+      "quotes": [
+        {
+          "evidence_id": "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc",
+          "quote": "SUM(B2:B4)"
+        }
+      ],
+      "reason": "已保存公式为SUM(B2:B4)，仅登记公式文本，不重新计算。"
+    }
+  ],
+  "missing": [
+    {
+      "fact_key": "sheet2.electricity.A楼",
+      "fact_kind": "amount",
+      "required": false,
+      "reason": "本批未包含A楼用电量证据，不能从其他行推断。",
+      "evidence_refs": []
+    },
+    {
+      "fact_key": "sheet2.nature.A楼",
+      "fact_kind": "quote",
+      "required": false,
+      "reason": "本批未包含A楼性质证据，不能从其他行推断。",
+      "evidence_refs": []
+    },
+    {
+      "fact_key": "sheet1.formula.B5.cached_value",
+      "fact_kind": "amount",
+      "required": false,
+      "reason": "本批未提供B5公式缓存值，无法确认缓存内容或新鲜度。",
+      "evidence_refs": [
+        "evidence_46073be8-c7c5-40cb-aa36-74c1aeedebcc"
+      ]
+    }
+  ]
+}

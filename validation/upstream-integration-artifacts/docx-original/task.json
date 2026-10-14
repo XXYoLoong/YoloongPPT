@@ -1,0 +1,69 @@
+{
+  "task_id": "task_c8b6bf8d-9d10-4ac2-8091-304f918b6209",
+  "route": {
+    "route_status": "routed",
+    "mode": "create_from_materials",
+    "routing_reason": "调用者明确要求材料新建",
+    "protection_policy_id": "preserve_material_facts_and_sources",
+    "decision_id": "DEC-001",
+    "trace": {
+      "candidate_modes": [
+        "create_from_materials"
+      ],
+      "selection_basis": "调用者选择，当前入口没有自动执行DEC-001"
+    }
+  },
+  "sources": [
+    {
+      "source_id": "source_1bdc786b-2de4-4ab8-824c-cd6558a7d1aa",
+      "kind": "docx",
+      "locator": "/runtime/controlled-normal-sources/normal-source.docx",
+      "metadata": {
+        "source_role": "fact"
+      }
+    }
+  ],
+  "constraints": {
+    "hard": [],
+    "soft": [],
+    "defaults": [],
+    "conflicts": []
+  },
+  "style": null,
+  "template_ref": null,
+  "output": {
+    "formats": [
+      "pptx",
+      "pdf",
+      "png"
+    ]
+  },
+  "providers": {
+    "text": {
+      "provider": "deepseek",
+      "model": "deepseek-flash",
+      "api_key_env": "DEEPSEEK_API_KEY",
+      "parameters": {
+        "temperature": 0.2,
+        "max_tokens": 12000,
+        "timeout_seconds": 180
+      }
+    }
+  },
+  "runtime_preferences": {
+    "page_count": 6
+  },
+  "raw_request": {
+    "request": {
+      "raw_text": "根据所给人工验证DOCX报告新建中文演示，保留标题、表格数据、原有引用和来源；不要把外部链接下载或原生图片当作业务事实。表格与图表依原内容合理选择。",
+      "attachments": [],
+      "requested_mode": "create_from_materials",
+      "requested_outputs": [
+        "pptx",
+        "pdf",
+        "png"
+      ]
+    },
+    "attachment_roles": []
+  }
+}

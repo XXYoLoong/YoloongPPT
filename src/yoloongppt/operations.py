@@ -122,14 +122,15 @@ def dispatch(operation, document, trace, schemas=None, store=None):
             if not isinstance(slide,dict) or set(slide)-{'objects','notes'} or not isinstance(slide.get('objects'),list):
                 raise TaskError('NATIVE_DECK_INVALID','页面需objects，可提供notes。','Operations',['PPT-001'])
             for spec in slide['objects']:schemas.validate('native-object-spec.schema.json',spec)
-        output=RunArtifacts();prs=Presentation();prs.slide_width=Inches(13.333333);prs.slide_height=Inches(7.5)
+        output=RunArtifacts();prs=Presentation();prs.slide_width=Inches(13.333333);prs.slide_height=Inches(7.5);native_calls=[]
         for content in slides:
             slide=prs.slides.add_slide(prs.slide_layouts[6])
-            for spec in content['objects']:add_object(slide,spec)
+            for spec in content['objects']:add_object(slide,spec,trace_out=native_calls)
             if 'notes' in content:slide.notes_slide.notes_text_frame.text=content['notes']
         prs.save(output.path/'deck.pptx');model=inspect_deck(output.path/'deck.pptx')
         result={'ok':True,'trace_id':trace,'run_id':output.run_id,'pptx':str(output.path/'deck.pptx'),
                 'object_map':model,'scope':'caller supplied native object execution; not AI generation or system acceptance','qa':'not_executed'}
+        output.json('native-upstream-calls.json',{'calls':native_calls})
         output.json('result.json',result);output.json('manifest.json',{'run_id':output.run_id,'artifacts':output.manifest()})
         return result
     if operation in {'inspect_deck','edit_deck','parse_template','instantiate_template'}:

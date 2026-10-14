@@ -1,6 +1,6 @@
 # 模块复用与测试资产来源（RES-032 / RES-033）
 
-只登记拟复用模块与有来源资产，不引入产品实现或选择产品语言/运行时。消费已完成RES-031；范围仍以V0.3基线为准。
+按 EXEC-20261012-01 更新实际复用状态：R01/02/04/06/07/10 已接入固定上游模块，R19 接入 Docling。原 P01–P05 研究资产登记和以下历史比较保留；当前导入范围、逐文件来源/许可/hash 与真实运行证据分别见 ReuseDecisionRegistry.json、vendor/*/SOURCE.json、config/ 两份清单及 validation/upstream-integration-summary.json。消费 RES-031，产品范围仍以原 V0.3 基线为准。
 
 ## 许可依据
 

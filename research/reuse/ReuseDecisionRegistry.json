@@ -14,24 +14,24 @@
       "fixed_commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
       "clone": "F:\\YoloongPPT-Research\\P01",
       "license_observed": "MIT",
-      "runtime_scope": "source + prior runtime subset; no new provider calls",
-      "remaining_verification": "Full product AC and object roundtrip remain unexecuted"
+      "runtime_scope": "Directly imported audited module closure via product runtime; see vendor/ppt_master/SOURCE.json",
+      "remaining_verification": "Full original modes/objects/backend/system AC remain incomplete; component results do not imply all capabilities."
     },
     "P02": {
       "name": "PPTAgent main Skill",
       "fixed_commit": "833cda553b343be0e486a93b0b57cac962cdd566",
       "clone": "F:\\YoloongPPT-Research\\P02",
       "license_observed": "MIT",
-      "runtime_scope": "source + prior runtime subset; no new provider calls",
-      "remaining_verification": "Full product AC and object roundtrip remain unexecuted"
+      "runtime_scope": "Directly imported audited module closure via product runtime; see vendor/pptagent_quality/SOURCE.json",
+      "remaining_verification": "Full original modes/objects/backend/system AC remain incomplete; component results do not imply all capabilities."
     },
     "P03": {
       "name": "Presenton",
       "fixed_commit": "35bf44290f821323e003da854f78ffcb0e918167",
       "clone": "F:\\YoloongPPT-Research\\P03",
       "license_observed": "Apache-2.0",
-      "runtime_scope": "source + prior runtime subset; no new provider calls",
-      "remaining_verification": "P03 five VERIFY still in progress, no generation/export evidence"
+      "runtime_scope": "Directly imported audited module closure via product runtime; see vendor/presenton_templates/SOURCE.json",
+      "remaining_verification": "Full original modes/objects/backend/system AC remain incomplete; component results do not imply all capabilities."
     },
     "P04": {
       "name": "ai-agent-ppt",
@@ -65,7 +65,7 @@
       ],
       "license_observed": "MIT (code); third-party assets separate",
       "obligations": "复制已审核代码时保留MIT许可与Hugo He版权。icons/sounds/geometry data的独立声明不由MIT替代。",
-      "consumer": "未来OOXML Adapter的片段关系复制安全检查（PPT-030）",
+      "consumer": "src/yoloongppt/upstream_native.py",
       "reason": "单文件仅stdlib ElementTree；定位关系QName，避免把part-local关系当普通属性",
       "limits": "只判断关系属性存在，不是XML parser沙箱、关系重绑定或全PPTX安全保证",
       "copy_permission": "eligible only for these exact MIT files with notices and confirmed compatible target interface",
@@ -74,9 +74,20 @@
         "__future__",
         "xml"
       ],
-      "implementation_state": "registry decision only; no source imported into product",
+      "implementation_state": "product integration executed; full original acceptance remains separate",
       "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
-      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json",
+      "source_manifest": "vendor/ppt_master/SOURCE.json",
+      "source_manifest_sha256": "9ba57f25bb8bda094c7c99b543fe64b32d49587447392acb870a9e11bc19eda8",
+      "current_scope": "原生XML关系guard已执行；不替代完整安全验收",
+      "change_history": [
+        {
+          "execution_revision": "EXEC-20261012-01",
+          "previous_method": "直接复用",
+          "method": "直接复用",
+          "reason": "用户明确优先调用成熟模块；固定源码与许可、真实消费和验证已经具备。"
+        }
+      ]
     },
     {
       "id": "R02",
@@ -92,7 +103,7 @@
       ],
       "license_observed": "MIT (code); third-party assets separate",
       "obligations": "复制已审核代码时保留MIT许可与Hugo He版权。icons/sounds/geometry data的独立声明不由MIT替代。",
-      "consumer": "未来SVG原生Adapter的页面尺寸/视口检查",
+      "consumer": "src/yoloongppt/upstream_native.py",
       "reason": "单文件stdlib；已独立定义canvas错误；可与TaskSpec几何接口连接",
       "limits": "源规则zero-origin与EMU范围必须能力化；不可替代用户全部比例/约束；目标语言/接口未选前不复制",
       "copy_permission": "eligible only for these exact MIT files with notices and confirmed compatible target interface",
@@ -106,9 +117,20 @@
         "typing",
         "xml"
       ],
-      "implementation_state": "registry decision only; no source imported into product",
+      "implementation_state": "product integration executed; full original acceptance remains separate",
       "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
-      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json",
+      "source_manifest": "vendor/ppt_master/SOURCE.json",
+      "source_manifest_sha256": "9ba57f25bb8bda094c7c99b543fe64b32d49587447392acb870a9e11bc19eda8",
+      "current_scope": "原生SVG canvas与真实导出/插入/roundtrip已执行",
+      "change_history": [
+        {
+          "execution_revision": "EXEC-20261012-01",
+          "previous_method": "直接复用",
+          "method": "直接复用",
+          "reason": "用户明确优先调用成熟模块；固定源码与许可、真实消费和验证已经具备。"
+        }
+      ]
     },
     {
       "id": "R03",
@@ -139,7 +161,7 @@
       "id": "R04",
       "project": "P01",
       "module": "native SVG export / edit proxy / chart parity",
-      "method": "仅参考",
+      "method": "直接复用",
       "source_files": [
         "P01:skills/ppt-master/scripts/tests/test_native_chart_table_parity.py",
         "P01:skills/ppt-master/scripts/pptx_ooxml/edit_safety.py"
@@ -150,15 +172,26 @@
       ],
       "license_observed": "MIT (code); third-party assets separate",
       "obligations": "复制已审核代码时保留MIT许可与Hugo He版权。icons/sounds/geometry data的独立声明不由MIT替代。",
-      "consumer": "原生对象、roundtrip及局部修订的验收设计",
+      "consumer": "src/yoloongppt/upstream_native.py",
       "reason": "已有Quick与26项selected tests说明可实现子集；完整依赖链尚未选定",
       "limits": "不整包vendoring exporter；共享master/proxy拒绝与advisory receipt保留为测试边界",
       "copy_permission": "no source/asset copying under this decision",
       "dependencies": "not copied; only conceptual/test observations retained",
       "imports": [],
-      "implementation_state": "registry decision only; no source imported into product",
+      "implementation_state": "product integration executed; full original acceptance remains separate",
       "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
-      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json",
+      "source_manifest": "vendor/ppt_master/SOURCE.json",
+      "source_manifest_sha256": "9ba57f25bb8bda094c7c99b543fe64b32d49587447392acb870a9e11bc19eda8",
+      "current_scope": "PPT Master原生导出、插入、保真回写与OPC检查直接接入",
+      "change_history": [
+        {
+          "execution_revision": "EXEC-20261012-01",
+          "previous_method": "仅参考",
+          "method": "直接复用",
+          "reason": "用户明确优先调用成熟模块；固定源码与许可、真实消费和验证已经具备。"
+        }
+      ]
     },
     {
       "id": "R05",
@@ -189,7 +222,7 @@
       "id": "R06",
       "project": "P02",
       "module": "source/render/review/build freshness gate",
-      "method": "抽象复用",
+      "method": "直接复用",
       "source_files": [
         "P02:skills/pptagent/scripts/pptagent_runtime/core.py"
       ],
@@ -199,21 +232,32 @@
       ],
       "license_observed": "MIT (main/Skill); dependency separate",
       "obligations": "Skill复制须保留其MIT许可/版权；installed converter与所有第三方依赖单独审核，不从main MIT推导。",
-      "consumer": "QA、执行trace和RevisionPlan freshness",
+      "consumer": "src/yoloongppt/upstream_quality.py",
       "reason": "将输入/资源/输出hash绑定审查，独立实现任务状态与失效门控",
       "limits": "需要产品事实/可编辑性QA，不复制源码或把六项检查当全QA",
       "copy_permission": "no source/asset copying under this decision",
       "dependencies": "not copied; only conceptual/test observations retained",
       "imports": [],
-      "implementation_state": "registry decision only; no source imported into product",
+      "implementation_state": "product integration executed; full original acceptance remains separate",
       "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
-      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json",
+      "source_manifest": "vendor/pptagent_quality/SOURCE.json",
+      "source_manifest_sha256": "6318f2726a62062fbf4be39019e29bf5b9209f6f769738b161a6103ff86542ba",
+      "current_scope": "直接复用sha256/render_current原函数；完整PPTX到PNG绑定仍需独立证据",
+      "change_history": [
+        {
+          "execution_revision": "EXEC-20261012-01",
+          "previous_method": "抽象复用",
+          "method": "直接复用",
+          "reason": "用户明确优先调用成熟模块；固定源码与许可、真实消费和验证已经具备。"
+        }
+      ]
     },
     {
       "id": "R07",
       "project": "P02",
       "module": "visual review payload/config boundary",
-      "method": "抽象复用",
+      "method": "直接复用",
       "source_files": [
         "P02:skills/pptagent/scripts/pptagent_runtime/visual.py",
         "P02:skills/pptagent/scripts/pptagent_runtime/config.py"
@@ -224,15 +268,26 @@
       ],
       "license_observed": "MIT (main/Skill); dependency separate",
       "obligations": "Skill复制须保留其MIT许可/版权；installed converter与所有第三方依赖单独审核，不从main MIT推导。",
-      "consumer": "结构化视觉审查与模型secret注入接口",
+      "consumer": "src/yoloongppt/upstream_quality.py",
       "reason": "严格issue字段、pass不可含major、env name边界可独立实现",
       "limits": "不复制Prompt；外部string slide失败需要产品明确错误，不自动吞掉",
       "copy_permission": "no source/asset copying under this decision",
       "dependencies": "not copied; only conceptual/test observations retained",
       "imports": [],
-      "implementation_state": "registry decision only; no source imported into product",
+      "implementation_state": "product integration executed; full original acceptance remains separate",
       "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
-      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json",
+      "source_manifest": "vendor/pptagent_quality/SOURCE.json",
+      "source_manifest_sha256": "6318f2726a62062fbf4be39019e29bf5b9209f6f769738b161a6103ff86542ba",
+      "current_scope": "直接复用review payload校验与实际模型复审；namespace空shim为融合代码",
+      "change_history": [
+        {
+          "execution_revision": "EXEC-20261012-01",
+          "previous_method": "抽象复用",
+          "method": "直接复用",
+          "reason": "用户明确优先调用成熟模块；固定源码与许可、真实消费和验证已经具备。"
+        }
+      ]
     },
     {
       "id": "R08",
@@ -287,7 +342,7 @@
       "id": "R10",
       "project": "P03",
       "module": "template element/layout/schema separation",
-      "method": "抽象复用",
+      "method": "直接复用",
       "source_files": [
         "P03:servers/fastapi/templates/v2/models/elements.py",
         "P03:servers/fastapi/templates/v2/models/layouts.py",
@@ -299,15 +354,26 @@
       ],
       "license_observed": "Apache-2.0 + NOTICE; dependencies/assets separate",
       "obligations": "若复制Apache内容须附许可证、保留适用通知/NOTICE，并对修改作明显说明；本次只抽象/参考，不搬整应用及第三方分发物。",
-      "consumer": "模板IR、语义槽位与几何/容量接口",
+      "consumer": "src/yoloongppt/upstream_templates.py",
       "reason": "区分元素、layout与结构化内容，按本项目现有契约独立实现",
       "limits": "不复制383布局/1002资产或依赖它的外部导出能力",
       "copy_permission": "no source/asset copying under this decision",
       "dependencies": "not copied; only conceptual/test observations retained",
       "imports": [],
-      "implementation_state": "registry decision only; no source imported into product",
+      "implementation_state": "product integration executed; full original acceptance remains separate",
       "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
-      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+      "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json",
+      "source_manifest": "vendor/presenton_templates/SOURCE.json",
+      "source_manifest_sha256": "81832e5310524517b517ef41dec0c4f7997c9eed20219a5d346547b02bf5a9e8",
+      "current_scope": "直接复用Presenton模型/内容schema，只有package相对导入改动；不复制私有export-core或字体/图片",
+      "change_history": [
+        {
+          "execution_revision": "EXEC-20261012-01",
+          "previous_method": "抽象复用",
+          "method": "直接复用",
+          "reason": "用户明确优先调用成熟模块；固定源码与许可、真实消费和验证已经具备。"
+        }
+      ]
     },
     {
       "id": "R11",
@@ -513,6 +579,29 @@
       "implementation_state": "registry decision only; no source imported into product",
       "unknown_rights": "No implicit clearance for adjacent third-party assets/dependencies",
       "cross_project_evidence": "research/cross-project/CrossProjectMatrix.json"
+    },
+    {
+      "id": "R19",
+      "project": "Docling",
+      "module": "DocumentConverter/layout/table/OCR",
+      "method": "直接复用",
+      "version": "2.138.0",
+      "license_observed": "MIT code; Apache-2.0 Heron/RapidOCR; CDLA-Permissive-2.0 TableFormer",
+      "consumer": "src/yoloongppt/docling_adapter.py",
+      "source_manifest": "config/runtime-wheels.json; config/docling-models.json",
+      "obligations": "固定官方包/模型来源、hash及许可；不把解析/OCR置信度作为事实真值。",
+      "implementation_state": "Real CPU Docker conversion executed; normal source generation and semantic boundary validated separately",
+      "limits": "Complex source semantics, complete input modes and original system AC remain required.",
+      "source_manifests": [
+        {
+          "path": "config/runtime-wheels.json",
+          "sha256": "b0266d275c4cf4e7eb0c421b5498ae16d767d1ac4a92d3501fca83fd4f329c5f"
+        },
+        {
+          "path": "config/docling-models.json",
+          "sha256": "6bb3460b7f66dfb51670180ddde92d131152c14e5ebf063f4456553c96741b04"
+        }
+      ]
     }
   ],
   "third_party_boundaries": [
@@ -535,7 +624,7 @@
       "kind": "preset geometry data",
       "source_file": "P01:skills/ppt-master/scripts/pptx_shapes/data/NOTICE.md",
       "declaration": "Apache POI data Apache2 + OpenXML SDK list MIT; separate notices/files",
-      "decision": "not copied by the approved small helper decisions"
+      "decision": "Audited Apache POI/OpenXML SDK data closure imported with separate notices; see vendor/ppt_master/SOURCE.json; no font/icon/sound bundle copied."
     },
     {
       "project": "P03",

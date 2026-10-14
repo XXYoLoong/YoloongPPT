@@ -69,6 +69,8 @@ def validate_review(result,deck,sources,orders):
             or not isinstance(issue['evidence_refs'], list) or any(not isinstance(e, str) or e not in known for e in issue['evidence_refs'])):
             raise TaskError('QA_REVIEW_INVALID', '模型审查问题引用或字段无效。', 'QAEngine', ['SYS-015'])
         issue['issue_id'] = entity('issue'); issue['slide_id'] = deck['slides'][issue['slide_order']]['slide_id']
+    from .upstream_quality import validate_product_review
+    validate_product_review(result,deck)
     return result
 
 
@@ -101,11 +103,42 @@ def repair_references(task, proposal, sources, quality, artifacts, schemas):
     # Restrict this action to evidence correction. Content cannot be quietly
     # rewritten or trimmed to make a failing QA disappear.
     before = json.loads(json.dumps(proposal))
+    artifacts.json('reference-repair-before.json',before)
+    # A literal already in the note may merely be missing its source ID. Complete
+    # only unique selected value+scope bindings; never admit an unrelated number.
+    import re
+    compact=lambda text:re.sub(r'\s+','',text)
+    repaired=json.loads(json.dumps(before));bindings=[]
+    selected=[next(c for c in g['claims'] if c['claim_id']==g['selected_claim_id'])
+              for g in sources.get('evidence_resolution',{}).get('groups',[]) if g.get('selected_claim_id')]
+    for order,slide in enumerate(repaired['slides']):
+        notes=compact(slide['notes']);page=compact('\n'.join([slide['title'],*slide['body'],slide['notes']]))
+        signatures={}
+        for claim in selected:
+            value=claim['value']
+            if value['numeric_value'] is None or compact(value['raw_text']) not in notes:continue
+            if any(compact(value[field]) not in page for field in ['unit','currency','period','qualifier','percentage_base'] if value[field]):continue
+            signature=(value['raw_text'],value['unit'],value['period'],value['qualifier'])
+            signatures.setdefault(signature,[]).append(claim)
+        for claims in signatures.values():
+            references={tuple(sorted(r['evidence_id'] for r in c['evidence_refs'])) for c in claims}
+            if len(references)!=1:continue
+            missing=[ref for ref in next(iter(references)) if ref not in slide['evidence_refs']]
+            if missing:
+                slide['evidence_refs'].extend(missing)
+                bindings.append({'slide_order':order,'selected_claim_ids':[c['claim_id'] for c in claims],'added_evidence_ids':missing})
+    p0=[i for i in quality['issues'] if i['severity']=='P0']
+    if bindings and all(i['code']=='FACT_NOTE_NUMBER_UNSUPPORTED' for i in p0):
+        schemas.validate('generation-model.schema.json',repaired)
+        artifacts.json('reference-repair-literal-bindings.json',{'bindings':bindings,'fresh_model_call':False,
+            'rule':'Unchanged complete literal/unit/scope already in notes; unique selected original evidence set only; no content/values edited.'})
+        artifacts.json('reference-repair-response.json',repaired)
+        return repaired
     request = {'proposal': before, 'issues': quality['issues'],
                'evidence': [{'evidence_id': e['evidence_id'], 'text': approved_text(sources,e)} for e in sources['evidence']]}
     system = ('输出json且完全符合提供的generation-model schema。当前QA发现来源引用不足。'
               '只允许修正slides中的evidence_refs；其余所有内容与顺序必须逐字保持。'
-              '为图表数字/区域/单位添加支持它们的表格和解释段落证据，不引用无关资料，不编造ID。schema='
+              '为正文、备注和图表中的数字/期间/单位添加实际已选证据；备注提到合计也必须包含原合计来源，不引用无关资料，不编造ID。schema='
               +json.dumps(schemas.documents['generation-model.schema.json'], ensure_ascii=False))
     artifacts.json('reference-repair-request.json', {'system': system, 'input': request})
     repaired, call = DeepSeek(task['providers']['text']).complete([{'role': 'system','content': system}, {'role': 'user','content': json.dumps(request,ensure_ascii=False)}])

@@ -16,8 +16,11 @@ def preflight(task, context=None, schemas=None):
     if task['route']['route_status'] != 'routed' or task['route']['mode'] not in {'create_from_materials', 'create_from_scratch'}:
         raise TaskError('GENERATION_ROUTE_UNSUPPORTED', '当前生成入口只支持材料/从零新建，未替换其他模式。', 'Preflight', ['SYS-011'])
     prefs = task['runtime_preferences']
-    if set(prefs) - {'page_count','asset_policy','adaptive_policy'} or set(task['output']) - {'formats'}:
-        raise TaskError('GENERATION_OPTION_UNSUPPORTED', '运行参数需登记page_count/asset_policy/adaptive_policy，输出只支持formats；未知参数未忽略。', 'Preflight', ['SYS-011'])
+    if set(prefs) - {'page_count','asset_policy','adaptive_policy','fact_batch_policy'} or set(task['output']) - {'formats'}:
+        raise TaskError('GENERATION_OPTION_UNSUPPORTED', '运行参数需登记page_count/asset_policy/adaptive_policy/fact_batch_policy，输出只支持formats；未知参数未忽略。', 'Preflight', ['SYS-011'])
+    if 'fact_batch_policy' in prefs:
+        from .fact_batches import _policy
+        _policy(task)
     if context is None:
         from .context import normalize
         from .errors import trace_id

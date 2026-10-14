@@ -1,0 +1,94 @@
+{
+  "ok": true,
+  "trace_id": "trace_c2c98a38-7147-469e-b12b-0944be943511",
+  "task_id": "task_1c7e3fd8-cc2f-4f43-8d06-1275e3ee5c00",
+  "run_id": "aa6b5914-83f7-4810-b81c-a3a6ffa5d594",
+  "operation": "generate",
+  "state": "draft_generated",
+  "artifact_root": "/runtime/runs/aa6b5914-83f7-4810-b81c-a3a6ffa5d594",
+  "pptx": "/runtime/runs/aa6b5914-83f7-4810-b81c-a3a6ffa5d594/deck.pptx",
+  "slide_count": 6,
+  "model": {
+    "provider": "deepseek",
+    "requested_model": "deepseek-flash",
+    "returned_model": "deepseek-flash",
+    "response_id": "72670f0a-48ef-4998-bad2-af7517f49cd8",
+    "usage": {
+      "prompt_tokens": 25965,
+      "completion_tokens": 3262,
+      "total_tokens": 29227,
+      "prompt_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "prompt_cache_hit_tokens": 4224,
+      "prompt_cache_miss_tokens": 21741
+    },
+    "available_models": [
+      "deepseek-flash",
+      "deepseek-v4-pro"
+    ],
+    "parameters": {
+      "model": "deepseek-flash",
+      "response_format": {
+        "type": "json_object"
+      },
+      "thinking": {
+        "type": "disabled"
+      },
+      "temperature": 0.2,
+      "max_tokens": 12000,
+      "stream": false
+    },
+    "request_sha256": "112e0c2ea312add68bd9e1042f475dd2c76cb1574baacf9c040d5758516fe9e2",
+    "response_content_sha256": "87884dbb983a0bfd15ef1562fe23ddea55c2fa233ac4b1cf9e11c35b6173d3e7",
+    "duration_seconds": 13.039,
+    "real_model_call": true,
+    "reused_from_run": "07716df0-2bec-40ce-94af-c9e77ea47126",
+    "fresh_model_call_this_run": false
+  },
+  "qa": {
+    "status": "partial",
+    "p0_issue_count": 0,
+    "acceptance": {
+      "AC-001": "not_passed",
+      "GOV-008": "not_passed"
+    }
+  },
+  "warnings": [],
+  "completion": {
+    "state": "warning",
+    "final_allowed": false,
+    "p0_issue_count": 0,
+    "warning_issue_count": 5,
+    "missing_coverage": [
+      "structure",
+      "editability",
+      "geometry",
+      "fact_numeric",
+      "visual_semantic",
+      "fact_semantic",
+      "accessibility",
+      "global_consistency",
+      "powerpoint_compatibility"
+    ],
+    "missing_nodes": [],
+    "missing_acceptance": [
+      "AC-001",
+      "GOV-008"
+    ],
+    "revision_plan_status": "needs_input",
+    "reasons": [
+      "Coverage/acceptance/revision conditions are incomplete or nonblocking issues remain"
+    ],
+    "retry": {
+      "count": 0,
+      "maximum": 2,
+      "allowed": false,
+      "next_action": "complete_missing_acceptance"
+    },
+    "error": null,
+    "system_acceptance": "not_passed"
+  },
+  "revision_plan_id": "revision_plan_ce0e1677-0e15-46d4-9817-a83729bbe79e",
+  "boundary": "All 40 bounded decision stages connected when reached; complete decision, QA, backend and system acceptance unfinished."
+}

@@ -65,7 +65,12 @@ def generate(task, schemas, store, trace, checkpoint=None):
         if not sources['evidence']:
             raise TaskError('FACT_SOURCE_MISSING', '当前生成路径没有已选事实/指令依据，未把风格或模板当事实。', 'DEC-003', ['DEC-003'])
         artifacts.json('fact-source-result.json', sources)
-        if checkpoint:
+        if checkpoint and not (checkpoint/'fact-interpretation.json').is_file():
+            old=json.loads((checkpoint/'fact-source-result.json').read_text(encoding='utf-8'))
+            identity=lambda result:[(e['evidence_id'],e['source_hash'],e['parser_version']) for e in result['evidence']]
+            if identity(old)!=identity(sources):raise TaskError('CHECKPOINT_SOURCE_CHANGED','事实来源或解析版本变化，不能复用事实批次。','Generation',['DEC-004','SYS-005'])
+            interpretation=step('FactInterpreter bounded batch recovery',lambda:interpret(task,sources,schemas,artifacts,checkpoint=checkpoint))
+        elif checkpoint:
             if not (checkpoint/'fact-interpretation.json').is_file() or not (checkpoint/'fact-model-call.json').is_file():
                 raise TaskError('FACT_CHECKPOINT_MISSING','旧断点缺少事实解释及真实模型记录，不能未经重算复用内容。','Generation',['DEC-004','DEC-005','SYS-005'])
             old=json.loads((checkpoint/'fact-source-result.json').read_text(encoding='utf-8'))
@@ -73,10 +78,34 @@ def generate(task, schemas, store, trace, checkpoint=None):
             if identity(old)!=identity(sources):raise TaskError('CHECKPOINT_SOURCE_CHANGED','事实来源或解析版本变化，不能复用事实解释。','Generation',['DEC-004','SYS-005'])
             manifest=json.loads((checkpoint/'manifest.json').read_text(encoding='utf-8'))
             from .artifacts import sha256
-            for name in ['fact-interpretation.json','fact-source-result.json','fact-model-request.json','fact-model-response.json','fact-model-call.json']:
+            fact_names=['fact-interpretation.json','fact-source-result.json','fact-model-request.json','fact-model-response.json','fact-model-call.json']
+            recorded_facts=[a['path'] for a in manifest['artifacts'] if a['path'].startswith('fact-') and not a['path'].startswith('fact-batches/')]
+            saved_call=json.loads((checkpoint/'fact-model-call.json').read_text(encoding='utf-8'))
+            repair_names=['fact-grounding-repair-request.json','fact-grounding-repair-response.json','fact-grounding-repair-call.json','fact-model-extraction-call.json','fact-model-effective.json']
+            if saved_call.get('grounding_repair_call') is not None or saved_call.get('grounding_repair_count',0):
+                if any(name not in recorded_facts or not (checkpoint/name).is_file() for name in repair_names):
+                    raise TaskError('FACT_CHECKPOINT_INCOMPLETE','事实断点缺少已消费纠错的原请求/响应/调用及有效结果，不能复用。','Generation',['DEC-004','DEC-005','SYS-005'])
+            if 'fact-reference-repair.json' in recorded_facts and 'fact-model-effective.json' not in recorded_facts:
+                raise TaskError('FACT_CHECKPOINT_INCOMPLETE','事实引用修正缺少有效结果，不能复用。','Generation',['DEC-005','SYS-005'])
+            fact_names.extend(name for name in recorded_facts if name not in fact_names and name!='fact-batch-plan.json')
+            request=json.loads((checkpoint/'fact-model-request.json').read_text(encoding='utf-8'))
+            if (checkpoint/'fact-batch-plan.json').is_file():fact_names.append('fact-batch-plan.json')
+            if request.get('mode')=='bounded_evidence_batches_then_semantic_key_alignment':
+                batch_names=[a['path'] for a in manifest['artifacts'] if a['path'].startswith('fact-batches/')]
+                required_requests=request.get('batch_requests',[])+([request['alignment_request']] if request.get('alignment_request') else [])
+                if not required_requests or any(name not in batch_names for name in required_requests) or 'fact-batch-plan.json' not in fact_names:
+                    raise TaskError('FACT_CHECKPOINT_INCOMPLETE','分批事实解释缺少原始调用或完整分批计划，不能复用。','Generation',['DEC-004','DEC-005','SYS-005'])
+                fact_names.extend(batch_names)
+            for name in fact_names:
+                relative=Path(name)
+                if relative.is_absolute() or '..' in relative.parts or not (checkpoint/relative).resolve().is_relative_to(checkpoint.resolve()):
+                    raise TaskError('FACT_CHECKPOINT_PATH_INVALID','事实断点清单路径越界。','Generation',['DEC-004','SYS-005'])
                 entries=[a for a in manifest['artifacts'] if a['path']==name]
-                if len(entries)!=1 or sha256(checkpoint/name)!=entries[0]['hash']:raise TaskError('FACT_CHECKPOINT_CHANGED','事实解释断点产物改变，不能复用。','Generation',['DEC-004','SYS-005'])
-                if name.startswith('fact-model-'):artifacts.json(name,json.loads((checkpoint/name).read_text(encoding='utf-8')))
+                if len(entries)!=1 or not (checkpoint/name).is_file() or sha256(checkpoint/name)!=entries[0]['hash']:raise TaskError('FACT_CHECKPOINT_CHANGED','事实解释断点产物改变，不能复用。','Generation',['DEC-004','SYS-005'])
+            for name in fact_names:
+                if name not in {'fact-interpretation.json','fact-source-result.json'}:
+                    (artifacts.path/name).parent.mkdir(parents=True,exist_ok=True)
+                    (artifacts.path/name).write_bytes((checkpoint/name).read_bytes())
             interpretation=json.loads((checkpoint/'fact-interpretation.json').read_text(encoding='utf-8'))
             artifacts.json('fact-checkpoint.json',{'reused_from_run':checkpoint.name,'fresh_fact_model_call':False})
         else:
@@ -130,7 +159,8 @@ def generate(task, schemas, store, trace, checkpoint=None):
         renders = step('SYS-014', lambda: render(artifacts.path/'deck.pptx', deck, artifacts.path))
         artifacts.json('render-report.json', renders)
         quality = step('SYS-015', lambda: check(deck, artifacts.path/'deck.pptx', object_map, sources, renders, artifacts.path))
-        if quality['issues'] and all(i['code'] in {'CHART_VALUE_UNSUPPORTED', 'FACT_NUMBER_UNSUPPORTED'} for i in quality['issues']):
+        reference_issues=[i for i in quality['issues'] if i['severity']=='P0']
+        if reference_issues and all(i['code'] in {'CHART_VALUE_UNSUPPORTED', 'FACT_NUMBER_UNSUPPORTED','FACT_NOTE_NUMBER_UNSUPPORTED'} for i in reference_issues):
             artifacts.json('quality-before-reference-repair.json', quality)
             proposal = step('SYS-015 reference repair', lambda: repair_references(task, proposal, sources, quality, artifacts, schemas))
             artifacts.json('model-response-effective.json', proposal)
@@ -183,7 +213,9 @@ def resume(run_id, schemas, store, trace, task_patch=None):
         raise TaskError('CHECKPOINT_ID_INVALID', '断点ID必须为标准UUID。', 'Generation', ['SYS-005']) from None
     folder = Path('/runtime/runs')/run_id
     required = ['task.json', 'source-result.json','fact-source-result.json','fact-interpretation.json','fact-model-request.json','fact-model-response.json','fact-model-call.json']
-    if not all((folder/name).is_file() for name in required):
+    complete=all((folder/name).is_file() for name in required)
+    partial_batch=(folder/'fact-batches').is_dir() and all((folder/name).is_file() for name in ['task.json','source-result.json','fact-source-result.json','fact-batch-plan.json','manifest.json'])
+    if not complete and not partial_batch:
         raise TaskError('CHECKPOINT_INCOMPLETE', '没有可恢复的事实解释阶段断点。', 'Generation', ['SYS-005'])
     task = json.loads((folder/'task.json').read_text(encoding='utf-8'))
     if task_patch is not None:

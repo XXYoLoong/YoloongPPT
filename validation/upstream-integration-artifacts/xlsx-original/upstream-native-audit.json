@@ -1,0 +1,380 @@
+{
+  "upstream": {
+    "project": "PPT Master",
+    "repository": "https://github.com/hugohe3/ppt-master",
+    "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+    "license": "MIT",
+    "third_party_data": [
+      "Apache POI Apache-2.0",
+      "Open XML SDK MIT"
+    ],
+    "manifest_sha256": "9ba57f25bb8bda094c7c99b543fe64b32d49587447392acb870a9e11bc19eda8"
+  },
+  "audit": {
+    "schema": "ppt-master.pptx-delivery-check.v1",
+    "status": "passed-with-advisories",
+    "file": {
+      "path": "/runtime/runs/3f6fe040-dae7-4e17-92d7-c0184de48978/deck.pptx",
+      "bytes": 63020
+    },
+    "package": {
+      "zip_integrity": "passed",
+      "corrupt_member": null,
+      "duplicate_parts": [],
+      "canonical_part_collisions": [],
+      "parts": {
+        "entries": 69,
+        "unique": 69,
+        "slides": 6,
+        "notes": 6,
+        "masters": 1,
+        "layouts": 11,
+        "media": 0
+      },
+      "relationships": {
+        "problems": []
+      }
+    },
+    "slides": {
+      "count": 6,
+      "hidden_count": 0,
+      "hidden": []
+    },
+    "fonts": {
+      "theme": {
+        "title": {
+          "latin": "Calibri",
+          "scripts": {
+            "Jpan": "ＭＳ Ｐゴシック",
+            "Hang": "맑은 고딕",
+            "Hans": "宋体",
+            "Hant": "新細明體"
+          }
+        },
+        "body": {
+          "latin": "Calibri",
+          "scripts": {
+            "Jpan": "ＭＳ Ｐゴシック",
+            "Hang": "맑은 고딕",
+            "Hans": "宋体",
+            "Hant": "新細明體"
+          }
+        }
+      },
+      "declared": {
+        "latin": [
+          {
+            "value": "Noto Sans CJK SC",
+            "count": 66
+          },
+          {
+            "value": "+mn-lt",
+            "count": 36
+          },
+          {
+            "value": "Calibri",
+            "count": 4
+          },
+          {
+            "value": "+mj-lt",
+            "count": 1
+          }
+        ],
+        "ea": [
+          {
+            "value": "+mn-ea",
+            "count": 36
+          },
+          {
+            "value": "Noto Sans CJK SC",
+            "count": 28
+          },
+          {
+            "value": "+mj-ea",
+            "count": 1
+          }
+        ],
+        "cs": [
+          {
+            "value": "+mn-cs",
+            "count": 36
+          },
+          {
+            "value": "+mj-cs",
+            "count": 1
+          }
+        ]
+      },
+      "embedded_parts": [],
+      "portability_advisory_faces": [
+        "Noto Sans CJK SC"
+      ]
+    },
+    "media": {
+      "embedded_count": 0,
+      "external_count": 0,
+      "embedded": [],
+      "external": [],
+      "uncompressed_bytes": 0,
+      "archive_compressed_bytes": 0,
+      "share_of_archive": 0.0,
+      "share_of_uncompressed_parts": 0.0,
+      "top_contributors": []
+    },
+    "motion": {
+      "transitions": {
+        "carrier_slide_count": 0,
+        "visual_effect_slide_count": 0,
+        "timed_advance_slide_count": 0,
+        "carrier_slides": [],
+        "visual_effect_slides": [],
+        "timed_advance_slides": [],
+        "effects": {}
+      },
+      "object_animations": {
+        "timing_slide_count": 0,
+        "object_animation_slide_count": 0,
+        "audio_timing_slide_count": 0,
+        "timing_slides": [],
+        "object_animation_slides": [],
+        "audio_timing_slides": []
+      }
+    },
+    "errors": [],
+    "advisories": [
+      {
+        "code": "font_portability",
+        "message": "Some fonts declared or referenced by the presentation are outside the common Office/OS portability set; target-system availability was not verified.",
+        "faces": [
+          "Noto Sans CJK SC"
+        ]
+      }
+    ]
+  },
+  "native_objects": [
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_3d62c5e9-95c0-40ce-96ff-d3057d84298f",
+      "text": "演示说明：人工验证数据，非真实业务",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_2942d327-ed27-4f29-a0e9-9912beea616e",
+      "text": "本演示数据来源为人工验证数据，非真实业务。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_cc03a174-27be-485c-816c-7f07ec2de5e3",
+      "text": "展示内容：月度数据表（日期、用电量、降低比例、性质）与分类数据表（分类、用电量、性质）。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_74478001-1e86-4155-8591-7b556e4340fd",
+      "text": "三个月合计用电量为 3750 千瓦时，其单元格公式为 SUM(B2:B4)。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "6",
+      "name": "object_21cf0401-63be-48e4-a1c5-73873c52cc2c",
+      "text": "公式缓存值：待确认（本批未提供 B5 公式缓存值，无法确认缓存内容或新鲜度）。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "7",
+      "name": "object_73804bbf-f8e7-44f8-873b-f96499f8b82f",
+      "text": "01 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_b6c87569-e0df-4272-b7e7-4a466ef592a4",
+      "text": "月度数据表：日期、用电量、降低比例、性质",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_bc379cc3-bc48-4239-9826-9dc2d93220a0",
+      "text": "表内数据均为人工验证数据，非真实业务。用电量：千瓦时；降低比例：%",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "graphicFrame",
+      "id": "4",
+      "name": "object_e72e63e3-3de7-494b-ae95-f0a04133473b",
+      "text": "日期用电量（千瓦时）降低比例（%）性质2026-01-011200 千瓦时8%人工验证数据，非真实业务2026-02-011300 千瓦时9%人工验证数据，非真实业务2026-03-011250 千瓦时10%人工验证数据，非真实业务三个月合计3750 千瓦时人工验证数据，非真实业务",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_e88d18fe-bbb6-4883-bcfa-cd3569b0ab89",
+      "text": "02 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_7509e461-9fbe-425f-b875-94895510f764",
+      "text": "月度用电量（千瓦时）",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_15d51fb4-6bfa-40c4-825d-c81cf888dc07",
+      "text": "仅展示用电量（千瓦时），降低比例（%）单位不同，不混入同一数值轴。数据均为人工验证数据，非真实业务。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "graphicFrame",
+      "id": "4",
+      "name": "object_e958266d-cf06-47d4-a631-c57e00416f9e",
+      "text": "",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_c1396244-5d13-4013-959a-f75dd2cf20b7",
+      "text": "03 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_2a6ca036-9328-4e3a-84e4-2c6fd6d1913f",
+      "text": "月度降低比例（%）",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_bcacf9f6-769e-4ddf-b5f7-629a98bc5829",
+      "text": "仅展示降低比例（%），与用电量（千瓦时）分轴呈现。数据均为人工验证数据，非真实业务。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "graphicFrame",
+      "id": "4",
+      "name": "object_e811e05c-c42c-4ae1-a029-88a36e08e297",
+      "text": "",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_5479db63-a794-4845-b628-13d6deef7873",
+      "text": "04 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_3e92600f-b028-447a-b0fa-44d819d6c244",
+      "text": "三个月合计：3750 千瓦时",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_172cf7e4-6938-4086-8b9b-aaa46c8ef7a1",
+      "text": "三个月合计用电量：3750 千瓦时。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_cc3d522b-3491-48c9-a6a6-1dfe7ececc54",
+      "text": "该单元格公式为 SUM(B2:B4)。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_517e5c43-87b4-412f-b2ce-3427fc44c528",
+      "text": "公式缓存值：待确认（本批未提供 B5 公式缓存值，无法确认缓存内容或新鲜度）。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "6",
+      "name": "object_e192ae09-9fdc-47bb-b127-89317f6ed392",
+      "text": "性质：人工验证数据，非真实业务。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "7",
+      "name": "object_e9d7c2d5-fc67-4c28-8086-b6ddab92b0ce",
+      "text": "05 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide6.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_790d0c72-65d5-4400-8489-6ceb98bc4bdf",
+      "text": "分类数据表：A楼、B楼、C楼用电量",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide6.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_a5e91502-5020-4725-ac5e-bc7362b3ca80",
+      "text": "表内数据均为人工验证数据，非真实业务。用电量：千瓦时",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide6.xml",
+      "kind": "graphicFrame",
+      "id": "4",
+      "name": "object_4be6a25a-f114-401a-92ec-db762a0feb16",
+      "text": "分类用电量（千瓦时）性质A楼90 千瓦时人工验证数据，非真实业务B楼72 千瓦时人工验证数据，非真实业务C楼54 千瓦时人工验证数据，非真实业务",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide6.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_82dbf6a5-e514-4382-b66a-f4efb1c15ca6",
+      "text": "06 / 06",
+      "custom_geometry": false
+    }
+  ]
+}

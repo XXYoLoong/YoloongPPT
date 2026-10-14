@@ -1,0 +1,24 @@
+{
+  "method": "assistant visual inspection of actual LibreOffice/Poppler page PNGs",
+  "observations": [
+    "Original native export renders Chinese text, gradient/freeform paths and unchanged source value.",
+    "Insertion after explicit contain font/line scaling renders proportionate text and vector geometry; original target text remains visible.",
+    "Explicit roundtrip title revision renders, source value and other visual objects remain visible."
+  ],
+  "images": [
+    {
+      "path": "export-render/render/slide-1.png",
+      "sha256": "69d86f7186c12cabff5ee8e951e0208d32d77ed4402e18b1f44a5d221bc909e6"
+    },
+    {
+      "path": "insert-render/render/slide-1.png",
+      "sha256": "cdb96be1786c584c46960b7c14a2cfa52d9f3efbafb9e1ba6eecf205419a6b73"
+    },
+    {
+      "path": "revision-render/render/slide-1.png",
+      "sha256": "cda06abdebe13148b552a67da3abbe2ffda691d0e013e5c36201ba3c6d8f3d2a"
+    }
+  ],
+  "prior_observation": "v5 insertion had unchanged absolute font size despite group geometry scale. Preserved prior rendered evidence; adapter corrected and v6 rendered separately.",
+  "limitations": "Visual inspection of these component pages is not all templates/fonts/platforms/system AC."
+}

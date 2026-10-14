@@ -1,0 +1,36 @@
+{
+  "checks": [
+    {
+      "case": "private-nested-image",
+      "passed": true,
+      "error": "NATIVE_ASSET_PATH_FORBIDDEN"
+    },
+    {
+      "case": "script-link",
+      "passed": true,
+      "error": "SVG_LINK_UNSAFE"
+    },
+    {
+      "case": "credential-link",
+      "passed": true,
+      "error": "SVG_LINK_UNSAFE"
+    },
+    {
+      "case": "file-link",
+      "passed": true,
+      "error": "SVG_LINK_UNSAFE"
+    },
+    {
+      "case": "inline-active-document",
+      "passed": true,
+      "error": "SVG_INLINE_ASSET_UNSUPPORTED"
+    },
+    {
+      "case": "safe-public-link",
+      "passed": true
+    }
+  ],
+  "passed": true,
+  "fixture": "Artificial test PNG in private-named folder; no real secrets accessed.",
+  "scope": "Native SVG source boundary; full security/objects acceptance not claimed."
+}

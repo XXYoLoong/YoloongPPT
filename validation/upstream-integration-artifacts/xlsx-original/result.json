@@ -1,0 +1,97 @@
+{
+  "ok": true,
+  "trace_id": "trace_9b1491b6-4d57-4161-9593-34ec61e8115e",
+  "task_id": "task_1c7e3fd8-cc2f-4f43-8d06-1275e3ee5c00",
+  "run_id": "3f6fe040-dae7-4e17-92d7-c0184de48978",
+  "operation": "generate",
+  "state": "draft_generated",
+  "artifact_root": "/runtime/runs/3f6fe040-dae7-4e17-92d7-c0184de48978",
+  "pptx": "/runtime/runs/3f6fe040-dae7-4e17-92d7-c0184de48978/deck.pptx",
+  "slide_count": 6,
+  "model": {
+    "provider": "deepseek",
+    "requested_model": "deepseek-flash",
+    "returned_model": "deepseek-flash",
+    "response_id": "72670f0a-48ef-4998-bad2-af7517f49cd8",
+    "usage": {
+      "prompt_tokens": 25965,
+      "completion_tokens": 3262,
+      "total_tokens": 29227,
+      "prompt_tokens_details": {
+        "cached_tokens": 4224
+      },
+      "prompt_cache_hit_tokens": 4224,
+      "prompt_cache_miss_tokens": 21741
+    },
+    "available_models": [
+      "deepseek-flash",
+      "deepseek-v4-pro"
+    ],
+    "parameters": {
+      "model": "deepseek-flash",
+      "response_format": {
+        "type": "json_object"
+      },
+      "thinking": {
+        "type": "disabled"
+      },
+      "temperature": 0.2,
+      "max_tokens": 12000,
+      "stream": false
+    },
+    "request_sha256": "112e0c2ea312add68bd9e1042f475dd2c76cb1574baacf9c040d5758516fe9e2",
+    "response_content_sha256": "87884dbb983a0bfd15ef1562fe23ddea55c2fa233ac4b1cf9e11c35b6173d3e7",
+    "duration_seconds": 13.039,
+    "real_model_call": true
+  },
+  "qa": {
+    "status": "partial",
+    "p0_issue_count": 1,
+    "acceptance": {
+      "AC-001": "not_passed",
+      "GOV-008": "not_passed"
+    }
+  },
+  "warnings": [],
+  "completion": {
+    "state": "fail",
+    "final_allowed": false,
+    "p0_issue_count": 1,
+    "warning_issue_count": 2,
+    "missing_coverage": [
+      "structure",
+      "editability",
+      "geometry",
+      "fact_numeric",
+      "visual_semantic",
+      "fact_semantic",
+      "accessibility",
+      "global_consistency",
+      "powerpoint_compatibility"
+    ],
+    "missing_nodes": [],
+    "missing_acceptance": [
+      "AC-001",
+      "GOV-008"
+    ],
+    "revision_plan_status": "needs_input",
+    "reasons": [
+      "Unresolved P0 issues block final output"
+    ],
+    "retry": {
+      "count": 0,
+      "maximum": 2,
+      "allowed": false,
+      "next_action": "provide_required_input_or_fail"
+    },
+    "error": {
+      "code": "QUALITY_P0_UNRESOLVED",
+      "issue_ids": [
+        "issue_94490e42-4807-4014-a8a3-393b9c60eb61"
+      ]
+    },
+    "system_acceptance": "not_passed"
+  },
+  "revision_plan_id": "revision_plan_a2d778dd-29fb-4347-9728-b1c6b7889c29",
+  "boundary": "All 40 bounded decision stages connected when reached; complete decision, QA, backend and system acceptance unfinished."
+}

@@ -84,13 +84,23 @@ def chart_data(value):
     return data
 
 
-def add_object(slide, spec, _validated=False):
+def add_object(slide, spec, _validated=False, trace_out=None):
     """Consume a native spec into an existing slide; callers own artifact storage."""
     if not _validated:
         from .schemas import SchemaRegistry
         SchemaRegistry().validate('native-object-spec.schema.json', spec)
     kind = spec.get('kind'); bounds = _bounds(spec)
-    if kind == 'text':
+    if kind == 'svg':
+        import hashlib
+        from .upstream_native import insert_native_svg
+        path=local_asset(spec['path'])
+        if path.suffix.lower()!='.svg':raise TaskError('NATIVE_SVG_FORMAT_INVALID','SVG对象需实际SVG文件。','NativeObjects',['PPT-015'])
+        digest=hashlib.sha256(path.read_bytes()).hexdigest()
+        if spec.get('sha256') and digest!=spec['sha256']:raise TaskError('NATIVE_SVG_CHANGED','SVG来源hash改变，不能写入。','NativeObjects',['PPT-015'])
+        conversion=insert_native_svg(slide,path,object_id=spec['name'],bounds=spec['bounds'],resource_root=path.parent)
+        shape=next(s for s in slide.shapes if s.shape_id==conversion['shape_id'])
+        if trace_out is not None:trace_out.append({'operation':'add_native_svg','input':spec,'output':conversion})
+    elif kind == 'text':
         shape = slide.shapes.add_textbox(*bounds); shape.text = spec.get('text', '')
     elif kind == 'shape':
         types = {'rectangle': MSO_AUTO_SHAPE_TYPE.RECTANGLE, 'ellipse': MSO_AUTO_SHAPE_TYPE.OVAL,
@@ -128,7 +138,7 @@ def add_object(slide, spec, _validated=False):
     elif kind == 'group':
         shape = slide.shapes.add_group_shape()
         for child in spec.get('children', []):
-            child_shape = add_object(slide, child, _validated=True)
+            child_shape = add_object(slide, child, _validated=True,trace_out=trace_out)
             shape.shapes._spTree.insert_element_before(child_shape._element, 'p:extLst')
         shape.shapes._recalculate_extents()
     else:

@@ -210,6 +210,15 @@ def check(deck, pptx, object_map, sources, renders, root):
         entry.setdefault('object_id',entry['detail'] if isinstance(entry['detail'],str) and entry['detail'] in shape_lookup else entry['detail'].get('object_id') if isinstance(entry['detail'],dict) else None)
         entry.setdefault('requirement_id',req);entry.setdefault('measurement',{'observed':entry['detail']});entry.setdefault('threshold',{'rule':entry['code']})
         entry.setdefault('action',{'node':node,'mode':'requires_user_input' if node=='fact' else 'local_revision' if node in {'geometry','layout'} else 'fail','reason':'Explicit mapped repair or fail; do not guess facts'})
+    from .upstream_quality import audit_upstream_quality
+    upstream=audit_upstream_quality(deck,pptx,object_map,renders,root)
+    issues.extend(upstream['issues']);checks.extend(upstream['checks'])
+    from .upstream_native import audit_native_deck
+    native_audit=audit_native_deck(pptx)
+    (Path(root)/'upstream-native-audit.json').write_text(json.dumps(native_audit,ensure_ascii=False,indent=2),encoding='utf-8')
+    checks.append({'kind':'PPT Master OPC delivery audit','status':'executed','upstream':native_audit['upstream'],'result':native_audit['audit']['status']})
+    for error in native_audit['audit']['errors']:
+        issues.append(measured_issue('UPSTREAM_NATIVE_DELIVERY_FAILED',None,error,'QA-020',measurement=error,threshold={'upstream_errors':0}))
     return {'qa_id': str(entity('artifact')), 'status': 'partial', 'issues': issues, 'checks': checks,
             'p0_issue_count': sum(i['severity'] == 'P0' for i in issues),
             'coverage': {'structure': 'partial', 'editability': 'partial', 'geometry': 'partial', 'fact_numeric': 'partial',

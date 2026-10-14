@@ -1,0 +1,324 @@
+{
+  "upstream": {
+    "project": "PPT Master",
+    "repository": "https://github.com/hugohe3/ppt-master",
+    "commit": "2d72da616cf9fa40d4dcaf59fd4c980ecf534b7d",
+    "license": "MIT",
+    "third_party_data": [
+      "Apache POI Apache-2.0",
+      "Open XML SDK MIT"
+    ],
+    "manifest_sha256": "9ba57f25bb8bda094c7c99b543fe64b32d49587447392acb870a9e11bc19eda8"
+  },
+  "audit": {
+    "schema": "ppt-master.pptx-delivery-check.v1",
+    "status": "passed-with-advisories",
+    "file": {
+      "path": "/runtime/runs/22a5a93b-5a22-40e0-80e4-18a47e0c7eff/deck.pptx",
+      "bytes": 47736
+    },
+    "package": {
+      "zip_integrity": "passed",
+      "corrupt_member": null,
+      "duplicate_parts": [],
+      "canonical_part_collisions": [],
+      "parts": {
+        "entries": 63,
+        "unique": 63,
+        "slides": 6,
+        "notes": 6,
+        "masters": 1,
+        "layouts": 11,
+        "media": 0
+      },
+      "relationships": {
+        "problems": []
+      }
+    },
+    "slides": {
+      "count": 6,
+      "hidden_count": 0,
+      "hidden": []
+    },
+    "fonts": {
+      "theme": {
+        "title": {
+          "latin": "Calibri",
+          "scripts": {
+            "Jpan": "ＭＳ Ｐゴシック",
+            "Hang": "맑은 고딕",
+            "Hans": "宋体",
+            "Hant": "新細明體"
+          }
+        },
+        "body": {
+          "latin": "Calibri",
+          "scripts": {
+            "Jpan": "ＭＳ Ｐゴシック",
+            "Hang": "맑은 고딕",
+            "Hans": "宋体",
+            "Hant": "新細明體"
+          }
+        }
+      },
+      "declared": {
+        "latin": [
+          {
+            "value": "Noto Sans CJK SC",
+            "count": 37
+          },
+          {
+            "value": "+mn-lt",
+            "count": 36
+          },
+          {
+            "value": "Calibri",
+            "count": 4
+          },
+          {
+            "value": "+mj-lt",
+            "count": 1
+          }
+        ],
+        "ea": [
+          {
+            "value": "+mn-ea",
+            "count": 36
+          },
+          {
+            "value": "Noto Sans CJK SC",
+            "count": 25
+          },
+          {
+            "value": "+mj-ea",
+            "count": 1
+          }
+        ],
+        "cs": [
+          {
+            "value": "+mn-cs",
+            "count": 36
+          },
+          {
+            "value": "+mj-cs",
+            "count": 1
+          }
+        ]
+      },
+      "embedded_parts": [],
+      "portability_advisory_faces": [
+        "Noto Sans CJK SC"
+      ]
+    },
+    "media": {
+      "embedded_count": 0,
+      "external_count": 0,
+      "embedded": [],
+      "external": [],
+      "uncompressed_bytes": 0,
+      "archive_compressed_bytes": 0,
+      "share_of_archive": 0.0,
+      "share_of_uncompressed_parts": 0.0,
+      "top_contributors": []
+    },
+    "motion": {
+      "transitions": {
+        "carrier_slide_count": 0,
+        "visual_effect_slide_count": 0,
+        "timed_advance_slide_count": 0,
+        "carrier_slides": [],
+        "visual_effect_slides": [],
+        "timed_advance_slides": [],
+        "effects": {}
+      },
+      "object_animations": {
+        "timing_slide_count": 0,
+        "object_animation_slide_count": 0,
+        "audio_timing_slide_count": 0,
+        "timing_slides": [],
+        "object_animation_slides": [],
+        "audio_timing_slides": []
+      }
+    },
+    "errors": [],
+    "advisories": [
+      {
+        "code": "font_portability",
+        "message": "Some fonts declared or referenced by the presentation are outside the common Office/OS portability set; target-system availability was not verified.",
+        "faces": [
+          "Noto Sans CJK SC"
+        ]
+      }
+    ]
+  },
+  "native_objects": [
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_05c6de88-cc12-4ac4-b757-c61666460d74",
+      "text": "2026年校园节能人工验证资料",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_d7304fbc-c968-4dd7-aa52-d44e9552c922",
+      "text": "2026年校园节能人工验证资料软件验收资料，所有数据为人工构造，非真实业务。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide1.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_a3787901-fb6f-4d1f-a410-e45302ff924b",
+      "text": "01 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_bac9adc9-cdb7-481d-9740-5af222ec6aad",
+      "text": "2026年校园节能试点的人工验证数据",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_e51b70a4-ac45-45b4-ae38-124d6226ab4e",
+      "text": "2026年校园节能试点的人工验证数据如下。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_07a42b2f-b764-475d-bc7a-3d58a263b42c",
+      "text": "来源：本文件人工软件验收资料。不得推算节能比例、总量或因果。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide2.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_f6504f24-6495-43b7-b137-09626c0369b8",
+      "text": "02 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_286e6a23-1b17-4c7c-a14c-7cbe2ff9b8b5",
+      "text": "A楼与B楼：基线与本期数据",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_8d4bee07-b850-434d-8410-6a249436f669",
+      "text": "A楼基线100千瓦时，本期90千瓦时。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_15c42e6c-d2dd-48c6-9368-8e4dbc58a906",
+      "text": "B楼基线80千瓦时，本期72千瓦时。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide3.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_2dbc0a05-1009-4077-b389-00a095355c70",
+      "text": "03 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_3b7d20a4-930b-4792-84da-253da0c81850",
+      "text": "C楼：基线与本期数据",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_8d7217c9-e4f0-4f1d-adea-a880a6c5221e",
+      "text": "C楼基线60千瓦时，本期54千瓦时。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide4.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_b2709554-e7c8-4e8f-9651-86e576ce8a51",
+      "text": "04 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_cf7a4ea8-92f2-4a74-b722-ac379b6d1cc3",
+      "text": "三楼基线与本期数据表",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_226fd04c-e37d-481f-adfb-009568dabaf6",
+      "text": "表格按原文表头与数值整理，单位为千瓦时。",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "graphicFrame",
+      "id": "4",
+      "name": "object_412cf0bd-cf32-4f8d-9b27-e896e37fe609",
+      "text": "楼宇基线（千瓦时）本期（千瓦时）A楼10090B楼8072C楼6054",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide5.xml",
+      "kind": "sp",
+      "id": "5",
+      "name": "object_d75c5038-f5de-41b4-9dad-93794b4ef087",
+      "text": "05 / 06",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide6.xml",
+      "kind": "sp",
+      "id": "2",
+      "name": "object_60abd105-9d2a-4587-9e17-4586b8d034eb",
+      "text": "数据性质与使用限制",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide6.xml",
+      "kind": "sp",
+      "id": "3",
+      "name": "object_613d2d10-c3da-494a-8ac3-c39d65f96b8c",
+      "text": "软件验收资料，所有数据为人工构造，非真实业务。来源：本文件人工软件验收资料。不得推算节能比例、总量或因果。节能比例：待确认总量：待确认因果：待确认",
+      "custom_geometry": false
+    },
+    {
+      "slide_part": "ppt/slides/slide6.xml",
+      "kind": "sp",
+      "id": "4",
+      "name": "object_996afced-91c5-4b40-8094-ee4b161eb391",
+      "text": "06 / 06",
+      "custom_geometry": false
+    }
+  ]
+}

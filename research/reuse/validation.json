@@ -13,12 +13,17 @@
       "id": "normal",
       "passed": true,
       "observed": {
-        "modules": 18,
+        "modules": 19,
         "assets": 35,
         "source_files": 76,
         "direct_eligible_files": [
           "R01",
-          "R02"
+          "R02",
+          "R04",
+          "R06",
+          "R07",
+          "R10",
+          "R19"
         ],
         "fixture_projects": {
           "P01": 8,
@@ -55,6 +60,16 @@
       "observed": "invalid in-memory copy rejected"
     },
     {
+      "id": "imported_manifest_changed",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    },
+    {
+      "id": "docling_manifest_changed",
+      "passed": true,
+      "observed": "invalid in-memory copy rejected"
+    },
+    {
       "id": "icons_root_license_overclaim",
       "passed": true,
       "observed": "invalid in-memory copy rejected"
@@ -76,12 +91,17 @@
     }
   ],
   "observed": {
-    "modules": 18,
+    "modules": 19,
     "assets": 35,
     "source_files": 76,
     "direct_eligible_files": [
       "R01",
-      "R02"
+      "R02",
+      "R04",
+      "R06",
+      "R07",
+      "R10",
+      "R19"
     ],
     "fixture_projects": {
       "P01": 8,
@@ -96,6 +116,6 @@
     "P04": "No research render screenshot identified in current evidence; structural PPTX and QA metadata only.",
     "P02": "Task contract is Markdown + function checks, not full formal planner JSONSchema."
   },
-  "boundary": "Provenance and reuse registration only. No product source/assets imported, model calls, regeneration, full upstream test execution or AC acceptance.",
+  "boundary": "Fixed research provenance and actual imported source/license manifests verified. Runtime component and product evidence in validation/upstream-integration-summary.json; no whole-system AC inferred.",
   "runtime_observation": "Host stdlib used to inspect metadata, not product runtime selection."
 }

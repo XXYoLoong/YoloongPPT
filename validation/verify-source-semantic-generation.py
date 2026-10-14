@@ -2,10 +2,14 @@
 import argparse,copy,hashlib,json,urllib.request,uuid
 from pathlib import Path
 
-ROOT=Path('/runtime/source-semantic-validation');ROOT.mkdir(exist_ok=True)
 parser=argparse.ArgumentParser();parser.add_argument('--case',choices=['docx','pdf','xlsx'],required=True)
 parser.add_argument('--result',help='Only check a saved result; no model or render call')
-parser.add_argument('--prepare-only',action='store_true');args=parser.parse_args()
+parser.add_argument('--prepare-only',action='store_true')
+parser.add_argument('--output-root',default='/runtime/source-semantic-validation')
+parser.add_argument('--input',help='Actual input file, never a surrogate source')
+parser.add_argument('--pdf-pages',type=int,default=6)
+args=parser.parse_args();ROOT=Path(args.output_root);ROOT.mkdir(parents=True,exist_ok=True)
+if not ROOT.resolve().is_relative_to(Path('/runtime')):raise ValueError('Validation output must be F-backed /runtime')
 load=lambda p:json.loads(p.read_text('utf-8'))
 save=lambda name,value:(ROOT/name).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n','utf-8')
 checks=[]
@@ -20,7 +24,7 @@ docx_fixtures=sorted(Path('/runtime/source-semantic-docx').glob('component-*/rep
 inputs={'docx':str(docx_fixtures[-1]) if docx_fixtures else '/workspace/validation/input-format-artifacts/school-source.docx',
         'pdf':'/runtime/runs/39a2dbf3-c19b-4da2-99a6-27fe7b82ef7a/render/deck.pdf',
         'xlsx':'/workspace/validation/source-semantic-artifacts/integration-input/artificial-data.xlsx'}
-source_id='source_'+str(uuid.uuid4());path=Path(inputs[args.case]);source_hash=hashlib.sha256(path.read_bytes()).hexdigest()
+source_id='source_'+str(uuid.uuid4());path=Path(args.input or inputs[args.case]);source_hash=hashlib.sha256(path.read_bytes()).hexdigest()
 request['sources']=[{'source_id':source_id,'kind':args.case,'locator':str(path),'metadata':{'source_role':'fact'}}]
 instruction={'docx':'根据所给人工验证DOCX报告新建中文演示，保留标题、表格数据、原有引用和来源；不要把外部链接下载或原生图片当作业务事实。表格与图表依原内容合理选择。',
  'pdf':'根据已提供的六页虚构软件验证PDF新建中文摘要演示，保留所有原数字、单位、限定与明确流程关系；每个事实保留来源页码。表格行列如不确定须显式报告，不猜测图片内事实或新因果。',
@@ -46,7 +50,9 @@ try:
     original=[e for e in sources['evidence'] if e['source_id']==source_id]
     test('input_original_hash_preserved',bool(original) and all(e['source_hash']==source_hash for e in original))
     test('native_format_evidence_consumed',any(e.get('metadata',{}).get('source_context',{}).get('source_kind')==args.case for e in original))
-    model=load(run/'fact-model-request.json');payload=json.loads(model['messages'][1]['content'])['evidence']
+    model=load(run/'fact-model-request.json')
+    payload=(json.loads(model['messages'][1]['content'])['evidence'] if 'messages' in model else
+             [e for name in model['batch_requests'] for e in json.loads(load(run/name)['messages'][1]['content'])['evidence']])
     test('real_fact_model_consumes_context',load(run/'fact-model-call.json')['real_model_call'] and any(e.get('source_context') for e in payload))
     test('real_content_and_review_models',load(run/'model-call.json')['real_model_call'] and load(run/'review-model-call.json')['real_model_call'])
     test('editable_pptx_and_actual_render',(run/'deck.pptx').is_file() and len([a for a in load(run/'render-report.json')['artifacts'] if a['type']=='png'])==len(deck['slides']))
@@ -60,9 +66,10 @@ try:
         test('table_or_chart_native_decision',any(e['type'] in {'chart','table'} for s in deck['slides'] for e in s['elements']))
     elif args.case=='pdf':
         test('source_page_numbers_preserved',all(e['anchor']['locator']['page_number']>=1 for e in original))
-        test('multiple_source_pages',{e['anchor']['locator']['page_number'] for e in original}==set(range(1,7)))
+        test('multiple_source_pages',{e['anchor']['locator']['page_number'] for e in original}==set(range(1,args.pdf_pages+1)))
     else:
-        test('docx_native_anchors_preserved',all(e['anchor']['locator']['kind']=='docx_block' for e in original))
+        test('docx_native_anchors_preserved',all(e['anchor']['locator']['kind']=='docx_block' or
+             e['anchor']['locator']['kind']=='structured_node' and e.get('metadata',{}).get('source_context',{}).get('source_field')=='bibliography' for e in original))
     save(args.case+'-evidence.json',{'case':args.case,'run_id':result['run_id'],'source_sha256':source_hash,'checks':checks,
          'p0':quality['p0_issue_count'],'warnings':result['completion']['warning_issue_count'],'completion':result['completion'],
          'scope':'Actual product input/model/render/QA; bounded parser semantics and full original acceptance still separately assessed.'})
